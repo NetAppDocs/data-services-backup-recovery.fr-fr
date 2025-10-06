@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: prev-vmware-backup-azure.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Protégez vos charges de travail VMware avec NetApp NetApp Backup and Recovery. 
+---
+= Sauvegardez vos banques de données sur Microsoft Azure avec NetApp Backup and Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez sauvegarder une ou plusieurs banques de données sur Microsoft Azure en intégrant le SnapCenter Plug-in for VMware vSphere à NetApp Backup and Recovery.  Cela aidera les administrateurs de machines virtuelles à sauvegarder et archiver facilement et rapidement les données pour une efficacité de stockage et une accélération de la transition vers le cloud.
+
+Si le magasin de données est associé à une politique d'archivage, vous aurez la possibilité de sélectionner le niveau d'archivage.  Le niveau d’archivage pris en charge est Azure Archive Blob Storage.
+
+[]
+====
+*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery, reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de sauvegarde et de récupération NetApp"] .
+
+====
+.Avant de commencer
+Assurez-vous d'avoir respecté toutes leslink:prev-vmware-prereqs.html["exigences de protection des machines virtuelles"] avant de sauvegarder les banques de données dans le cloud.
+
+.Étapes
+. Dans l'interface utilisateur de la console NetApp , sélectionnez *Protection* > *Sauvegarde et récupération* > *Machines virtuelles*.
+. Sélectionnerimage:icon-action.png["action"] correspondant à la banque de données que vous souhaitez sauvegarder et sélectionnez *Activer la sauvegarde*.
+. Dans la page Attribuer une politique, sélectionnez la politique et sélectionnez *Suivant*.
+. Ajoutez le système.
++
+Configurez le LIF de gestion de cluster que vous souhaitez que la console découvre.  Après avoir ajouté le système pour l’un des magasins de données, il peut être réutilisé pour tous les autres magasins de données résidant sur le même cluster ONTAP .
+
++
+.. Sélectionnez *Ajouter un système* correspondant au SVM.
+.. Dans l’assistant d’ajout de système :
++
+... Spécifiez l'adresse IP du LIF de gestion du cluster.
+... Spécifiez les informations d’identification de l’utilisateur du cluster ONTAP .
+
+
+.. Sélectionnez *Ajouter un système*.
+
+
+. Sélectionnez *Microsoft Azure* pour le configurer comme fournisseur de cloud.
++
+.. Spécifiez l’ID d’abonnement Azure.
+.. Sélectionnez la région dans laquelle vous souhaitez créer les sauvegardes.
+.. Créez un nouveau groupe de ressources ou utilisez un groupe de ressources existant.
+.. Spécifiez les adresses IP du LIF de gestion de cluster qui ont été ajoutées en tant que systèmes.
+.. Sélectionnez le niveau d’archivage.
++
+Il est recommandé de définir le niveau d'archivage car il s'agit d'une activité ponctuelle et vous ne serez pas autorisé à le configurer ultérieurement.
+
+
+
+. Vérifiez les détails et sélectionnez *Activer la sauvegarde*.
+

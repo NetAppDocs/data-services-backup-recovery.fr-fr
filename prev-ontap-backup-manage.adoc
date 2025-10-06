@@ -1,0 +1,441 @@
+---
+sidebar: sidebar 
+permalink: prev-ontap-backup-manage.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Avec NetApp Backup and Recovery, gérez les sauvegardes de vos systèmes Cloud Volumes ONTAP et ONTAP sur site en modifiant la planification de sauvegarde, en activant les sauvegardes de volume, en suspendant les sauvegardes, en supprimant les sauvegardes, etc.  Vous pouvez également désinscrire NetApp Backup and Recovery. 
+---
+= Gérez les sauvegardes de vos systèmes ONTAP avec NetApp Backup and Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Avec NetApp Backup and Recovery, gérez les sauvegardes de vos systèmes Cloud Volumes ONTAP et ONTAP sur site en modifiant la planification de sauvegarde, en activant/désactivant les sauvegardes de volume, en suspendant les sauvegardes, en supprimant les sauvegardes, en forçant la suppression des sauvegardes, etc. Cela inclut tous les types de sauvegardes, y compris les copies instantanées, les volumes répliqués et les fichiers de sauvegarde dans le stockage d'objets.  Vous pouvez également désinscrire NetApp Backup and Recovery.
+
+
+CAUTION: Ne gérez pas et ne modifiez pas les fichiers de sauvegarde directement sur vos systèmes de stockage ou depuis l'environnement de votre fournisseur de cloud.  Cela peut corrompre les fichiers et entraîner une configuration non prise en charge.
+
+[]
+====
+*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery, reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de sauvegarde et de récupération NetApp"] .
+
+====
+
+
+== Afficher l'état de sauvegarde des volumes de vos systèmes
+
+Vous pouvez afficher une liste de tous les volumes en cours de sauvegarde dans le tableau de bord de sauvegarde des volumes. Cela inclut tous les types de sauvegardes, y compris les copies instantanées, les volumes répliqués et les fichiers de sauvegarde dans le stockage d'objets.  Vous pouvez également afficher les volumes des systèmes qui ne sont pas actuellement sauvegardés.
+
+.Étapes
+. Dans le menu de la console, sélectionnez *Protection > Sauvegarde et récupération*.
+. Sélectionnez le menu *Volumes* pour afficher la liste des volumes sauvegardés pour vos systèmes Cloud Volumes ONTAP et ONTAP sur site.
+. Si vous recherchez des volumes spécifiques dans certains systèmes, vous pouvez affiner la liste par système et par volume.  Vous pouvez également utiliser le filtre de recherche ou trier les colonnes en fonction du style de volume (FlexVol ou FlexGroup), du type de volume, etc.
++
+Pour afficher des colonnes supplémentaires (agrégats, style de sécurité (Windows ou UNIX), politique de snapshot, politique de réplication et politique de sauvegarde), sélectionnez le signe plus.
+
+. Vérifiez l’état des options de protection dans la colonne « Protection existante ».  Les 3 icônes représentent « Copies de snapshots locaux », « Volumes répliqués » et « Sauvegardes dans le stockage d'objets ».
++
+Chaque icône est bleue lorsque ce type de sauvegarde est activé et elle est grise lorsque le type de sauvegarde est inactif.  Vous pouvez passer votre curseur sur chaque icône pour voir la politique de sauvegarde utilisée et d'autres informations pertinentes pour chaque type de sauvegarde.
+
+
+
+
+
+== Activer la sauvegarde sur des volumes supplémentaires dans un système
+
+Si vous avez activé la sauvegarde uniquement sur certains volumes d'un système lorsque vous avez activé NetApp Backup and Recovery pour la première fois, vous pouvez activer les sauvegardes sur des volumes supplémentaires ultérieurement.
+
+.Étapes
+. Depuis l'onglet *Volumes*, identifiez le volume sur lequel vous souhaitez activer les sauvegardes, sélectionnez le menu Actionsimage:icon-action.png["Icône Actions"] à la fin de la ligne, puis sélectionnez *Activer la sauvegarde*.
+. Dans la page _Définir la stratégie de sauvegarde_, sélectionnez l'architecture de sauvegarde, puis définissez les stratégies et autres détails pour les copies de snapshots locaux, les volumes répliqués et les fichiers de sauvegarde.  Consultez les détails des options de sauvegarde des volumes initiaux que vous avez activés dans ce système. Sélectionnez ensuite *Suivant*.
+. Vérifiez les paramètres de sauvegarde de ce volume, puis sélectionnez *Activer la sauvegarde*.
+
+
+
+
+== Modifier les paramètres de sauvegarde attribués aux volumes existants
+
+Vous pouvez modifier les politiques de sauvegarde attribuées à vos volumes existants auxquels des politiques sont attribuées.  Vous pouvez modifier les politiques de vos copies instantanées locales, de vos volumes répliqués et de vos fichiers de sauvegarde.  Toute nouvelle stratégie de snapshot, de réplication ou de sauvegarde que vous souhaitez appliquer aux volumes doit déjà exister.
+
+
+
+=== Modifier les paramètres de sauvegarde sur un seul volume
+
+.Étapes
+. Dans l'onglet *Volumes*, identifiez le volume pour lequel vous souhaitez modifier la stratégie, sélectionnez le menu Actionsimage:icon-action.png["Icône Actions"] à la fin de la ligne et sélectionnez *Modifier la stratégie de sauvegarde*.
+. Dans la page _Modifier la stratégie de sauvegarde_, apportez des modifications aux stratégies de sauvegarde existantes pour les copies de snapshots locaux, les volumes répliqués et les fichiers de sauvegarde, puis sélectionnez *Suivant*.
++
+Si vous avez activé _DataLock et Ransomware Protection_ pour les sauvegardes cloud dans la stratégie de sauvegarde initiale lors de l'activation de NetApp Backup and Recovery pour ce cluster, vous ne verrez que les autres stratégies qui ont été configurées avec DataLock.  Et si vous n'avez pas activé _DataLock et Ransomware Protection_ lors de l'activation de NetApp Backup and Recovery, vous ne verrez que d'autres stratégies de sauvegarde cloud pour lesquelles DataLock n'est pas configuré.
+
+. Vérifiez les paramètres de sauvegarde de ce volume, puis sélectionnez *Activer la sauvegarde*.
+
+
+
+
+=== Modifier les paramètres de sauvegarde sur plusieurs volumes
+
+Si vous souhaitez utiliser les mêmes paramètres de sauvegarde sur plusieurs volumes, vous pouvez activer ou modifier les paramètres de sauvegarde sur plusieurs volumes en même temps.  Vous pouvez sélectionner des volumes qui n'ont pas de paramètres de sauvegarde, uniquement des paramètres de snapshot, uniquement des paramètres de sauvegarde dans le cloud, etc., et effectuer des modifications en masse sur tous ces volumes avec divers paramètres de sauvegarde.
+
+Lorsque vous travaillez avec plusieurs volumes, tous les volumes doivent avoir ces caractéristiques communes :
+
+* même système
+* même style (volume FlexVol ou FlexGroup )
+* même type (volume en lecture-écriture ou de protection des données)
+
+
+Lorsque plus de cinq volumes sont activés pour la sauvegarde, NetApp Backup and Recovery initialise uniquement cinq volumes à la fois.  Une fois ces opérations terminées, il crée le lot suivant de cinq sous-tâches pour démarrer l'ensemble suivant et continue jusqu'à ce que tous les volumes soient initialisés.
+
+.Étapes
+. À partir de l’onglet *Volumes*, filtrez par le système sur lequel résident les volumes.
+. Sélectionnez tous les volumes sur lesquels vous souhaitez gérer les paramètres de sauvegarde.
+. Selon le type d’action de sauvegarde que vous souhaitez configurer, cliquez sur le bouton dans le menu Actions en masse :
++
+[cols="50,30"]
+|===
+| Action de sauvegarde... | Sélectionnez ce bouton... 
+
+
+| Gérer les paramètres de sauvegarde des instantanés | *Gérer les instantanés locaux* 
+
+
+| Gérer les paramètres de sauvegarde de réplication | *Gérer la réplication* 
+
+
+| Gérer les paramètres de sauvegarde dans le cloud | *Gérer la sauvegarde* 
+
+
+| Gérez plusieurs types de paramètres de sauvegarde.  Cette option vous permet également de modifier l’architecture de sauvegarde. | *Gérer la sauvegarde et la récupération* 
+|===
+. Dans la page de sauvegarde qui s'affiche, modifiez les stratégies de sauvegarde existantes pour les copies d'instantanés locaux, les volumes répliqués ou les fichiers de sauvegarde et sélectionnez *Enregistrer*.
++
+Si vous avez activé _DataLock et Ransomware Protection_ pour les sauvegardes cloud dans la stratégie de sauvegarde initiale lors de l'activation de NetApp Backup and Recovery pour ce cluster, vous ne verrez que les autres stratégies qui ont été configurées avec DataLock.  Et si vous n'avez pas activé _DataLock et Ransomware Protection_ lors de l'activation de NetApp Backup and Recovery, vous ne verrez que d'autres stratégies de sauvegarde cloud pour lesquelles DataLock n'est pas configuré.
+
+
+
+
+
+== Créez une sauvegarde manuelle du volume à tout moment
+
+Vous pouvez créer une sauvegarde à la demande à tout moment pour capturer l’état actuel du volume.  Cela peut être utile si des modifications très importantes ont été apportées à un volume et que vous ne souhaitez pas attendre la prochaine sauvegarde planifiée pour protéger ces données.  Vous pouvez également utiliser cette fonctionnalité pour créer une sauvegarde pour un volume qui n'est pas actuellement en cours de sauvegarde et dont vous souhaitez capturer l'état actuel.
+
+Vous pouvez créer une copie instantanée ad hoc ou une sauvegarde sur un objet d'un volume.  Vous ne pouvez pas créer un volume répliqué ad hoc.
+
+Le nom de la sauvegarde inclut l’horodatage afin que vous puissiez identifier votre sauvegarde à la demande parmi d’autres sauvegardes planifiées.
+
+Si vous avez activé _DataLock et Ransomware Protection_ lors de l'activation de NetApp Backup and Recovery pour ce cluster, la sauvegarde à la demande sera également configurée avec DataLock et la période de conservation sera de 30 jours.  Les analyses de ransomware ne sont pas prises en charge pour les sauvegardes ad hoc. link:prev-ontap-policy-object-options.html["En savoir plus sur DataLock et la protection contre les ransomwares"^] .
+
+Lorsque vous créez une sauvegarde ad hoc, un instantané est créé sur le volume source.  Étant donné que cet instantané ne fait pas partie d'une planification d'instantanés normale, il ne sera pas désactivé.  Vous souhaiterez peut-être supprimer manuellement cet instantané du volume source une fois la sauvegarde terminée.  Cela permettra de libérer les blocs liés à cet instantané.  Le nom de l'instantané commencera par `cbs-snapshot-adhoc-` . https://docs.netapp.com/us-en/ontap/san-admin/delete-all-existing-snapshot-copies-volume-task.html["Découvrez comment supprimer un instantané à l'aide de l'interface de ligne de commande ONTAP"^] .
+
+
+NOTE: La sauvegarde de volume à la demande n'est pas prise en charge sur les volumes de protection des données.
+
+.Étapes
+. Dans l'onglet *Volumes*, sélectionnezimage:icon-actions-horizontal.gif["Icône Actions"] pour le volume et sélectionnez *Sauvegarde* > *Créer une sauvegarde ad hoc*.
+
+
+La colonne État de la sauvegarde pour ce volume affiche « En cours » jusqu'à ce que la sauvegarde soit créée.
+
+
+
+== Afficher la liste des sauvegardes pour chaque volume
+
+Vous pouvez afficher la liste de tous les fichiers de sauvegarde existants pour chaque volume.  Cette page affiche les détails sur le volume source, l'emplacement de destination et les détails de sauvegarde tels que la dernière sauvegarde effectuée, la politique de sauvegarde actuelle, la taille du fichier de sauvegarde, etc.
+
+.Étapes
+. Dans l'onglet *Volumes*, sélectionnezimage:icon-actions-horizontal.gif["Icône Actions"] pour le volume source et sélectionnez *Afficher les détails du volume*.
++
+Les détails du volume et la liste des copies instantanées sont affichés.
+
+. Sélectionnez *Snapshot*, *Réplication* ou *Sauvegarde* pour voir la liste de tous les fichiers de sauvegarde pour chaque type de sauvegarde.
+
+
+
+
+== Exécuter une analyse de ransomware sur une sauvegarde de volume dans le stockage d'objets
+
+NetApp Backup and Recovery analyse vos fichiers de sauvegarde pour rechercher des preuves d'une attaque de ransomware lorsqu'une sauvegarde vers un fichier objet est créée et lorsque les données d'un fichier de sauvegarde sont en cours de restauration.  Vous pouvez également exécuter une analyse à la demande à tout moment pour vérifier la facilité d'utilisation d'un fichier de sauvegarde spécifique dans le stockage d'objets.  Cela peut être utile si vous avez rencontré un problème de ransomware sur un volume particulier et que vous souhaitez vérifier que les sauvegardes de ce volume ne sont pas affectées.
+
+Cette fonctionnalité est disponible uniquement si la sauvegarde du volume a été créée à partir d'un système avec ONTAP 9.11.1 ou une version ultérieure, et si vous avez activé _DataLock et Ransomware Protection_ dans la stratégie de sauvegarde vers objet.
+
+.Étapes
+. Dans l'onglet *Volumes*, sélectionnezimage:icon-actions-horizontal.gif["Icône Actions"] pour le volume source et sélectionnez *Afficher les détails du volume*.
++
+Les détails du volume sont affichés.
+
+. Sélectionnez *Sauvegarde* pour voir la liste des fichiers de sauvegarde dans le stockage d'objets.
+. Sélectionnerimage:icon-actions-horizontal.gif["Icône Actions"] pour le fichier de sauvegarde du volume que vous souhaitez analyser pour détecter les ransomwares et cliquez sur *Rechercher les ransomwares*.
++
+La colonne Protection contre les ransomwares indique que l’analyse est en cours.
+
+
+
+
+
+== Gérer la relation de réplication avec le volume source
+
+Après avoir configuré la réplication des données entre deux systèmes, vous pouvez gérer la relation de réplication des données.
+
+.Étapes
+. Dans l'onglet *Volumes*, sélectionnezimage:icon-actions-horizontal.gif["Icône Actions"] pour le volume source et sélectionnez l'option *Réplication*.  Vous pouvez voir toutes les options disponibles.
+. Sélectionnez l’action de réplication que vous souhaitez effectuer.
++
+Le tableau suivant décrit les actions disponibles :
+
++
+[cols="15,85"]
+|===
+| Action | Description 
+
+
+| Afficher la réplication | Affiche les détails sur la relation de volume : informations de transfert, informations sur le dernier transfert, détails sur le volume et informations sur la politique de protection attribuée à la relation. 
+
+
+| Mettre à jour la réplication | Démarre un transfert incrémentiel pour mettre à jour le volume de destination à synchroniser avec le volume source. 
+
+
+| Suspendre la réplication | Suspendez le transfert incrémentiel des copies Snapshot pour mettre à jour le volume de destination.  Vous pouvez reprendre plus tard si vous souhaitez redémarrer les mises à jour incrémentielles. 
+
+
+| Interrompre la réplication | Rompt la relation entre les volumes source et de destination et active le volume de destination pour l'accès aux données - le rend en lecture-écriture.  Cette option est généralement utilisée lorsque le volume source ne peut pas fournir de données en raison d'événements tels qu'une corruption de données, une suppression accidentelle ou un état hors ligne.https://docs.netapp.com/us-en/ontap-sm-classic/volume-disaster-recovery/index.html["Découvrez comment configurer un volume de destination pour l'accès aux données et réactiver un volume source dans la documentation ONTAP"^] 
+
+
+| Abandonner la réplication | Désactive les sauvegardes de ce volume sur le système de destination et désactive également la possibilité de restaurer un volume.  Les sauvegardes existantes ne seront pas supprimées.  Cela ne supprime pas la relation de protection des données entre les volumes source et de destination. 
+
+
+| Resynchronisation inversée | Inverse les rôles des volumes source et de destination.  Le contenu du volume source d'origine est écrasé par le contenu du volume de destination.  Cela est utile lorsque vous souhaitez réactiver un volume source qui est devenu hors ligne.  Toutes les données écrites sur le volume source d’origine entre la dernière réplication de données et le moment où le volume source a été désactivé ne sont pas conservées. 
+
+
+| Supprimer la relation | Supprime la relation de protection des données entre les volumes source et de destination, ce qui signifie que la réplication des données ne se produit plus entre les volumes.  Cette action n'active pas le volume de destination pour l'accès aux données, ce qui signifie qu'il n'est pas accessible en lecture-écriture.  Cette action supprime également la relation d'homologue de cluster et la relation d'homologue de machine virtuelle de stockage (SVM), s'il n'existe aucune autre relation de protection des données entre les systèmes. 
+|===
+
+
+.Résultat
+Après avoir sélectionné une action, la console met à jour la relation.
+
+
+
+== Modifier une politique de sauvegarde dans le cloud existante
+
+Vous pouvez modifier les attributs d’une politique de sauvegarde actuellement appliquée aux volumes d’un système.  La modification de la politique de sauvegarde affecte tous les volumes existants qui utilisent la politique.
+
+[NOTE]
+====
+* Si vous avez activé _DataLock et Ransomware Protection_ dans la stratégie initiale lors de l'activation de NetApp Backup and Recovery pour ce cluster, toutes les stratégies que vous modifiez doivent être configurées avec le même paramètre DataLock (gouvernance ou conformité).  Et si vous n'avez pas activé _DataLock et Ransomware Protection_ lors de l'activation de NetApp Backup and Recovery, vous ne pouvez pas activer DataLock maintenant.
+* Lors de la création de sauvegardes sur AWS, si vous avez choisi _S3 Glacier_ ou _S3 Glacier Deep Archive_ dans votre première politique de sauvegarde lors de l'activation de NetApp Backup and Recovery, ce niveau sera le seul niveau d'archivage disponible lors de la modification des politiques de sauvegarde.  Et si vous n'avez sélectionné aucun niveau d'archivage dans votre première politique de sauvegarde, _S3 Glacier_ sera votre seule option d'archivage lors de la modification d'une politique.
+
+
+====
+.Étapes
+. Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.
+. Depuis la page _Paramètres de sauvegarde_, sélectionnezimage:icon-actions-horizontal.gif["Icône Actions"] pour le système sur lequel vous souhaitez modifier les paramètres de stratégie, puis sélectionnez *Gérer les stratégies*.
+. Depuis la page _Gérer les politiques_, sélectionnez *Modifier* pour la politique de sauvegarde que vous souhaitez modifier dans ce système.
+. Depuis la page _Modifier la politique_, sélectionnez la flèche vers le bas pour développer la section _Étiquettes et rétention_ afin de modifier la planification et/ou la rétention de sauvegarde, puis sélectionnez *Enregistrer*.
++
+Si votre cluster exécute ONTAP 9.10.1 ou une version ultérieure, vous avez également la possibilité d'activer ou de désactiver la hiérarchisation des sauvegardes vers le stockage d'archivage après un certain nombre de jours.
+
++
+ifdef::aws[]
+
+
+
+link:prev-reference-aws-archive-storage-tiers.html["En savoir plus sur l'utilisation du stockage d'archives AWS"] .
+
+endif::aws[]
+
+ifdef::azure[]
+
+link:prev-reference-azure-archive-storage-tiers.html["En savoir plus sur l'utilisation du stockage d'archives Azure"] .
+
+endif::azure[]
+
+ifdef::gcp[]
+
+link:prev-reference-gcp-archive-storage-tiers.html["En savoir plus sur l'utilisation du stockage d'archives Google"] . (Nécessite ONTAP 9.12.1.)
+
+endif::gcp[]
+
++ Notez que tous les fichiers de sauvegarde qui ont été hiérarchisés vers le stockage d'archivage sont laissés dans ce niveau si vous arrêtez de hiérarchiser les sauvegardes vers l'archive - ils ne sont pas automatiquement déplacés vers le niveau standard.  Seules les nouvelles sauvegardes de volume résideront dans le niveau standard.
+
+
+
+== Ajouter une nouvelle politique de sauvegarde dans le cloud
+
+Lorsque vous activez NetApp Backup and Recovery pour un système, tous les volumes que vous sélectionnez initialement sont sauvegardés à l'aide de la stratégie de sauvegarde par défaut que vous avez définie.  Si vous souhaitez attribuer différentes politiques de sauvegarde à certains volumes ayant des objectifs de point de récupération (RPO) différents, vous pouvez créer des politiques supplémentaires pour ce cluster et attribuer ces politiques à d'autres volumes.
+
+Si vous souhaitez appliquer une nouvelle politique de sauvegarde à certains volumes d’un système, vous devez d’abord ajouter la politique de sauvegarde au système.  Alors tu peux<<Modifier les paramètres de sauvegarde attribués aux volumes existants,appliquer la politique aux volumes de ce système>> .
+
+[NOTE]
+====
+* Si vous avez activé _DataLock et Ransomware Protection_ dans la stratégie initiale lors de l'activation de NetApp Backup and Recovery pour ce cluster, toutes les stratégies supplémentaires que vous créez doivent être configurées avec le même paramètre DataLock (gouvernance ou conformité).  Et si vous n’avez pas activé _DataLock et Ransomware Protection_ lors de l’activation de NetApp Backup and Recovery, vous ne pouvez pas créer de nouvelles stratégies qui utilisent DataLock.
+* Lors de la création de sauvegardes sur AWS, si vous avez choisi _S3 Glacier_ ou _S3 Glacier Deep Archive_ dans votre première stratégie de sauvegarde lors de l'activation de NetApp Backup and Recovery, ce niveau sera le seul niveau d'archivage disponible pour les futures stratégies de sauvegarde pour ce cluster.  Et si vous n'avez sélectionné aucun niveau d'archivage dans votre première politique de sauvegarde, alors _S3 Glacier_ sera votre seule option d'archivage pour les politiques futures.
+
+
+====
+.Étapes
+. Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.
+. Depuis la page _Paramètres de sauvegarde_, sélectionnezimage:icon-actions-horizontal.gif["Icône Actions"] pour le système sur lequel vous souhaitez ajouter la nouvelle politique, puis sélectionnez *Gérer les politiques*.
+. Depuis la page _Gérer les politiques_, sélectionnez *Ajouter une nouvelle politique*.
+. Depuis la page _Ajouter une nouvelle politique_, sélectionnez la flèche vers le bas pour développer la section _Étiquettes et rétention_ afin de définir la planification et la rétention des sauvegardes, puis sélectionnez *Enregistrer*.
++
+Si votre cluster exécute ONTAP 9.10.1 ou une version ultérieure, vous avez également la possibilité d'activer ou de désactiver la hiérarchisation des sauvegardes vers le stockage d'archivage après un certain nombre de jours.
+
++
+ifdef::aws[]
+
+
+
+link:prev-reference-aws-archive-storage-tiers.html["En savoir plus sur l'utilisation du stockage d'archives AWS"] .
+
+endif::aws[]
+
+ifdef::azure[]
+
+link:prev-reference-azure-archive-storage-tiers.html["En savoir plus sur l'utilisation du stockage d'archives Azure"] .
+
+endif::azure[]
+
+ifdef::gcp[]
+
+link:prev-reference-gcp-archive-storage-tiers.html["En savoir plus sur l'utilisation du stockage d'archives Google"] . (Nécessite ONTAP 9.12.1.)
+
+endif::gcp[]
+
+
+
+== Supprimer les sauvegardes
+
+NetApp Backup and Recovery vous permet de supprimer un seul fichier de sauvegarde, de supprimer toutes les sauvegardes d'un volume ou de supprimer toutes les sauvegardes de tous les volumes d'un système.  Vous souhaiterez peut-être supprimer toutes les sauvegardes si vous n’en avez plus besoin ou si vous avez supprimé le volume source et souhaitez supprimer toutes les sauvegardes.
+
+Vous ne pouvez pas supprimer les fichiers de sauvegarde que vous avez verrouillés à l'aide de la protection DataLock et Ransomware.  L'option « Supprimer » ne sera pas disponible depuis l'interface utilisateur si vous avez sélectionné un ou plusieurs fichiers de sauvegarde verrouillés.
+
+
+CAUTION: Si vous prévoyez de supprimer un système ou un cluster contenant des sauvegardes, vous devez supprimer les sauvegardes *avant* de supprimer le système.  NetApp Backup and Recovery ne supprime pas automatiquement les sauvegardes lorsque vous supprimez un système, et il n'existe actuellement aucune prise en charge dans l'interface utilisateur pour supprimer les sauvegardes une fois le système supprimé.  Les frais de stockage d'objets pour toutes les sauvegardes restantes continueront à vous être facturés.
+
+
+
+=== Supprimer tous les fichiers de sauvegarde d'un système
+
+La suppression de toutes les sauvegardes sur le stockage d’objets d’un système ne désactive pas les futures sauvegardes des volumes de ce système.  Si vous souhaitez arrêter de créer des sauvegardes de tous les volumes d'un système, vous pouvez désactiver les sauvegardes<<Désactiver NetApp Backup and Recovery pour un système,comme décrit ici>> .
+
+Notez que cette action n’affecte pas les copies instantanées ou les volumes répliqués : ces types de fichiers de sauvegarde ne sont pas supprimés.
+
+.Étapes
+. Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.
+. Sélectionnerimage:icon-actions-horizontal.gif["Icône Actions"] pour le système sur lequel vous souhaitez supprimer toutes les sauvegardes et sélectionnez *Supprimer toutes les sauvegardes*.
+. Dans la boîte de dialogue de confirmation, entrez le nom du système.
+. Sélectionnez *Paramètres avancés*.
+. *Forcer la suppression des sauvegardes* : Indiquez si vous souhaitez ou non forcer la suppression de toutes les sauvegardes.
++
+Dans certains cas extrêmes, vous souhaiterez peut-être que NetApp Backup and Recovery n'ait plus accès aux sauvegardes. Cela peut se produire par exemple si le service n'a plus accès au bucket de sauvegarde ou si les sauvegardes sont protégées par DataLock mais que vous n'en voulez plus. Auparavant, vous ne pouviez pas les supprimer vous-même et deviez appeler le support NetApp . Avec cette version, vous pouvez utiliser l'option permettant de forcer la suppression des sauvegardes (au niveau du volume et de l'environnement de travail).
+
++
+
+CAUTION: Utilisez cette option avec précaution et uniquement en cas de besoins de nettoyage extrêmes. NetApp Backup and Recovery n'aura plus accès à ces sauvegardes même si elles ne sont pas supprimées dans le stockage d'objets. Vous devrez vous rendre chez votre fournisseur de cloud et supprimer manuellement les sauvegardes.
+
+. Sélectionnez *Supprimer*.
+
+
+
+
+=== Supprimer tous les fichiers de sauvegarde d'un volume
+
+La suppression de toutes les sauvegardes d’un volume désactive également les sauvegardes futures pour ce volume.
+
+.Étapes
+. Dans l'onglet *Volumes*, cliquez surimage:icon-actions-horizontal.gif["Plus d'icônes"] pour le volume source et sélectionnez *Détails et liste de sauvegarde*.
++
+La liste de tous les fichiers de sauvegarde s'affiche.
+
+. Sélectionnez *Actions* > *Supprimer toutes les sauvegardes*.
+. Entrez le nom du volume.
+. Sélectionnez *Paramètres avancés*.
+. *Forcer la suppression des sauvegardes* : Indiquez si vous souhaitez ou non forcer la suppression de toutes les sauvegardes.
++
+Dans certains cas extrêmes, vous souhaiterez peut-être que NetApp Backup and Recovery n'ait plus accès aux sauvegardes. Cela peut se produire par exemple si le service n'a plus accès au bucket de sauvegarde ou si les sauvegardes sont protégées par DataLock mais que vous n'en voulez plus. Auparavant, vous ne pouviez pas les supprimer vous-même et deviez appeler le support NetApp . Avec cette version, vous pouvez utiliser l'option permettant de forcer la suppression des sauvegardes (au niveau du volume et de l'environnement de travail).
+
++
+
+CAUTION: Utilisez cette option avec précaution et uniquement en cas de besoins de nettoyage extrêmes. NetApp Backup and Recovery n'aura plus accès à ces sauvegardes même si elles ne sont pas supprimées dans le stockage d'objets. Vous devrez vous rendre chez votre fournisseur de cloud et supprimer manuellement les sauvegardes.
+
+. Sélectionnez *Supprimer*.
+
+
+
+
+=== Supprimer un seul fichier de sauvegarde pour un volume
+
+Vous pouvez supprimer un seul fichier de sauvegarde si vous n'en avez plus besoin.  Cela inclut la suppression d'une seule sauvegarde d'une copie instantanée de volume ou d'une sauvegarde dans le stockage d'objets.
+
+Vous ne pouvez pas supprimer les volumes répliqués (volumes de protection des données).
+
+.Étapes
+. Dans l'onglet *Volumes*, sélectionnezimage:icon-actions-horizontal.gif["Plus d'icônes"] pour le volume source et sélectionnez *Afficher les détails du volume*.
++
+Les détails du volume sont affichés et vous pouvez sélectionner *Snapshot*, *Réplication* ou *Sauvegarde* pour voir la liste de tous les fichiers de sauvegarde du volume.  Par défaut, les copies instantanées disponibles sont affichées.
+
+. Sélectionnez *Instantané* ou *Sauvegarde* pour voir le type de fichiers de sauvegarde que vous souhaitez supprimer.
+. Sélectionnerimage:icon-actions-horizontal.gif["Icône Actions"] pour le fichier de sauvegarde du volume que vous souhaitez supprimer et sélectionnez *Supprimer*.
+. Dans la boîte de dialogue de confirmation, sélectionnez *Supprimer*.
+
+
+
+
+== Supprimer les relations de sauvegarde de volume
+
+La suppression de la relation de sauvegarde d'un volume vous fournit un mécanisme d'archivage si vous souhaitez arrêter la création de nouveaux fichiers de sauvegarde et supprimer le volume source, mais conserver tous les fichiers de sauvegarde existants.  Cela vous donne la possibilité de restaurer le volume à partir du fichier de sauvegarde à l'avenir, si nécessaire, tout en libérant de l'espace sur votre système de stockage source.
+
+Vous n’avez pas nécessairement besoin de supprimer le volume source.  Vous pouvez supprimer la relation de sauvegarde d’un volume et conserver le volume source.  Dans ce cas, vous pouvez « activer » la sauvegarde sur le volume ultérieurement.  Dans ce cas, la copie de sauvegarde de base d'origine continue d'être utilisée : une nouvelle copie de sauvegarde de base n'est pas créée ni exportée vers le cloud.  Notez que si vous réactivez une relation de sauvegarde, la politique de sauvegarde par défaut est attribuée au volume.
+
+Cette fonctionnalité est disponible uniquement si votre système exécute ONTAP 9.12.1 ou une version ultérieure.
+
+Vous ne pouvez pas supprimer le volume source de l'interface utilisateur de NetApp Backup and Recovery.  Cependant, vous pouvez ouvrir la page Détails du volume sur la page *Systèmes* de la console et https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes["supprimer le volume à partir de là"] .
+
+
+NOTE: Vous ne pouvez pas supprimer les fichiers de sauvegarde de volume individuels une fois la relation supprimée.  Vous pouvez cependant supprimer toutes les sauvegardes du volume.
+
+.Étapes
+. Dans l'onglet *Volumes*, sélectionnezimage:icon-actions-horizontal.gif["Icône Actions"] pour le volume source et sélectionnez *Sauvegarde* > *Supprimer la relation*.
+
+
+
+
+== Désactiver NetApp Backup and Recovery pour un système
+
+La désactivation de NetApp Backup and Recovery pour un système désactive les sauvegardes de chaque volume du système et désactive également la possibilité de restaurer un volume.  Les sauvegardes existantes ne seront pas supprimées.  Cela ne désenregistre pas le service de sauvegarde de ce système. Cela vous permet essentiellement de suspendre toutes les activités de sauvegarde et de restauration pendant un certain temps.
+
+Notez que votre fournisseur de cloud continuera à vous facturer les coûts de stockage d'objets pour la capacité utilisée par vos sauvegardes, sauf si vous<<Supprimer les sauvegardes,supprimer les sauvegardes>> .
+
+.Étapes
+. Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.
+. Depuis la page _Paramètres de sauvegarde_, sélectionnezimage:icon-actions-horizontal.gif["Icône Actions"] pour le système sur lequel vous souhaitez désactiver les sauvegardes et sélectionnez *Désactiver la sauvegarde*.
+. Dans la boîte de dialogue de confirmation, sélectionnez *Désactiver*.
+
+
+
+NOTE: Un bouton *Activer la sauvegarde* apparaît pour ce système lorsque la sauvegarde est désactivée.  Vous pouvez sélectionner ce bouton lorsque vous souhaitez réactiver la fonctionnalité de sauvegarde pour ce système.
+
+
+
+== Annuler l'enregistrement de NetApp Backup and Recovery pour un système
+
+Vous pouvez annuler l'enregistrement de NetApp Backup and Recovery pour un système si vous ne souhaitez plus utiliser la fonctionnalité de sauvegarde et que vous souhaitez cesser d'être facturé pour les sauvegardes dans ce système.  En général, cette fonctionnalité est utilisée lorsque vous prévoyez de supprimer un système et que vous souhaitez annuler le service de sauvegarde.
+
+Vous pouvez également utiliser cette fonctionnalité si vous souhaitez modifier le magasin d’objets de destination dans lequel vos sauvegardes de cluster sont stockées.  Après avoir désenregistré NetApp Backup and Recovery pour le système, vous pouvez activer NetApp Backup and Recovery pour ce cluster à l'aide des informations du nouveau fournisseur de cloud.
+
+Avant de pouvoir désinscrire NetApp Backup and Recovery, vous devez effectuer les étapes suivantes, dans cet ordre :
+
+* Désactiver NetApp Backup and Recovery pour le système
+* Supprimer toutes les sauvegardes de ce système
+
+
+L'option de désinscription n'est pas disponible tant que ces deux actions ne sont pas terminées.
+
+.Étapes
+. Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.
+. Depuis la page _Paramètres de sauvegarde_, sélectionnezimage:icon-actions-horizontal.gif["Icône Actions"] pour le système sur lequel vous souhaitez désinscrire le service de sauvegarde et sélectionnez *Désinscrire*.
+. Dans la boîte de dialogue de confirmation, sélectionnez *Désinscrire*.
+

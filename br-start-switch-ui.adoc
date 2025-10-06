@@ -1,0 +1,32 @@
+---
+sidebar: sidebar 
+permalink: br-start-switch-ui.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Vous pouvez basculer entre les différentes charges de travail de sauvegarde et de récupération NetApp .  Certaines charges de travail utilisent une interface utilisateur différente. 
+---
+= Basculer vers différentes charges de travail de sauvegarde et de récupération NetApp
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez basculer entre les différentes charges de travail de sauvegarde et de récupération NetApp .
+
+
+
+== Passer à une charge de travail différente
+
+Vous pouvez basculer vers une charge de travail différente dans l'interface utilisateur de NetApp Backup and Recovery.
+
+.Étapes
+. Dans la navigation de gauche de la console, sélectionnez *Protection* > *Sauvegarde et récupération*.
+. Dans le coin supérieur droit de la page, sélectionnez la liste déroulante *Changer de charge de travail*.
+. Sélectionnez la charge de travail vers laquelle vous souhaitez basculer.
++
+La page s'actualise et affiche la charge de travail sélectionnée.
+
+

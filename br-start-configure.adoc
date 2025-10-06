@@ -1,0 +1,205 @@
+---
+sidebar: sidebar 
+permalink: br-start-configure.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Suivez quelques étapes pour configurer NetApp Backup and Recovery. 
+---
+= Configurer les paramètres de sauvegarde et de récupération NetApp
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Après avoir configuré la console NetApp , configurez les paramètres de sauvegarde et de récupération, qui incluent l'ajout d'informations d'identification pour les ressources de l'hôte, l'importation de ressources SnapCenter , la configuration des répertoires de journaux et la configuration des paramètres VMware vCenter.  Vous devez le faire avant de commencer activement à sauvegarder et à récupérer vos données.
+
+* <<Ajouter des informations d'identification pour les ressources de l'hôte>>pour les hôtes Windows et SQL Server que vous avez importés depuis SnapCenter et ajoutez des informations d'identification.  (charges de travail Microsoft SQL Server uniquement)
+* <<Maintenir les paramètres VMware vCenter>> .
+* <<Importer et gérer les ressources de l'hôte SnapCenter>> . (charges de travail Microsoft SQL Server uniquement)
+* <<Configurer les répertoires de journaux dans les instantanés pour les hôtes Windows>> .
+
+
+*Rôle de console NetApp requis* Super administrateur de sauvegarde et de récupération, administrateur de sauvegarde et de récupération, administrateur de restauration de sauvegarde et de récupération. En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+
+
+
+== Ajouter des informations d'identification pour les ressources de l'hôte
+
+Ajoutez les informations d’identification pour les ressources hôtes que vous souhaitez importer depuis SnapCenter.  Les informations d’identification de l’hôte sont utilisées pour découvrir de nouvelles charges de travail et appliquer des politiques de sauvegarde.
+
+Si vous ne disposez pas déjà d'identifiants, vous pouvez les créer.  Ces informations d’identification doivent disposer des autorisations requises pour accéder et gérer les charges de travail de l’hôte.
+
+Vous devez configurer les types d’informations d’identification suivants :
+
+* Informations d'identification Microsoft SQL Server
+* Informations d'identification de l'hôte Windows SnapCenter
+
+
+.Étapes
+. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Paramètres*.
+. Sélectionnez la flèche vers le bas pour *Informations d'identification*.
+. Sélectionnez *Ajouter de nouvelles informations d'identification*.
+. Saisissez les informations pour les informations d'identification.  Différents champs apparaissent en fonction du mode d’authentification que vous sélectionnez.  Sélectionnez l'option Informations *i* pour plus d'informations sur les champs.
++
+** *Nom des informations d'identification* : saisissez un nom pour les informations d'identification.
+** *Mode d'authentification* : sélectionnez *Windows* ou *Microsoft SQL*.
++
+
+TIP: Vous devez saisir les informations d’identification pour Windows et Microsoft SQL Server. Vous devrez donc ajouter deux ensembles d’informations d’identification.
+
+
+
+. Si vous avez sélectionné *Windows* :
++
+** *Agent de console* : saisissez l’adresse IP de l’agent de console.
+** *Domaine et nom d'utilisateur* : saisissez le nom de domaine complet NetBIOS ou du domaine et le nom d'utilisateur pour les informations d'identification.
+** *Mot de passe* : Saisissez le mot de passe pour les informations d'identification.
+
+
+. Si vous avez sélectionné *Microsoft SQL* :
++
+** *Hôte* : sélectionnez une adresse d’hôte SQL Server découverte.
+** *Instance SQL Server* : sélectionnez une instance SQL Server découverte.
+
+
+. Sélectionnez *Ajouter*.
+
+
+
+
+=== Modifier les informations d'identification pour les ressources de l'hôte
+
+Vous pouvez ultérieurement modifier le mot de passe des ressources hôtes que vous avez importées depuis SnapCenter.
+
+.Étapes
+. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Paramètres*.
+. Sélectionnez la flèche vers le bas pour développer la section *Informations d'identification*.
+. Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Modifier les informations d'identification*.
++
+** *Mot de passe* : Saisissez le mot de passe pour les informations d'identification.
+
+
+. Sélectionnez *Enregistrer*.
+
+
+
+
+== Maintenir les paramètres VMware vCenter
+
+Fournissez les informations d’identification VMware vCenter pour découvrir les charges de travail VMware vCenter Server que vous souhaitez sauvegarder.  Si vous ne disposez pas d’informations d’identification existantes, vous pouvez les créer avec les autorisations requises pour accéder et gérer les charges de travail VMware vCenter Server.
+
+.Étapes
+. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Paramètres*.
+. Sélectionnez la flèche vers le bas pour développer la section *VMware vCenter*.
+. Sélectionnez *Ajouter vCenter*.
+. Saisissez les informations du serveur VMware vCenter.
++
+** *VCenter FQDN ou adresse IP* : saisissez un nom de domaine complet ou l’adresse IP du serveur VMware vCenter.
+** *Nom d'utilisateur* et *Mot de passe* : saisissez le nom d'utilisateur et le mot de passe du serveur VMware vCenter.
+** *Port* : saisissez le numéro de port du serveur VMware vCenter.
+** *Protocole* : Sélectionnez *HTTP* ou *HTTPS*.
+
+
+. Sélectionnez *Ajouter*.
+
+
+
+
+== Importer et gérer les ressources de l'hôte SnapCenter
+
+Si vous avez déjà utilisé SnapCenter pour sauvegarder vos ressources, vous pouvez importer et gérer ces ressources dans NetApp Backup and Recovery.  Avec cette option, vous pouvez importer les informations du serveur SnapCenter pour enregistrer plusieurs serveurs Snapcenter et découvrir les charges de travail de la base de données.
+
+Il s’agit d’un processus en deux parties :
+
+* Importer l'application SnapCenter Server et les ressources de l'hôte
+* Gérer les ressources hôtes SnapCenter sélectionnées
+
+
+
+
+=== Importer l'application SnapCenter Server et les ressources de l'hôte
+
+Cette première étape importe les ressources de l’hôte depuis SnapCenter et affiche ces ressources dans la page Inventaire de sauvegarde et de récupération NetApp .  À ce stade, les ressources ne sont pas encore gérées par NetApp Backup and Recovery.
+
+
+TIP: Une fois les ressources de l'hôte SnapCenter importées, NetApp Backup and Recovery ne prend pas en charge la gestion de la protection.  Pour ce faire, vous devez choisir explicitement de gérer ces ressources dans NetApp Backup and Recovery.
+
+.Étapes
+. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Paramètres*.
+. Sélectionnez la flèche vers le bas pour développer la section *Importer depuis SnapCenter*.
+. Sélectionnez *Importer depuis SnapCenter* pour importer les ressources SnapCenter .
+. Saisissez * les informations d'identification de l'application SnapCenter * :
++
+.. * Adresse FQDN ou IP de SnapCenter * : saisissez le FQDN ou l'adresse IP de l'application SnapCenter elle-même.
+.. *Port* : saisissez le numéro de port du serveur SnapCenter .
+.. *Nom d'utilisateur* et *Mot de passe* : saisissez le nom d'utilisateur et le mot de passe du serveur SnapCenter .
+.. *Agent de console* : sélectionnez l'agent de console pour SnapCenter.
+
+
+. Saisissez * les informations d'identification de l'hôte du serveur SnapCenter * :
++
+.. *Informations d’identification existantes* : si vous sélectionnez cette option, vous pouvez utiliser les informations d’identification existantes que vous avez déjà ajoutées.  Entrez le nom des informations d'identification.
+.. *Ajouter de nouvelles informations d'identification* : si vous ne disposez pas d'informations d'identification d'hôte SnapCenter existantes, vous pouvez en ajouter de nouvelles. Saisissez le nom des informations d'identification, le mode d'authentification, le nom d'utilisateur et le mot de passe.
+
+
+. Sélectionnez *Importer* pour valider vos entrées et enregistrer le serveur SnapCenter .
++
+
+NOTE: Si le serveur SnapCenter est déjà enregistré, vous pouvez mettre à jour les détails d'enregistrement existants.
+
+
+
+.Résultat
+La page Inventaire affiche les ressources SnapCenter importées.
+
+
+
+=== Gérer les ressources de l'hôte SnapCenter
+
+Après avoir importé les ressources SnapCenter , gérez ces ressources hôtes dans NetApp Backup and Recovery.  Une fois que vous avez choisi de gérer ces ressources importées, NetApp Backup and Recovery peut sauvegarder et récupérer les ressources que vous importez depuis SnapCenter.  Vous n’avez plus besoin de gérer ces ressources dans SnapCenter Server.
+
+.Étapes
+. Après avoir importé les ressources SnapCenter , sur la page Inventaire qui s'affiche, sélectionnez les ressources SnapCenter que vous avez importées et que vous souhaitez que NetApp Backup and Recovery gère désormais.
+. Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Gérer* pour gérer les ressources.
+. Sélectionnez *Gérer dans la console NetApp *.
++
+La page Inventaire affiche *Géré* sous le nom d'hôte pour indiquer que les ressources d'hôte sélectionnées sont désormais gérées par NetApp Backup and Recovery.
+
+
+
+
+
+=== Modifier les ressources SnapCenter importées
+
+Vous pouvez ensuite réimporter les ressources SnapCenter ou modifier les ressources SnapCenter importées pour mettre à jour les détails d'enregistrement.
+
+Vous ne pouvez modifier que les détails du port et du mot de passe pour le serveur SnapCenter .
+
+.Étapes
+. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Paramètres*.
+. Sélectionnez la flèche vers le bas pour *Importer depuis SnapCenter*.
++
+La page Importer depuis SnapCenter affiche toutes les importations précédentes.
+
+. Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Modifier* pour mettre à jour les ressources.
+. Mettez à jour le mot de passe et les détails du port SnapCenter , si nécessaire.
+. Sélectionnez *Importer*.
+
+
+
+
+== Configurer les répertoires de journaux dans les instantanés pour les hôtes Windows
+
+Avant de créer des stratégies pour les hôtes Windows, vous devez configurer les répertoires de journaux dans les instantanés pour les hôtes Windows.  Les répertoires de journaux sont utilisés pour stocker les journaux générés pendant le processus de sauvegarde.
+
+.Étapes
+. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Depuis la page Inventaire, sélectionnez une charge de travail, puis sélectionnez l’icône Actionsimage:../media/icon-action.png["Option Actions"] > *Afficher les détails* pour afficher les détails de la charge de travail.
+. Dans la page Détails de l’inventaire affichant Microsoft SQL Server, sélectionnez l’onglet Hôtes.
+. Depuis la page Détails de l'inventaire, sélectionnez un hôte et sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Configurer le répertoire des journaux*.
+. Parcourez ou entrez le chemin d'accès au répertoire du journal.
+. Sélectionnez *Enregistrer*.
+

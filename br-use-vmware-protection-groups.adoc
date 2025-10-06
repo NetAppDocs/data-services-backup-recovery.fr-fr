@@ -1,0 +1,105 @@
+---
+sidebar: sidebar 
+permalink: br-use-vmware-protection-groups.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, vmware, vm, virtual machines, workloads, volumes, snapshots 
+summary: Créez et gérez des groupes de protection pour les charges de travail VMware dans NetApp Backup and Recovery. 
+---
+= Créez et gérez des groupes de protection pour les charges de travail VMware avec NetApp Backup and Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Créez des groupes de protection pour gérer les opérations de sauvegarde et de restauration d’un ensemble de charges de travail. Un groupe de protection est un regroupement logique de ressources telles que des machines virtuelles et des banques de données que vous souhaitez protéger ensemble.
+
+Vous pouvez effectuer les tâches suivantes liées aux groupes de protection :
+
+* Créer un groupe de protection.
+* Afficher les détails de la protection.
+* Sauvegardez un groupe de protection maintenant. Voir link:br-use-vmware-backup.html["Sauvegardez les charges de travail VMware maintenant"] .
+* Suspendre et reprendre la planification de sauvegarde d'un groupe de protection.
+* Supprimer un groupe de protection.
+
+
+
+
+== Créer un groupe de protection
+
+Regroupez les charges de travail que vous souhaitez protéger dans un groupe de protection. Vous pouvez créer un groupe de protection pour un ensemble de charges de travail que vous souhaitez sauvegarder et restaurer ensemble.
+
+*Rôle de console requis* Administrateur d'organisation, Administrateur de dossier ou de projet, Super administrateur de sauvegarde et de récupération ou Rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+
+.Étapes
+. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Sélectionnez une charge de travail pour afficher les détails de protection.
+. Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
+. Sélectionnez l'onglet *Groupes de protection*.
+. Sélectionnez *Créer un groupe de protection*.
+. Donnez un nom au groupe de protection.
+. Sélectionnez les machines virtuelles ou les bases de données que vous souhaitez inclure dans le groupe de protection.
+. Sélectionnez *Suivant*.
+. Sélectionnez la *politique de sauvegarde* que vous souhaitez appliquer au groupe de protection.
++
+Si vous souhaitez créer une politique, sélectionnez *Créer une nouvelle politique* et suivez les instructions pour créer une politique. Voir link:br-use-policies-create.html["Créer des politiques"] pour plus d'informations.
+
+. Sélectionnez *Suivant*.
+. Vérifiez la configuration.
+. Sélectionnez *Créer* pour créer le groupe de protection.
+
+
+
+
+== Suspendre la planification de sauvegarde d'un groupe de protection
+
+La suspension d’un groupe de protection interrompt les sauvegardes planifiées pour le groupe de protection. Vous souhaiterez peut-être suspendre un groupe de protection si vous souhaitez arrêter temporairement les sauvegardes pour les charges de travail de ce groupe.
+
+L'état de protection passe à « En maintenance » lorsque vous suspendez un groupe de protection. Vous pouvez reprendre le programme de sauvegarde à tout moment.
+
+.Étapes
+. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Sélectionnez une charge de travail pour afficher les détails de protection.
+. Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
+. Sélectionnez l'onglet *Groupes de protection*.
+. Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Suspendre le groupe de protection*.
+. Vérifiez le message de confirmation et sélectionnez *Suspendre*.
+
+
+
+
+== Reprendre la planification de sauvegarde d'un groupe de protection
+
+La reprise d’un groupe de protection suspendu redémarre les sauvegardes planifiées pour le groupe de protection.
+
+L'état de protection passe de « En maintenance » lorsque vous suspendez un groupe de protection à « Protégé » lorsque vous le reprenez. Vous pouvez reprendre le programme de sauvegarde à tout moment.
+
+.Étapes
+. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Sélectionnez une charge de travail pour afficher les détails de protection.
+. Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
+. Sélectionnez l'onglet *Groupes de protection*.
+. Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Reprendre le groupe de protection*.
+. Vérifiez le message de confirmation et sélectionnez *Reprendre*.
+
+
+.Résultat
+Le système valide les plannings et change le statut de protection en « Protégé » si les plannings sont valides. Si les planifications ne sont pas valides, le système affiche un message d'erreur et ne reprend pas le groupe de protection.
+
+
+
+== Supprimer un groupe de protection
+
+La suppression d’un groupe de protection le supprime ainsi que toutes les planifications de sauvegarde associées. Vous souhaiterez peut-être supprimer un groupe de protection s’il n’est plus nécessaire.
+
+.Étapes
+. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Sélectionnez une charge de travail pour afficher les détails de protection.
+. Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
+. Sélectionnez l'onglet *Groupes de protection*.
+. Sélectionnez le groupe de protection que vous souhaitez supprimer.
+. Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Supprimer*.
+. Consultez le message de confirmation concernant la suppression des sauvegardes associées et confirmez la suppression.
+

@@ -1,0 +1,153 @@
+---
+sidebar: sidebar 
+permalink: br-use-vmware-restore.html 
+keywords: restore, vmware, vm, virtual machine, snapshots, object storage, cloud storage, backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Protégez vos charges de travail VMware avec NetApp NetApp Backup and Recovery. 
+---
+= Restaurer les charges de travail VMware avec NetApp Backup and Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Restaurez les charges de travail VMware à partir de copies instantanées, d'une sauvegarde de charge de travail répliquée sur un stockage secondaire ou de sauvegardes stockées dans un stockage d'objets à l'aide de NetApp Backup and Recovery.
+
+.Restaurer à partir de ces emplacements
+Vous pouvez restaurer des charges de travail à partir de différents emplacements de départ :
+
+* Restaurer à partir d'un emplacement principal (instantané local)
+* Restaurer à partir d'une ressource répliquée sur un stockage secondaire
+* Restaurer à partir d'une sauvegarde de stockage d'objets
+
+
+.Restaurer ces points
+Vous pouvez restaurer les données à ces points :
+
+* Restaurer à l'emplacement d'origine
+
+
+.Considérations relatives à la restauration à partir du stockage d'objets
+Si vous sélectionnez un fichier de sauvegarde dans le stockage d'objets et que la protection contre les ransomwares est active pour cette sauvegarde (si vous avez activé DataLock et la protection contre les ransomwares dans la stratégie de sauvegarde), vous êtes invité à exécuter une vérification d'intégrité supplémentaire sur le fichier de sauvegarde avant de restaurer les données.  Nous vous recommandons d'effectuer l'analyse.
+
+
+TIP: Des frais de sortie supplémentaires seront facturés par votre fournisseur de cloud pour accéder au contenu du fichier de sauvegarde.
+
+
+
+== Comment fonctionne la restauration des charges de travail
+
+Lorsque vous restaurez des charges de travail, les événements suivants se produisent :
+
+* Lorsque vous restaurez une charge de travail à partir d'un fichier de sauvegarde local, NetApp Backup and Recovery crée une _nouvelle_ ressource à l'aide des données de la sauvegarde.
+* Lorsque vous effectuez une restauration à partir d’une charge de travail répliquée, vous pouvez restaurer la charge de travail sur le système d’origine ou sur un système ONTAP local.
++
+image:diagram_browse_restore_volume-unified.png["Un diagramme qui montre le flux pour restaurer une ressource"]
+
+* Lorsque vous restaurez une sauvegarde à partir du stockage d’objets, vous pouvez restaurer les données sur le système d’origine ou sur un système ONTAP local.
+
+
+À partir de la page Restaurer (également appelée Rechercher et restaurer), vous pouvez restaurer une ressource, même si vous ne vous souvenez pas du nom exact, de l'emplacement où elle réside ou de la date à laquelle elle était en bon état pour la dernière fois. Vous pouvez rechercher l'instantané à l'aide de filtres.
+
+
+
+== Restaurer les données de charge de travail à partir de l'option Restaurer (Rechercher et restaurer)
+
+Restaurez les charges de travail VMware à l’aide de l’option Restaurer. Vous pouvez rechercher l'instantané par son nom ou en utilisant des filtres.
+
+*Rôle de console NetApp requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, rôle d'administrateur de restauration de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+
+.Étapes
+. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Restaurer*.
+. Dans la liste déroulante à droite du champ de recherche de nom, sélectionnez *Machines virtuelles*.
+. Saisissez le nom de la ressource que vous souhaitez restaurer ou filtrez le vCenter, le centre de données ou la banque de données où se trouve la ressource que vous souhaitez restaurer.
++
+Une liste d'instantanés correspondant à vos critères de recherche apparaît.
+
+. Sélectionnez l’instantané que vous souhaitez restaurer.
++
+Une liste d’options d’emplacement de restauration s’affiche.
+
+. Sélectionnez l’emplacement de restauration où vous souhaitez restaurer l’instantané :
++
+** Local : restaure l’instantané à l’emplacement d’origine.
+** Stockage secondaire : restaure l’instantané vers un emplacement de stockage secondaire.
++
+Si vous choisissez le stockage secondaire, saisissez les informations d'emplacement source et de destination, ainsi que l'emplacement source et secondaire des journaux.
+
+** Stockage d’objets : restaure l’instantané vers un emplacement de stockage d’objets.
++
+Si vous choisissez le stockage d’objets, vérifiez si vous souhaitez analyser à nouveau l’instantané avant la restauration.
+
+
+
+. Sélectionnez *Terminé* ou *Suivant* pour continuer vers la page des paramètres de destination de restauration.
++
+Ensuite, vous pouvez choisir les paramètres de destination et les options de pré-restauration et de post-restauration.
+
+
+
+[discrete]
+===== Sélection de la destination
+
+. Choisissez les paramètres de destination et les options de pré-restauration et de post-restauration.
+
+
+[role="tabbed-block"]
+====
+.Restaurer à l'emplacement d'origine
+--
+Dans la page Détails de la destination de restauration, saisissez les informations suivantes :
+
+. *Activer la restauration rapide* : sélectionnez cette option pour effectuer une opération de restauration rapide. Les volumes et données restaurés seront disponibles immédiatement. N'utilisez pas cette option sur des volumes nécessitant des performances élevées, car pendant le processus de restauration rapide, l'accès aux données peut être plus lent que d'habitude.
+. *Options de pré-restauration* : saisissez le chemin complet d'un script qui doit être exécuté avant l'opération de restauration et tous les arguments que le script prend.
+. *Options post-restauration*:
++
+** *Redémarrer la machine virtuelle* : sélectionnez cette option pour redémarrer la machine virtuelle une fois l'opération de restauration terminée et une fois le script de post-restauration appliqué.
+** *Postscript* : Saisissez le chemin complet d'un script qui doit être exécuté après l'opération de restauration et tous les arguments que le script prend.
+
+
+. Section *Notification* :
++
+** *Activer les notifications par e-mail* : sélectionnez cette option pour recevoir des notifications par e-mail concernant l'opération de restauration et indiquez le type de notifications que vous souhaitez recevoir.
+
+
+. Sélectionnez *Restaurer*.
+
+
+--
+.Restaurer vers un autre emplacement
+--
+Non disponible pour l'aperçu VMware.
+
+. Sélectionnez *Restaurer*.
+
+
+--
+====
+ifdef::aws[]
+
+endif::aws[]
+
+ifdef::azure[]
+
+endif::azure[]
+
+ifdef::gcp[]
+
+endif::gcp[]
+
+ifdef::aws[]
+
+endif::aws[]
+
+ifdef::azure[]
+
+endif::azure[]
+
+ifdef::gcp[]
+
+endif::gcp[]

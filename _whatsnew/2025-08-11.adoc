@@ -1,0 +1,57 @@
+= Charge de travail Microsoft SQL Server prise en charge en disponibilité générale (GA)
+:allow-uri-read: 
+
+
+
+
+=== Charge de travail Microsoft SQL Server prise en charge en disponibilité générale (GA)
+
+La prise en charge de la charge de travail Microsoft SQL Server est désormais généralement disponible (GA) dans NetApp Backup and Recovery. Les organisations utilisant un environnement MSSQL sur ONTAP, Cloud Volumes ONTAP et Amazon FSx for NetApp ONTAP peuvent désormais profiter de ce nouveau service de sauvegarde et de récupération pour protéger leurs données.
+
+Cette version inclut les améliorations suivantes apportées à la prise en charge de la charge de travail Microsoft SQL Server par rapport à la version d'aperçu précédente :
+
+* * Synchronisation active SnapMirror * : cette version prend désormais en charge la synchronisation active SnapMirror (également appelée SnapMirror Business Continuity [SM-BC]), qui permet aux services d'entreprise de continuer à fonctionner même en cas de panne complète du site, en prenant en charge le basculement transparent des applications à l'aide d'une copie secondaire. NetApp Backup and Recovery prend désormais en charge la protection des bases de données Microsoft SQL Server dans une configuration SnapMirror Active Sync et Metrocluster. Les informations apparaissent dans la section *Statut de stockage et de relation* de la page Détails de la protection. Les informations sur la relation sont affichées dans la section *Paramètres secondaires* mise à jour de la page Politique.
++
+Se référer à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-policies-create.html["Utilisez des politiques pour protéger vos charges de travail"] .
+
++
+image:../media/screen-br-sql-protection-details.png["Page de détails de protection pour la charge de travail Microsoft SQL Server"]
+
+* *Prise en charge de plusieurs buckets* : vous pouvez désormais protéger les volumes au sein d'un environnement de travail avec jusqu'à 6 buckets par environnement de travail sur différents fournisseurs de cloud.
+* *Mises à jour de licence et d'essai gratuites* pour les charges de travail SQL Server : vous pouvez désormais utiliser le modèle de licence NetApp Backup and Recovery existant pour protéger les charges de travail SQL Server. Il n’existe aucune exigence de licence distincte pour les charges de travail SQL Server.
++
+Pour plus de détails, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-start-licensing.html["Configurer les licences pour NetApp Backup and Recovery"] .
+
+* *Nom d’instantané personnalisé* : vous pouvez désormais utiliser votre propre nom d’instantané dans une stratégie qui régit les sauvegardes des charges de travail Microsoft SQL Server. Saisissez ces informations dans la section *Paramètres avancés* de la page Politique.
++
+image:../media/screen-br-sql-policy-create-advanced-snapmirror.png["Capture d'écran des paramètres de format SnapMirror et snapshot pour les stratégies de sauvegarde et de récupération NetApp"]
+
++
+Se référer à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-policies-create.html["Utilisez des politiques pour protéger vos charges de travail"] .
+
+* *Préfixe et suffixe du volume secondaire* : Vous pouvez saisir un préfixe et un suffixe personnalisés dans la section *Paramètres avancés* de la page Politique.
+* *Identité et accès* : Vous pouvez désormais contrôler l'accès des utilisateurs aux fonctionnalités.
++
+Se référer à https://docs.netapp.com/us-en/data-services-backup-recovery/br-start-login.html["Connectez-vous à NetApp Backup and Recovery"] et https://docs.netapp.com/us-en/data-services-backup-recovery/reference-roles.html["Accès aux fonctionnalités de sauvegarde et de récupération NetApp"] .
+
+* *Restauration à partir du stockage d'objets vers un autre hôte* : vous pouvez désormais restaurer à partir du stockage d'objets vers un autre hôte même si le stockage principal est en panne.
+* *Données de sauvegarde du journal* : la page des détails de protection de la base de données affiche désormais les sauvegardes du journal. Vous pouvez voir la colonne Type de sauvegarde qui indique si la sauvegarde est une sauvegarde complète ou une sauvegarde de journal.
+* *Tableau de bord amélioré* : le tableau de bord affiche désormais les économies de stockage et de clonage.
++
+image:../media/screen-br-dashboard3.png["Tableau de bord de sauvegarde et de récupération NetApp"]
+
+
+
+
+
+=== Améliorations de la charge de travail du volume ONTAP
+
+* *Restauration multi-dossiers pour les volumes ONTAP * : Jusqu'à présent, vous pouviez restaurer un dossier ou plusieurs fichiers à la fois à partir de la fonction Parcourir et restaurer. NetApp Backup and Recovery offre désormais la possibilité de sélectionner plusieurs dossiers à la fois à l'aide de la fonction Parcourir et restaurer.
+* *Afficher et gérer les sauvegardes des volumes supprimés* : le tableau de bord de sauvegarde et de récupération NetApp offre désormais une option permettant d'afficher et de gérer les volumes supprimés d' ONTAP. Avec cela, vous pouvez afficher et supprimer les sauvegardes des volumes qui n'existent plus dans ONTAP.
+* *Forcer la suppression des sauvegardes* : dans certains cas extrêmes, vous souhaiterez peut-être que NetApp Backup and Recovery n'ait plus accès aux sauvegardes. Cela peut se produire par exemple si le service n'a plus accès au bucket de sauvegarde ou si les sauvegardes sont protégées par DataLock mais que vous n'en voulez plus. Auparavant, vous ne pouviez pas les supprimer vous-même et deviez appeler le support NetApp . Avec cette version, vous pouvez utiliser l'option permettant de forcer la suppression des sauvegardes (au niveau du volume et de l'environnement de travail).
+
+
+
+CAUTION: Utilisez cette option avec précaution et uniquement en cas de besoins de nettoyage extrêmes. NetApp Backup and Recovery n'aura plus accès à ces sauvegardes même si elles ne sont pas supprimées dans le stockage d'objets. Vous devrez vous rendre chez votre fournisseur de cloud et supprimer manuellement les sauvegardes.
+
+Se référer à https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-protect-overview.html["Protégez les charges de travail ONTAP"] .

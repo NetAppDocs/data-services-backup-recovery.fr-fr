@@ -1,0 +1,157 @@
+---
+sidebar: sidebar 
+permalink: br-start-discover-backup-targets.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Microsoft SQL Server database, 
+summary: 'Suivez quelques étapes pour découvrir les cibles de sauvegarde hors site dans NetApp Backup and Recovery.  Ces cibles peuvent inclure Amazon Web Services (AWS) S3, Microsoft Azure Blob Storage, Google Cloud Storage et StorageGRID.' 
+---
+= Découvrez les cibles de sauvegarde hors site dans NetApp Backup and Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Suivez quelques étapes pour découvrir ou ajouter manuellement des cibles de sauvegarde hors site dans NetApp Backup and Recovery.
+
+
+
+== Découvrir une cible de sauvegarde
+
+Avant d'utiliser NetApp Backup and Recovery, vous devez configurer vos cibles de sauvegarde Amazon Web Services (AWS) S3, Microsoft Azure Blob Storage, Google Cloud Storage ou StorageGRID.
+
+Vous pouvez découvrir ces cibles automatiquement ou les ajouter manuellement.
+
+Fournissez les informations d’identification nécessaires pour accéder au système de compte de stockage.  Ces informations d’identification sont utilisées pour découvrir les charges de travail que vous souhaitez sauvegarder.
+
+.Avant de commencer
+Pour ajouter une cible de sauvegarde hors site, au moins une charge de travail doit être découverte.
+
+.Étapes
+. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Sélectionnez l’onglet *Cibles de sauvegarde hors site*.
+. Sélectionnez *Découvrir la cible de sauvegarde*.
+. Sélectionnez l'un des types de cibles de sauvegarde : *Amazon Web Services (AWS) S3*, *Microsoft Azure Blob Storage*, * StorageGRID* ou * ONTAP S3*.
+. Dans la section *Choisir l'emplacement des informations d'identification*, choisissez l'emplacement où résident les informations d'identification, puis choisissez comment associer les informations d'identification.
+. Sélectionnez *Suivant*.
+. Saisissez les informations d'identification. Elles varient selon le type de cible de sauvegarde sélectionné et l'emplacement des informations d'identification choisi.
++
+** Pour AWS :
++
+*** *Nom d'identification* : saisissez le nom d'identification AWS.
+*** *Clé d'accès* : Saisissez le secret AWS.
+*** *Clé secrète* : Saisissez la clé secrète AWS.
+
+
+** Pour Azure :
++
+*** *Nom des informations d’identification* : saisissez le nom des informations d’identification du stockage d’objets blob Azure.
+*** *Secret client* : saisissez le secret client du stockage d’objets blob Azure.
+*** *ID d’application (client)* : sélectionnez l’ID d’application Azure Blob Storage.
+*** *ID de locataire du répertoire* : saisissez l’ID de locataire du stockage d’objets blob Azure.
+
+
+** Pour StorageGRID:
++
+*** *Nom d'identification* : saisissez le nom d'identification StorageGRID .
+*** *Nom de domaine complet du nœud de passerelle* : saisissez un nom de domaine complet pour StorageGRID.
+*** *Port*: saisissez le numéro de port pour StorageGRID.
+*** *Clé d'accès* : saisissez la clé d'accès StorageGRID S3.
+*** *Clé secrète* : saisissez la clé secrète StorageGRID S3.
+
+
+** Pour ONTAP S3 :
++
+*** *Nom d'identification* : saisissez le nom d'identification ONTAP S3.
+*** *Nom de domaine complet du nœud de passerelle* : saisissez un nom de domaine complet pour ONTAP S3.
+*** *Port* : saisissez le numéro de port pour ONTAP S3.
+*** *Clé d'accès* : Saisissez la clé d'accès ONTAP S3.
+*** *Clé secrète* : Saisissez la clé secrète ONTAP S3.
+
+
+
+
+. Sélectionnez *Découvrir*.
+
+
+
+
+== Ajouter un bucket pour une cible de sauvegarde
+
+Plutôt que de laisser NetApp Backup and Recovery découvrir automatiquement les buckets, vous pouvez ajouter manuellement un bucket à une cible de sauvegarde hors site.
+
+.Étapes
+. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Sélectionnez *Cibles de sauvegarde hors site*.
+. Sélectionnez la cible et à droite, sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Ajouter un bucket*.
+. Saisissez les informations du bucket.  Les informations diffèrent selon le type de cible de sauvegarde que vous avez sélectionné.
++
+** Pour AWS :
++
+*** *Nom du bucket* : saisissez le nom du bucket S3. Le préfixe « netapp-backup » est un préfixe obligatoire et est automatiquement ajouté au nom que vous fournissez.
+*** *Compte AWS* : saisissez le nom du compte AWS.
+*** *Région du bucket* : saisissez la région AWS du bucket.
+*** *Activer le verrouillage d'objet S3* : sélectionnez cette option pour activer le verrouillage d'objet S3 pour le bucket.  S3 Object Lock empêche la suppression ou l'écrasement des objets pendant une période de conservation spécifiée, offrant ainsi une couche supplémentaire de protection des données.  Vous ne pouvez activer cette option que lorsque vous créez un bucket et vous ne pouvez pas la désactiver ultérieurement.
++
+**** *Mode de gouvernance* : sélectionnez cette option pour activer le mode de gouvernance pour le bucket S3 Object Lock.  Le mode de gouvernance vous permet de protéger les objets contre la suppression ou l'écrasement par la plupart des utilisateurs, mais permet à certains utilisateurs de modifier les paramètres de conservation.
+**** *Mode de conformité* : sélectionnez cette option pour activer le mode de conformité pour le compartiment S3 Object Lock.  Le mode de conformité empêche tout utilisateur, y compris l'utilisateur root, de modifier les paramètres de conservation ou de supprimer des objets jusqu'à l'expiration de la période de conservation.
+
+
+*** *Versioning* : sélectionnez cette option pour activer le contrôle de version pour le bucket S3.  Le contrôle de version vous permet de conserver plusieurs versions d'objets dans le bucket, ce qui peut être utile à des fins de sauvegarde et de récupération.
+*** *Tags* : sélectionnez les balises pour le bucket S3.  Les balises sont des paires clé-valeur qui peuvent être utilisées pour organiser et gérer vos ressources S3.
+*** *Cryptage* : sélectionnez le type de cryptage pour le compartiment S3.  Les options sont soit des clés gérées par AWS S3, soit des clés AWS Key Management Service.  Si vous sélectionnez des clés AWS Key Management Service, vous devez fournir l'ID de clé.
+
+
+** Pour Azure :
++
+*** *Abonnement* : sélectionnez le nom du conteneur de stockage d’objets blob Azure.
+*** *Groupe de ressources* : sélectionnez le nom du groupe de ressources Azure.
+*** *Détails de l'instance*:
++
+**** *Nom du compte de stockage* : saisissez le nom du conteneur de stockage d’objets blob Azure.
+**** *Région Azure* : saisissez la région Azure du conteneur.
+**** *Type de performance* : sélectionnez le type de performance Standard ou Premium pour le conteneur de stockage d’objets blob Azure indiquant le niveau de performance requis.
+**** *Chiffrement* : sélectionnez le type de chiffrement pour le conteneur de stockage d’objets blob Azure.  Les options sont soit des clés gérées par Microsoft, soit des clés gérées par le client.  Si vous sélectionnez des clés gérées par le client, vous devez fournir le nom du coffre de clés et le nom de la clé.
+
+
+
+
+** Pour StorageGRID:
++
+*** *Nom de la cible de sauvegarde* : sélectionnez le nom du bucket StorageGRID .
+*** *Nom du bucket* : saisissez le nom du bucket StorageGRID .
+*** *Région* : saisissez la région StorageGRID pour le bucket.
+*** *Activer le contrôle de version* : sélectionnez cette option pour activer le contrôle de version pour le bucket StorageGRID .  Le contrôle de version vous permet de conserver plusieurs versions d'objets dans le bucket, ce qui peut être utile à des fins de sauvegarde et de récupération.
+*** *Verrouillage d'objet* : sélectionnez cette option pour activer le verrouillage d'objet pour le bucket StorageGRID .  Le verrouillage des objets empêche la suppression ou l'écrasement des objets pendant une période de conservation spécifiée, offrant ainsi une couche supplémentaire de protection des données.  Vous ne pouvez activer cette option que lorsque vous créez un bucket et vous ne pouvez pas la désactiver ultérieurement.
+*** *Capacité* : saisissez la capacité du bucket StorageGRID .  Il s’agit de la quantité maximale de données pouvant être stockée dans le bucket.
+
+
+** Pour ONTAP S3 :
++
+*** *Nom de la cible de sauvegarde* : sélectionnez le nom du bucket ONTAP S3.
+*** *Nom de la cible du bucket* : saisissez le nom du bucket ONTAP S3.
+*** *Capacité* : saisissez la capacité du bucket ONTAP S3.  Il s’agit de la quantité maximale de données pouvant être stockée dans le bucket.
+*** *Activer le contrôle de version* : sélectionnez cette option pour activer le contrôle de version pour le bucket ONTAP S3.  Le contrôle de version vous permet de conserver plusieurs versions d'objets dans le bucket, ce qui peut être utile à des fins de sauvegarde et de récupération.
+*** *Verrouillage d'objet* : sélectionnez cette option pour activer le verrouillage d'objet pour le bucket ONTAP S3.  Le verrouillage des objets empêche la suppression ou l'écrasement des objets pendant une période de conservation spécifiée, offrant ainsi une couche supplémentaire de protection des données.  Vous ne pouvez activer cette option que lorsque vous créez un bucket et vous ne pouvez pas la désactiver ultérieurement.
+
+
+
+
+. Sélectionnez *Ajouter*.
+
+
+
+
+== Modifier les informations d'identification pour une cible de sauvegarde
+
+Saisissez les informations d’identification nécessaires pour accéder à la cible de sauvegarde.
+
+.Étapes
+. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Sélectionnez *Cibles de sauvegarde hors site*.
+. Sélectionnez la cible et à droite, sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Modifier les informations d'identification*.
+. Saisissez les nouvelles informations d’identification pour la cible de sauvegarde.  Les informations diffèrent selon le type de cible de sauvegarde que vous avez sélectionné.
+. Sélectionnez *Terminé*.
+

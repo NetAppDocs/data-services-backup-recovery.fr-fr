@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: br-start-trial.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: 'Démarrez ou terminez un essai gratuit de NetApp Backup and Recovery.  L"essai gratuit est disponible pendant 30 jours après votre inscription à un abonnement à la carte sur la place de marché de votre fournisseur de cloud pour NetApp Intelligent Services.' 
+---
+= Démarrez un essai gratuit de NetApp Backup and Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Un essai gratuit de 30 jours de NetApp Backup and Recovery est disponible si vous souscrivez à un abonnement à la carte sur la place de marché de votre fournisseur de cloud pour * NetApp Intelligent Services*.  L'essai gratuit commence au moment où vous vous abonnez à la liste du marché.  Notez que si vous payez l'abonnement Marketplace lors du déploiement d'un système Cloud Volumes ONTAP , puis démarrez votre essai gratuit de NetApp Backup and Recovery 10 jours plus tard, il vous restera 20 jours pour utiliser l'essai gratuit.
+
+Une fois l'essai gratuit terminé, vous passerez automatiquement à l'abonnement PAYGO sans interruption.  Si vous décidez de ne pas continuer à utiliser NetApp Backup and Recovery, mettez simplement fin à l’essai gratuit.
+
+Vous pouvez démarrer l'essai gratuit de NetApp Backup and Recovery après vous être connecté à la console.
+
+.Étapes
+. Dans la navigation de gauche de la console, sélectionnez *Protection* > *Sauvegarde et récupération*.
+. Si c'est la première fois que vous vous connectez à ce service, que vous disposez déjà d'un système dans la console NetApp , mais que vous n'avez pas démarré l'essai gratuit, la page d'accueil « Bienvenue dans la nouvelle solution NetApp Backup and Recovery » apparaît et affiche une option pour *Démarrer l'essai gratuit*.
++
+image:screen-br-landing-unified-start-trial.png["Capture d'écran de la page de destination pour NetApp Backup and Recovery sans essai gratuit"]
+
+
+
+
+
+== Quelle est la prochaine étape ?
+
+Après avoir démarré l’essai gratuit, vous pouvez découvrir des charges de travail et créer des politiques pour sauvegarder vos charges de travail.
+
+Si c'est la première fois que vous vous connectez à ce service, que vous disposez déjà d'un système dans la console NetApp et que vous avez démarré l'essai gratuit, mais que vous n'avez découvert aucune ressource, la page d'accueil « Bienvenue dans la nouvelle solution NetApp Backup and Recovery » apparaît et affiche une option pour *Découvrir des ressources*.
+
+Pour plus de détails sur la découverte des charges de travail, voirlink:br-start-discover.html["Découvrir les charges de travail"] .
+
+image:screen-br-landing-unified.png["Capture d'écran de la page de destination pour NetApp Backup and Recovery"]
+
+
+
+== Mettre fin à l'essai gratuit
+
+Vous pouvez mettre fin à l'essai gratuit à tout moment.  Si vous mettez fin à l'essai gratuit, le service ne vous sera pas facturé.
+
+.Étapes
+. Dans la navigation de gauche de la console, sélectionnez *Protection* > *Sauvegarde et récupération*.
++
+image:screen-br-landing-unified.png["Capture d'écran de la page de destination pour NetApp Backup and Recovery"]
+
+. Depuis la page d'accueil « Bienvenue sur la nouvelle solution NetApp Backup and Recovery », sélectionnez *Afficher les détails - essai gratuit* ou, dans le coin supérieur droit de la page, sélectionnez *Essai gratuit*.
++
+image:screen-br-landing-unified-end-trial.png["Capture d'écran de la page de destination pour l'essai gratuit de NetApp Backup and Recovery"]
+
+. Sélectionnez *Terminer l'essai gratuit*.
+. Dans la boîte de dialogue de confirmation de fin d’essai gratuit, saisissez *Terminer l’essai*.
+. Sélectionnez *Fin*.
+

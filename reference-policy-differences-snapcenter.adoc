@@ -1,0 +1,104 @@
+---
+sidebar: sidebar 
+permalink: reference-policy-differences-snapcenter.html 
+keywords: backup policy, backup policies, snapcenter, migration 
+summary: Il existe certaines différences entre les stratégies utilisées dans NetApp Backup and Recovery et celles utilisées dans SnapCenter. 
+---
+= Stratégies dans SnapCenter comparées à celles de NetApp Backup and Recovery
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Il existe certaines différences entre les stratégies utilisées dans SnapCenter et celles utilisées dans NetApp Backup and Recovery qui peuvent avoir un impact sur ce que vous voyez après l'importation de ressources et de stratégies depuis SnapCenter.
+
+
+
+== Niveaux de planification
+
+SnapCenter utilise les niveaux de planification suivants :
+
+* *Horaire* : Plusieurs heures et minutes avec n'importe quelle heure (0-23) et n'importe quelle minute (0-60).
+* *Quotidien* : Inclut une option permettant de répéter tous les quelques jours, par exemple, tous les 3 jours.
+* *Hebdomadaire* : du dimanche au lundi, avec la possibilité d'effectuer un instantané le jour 1 de la semaine ou sur plusieurs jours de la semaine.
+* *Mensuel* : Mois de janvier à décembre, avec une option pour jouer à des jours spécifiques du mois, par exemple, le 7 de chaque mois et même sur plusieurs jours du mois.
+
+
+NetApp Backup and Recovery utilise les niveaux de planification suivants, qui sont légèrement différents :
+
+* *Toutes les heures* : effectue des instantanés uniquement à des intervalles de 15 minutes, par exemple, des intervalles d'une heure ou de 15 minutes inférieurs à 60.
+* *Quotidien* : Heures de la journée (0-23) avec heure de début par exemple à 10h00 avec une option pour effectuer toutes les heures.
+* *Hebdomadaire* : Jour de la semaine (du dimanche au lundi) avec possibilité de jouer sur 1 jour ou sur plusieurs jours.  C'est la même chose que SnapCenter.
+* *Mensuel* : Dates du mois (0-30) avec une heure de début à plusieurs dates du mois.
+* *Annuel* : Mensuel.  Cela correspond au mensuel de SnapCenter.
+
+
+
+
+== Plusieurs politiques dans SnapCenter avec le même niveau de planification
+
+Vous pouvez attribuer plusieurs politiques avec le même niveau de planification à une ressource dans SnapCenter.  Cependant, NetApp Backup and Recovery ne prend pas en charge plusieurs stratégies sur une ressource qui utilise le même niveau de planification.
+
+*Exemple* : Si vous utilisez trois stratégies (pour les données, le journal et le journal des snapshots) dans SnapCenter, après la migration depuis SnapCenter, NetApp Backup and Recovery utilise une seule stratégie au lieu des trois.
+
+
+
+== Horaires quotidiens SnapCenter importés
+
+NetApp Backup and Recovery ajuste les planifications SnapCenter comme suit :
+
+* Si la planification SnapCenter est définie sur une durée inférieure ou égale à 7 jours, NetApp Backup and Recovery définit la planification sur une durée hebdomadaire.  Certains instantanés seront ignorés au cours de la semaine.
++
+*Exemple* : Si vous disposez d'une stratégie quotidienne SnapCenter avec un intervalle répétitif tous les 3 jours à partir du lundi, NetApp Backup and Recovery définit la planification sur une base hebdomadaire le lundi, le jeudi et le dimanche.  Certains jours seront sautés car ce n'est pas exactement tous les 3 jours.
+
+* Si la planification SnapCenter est définie sur une durée supérieure à 7 jours, NetApp Backup and Recovery définit la planification sur mensuelle.  Certains instantanés seront ignorés au cours du mois.
++
+*Exemple* : Si vous disposez d'une stratégie quotidienne SnapCenter avec un intervalle répétitif tous les 10 jours à partir du 2 du mois, NetApp Backup and Recovery (post-migration) définit la planification sur une base mensuelle les 2, 12 et 22 du mois.  Certains jours seront sautés le mois prochain.
+
+
+
+
+
+== Horaires horaires SnapCenter importés
+
+Les politiques horaires SnapCenter avec des intervalles répétitifs supérieurs à une heure sont converties en politique quotidienne dans NetApp Backup and Recovery.
+
+Toute politique horaire avec des intervalles répétitifs qui ne sont pas un facteur de 24 (par exemple 5, 7, etc.) ignorera certains instantanés dans une journée.
+
+*Exemple* : Si vous disposez d'une stratégie horaire SnapCenter avec un intervalle répétitif toutes les 5 heures à partir de 1 h 00 du matin, NetApp Backup and Recovery (après la migration) définira la planification sur quotidienne avec des intervalles de 5 heures à 1 h 00, 6 h 00, 11 h 00, 16 h 00 et 21 h 00.  Certaines heures seront ignorées, après 21h00, il devrait être 2h00 du matin pour se répéter toutes les 5 heures, mais ce sera toujours 1h00 du matin.
+
+
+
+== Conservation des journaux à partir des politiques SnapCenter
+
+Si vous disposez d'une ressource dans SnapCenter avec plusieurs stratégies, NetApp Backup and Recovery utilise l'ordre de priorité suivant pour attribuer la valeur de conservation des journaux :
+
+* Pour les stratégies « Sauvegarde complète avec sauvegarde du journal » et « Journal uniquement » dans SnapCenter, NetApp Backup and Recovery utilise la valeur de rétention de la stratégie Journal uniquement.
+* Pour les stratégies « Sauvegarde complète avec journal uniquement » et « Complète et journal » dans SnapCenter, NetApp Backup and Recovery utilise la valeur de rétention du journal uniquement.
+* Pour « Sauvegarde complète et journal » plus « Sauvegarde complète » dans SnapCenter, NetApp Backup and Recovery utilise la valeur de rétention « Sauvegarde complète et journal ».
+* Si vous ne disposez que d'une sauvegarde complète dans SnapCenter, NetApp Backup and Recovery n'active pas la sauvegarde du journal.
+
+
+
+
+== Conservation des sauvegardes des journaux
+
+Avec SnapCenter, vous pouvez avoir plusieurs valeurs de rétention dans plusieurs stratégies attachées à une ressource. Cependant, NetApp Backup and Recovery ne prend en charge qu'une seule valeur de rétention pour toutes les stratégies attachées à une ressource.
+
+
+
+== Nombre de rétentions à partir des politiques SnapCenter
+
+Si vous disposez d'une ressource avec une protection secondaire activée dans SnapCenter avec plusieurs volumes sources, plusieurs volumes de destination et plusieurs relations SnapMirror , NetApp Backup and Recovery utilise uniquement le nombre de rétention de la première stratégie.
+
+*Exemple* : Si vous disposez d’une stratégie SnapCenter avec un nombre de rétention de 5 et d’une autre stratégie avec un nombre de rétention de 10, NetApp Backup and Recovery utilise le nombre de rétention de 5.
+
+
+
+== Étiquettes SnapMirror à partir des politiques SnapCenter
+
+Les étiquettes SnapMirror pour chaque politique dans SnapCenter restent intactes après la migration, même si le niveau est modifié.
+
+*Exemple* : Une politique horaire de SnapCenter peut changer en politique quotidienne dans NetApp Backup and Recovery.  Cependant, les étiquettes SnapMirror restent les mêmes après la migration.

@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: prev-vmware-register-snapcenter.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Protégez vos charges de travail VMware avec NetApp NetApp Backup and Recovery. 
+---
+= Enregistrez le SnapCenter Plug-in for VMware vSphere à utiliser avec NetApp Backup and Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous devez enregistrer le SnapCenter Plug-in for VMware vSphere dans NetApp Backup and Recovery pour que les banques de données et les machines virtuelles soient affichées.  Seul un utilisateur disposant d'un accès administratif peut enregistrer le SnapCenter Plug-in for VMware vSphere .
+
+[]
+====
+*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery, reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de sauvegarde et de récupération NetApp"] .
+
+====
+.Étapes
+. Dans l'interface utilisateur de la console NetApp , sélectionnez *Protection* > *Sauvegarde et récupération* > *Machines virtuelles*.
+. Dans la liste déroulante *Paramètres*, sélectionnez * SnapCenter Plug-in for VMware vSphere*.
+. Sélectionnez *Enregistrer le SnapCenter Plug-in for VMware vSphere*.
+. Précisez les détails suivants :
++
+.. Dans le champ SnapCenter Plug-in for VMware vSphere , spécifiez le nom de domaine complet ou l'adresse IP de l'hôte SnapCenter Plug-in for VMware vSphere .
+.. Dans le champ Port, spécifiez le numéro de port sur lequel l’hôte SnapCenter Plug-in for VMware vSphere s’exécute.
++
+Vous devez vous assurer que la communication est ouverte entre l'hôte SnapCenter Plug-in for VMware vSphere sur site qui s'exécute sur le port 8144 par défaut et l'instance de l'agent de console qui peut s'exécuter dans n'importe quel fournisseur de cloud (Amazon Web Services, Microsoft Azure, Google Cloud Platform) ou sur site.
+
+.. Dans le champ Nom d’utilisateur et Mot de passe, spécifiez les informations d’identification de l’utilisateur vCenter avec le rôle d’administrateur.
+
+
+. Sélectionnez *S'inscrire*.
+
+
+*Après avoir fini*
+
+Sélectionnez *Sauvegarde et récupération* > *Machines virtuelles* pour afficher toutes les banques de données et machines virtuelles protégées à l'aide du SnapCenter Plug-in for VMware vSphere .

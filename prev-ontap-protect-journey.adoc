@@ -1,0 +1,293 @@
+---
+sidebar: sidebar 
+permalink: prev-ontap-protect-journey.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Protégez vos charges de travail VMware avec NetApp NetApp Backup and Recovery. 
+---
+= Planifiez votre parcours de protection avec NetApp Backup and Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Backup and Recovery vous permet de créer jusqu'à trois copies de vos volumes sources pour protéger vos données.  Il existe de nombreuses options que vous pouvez sélectionner lors de l'activation de ce service sur vos volumes. Vous devez donc revoir vos choix afin d'être prêt.
+
+[]
+====
+*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery, reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de sauvegarde et de récupération NetApp"] .
+
+====
+Nous passerons en revue les options suivantes :
+
+* Quelles fonctionnalités de protection utiliserez-vous : copies instantanées, volumes répliqués et/ou sauvegarde dans le cloud ?
+* Quelle architecture de sauvegarde utiliserez-vous : une sauvegarde en cascade ou en éventail de vos volumes ?
+* Allez-vous utiliser les politiques de sauvegarde par défaut ou devez-vous créer des politiques personnalisées ?
+* Voulez-vous que le service crée les buckets cloud pour vous ou souhaitez-vous créer vos conteneurs de stockage d'objets avant de commencer ?
+* Quel mode de déploiement de l'agent de console utilisez-vous (mode standard, restreint ou privé) ?
+
+
+
+
+== Quelles fonctionnalités de protection utiliserez-vous
+
+Avant de sélectionner les fonctionnalités que vous utiliserez, voici une explication rapide de ce que fait chaque fonctionnalité et du type de protection qu'elle offre.
+
+[cols="20,70"]
+|===
+| Type de sauvegarde | Description 
+
+
+| Instantané | Crée une image en lecture seule, à un instant T, d'un volume dans le volume source sous forme de copie instantanée.  Vous pouvez utiliser la copie instantanée pour récupérer des fichiers individuels ou pour restaurer l'intégralité du contenu d'un volume. 
+
+
+| Réplication | Crée une copie secondaire de vos données sur un autre système de stockage ONTAP et met à jour en permanence les données secondaires.  Vos données sont maintenues à jour et restent disponibles à chaque fois que vous en avez besoin. 
+
+
+| Sauvegarde dans le cloud | Crée des sauvegardes de vos données dans le cloud à des fins de protection et d'archivage à long terme.  Si nécessaire, vous pouvez restaurer un volume, un dossier ou des fichiers individuels à partir de la sauvegarde sur le même système ou sur un système différent. 
+|===
+Les instantanés sont la base de toutes les méthodes de sauvegarde et sont nécessaires pour utiliser le service de sauvegarde et de récupération.  Une copie instantanée est une image en lecture seule, à un instant T, d'un volume.  L'image consomme un espace de stockage minimal et entraîne une surcharge de performances négligeable, car elle enregistre uniquement les modifications apportées aux fichiers depuis la dernière copie instantanée.  La copie instantanée créée sur votre volume est utilisée pour maintenir le volume répliqué et le fichier de sauvegarde synchronisés avec les modifications apportées au volume source, comme illustré dans la figure.
+
+image:diagram-321-overview.png["Un diagramme montrant comment les fichiers de sauvegarde existent sur le système source sous forme de copies instantanées, sous forme de volumes répliqués sur le système de stockage secondaire et sous forme de fichiers de sauvegarde dans le stockage d'objets."]
+
+Vous pouvez choisir de créer à la fois des volumes répliqués sur un autre système de stockage ONTAP et des fichiers de sauvegarde dans le cloud.  Ou vous pouvez choisir simplement de créer des volumes répliqués ou des fichiers de sauvegarde : c'est votre choix.
+
+Pour résumer, voici les flux de protection valides que vous pouvez créer pour les volumes de votre système ONTAP :
+
+* Volume source -> Copie instantanée -> Volume répliqué -> Fichier de sauvegarde
+* Volume source -> Copie instantanée -> Fichier de sauvegarde
+* Volume source -> Copie instantanée -> Volume répliqué
+
+
+
+NOTE: La création initiale d'un volume répliqué ou d'un fichier de sauvegarde inclut une copie complète des données sources : c'est ce qu'on appelle un _transfert de base_.  Les transferts ultérieurs ne contiennent que des copies différentielles des données sources (l'instantané).
+
+*Comparaison des différentes méthodes de sauvegarde*
+
+Le tableau suivant présente une comparaison généralisée des trois méthodes de sauvegarde.  Bien que l'espace de stockage d'objets soit généralement moins cher que votre stockage sur disque local, si vous pensez que vous devrez restaurer fréquemment des données à partir du cloud, les frais de sortie des fournisseurs de cloud peuvent réduire une partie de vos économies.  Vous devrez identifier la fréquence à laquelle vous devez restaurer les données à partir des fichiers de sauvegarde dans le cloud.
+
+En plus de ces critères, le stockage cloud offre des options de sécurité supplémentaires si vous utilisez la fonction DataLock et Ransomware Protection, ainsi que des économies de coûts supplémentaires en sélectionnant des classes de stockage d'archivage pour les fichiers de sauvegarde plus anciens. link:prev-ontap-policy-object-options.html["En savoir plus sur la protection DataLock et Ransomware et les paramètres de stockage d'archives"] .
+
+[cols="18,18,22,18,22"]
+|===
+| Type de sauvegarde | Vitesse de sauvegarde | Coût de sauvegarde | Restaurer la vitesse | Coût de restauration 
+
+
+| *Instantané* | Élevée | Faible (espace disque) | Élevée | Faible 
+
+
+| *Réplication* | Moyen | Moyen (espace disque) | Moyen | Moyen (réseau) 
+
+
+| *Sauvegarde dans le cloud* | Faible | Bas (espace objet) | Faible | Élevé (frais du fournisseur) 
+|===
+
+
+== Quelle architecture de sauvegarde utiliserez-vous
+
+Lors de la création de volumes répliqués et de fichiers de sauvegarde, vous pouvez choisir une architecture en éventail ou en cascade pour sauvegarder vos volumes.
+
+Une architecture *fan-out* transfère la copie instantanée indépendamment vers le système de stockage de destination et l'objet de sauvegarde dans le cloud.
+
+image:diagram-321-fanout-detailed.png["Un diagramme montrant comment une copie instantanée d'un volume est utilisée pour créer et mettre à jour un volume répliqué et un fichier de sauvegarde."]
+
+Une architecture *en cascade* transfère d'abord la copie instantanée vers le système de stockage de destination, puis ce système transfère la copie vers l'objet de sauvegarde dans le cloud.
+
+image:diagram-321-cascade-detailed.png["Un diagramme montrant comment une copie instantanée d'un volume est utilisée pour créer et mettre à jour un volume répliqué et un fichier de sauvegarde."]
+
+*Comparaison des différents choix d'architecture*
+
+Ce tableau fournit une comparaison des architectures en éventail et en cascade.
+
+[cols="50,50"]
+|===
+| Fan-out | Cascade 
+
+
+| Faible impact sur les performances du système source car il envoie des copies instantanées à 2 systèmes distincts | Moins d'effet sur les performances du système de stockage source car il envoie la copie instantanée une seule fois 
+
+
+| Plus facile à configurer car toutes les politiques, la mise en réseau et les configurations ONTAP sont effectuées sur le système source | Nécessite également que certaines configurations réseau et ONTAP soient effectuées à partir du système secondaire. 
+|===
+
+
+== Utiliserez-vous les politiques par défaut pour les instantanés, les réplications et les sauvegardes ?
+
+Vous pouvez utiliser les politiques par défaut fournies par NetApp pour créer vos sauvegardes, ou vous pouvez créer des politiques personnalisées.  Lorsque vous utilisez l'assistant d'activation pour activer le service de sauvegarde et de récupération pour vos volumes, vous pouvez sélectionner parmi les stratégies par défaut et toutes les autres stratégies déjà existantes dans le système (Cloud Volumes ONTAP ou système ONTAP sur site).  Si vous souhaitez utiliser une politique différente de celles existantes, vous pouvez créer la politique avant de démarrer ou pendant l'utilisation de l'assistant d'activation.
+
+* La stratégie de capture instantanée par défaut crée des copies de capture instantanée horaires, quotidiennes et hebdomadaires, en conservant 6 copies de capture instantanée horaires, 2 copies de capture instantanée quotidiennes et 2 copies de capture instantanée hebdomadaires.
+* La politique de réplication par défaut réplique des copies instantanées quotidiennes et hebdomadaires, en conservant 7 copies instantanées quotidiennes et 52 copies instantanées hebdomadaires.
+* La politique de sauvegarde par défaut réplique des copies instantanées quotidiennes et hebdomadaires, en conservant 7 copies instantanées quotidiennes et 52 copies instantanées hebdomadaires.
+
+
+Si vous créez des stratégies personnalisées pour la réplication ou la sauvegarde, les étiquettes de stratégie (par exemple, « quotidienne » ou « hebdomadaire ») doivent correspondre aux étiquettes qui existent dans vos stratégies de snapshot, sinon les volumes répliqués et les fichiers de sauvegarde ne seront pas créés.
+
+Vous pouvez créer des stratégies de snapshot, de réplication et de sauvegarde vers des stockages d'objets dans l'interface utilisateur de NetApp Backup and Recovery.  Voir la section pourlink:prev-ontap-backup-manage.html["ajout d'une nouvelle politique de sauvegarde"] pour plus de détails.
+
+Outre l'utilisation de NetApp Backup and Recovery pour créer des politiques personnalisées, vous pouvez utiliser System Manager ou l'interface de ligne de commande ONTAP (CLI) :
+
+* https://docs.netapp.com/us-en/ontap/task_dp_configure_snapshot.html["Créer une stratégie de capture instantanée à l'aide de System Manager ou de l'interface de ligne de commande ONTAP"^]
+* https://docs.netapp.com/us-en/ontap/task_dp_create_custom_data_protection_policies.html["Créer une politique de réplication à l'aide de System Manager ou de l'interface de ligne de commande ONTAP"^]
+
+
+*Remarque :* lorsque vous utilisez le Gestionnaire système, sélectionnez *Asynchrone* comme type de politique pour les politiques de réplication, et sélectionnez *Asynchrone* et *Sauvegarder dans le cloud* pour les politiques de sauvegarde vers les objets.
+
+Voici quelques exemples de commandes CLI ONTAP qui pourraient être utiles si vous créez des politiques personnalisées.  Notez que vous devez utiliser le vserver _admin_ (VM de stockage) comme `<vserver_name>` dans ces commandes.
+
+[cols="30,70"]
+|===
+| Description de la politique | Commande 
+
+
+| Politique d'instantané simple | `snapshot policy create -policy WeeklySnapshotPolicy -enabled true -schedule1 weekly -count1 10 -vserver ClusterA -snapmirror-label1 weekly` 
+
+
+| Sauvegarde simple dans le cloud | `snapmirror policy create -policy <policy_name> -transfer-priority normal -vserver <vserver_name> -create-snapshot-on-source false -type vault`
+`snapmirror policy add-rule -policy <policy_name> -vserver <vserver_name> -snapmirror-label <snapmirror_label> -keep` 
+
+
+| Sauvegarde dans le cloud avec DataLock et protection contre les ransomwares | `snapmirror policy create -policy CloudBackupService-Enterprise -snapshot-lock-mode enterprise -vserver <vserver_name>`
+`snapmirror policy add-rule -policy CloudBackupService-Enterprise -retention-period 30days` 
+
+
+| Sauvegarde dans le cloud avec classe de stockage d'archivage | `snapmirror policy create -vserver <vserver_name> -policy <policy_name> -archive-after-days <days> -create-snapshot-on-source false -type vault`
+`snapmirror policy add-rule -policy <policy_name> -vserver <vserver_name> -snapmirror-label <snapmirror_label> -keep` 
+
+
+| Réplication simple vers un autre système de stockage | `snapmirror policy create -policy <policy_name> -type async-mirror -vserver <vserver_name>`
+`snapmirror policy add-rule -policy <policy_name> -vserver <vserver_name> -snapmirror-label <snapmirror_label> -keep` 
+|===
+
+NOTE: Seules les politiques de coffre-fort peuvent être utilisées pour la sauvegarde dans les relations cloud.
+
+
+
+== Où résident mes politiques?
+
+Les politiques de sauvegarde résident à différents emplacements en fonction de l'architecture de sauvegarde que vous prévoyez d'utiliser : en éventail ou en cascade.  Les politiques de réplication et les politiques de sauvegarde ne sont pas conçues de la même manière, car les réplications associent deux systèmes de stockage ONTAP et la sauvegarde vers un objet utilise un fournisseur de stockage comme destination.
+
+* Les politiques de capture instantanée résident toujours sur le système de stockage principal.
+* Les politiques de réplication résident toujours sur le système de stockage secondaire.
+* Les politiques de sauvegarde sur objet sont créées sur le système où réside le volume source : il s'agit du cluster principal pour les configurations en éventail et du cluster secondaire pour les configurations en cascade.
+
+
+Ces différences sont présentées dans le tableau.
+
+[cols="25,25,25,25"]
+|===
+| Architecture | Politique d'instantané | Politique de réplication | Politique de sauvegarde 
+
+
+| *Déploiement en éventail* | Primaire | Secondaire | Primaire 
+
+
+| *Cascade* | Primaire | Secondaire | Secondaire 
+|===
+Ainsi, si vous envisagez de créer des politiques personnalisées lors de l'utilisation de l'architecture en cascade, vous devrez créer les politiques de réplication et de sauvegarde sur les objets sur le système secondaire où les volumes répliqués seront créés.  Si vous envisagez de créer des politiques personnalisées lors de l'utilisation de l'architecture en éventail, vous devrez créer les politiques de réplication sur le système secondaire où les volumes répliqués seront créés et sauvegarder les politiques d'objet sur le système principal.
+
+Si vous utilisez les politiques par défaut qui existent sur tous les systèmes ONTAP , alors vous êtes prêt.
+
+
+
+== Voulez-vous créer votre propre conteneur de stockage d'objets
+
+Lorsque vous créez des fichiers de sauvegarde dans le stockage d'objets pour un système, par défaut, le service de sauvegarde et de récupération crée le conteneur (bucket ou compte de stockage) pour les fichiers de sauvegarde dans le compte de stockage d'objets que vous avez configuré.  Le bucket AWS ou GCP est nommé « netapp-backup-<uuid> » par défaut.  Le compte de stockage Azure Blob est nommé « netappbackup<uuid> ».
+
+Vous pouvez créer le conteneur vous-même dans le compte du fournisseur d'objets si vous souhaitez utiliser un certain préfixe ou attribuer des propriétés spéciales.  Si vous souhaitez créer votre propre conteneur, vous devez le créer avant de démarrer l'assistant d'activation.  NetApp Backup and Recovery peut utiliser n’importe quel bucket et partager des buckets.  L'assistant d'activation de sauvegarde détectera automatiquement vos conteneurs provisionnés pour le compte et les informations d'identification sélectionnés afin que vous puissiez sélectionner celui que vous souhaitez utiliser.
+
+Vous pouvez créer le bucket à partir de la console ou de votre fournisseur de cloud.
+
+* https://docs.netapp.com/us-en/storage-management-s3-storage/task-add-s3-bucket.html["Créer des buckets Amazon S3 à partir de la console"^]
+* https://docs.netapp.com/us-en/storage-management-blob-storage/task-add-blob-storage.html["Créer des comptes de stockage Azure Blob à partir de la console"^]
+* https://docs.netapp.com/us-en/storage-management-google-cloud-storage/task-add-gcp-bucket.html["Créer des buckets Google Cloud Storage à partir de la console"^]
+
+
+Si vous prévoyez d'utiliser un préfixe de bucket différent de « netapp-backup-xxxxxx », vous devrez modifier les autorisations S3 pour le rôle IAM de l'agent de console.
+
+*Paramètres de bucket avancés*
+
+Si vous prévoyez de déplacer des fichiers de sauvegarde plus anciens vers un stockage d'archives, ou si vous prévoyez d'activer la protection DataLock et Ransomware pour verrouiller vos fichiers de sauvegarde et les analyser à la recherche d'éventuels ransomwares, vous devrez créer le conteneur avec certains paramètres de configuration :
+
+* Le stockage d'archives sur vos propres buckets est actuellement pris en charge dans le stockage AWS S3 lorsque vous utilisez le logiciel ONTAP 9.10.1 ou une version ultérieure sur vos clusters.  Par défaut, les sauvegardes démarrent dans la classe de stockage S3 _Standard_.  Assurez-vous de créer le bucket avec les règles de cycle de vie appropriées :
++
+** Déplacez les objets de l'ensemble de la portée du bucket vers S3 _Standard-IA_ après 30 jours.
+** Déplacez les objets avec la balise « smc_push_to_archive: true » vers _Glacier Flexible Retrieval_ (anciennement S3 Glacier)
+
+
+* La protection DataLock et Ransomware est prise en charge dans le stockage AWS lors de l’utilisation du logiciel ONTAP 9.11.1 ou supérieur sur vos clusters, et dans le stockage Azure lors de l’utilisation du logiciel ONTAP 9.12.1 ou supérieur.
++
+** Pour AWS, vous devez activer le verrouillage d'objet sur le bucket à l'aide d'une période de conservation de 30 jours.
+** Pour Azure, vous devez créer la classe de stockage avec prise en charge de l’immuabilité au niveau de la version.
+
+
+
+
+
+
+== Quel mode de déploiement de l'agent de console utilisez-vous ?
+
+Si vous utilisez déjà la console pour gérer votre stockage, un agent de console a déjà été installé.  Si vous prévoyez d'utiliser le même agent de console avec NetApp Backup and Recovery, vous êtes prêt.  Si vous devez utiliser un autre agent de console, vous devrez l'installer avant de démarrer votre implémentation de sauvegarde et de récupération.
+
+La console NetApp propose plusieurs modes de déploiement qui vous permettent d'utiliser la console d'une manière qui répond à vos exigences commerciales et de sécurité.  Le _mode standard_ exploite la couche SaaS de la console pour fournir toutes les fonctionnalités, tandis que le _mode restreint_ et le _mode privé_ sont disponibles pour les organisations qui ont des restrictions de connectivité.
+
+https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["En savoir plus sur les modes de déploiement de la console NetApp"^] .
+
+
+
+=== Prise en charge des sites avec une connectivité Internet complète
+
+Lorsque NetApp Backup and Recovery est utilisé sur un site doté d'une connectivité Internet complète (également appelé _mode standard_ ou _mode SaaS_), vous pouvez créer des volumes répliqués sur n'importe quel système ONTAP ou Cloud Volumes ONTAP local géré par la console, et vous pouvez créer des fichiers de sauvegarde sur le stockage d'objets dans l'un des fournisseurs de cloud pris en charge. link:concept-backup-to-cloud.html["Consultez la liste complète des destinations de sauvegarde prises en charge"] .
+
+Pour obtenir la liste des emplacements d'agent de console valides, reportez-vous à l'une des procédures de sauvegarde suivantes pour le fournisseur de cloud où vous prévoyez de créer des fichiers de sauvegarde.  Il existe certaines restrictions selon lesquelles l'agent de console doit être installé manuellement sur une machine Linux ou déployé dans un fournisseur de cloud spécifique.
+
+* link:prev-ontap-backup-cvo-aws.html["Sauvegarder les données Cloud Volumes ONTAP sur Amazon S3"]
+* link:prev-ontap-backup-cvo-azure.html["Sauvegarder les données Cloud Volumes ONTAP sur Azure Blob"]
+* link:prev-ontap-backup-cvo-gcp.html["Sauvegarder les données Cloud Volumes ONTAP sur Google Cloud"]
+* link:prev-ontap-backup-onprem-aws.html["Sauvegarder les données ONTAP sur site sur Amazon S3"]
+* link:prev-ontap-backup-onprem-azure.html["Sauvegarder les données ONTAP locales sur Azure Blob"]
+* link:prev-ontap-backup-onprem-gcp.html["Sauvegarder les données ONTAP sur site sur Google Cloud"]
+* link:prev-ontap-backup-onprem-storagegrid.html["Sauvegarder les données ONTAP sur site sur StorageGRID"]
+* link:prev-ontap-backup-onprem-ontaps3.html["Sauvegarder ONTAP sur site vers ONTAP S3"]
+
+
+
+
+=== Prise en charge des sites avec une connectivité Internet limitée
+
+NetApp Backup and Recovery peut être utilisé sur un site avec une connectivité Internet limitée (également appelé _mode restreint_) pour sauvegarder les données de volume.  Dans ce cas, vous devrez déployer l’agent de console dans la région cloud de destination.
+
+ifdef::aws[]
+
+* Vous pouvez sauvegarder des données à partir de systèmes ONTAP sur site ou de systèmes Cloud Volumes ONTAP installés dans les régions commerciales AWS sur Amazon S3. link:prev-ontap-backup-cvo-aws.html["Sauvegarder les données Cloud Volumes ONTAP sur Amazon S3"] .
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* Vous pouvez sauvegarder des données à partir de systèmes ONTAP locaux ou de systèmes Cloud Volumes ONTAP installés dans des régions commerciales Azure vers Azure Blob. link:prev-ontap-backup-cvo-azure.html["Sauvegarder les données Cloud Volumes ONTAP sur Azure Blob"] .
+
+
+endif::azure[]
+
+
+
+=== Prise en charge des sites sans connexion Internet
+
+NetApp Backup and Recovery peut être utilisé sur un site sans connexion Internet (également appelé _mode privé_ ou sites _sombres_) pour sauvegarder les données de volume.  Dans ce cas, vous devrez déployer l’agent de console sur un hôte Linux sur le même site.
+
+
+NOTE: Le mode privé BlueXP (interface BlueXP héritée) est généralement utilisé avec des environnements locaux qui n’ont pas de connexion Internet et avec des régions cloud sécurisées, notamment AWS Secret Cloud, AWS Top Secret Cloud et Azure IL6. NetApp continue de prendre en charge ces environnements avec l’interface BlueXP héritée. Pour la documentation du mode privé dans l'ancienne interface BlueXP , reportez-vous à la https://docs.netapp.com/us-en/console-setup-admin/media/BlueXP-Private-Mode-legacy-interface.pdf["Documentation PDF pour le mode privé BlueXP"] .
+
+* Vous pouvez sauvegarder des données à partir de systèmes ONTAP locaux sur site vers des systèmes NetApp StorageGRID locaux. link:prev-ontap-backup-onprem-storagegrid.html["Sauvegarder les données ONTAP sur site sur StorageGRID"] .
+* Vous pouvez sauvegarder des données à partir de systèmes ONTAP locaux sur site vers des systèmes ONTAP locaux sur site ou des systèmes Cloud Volumes ONTAP configurés pour le stockage d'objets S3. link:prev-ontap-backup-onprem-ontaps3.html["Sauvegarder les données ONTAP sur site sur ONTAP S3"] . ifdef::aws[]
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+endif::azure[]

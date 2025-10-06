@@ -1,0 +1,25 @@
+= Modes de protection SnapLock Compliance et SnapLock Enterprise
+:allow-uri-read: 
+
+
+
+
+=== Modes de protection SnapLock Compliance et SnapLock Enterprise
+
+NetApp Backup and Recovery peut désormais sauvegarder les volumes locaux FlexVol et FlexGroup configurés à l'aide des modes de protection SnapLock Compliance ou SnapLock Enterprise . Vos clusters doivent exécuter ONTAP 9.14 ou une version ultérieure pour cette prise en charge. La sauvegarde des volumes FlexVol à l'aide du mode SnapLock Enterprise est prise en charge depuis la version 9.11.1 ONTAP . Les versions antérieures ONTAP ne fournissent aucune prise en charge pour la sauvegarde des volumes de protection SnapLock .
+
+Consultez la liste complète des volumes pris en charge dans le https://docs.netapp.com/us-en/data-services-backup-recovery/concept-backup-to-cloud.html["En savoir plus sur NetApp Backup and Recovery"] .
+
+
+
+=== Indexation du processus de recherche et de restauration sur la page Volumes
+
+Avant de pouvoir utiliser la recherche et la restauration, vous devez activer « Indexation » sur chaque système source à partir duquel vous souhaitez restaurer les données du volume.  Cela permet au catalogue indexé de suivre les fichiers de sauvegarde pour chaque volume.  La page Volumes affiche désormais l’état de l’indexation :
+
+* Indexé : Les volumes ont été indexés.
+* En cours
+* Non indexé
+* Indexation suspendue
+* Erreur
+* Non activé
+

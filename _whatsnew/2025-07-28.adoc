@@ -1,0 +1,20 @@
+= Prise en charge des charges de travail Kubernetes en tant qu'aperçu
+:allow-uri-read: 
+
+
+
+
+=== Prise en charge des charges de travail Kubernetes en tant qu'aperçu
+
+Cette version de NetApp Backup and Recovery introduit la prise en charge de la découverte et de la gestion des charges de travail Kubernetes :
+
+* Découvrez Red Hat OpenShift et les clusters Kubernetes open source, soutenus par NetApp ONTAP, sans partager les fichiers kubeconfig.
+* Découvrez, gérez et protégez les applications sur plusieurs clusters Kubernetes à l’aide d’un plan de contrôle unifié.
+* Déchargez les opérations de déplacement de données pour la sauvegarde et la récupération des applications Kubernetes vers NetApp ONTAP.
+* Orchestrez les sauvegardes d'applications locales et basées sur le stockage d'objets.
+* Sauvegardez et restaurez des applications entières et des ressources individuelles sur n'importe quel cluster Kubernetes.
+* Travaillez avec des conteneurs et des machines virtuelles exécutés sur Kubernetes.
+* Créez des sauvegardes cohérentes avec les applications à l’aide de hooks d’exécution et de modèles.
+
+
+Pour plus de détails sur la protection des charges de travail Kubernetes, reportez-vous à  https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kubernetes-protect-overview.html["Présentation de la protection des charges de travail Kubernetes"] .

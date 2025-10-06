@@ -1,0 +1,50 @@
+---
+sidebar: sidebar 
+permalink: br-use-manage-kubernetes-clusters.html 
+keywords: discover, backup and recovery, snapcenter, kubernetes, k8s, clusters, applications, inventory 
+summary: NetApp Backup and Recovery vous permet de découvrir et de gérer vos clusters Kubernetes afin de protéger les ressources hébergées par les clusters. 
+---
+= Gérer les clusters Kubernetes
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Backup and Recovery vous permet de découvrir et de gérer vos clusters Kubernetes afin de protéger les ressources hébergées par les clusters.
+
+.Rôle de console NetApp requis
+Administrateur d'organisation ou administrateur SnapCenter . link:reference-roles.html["En savoir plus sur les rôles d'accès NetApp Backup and Recovery"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+
+
+NOTE: Pour découvrir les clusters Kubernetes, reportez-vous à link:br-start-discover.html["Découvrez les charges de travail Kubernetes"] .
+
+
+
+== Modifier les informations du cluster Kubernetes
+
+Vous pouvez modifier un cluster si vous devez changer son nom.
+
+.Étapes
+. Dans NetApp Backup and Recovery, sélectionnez *Inventaire* > *Clusters*.
+. Dans la liste des clusters, choisissez un cluster que vous souhaitez modifier et sélectionnez le menu Actions associé.
+. Sélectionnez *Modifier le cluster*.
+. Apportez les modifications nécessaires au nom du cluster. Ce nom doit correspondre à celui utilisé avec la commande Helm lors de la découverte.
+. Sélectionnez *Terminé*.
+
+
+
+
+== Supprimer un cluster Kubernetes
+
+Si vous n’avez plus besoin de protéger les ressources hébergées par un cluster Kubernetes, vous pouvez le supprimer de NetApp Backup and Recovery.  La suppression d'un cluster ne supprime pas le cluster ni ses ressources ; elle supprime uniquement le cluster de l'inventaire de la console NetApp .  Avant de pouvoir supprimer un cluster, vous devez désactiver la protection et supprimer les applications associées de NetApp Backup and Recovery.
+
+.Étapes
+. Dans NetApp Backup and Recovery, sélectionnez *Inventaire* > *Clusters*.
+. Dans la liste des clusters, choisissez un cluster que vous souhaitez modifier et sélectionnez le menu Actions associé.
+. Sélectionnez *Supprimer le cluster*.
+. Vérifiez les informations dans la boîte de dialogue de confirmation et sélectionnez *Supprimer*.
+

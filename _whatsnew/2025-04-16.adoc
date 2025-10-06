@@ -1,0 +1,73 @@
+= Améliorations de l'interface utilisateur
+:allow-uri-read: 
+
+
+
+
+=== Améliorations de l'interface utilisateur
+
+Cette version améliore votre expérience en simplifiant l'interface :
+
+* La suppression de la colonne Agrégation des tables Volumes, ainsi que des colonnes Stratégie de snapshot, Stratégie de sauvegarde et Stratégie de réplication de la table Volume dans le tableau de bord V2, donne lieu à une présentation plus rationalisée.
+* L'exclusion des environnements de travail non activés de la liste déroulante rend l'interface moins encombrée, la navigation plus efficace et le chargement plus rapide.
+* Même si le tri sur la colonne Balises est désactivé, vous pouvez toujours afficher les balises, garantissant ainsi que les informations importantes restent facilement accessibles.
+* La suppression des étiquettes sur les icônes de protection contribue à un aspect plus propre et réduit le temps de chargement.
+* Pendant le processus d'activation de l'environnement de travail, une boîte de dialogue affiche une icône de chargement pour fournir des commentaires jusqu'à ce que le processus de découverte soit terminé, améliorant ainsi la transparence et la confiance dans les opérations du système.
+
+
+
+
+=== Tableau de bord de volume amélioré (aperçu)
+
+Le tableau de bord des volumes se charge désormais en moins de 10 secondes, offrant une interface beaucoup plus rapide et plus efficace.  Cette version préliminaire est disponible pour certains clients, leur offrant un aperçu préliminaire de ces améliorations.
+
+
+
+=== Prise en charge du magasin d'objets Wasabi tiers (aperçu)
+
+NetApp Backup and Recovery étend désormais son support aux magasins d'objets tiers, en mettant l'accent principalement sur Wasabi.  Cette nouvelle fonctionnalité d'aperçu vous permet d'exploiter n'importe quel magasin d'objets compatible S3 pour vos besoins de sauvegarde et de récupération.
+
+
+
+==== Démarrer avec Wasabi
+
+Pour commencer à utiliser un stockage tiers comme magasin d’objets, vous devez activer un indicateur dans l’agent de la console.  Ensuite, vous pouvez saisir les détails de connexion de votre magasin d’objets tiers et l’intégrer dans vos flux de travail de sauvegarde et de récupération.
+
+.Étapes
+. Connectez-vous en SSH à votre connecteur.
+. Accédez au conteneur du serveur NetApp Backup and Recovery CBS :
++
+[listing]
+----
+docker exec -it cloudmanager_cbs sh
+----
+. Ouvrez le `default.json` fichier à l'intérieur du `config` dossier via VIM ou tout autre éditeur :
++
+[listing]
+----
+vi default.json
+----
+. Modifier `allow-s3-compatible` : faux à `allow-s3-compatible` : vrai.
+. Enregistrez les modifications.
+. Sortie du conteneur.
+. Redémarrez le conteneur du serveur NetApp Backup and Recovery CBS.
+
+
+.Résultat
+Une fois le conteneur réactivé, ouvrez l’interface utilisateur de NetApp Backup and Recovery.  Lorsque vous lancez une sauvegarde ou modifiez une stratégie de sauvegarde, vous verrez le nouveau fournisseur « Compatible S3 » répertorié avec d'autres fournisseurs de sauvegarde d'AWS, Microsoft Azure, Google Cloud, StorageGRID et ONTAP S3.
+
+
+
+==== Limitations du mode aperçu
+
+Bien que cette fonctionnalité soit en version préliminaire, tenez compte des limitations suivantes :
+
+* L'option BYOB (Apportez votre propre seau) n'est pas prise en charge.
+* L'activation de DataLock dans une politique n'est pas prise en charge.
+* L'activation du mode d'archivage dans une politique n'est pas prise en charge.
+* Seuls les environnements ONTAP sur site sont pris en charge.
+* MetroCluster n'est pas pris en charge.
+* Les options permettant d'activer le chiffrement au niveau du bucket ne sont pas prises en charge.
+
+
+Au cours de cet aperçu, nous vous encourageons à explorer cette nouvelle fonctionnalité et à fournir des commentaires sur l'intégration avec les magasins d'objets tiers avant le déploiement complet des fonctionnalités.

@@ -1,0 +1,21 @@
+= Prise en charge de Podman sur RHEL 8 ou 9 avec navigation et restauration
+:allow-uri-read: 
+
+
+
+
+=== Prise en charge de Podman sur RHEL 8 ou 9 avec navigation et restauration
+
+NetApp Backup and Recovery prend désormais en charge les restaurations de fichiers et de dossiers sur les versions 8 et 9 de Red Hat Enterprise Linux (RHEL) à l'aide du moteur Podman.  Ceci s'applique à la méthode de navigation et de restauration de sauvegarde et de récupération NetApp .
+
+L'agent de console version 3.9.40 prend en charge certaines versions de Red Hat Enterprise Linux versions 8 et 9 pour toute installation manuelle du logiciel de l'agent de console sur un hôte RHEL 8 ou 9, quel que soit l'emplacement en plus des systèmes d'exploitation mentionnés dans le https://docs.netapp.com/us-en/console-setup-admin/task-prepare-private-mode.html#step-3-review-host-requirements["exigences de l'hôte"^] .  Ces nouvelles versions de RHEL nécessitent le moteur Podman au lieu du moteur Docker.  Auparavant, NetApp Backup and Recovery présentait deux limitations lors de l’utilisation du moteur Podman.  Ces limitations ont été supprimées.
+
+https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-restore.html["En savoir plus sur la restauration des données ONTAP à partir de fichiers de sauvegarde"] .
+
+
+
+=== L'indexation plus rapide du catalogue améliore la recherche et la restauration
+
+Cette version inclut un index de catalogue amélioré qui termine l'indexation de base beaucoup plus rapidement.  Une indexation plus rapide vous permet d’utiliser la fonction Rechercher et restaurer plus rapidement.
+
+https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-restore.html["En savoir plus sur la restauration des données ONTAP à partir de fichiers de sauvegarde"] .

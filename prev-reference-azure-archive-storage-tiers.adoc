@@ -1,0 +1,72 @@
+---
+sidebar: sidebar 
+permalink: prev-reference-azure-archive-storage-tiers.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: NetApp Backup and Recovery prend en charge un niveau d’accès aux archives Azure et la plupart des régions. 
+---
+= Niveaux d'accès aux archives Azure pris en charge avec NetApp Backup and Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Backup and Recovery prend en charge un niveau d’accès aux archives Azure et la plupart des régions.
+
+[]
+====
+*REMARQUE* Pour basculer vers et depuis les versions de l'interface utilisateur de sauvegarde et de récupération NetApp , reportez-vous àlink:br-start-switch-ui.html["Passer à l'interface utilisateur précédente de sauvegarde et de récupération NetApp"] .
+
+====
+
+
+== Niveaux d'accès Azure Blob pris en charge pour NetApp Backup and Recovery
+
+Lorsque les fichiers de sauvegarde sont initialement créés, ils sont stockés dans le niveau d'accès _Cool_.  Ce niveau est optimisé pour stocker des données rarement consultées, mais auxquelles il est possible d'accéder immédiatement en cas de besoin.
+
+Si vos clusters sources exécutent ONTAP 9.10.1 ou une version ultérieure, vous pouvez choisir de hiérarchiser les sauvegardes du stockage _Cool_ vers _Azure Archive_ après un certain nombre de jours (généralement plus de 30 jours) pour une optimisation supplémentaire des coûts.  Les données de ce niveau ne sont pas accessibles immédiatement en cas de besoin et nécessiteront un coût de récupération plus élevé. Vous devez donc tenir compte de la fréquence à laquelle vous devrez peut-être restaurer les données à partir de ces fichiers de sauvegarde archivés.  Consultez la section sur cette page concernant la restauration des données à partir du stockage d'archives.
+
+Notez que lorsque vous configurez NetApp Backup and Recovery avec ce type de règle de cycle de vie, vous ne devez configurer aucune règle de cycle de vie lors de la configuration du conteneur dans votre compte Azure.
+
+https://docs.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview["En savoir plus sur les niveaux d'accès Azure Blob"^] .
+
+
+
+== Restaurer les données à partir du stockage d'archives
+
+Bien que le stockage d’anciens fichiers de sauvegarde dans un stockage d’archives soit beaucoup moins coûteux que le stockage Cool, l’accès aux données d’un fichier de sauvegarde dans Azure Archive pour les opérations de restauration prendra plus de temps et coûtera plus cher.
+
+Combien coûte la restauration des données à partir d’Azure Archive ?:: Vous pouvez choisir deux priorités de restauration lors de la récupération de données à partir d'Azure Archive :
++
+--
+* *Élevé* : Récupération la plus rapide, coût plus élevé
+* *Standard* : Récupération plus lente, coût inférieur
+
+
+Chaque méthode a des frais de récupération par Go et des frais par demande différents.  Pour connaître les tarifs détaillés d'Azure Archive par région Azure, visitez le https://azure.microsoft.com/en-us/pricing/details/storage/blobs/["Page de tarification Azure"^] .
+
+--
+
+
+
+NOTE: La priorité élevée n’est pas prise en charge lors de la restauration des données d’Azure vers les systèmes StorageGRID .
+
+Combien de temps faudra-t-il pour restaurer mes données archivées dans Azure Archive ?:: Le temps de restauration se compose de deux parties :
++
+--
+* *Heure de récupération* : le temps nécessaire pour récupérer le fichier de sauvegarde archivé à partir d’Azure Archive et le placer dans le stockage Cool.  C'est ce qu'on appelle parfois le temps de « réhydratation ».  Le temps de récupération est différent selon la priorité de restauration que vous choisissez :
++
+** *Élevé* : < 1 heure
+** *Standard* : < 15 heures
+
+
+* *Temps de restauration* : Le temps nécessaire pour restaurer les données à partir du fichier de sauvegarde dans le stockage Cool.  Cette fois, ce n'est pas différent de l'opération de restauration typique directement à partir du stockage Cool - lorsque vous n'utilisez pas de niveau d'archivage.
+
+
+Pour plus d'informations sur les options de récupération d'Azure Archive, reportez-vous à https://azure.microsoft.com/en-us/pricing/details/storage/blobs/#faq["cette FAQ Azure"^] .
+
+--
+

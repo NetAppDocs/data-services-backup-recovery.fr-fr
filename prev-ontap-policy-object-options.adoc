@@ -1,0 +1,399 @@
+---
+sidebar: sidebar 
+permalink: prev-ontap-policy-object-options.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Protégez vos charges de travail VMware avec NetApp NetApp Backup and Recovery. 
+---
+= Options de stratégie de sauvegarde sur objet dans NetApp Backup and Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Backup and Recovery vous permet de créer des politiques de sauvegarde avec une variété de paramètres pour vos systèmes ONTAP et Cloud Volumes ONTAP sur site.
+
+
+NOTE: Ces paramètres de stratégie s'appliquent uniquement au stockage de sauvegarde sur objet.  Aucun de ces paramètres n’affecte vos stratégies de capture instantanée ou de réplication.
+
+[]
+====
+*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery, reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de sauvegarde et de récupération NetApp"] .
+
+====
+
+
+== Options de planification de sauvegarde
+
+NetApp Backup and Recovery vous permet de créer plusieurs politiques de sauvegarde avec des planifications uniques pour chaque système (cluster).  Vous pouvez attribuer différentes politiques de sauvegarde à des volumes ayant des objectifs de point de récupération (RPO) différents.
+
+Chaque politique de sauvegarde fournit une section pour _Étiquettes et rétention_ que vous pouvez appliquer à vos fichiers de sauvegarde.  Notez que la stratégie de snapshot appliquée au volume doit être l'une des stratégies reconnues par NetApp Backup and Recovery, sinon les fichiers de sauvegarde ne seront pas créés.
+
+Le planning comporte deux parties : l'étiquette et la valeur de rétention :
+
+* L'*étiquette* définit la fréquence à laquelle un fichier de sauvegarde est créé (ou mis à jour) à partir du volume.  Vous pouvez choisir parmi les types d’étiquettes suivants :
++
+** Vous pouvez choisir un délai, ou une combinaison de délais, *horaires*, *quotidiens*, *hebdomadaires*, *mensuels* et *annuels*.
+** Vous pouvez sélectionner l’une des politiques définies par le système qui fournissent une sauvegarde et une conservation pendant 3 mois, 1 an ou 7 ans.
+** Si vous avez créé des stratégies de protection de sauvegarde personnalisées sur le cluster à l'aide ONTAP System Manager ou de l'interface de ligne de commande ONTAP , vous pouvez sélectionner l'une de ces stratégies.
+
+
+* La valeur *rétention* définit le nombre de fichiers de sauvegarde conservés pour chaque étiquette (période).  Une fois que le nombre maximal de sauvegardes a été atteint dans une catégorie ou un intervalle, les sauvegardes les plus anciennes sont supprimées afin que vous disposiez toujours des sauvegardes les plus récentes.  Cela vous permet également d'économiser des coûts de stockage, car les sauvegardes obsolètes ne continuent pas à occuper de l'espace dans le cloud.
+
+
+Par exemple, supposons que vous créiez une politique de sauvegarde qui crée 7 sauvegardes *hebdomadaires* et 12 sauvegardes *mensuelles* :
+
+* chaque semaine et chaque mois, un fichier de sauvegarde est créé pour le volume
+* à la 8e semaine, la première sauvegarde hebdomadaire est supprimée et la nouvelle sauvegarde hebdomadaire de la 8e semaine est ajoutée (en conservant un maximum de 7 sauvegardes hebdomadaires)
+* au 13e mois, la première sauvegarde mensuelle est supprimée et la nouvelle sauvegarde mensuelle du 13e mois est ajoutée (en conservant un maximum de 12 sauvegardes mensuelles)
+
+
+Les sauvegardes annuelles sont automatiquement supprimées du système source après avoir été transférées vers le stockage d'objets.  Ce comportement par défaut peut être modifié dans la page Paramètres avancés du système.
+
+
+
+== Options de protection DataLock et Ransomware
+
+NetApp Backup and Recovery prend en charge la protection DataLock et Ransomware pour vos sauvegardes de volumes.  Ces fonctionnalités vous permettent de verrouiller vos fichiers de sauvegarde et de les analyser pour détecter d'éventuels ransomwares sur les fichiers de sauvegarde.  Il s’agit d’un paramètre facultatif que vous pouvez définir dans vos politiques de sauvegarde lorsque vous souhaitez une protection supplémentaire pour vos sauvegardes de volume pour un cluster.
+
+Ces deux fonctionnalités protègent vos fichiers de sauvegarde afin que vous disposiez toujours d'un fichier de sauvegarde valide pour récupérer des données en cas de tentative d'attaque par ransomware sur vos sauvegardes.  Il est également utile de répondre à certaines exigences réglementaires selon lesquelles les sauvegardes doivent être verrouillées et conservées pendant une certaine période.  Lorsque l'option DataLock et Ransomware Protection est activée, le verrouillage et le contrôle de version des objets seront activés pour le bucket cloud provisionné dans le cadre de l'activation de NetApp Backup and Recovery.
+
+https://bluexp.netapp.com/blog/cbs-blg-the-bluexp-feature-that-protects-backups-from-ransomware["Consultez le blog sur la protection DataLock et Ransomware pour plus de détails."^] .
+
+Cette fonctionnalité ne fournit pas de protection pour vos volumes sources ; uniquement pour les sauvegardes de ces volumes sources.  Utilisez certains des https://docs.netapp.com/us-en/ontap/anti-ransomware/index.html["protections anti-ransomware fournies par ONTAP"^] pour protéger vos volumes sources.
+
+[CAUTION]
+====
+* Si vous prévoyez d’utiliser la protection DataLock et Ransomware, vous pouvez l’activer lors de la création de votre première politique de sauvegarde et de l’activation de NetApp Backup and Recovery pour ce cluster.  Vous pouvez ultérieurement activer ou désactiver l’analyse des ransomwares à l’aide des paramètres avancés de NetApp Backup and Recovery.
+* Lorsque la console analyse un fichier de sauvegarde à la recherche de ransomware lors de la restauration des données du volume, vous encourez des frais de sortie supplémentaires auprès de votre fournisseur de cloud pour accéder au contenu du fichier de sauvegarde.
+
+
+====
+
+
+=== Qu'est-ce que DataLock
+
+Avec cette fonctionnalité, vous pouvez verrouiller les snapshots cloud répliqués via SnapMirror sur le cloud et également activer la fonctionnalité pour détecter une attaque de ransomware et récupérer une copie cohérente du snapshot sur le magasin d'objets.  Cette fonctionnalité est prise en charge sur AWS, Azure et StorageGRID.
+
+DataLock protège vos fichiers de sauvegarde contre toute modification ou suppression pendant une certaine période de temps - également appelée _stockage immuable_.  Cette fonctionnalité utilise la technologie du fournisseur de stockage d'objets pour le « verrouillage d'objets ».
+
+Les fournisseurs de cloud utilisent une date de conservation jusqu'à (RUD), qui est calculée en fonction de la période de conservation des instantanés.  La période de conservation des instantanés est calculée en fonction de l'étiquette et du nombre de conservations définis dans la politique de sauvegarde.
+
+La période minimale de conservation des instantanés est de 30 jours.  Voyons quelques exemples de la façon dont cela fonctionne :
+
+* Si vous choisissez l'étiquette *Quotidien* avec un nombre de rétention de 20, la période de rétention des instantanés est de 20 jours, la valeur par défaut étant le minimum de 30 jours.
+* Si vous choisissez l'étiquette *Hebdomadaire* avec un nombre de rétention de 4, la période de rétention des instantanés est de 28 jours, la valeur par défaut étant le minimum de 30 jours.
+* Si vous choisissez l'étiquette *Mensuel* avec le nombre de rétention 3, la période de rétention des instantanés est de 90 jours.
+* Si vous choisissez l'étiquette *Annuel* avec le nombre de rétention 1, la période de rétention des instantanés est de 365 jours.
+
+
+
+
+=== Qu'est-ce que la date de conservation jusqu'à (RUD) et comment est-elle calculée ?
+
+La date de conservation jusqu'à (RUD) est déterminée en fonction de la période de conservation des instantanés.  La date de conservation jusqu'à est calculée en additionnant la période de conservation des instantanés et une mémoire tampon.
+
+* Le tampon correspond au tampon pour le temps de transfert (3 jours) + le tampon pour l'optimisation des coûts (28 jours), ce qui donne un total de 31 jours.
+* La date de conservation minimale est de 30 jours + 31 jours de tampon = 61 jours.
+
+
+Voici quelques exemples :
+
+* Si vous créez une planification de sauvegarde mensuelle avec 12 rétentions, vos sauvegardes sont verrouillées pendant 12 mois (plus 31 jours) avant d'être supprimées (remplacées par le fichier de sauvegarde suivant).
+* Si vous créez une politique de sauvegarde qui crée 30 sauvegardes quotidiennes, 7 sauvegardes hebdomadaires et 12 sauvegardes mensuelles, il existe trois périodes de conservation verrouillées :
++
+** Les sauvegardes « 30 quotidiennes » sont conservées pendant 61 jours (30 jours plus 31 jours de mémoire tampon),
+** Les sauvegardes « 7 semaines » sont conservées pendant 11 semaines (7 semaines plus 31 jours), et
+** Les sauvegardes « 12 mensuelles » sont conservées pendant 12 mois (plus 31 jours).
+
+
+* Si vous créez une planification de sauvegarde horaire avec 24 rétentions, vous pourriez penser que les sauvegardes sont verrouillées pendant 24 heures.  Cependant, comme cela est inférieur au minimum de 30 jours, chaque sauvegarde sera verrouillée et conservée pendant 61 jours (30 jours plus 31 jours de mémoire tampon).
+
+
+
+CAUTION: Les anciennes sauvegardes sont supprimées après l’expiration de la période de conservation de DataLock, et non après la période de conservation de la politique de sauvegarde.
+
+Le paramètre de conservation DataLock remplace le paramètre de conservation de la politique de votre politique de sauvegarde.  Cela pourrait affecter vos coûts de stockage, car vos fichiers de sauvegarde seront enregistrés dans le magasin d'objets pendant une période plus longue.
+
+
+
+=== Activer DataLock et la protection contre les ransomwares
+
+Vous pouvez activer la protection DataLock et Ransomware lorsque vous créez une politique.  Vous ne pouvez pas activer, modifier ou désactiver cette option une fois la politique créée.
+
+. Lorsque vous créez une politique, développez la section *DataLock et protection contre les ransomwares*.
+. Choisissez l’une des options suivantes :
++
+** *Aucun* : la protection DataLock et la résilience aux ransomwares sont désactivées.
+** *Déverrouillé* : la protection DataLock et la résilience aux ransomwares sont activées.  Les utilisateurs disposant d’autorisations spécifiques peuvent écraser ou supprimer les fichiers de sauvegarde protégés pendant la période de conservation.
+** *Verrouillé* : la protection DataLock et la résilience aux ransomwares sont activées.  Aucun utilisateur ne peut écraser ou supprimer les fichiers de sauvegarde protégés pendant la période de conservation.  Cela satisfait pleinement à la conformité réglementaire.
+
+
+
+
+link:prev-ontap-policy-object-advanced-settings.html["Comment mettre à jour les options de protection contre les ransomwares dans la page Paramètres avancés"] .
+
+
+
+=== Qu'est-ce que la protection contre les ransomwares
+
+La protection contre les ransomwares analyse vos fichiers de sauvegarde pour rechercher des preuves d'une attaque de ransomware. La détection des attaques de ransomware est effectuée à l’aide d’une comparaison de somme de contrôle. Si un ransomware potentiel est identifié dans un nouveau fichier de sauvegarde par rapport au fichier de sauvegarde précédent, ce nouveau fichier de sauvegarde est remplacé par le fichier de sauvegarde le plus récent qui ne présente aucun signe d'attaque de ransomware. (Le fichier identifié comme ayant subi une attaque de ransomware est supprimé 1 jour après avoir été remplacé.)
+
+Les analyses se produisent dans ces situations :
+
+* Les analyses sur les objets de sauvegarde cloud sont lancées peu de temps après leur transfert vers le stockage d'objets cloud.  L'analyse n'est pas effectuée sur le fichier de sauvegarde lors de sa première écriture sur le stockage cloud, mais lors de l'écriture du fichier de sauvegarde suivant.
+* Les analyses de ransomware peuvent être lancées lorsque la sauvegarde est sélectionnée pour le processus de restauration.
+* Les analyses peuvent être effectuées à la demande à tout moment.
+
+
+*Comment fonctionne le processus de récupération ?*
+
+Lorsqu'une attaque de ransomware est détectée, le service utilise l'API REST Integrity Checker de l'agent Active Data Console pour démarrer le processus de récupération.  La version la plus ancienne des objets de données est la source de vérité et est transformée en version actuelle dans le cadre du processus de récupération.
+
+Voyons comment cela fonctionne :
+
+* En cas d'attaque par ransomware, le service tente d'écraser ou de supprimer l'objet dans le bucket.
+* Étant donné que le stockage cloud est compatible avec le contrôle de version, il crée automatiquement une nouvelle version de l'objet de sauvegarde.  Si un objet est supprimé avec le contrôle de version activé, il est marqué comme supprimé mais peut toujours être récupéré.  Si un objet est écrasé, les versions précédentes sont stockées et marquées.
+* Lorsqu'une analyse de ransomware est lancée, les sommes de contrôle sont validées pour les deux versions d'objet et comparées.  Si les sommes de contrôle sont incohérentes, un ransomware potentiel a été détecté.
+* Le processus de récupération implique de revenir à la dernière bonne copie connue.
+
+
+
+
+=== Systèmes pris en charge et fournisseurs de stockage d'objets
+
+Vous pouvez activer la protection DataLock et Ransomware sur les volumes ONTAP des systèmes suivants lorsque vous utilisez le stockage d'objets dans les fournisseurs de cloud public et privé suivants.  Des fournisseurs de cloud supplémentaires seront ajoutés dans les prochaines versions.
+
+[cols="55,45"]
+|===
+| Système source | Destination du fichier de sauvegarde ifdef::aws[] 
+
+
+| Cloud Volumes ONTAP dans AWS | Amazon S3 endif::aws[] ifdef::azure[] 
+
+
+| Cloud Volumes ONTAP dans Azure | Objet blob Azure endif::azure[] ifdef::gcp[] endif::gcp[] 
+
+
+| Système ONTAP sur site | ifdef::aws[] Amazon S3 endif::aws[] ifdef::azure[] Azure Blob endif::azure[] ifdef::gcp[] endif::gcp[] NetApp StorageGRID 
+|===
+
+
+=== Exigences
+
+ifdef::aws[]
+
+* Pour AWS :
++
+** Vos clusters doivent exécuter ONTAP 9.11.1 ou supérieur
+** L'agent de console peut être déployé dans le cloud ou dans vos locaux
+** Les autorisations S3 suivantes doivent faire partie du rôle IAM qui fournit des autorisations à l’agent de console.  Ils résident dans la section « backupS3Policy » pour la ressource « arn:aws:s3:::netapp-backup-* » :
++
+.Autorisations AWS S3
+[%collapsible]
+====
+*** s3 : Obtenir le balisage de la version de l'objet
+*** s3 : GetBucketObjectLockConfiguration
+*** s3 : ObtenirObjectVersionAcl
+*** s3 : Mettre en place un balisage d'objet
+*** s3:Supprimer l'objet
+*** s3 : Supprimer le balisage d'objet
+*** s3 : Obtenir la rétention d'objet
+*** s3 : Supprimer le balisage de version d'objet
+*** s3:PutObject
+*** s3:Obtenir l'objet
+*** s3 : PutBucketObjectLockConfiguration
+*** s3 : Obtenir la configuration du cycle de vie
+*** s3 : Obtenir le balisage du bucket
+*** s3 : Supprimer la version de l'objet
+*** s3 : ListBucketVersions
+*** s3:ListBucket
+*** s3 : Mettre en place le balisage du bucket
+*** s3 : Obtenir le balisage des objets
+*** s3 : PutBucketVersioning
+*** s3 : Mettre en place la version de l'objet
+*** s3 : Obtenir la gestion des versions du bucket
+*** s3 : Obtenir l'Acl du bucket
+*** s3 : Contournement de la gouvernance et de la rétention
+*** s3 : PutObjectRetention
+*** s3 : Obtenir l'emplacement du bucket
+*** s3 : Obtenir la version de l'objet
+
+
+====
++
+https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-aws.html["Affichez le format JSON complet de la politique où vous pouvez copier et coller les autorisations requises"^] .
+
+
+
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* Pour Azure :
++
+** Vos clusters doivent exécuter ONTAP 9.12.1 ou supérieur
+** L'agent de console peut être déployé dans le cloud ou dans vos locaux
+
+
+
+
+endif::azure[]
+
+* Pour StorageGRID:
++
+** Vos clusters doivent exécuter ONTAP 9.11.1 ou supérieur
+** Vos systèmes StorageGRID doivent exécuter la version 11.6.0.3 ou supérieure
+** L'agent Console doit être déployé dans vos locaux (il peut être installé sur un site avec ou sans accès Internet)
+** Les autorisations S3 suivantes doivent faire partie du rôle IAM qui fournit des autorisations à l'agent de console :
++
+.Autorisations S3 StorageGRID
+[%collapsible]
+====
+*** s3 : Obtenir le balisage de la version de l'objet
+*** s3 : GetBucketObjectLockConfiguration
+*** s3 : ObtenirObjectVersionAcl
+*** s3 : Mettre en place un balisage d'objet
+*** s3:Supprimer l'objet
+*** s3 : Supprimer le balisage d'objet
+*** s3 : Obtenir la rétention d'objet
+*** s3 : Supprimer le balisage de version d'objet
+*** s3:PutObject
+*** s3:Obtenir l'objet
+*** s3 : PutBucketObjectLockConfiguration
+*** s3 : Obtenir la configuration du cycle de vie
+*** s3 : Obtenir le balisage du bucket
+*** s3 : Supprimer la version de l'objet
+*** s3 : ListBucketVersions
+*** s3:ListBucket
+*** s3 : Mettre en place le balisage du bucket
+*** s3 : Obtenir le balisage des objets
+*** s3 : PutBucketVersioning
+*** s3 : Mettre en place la version de l'objet
+*** s3 : Obtenir la gestion des versions du bucket
+*** s3 : Obtenir l'Acl du bucket
+*** s3 : PutObjectRetention
+*** s3 : Obtenir l'emplacement du bucket
+*** s3 : Obtenir la version de l'objet
+
+
+====
+
+
+
+
+
+
+=== Restrictions
+
+* La fonctionnalité de protection DataLock et Ransomware n'est pas disponible si vous avez configuré le stockage d'archives dans la politique de sauvegarde.
+* L'option DataLock que vous sélectionnez lors de l'activation de NetApp Backup and Recovery doit être utilisée pour toutes les stratégies de sauvegarde de ce cluster.
+* Vous ne pouvez pas utiliser plusieurs modes DataLock sur un seul cluster.
+* Si vous activez DataLock, toutes les sauvegardes de volumes seront verrouillées.  Vous ne pouvez pas mélanger des sauvegardes de volumes verrouillés et non verrouillés pour un même cluster.
+* La protection DataLock et Ransomware est applicable aux nouvelles sauvegardes de volume à l'aide d'une politique de sauvegarde avec la protection DataLock et Ransomware activée. Vous pouvez ultérieurement activer ou désactiver ces fonctionnalités à l’aide de l’option Paramètres avancés.
+* Les volumes FlexGroup peuvent utiliser la protection DataLock et Ransomware uniquement lors de l'utilisation ONTAP 9.13.1 ou supérieur.
+
+
+
+
+=== Conseils pour atténuer les coûts de DataLock
+
+Vous pouvez activer ou désactiver la fonction Ransomware Scan tout en gardant la fonction DataLock active.  Pour éviter des frais supplémentaires, vous pouvez désactiver les analyses de ransomware programmées.  Cela vous permet de personnaliser vos paramètres de sécurité et d'éviter d'engager des frais auprès du fournisseur de cloud.
+
+Même si les analyses de ransomware programmées sont désactivées, vous pouvez toujours effectuer des analyses à la demande en cas de besoin.
+
+Vous pouvez choisir différents niveaux de protection :
+
+* *DataLock _sans_ analyses de ransomware* : fournit une protection pour les données de sauvegarde dans le stockage de destination qui peut être en mode Gouvernance ou Conformité.
++
+** *Mode de gouvernance* : offre aux administrateurs la possibilité d'écraser ou de supprimer les données protégées.
+** *Mode de conformité* : Offre une indélébilité complète jusqu'à l'expiration de la période de conservation.  Cela permet de répondre aux exigences de sécurité des données les plus strictes des environnements hautement réglementés.  Les données ne peuvent pas être écrasées ou modifiées au cours de leur cycle de vie, offrant ainsi le niveau de protection le plus élevé pour vos copies de sauvegarde.
++
+
+NOTE: Microsoft Azure utilise plutôt un mode de verrouillage et de déverrouillage.
+
+
+
+* *DataLock _avec_ analyses de ransomware* : Fournit une couche de sécurité supplémentaire pour vos données.  Cette fonctionnalité permet de détecter toute tentative de modification des copies de sauvegarde.  Si une tentative est faite, une nouvelle version des données est créée discrètement.  La fréquence d'analyse peut être modifiée sur 1, 2, 3, 4, 5, 6 ou 7 jours.  Si les analyses sont programmées tous les 7 jours, les coûts diminuent considérablement.
+
+
+Pour plus de conseils pour atténuer les coûts de DataLock, consultezhttps://community.netapp.com/t5/Tech-ONTAP-Blogs/Understanding-NetApp-Backup-and-Recovery-DataLock-and-Ransomware-Feature-TCO/ba-p/453475[]
+
+De plus, vous pouvez obtenir des estimations du coût associé à DataLock en visitant le https://bluexp.netapp.com/cloud-backup-service-tco-calculator["Calculateur du coût total de possession (TCO) de NetApp Backup and Recovery"] .
+
+
+
+== Options de stockage d'archives
+
+Lorsque vous utilisez le stockage cloud AWS, Azure ou Google, vous pouvez déplacer les anciens fichiers de sauvegarde vers une classe de stockage d'archivage ou un niveau d'accès moins coûteux après un certain nombre de jours.  Vous pouvez également choisir d'envoyer immédiatement vos fichiers de sauvegarde vers un stockage d'archives sans les écrire sur un stockage cloud standard.  Entrez simplement *0* comme « Archiver après jours » pour envoyer votre fichier de sauvegarde directement vers le stockage d'archivage.  Cela peut être particulièrement utile pour les utilisateurs qui ont rarement besoin d’accéder aux données des sauvegardes cloud ou pour les utilisateurs qui remplacent une solution de sauvegarde sur bande.
+
+Les données des niveaux d'archivage ne sont pas immédiatement accessibles en cas de besoin et nécessiteront un coût de récupération plus élevé. Vous devrez donc prendre en compte la fréquence à laquelle vous devrez peut-être restaurer les données à partir de fichiers de sauvegarde avant de décider d'archiver vos fichiers de sauvegarde.
+
+[NOTE]
+====
+* Même si vous sélectionnez « 0 » pour envoyer tous les blocs de données vers le stockage cloud d'archivage, les blocs de métadonnées sont toujours écrits dans le stockage cloud standard.
+* Le stockage d'archives ne peut pas être utilisé si vous avez activé DataLock.
+* Vous ne pouvez pas modifier la politique d'archivage après avoir sélectionné *0* jour (archiver immédiatement).
+
+
+====
+Chaque politique de sauvegarde fournit une section pour la _Politique d'archivage_ que vous pouvez appliquer à vos fichiers de sauvegarde.
+
+ifdef::aws[]
+
+* Dans AWS, les sauvegardes démarrent dans la classe de stockage _Standard_ et passent à la classe de stockage _Standard-Infrequent Access_ après 30 jours.
++
+Si votre cluster utilise ONTAP 9.10.1 ou une version ultérieure, vous pouvez hiérarchiser les sauvegardes plus anciennes vers le stockage _S3 Glacier_ ou _S3 Glacier Deep Archive_. link:prev-reference-aws-archive-storage-tiers.html["En savoir plus sur le stockage d'archives AWS"] .
+
++
+** Si vous ne sélectionnez aucun niveau d'archivage dans votre première politique de sauvegarde lors de l'activation de NetApp Backup and Recovery, _S3 Glacier_ sera votre seule option d'archivage pour les politiques futures.
+** Si vous sélectionnez _S3 Glacier_ dans votre première politique de sauvegarde, vous pouvez alors passer au niveau _S3 Glacier Deep Archive_ pour les futures politiques de sauvegarde de ce cluster.
+** Si vous sélectionnez _S3 Glacier Deep Archive_ dans votre première politique de sauvegarde, ce niveau sera le seul niveau d'archivage disponible pour les futures politiques de sauvegarde pour ce cluster.
+
+
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* Dans Azure, les sauvegardes sont associées au niveau d’accès _Cool_.
++
+Si votre cluster utilise ONTAP 9.10.1 ou une version ultérieure, vous pouvez hiérarchiser les sauvegardes plus anciennes vers le stockage _Azure Archive_. link:prev-reference-azure-archive-storage-tiers.html["En savoir plus sur le stockage d'archives Azure"] .
+
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* Dans GCP, les sauvegardes sont associées à la classe de stockage _Standard_.
++
+Si votre cluster sur site utilise ONTAP 9.12.1 ou une version ultérieure, vous pouvez choisir de hiérarchiser les sauvegardes plus anciennes vers le stockage _Archive_ dans l'interface utilisateur NetApp Backup and Recovery après un certain nombre de jours pour une optimisation supplémentaire des coûts. link:prev-reference-gcp-archive-storage-tiers.html["En savoir plus sur le stockage d'archives Google"] .
+
+
+
+endif::gcp[]
+
+* Dans StorageGRID, les sauvegardes sont associées à la classe de stockage _Standard_.
++
+Si votre cluster sur site utilise ONTAP 9.12.1 ou une version ultérieure et que votre système StorageGRID utilise 11.4 ou une version ultérieure, vous pouvez archiver les anciens fichiers de sauvegarde dans un stockage d'archivage cloud public.
+
+
+
+ifdef::aws[]
+
++ ** Pour AWS, vous pouvez hiérarchiser les sauvegardes vers le stockage AWS _S3 Glacier_ ou _S3 Glacier Deep Archive_. link:prev-reference-aws-archive-storage-tiers.html["En savoir plus sur le stockage d'archives AWS"^] .
+
+endif::aws[]
+
+ifdef::azure[]
+
++ ** Pour Azure, vous pouvez hiérarchiser les sauvegardes plus anciennes vers le stockage _Azure Archive_. link:prev-reference-azure-archive-storage-tiers.html["En savoir plus sur le stockage d'archives Azure"^] .
+
+endif::azure[]

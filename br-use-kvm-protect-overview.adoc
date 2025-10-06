@@ -1,0 +1,39 @@
+---
+sidebar: sidebar 
+permalink: br-use-kvm-protect-overview.html 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery 
+summary: Vous pouvez protéger les machines virtuelles KVM des systèmes ONTAP sur site vers Amazon Web Services, Microsoft Azure, Google Cloud Platform et StorageGRID, garantissant ainsi la protection de vos données. 
+---
+= Présentation de la protection des charges de travail KVM
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Protégez vos machines virtuelles KVM et vos pools de stockage avec NetApp Backup and Recovery.  NetApp Backup and Recovery fournit des opérations de sauvegarde et de restauration rapides, peu encombrantes, cohérentes en cas de panne et cohérentes avec les machines virtuelles.
+
+Vous pouvez sauvegarder les charges de travail KVM sur Amazon Web Services S3, Azure NetApp Files ou StorageGRID et restaurer les charges de travail KVM sur un hôte KVM local.
+
+image:../media/diagram-backup-recovery-general.png["Schéma d'architecture de sauvegarde et de restauration en général"]
+
+Utilisez NetApp Backup and Recovery pour mettre en œuvre une stratégie de protection 3-2-1, où vous disposez de 3 copies de vos données sources sur 2 systèmes de stockage différents ainsi que d'une copie dans le cloud. Les avantages de l’approche 3-2-1 incluent :
+
+* Plusieurs copies de données offrent une protection multicouche contre les menaces de cybersécurité internes (initiées) et externes.
+* Plusieurs types de supports garantissent la viabilité du basculement en cas de défaillance physique ou logique d'un type de support.
+* La copie sur site facilite les restaurations rapides, les copies hors site étant disponibles au cas où la copie sur site serait compromise.
+
+
+
+NOTE: Pour basculer vers et depuis les versions de l'interface utilisateur NetApp Backup and Recovery, reportez-vous àlink:br-start-switch-ui.html["Passer à l'interface utilisateur précédente de sauvegarde et de récupération NetApp"] .
+
+Vous pouvez utiliser NetApp Backup and Recovery pour effectuer les tâches suivantes liées aux charges de travail KVM :
+
+* link:br-start-discover-kvm.html["Découvrez les charges de travail KVM"]
+* link:br-use-kvm-protection-groups.html["Créer et gérer des groupes de protection pour les charges de travail KVM"]
+* link:br-use-kvm-backup.html["Sauvegarder les charges de travail KVM"]
+* link:br-use-kvm-restore.html["Restaurer les charges de travail KVM"]
+

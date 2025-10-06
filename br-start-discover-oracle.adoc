@@ -1,0 +1,64 @@
+---
+sidebar: sidebar 
+permalink: br-start-discover-oracle.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, workloads, protect, Oracle 
+summary: NetApp Backup and Recovery doit d’abord découvrir les charges de travail afin que vous puissiez les protéger. 
+---
+= Découvrez les charges de travail Oracle dans NetApp Backup and Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Backup and Recovery doit d’abord découvrir vos bases de données Oracle afin que vous puissiez les protéger.
+
+*Rôle de console requis* Super administrateur de sauvegarde et de récupération. En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+
+
+
+== Ajoutez un hôte Oracle et découvrez des ressources
+
+Ajoutez les informations sur l’hôte Oracle et laissez NetApp Backup and Recovery découvrir les charges de travail.  Dans chaque agent de console, sélectionnez les systèmes sur lesquels vous souhaitez découvrir les charges de travail.
+
+.Étapes
+. Dans le menu de la console NetApp , sélectionnez *Protection > Sauvegarde et récupération*.
+. Dans la mosaïque Oracle, sélectionnez *Découvrir et gérer*.
++
+Si c'est la première fois que vous vous connectez à ce service, que vous avez déjà un système dans la console, mais que vous n'avez découvert aucune ressource, la page d'accueil « Bienvenue dans la nouvelle sauvegarde et récupération NetApp » apparaît et affiche une option pour *Découvrir les ressources*.
+
+. Sélectionnez *Découvrir les ressources*.
+. Saisissez les informations suivantes :
++
+.. *Type de charge de travail* : sélectionnez *Oracle*.
+.. Si vous n'avez pas encore enregistré les informations d'identification pour cet hôte Oracle, sélectionnez *Ajouter des informations d'identification*.
++
+... Sélectionnez l’agent de console à utiliser avec cet hôte.
+... Saisissez un nom pour ces informations d’identification.
+... Entrez le nom d'utilisateur et le mot de passe du compte.
+... Sélectionnez *Terminé*.
+
+
+.. *Enregistrement de l'hôte* : ajoutez un nouvel hôte Oracle.  Saisissez le nom de domaine complet ou l'adresse IP de l'hôte, les informations d'identification, l'agent de console et le numéro de port.
+
+
+. Sélectionnez *Découvrir*.
++
+
+TIP: Ce processus peut prendre quelques minutes.
+
+
+
+.Résultat
+La charge de travail Oracle s'affiche dans la liste des charges de travail sur la page Inventaire.
+
+
+
+== Accéder au tableau de bord de sauvegarde et de récupération NetApp
+
+. Pour afficher le tableau de bord de sauvegarde et de récupération NetApp , dans le menu supérieur, sélectionnez *Tableau de bord*.
+. Examiner l’état de santé de la protection des données.  Le nombre de charges de travail à risque ou protégées augmente en fonction des charges de travail nouvellement découvertes, protégées et sauvegardées.
+

@@ -1,0 +1,49 @@
+---
+sidebar: sidebar 
+permalink: reference-restart-backup.html 
+keywords: backup restart, restart backup 
+summary: Il peut y avoir des situations dans lesquelles vous devrez redémarrer NetApp Backup and Recovery. 
+---
+= Redémarrer NetApp Backup and Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Il peut y avoir des situations dans lesquelles vous devrez redémarrer NetApp Backup and Recovery.
+
+La fonctionnalité de sauvegarde et de récupération NetApp est intégrée à l’agent de la console.
+
+.Étapes
+. Connectez-vous au système Linux sur lequel l’agent de console s’exécute.
++
+[cols="25,50"]
+|===
+| Emplacement de l'agent de la console | Procédure 
+
+
+| Déploiement dans le cloud | Suivez les instructions pour https://docs.netapp.com/us-en/console-setup-admin/task-maintain-connectors.html#connect-to-the-linux-vm["connexion à la machine virtuelle Linux de l'agent de console"^] selon le fournisseur de cloud que vous utilisez. 
+
+
+| Installation manuelle | Connectez-vous au système Linux. 
+|===
+. Entrez la commande pour redémarrer le service.
++
+[cols="40,30,30"]
+|===
+| Emplacement de l'agent de la console | Commande Docker | Commande Podman 
+
+
+| Déploiement dans le cloud | `docker restart cloudmanager_cbs` | `podman restart cloudmanager_cbs` 
+
+
+| Installation manuelle avec accès Internet | `docker restart cloudmanager_cbs` | `podman restart cloudmanager_cbs` 
+
+
+| Installation manuelle sans accès Internet | `docker restart ds_cloudmanager_cbs_1` | `podman restart ds_cloudmanager_cbs_1` 
+|===
+

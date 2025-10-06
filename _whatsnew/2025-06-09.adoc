@@ -1,0 +1,42 @@
+= Mises à jour du support du catalogue indexé
+:allow-uri-read: 
+
+
+
+
+=== Mises à jour du support du catalogue indexé
+
+En février 2025, nous avons introduit la fonctionnalité d'indexation mise à jour (Catalogue indexé v2) que vous utilisez pendant la méthode de recherche et de restauration des données.  La version précédente a considérablement amélioré les performances d’indexation des données dans les environnements sur site.  Avec cette version, le catalogue d'indexation est désormais disponible avec les environnements Amazon Web Services, Microsoft Azure et Google Cloud Platform (GCP).
+
+Si vous êtes un nouveau client, le catalogue indexé v2 est activé par défaut pour tous les nouveaux environnements.  Si vous êtes un client existant, vous pouvez réindexer votre environnement pour tirer parti du catalogue indexé v2.
+
+.Comment activer l'indexation ?
+Avant de pouvoir utiliser la méthode de recherche et de restauration des données, vous devez activer « Indexation » sur chaque environnement de travail source à partir duquel vous prévoyez de restaurer des volumes ou des fichiers.  Sélectionnez l'option *Activer l'indexation* lorsque vous effectuez une recherche et une restauration.
+
+Le catalogue indexé peut ensuite suivre chaque volume et fichier de sauvegarde, rendant vos recherches rapides et efficaces.
+
+Pour plus d'informations, consultez  https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-restore.html["Activer l'indexation pour la recherche et la restauration"] .
+
+
+
+=== Points de terminaison de liaison privée Azure et points de terminaison de service
+
+En règle générale, NetApp Backup and Recovery établit un point de terminaison privé avec le fournisseur de cloud pour gérer les tâches de protection.  Cette version introduit un paramètre facultatif qui vous permet d'activer ou de désactiver la création automatique d'un point de terminaison privé par NetApp Backup and Recovery.  Cela peut vous être utile si vous souhaitez davantage de contrôle sur le processus de création de points de terminaison privés.
+
+Vous pouvez activer ou désactiver cette option lorsque vous activez la protection ou démarrez le processus de restauration.
+
+Si vous désactivez ce paramètre, vous devez créer manuellement le point de terminaison privé pour que NetApp Backup and Recovery fonctionne correctement.  Sans connectivité appropriée, vous risquez de ne pas être en mesure d’effectuer correctement les tâches de sauvegarde et de récupération.
+
+
+
+=== Prise en charge de SnapMirror vers Cloud Resync sur ONTAP S3
+
+La version précédente a introduit la prise en charge de SnapMirror vers Cloud Resync (SM-C Resync).  Cette fonctionnalité rationalise la protection des données lors de la migration de volumes dans les environnements NetApp .  Cette version ajoute la prise en charge de SM-C Resync sur ONTAP S3 ainsi que d'autres fournisseurs compatibles S3 tels que Wasabi et MinIO.
+
+
+
+=== Apportez votre propre bucket pour StorageGRID
+
+Lorsque vous créez des fichiers de sauvegarde dans le stockage d'objets pour un environnement de travail, par défaut, NetApp Backup and Recovery crée le conteneur (bucket ou compte de stockage) pour les fichiers de sauvegarde dans le compte de stockage d'objets que vous avez configuré.  Auparavant, vous pouviez remplacer cela et spécifier votre propre conteneur pour Amazon S3, Azure Blob Storage et Google Cloud Storage.  Avec cette version, vous pouvez désormais apporter votre propre conteneur de stockage d'objets StorageGRID .
+
+Voir https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-protect-journey.html["Créez votre propre conteneur de stockage d'objets"] .

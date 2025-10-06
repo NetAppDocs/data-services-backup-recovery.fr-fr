@@ -1,0 +1,26 @@
+= Prise en charge de la protection des charges de travail VMware dans l'aperçu
+:allow-uri-read: 
+
+
+
+
+=== Prise en charge de la protection des charges de travail VMware dans l'aperçu
+
+Cette version ajoute une prise en charge préliminaire pour la protection des charges de travail VMware. Sauvegardez les machines virtuelles VMware et les banques de données des systèmes ONTAP sur site vers Amazon Web Services et StorageGRID.
+
+
+NOTE: La documentation sur la protection des charges de travail VMware est fournie sous forme d'aperçu technologique. Avec cette offre préliminaire, NetApp se réserve le droit de modifier les détails, le contenu et le calendrier de l'offre avant la disponibilité générale.
+
+link:br-use-vmware-protect-overview.html["En savoir plus sur la protection des charges de travail VMware avec NetApp Backup and Recovery"] .
+
+
+
+=== L'indexation haute performance pour AWS, Azure et GCP est généralement disponible
+
+En février 2025, nous avons annoncé l’aperçu de l’indexation haute performance (Indexed Catalog v2) pour AWS, Azure et GCP. Cette fonctionnalité est désormais généralement disponible (GA). En juin 2025, nous l'avons fourni à tous les _nouveaux_ clients par défaut. Avec cette version, le support est disponible pour _tous_ les clients. L’indexation hautes performances améliore les performances des opérations de sauvegarde et de restauration pour les charges de travail protégées par le stockage d’objets.
+
+Activé par défaut :
+
+* Si vous êtes un nouveau client, l'indexation haute performance est activée par défaut.
+* Si vous êtes un client existant, vous pouvez activer la réindexation en accédant à la section Restaurer de l'interface utilisateur.
+

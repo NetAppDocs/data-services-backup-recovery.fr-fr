@@ -1,0 +1,42 @@
+= Resynchronisation de SnapMirror vers Cloud pour les migrations de volumes
+:allow-uri-read: 
+
+
+
+
+=== Resynchronisation de SnapMirror vers Cloud pour les migrations de volumes
+
+La fonctionnalité SnapMirror to Cloud Resync rationalise la protection et la continuité des données lors des migrations de volumes dans les environnements NetApp .  Lorsqu'un volume est migré à l'aide de SnapMirror Logical Replication (LRSE), d'un déploiement NetApp sur site vers un autre ou vers une solution cloud telle que Cloud Volumes ONTAP ou Cloud Volumes Service, SnapMirror to Cloud Resync garantit que les sauvegardes cloud existantes restent intactes et opérationnelles.
+
+Cette fonctionnalité élimine le besoin d'une opération de redéfinition de base longue et gourmande en ressources, permettant aux opérations de sauvegarde de se poursuivre après la migration.  Cette fonctionnalité est utile dans les scénarios de migration de charge de travail, prenant en charge à la fois FlexVols et FlexGroups, et est disponible à partir de la version 9.16.1 ONTAP .
+
+En maintenant la continuité des sauvegardes dans tous les environnements, SnapMirror to Cloud Resync améliore l'efficacité opérationnelle et réduit la complexité de la gestion des données hybrides et multicloud.
+
+Pour plus de détails sur la façon d'effectuer l'opération de resynchronisation, voir https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-migrate-resync.html["Migrer des volumes à l'aide de SnapMirror vers Cloud Resync"] .
+
+
+
+=== Prise en charge du magasin d'objets MinIO tiers (aperçu)
+
+NetApp Backup and Recovery étend désormais sa prise en charge aux magasins d'objets tiers, en mettant l'accent principalement sur MinIO.  Cette nouvelle fonctionnalité d'aperçu vous permet d'exploiter n'importe quel magasin d'objets compatible S3 pour vos besoins de sauvegarde et de récupération.
+
+Avec cette version préliminaire, nous espérons garantir une intégration robuste avec les magasins d'objets tiers avant que la fonctionnalité complète ne soit déployée.  Nous vous encourageons à explorer cette nouvelle fonctionnalité et à fournir des commentaires pour aider à améliorer le service.
+
+
+IMPORTANT: Cette fonctionnalité ne doit pas être utilisée en production.
+
+*Limites du mode aperçu*
+
+Bien que cette fonctionnalité soit en version préliminaire, il existe certaines limitations :
+
+* L'option BYOB (Apportez votre propre seau) n'est pas prise en charge.
+* L'activation de DataLock dans la politique n'est pas prise en charge.
+* L'activation du mode d'archivage dans la politique n'est pas prise en charge.
+* Seuls les environnements ONTAP sur site sont pris en charge.
+* MetroCluster n'est pas pris en charge.
+* Les options permettant d'activer le chiffrement au niveau du bucket ne sont pas prises en charge.
+
+
+*Commencer*
+
+Pour commencer à utiliser cette fonctionnalité d’aperçu, vous devez activer un indicateur sur l’agent de la console.  Vous pouvez ensuite saisir les détails de connexion de votre magasin d'objets tiers MinIO dans le flux de travail de protection en choisissant le magasin d'objets *Compatible avec les tiers* dans la section de sauvegarde.

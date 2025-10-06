@@ -1,0 +1,38 @@
+---
+sidebar: sidebar 
+permalink: br-use-reports.html 
+keywords: backing up, back up, backup, backup on-prem ontap, policy, policies, backup policies, cloud backup, aws, aws s3, azure, google cloud 
+summary: 'Dans NetApp Backup and Recovery, créez des rapports pour afficher l"état de vos sauvegardes, y compris le nombre de sauvegardes, le nombre de sauvegardes réussies et le nombre de sauvegardes ayant échoué.  Vous pouvez également afficher les détails de chaque sauvegarde, y compris le type de sauvegarde, le système de stockage utilisé pour la sauvegarde et l"heure de la sauvegarde.' 
+---
+= Créer des rapports pour les charges de travail Microsoft SQL Server dans NetApp Backup and Recovery
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dans NetApp Backup and Recovery, créez des rapports pour les charges de travail Microsoft SQL Server afin d’afficher l’état de vos sauvegardes, notamment le nombre de sauvegardes, le nombre de sauvegardes réussies et le nombre de sauvegardes ayant échoué.  Vous pouvez également afficher les détails de chaque sauvegarde, y compris le type de sauvegarde, le système de stockage utilisé pour la sauvegarde et l'heure de la sauvegarde.
+
+
+
+== Créer un rapport
+
+*Rôle de console NetApp requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, administrateur de sauvegarde et de récupération, administrateur de restauration de sauvegarde et de récupération, administrateur de clone de sauvegarde et de récupération. En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+
+. Dans le menu Sauvegarde et récupération NetApp , sélectionnez l’option *Rapports*.
+. Sélectionnez *Créer un rapport*.
+. Saisissez les détails de la portée du rapport :
++
+** *Nom du rapport* : saisissez un nom unique pour le rapport.
+** *Type de rapport* : Choisissez si vous souhaitez un rapport par compte ou par charge de travail (Microsoft SQL Server).
+** *Sélectionner l'hôte* : si vous avez sélectionné par charge de travail, sélectionnez l'hôte pour lequel vous souhaitez générer le rapport.
+** *Sélectionner le contenu* : Choisissez si vous souhaitez que le rapport inclue un résumé de toutes les sauvegardes ou les détails de chaque sauvegarde.  (Si vous avez choisi « Par compte »)
+
+
+. Entrez la plage de rapport : choisissez si vous souhaitez que le rapport inclue les données du dernier jour, des 7 derniers jours, des 30 derniers jours, du dernier trimestre ou de l'année dernière.
+. Saisissez les détails de livraison du rapport : si vous souhaitez que le rapport soit envoyé par e-mail, cochez *Envoyer le rapport par e-mail*.  Saisissez l’adresse e-mail à laquelle vous souhaitez que le rapport soit envoyé.
++
+Configurez les notifications par e-mail dans la page Paramètres.  Pour plus de détails sur la configuration des notifications par e-mail, voirlink:br-use-settings-advanced.html["Configurer les paramètres"] .
+
+

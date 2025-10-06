@@ -1,0 +1,40 @@
+= Tableau de bord de volume ONTAP amélioré
+:allow-uri-read: 
+
+
+
+
+=== Tableau de bord de volume ONTAP amélioré
+
+En avril 2025, nous avons lancé un aperçu d'un tableau de bord de volume ONTAP amélioré, beaucoup plus rapide et plus efficace.
+
+Ce tableau de bord a été conçu pour aider les clients d’entreprise avec un nombre élevé de charges de travail.  Même pour les clients disposant de 20 000 volumes, le nouveau tableau de bord se charge en moins de 10 secondes.
+
+Après un aperçu réussi et de très bons retours de la part des clients, nous en faisons désormais l'expérience par défaut pour tous nos clients.  Préparez-vous pour un tableau de bord incroyablement rapide.
+
+Pour plus de détails, consultez la section link:br-use-dashboard.html["Afficher l'état de la protection dans le tableau de bord"] .
+
+
+
+=== Prise en charge de la charge de travail Microsoft SQL Server en tant qu'aperçu technologique public
+
+Cette version de NetApp Backup and Recovery fournit une interface utilisateur mise à jour qui vous permet de gérer les charges de travail Microsoft SQL Server à l'aide d'une stratégie de protection 3-2-1, familière à NetApp Backup and Recovery.  Avec cette nouvelle version, vous pouvez sauvegarder ces charges de travail sur le stockage principal, les répliquer sur le stockage secondaire et les sauvegarder sur le stockage d'objets cloud.
+
+Vous pouvez vous inscrire à l'aperçu en remplissant ce formulaire https://forms.office.com/pages/responsepage.aspx?id=oBEJS5uSFUeUS8A3RRZbOojtBW63mDRDv3ZK50MaTlJUNjdENllaVTRTVFJGSDQ2MFJIREcxN0EwQi4u&route=shorturl["Aperçu du formulaire d'inscription"^] .
+
+
+NOTE: Cette documentation sur la protection des charges de travail Microsoft SQL Server est fournie en avant-première technologique. NetApp se réserve le droit de modifier les détails, le contenu et le calendrier de cette offre avant sa disponibilité générale.
+
+Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes :
+
+* *Fonctionnalité de sauvegarde 3-2-1* : cette version intègre les fonctionnalités de SnapCenter , vous permettant de gérer et de protéger vos ressources SnapCenter avec une stratégie de protection des données 3-2-1 à partir de l'interface utilisateur de NetApp Backup and Recovery.
+* *Importer depuis SnapCenter* : vous pouvez importer des données et des politiques de sauvegarde SnapCenter dans NetApp Backup and Recovery.
+* *Une interface utilisateur repensée* offre une expérience plus intuitive pour la gestion de vos tâches de sauvegarde et de récupération.
+* *Cibles de sauvegarde* : vous pouvez ajouter des buckets dans les environnements Amazon Web Services (AWS), Microsoft Azure Blob Storage, StorageGRID et ONTAP S3 à utiliser comme cibles de sauvegarde pour vos charges de travail Microsoft SQL Server.
+* *Prise en charge de la charge de travail* : cette version vous permet de sauvegarder, restaurer, vérifier et cloner des bases de données et des groupes de disponibilité Microsoft SQL Server.  (La prise en charge d’autres charges de travail sera ajoutée dans les prochaines versions.)
+* *Options de restauration flexibles* : Cette version vous permet de restaurer les bases de données vers leurs emplacements d'origine et alternatifs en cas de corruption ou de perte accidentelle de données.
+* *Copies de production instantanées* : générez des copies de production peu encombrantes pour le développement, les tests ou les analyses en quelques minutes au lieu de plusieurs heures ou jours.
+* Cette version inclut la possibilité de créer des rapports détaillés.
+
+
+Pour plus de détails sur la protection des charges de travail Microsoft SQL Server, consultezlink:br-use-mssql-protect-overview.html["Présentation de la protection des charges de travail Microsoft SQL Server"] .

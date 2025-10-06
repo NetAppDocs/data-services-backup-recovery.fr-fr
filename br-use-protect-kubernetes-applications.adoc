@@ -1,0 +1,98 @@
+---
+sidebar: sidebar 
+permalink: br-use-protect-kubernetes-applications.html 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery, snapcenter 
+summary: NetApp Backup and Recovery vous permet de gérer les informations de votre hôte de charge de travail, les informations de votre base de données et les informations de vos instances.  Vous pouvez afficher, modifier et supprimer les paramètres de protection de votre inventaire. 
+---
+= Ajouter et protéger les applications Kubernetes
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Backup and Recovery vous permet de découvrir facilement vos clusters Kubernetes, sans générer ni télécharger de fichiers kubeconfig.  Vous pouvez connecter des clusters Kubernetes et installer le logiciel requis à l’aide de commandes simples copiées à partir de l’interface utilisateur de la console NetApp .
+
+.Rôle de console NetApp requis
+Administrateur d'organisation ou administrateur SnapCenter . link:reference-roles.html["En savoir plus sur les rôles d'accès NetApp Backup and Recovery"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+
+
+
+== Ajouter et protéger une nouvelle application Kubernetes
+
+La première étape de la protection des applications Kubernetes consiste à créer une application dans NetApp Backup and Recovery.  Lorsque vous créez une application, vous informez la console de l’application en cours d’exécution sur le cluster Kubernetes.
+
+.Avant de commencer
+Avant de pouvoir ajouter et protéger une application Kubernetes, vous devez link:br-start-discover.html["découvrir les charges de travail Kubernetes"] .
+
+.Étapes
+. Dans NetApp Backup and Recovery, sélectionnez *Inventaire*.
+. Choisissez une instance Kubernetes et sélectionnez *Afficher* pour afficher les ressources associées à cette instance.
+. Sélectionnez l'onglet *Applications*.
+. Sélectionnez *Créer une application*.
+. Entrez un nom pour l'application.
+. Vous pouvez également choisir l’un des champs suivants pour rechercher les ressources que vous souhaitez protéger :
++
+** Cluster associé
+** Espaces de noms associés
+** Types de ressources
+** Sélecteurs d'étiquettes
+
+
+. Vous pouvez également sélectionner « Ressources à portée de cluster » pour choisir les ressources à portée de cluster. Si vous les incluez, elles seront ajoutées à l'application lors de sa création.
+. Vous pouvez également sélectionner *Rechercher* pour trouver les ressources en fonction de vos critères de recherche.
++
+
+NOTE: La console ne stocke pas les paramètres ou les résultats de recherche ; les paramètres sont utilisés pour rechercher dans le cluster Kubernetes sélectionné des ressources pouvant être incluses dans l'application.
+
+. La console affiche une liste de ressources correspondant à vos critères de recherche.
+. Si la liste contient les ressources que vous souhaitez protéger, sélectionnez *Suivant*.
+. Vous pouvez également, dans la zone *Politique*, choisir une politique de protection existante pour protéger l'application ou en créer une nouvelle. Si vous ne sélectionnez pas de politique, l'application est créée sans politique de protection. Tu peuxlink:br-use-policies-create.html#create-a-policy["ajouter une politique de protection"] plus tard.
+. Dans la zone *Préscripts et postscripts*, activez et configurez tous les hooks d'exécution de préscripts ou de postscripts que vous souhaitez exécuter avant ou après les opérations de sauvegarde.  Pour activer les prescripts ou les postscripts, vous devez déjà en avoir créé au moins unlink:br-use-manage-execution-hook-templates.html["modèle de crochet d'exécution"] .
+. Sélectionnez *Créer*.
+
+
+.Résultat
+L'application est créée et apparaît dans la liste des applications dans l'onglet *Applications* de l'inventaire Kubernetes.  La console NetApp active la protection de l'application en fonction de vos paramètres et vous pouvez surveiller la progression dans la zone *Surveillance* de la sauvegarde et de la récupération.
+
+
+
+== Protéger une application Kubernetes existante
+
+Activez une politique de protection sur une application Kubernetes que vous avez déjà ajoutée.
+
+.Étapes
+. Dans NetApp Backup and Recovery, sélectionnez *Inventaire*.
+. Choisissez une instance Kubernetes et sélectionnez *Afficher* pour afficher les ressources associées à cette instance.
+. Sélectionnez l'onglet *Applications*.
+. Dans la liste des applications, choisissez une application que vous souhaitez protéger et sélectionnez le menu Actions associé.
+. Sélectionnez *Protéger*.
+. Dans la zone *Politique*, choisissez une politique de protection existante pour protéger l'application ou créez une nouvelle politique. Se référer àlink:br-use-policies-create.html#create-a-policy["Créer une politique"] pour plus d'informations sur la création de politiques de protection.
+. Dans la zone *Préscripts et postscripts*, activez et configurez tous les hooks d'exécution de préscripts ou de postscripts que vous souhaitez exécuter avant ou après les opérations de sauvegarde.  Vous pouvez configurer le type de hook d'exécution, le modèle qu'il utilise, les arguments et les sélecteurs d'étiquettes.
+. Sélectionnez *Terminé*.
+
+
+.Résultat
+La console active la protection de l'application en fonction de vos paramètres et vous pouvez surveiller la progression dans la zone *Surveillance* de la sauvegarde et de la récupération.  Dès que vous activez la protection d’une application, la console crée une sauvegarde complète de l’application. Les sauvegardes incrémentielles ultérieures sont créées selon la planification définie dans la politique de protection associée à l'application.
+
+
+
+== Sauvegarder une application Kubernetes maintenant
+
+Créez manuellement une sauvegarde d'une application Kubernetes pour établir une base de référence pour les futures sauvegardes et instantanés, ou pour garantir la protection des données les plus récentes.
+
+.Étapes
+. Dans NetApp Backup and Recovery, sélectionnez *Inventaire*.
+. Choisissez une instance Kubernetes et sélectionnez *Afficher* pour afficher les ressources associées à cette instance.
+. Sélectionnez l'onglet *Applications*.
+. Dans la liste des applications, choisissez une application que vous souhaitez sauvegarder et sélectionnez le menu Actions associé.
+. Sélectionnez *Sauvegarder maintenant*.
+. Assurez-vous que le nom d’application correct est sélectionné.
+. Sélectionnez *Sauvegarder*.
+
+
+.Résultat
+La console crée une sauvegarde de l'application et affiche la progression dans la zone *Surveillance* de Sauvegarde et récupération. La sauvegarde est créée en fonction de la politique de protection associée à l'application.

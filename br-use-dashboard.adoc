@@ -1,0 +1,68 @@
+---
+sidebar: sidebar 
+permalink: br-use-dashboard.html 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery, backup, recovery, dashboard, view, health, status, alerts, notifications 
+summary: La surveillance de l’état de vos charges de travail garantit que vous êtes conscient des problèmes de protection des charges de travail et que vous pouvez prendre des mesures pour les résoudre.  Affichez l’état de vos sauvegardes et restaurations et répondez à toutes les alertes qui s’affichent sur le tableau de bord de sauvegarde et de récupération NetApp .  Vous pouvez consulter le résumé de la protection, le résumé de la restauration, le résumé du système et bien plus encore. 
+---
+= Afficher l'état de la protection sur le tableau de bord de sauvegarde et de récupération NetApp
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+La surveillance de l’état de vos charges de travail garantit que vous êtes conscient des problèmes de protection des charges de travail et que vous pouvez prendre des mesures pour les résoudre.  Affichez l’état de vos sauvegardes et restaurations sur le tableau de bord de sauvegarde et de récupération NetApp .  Vous pouvez consulter le résumé du système, le résumé de la protection, le résumé du travail, le résumé de la restauration, etc.
+
+*Rôle de console NetApp requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, administrateur de sauvegarde et de récupération, administrateur de restauration de sauvegarde et de récupération, administrateur de clone de sauvegarde et de récupération ou rôle de visualiseur de sauvegarde et de récupération. En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+
+.Étapes
+. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Tableau de bord*.
++
+** Nombre d'hôtes ou de machines virtuelles découverts
+** Nombre de clusters Kubernetes découverts
+** Nombre de cibles de sauvegarde sur le stockage d'objets
+** Nombre de vCenters
+** Nombre de clusters de stockage dans ONTAP
+
+
+
+
+
+
+== Voir le résumé de la protection
+
+Consultez les informations suivantes dans le résumé de la protection :
+
+* Le nombre total de bases de données, de machines virtuelles et de magasins de données protégés et non protégés.
++
+
+TIP: Une base de données protégée est une base de données à laquelle une politique de sauvegarde est attribuée.  Une base de données non protégée est une base de données à laquelle aucune politique de sauvegarde n'est attribuée.
+
+* Le nombre de sauvegardes qui ont réussi, qui ont reçu un avertissement ou qui ont échoué.
+* La capacité totale découverte par le service de sauvegarde et la capacité protégée par rapport à la capacité non protégée.  Passez la souris sur l'icône « *i* » pour voir les détails.
+
+
+
+
+== Voir le résumé du poste
+
+Consultez le total des tâches terminées, en cours d'exécution ou ayant échoué dans le récapitulatif des tâches.
+
+.Étapes
+. Pour chaque distribution de tâches, modifiez un filtre pour afficher le résumé des tâches ayant échoué, en cours d'exécution et terminées en fonction du nombre de jours, par exemple, les 30 derniers jours, les 7 derniers jours, les dernières 24 heures ou la dernière année.
+. Affichez les détails des tâches ayant échoué, en cours d'exécution et terminées en sélectionnant *Afficher la surveillance des tâches*.
+
+
+
+
+== Afficher le résumé de la restauration
+
+Consultez les informations suivantes sur le résumé de la restauration :
+
+* Le nombre total de tâches de restauration effectuées
+* La quantité totale de capacité qui a été restaurée
+* Nombre de tâches de restauration effectuées sur le stockage local, secondaire et objet.  Passez la souris sur le graphique pour voir les détails.
+

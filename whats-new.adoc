@@ -1,0 +1,590 @@
+---
+sidebar: sidebar 
+permalink: whats-new.html 
+keywords: 'what"s new, features, new, release notes, bugs, limitations, known issues, enhancements, fixes, backup, restore, NetApp Backup and Recovery, protection, sql server, workloads, volumes, snapshots' 
+summary: Découvrez les nouveautés de NetApp Backup and Recovery. 
+---
+= Nouveautés de NetApp Backup and Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Découvrez les nouveautés de NetApp Backup and Recovery.
+
+
+
+== 06 octobre 2025
+
+Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
+
+
+
+=== NetApp Backup and Recovery est désormais NetApp Backup and Recovery
+
+NetApp Backup and Recovery a été renommé NetApp Backup and Recovery.
+
+
+
+=== BlueXP est désormais NetApp Console
+
+La console NetApp , construite sur la base BlueXP améliorée et restructurée, fournit une gestion centralisée du stockage NetApp et des services de données NetApp dans les environnements sur site et cloud à l'échelle de l'entreprise, offrant des informations en temps réel, des flux de travail plus rapides et une administration simplifiée, hautement sécurisée et conforme.
+
+Pour plus de détails sur ce qui a changé, consultez lelink:https://docs.netapp.com/us-en/console-relnotes/index.html["Notes de version de la console NetApp ."]
+
+
+
+=== Prise en charge de la charge de travail Hyper-V en tant qu'aperçu privé
+
+Cette version de NetApp Backup and Recovery introduit la prise en charge de la découverte et de la gestion des charges de travail Hyper-V :
+
+* Sauvegarder et restaurer des machines virtuelles sur des instances autonomes ainsi que sur des instances de cluster de basculement (FCI)
+* Protéger les machines virtuelles stockées sur des partages SMB3
+* Protection en masse au niveau de la machine virtuelle
+* Sauvegardes cohérentes avec les machines virtuelles et les pannes
+* Restaurer les machines virtuelles à partir du stockage principal, secondaire et objet
+* Rechercher et restaurer les sauvegardes de machines virtuelles
+
+
+Pour plus de détails sur la protection des charges de travail Hyper-V, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-hyperv-protect-overview.html["Présentation de la protection des charges de travail Hyper-V"] .
+
+
+
+=== Prise en charge de la charge de travail KVM en tant qu'aperçu privé
+
+Cette version de NetApp Backup and Recovery introduit la prise en charge de la découverte et de la gestion des charges de travail KVM :
+
+* Sauvegarder et restaurer les images de machines virtuelles qcow2 stockées sur des partages NFS
+* Sauvegarder les pools de stockage
+* Protection en masse des machines virtuelles et des pools de stockage à l'aide de groupes de protection
+* Sauvegardes de machines virtuelles cohérentes et cohérentes en cas de panne
+* Rechercher et restaurer les sauvegardes de machines virtuelles
+* Processus guidé pour sauvegarder et restaurer les machines virtuelles et les données de machines virtuelles basées sur KVM
+
+
+Pour plus de détails sur la protection des charges de travail KVM, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kvm-protect-overview.html["Présentation de la protection des charges de travail KVM"] .
+
+
+
+=== Améliorations de l'aperçu de Kubernetes
+
+La version préliminaire des charges de travail Kubernetes introduit les améliorations suivantes :
+
+* Prise en charge de l'architecture de sauvegarde en éventail 3-2-1
+* Prise en charge d' ONTAP S3 comme cible de sauvegarde
+* Nouveau tableau de bord Kubernetes pour une gestion plus facile
+* La configuration améliorée du contrôle d'accès basé sur les rôles (RBAC) inclut la prise en charge des rôles suivants :
++
+** Super administrateur de sauvegarde et de récupération
+** Sauvegarde et récupération de l'administrateur de sauvegarde
+** Administrateur de restauration de sauvegarde et de récupération
+** Visionneuse de sauvegarde et de récupération
+
+
+* Prise en charge de la distribution SUSE Rancher Kubernetes
+* Prise en charge de plusieurs compartiments : vous pouvez désormais protéger les volumes d'un système avec plusieurs compartiments par système sur différents fournisseurs de cloud.
+
+
+Pour plus de détails sur la protection des charges de travail Kubernetes, reportez-vous à  https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kubernetes-protect-overview.html["Présentation de la protection des charges de travail Kubernetes"] .
+
+
+
+=== Prise en charge de la charge de travail de la base de données Oracle en tant qu'aperçu privé
+
+Cette version de NetApp Backup and Recovery introduit la prise en charge de la découverte et de la gestion des charges de travail de base de données Oracle :
+
+* Découvrez les bases de données Oracle autonomes
+* Créer des politiques de protection pour les données uniquement ou pour les sauvegardes de données et de journaux
+* Protégez les bases de données Oracle avec un schéma de sauvegarde 3-2-1
+* Configurer la conservation des sauvegardes
+* Monter et démonter les sauvegardes ARCHIVELOG
+* Bases de données virtualisées
+* Rechercher et restaurer les sauvegardes de bases de données
+* Prise en charge du tableau de bord Oracle
+
+
+Pour plus de détails sur la protection des charges de travail de la base de données Oracle, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Présentation de Protect Oracle Workloads"] .
+
+
+
+== 25 août 2025
+
+Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
+
+
+
+=== Prise en charge de la protection des charges de travail VMware dans l'aperçu
+
+Cette version ajoute une prise en charge préliminaire pour la protection des charges de travail VMware. Sauvegardez les machines virtuelles VMware et les banques de données des systèmes ONTAP sur site vers Amazon Web Services et StorageGRID.
+
+
+NOTE: La documentation sur la protection des charges de travail VMware est fournie sous forme d'aperçu technologique. Avec cette offre préliminaire, NetApp se réserve le droit de modifier les détails, le contenu et le calendrier de l'offre avant la disponibilité générale.
+
+link:br-use-vmware-protect-overview.html["En savoir plus sur la protection des charges de travail VMware avec NetApp Backup and Recovery"] .
+
+
+
+=== L'indexation haute performance pour AWS, Azure et GCP est généralement disponible
+
+En février 2025, nous avons annoncé l’aperçu de l’indexation haute performance (Indexed Catalog v2) pour AWS, Azure et GCP. Cette fonctionnalité est désormais généralement disponible (GA). En juin 2025, nous l'avons fourni à tous les _nouveaux_ clients par défaut. Avec cette version, le support est disponible pour _tous_ les clients. L’indexation hautes performances améliore les performances des opérations de sauvegarde et de restauration pour les charges de travail protégées par le stockage d’objets.
+
+Activé par défaut :
+
+* Si vous êtes un nouveau client, l'indexation haute performance est activée par défaut.
+* Si vous êtes un client existant, vous pouvez activer la réindexation en accédant à la section Restaurer de l'interface utilisateur.
+
+
+
+
+== 12 août 2025
+
+Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
+
+
+
+=== Charge de travail Microsoft SQL Server prise en charge en disponibilité générale (GA)
+
+La prise en charge de la charge de travail Microsoft SQL Server est désormais généralement disponible (GA) dans NetApp Backup and Recovery. Les organisations utilisant un environnement MSSQL sur ONTAP, Cloud Volumes ONTAP et Amazon FSx for NetApp ONTAP peuvent désormais profiter de ce nouveau service de sauvegarde et de récupération pour protéger leurs données.
+
+Cette version inclut les améliorations suivantes apportées à la prise en charge de la charge de travail Microsoft SQL Server par rapport à la version d'aperçu précédente :
+
+* * Synchronisation active SnapMirror * : cette version prend désormais en charge la synchronisation active SnapMirror (également appelée SnapMirror Business Continuity [SM-BC]), qui permet aux services d'entreprise de continuer à fonctionner même en cas de panne complète du site, en prenant en charge le basculement transparent des applications à l'aide d'une copie secondaire. NetApp Backup and Recovery prend désormais en charge la protection des bases de données Microsoft SQL Server dans une configuration SnapMirror Active Sync et Metrocluster. Les informations apparaissent dans la section *Statut de stockage et de relation* de la page Détails de la protection. Les informations sur la relation sont affichées dans la section *Paramètres secondaires* mise à jour de la page Politique.
++
+Se référer à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-policies-create.html["Utilisez des politiques pour protéger vos charges de travail"] .
+
++
+image:../media/screen-br-sql-protection-details.png["Page de détails de protection pour la charge de travail Microsoft SQL Server"]
+
+* *Prise en charge de plusieurs buckets* : vous pouvez désormais protéger les volumes au sein d'un environnement de travail avec jusqu'à 6 buckets par environnement de travail sur différents fournisseurs de cloud.
+* *Mises à jour de licence et d'essai gratuites* pour les charges de travail SQL Server : vous pouvez désormais utiliser le modèle de licence NetApp Backup and Recovery existant pour protéger les charges de travail SQL Server. Il n’existe aucune exigence de licence distincte pour les charges de travail SQL Server.
++
+Pour plus de détails, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-start-licensing.html["Configurer les licences pour NetApp Backup and Recovery"] .
+
+* *Nom d’instantané personnalisé* : vous pouvez désormais utiliser votre propre nom d’instantané dans une stratégie qui régit les sauvegardes des charges de travail Microsoft SQL Server. Saisissez ces informations dans la section *Paramètres avancés* de la page Politique.
++
+image:../media/screen-br-sql-policy-create-advanced-snapmirror.png["Capture d'écran des paramètres de format SnapMirror et snapshot pour les stratégies de sauvegarde et de récupération NetApp"]
+
++
+Se référer à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-policies-create.html["Utilisez des politiques pour protéger vos charges de travail"] .
+
+* *Préfixe et suffixe du volume secondaire* : Vous pouvez saisir un préfixe et un suffixe personnalisés dans la section *Paramètres avancés* de la page Politique.
+* *Identité et accès* : Vous pouvez désormais contrôler l'accès des utilisateurs aux fonctionnalités.
++
+Se référer à https://docs.netapp.com/us-en/data-services-backup-recovery/br-start-login.html["Connectez-vous à NetApp Backup and Recovery"] et https://docs.netapp.com/us-en/data-services-backup-recovery/reference-roles.html["Accès aux fonctionnalités de sauvegarde et de récupération NetApp"] .
+
+* *Restauration à partir du stockage d'objets vers un autre hôte* : vous pouvez désormais restaurer à partir du stockage d'objets vers un autre hôte même si le stockage principal est en panne.
+* *Données de sauvegarde du journal* : la page des détails de protection de la base de données affiche désormais les sauvegardes du journal. Vous pouvez voir la colonne Type de sauvegarde qui indique si la sauvegarde est une sauvegarde complète ou une sauvegarde de journal.
+* *Tableau de bord amélioré* : le tableau de bord affiche désormais les économies de stockage et de clonage.
++
+image:../media/screen-br-dashboard3.png["Tableau de bord de sauvegarde et de récupération NetApp"]
+
+
+
+
+
+=== Améliorations de la charge de travail du volume ONTAP
+
+* *Restauration multi-dossiers pour les volumes ONTAP * : Jusqu'à présent, vous pouviez restaurer un dossier ou plusieurs fichiers à la fois à partir de la fonction Parcourir et restaurer. NetApp Backup and Recovery offre désormais la possibilité de sélectionner plusieurs dossiers à la fois à l'aide de la fonction Parcourir et restaurer.
+* *Afficher et gérer les sauvegardes des volumes supprimés* : le tableau de bord de sauvegarde et de récupération NetApp offre désormais une option permettant d'afficher et de gérer les volumes supprimés d' ONTAP. Avec cela, vous pouvez afficher et supprimer les sauvegardes des volumes qui n'existent plus dans ONTAP.
+* *Forcer la suppression des sauvegardes* : dans certains cas extrêmes, vous souhaiterez peut-être que NetApp Backup and Recovery n'ait plus accès aux sauvegardes. Cela peut se produire par exemple si le service n'a plus accès au bucket de sauvegarde ou si les sauvegardes sont protégées par DataLock mais que vous n'en voulez plus. Auparavant, vous ne pouviez pas les supprimer vous-même et deviez appeler le support NetApp . Avec cette version, vous pouvez utiliser l'option permettant de forcer la suppression des sauvegardes (au niveau du volume et de l'environnement de travail).
+
+
+
+CAUTION: Utilisez cette option avec précaution et uniquement en cas de besoins de nettoyage extrêmes. NetApp Backup and Recovery n'aura plus accès à ces sauvegardes même si elles ne sont pas supprimées dans le stockage d'objets. Vous devrez vous rendre chez votre fournisseur de cloud et supprimer manuellement les sauvegardes.
+
+Se référer à https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-protect-overview.html["Protégez les charges de travail ONTAP"] .
+
+
+
+== 28 juillet 2025
+
+Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
+
+
+
+=== Prise en charge des charges de travail Kubernetes en tant qu'aperçu
+
+Cette version de NetApp Backup and Recovery introduit la prise en charge de la découverte et de la gestion des charges de travail Kubernetes :
+
+* Découvrez Red Hat OpenShift et les clusters Kubernetes open source, soutenus par NetApp ONTAP, sans partager les fichiers kubeconfig.
+* Découvrez, gérez et protégez les applications sur plusieurs clusters Kubernetes à l’aide d’un plan de contrôle unifié.
+* Déchargez les opérations de déplacement de données pour la sauvegarde et la récupération des applications Kubernetes vers NetApp ONTAP.
+* Orchestrez les sauvegardes d'applications locales et basées sur le stockage d'objets.
+* Sauvegardez et restaurez des applications entières et des ressources individuelles sur n'importe quel cluster Kubernetes.
+* Travaillez avec des conteneurs et des machines virtuelles exécutés sur Kubernetes.
+* Créez des sauvegardes cohérentes avec les applications à l’aide de hooks d’exécution et de modèles.
+
+
+Pour plus de détails sur la protection des charges de travail Kubernetes, reportez-vous à  https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kubernetes-protect-overview.html["Présentation de la protection des charges de travail Kubernetes"] .
+
+
+
+== 14 juillet 2025
+
+Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
+
+
+
+=== Tableau de bord de volume ONTAP amélioré
+
+En avril 2025, nous avons lancé un aperçu d'un tableau de bord de volume ONTAP amélioré, beaucoup plus rapide et plus efficace.
+
+Ce tableau de bord a été conçu pour aider les clients d’entreprise avec un nombre élevé de charges de travail.  Même pour les clients disposant de 20 000 volumes, le nouveau tableau de bord se charge en moins de 10 secondes.
+
+Après un aperçu réussi et de très bons retours de la part des clients, nous en faisons désormais l'expérience par défaut pour tous nos clients.  Préparez-vous pour un tableau de bord incroyablement rapide.
+
+Pour plus de détails, consultez la section link:br-use-dashboard.html["Afficher l'état de la protection dans le tableau de bord"] .
+
+
+
+=== Prise en charge de la charge de travail Microsoft SQL Server en tant qu'aperçu technologique public
+
+Cette version de NetApp Backup and Recovery fournit une interface utilisateur mise à jour qui vous permet de gérer les charges de travail Microsoft SQL Server à l'aide d'une stratégie de protection 3-2-1, familière à NetApp Backup and Recovery.  Avec cette nouvelle version, vous pouvez sauvegarder ces charges de travail sur le stockage principal, les répliquer sur le stockage secondaire et les sauvegarder sur le stockage d'objets cloud.
+
+Vous pouvez vous inscrire à l'aperçu en remplissant ce formulaire https://forms.office.com/pages/responsepage.aspx?id=oBEJS5uSFUeUS8A3RRZbOojtBW63mDRDv3ZK50MaTlJUNjdENllaVTRTVFJGSDQ2MFJIREcxN0EwQi4u&route=shorturl["Aperçu du formulaire d'inscription"^] .
+
+
+NOTE: Cette documentation sur la protection des charges de travail Microsoft SQL Server est fournie en avant-première technologique. NetApp se réserve le droit de modifier les détails, le contenu et le calendrier de cette offre avant sa disponibilité générale.
+
+Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes :
+
+* *Fonctionnalité de sauvegarde 3-2-1* : cette version intègre les fonctionnalités de SnapCenter , vous permettant de gérer et de protéger vos ressources SnapCenter avec une stratégie de protection des données 3-2-1 à partir de l'interface utilisateur de NetApp Backup and Recovery.
+* *Importer depuis SnapCenter* : vous pouvez importer des données et des politiques de sauvegarde SnapCenter dans NetApp Backup and Recovery.
+* *Une interface utilisateur repensée* offre une expérience plus intuitive pour la gestion de vos tâches de sauvegarde et de récupération.
+* *Cibles de sauvegarde* : vous pouvez ajouter des buckets dans les environnements Amazon Web Services (AWS), Microsoft Azure Blob Storage, StorageGRID et ONTAP S3 à utiliser comme cibles de sauvegarde pour vos charges de travail Microsoft SQL Server.
+* *Prise en charge de la charge de travail* : cette version vous permet de sauvegarder, restaurer, vérifier et cloner des bases de données et des groupes de disponibilité Microsoft SQL Server.  (La prise en charge d’autres charges de travail sera ajoutée dans les prochaines versions.)
+* *Options de restauration flexibles* : Cette version vous permet de restaurer les bases de données vers leurs emplacements d'origine et alternatifs en cas de corruption ou de perte accidentelle de données.
+* *Copies de production instantanées* : générez des copies de production peu encombrantes pour le développement, les tests ou les analyses en quelques minutes au lieu de plusieurs heures ou jours.
+* Cette version inclut la possibilité de créer des rapports détaillés.
+
+
+Pour plus de détails sur la protection des charges de travail Microsoft SQL Server, consultezlink:br-use-mssql-protect-overview.html["Présentation de la protection des charges de travail Microsoft SQL Server"] .
+
+
+
+== 09 juin 2025
+
+Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
+
+
+
+=== Mises à jour du support du catalogue indexé
+
+En février 2025, nous avons introduit la fonctionnalité d'indexation mise à jour (Catalogue indexé v2) que vous utilisez pendant la méthode de recherche et de restauration des données.  La version précédente a considérablement amélioré les performances d’indexation des données dans les environnements sur site.  Avec cette version, le catalogue d'indexation est désormais disponible avec les environnements Amazon Web Services, Microsoft Azure et Google Cloud Platform (GCP).
+
+Si vous êtes un nouveau client, le catalogue indexé v2 est activé par défaut pour tous les nouveaux environnements.  Si vous êtes un client existant, vous pouvez réindexer votre environnement pour tirer parti du catalogue indexé v2.
+
+.Comment activer l'indexation ?
+Avant de pouvoir utiliser la méthode de recherche et de restauration des données, vous devez activer « Indexation » sur chaque environnement de travail source à partir duquel vous prévoyez de restaurer des volumes ou des fichiers.  Sélectionnez l'option *Activer l'indexation* lorsque vous effectuez une recherche et une restauration.
+
+Le catalogue indexé peut ensuite suivre chaque volume et fichier de sauvegarde, rendant vos recherches rapides et efficaces.
+
+Pour plus d'informations, consultez  https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-restore.html["Activer l'indexation pour la recherche et la restauration"] .
+
+
+
+=== Points de terminaison de liaison privée Azure et points de terminaison de service
+
+En règle générale, NetApp Backup and Recovery établit un point de terminaison privé avec le fournisseur de cloud pour gérer les tâches de protection.  Cette version introduit un paramètre facultatif qui vous permet d'activer ou de désactiver la création automatique d'un point de terminaison privé par NetApp Backup and Recovery.  Cela peut vous être utile si vous souhaitez davantage de contrôle sur le processus de création de points de terminaison privés.
+
+Vous pouvez activer ou désactiver cette option lorsque vous activez la protection ou démarrez le processus de restauration.
+
+Si vous désactivez ce paramètre, vous devez créer manuellement le point de terminaison privé pour que NetApp Backup and Recovery fonctionne correctement.  Sans connectivité appropriée, vous risquez de ne pas être en mesure d’effectuer correctement les tâches de sauvegarde et de récupération.
+
+
+
+=== Prise en charge de SnapMirror vers Cloud Resync sur ONTAP S3
+
+La version précédente a introduit la prise en charge de SnapMirror vers Cloud Resync (SM-C Resync).  Cette fonctionnalité rationalise la protection des données lors de la migration de volumes dans les environnements NetApp .  Cette version ajoute la prise en charge de SM-C Resync sur ONTAP S3 ainsi que d'autres fournisseurs compatibles S3 tels que Wasabi et MinIO.
+
+
+
+=== Apportez votre propre bucket pour StorageGRID
+
+Lorsque vous créez des fichiers de sauvegarde dans le stockage d'objets pour un environnement de travail, par défaut, NetApp Backup and Recovery crée le conteneur (bucket ou compte de stockage) pour les fichiers de sauvegarde dans le compte de stockage d'objets que vous avez configuré.  Auparavant, vous pouviez remplacer cela et spécifier votre propre conteneur pour Amazon S3, Azure Blob Storage et Google Cloud Storage.  Avec cette version, vous pouvez désormais apporter votre propre conteneur de stockage d'objets StorageGRID .
+
+Voir https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-protect-journey.html["Créez votre propre conteneur de stockage d'objets"] .
+
+
+
+== 13 mai 2025
+
+Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
+
+
+
+=== Resynchronisation de SnapMirror vers Cloud pour les migrations de volumes
+
+La fonctionnalité SnapMirror to Cloud Resync rationalise la protection et la continuité des données lors des migrations de volumes dans les environnements NetApp .  Lorsqu'un volume est migré à l'aide de SnapMirror Logical Replication (LRSE), d'un déploiement NetApp sur site vers un autre ou vers une solution cloud telle que Cloud Volumes ONTAP ou Cloud Volumes Service, SnapMirror to Cloud Resync garantit que les sauvegardes cloud existantes restent intactes et opérationnelles.
+
+Cette fonctionnalité élimine le besoin d'une opération de redéfinition de base longue et gourmande en ressources, permettant aux opérations de sauvegarde de se poursuivre après la migration.  Cette fonctionnalité est utile dans les scénarios de migration de charge de travail, prenant en charge à la fois FlexVols et FlexGroups, et est disponible à partir de la version 9.16.1 ONTAP .
+
+En maintenant la continuité des sauvegardes dans tous les environnements, SnapMirror to Cloud Resync améliore l'efficacité opérationnelle et réduit la complexité de la gestion des données hybrides et multicloud.
+
+Pour plus de détails sur la façon d'effectuer l'opération de resynchronisation, voir https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-migrate-resync.html["Migrer des volumes à l'aide de SnapMirror vers Cloud Resync"] .
+
+
+
+=== Prise en charge du magasin d'objets MinIO tiers (aperçu)
+
+NetApp Backup and Recovery étend désormais sa prise en charge aux magasins d'objets tiers, en mettant l'accent principalement sur MinIO.  Cette nouvelle fonctionnalité d'aperçu vous permet d'exploiter n'importe quel magasin d'objets compatible S3 pour vos besoins de sauvegarde et de récupération.
+
+Avec cette version préliminaire, nous espérons garantir une intégration robuste avec les magasins d'objets tiers avant que la fonctionnalité complète ne soit déployée.  Nous vous encourageons à explorer cette nouvelle fonctionnalité et à fournir des commentaires pour aider à améliorer le service.
+
+
+IMPORTANT: Cette fonctionnalité ne doit pas être utilisée en production.
+
+*Limites du mode aperçu*
+
+Bien que cette fonctionnalité soit en version préliminaire, il existe certaines limitations :
+
+* L'option BYOB (Apportez votre propre seau) n'est pas prise en charge.
+* L'activation de DataLock dans la politique n'est pas prise en charge.
+* L'activation du mode d'archivage dans la politique n'est pas prise en charge.
+* Seuls les environnements ONTAP sur site sont pris en charge.
+* MetroCluster n'est pas pris en charge.
+* Les options permettant d'activer le chiffrement au niveau du bucket ne sont pas prises en charge.
+
+
+*Commencer*
+
+Pour commencer à utiliser cette fonctionnalité d’aperçu, vous devez activer un indicateur sur l’agent de la console.  Vous pouvez ensuite saisir les détails de connexion de votre magasin d'objets tiers MinIO dans le flux de travail de protection en choisissant le magasin d'objets *Compatible avec les tiers* dans la section de sauvegarde.
+
+
+
+== 16 avril 2025
+
+Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
+
+
+
+=== Améliorations de l'interface utilisateur
+
+Cette version améliore votre expérience en simplifiant l'interface :
+
+* La suppression de la colonne Agrégation des tables Volumes, ainsi que des colonnes Stratégie de snapshot, Stratégie de sauvegarde et Stratégie de réplication de la table Volume dans le tableau de bord V2, donne lieu à une présentation plus rationalisée.
+* L'exclusion des environnements de travail non activés de la liste déroulante rend l'interface moins encombrée, la navigation plus efficace et le chargement plus rapide.
+* Même si le tri sur la colonne Balises est désactivé, vous pouvez toujours afficher les balises, garantissant ainsi que les informations importantes restent facilement accessibles.
+* La suppression des étiquettes sur les icônes de protection contribue à un aspect plus propre et réduit le temps de chargement.
+* Pendant le processus d'activation de l'environnement de travail, une boîte de dialogue affiche une icône de chargement pour fournir des commentaires jusqu'à ce que le processus de découverte soit terminé, améliorant ainsi la transparence et la confiance dans les opérations du système.
+
+
+
+
+=== Tableau de bord de volume amélioré (aperçu)
+
+Le tableau de bord des volumes se charge désormais en moins de 10 secondes, offrant une interface beaucoup plus rapide et plus efficace.  Cette version préliminaire est disponible pour certains clients, leur offrant un aperçu préliminaire de ces améliorations.
+
+
+
+=== Prise en charge du magasin d'objets Wasabi tiers (aperçu)
+
+NetApp Backup and Recovery étend désormais son support aux magasins d'objets tiers, en mettant l'accent principalement sur Wasabi.  Cette nouvelle fonctionnalité d'aperçu vous permet d'exploiter n'importe quel magasin d'objets compatible S3 pour vos besoins de sauvegarde et de récupération.
+
+
+
+==== Démarrer avec Wasabi
+
+Pour commencer à utiliser un stockage tiers comme magasin d’objets, vous devez activer un indicateur dans l’agent de la console.  Ensuite, vous pouvez saisir les détails de connexion de votre magasin d’objets tiers et l’intégrer dans vos flux de travail de sauvegarde et de récupération.
+
+.Étapes
+. Connectez-vous en SSH à votre connecteur.
+. Accédez au conteneur du serveur NetApp Backup and Recovery CBS :
++
+[listing]
+----
+docker exec -it cloudmanager_cbs sh
+----
+. Ouvrez le `default.json` fichier à l'intérieur du `config` dossier via VIM ou tout autre éditeur :
++
+[listing]
+----
+vi default.json
+----
+. Modifier `allow-s3-compatible` : faux à `allow-s3-compatible` : vrai.
+. Enregistrez les modifications.
+. Sortie du conteneur.
+. Redémarrez le conteneur du serveur NetApp Backup and Recovery CBS.
+
+
+.Résultat
+Une fois le conteneur réactivé, ouvrez l’interface utilisateur de NetApp Backup and Recovery.  Lorsque vous lancez une sauvegarde ou modifiez une stratégie de sauvegarde, vous verrez le nouveau fournisseur « Compatible S3 » répertorié avec d'autres fournisseurs de sauvegarde d'AWS, Microsoft Azure, Google Cloud, StorageGRID et ONTAP S3.
+
+
+
+==== Limitations du mode aperçu
+
+Bien que cette fonctionnalité soit en version préliminaire, tenez compte des limitations suivantes :
+
+* L'option BYOB (Apportez votre propre seau) n'est pas prise en charge.
+* L'activation de DataLock dans une politique n'est pas prise en charge.
+* L'activation du mode d'archivage dans une politique n'est pas prise en charge.
+* Seuls les environnements ONTAP sur site sont pris en charge.
+* MetroCluster n'est pas pris en charge.
+* Les options permettant d'activer le chiffrement au niveau du bucket ne sont pas prises en charge.
+
+
+Au cours de cet aperçu, nous vous encourageons à explorer cette nouvelle fonctionnalité et à fournir des commentaires sur l'intégration avec les magasins d'objets tiers avant le déploiement complet des fonctionnalités.
+
+
+
+== 17 mars 2025
+
+Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
+
+
+
+=== Navigation dans les instantanés SMB
+
+Cette mise à jour de NetApp Backup and Recovery a résolu un problème qui empêchait les clients de parcourir les snapshots locaux dans un environnement SMB.
+
+
+
+=== Mise à jour de l'environnement AWS GovCloud
+
+Cette mise à jour de NetApp Backup and Recovery a corrigé un problème qui empêchait l'interface utilisateur de se connecter à un environnement AWS GovCloud en raison d'erreurs de certificat TLS.  Le problème a été résolu en utilisant le nom d’hôte de l’agent de console au lieu de l’adresse IP.
+
+
+
+=== Limites de conservation de la politique de sauvegarde
+
+Auparavant, l’interface utilisateur de sauvegarde et de récupération NetApp limitait les sauvegardes à 999 copies, tandis que l’interface de ligne de commande en autorisait davantage.  Désormais, vous pouvez attacher jusqu'à 4 000 volumes à une politique de sauvegarde et inclure 1 018 volumes non attachés à une politique de sauvegarde.  Cette mise à jour inclut des validations supplémentaires qui empêchent de dépasser ces limites.
+
+
+
+=== Resynchronisation de SnapMirror Cloud
+
+Cette mise à jour garantit que la resynchronisation de SnapMirror Cloud ne peut pas être démarrée à partir de NetApp Backup and Recovery pour les versions ONTAP non prises en charge après la suppression d'une relation SnapMirror .
+
+
+
+== 21 février 2025
+
+Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
+
+
+
+=== Indexation haute performance
+
+NetApp Backup and Recovery introduit une fonctionnalité d’indexation mise à jour qui rend l’indexation des données sur le système source plus efficace.  La nouvelle fonctionnalité d'indexation inclut des mises à jour de l'interface utilisateur, des performances améliorées de la méthode de recherche et de restauration des données, des mises à niveau des capacités de recherche globale et une meilleure évolutivité.
+
+Voici une ventilation des améliorations :
+
+* *Consolidation des dossiers* : la version mise à jour regroupe les dossiers à l'aide de noms incluant des identifiants spécifiques, ce qui rend le processus d'indexation plus fluide.
+* *Compactage des fichiers Parquet* : La version mise à jour réduit le nombre de fichiers utilisés pour l'indexation de chaque volume, simplifiant le processus et supprimant le besoin d'une base de données supplémentaire.
+* *Extensibilité avec plus de sessions* : La nouvelle version ajoute plus de sessions pour gérer les tâches d'indexation, accélérant ainsi le processus.
+* *Prise en charge de plusieurs conteneurs d'index* : la nouvelle version utilise plusieurs conteneurs pour mieux gérer et distribuer les tâches d'indexation.
+* *Flux de travail d'indexation fractionné* : la nouvelle version divise le processus d'indexation en deux parties, améliorant ainsi l'efficacité.
+* *Concurrence améliorée* : La nouvelle version permet de supprimer ou de déplacer des répertoires en même temps, accélérant ainsi le processus d'indexation.
+
+
+.À qui profite cette fonctionnalité ?
+La nouvelle fonctionnalité d'indexation est disponible pour tous les nouveaux clients.
+
+.Comment activer l'indexation ?
+Avant de pouvoir utiliser la méthode de recherche et de restauration des données, vous devez activer « Indexation » sur chaque système source à partir duquel vous prévoyez de restaurer des volumes ou des fichiers.  Cela permet au catalogue indexé de suivre chaque volume et chaque fichier de sauvegarde, rendant vos recherches rapides et efficaces.
+
+Activez l'indexation sur l'environnement de travail source en sélectionnant l'option « Activer l'indexation » lorsque vous effectuez une recherche et une restauration.
+
+Pour plus d'informations, consultez la documentation https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-restore.html["comment restaurer les données ONTAP à l'aide de la recherche et de la restauration"] .
+
+.Échelle prise en charge
+La nouvelle fonctionnalité d’indexation prend en charge les éléments suivants :
+
+* Efficacité de la recherche globale en moins de 3 minutes
+* Jusqu'à 5 milliards de fichiers
+* Jusqu'à 5 000 volumes par cluster
+* Jusqu'à 100 000 instantanés par volume
+* Le délai maximal pour l’indexation de base est inférieur à 7 jours.  Le temps réel varie en fonction de votre environnement.
+
+
+
+
+=== Améliorations des performances de recherche globale
+
+Cette version inclut également des améliorations des performances de recherche globale.  Vous verrez désormais des indicateurs de progression et des résultats de recherche plus détaillés, notamment le nombre de fichiers et le temps nécessaire à la recherche.  Des conteneurs dédiés à la recherche et à l'indexation garantissent que les recherches globales sont effectuées en moins de cinq minutes.
+
+Notez ces considérations liées à la recherche globale :
+
+* Le nouvel index n'est pas exécuté sur les instantanés étiquetés comme horaires.
+* La nouvelle fonctionnalité d'indexation fonctionne uniquement sur les instantanés sur FlexVols, et non sur les instantanés sur FlexGroups.
+
+
+
+
+== 13 février 2025
+
+Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
+
+
+
+=== Version préliminaire de NetApp Backup and Recovery
+
+Cette version préliminaire de NetApp Backup and Recovery fournit une interface utilisateur mise à jour qui vous permet de gérer les charges de travail Microsoft SQL Server à l'aide d'une stratégie de protection 3-2-1, familière à NetApp Backup and Recovery.  Avec cette nouvelle version, vous pouvez sauvegarder ces charges de travail sur le stockage principal, les répliquer sur le stockage secondaire et les sauvegarder sur le stockage d'objets cloud.
+
+
+NOTE: Cette documentation est fournie à titre d'aperçu technologique. Avec cette offre préliminaire, NetApp se réserve le droit de modifier les détails, le contenu et le calendrier de l'offre avant la disponibilité générale.
+
+Cette version de NetApp Backup and Recovery Preview 2025 inclut les mises à jour suivantes.
+
+* Une interface utilisateur repensée qui offre une expérience plus intuitive pour la gestion de vos tâches de sauvegarde et de récupération.
+* La version Preview vous permet de sauvegarder et de restaurer les bases de données Microsoft SQL Server.  (La prise en charge d’autres charges de travail sera ajoutée dans les prochaines versions.)
+* Cette version intègre les fonctionnalités de SnapCenter , vous permettant de gérer et de protéger vos ressources SnapCenter avec une stratégie de protection des données 3-2-1 à partir de l'interface utilisateur de NetApp Backup and Recovery.
+* Cette version vous permet d'importer des charges de travail SnapCenter dans NetApp Backup and Recovery.
+
+
+
+
+== 22 novembre 2024
+
+Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
+
+
+
+=== Modes de protection SnapLock Compliance et SnapLock Enterprise
+
+NetApp Backup and Recovery peut désormais sauvegarder les volumes locaux FlexVol et FlexGroup configurés à l'aide des modes de protection SnapLock Compliance ou SnapLock Enterprise . Vos clusters doivent exécuter ONTAP 9.14 ou une version ultérieure pour cette prise en charge. La sauvegarde des volumes FlexVol à l'aide du mode SnapLock Enterprise est prise en charge depuis la version 9.11.1 ONTAP . Les versions antérieures ONTAP ne fournissent aucune prise en charge pour la sauvegarde des volumes de protection SnapLock .
+
+Consultez la liste complète des volumes pris en charge dans le https://docs.netapp.com/us-en/data-services-backup-recovery/concept-backup-to-cloud.html["En savoir plus sur NetApp Backup and Recovery"] .
+
+
+
+=== Indexation du processus de recherche et de restauration sur la page Volumes
+
+Avant de pouvoir utiliser la recherche et la restauration, vous devez activer « Indexation » sur chaque système source à partir duquel vous souhaitez restaurer les données du volume.  Cela permet au catalogue indexé de suivre les fichiers de sauvegarde pour chaque volume.  La page Volumes affiche désormais l’état de l’indexation :
+
+* Indexé : Les volumes ont été indexés.
+* En cours
+* Non indexé
+* Indexation suspendue
+* Erreur
+* Non activé
+
+
+
+
+== 27 septembre 2024
+
+Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
+
+
+
+=== Prise en charge de Podman sur RHEL 8 ou 9 avec navigation et restauration
+
+NetApp Backup and Recovery prend désormais en charge les restaurations de fichiers et de dossiers sur les versions 8 et 9 de Red Hat Enterprise Linux (RHEL) à l'aide du moteur Podman.  Ceci s'applique à la méthode de navigation et de restauration de sauvegarde et de récupération NetApp .
+
+L'agent de console version 3.9.40 prend en charge certaines versions de Red Hat Enterprise Linux versions 8 et 9 pour toute installation manuelle du logiciel de l'agent de console sur un hôte RHEL 8 ou 9, quel que soit l'emplacement en plus des systèmes d'exploitation mentionnés dans le https://docs.netapp.com/us-en/console-setup-admin/task-prepare-private-mode.html#step-3-review-host-requirements["exigences de l'hôte"^] .  Ces nouvelles versions de RHEL nécessitent le moteur Podman au lieu du moteur Docker.  Auparavant, NetApp Backup and Recovery présentait deux limitations lors de l’utilisation du moteur Podman.  Ces limitations ont été supprimées.
+
+https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-restore.html["En savoir plus sur la restauration des données ONTAP à partir de fichiers de sauvegarde"] .
+
+
+
+=== L'indexation plus rapide du catalogue améliore la recherche et la restauration
+
+Cette version inclut un index de catalogue amélioré qui termine l'indexation de base beaucoup plus rapidement.  Une indexation plus rapide vous permet d’utiliser la fonction Rechercher et restaurer plus rapidement.
+
+https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-restore.html["En savoir plus sur la restauration des données ONTAP à partir de fichiers de sauvegarde"] .

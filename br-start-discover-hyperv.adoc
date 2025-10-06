@@ -1,0 +1,66 @@
+---
+sidebar: sidebar 
+permalink: br-start-discover-hyperv.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Hyper-V, workloads, protect 
+summary: NetApp Backup and Recovery doit d’abord découvrir les charges de travail afin que vous puissiez les protéger. 
+---
+= Découvrez les charges de travail Hyper-V dans NetApp Backup and Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Backup and Recovery doit d’abord détecter les machines virtuelles Hyper-V afin que vous puissiez les protéger.
+
+*Rôle de console requis* Super administrateur de sauvegarde et de récupération. En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+
+
+
+== Ajoutez un hôte Hyper-V et découvrez des ressources
+
+Ajoutez les informations de l’hôte Hyper-V et laissez NetApp Backup and Recovery découvrir les machines virtuelles.  Dans chaque agent de console, sélectionnez les systèmes sur lesquels vous souhaitez découvrir les ressources.
+
+
+NOTE: Lorsque vous ajoutez des hôtes Hyper-V et découvrez des ressources, NetApp Backup and Recovery installe le plug-in NetApp Hyper-V et le plug-in NetApp SnapCenter Windows FileSystem sur l'hôte Hyper-V pour faciliter la gestion et la protection des machines virtuelles.
+
+.Étapes
+. Dans le menu de la console NetApp , sélectionnez *Protection* > *Sauvegarde et récupération*.
++
+Si c'est la première fois que vous vous connectez à NetApp Backup and Recovery, que vous avez déjà un système dans la console, mais que vous n'avez découvert aucune ressource, la page d'accueil « Bienvenue dans la nouvelle version de NetApp Backup and Recovery » apparaît et affiche une option pour *Découvrir les ressources*.
+
+. Sélectionnez *Découvrir les ressources*.
+. Saisissez les informations suivantes :
++
+.. *Type de charge de travail* : sélectionnez *Hyper-V*.
+.. Si vous n’avez pas encore enregistré les informations d’identification pour cet hôte Hyper-V, sélectionnez *Ajouter des informations d’identification*.
++
+... Sélectionnez l’agent de console à utiliser avec cet hôte.
+... Saisissez un nom pour ces informations d’identification.
+... Entrez le nom d'utilisateur et le mot de passe du compte.
+... Sélectionnez *Terminé*.
+
+
+.. *Enregistrement de l'hôte* : ajoutez un nouvel hôte Hyper-V.  Saisissez le nom de domaine complet ou l'adresse IP de l'hôte, les informations d'identification, l'agent de console et le numéro de port.
+
+
+. Sélectionnez *Découvrir*.
++
+
+TIP: Ce processus peut prendre quelques minutes.
+
+
+
+.Résultat
+Une fois que NetApp Backup and Recovery a découvert les ressources, la charge de travail Hyper-V s’affiche dans la liste des charges de travail sur la page Inventaire.
+
+
+
+== Accéder au tableau de bord de sauvegarde et de récupération NetApp
+
+. Pour afficher le tableau de bord de sauvegarde et de récupération NetApp , dans le menu de la console NetApp , sélectionnez *Tableau de bord*.
+. Examiner l’état de santé de la protection des données.  Le nombre de charges de travail à risque ou protégées augmente en fonction des charges de travail nouvellement découvertes, protégées et sauvegardées.
+

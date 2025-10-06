@@ -1,0 +1,141 @@
+---
+sidebar: sidebar 
+permalink: prev-ontap-policy-object-advanced-settings.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Protégez vos charges de travail VMware avec NetApp NetApp Backup and Recovery. 
+---
+= Gérer les options de stockage de sauvegarde vers objet dans les paramètres avancés de NetApp Backup and Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez modifier les paramètres de stockage de sauvegarde sur objet au niveau du cluster que vous définissez lors de l'activation de NetApp Backup and Recovery pour chaque système ONTAP à l'aide de la page Paramètres avancés.  Vous pouvez également modifier certains paramètres appliqués comme paramètres de sauvegarde « par défaut ».  Cela inclut la modification du taux de transfert des sauvegardes vers le stockage d'objets, l'exportation ou non des copies Snapshot historiques sous forme de fichiers de sauvegarde et l'activation ou la désactivation des analyses de ransomware pour un système.
+
+
+NOTE: Ces paramètres sont disponibles uniquement pour le stockage de sauvegarde sur objet.  Aucun de ces paramètres n’affecte vos paramètres de snapshot ou de réplication.
+
+[]
+====
+*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery, reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de sauvegarde et de récupération NetApp"] .
+
+====
+Vous pouvez modifier les options suivantes dans la page Paramètres avancés :
+
+* Modification de la bande passante réseau allouée au téléchargement des sauvegardes vers le stockage d'objets à l'aide de l'option Taux de transfert maximal ifdef::aws[]
+
+
+endif::aws[]
+
+* Modifier si les copies Snapshot historiques sont exportées en tant que fichiers de sauvegarde et incluses dans vos fichiers de sauvegarde de base initiaux pour les volumes futurs
+* Modifier si les instantanés « annuels » sont supprimés du système source
+* Activation ou désactivation des analyses de ransomware pour un système, y compris les analyses planifiées
+
+
+
+
+== Afficher les paramètres de sauvegarde au niveau du cluster
+
+Vous pouvez afficher les paramètres de sauvegarde au niveau du cluster pour chaque système.
+
+.Étapes
+. Dans le menu de la console, sélectionnez *Protection > Sauvegarde et récupération*.
+. Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.
+. Depuis la page _Paramètres de sauvegarde_, cliquez surimage:icon-actions-horizontal.gif["Plus d'icônes"] pour le système et sélectionnez *Paramètres avancés*.
++
+La page _Paramètres avancés_ affiche les paramètres actuels de ce système.
+
+. Développez l’option et effectuez la modification.
+
+
+Toutes les opérations de sauvegarde après la modification utiliseront les nouvelles valeurs.
+
+Notez que certaines options ne sont pas disponibles en fonction de la version d' ONTAP sur le cluster source et en fonction de la destination du fournisseur de cloud où résident les sauvegardes.
+
+
+
+== Modifier la bande passante réseau disponible pour télécharger des sauvegardes vers le stockage d'objets
+
+Lorsque vous activez NetApp Backup and Recovery pour un système, par défaut, ONTAP peut utiliser une quantité illimitée de bande passante pour transférer les données de sauvegarde des volumes du système vers le stockage d'objets.  Si vous remarquez que le trafic de sauvegarde affecte les charges de travail normales des utilisateurs, vous pouvez limiter la quantité de bande passante réseau utilisée pendant le transfert à l'aide de l'option Taux de transfert maximal dans la page Paramètres avancés.
+
+.Étapes
+. Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.
+. Depuis la page _Paramètres de sauvegarde_, cliquez surimage:icon-actions-horizontal.gif["Plus d'icônes"] pour le système et sélectionnez *Paramètres avancés*.
+. Dans la page Paramètres avancés, développez la section *Taux de transfert maximal*.
+. Choisissez une valeur comprise entre 1 et 1 000 Mbps comme débit de transfert maximal.
+. Sélectionnez le bouton radio *Limité* et entrez la bande passante maximale pouvant être utilisée, ou sélectionnez *Illimité* pour indiquer qu'il n'y a pas de limite.
+. Sélectionnez *Appliquer*.
+
+
+Ce paramètre n’affecte pas la bande passante allouée à d’autres relations de réplication pouvant être configurées pour les volumes du système.
+
+ifdef::aws[]
+
+endif::aws[]
+
+
+
+== Modifier si les copies d'instantanés historiques sont exportées en tant que fichiers de sauvegarde
+
+S'il existe des copies d'instantanés locaux pour les volumes qui correspondent à l'étiquette de planification de sauvegarde que vous utilisez dans ce système (par exemple, quotidienne, hebdomadaire, etc.), vous pouvez exporter ces instantanés historiques vers le stockage d'objets sous forme de fichiers de sauvegarde.  Cela vous permet d'initialiser vos sauvegardes dans le cloud en déplaçant les anciennes copies instantanées vers la copie de sauvegarde de base.
+
+Notez que cette option s'applique uniquement aux nouveaux fichiers de sauvegarde pour les nouveaux volumes de lecture/écriture et qu'elle n'est pas prise en charge avec les volumes de protection des données (DP).
+
+.Étapes
+. Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.
+. Depuis la page _Paramètres de sauvegarde_, cliquez surimage:icon-actions-horizontal.gif["Plus d'icônes"] pour le système et sélectionnez *Paramètres avancés*.
+. Dans la page Paramètres avancés, développez la section *Exporter les copies d’instantanés existantes*.
+. Sélectionnez si vous souhaitez que les copies instantanées existantes soient exportées.
+. Sélectionnez *Appliquer*.
+
+
+
+
+== Modifier si les instantanés « annuels » sont supprimés du système source
+
+Lorsque vous sélectionnez l’étiquette de sauvegarde « annuelle » pour une politique de sauvegarde pour l’un de vos volumes, la copie instantanée créée est très volumineuse.  Par défaut, ces instantanés annuels sont automatiquement supprimés du système source après avoir été transférés vers le stockage d'objets.  Vous pouvez modifier ce comportement par défaut à partir de la section Suppression des instantanés annuels.
+
+.Étapes
+. Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.
+. Depuis la page _Paramètres de sauvegarde_, cliquez surimage:icon-actions-horizontal.gif["Plus d'icônes"] pour le système et sélectionnez *Paramètres avancés*.
+. Dans la page Paramètres avancés, développez la section *Suppression des instantanés annuels*.
++
+image:screenshot_backup_edit_yearly_snap_delete.png["Une capture d’écran de l’entrée Instantanés annuels dans la page Paramètres avancés."]
+
+. Sélectionnez *Désactivé* pour conserver les instantanés annuels sur le système source.
+. Sélectionnez *Appliquer*.
+
+
+
+
+== Activer ou désactiver les analyses de ransomware
+
+Les analyses de protection contre les ransomwares sont activées par défaut.  Le paramètre par défaut pour la fréquence d'analyse est de 7 jours.  L'analyse s'effectue uniquement sur la dernière copie instantanée.  Vous pouvez activer ou désactiver les analyses de ransomware sur la dernière copie instantanée en utilisant l'option sur la page Paramètres avancés.  Si vous l'activez, les analyses sont effectuées tous les 7 jours par défaut.
+
+Pour plus de détails sur les options de protection DataLock et Ransomware, reportez-vous àlink:prev-ontap-policy-object-options.html["Options de protection DataLock et Ransomware"] .
+
+Vous pouvez modifier ce calendrier en jours ou en semaines ou le désactiver, ce qui permet de réduire les coûts.
+
+
+TIP: L'activation des analyses de ransomware entraînera des frais supplémentaires en fonction du fournisseur de cloud.
+
+Les analyses de ransomware planifiées s'exécutent uniquement sur la dernière copie instantanée.
+
+Si les analyses de ransomware planifiées sont désactivées, vous pouvez toujours effectuer des analyses à la demande et l'analyse pendant une opération de restauration se produira toujours.
+
+Se référer àlink:prev-ontap-policy-manage.html["Gérer les politiques"] pour plus de détails sur la gestion des politiques qui mettent en œuvre la détection des ransomwares.
+
+.Étapes
+. Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.
+. Depuis la page _Paramètres de sauvegarde_, cliquez surimage:icon-actions-horizontal.gif["Plus d'icônes"] pour le système et sélectionnez *Paramètres avancés*.
+. Dans la page Paramètres avancés, développez la section *Analyse des ransomwares*.
+. Activer ou désactiver *l'analyse Ransomware*.
+. Sélectionnez *Analyse de ransomware programmée*.
+. Vous pouvez également modifier l'analyse par défaut hebdomadaire en jours ou en semaines.
+. Définissez la fréquence en jours ou en semaines à laquelle l'analyse doit être exécutée.
+. Sélectionnez *Appliquer*.
+

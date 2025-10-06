@@ -1,0 +1,117 @@
+---
+sidebar: sidebar 
+permalink: br-limitations.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: NetApp Backup and Recovery doit d’abord découvrir les données pour que vous puissiez utiliser le service.  Lors de la découverte, NetApp Backup and Recovery analyse tous les volumes et fichiers des systèmes de votre organisation. 
+---
+= Limitations connues avec NetApp Backup and Recovery pour les charges de travail Microsoft SQL Server
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Les limitations connues identifient les plates-formes, les appareils ou les fonctions qui ne sont pas pris en charge par cette version du produit ou qui n'interagissent pas correctement avec elle. Examinez attentivement ces limitations.
+
+
+
+== Prise en charge du cycle de vie des clones
+
+* Le clonage à partir du stockage d'objets n'est pas pris en charge.
+* Les opérations de clonage en masse ne sont pas prises en charge pour les clones à la demande.
+* Le choix des groupes I n'est pas pris en charge.
+* Le choix des options QOS (débit maximal) n'est pas pris en charge.
+
+
+
+
+== Mode de déploiement standard uniquement
+
+Cette version de NetApp Backup and Recovery fonctionne uniquement en mode de déploiement standard, et non en mode restreint ou privé.
+
+
+
+== Restriction du nom du cluster Windows
+
+Le nom du cluster Windows ne peut pas contenir de caractère de soulignement (_).
+
+
+
+== Problèmes de migration de SnapCenter
+
+La migration des ressources de SnapCenter vers NetApp Backup and Recovery présente les limitations suivantes.
+
+Pour plus de détails sur la façon dont les politiques SnapCenter migrent vers les politiques de sauvegarde et de récupération NetApp , consultezlink:reference-policy-differences-snapcenter.html["Stratégies dans SnapCenter comparées à celles de NetApp Backup and Recovery"] .
+
+
+
+=== Limitations du groupe de ressources
+
+Si toutes les ressources d’un groupe de ressources sont protégées et que l’une de ces ressources est également protégée en dehors du groupe de ressources, la migration depuis SnapCenter est bloquée.
+
+*Solution de contournement* : protégez la ressource soit dans un groupe de ressources, soit seule, mais pas dans les deux.
+
+
+
+=== Les ressources avec plusieurs politiques utilisant le même niveau de planification ne sont pas prises en charge
+
+Vous ne pouvez pas attribuer plusieurs stratégies utilisant le même niveau de planification (par exemple, horaire, quotidien, hebdomadaire, etc.) à une ressource.  NetApp Backup and Recovery n'importera pas ces ressources depuis SnapCenter.
+
+*Solution de contournement* : attachez une seule stratégie utilisant le même niveau de planification à une ressource.
+
+
+
+=== Les politiques horaires doivent commencer au début de l'heure
+
+Si vous disposez d'une stratégie SnapCenter qui se répète toutes les heures mais n'utilise pas d'intervalles au début de l'heure, NetApp Backup and Recovery n'importera pas la ressource.  Par exemple, les politiques avec des horaires de 1 h 30, 2 h 30, 3 h 30, etc. ne sont pas prises en charge, tandis que les politiques avec des horaires de 1 h 00, 2 h 00, 3 h 00, etc. sont prises en charge.
+
+*Solution de contournement* : utilisez une stratégie qui se répète par intervalles d’une heure en commençant au début de l’heure.
+
+
+
+=== Les politiques quotidiennes et mensuelles attachées à une ressource ne sont pas prises en charge
+
+Si une politique SnapCenter se répète à la fois à des intervalles de jour et de mois, NetApp Backup and Recovery n'importera pas la politique.
+
+Par exemple, vous ne pouvez pas attacher une politique quotidienne (avec une durée inférieure ou égale à 7 jours ou supérieure à 7 jours) à une ressource et attacher également une politique mensuelle à la même ressource.
+
+*Solution de contournement* : utilisez une stratégie qui utilise un intervalle quotidien ou mensuel, mais pas les deux.
+
+
+
+=== Politiques de sauvegarde à la demande non migrées
+
+NetApp Backup and Recovery n'importe pas les politiques de sauvegarde à la demande depuis SnapCenter.
+
+
+
+=== Les politiques de sauvegarde des journaux uniquement n'ont pas été migrées
+
+NetApp Backup and Recovery n'importe pas les stratégies de sauvegarde de journaux uniquement à partir de SnapCenter.  Si une politique SnapCenter inclut des sauvegardes de journaux uniquement, NetApp Backup and Recovery n'importera pas la ressource.
+
+*Solution de contournement* : utilisez une stratégie dans SnapCenter qui utilise plus que de simples sauvegardes de journaux uniquement.
+
+
+
+=== Cartographie de l'hôte
+
+SnapCenter ne dispose pas de clusters de stockage de cartes ou de SVM pour les ressources vers les hôtes, mais NetApp Backup and Recovery en dispose.  Le cluster ONTAP ou SVM sur site ne sera pas mappé à un hôte dans les versions d'aperçu de NetApp Backup and Recovery.  De plus, la console NetApp ne prend pas en charge les SVM.
+
+*Solution de contournement* : avant d’importer des ressources depuis SnapCenter, créez un système dans NetApp Backup and Recovery pour tous les systèmes de stockage ONTAP locaux enregistrés dans SnapCenter local.  Ensuite, importez les ressources de ce cluster depuis SnapCenter dans NetApp Backup and Recovery.
+
+
+
+=== Horaires non à intervalles de 15 minutes
+
+Si vous disposez d'une planification de stratégie SnapCenter qui démarre à une certaine heure et se répète à des intervalles autres que ceux de 15 minutes, NetApp Backup and Recovery n'importera pas la planification.
+
+*Solution de contournement* : utilisez SnapCenter pour ajuster la stratégie afin qu’elle se répète à des intervalles de 15 minutes.
+
+
+
+== Prise en charge limitée des logiciels de gestion de la virtualisation
+
+Lorsque vous protégez les charges de travail KVM, NetApp Backup and Recovery ne prend pas en charge la découverte des charges de travail KVM lorsque le logiciel de gestion de virtualisation tel qu'Apache CloudStack ou Red Hat OpenShift Virtualization est utilisé.

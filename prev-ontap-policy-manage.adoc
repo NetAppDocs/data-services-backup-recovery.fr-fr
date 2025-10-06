@@ -1,0 +1,203 @@
+---
+sidebar: sidebar 
+permalink: prev-ontap-policy-manage.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Protégez vos charges de travail VMware avec NetApp NetApp Backup and Recovery. 
+---
+= Gérez les politiques de sauvegarde pour les volumes ONTAP avec NetApp Backup and Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Avec NetApp Backup and Recovery, utilisez les stratégies de sauvegarde par défaut fournies par NetApp pour créer vos sauvegardes ou créez des stratégies personnalisées.  Les politiques régissent la fréquence de sauvegarde, l’heure à laquelle la sauvegarde est effectuée et le nombre de fichiers de sauvegarde conservés.
+
+[]
+====
+*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery, reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de sauvegarde et de récupération NetApp"] .
+
+====
+Lorsque vous utilisez l'assistant d'activation pour activer le service de sauvegarde et de récupération pour vos volumes, vous pouvez sélectionner parmi les stratégies par défaut et toutes les autres stratégies déjà existantes dans le système (Cloud Volumes ONTAP ou système ONTAP sur site).  Si vous souhaitez utiliser une politique différente de celles existantes, vous pouvez créer la politique avant ou pendant que vous utilisez l'assistant d'activation.
+
+Pour en savoir plus sur les politiques de sauvegarde par défaut fournies, reportez-vous àlink:prev-ontap-protect-journey.html["Planifiez votre voyage de protection"] .
+
+NetApp Backup and Recovery fournit trois types de sauvegardes de données ONTAP : les snapshots, les réplications et les sauvegardes sur le stockage d'objets.  Leurs politiques résident à différents emplacements en fonction de l’architecture que vous utilisez et du type de sauvegarde :
+
+[cols="25,25,25,25"]
+|===
+| Architecture | Emplacement de stockage de la politique d'instantané | Emplacement de stockage de la politique de réplication | Sauvegarde vers l'emplacement de stockage de la stratégie d'objet 
+
+
+| *Déploiement en éventail* | Primaire | Secondaire | Primaire 
+
+
+| *Cascade* | Primaire | Secondaire | Secondaire 
+|===
+Créez des politiques de sauvegarde à l’aide des outils suivants en fonction de votre environnement, de vos préférences et du type de protection :
+
+* Interface utilisateur de la console NetApp
+* Interface utilisateur du gestionnaire de système
+* Interface de ligne de commande ONTAP
+
+
+
+TIP: Lorsque vous utilisez le Gestionnaire système, sélectionnez *Asynchrone* comme type de politique pour les politiques de réplication et sélectionnez *Asynchrone* et *Sauvegarder dans le cloud* pour les politiques de sauvegarde vers les objets.
+
+
+
+== Afficher les politiques d'un système
+
+. Dans l'interface utilisateur de la console, sélectionnez *Volumes* > *Paramètres de sauvegarde*.
+. Depuis la page Paramètres de sauvegarde, sélectionnez le système, sélectionnez *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Gestion des politiques*.
++
+La page de gestion des politiques apparaît.  Les stratégies de capture instantanée sont affichées par défaut.
+
+. Pour afficher les autres politiques existantes dans le système, sélectionnez *Politiques de réplication* ou *Politiques de sauvegarde*.  Si les politiques existantes peuvent être utilisées pour vos plans de sauvegarde, vous êtes prêt.  Si vous avez besoin d’une politique avec des caractéristiques différentes, vous pouvez créer de nouvelles politiques à partir de cette page.
+
+
+
+
+== Créer des politiques
+
+Vous pouvez créer des politiques qui régissent vos copies instantanées, vos réplications et vos sauvegardes sur le stockage d'objets :
+
+* <<Créer une politique de snapshot avant de lancer le snapshot>>
+* <<Créer une politique de réplication avant de lancer la réplication>>
+* <<Créez une politique de sauvegarde sur stockage d'objets avant de lancer la sauvegarde>>
+
+
+
+
+=== Créer une politique de snapshot avant de lancer le snapshot
+
+Une partie de votre stratégie 3-2-1 consiste à créer une copie instantanée du volume sur le système de stockage *principal*.
+
+Une partie du processus de création de politique implique l’identification des étiquettes d’instantané et de SnapMirror qui indiquent la planification et la conservation.  Vous pouvez utiliser des étiquettes prédéfinies ou créer les vôtres.
+
+.Étapes
+. Dans l'interface utilisateur de la console, sélectionnez *Volumes* > *Paramètres de sauvegarde*.
+. Depuis la page Paramètres de sauvegarde, sélectionnez le système, sélectionnez *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Gestion des politiques*.
++
+La page de gestion des politiques apparaît.
+
+. Dans la page Politiques, sélectionnez *Créer une politique* > *Créer une politique d'instantané*.
+. Spécifiez le nom de la politique.
+. Sélectionnez le ou les programmes d'instantanés.  Vous pouvez avoir un maximum de 5 étiquettes.  Ou créez un planning.
+. Si vous choisissez de créer un planning :
++
+.. Sélectionnez la fréquence horaire, quotidienne, hebdomadaire, mensuelle ou annuelle.
+.. Spécifiez les étiquettes d’instantané indiquant la planification et la conservation.
+.. Saisissez quand et à quelle fréquence l'instantané sera pris.
+.. Conservation : saisissez le nombre d'instantanés à conserver.
+
+
+. Sélectionnez *Créer*.
+
+
+*Exemple de politique d'instantané utilisant une architecture en cascade*
+
+Cet exemple crée une politique de snapshot avec deux clusters :
+
+. Groupe 1 :
++
+.. Sélectionnez le cluster 1 sur la page de politique.
+.. Ignorez les sections de stratégie de réplication et de sauvegarde vers un objet.
+.. Créez la politique de capture instantanée.
+
+
+. Groupe 2 :
++
+.. Sélectionnez le cluster 2 sur la page Politique.
+.. Ignorez la section de la politique d’instantané.
+.. Configurez les stratégies de réplication et de sauvegarde des objets.
+
+
+
+
+
+
+=== Créer une politique de réplication avant de lancer la réplication
+
+Votre stratégie 3-2-1 peut inclure la réplication d’un volume sur un système de stockage différent.  La politique de réplication réside sur le système de stockage *secondaire*.
+
+.Étapes
+. Dans la page Politiques, sélectionnez *Créer une politique* > *Créer une politique de réplication*.
+. Dans la section Détails de la politique, spécifiez le nom de la politique.
+. Spécifiez les étiquettes SnapMirror (maximum 5) indiquant la rétention pour chaque étiquette.
+. Spécifiez le calendrier de transfert.
+. Sélectionnez *Créer*.
+
+
+
+
+=== Créez une politique de sauvegarde sur stockage d'objets avant de lancer la sauvegarde
+
+Votre stratégie 3-2-1 peut inclure la sauvegarde d’un volume sur un stockage d’objets.
+
+Cette politique de stockage réside dans différents emplacements du système de stockage en fonction de l'architecture de sauvegarde :
+
+* Fan-out : système de stockage principal
+* Cascade : système de stockage secondaire
+
+
+.Étapes
+. Dans la page Gestion des politiques, sélectionnez *Créer une politique* > *Créer une politique de sauvegarde*.
+. Dans la section Détails de la politique, spécifiez le nom de la politique.
+. Spécifiez les étiquettes SnapMirror (maximum 5) indiquant la rétention pour chaque étiquette.
+. Spécifiez les paramètres, y compris la planification du transfert et le moment d'archivage des sauvegardes.
+. (Facultatif) Pour déplacer les anciens fichiers de sauvegarde vers une classe de stockage ou un niveau d'accès moins coûteux après un certain nombre de jours, sélectionnez l'option *Archiver* et indiquez le nombre de jours qui doivent s'écouler avant que les données ne soient archivées.  Entrez *0* comme « Archiver après jours » pour envoyer votre fichier de sauvegarde directement vers le stockage d'archivage.
++
+link:prev-ontap-policy-object-options.html["En savoir plus sur les paramètres de stockage d'archives"] .
+
+. (Facultatif) Pour protéger vos sauvegardes contre toute modification ou suppression, sélectionnez l'option *Protection DataLock et Ransomware*.
++
+Si votre cluster utilise ONTAP 9.11.1 ou une version ultérieure, vous pouvez choisir de protéger vos sauvegardes contre la suppression en configurant _DataLock_ et _Ransomware protection_.
+
++
+link:prev-ontap-policy-object-options.html["En savoir plus sur les paramètres DataLock disponibles"] .
+
+. Sélectionnez *Créer*.
+
+
+
+
+== Modifier une politique
+
+Vous pouvez modifier une stratégie de snapshot, de réplication ou de sauvegarde personnalisée.
+
+La modification de la politique de sauvegarde affecte tous les volumes qui utilisent cette politique.
+
+.Étapes
+. Dans la page de gestion des politiques, sélectionnez la politique, sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Modifier la politique*.
++
+
+NOTE: Le processus est le même pour les politiques de réplication et de sauvegarde.
+
+. Dans la page Modifier la politique, effectuez les modifications.
+. Sélectionnez *Enregistrer*.
+
+
+
+
+== Supprimer une politique
+
+Vous pouvez supprimer des stratégies qui ne sont associées à aucun volume.
+
+Si une politique est associée à un volume et que vous souhaitez supprimer la politique, vous devez d’abord supprimer la politique du volume.
+
+.Étapes
+. Dans la page de gestion des politiques, sélectionnez la politique, sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Supprimer la politique d'instantané*.
+. Sélectionnez *Supprimer*.
+
+
+
+
+== Trouver plus d'informations
+
+Pour obtenir des instructions sur la création de stratégies à l'aide de System Manager ou de l'interface de ligne de commande ONTAP , consultez les éléments suivants :
+
+https://docs.netapp.com/us-en/ontap/task_dp_configure_snapshot.html["Créer une politique de capture instantanée à l'aide du Gestionnaire de système"^] https://docs.netapp.com/us-en/ontap/data-protection/create-snapshot-policy-task.html["Créer une politique de snapshot à l'aide de l'interface de ligne de commande ONTAP"^] https://docs.netapp.com/us-en/ontap/task_dp_create_custom_data_protection_policies.html["Créer une politique de réplication à l'aide du Gestionnaire de système"^] https://docs.netapp.com/us-en/ontap/data-protection/create-custom-replication-policy-concept.html["Créer une politique de réplication à l'aide de l'interface de ligne de commande ONTAP"^] https://docs.netapp.com/us-en/ontap/task_dp_back_up_to_cloud.html#create-a-custom-cloud-backup-policy["Créer une sauvegarde vers une stratégie de stockage d'objets à l'aide du Gestionnaire de système"^] https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html#description["Créer une sauvegarde vers une stratégie de stockage d'objets à l'aide de l'interface de ligne de commande ONTAP"^]

@@ -1,0 +1,58 @@
+---
+sidebar: sidebar 
+permalink: br-start-preview-setup.html 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery 
+summary: 'En participant à l"aperçu de NetApp Backup and Recovery, vous jouez un rôle crucial dans le perfectionnement et l"amélioration de NetApp Backup and Recovery.  Pour la version Preview de NetApp Backup and Recovery, nous vous aiderons à la configuration.  Voici le processus.' 
+---
+= Configurer la version préliminaire de NetApp Backup and Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+En participant à l’une des versions préliminaires de NetApp Backup and Recovery, vous jouez un rôle crucial dans le perfectionnement et l’amélioration de NetApp Backup and Recovery.  Pour la version d'aperçu de NetApp Backup and Recovery, nous vous aiderons à la configurer.  Voici le processus.
+
+. *Inscription* : Si vous ne possédez pas encore de compte NetApp Console, inscrivez-vous pour en créer un.  Voici comment :
++
+.. Visitez le https://bluexp.netapp.com/["Portail de la console NetApp"] .
+.. Sélectionnez *Commencer*.
++
+image:screen-preview-login.png["Connectez-vous à l'écran du portail"]
+
+.. Sélectionnez *S'inscrire*.
++
+image:screen-preview-signup-profile.png["Inscrivez-vous à l'écran de la console"]
+
+.. Saisissez votre nom, votre adresse e-mail, le nom de votre organisation et d’autres détails, puis sélectionnez *Suivant*.
++
+Vous recevrez un e-mail avec un lien pour vérifier votre adresse e-mail.
+
+.. Sélectionnez le lien dans l'e-mail pour vérifier votre adresse e-mail.
+.. Connectez-vous au portail de la console.
+.. Complétez votre profil en saisissant les informations suivantes :
++
+*** *ID d'organisation* : Après votre inscription, vous recevrez un nom d'organisation et un identifiant.  Entrez cela ici.
+*** *Partager l'ID* : partagez le nom et l'ID de l'organisation avec l'équipe produit NetApp .
++
+*Délai d'accès* : Dans un délai de 48 à 72 heures, vous aurez accès à NetApp Backup and Recovery.
+
+
+
+
+
+. *Explorez* le service, testez ses fonctionnalités et intégrez-le à vos charges de travail SQL Server existantes.
+. *Maintenir des contacts réguliers*.  Tout au long de la session d’aperçu, participez à des contrôles réguliers avec l’équipe produit NetApp .  Ces séances vous aident à comprendre le service et à fournir un retour d'information :
++
+** *Entendez parler des mises à jour* : Vous entendrez parler des derniers développements liés à l'aperçu.
+** *Posez des questions* et obtenez des réponses immédiates de l’équipe NetApp Console.
+** *Fournissez vos commentaires* à l’équipe produit NetApp pour améliorer le service.
+** *Partagez les meilleures pratiques* et des conseils pour utiliser le service efficacement.
+** *Favoriser la collaboration* : Collaborez avec d’autres utilisateurs pour partager des expériences et apprendre les uns des autres.
+
+
+. *Donnez votre avis* à l’équipe produit NetApp .
+
