@@ -51,7 +51,7 @@ Lorsque vous restaurez des charges de travail, les événements suivants se prod
 
 Restaurez les charges de travail Hyper-V à l’aide de l’option Restaurer. Vous pouvez rechercher l'instantané par son nom ou en utilisant des filtres.
 
-*Rôle de console requis* Administrateur d'organisation, Administrateur de dossier ou de projet, Super administrateur de sauvegarde et de récupération, Rôle d'administrateur de restauration de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de restauration de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
 
 .Étapes
 . Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Restaurer*.

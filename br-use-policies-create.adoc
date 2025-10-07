@@ -281,7 +281,7 @@ Si vous modifiez une politique qui effectue une sauvegarde sur un stockage d’o
 Si vous avez importé des ressources depuis SnapCenter, vous risquez de rencontrer certaines différences entre les stratégies utilisées dans SnapCenter et celles utilisées dans NetApp Backup and Recovery. Voir link:reference-policy-differences-snapcenter.html["Différences de politique entre SnapCenter et NetApp Backup and Recovery"] .
 
 .Rôle de console NetApp requis
-Administrateur d'organisation ou administrateur de dossier ou de projet. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+Super administrateur de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
 
 .Étapes
 . Dans la console NetApp , accédez à *Protection* > *Sauvegarde et récupération*.

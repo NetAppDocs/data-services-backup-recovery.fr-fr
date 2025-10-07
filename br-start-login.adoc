@@ -22,7 +22,7 @@ Pour plus de détails sur les actions que chaque rôle peut effectuer, voirlink:
 
 Pour vous connecter à la console NetApp , vous pouvez utiliser vos informations d'identification du site de support NetApp ou vous inscrire pour une connexion à la console NetApp à l'aide de votre e-mail et d'un mot de passe. https://docs.netapp.com/us-en/console-setup-admin/task-logging-in.html["En savoir plus sur la connexion"^] .
 
-*Rôle de console NetApp requis* Administrateur d'organisation, Administrateur de dossier ou de projet, Super administrateur de sauvegarde et de récupération, Rôle d'administrateur de restauration de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de console NetApp requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de restauration de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
 
 Pour ajouter un agent de console, vous devez disposer du rôle d’administrateur d’organisation ou de super-administrateur de sauvegarde et de récupération.
 

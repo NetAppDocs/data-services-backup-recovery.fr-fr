@@ -30,7 +30,7 @@ Vous pouvez effectuer les tâches suivantes liées aux groupes de protection :
 
 Regroupez les machines virtuelles et les pools de stockage que vous souhaitez protéger dans un groupe de protection.
 
-*Rôle de console requis* Administrateur d'organisation, Administrateur de dossier ou de projet, Super administrateur de sauvegarde et de récupération ou Rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
 
 .Étapes
 . Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.

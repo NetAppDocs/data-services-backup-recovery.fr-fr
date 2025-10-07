@@ -49,7 +49,7 @@ Lorsque vous restaurez des bases de données Oracle, les événements suivants s
 
 Selon vos besoins, restaurez une base de données Oracle à un moment précis, à un numéro de modification système (SCN) spécifique ou au dernier état correct.  Vous pouvez également simplement restaurer la base de données à partir d'instantanés et ignorer le processus de récupération automatique.  Vous souhaiterez peut-être ignorer le processus de récupération automatique si vous souhaitez effectuer la récupération manuellement.  Vous pouvez rechercher la base de données en utilisant son nom ou avec des filtres spécifiques.
 
-*Rôle de console requis* Administrateur d'organisation, Administrateur de dossier ou de projet, Super administrateur de sauvegarde et de récupération, Rôle d'administrateur de restauration de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de restauration de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
 
 .Étapes
 . Dans le menu de la console NetApp , sélectionnez *Protection > Sauvegarde et récupération*.

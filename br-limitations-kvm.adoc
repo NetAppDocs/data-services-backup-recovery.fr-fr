@@ -14,7 +14,7 @@ summary: Cette version de NetApp Backup and Recovery présente les limitations c
 
 
 [role="lead"]
-Les limitations connues identifient les plates-formes, les appareils ou les fonctions qui ne sont pas pris en charge par cette version du produit ou qui n'interagissent pas correctement avec elle. Examinez attentivement ces limitations.
+Les plates-formes, appareils ou fonctionnalités qui ne fonctionnent pas ou ne fonctionnent pas bien avec cette version sont répertoriés ici.  Lisez attentivement ces limitations.
 
 Les actions et configurations suivantes ne sont pas prises en charge dans la version d'aperçu privée des charges de travail KVM dans NetApp Backup and Recovery :
 

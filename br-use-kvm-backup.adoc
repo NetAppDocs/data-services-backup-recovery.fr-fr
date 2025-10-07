@@ -28,7 +28,7 @@ NOTE: Pour sauvegarder des groupes de protection selon une planification, créez
 
 Vous pouvez exécuter une sauvegarde à la demande immédiatement.  Cela est utile si vous êtes sur le point d'apporter des modifications à votre système et que vous souhaitez vous assurer que vous disposez d'une sauvegarde avant de commencer.
 
-*Rôle de console requis* Administrateur d'organisation, Administrateur de dossier ou de projet, Super administrateur de sauvegarde et de récupération ou Rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
 
 .Étapes
 . Dans le menu de la console NetApp , sélectionnez *Protection > Sauvegarde et récupération*.

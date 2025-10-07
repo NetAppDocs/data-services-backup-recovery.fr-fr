@@ -14,7 +14,7 @@ summary: Suivez quelques étapes pour configurer NetApp Backup and Recovery.
 
 
 [role="lead"]
-Après avoir configuré la console NetApp , configurez les paramètres de sauvegarde et de récupération, qui incluent l'ajout d'informations d'identification pour les ressources de l'hôte, l'importation de ressources SnapCenter , la configuration des répertoires de journaux et la configuration des paramètres VMware vCenter.  Vous devez le faire avant de commencer activement à sauvegarder et à récupérer vos données.
+Après avoir configuré la console NetApp , configurez les paramètres de sauvegarde et de récupération.  Ajoutez des informations d’identification pour les ressources de l’hôte, importez des ressources SnapCenter , configurez les répertoires de journaux et définissez les paramètres VMware vCenter.  Effectuez ces étapes avant de sauvegarder ou de récupérer des données.
 
 * <<Ajouter des informations d'identification pour les ressources de l'hôte>>pour les hôtes Windows et SQL Server que vous avez importés depuis SnapCenter et ajoutez des informations d'identification.  (charges de travail Microsoft SQL Server uniquement)
 * <<Maintenir les paramètres VMware vCenter>> .
@@ -28,9 +28,9 @@ Après avoir configuré la console NetApp , configurez les paramètres de sauveg
 
 == Ajouter des informations d'identification pour les ressources de l'hôte
 
-Ajoutez les informations d’identification pour les ressources hôtes que vous souhaitez importer depuis SnapCenter.  Les informations d’identification de l’hôte sont utilisées pour découvrir de nouvelles charges de travail et appliquer des politiques de sauvegarde.
+Ajoutez des informations d’identification pour les ressources hôtes à importer depuis SnapCenter.  NetApp Backup and Recovery utilise ces informations d’identification pour découvrir les charges de travail et appliquer des stratégies de sauvegarde.
 
-Si vous ne disposez pas déjà d'identifiants, vous pouvez les créer.  Ces informations d’identification doivent disposer des autorisations requises pour accéder et gérer les charges de travail de l’hôte.
+Si vous ne disposez pas d’informations d’identification, créez-les avec des autorisations pour accéder aux charges de travail de l’hôte et les gérer.
 
 Vous devez configurer les types d’informations d’identification suivants :
 
@@ -89,7 +89,7 @@ Vous pouvez ultérieurement modifier le mot de passe des ressources hôtes que v
 
 == Maintenir les paramètres VMware vCenter
 
-Fournissez les informations d’identification VMware vCenter pour découvrir les charges de travail VMware vCenter Server que vous souhaitez sauvegarder.  Si vous ne disposez pas d’informations d’identification existantes, vous pouvez les créer avec les autorisations requises pour accéder et gérer les charges de travail VMware vCenter Server.
+Fournissez les informations d’identification VMware vCenter pour découvrir les charges de travail à sauvegarder.  Si vous ne disposez pas d’informations d’identification, créez-les avec des autorisations pour accéder et gérer les charges de travail VMware vCenter Server.
 
 .Étapes
 . Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Paramètres*.
@@ -110,7 +110,7 @@ Fournissez les informations d’identification VMware vCenter pour découvrir le
 
 == Importer et gérer les ressources de l'hôte SnapCenter
 
-Si vous avez déjà utilisé SnapCenter pour sauvegarder vos ressources, vous pouvez importer et gérer ces ressources dans NetApp Backup and Recovery.  Avec cette option, vous pouvez importer les informations du serveur SnapCenter pour enregistrer plusieurs serveurs Snapcenter et découvrir les charges de travail de la base de données.
+Si vous avez déjà utilisé SnapCenter pour sauvegarder vos ressources, vous pouvez importer et gérer ces ressources dans NetApp Backup and Recovery. Cette option vous permet d'importer les informations du serveur SnapCenter pour enregistrer plusieurs serveurs Snapcenter et découvrir les charges de travail de la base de données.
 
 Il s’agit d’un processus en deux parties :
 

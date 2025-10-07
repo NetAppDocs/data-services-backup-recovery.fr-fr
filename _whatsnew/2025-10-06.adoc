@@ -42,7 +42,7 @@ Cette version de NetApp Backup and Recovery introduit la prise en charge de la d
 * Sauvegarder les pools de stockage
 * Protection en masse des machines virtuelles et des pools de stockage à l'aide de groupes de protection
 * Sauvegardes de machines virtuelles cohérentes et cohérentes en cas de panne
-* Rechercher et restaurer les sauvegardes de machines virtuelles
+* Rechercher et restaurer des sauvegardes de machines virtuelles à partir du stockage principal, secondaire et objet
 * Processus guidé pour sauvegarder et restaurer les machines virtuelles et les données de machines virtuelles basées sur KVM
 
 
