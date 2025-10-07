@@ -1,12 +1,12 @@
-= NetApp Backup and Recovery est désormais NetApp Backup and Recovery
+= La BlueXP backup and recovery sont désormais NetApp Backup and Recovery
 :allow-uri-read: 
 
 
 
 
-=== NetApp Backup and Recovery est désormais NetApp Backup and Recovery
+=== La BlueXP backup and recovery sont désormais NetApp Backup and Recovery
 
-NetApp Backup and Recovery a été renommé NetApp Backup and Recovery.
+La BlueXP backup and recovery ont été renommées NetApp Backup and Recovery.
 
 
 
