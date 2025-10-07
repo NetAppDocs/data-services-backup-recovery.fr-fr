@@ -69,7 +69,7 @@ NOTE: La création initiale d'un volume répliqué ou d'un fichier de sauvegarde
 
 Le tableau suivant présente une comparaison généralisée des trois méthodes de sauvegarde.  Bien que l'espace de stockage d'objets soit généralement moins cher que votre stockage sur disque local, si vous pensez que vous devrez restaurer fréquemment des données à partir du cloud, les frais de sortie des fournisseurs de cloud peuvent réduire une partie de vos économies.  Vous devrez identifier la fréquence à laquelle vous devez restaurer les données à partir des fichiers de sauvegarde dans le cloud.
 
-En plus de ces critères, le stockage cloud offre des options de sécurité supplémentaires si vous utilisez la fonction DataLock et Ransomware Protection, ainsi que des économies de coûts supplémentaires en sélectionnant des classes de stockage d'archivage pour les fichiers de sauvegarde plus anciens. link:prev-ontap-policy-object-options.html["En savoir plus sur la protection DataLock et Ransomware et les paramètres de stockage d'archives"] .
+En plus de ces critères, le stockage cloud offre des options de sécurité supplémentaires si vous utilisez la fonctionnalité DataLock et Ransomware Resilience, ainsi que des économies de coûts supplémentaires en sélectionnant des classes de stockage d'archivage pour les fichiers de sauvegarde plus anciens. link:prev-ontap-policy-object-options.html["En savoir plus sur la protection DataLock et Ransomware et les paramètres de stockage d'archives"] .
 
 [cols="18,18,22,18,22"]
 |===

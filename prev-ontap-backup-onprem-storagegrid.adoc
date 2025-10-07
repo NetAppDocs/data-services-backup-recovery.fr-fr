@@ -187,12 +187,12 @@ Si vous prévoyez de créer des volumes répliqués sur un système ONTAP second
 
 StorageGRID doit répondre aux exigences suivantes. Voir le https://docs.netapp.com/us-en/storagegrid-117/["Documentation de StorageGRID"^] pour plus d'informations.
 
-Pour plus de détails sur les exigences de protection DataLock et Ransomware pour StorageGRID, reportez-vous àlink:prev-ontap-policy-object-options.html["Options de politique de sauvegarde sur objet"] .
+Pour plus de détails sur les exigences de résilience DataLock et Ransomware pour StorageGRID, reportez-vous àlink:prev-ontap-policy-object-options.html["Options de politique de sauvegarde sur objet"] .
 
 Versions de StorageGRID prises en charge:: StorageGRID 10.3 et versions ultérieures sont pris en charge.
 +
 --
-Pour utiliser DataLock & Ransomware Protection pour vos sauvegardes, vos systèmes StorageGRID doivent exécuter la version 11.6.0.3 ou supérieure.
+Pour utiliser DataLock & Ransomware Resilience pour vos sauvegardes, vos systèmes StorageGRID doivent exécuter la version 11.6.0.3 ou supérieure.
 
 Pour hiérarchiser les sauvegardes plus anciennes vers le stockage d'archivage cloud, vos systèmes StorageGRID doivent exécuter la version 11.3 ou supérieure.  De plus, vos systèmes StorageGRID doivent être découverts sur la page *Systèmes* de la console.
 
@@ -432,9 +432,9 @@ Pour créer une politique, sélectionnez *Créer une nouvelle politique* et proc
 +
 *** Entrez le nom de la politique.
 *** Sélectionnez jusqu'à cinq programmes, généralement de fréquences différentes.
-*** Pour les stratégies de sauvegarde sur objet, définissez les paramètres DataLock et Ransomware Protection.  Pour plus de détails sur DataLock et la protection contre les ransomwares, reportez-vous àlink:prev-ontap-policy-object-options.html["Paramètres de la politique de sauvegarde sur objet"] .
+*** Pour les politiques de sauvegarde sur objet, définissez les paramètres DataLock et Ransomware Resilience.  Pour plus de détails sur DataLock et la résilience aux ransomwares, reportez-vous àlink:prev-ontap-policy-object-options.html["Paramètres de la politique de sauvegarde sur objet"] .
 +
-Si votre cluster utilise ONTAP 9.11.1 ou une version ultérieure, vous pouvez choisir de protéger vos sauvegardes contre la suppression et les attaques de ransomware en configurant _DataLock et Ransomware Protection_.  _DataLock_ protège vos fichiers de sauvegarde contre toute modification ou suppression, et _Ransomware Protection_ analyse vos fichiers de sauvegarde pour rechercher des preuves d'une attaque de ransomware dans vos fichiers de sauvegarde.
+Si votre cluster utilise ONTAP 9.11.1 ou une version ultérieure, vous pouvez choisir de protéger vos sauvegardes contre la suppression et les attaques de ransomware en configurant _DataLock et Ransomware Resilience_.  _DataLock_ protège vos fichiers de sauvegarde contre toute modification ou suppression, et _Ransomware Resilience_ analyse vos fichiers de sauvegarde pour rechercher des preuves d'une attaque de ransomware dans vos fichiers de sauvegarde.
 
 *** Sélectionnez *Créer*.
 

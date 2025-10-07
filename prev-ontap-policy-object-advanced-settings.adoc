@@ -116,7 +116,7 @@ image:screenshot_backup_edit_yearly_snap_delete.png["Une capture d’écran de l
 
 Les analyses de protection contre les ransomwares sont activées par défaut.  Le paramètre par défaut pour la fréquence d'analyse est de 7 jours.  L'analyse s'effectue uniquement sur la dernière copie instantanée.  Vous pouvez activer ou désactiver les analyses de ransomware sur la dernière copie instantanée en utilisant l'option sur la page Paramètres avancés.  Si vous l'activez, les analyses sont effectuées tous les 7 jours par défaut.
 
-Pour plus de détails sur les options de protection DataLock et Ransomware, reportez-vous àlink:prev-ontap-policy-object-options.html["Options de protection DataLock et Ransomware"] .
+Pour plus de détails sur les options DataLock et Ransomware Resilience, reportez-vous àlink:prev-ontap-policy-object-options.html["Options de résilience DataLock et Ransomware"] .
 
 Vous pouvez modifier ce calendrier en jours ou en semaines ou le désactiver, ce qui permet de réduire les coûts.
 

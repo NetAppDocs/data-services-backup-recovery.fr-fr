@@ -59,7 +59,7 @@ Les sauvegardes annuelles sont automatiquement supprimées du système source ap
 
 NetApp Backup and Recovery prend en charge la protection DataLock et Ransomware pour vos sauvegardes de volumes.  Ces fonctionnalités vous permettent de verrouiller vos fichiers de sauvegarde et de les analyser pour détecter d'éventuels ransomwares sur les fichiers de sauvegarde.  Il s’agit d’un paramètre facultatif que vous pouvez définir dans vos politiques de sauvegarde lorsque vous souhaitez une protection supplémentaire pour vos sauvegardes de volume pour un cluster.
 
-Ces deux fonctionnalités protègent vos fichiers de sauvegarde afin que vous disposiez toujours d'un fichier de sauvegarde valide pour récupérer des données en cas de tentative d'attaque par ransomware sur vos sauvegardes.  Il est également utile de répondre à certaines exigences réglementaires selon lesquelles les sauvegardes doivent être verrouillées et conservées pendant une certaine période.  Lorsque l'option DataLock et Ransomware Protection est activée, le verrouillage et le contrôle de version des objets seront activés pour le bucket cloud provisionné dans le cadre de l'activation de NetApp Backup and Recovery.
+Ces deux fonctionnalités protègent vos fichiers de sauvegarde afin que vous disposiez toujours d'un fichier de sauvegarde valide pour récupérer des données en cas de tentative d'attaque par ransomware sur vos sauvegardes. Il est également utile de répondre à certaines exigences réglementaires selon lesquelles les sauvegardes doivent être verrouillées et conservées pendant une certaine période. Lorsque l'option DataLock et Ransomware Resilience est activée, le verrouillage et le contrôle de version des objets seront activés pour le bucket cloud provisionné dans le cadre de l'activation de NetApp Backup and Recovery.
 
 https://bluexp.netapp.com/blog/cbs-blg-the-bluexp-feature-that-protects-backups-from-ransomware["Consultez le blog sur la protection DataLock et Ransomware pour plus de détails."^] .
 
@@ -124,7 +124,7 @@ Le paramètre de conservation DataLock remplace le paramètre de conservation de
 
 Vous pouvez activer la protection DataLock et Ransomware lorsque vous créez une politique.  Vous ne pouvez pas activer, modifier ou désactiver cette option une fois la politique créée.
 
-. Lorsque vous créez une politique, développez la section *DataLock et protection contre les ransomwares*.
+. Lorsque vous créez une politique, développez la section *DataLock et résilience aux ransomwares*.
 . Choisissez l’une des options suivantes :
 +
 ** *Aucun* : la protection DataLock et la résilience aux ransomwares sont désactivées.
@@ -165,7 +165,7 @@ Voyons comment cela fonctionne :
 
 === Systèmes pris en charge et fournisseurs de stockage d'objets
 
-Vous pouvez activer la protection DataLock et Ransomware sur les volumes ONTAP des systèmes suivants lorsque vous utilisez le stockage d'objets dans les fournisseurs de cloud public et privé suivants.  Des fournisseurs de cloud supplémentaires seront ajoutés dans les prochaines versions.
+Vous pouvez activer la protection DataLock et Ransomware sur les volumes ONTAP des systèmes suivants lorsque vous utilisez le stockage d'objets dans les fournisseurs de cloud public et privé suivants.
 
 [cols="55,45"]
 |===
@@ -175,10 +175,13 @@ Vous pouvez activer la protection DataLock et Ransomware sur les volumes ONTAP d
 | Cloud Volumes ONTAP dans AWS | Amazon S3 endif::aws[] ifdef::azure[] 
 
 
-| Cloud Volumes ONTAP dans Azure | Objet blob Azure endif::azure[] ifdef::gcp[] endif::gcp[] 
+| Cloud Volumes ONTAP dans Azure | Objet blob Azure endif::azure[] ifdef::gcp[] 
 
 
-| Système ONTAP sur site | ifdef::aws[] Amazon S3 endif::aws[] ifdef::azure[] Azure Blob endif::azure[] ifdef::gcp[] endif::gcp[] NetApp StorageGRID 
+| Cloud Volumes ONTAP dans Google Cloud | Google Cloud endif::gcp[] 
+
+
+| Système ONTAP sur site | ifdef::aws[] Amazon S3 endif::aws[] ifdef::azure[] Azure Blob endif::azure[] ifdef::gcp[] Google Cloud endif::gcp[] NetApp StorageGRID 
 |===
 
 
@@ -244,6 +247,18 @@ ifdef::azure[]
 
 
 endif::azure[]
+
+ifdef::gcp[]
+
+* Pour Google Cloud :
++
+** Vos clusters doivent exécuter ONTAP 9.17.1 ou une version ultérieure
+** L'agent de console peut être déployé dans le cloud ou dans vos locaux
+
+
+
+
+endif::gcp[]
 
 * Pour StorageGRID:
 +
