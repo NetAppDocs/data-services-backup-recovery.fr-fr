@@ -14,7 +14,7 @@ summary: NetApp Backup and Recovery doit d’abord découvrir les charges de tra
 
 
 [role="lead"]
-NetApp Backup and Recovery doit d’abord découvrir les charges de travail Kubernetes pour que vous puissiez utiliser le service.
+NetApp Backup and Recovery doit découvrir les charges de travail Kubernetes avant de les protéger.
 
 *Rôle de console NetApp requis* Super administrateur de sauvegarde et de récupération. En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
 
@@ -22,7 +22,7 @@ NetApp Backup and Recovery doit d’abord découvrir les charges de travail Kube
 
 == Découvrez les charges de travail Kubernetes
 
-Dans l'inventaire de sauvegarde et de restauration, vous pouvez découvrir les charges de travail Kubernetes exécutées dans votre environnement. La découverte d’une charge de travail ajoute un cluster Kubernetes à NetApp Backup and Recovery, vous permettant ensuite d’ajouter des applications au cluster et de protéger les ressources hébergées par le cluster.
+Dans l’inventaire de sauvegarde et de récupération, découvrez les charges de travail Kubernetes dans votre environnement.  L'ajout d'une charge de travail ajoute un cluster Kubernetes à NetApp Backup and Recovery.  Vous pouvez ensuite ajouter des applications et protéger les ressources du cluster.
 
 .Étapes
 . Effectuez l’une des opérations suivantes :
@@ -55,7 +55,7 @@ Le cluster est ajouté à l'inventaire.
 
 == Accéder au tableau de bord de sauvegarde et de récupération NetApp
 
-Pour afficher le tableau de bord de sauvegarde et de récupération NetApp , procédez comme suit.
+Suivez ces étapes pour afficher le tableau de bord de NetApp Backup and Recovery .
 
 . Dans le menu supérieur, sélectionnez *Tableau de bord*.
 . Examiner l’état de santé de la protection des données.  Le nombre de charges de travail à risque ou protégées augmente en fonction des charges de travail nouvellement découvertes, protégées et sauvegardées.

@@ -16,6 +16,10 @@ summary: NetApp Backup and Recovery doit d’abord découvrir les données pour 
 [role="lead"]
 Les plates-formes, appareils ou fonctionnalités qui ne fonctionnent pas ou ne fonctionnent pas bien avec cette version sont répertoriés ici.  Lisez attentivement ces limitations.
 
+
+
+== Actions non prises en charge
+
 Les actions suivantes ne sont pas prises en charge dans la version d'aperçu privée des charges de travail Hyper-V dans NetApp Backup and Recovery :
 
 * Créer des groupes de ressources
@@ -23,4 +27,24 @@ Les actions suivantes ne sont pas prises en charge dans la version d'aperçu pri
 * Protéger les machines virtuelles via SAN
 * Restaurer à partir du magasin d'objets
 * Protégez les hôtes Hyper-V mis en cluster à l'aide de System Center Virtual Machine Manager (SCVMM)
+
+
+
+
+== Comptes de NetApp Console hérités non pris en charge
+
+Les comptes de NetApp Console hérités ne prennent pas en charge les fonctionnalités requises pour protéger les charges de travail Hyper-V.  Vérifiez si vous utilisez un compte hérité dans l’interface utilisateur Web de la console.  Si vous disposez d’un compte de console hérité, créez un nouveau compte avant de protéger les charges de travail Hyper-V.
+
+.Étapes
+. Dans le menu de la NetApp Console , sélectionnez *Administration > Identité et accès*.
+. Sous *Organisation*, vérifiez si un *ID de compte* est affiché à côté de l'ID de l'organisation.
++
+Si un *ID de compte* s'affiche, vous utilisez un compte hérité.
+
+. Si vous utilisez un compte hérité, procédez comme suit :
++
+.. Déconnectez-vous de la console, puis accédez à la https://console.netapp.com/["Page de connexion à la console"^] .
+.. Sélectionnez *S'inscrire* pour créer un nouveau compte.
+
+
 

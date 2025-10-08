@@ -322,7 +322,7 @@ TIP: Si vous souhaitez créer une politique personnalisée avant d'activer le Sn
 
 +
 
-TIP: Pour créer une politique personnalisée à l'aide de ce service, reportez-vous àlink:br-use-policies-create.html["Créer une politique"] .
+TIP: Pour créer une politique personnalisée à l'aide de Sauvegarde et récupération, reportez-vous àlink:br-use-policies-create.html["Créer une politique"] .
 
 +
 Pour créer une politique, sélectionnez *Créer une nouvelle politique* et procédez comme suit :
@@ -367,7 +367,7 @@ TIP: Vous pouvez créer une politique avec System Manager ou l'interface de lign
 
 +
 
-TIP: Pour créer une politique personnalisée à l'aide de ce service, reportez-vous àlink:br-use-policies-create.html["Créer une politique"] .
+TIP: Pour créer une politique personnalisée à l'aide de Sauvegarde et récupération, reportez-vous àlink:br-use-policies-create.html["Créer une politique"] .
 
 +
 Pour créer une politique, sélectionnez *Créer une nouvelle politique* et procédez comme suit :

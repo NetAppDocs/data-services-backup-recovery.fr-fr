@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-start-discover-hyperv.html 
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Hyper-V, workloads, protect 
-summary: NetApp Backup and Recovery doit d’abord découvrir les charges de travail afin que vous puissiez les protéger. 
+summary: NetApp Backup and Recovery doit détecter les machines virtuelles Hyper-V avant de pouvoir les protéger. 
 ---
 = Découvrez les charges de travail Hyper-V dans NetApp Backup and Recovery
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: NetApp Backup and Recovery doit d’abord découvrir les charges de tra
 
 
 [role="lead"]
-NetApp Backup and Recovery doit d’abord détecter les machines virtuelles Hyper-V afin que vous puissiez les protéger.
+NetApp Backup and Recovery doit détecter les machines virtuelles Hyper-V avant de pouvoir les protéger.
 
 *Rôle de console requis* Super administrateur de sauvegarde et de récupération. En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
 
@@ -55,12 +55,13 @@ TIP: Ce processus peut prendre quelques minutes.
 
 
 .Résultat
-Une fois que NetApp Backup and Recovery a découvert les ressources, la charge de travail Hyper-V s’affiche dans la liste des charges de travail sur la page Inventaire.
+Une fois que NetApp Backup and Recovery a découvert les ressources, la page Inventaire affiche la charge de travail Hyper-V dans la liste des charges de travail.
 
 
 
 == Accéder au tableau de bord de sauvegarde et de récupération NetApp
 
+.Étapes
 . Pour afficher le tableau de bord de sauvegarde et de récupération NetApp , dans le menu de la console NetApp , sélectionnez *Tableau de bord*.
 . Examiner l’état de santé de la protection des données.  Le nombre de charges de travail à risque ou protégées augmente en fonction des charges de travail nouvellement découvertes, protégées et sauvegardées.
 

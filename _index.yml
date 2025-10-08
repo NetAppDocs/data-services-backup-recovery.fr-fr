@@ -51,7 +51,7 @@ indexpage:
       url: br-use-mssql-restore.html
     - title: Cloner les charges de travail Microsoft SQL Server
       url: br-use-mssql-clone.html
-  - title: Protégez les charges de travail VMware (aperçu privé)
+  - title: Protéger les charges de travail VMware (aperçu)
     links:
     - title: Présentation de la protection des charges de travail VMware
       url: br-use-vmware-protect-overview.html

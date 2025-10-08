@@ -22,7 +22,7 @@ Vous pouvez démarrer l'essai gratuit de NetApp Backup and Recovery après vous 
 
 .Étapes
 . Dans la navigation de gauche de la console, sélectionnez *Protection* > *Sauvegarde et récupération*.
-. Si c'est la première fois que vous vous connectez à ce service, que vous disposez déjà d'un système dans la console NetApp , mais que vous n'avez pas démarré l'essai gratuit, la page d'accueil « Bienvenue dans la nouvelle solution NetApp Backup and Recovery » apparaît et affiche une option pour *Démarrer l'essai gratuit*.
+. Si c'est la première fois que vous vous connectez à Backup and Recovery, que vous disposez déjà d'un système dans la NetApp Console, mais que vous n'avez pas démarré l'essai gratuit, la page d'accueil « Bienvenue dans le nouveau NetApp Backup and Recovery» apparaît et affiche une option pour *Démarrer l'essai gratuit*.
 +
 image:screen-br-landing-unified-start-trial.png["Capture d'écran de la page de destination pour NetApp Backup and Recovery sans essai gratuit"]
 
@@ -34,7 +34,7 @@ image:screen-br-landing-unified-start-trial.png["Capture d'écran de la page de 
 
 Après avoir démarré l’essai gratuit, vous pouvez découvrir des charges de travail et créer des politiques pour sauvegarder vos charges de travail.
 
-Si c'est la première fois que vous vous connectez à ce service, que vous disposez déjà d'un système dans la console NetApp et que vous avez démarré l'essai gratuit, mais que vous n'avez découvert aucune ressource, la page d'accueil « Bienvenue dans la nouvelle solution NetApp Backup and Recovery » apparaît et affiche une option pour *Découvrir des ressources*.
+Si c'est la première fois que vous vous connectez à Backup and Recovery, que vous avez déjà un système dans la NetApp Console et que vous avez démarré l'essai gratuit, mais que vous n'avez découvert aucune ressource, la page d'accueil « Bienvenue dans la nouvelle version de NetApp Backup and Recovery» apparaît et affiche une option pour *Découvrir des ressources*.
 
 Pour plus de détails sur la découverte des charges de travail, voirlink:br-start-discover.html["Découvrir les charges de travail"] .
 

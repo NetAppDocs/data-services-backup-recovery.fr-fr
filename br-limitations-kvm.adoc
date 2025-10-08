@@ -46,3 +46,23 @@ Les configurations suivantes ne sont pas prises en charge :
 * Format de disque RAW
 * Types de pools de stockage autres que NetFS (seul NetFS est pris en charge)
 
+
+
+
+== Comptes de NetApp Console hérités non pris en charge
+
+Les comptes de NetApp Console hérités ne prennent pas en charge les fonctionnalités requises pour protéger les charges de travail KVM.  Vérifiez si vous utilisez un compte hérité dans l’interface utilisateur Web de la console.  Si vous disposez d’un compte de console hérité, créez un nouveau compte avant de protéger les charges de travail KVM.
+
+.Étapes
+. Dans le menu de la NetApp Console , sélectionnez *Administration > Identité et accès*.
+. Sous *Organisation*, vérifiez si un *ID de compte* est affiché à côté de l'ID de l'organisation.
++
+Si un *ID de compte* s'affiche, vous utilisez un compte hérité.
+
+. Si vous utilisez un compte hérité, procédez comme suit :
++
+.. Déconnectez-vous de la console, puis accédez à la https://console.netapp.com/["Page de connexion à la console"^] .
+.. Sélectionnez *S'inscrire* pour créer un nouveau compte.
+
+
+

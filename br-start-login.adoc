@@ -16,7 +16,7 @@ summary: Vous utilisez la console NetApp pour vous connecter au service NetApp B
 [role="lead"]
 Vous utilisez la console NetApp pour vous connecter à NetApp Backup and Recovery.
 
-NetApp Backup and Recovery utilise la gestion des identités et des accès pour régir l'accès de chaque utilisateur à des actions spécifiques.
+NetApp Backup and Recovery utilise la gestion des identités et des accès pour contrôler ce que chaque utilisateur peut faire.
 
 Pour plus de détails sur les actions que chaque rôle peut effectuer, voirlink:reference-roles.html["Rôles utilisateur de NetApp Backup and Recovery"] .
 
@@ -24,7 +24,7 @@ Pour vous connecter à la console NetApp , vous pouvez utiliser vos informations
 
 *Rôle de console NetApp requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de restauration de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
 
-Pour ajouter un agent de console, vous devez disposer du rôle d’administrateur d’organisation ou de super-administrateur de sauvegarde et de récupération.
+Pour ajouter un agent de console, vous devez disposer du rôle de super administrateur de sauvegarde et de récupération.
 
 .Étapes
 . Ouvrez un navigateur Web et accédez à la https://console.netapp.com/["Console NetApp"^] .
@@ -34,25 +34,18 @@ La page de connexion à la console NetApp s’affiche.
 . Connectez-vous à la console.
 . Dans la navigation de gauche de la console, sélectionnez *Protection* > *Sauvegarde et récupération*.
 +
-** S'il s'agit de votre première connexion à ce service et que vous n'avez pas encore ajouté de système à la page *Systèmes*, la page d'accueil « Bienvenue dans la nouvelle solution NetApp Backup and Recovery » s'affiche et affiche une option permettant d'ajouter un système.  Pour plus de détails sur l'ajout d'un système à la page *Systèmes*, reportez-vous à https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-standard-mode.html["Prise en main du mode standard de la console NetApp"^] .
-** S'il s'agit de votre première connexion à ce service et que vous avez déjà ajouté un système à la page *Systèmes*, mais que vous n'avez découvert aucune ressource, la page d'accueil « Bienvenue dans la nouvelle sauvegarde et récupération NetApp » apparaît et affiche une option pour *Découvrir les ressources*.
+** S'il s'agit de votre première connexion à Backup and Recovery et que vous n'avez pas encore ajouté de système à la page *Systèmes*, Backup and Recovery affiche la page d'accueil « Bienvenue sur la nouvelle NetApp Backup and Recovery» et propose une option pour ajouter un système. Pour plus de détails sur l'ajout d'un système à la page *Systèmes*, reportez-vous à https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-standard-mode.html["Prise en main du mode standard de la console NetApp"^] .
+** S'il s'agit de votre première connexion à Backup and Recovery et que vous avez déjà ajouté un système à la page *Systèmes*, mais que vous n'avez découvert aucune ressource, la page d'accueil « Bienvenue dans la nouvelle version de NetApp Backup and Recovery» apparaît et affiche une option permettant de *Découvrir des ressources*.
 
 
-. Si vous ne l’avez pas déjà fait, sélectionnez l’option *Découvrir et gérer*.  <<<<<<< TÊTE
+. Si vous ne l’avez pas déjà fait, sélectionnez l’option *Découvrir et gérer*.
 +
 ** Pour les charges de travail Microsoft SQL Server, reportez-vous àlink:br-start-discover.html["Découvrez les charges de travail Microsoft SQL Server"] .
 ** Pour les charges de travail VMware, reportez-vous àlink:br-use-vmware-discovery.html["Découvrez les charges de travail VMware"] .
 ** Pour les charges de travail KVM, reportez-vous àlink:br-start-discover-kvm.html["Découvrez les charges de travail KVM"] .
+** Pour les charges de travail Oracle, reportez-vous àlink:br-start-discover-oracle.html["Découvrez les charges de travail Oracle"] .
 ** Pour les charges de travail Hyper-V, reportez-vous àlink:br-start-discover-hyperv.html["Découvrez les charges de travail Hyper-V"] .
 ** Pour les charges de travail Kubernetes, reportez-vous àlink:br-start-discover-kubernetes.html["Découvrez les charges de travail Kubernetes"] .
 
 
 
-
-[]
-====
-+ * Pour les charges de travail Microsoft SQL Server, reportez-vous àlink:br-start-discover.html["Découvrez les charges de travail Microsoft SQL Server"] .  * Pour les charges de travail VMware, reportez-vous àlink:br-use-vmware-discovery.html["Découvrez les charges de travail VMware"] .  * Pour les charges de travail KVM, reportez-vous àlink:br-start-discover-kvm.html["Découvrez les charges de travail KVM"] .  * Pour les charges de travail Oracle, reportez-vous àlink:br-start-discover-oracle.html["Découvrez les charges de travail Oracle"] .  * Pour les charges de travail Kubernetes, reportez-vous àlink:br-start-discover-kubernetes.html["Découvrez les charges de travail Kubernetes"] .
-
->>>>>>> 6b2aaa82d1d2ec0ac72303b380f289e4a01ba4c6
-
-====

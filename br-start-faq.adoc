@@ -27,7 +27,7 @@ Vous pouvez utiliser les types de licences suivants :
 
 *Comment activer NetApp Backup and Recovery ?*  NetApp Backup and Recovery ne nécessite aucune activation.  L'option de sauvegarde et de récupération est automatiquement activée dans la navigation de gauche de la console.
 
-Pour commencer, vous devez vous inscrire ou contacter votre représentant commercial NetApp pour essayer ce service.  Ensuite, lorsque vous utilisez l’agent de console, il inclura les fonctionnalités appropriées pour le service.
+Pour commencer, vous devez vous inscrire ou contacter votre représentant commercial NetApp pour essayer Backup and Recovery. Ensuite, lorsque vous utilisez l’agent de console, il inclura les fonctionnalités appropriées pour le service.
 
 Pour démarrer avec NetApp Backup and Recovery, sélectionnez « Commencer à découvrir les charges de travail » sur sa page d’accueil initiale.
 
@@ -53,7 +53,7 @@ Pour une explication sur ces modes dans tous les services de données NetApp , r
 
 * NetApp Backup and Recovery est-il conscient des paramètres de protection définis dans NetApp ONTAP?*  Oui, NetApp Backup and Recovery détecte les planifications de snapshots définies dans ONTAP.
 
-*Si vous définissez une politique à l'aide de NetApp Backup and Recovery, devez-vous apporter des modifications futures uniquement dans ce service ?*  Nous vous recommandons d’effectuer des modifications de stratégie à partir de NetApp Backup and Recovery.
+*Si vous définissez une politique à l'aide de NetApp Backup and Recovery, devez-vous effectuer les modifications futures uniquement dans Backup and Recovery ?* Nous vous recommandons d’effectuer des modifications de stratégie à partir de NetApp Backup and Recovery.
 
 
 

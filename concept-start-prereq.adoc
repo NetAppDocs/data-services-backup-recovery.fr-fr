@@ -253,7 +253,7 @@ Revoir https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checkli
 
 === Créer un agent de console
 
-Vous devez contacter votre équipe produit NetApp pour essayer ce service.  Ensuite, lorsque vous utilisez l’agent de console, il inclura les fonctionnalités appropriées pour le service.
+Vous devez contacter votre équipe produit NetApp pour essayer la sauvegarde et la récupération. Ensuite, lorsque vous utilisez l’agent de console, il inclura les fonctionnalités appropriées pour le service.
 
 Pour créer un agent de console dans la console NetApp avant d’utiliser le service, reportez-vous à la documentation de la console qui décrit https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["comment créer un agent de console"^] .
 

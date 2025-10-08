@@ -20,14 +20,14 @@ Suivez quelques étapes pour découvrir ou ajouter manuellement des cibles de sa
 
 == Découvrir une cible de sauvegarde
 
-Avant d'utiliser NetApp Backup and Recovery, vous devez configurer vos cibles de sauvegarde Amazon Web Services (AWS) S3, Microsoft Azure Blob Storage, Google Cloud Storage ou StorageGRID.
+Configurez vos cibles de sauvegarde (Amazon Web Services (AWS) S3, Microsoft Azure Blob Storage, Google Cloud Storage ou StorageGRID) avant d'utiliser NetApp Backup and Recovery.
 
 Vous pouvez découvrir ces cibles automatiquement ou les ajouter manuellement.
 
-Fournissez les informations d’identification nécessaires pour accéder au système de compte de stockage.  Ces informations d’identification sont utilisées pour découvrir les charges de travail que vous souhaitez sauvegarder.
+Fournissez les informations d’identification pour accéder au compte de stockage.  NetApp Backup and Recovery utilise ces informations d’identification pour découvrir les charges de travail que vous souhaitez sauvegarder.
 
 .Avant de commencer
-Pour ajouter une cible de sauvegarde hors site, au moins une charge de travail doit être découverte.
+Vous devez découvrir au moins une charge de travail avant de pouvoir ajouter une cible de sauvegarde hors site.
 
 .Étapes
 . Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
