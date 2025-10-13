@@ -35,7 +35,7 @@ Configurez les paramètres avancés de NetApp Backup and Recovery des manières 
 
 Vous pouvez supprimer des sauvegardes pour libérer de l'espace dans votre stockage.
 
-. Dans la console NetApp Backup and Recovery, sélectionnez **Paramètres**.
+. Dans la console NetApp Backup and Recovery , sélectionnez **Paramètres**.
 . Sélectionnez **Paramètres avancés**.
 . Sélectionnez **Supprimer les sauvegardes**.
 . Sélectionnez la sauvegarde que vous souhaitez supprimer.
@@ -48,10 +48,10 @@ Vous pouvez supprimer des sauvegardes pour libérer de l'espace dans votre stock
 
 Vous pouvez désinscrire des sauvegardes, des bases de données, des instances ou des hôtes d'application pour les supprimer de l'inventaire.
 
-. Dans la console NetApp Backup and Recovery, sélectionnez **Paramètres**.
+. Dans la console NetApp Backup and Recovery , sélectionnez **Paramètres**.
 . Sélectionnez **Paramètres avancés**.
 . Sélectionnez **Désinscrire les ressources**.
-. Sélectionnez la ressource dont vous souhaitez désinscrire.
+. Sélectionnez la ressource dont vous souhaitez annuler l’enregistrement.
 . Sélectionnez **Désinscrire**.
 
 
@@ -61,7 +61,7 @@ Vous pouvez désinscrire des sauvegardes, des bases de données, des instances o
 
 Vous pouvez supprimer des relations pour les retirer de l'inventaire.
 
-. Dans la console NetApp Backup and Recovery, sélectionnez **Paramètres**.
+. Dans la console NetApp Backup and Recovery , sélectionnez **Paramètres**.
 . Sélectionnez **Paramètres avancés**.
 . Sélectionnez **Supprimer les relations**.
 . Sélectionnez la relation que vous souhaitez supprimer.
@@ -74,7 +74,7 @@ Vous pouvez supprimer des relations pour les retirer de l'inventaire.
 
 Vous pouvez déprotéger les bases de données, les instances, les hôtes d'application et les environnements de travail pour arrêter les frais de service.
 
-. Dans la console NetApp Backup and Recovery, sélectionnez **Paramètres**.
+. Dans la console NetApp Backup and Recovery , sélectionnez **Paramètres**.
 . Sélectionnez **Paramètres avancés**.
 . Sélectionnez **Déprotéger les ressources**.
 
@@ -85,7 +85,7 @@ Vous pouvez déprotéger les bases de données, les instances, les hôtes d'appl
 
 Vous pouvez définir le taux de transfert maximal pour la relation SnapMirror afin de gérer l'utilisation de la bande passante, garantissant ainsi que les opérations SnapMirror n'interfèrent pas avec d'autres activités réseau.
 
-. Dans la console NetApp Backup and Recovery, sélectionnez **Paramètres**.
+. Dans la console NetApp Backup and Recovery , sélectionnez **Paramètres**.
 . Sélectionnez **Paramètres avancés**.
 . Sélectionnez **Définir le taux de transfert maximal pour la relation SnapMirror **.
 . Entrez le taux de transfert maximal.
@@ -98,7 +98,7 @@ Vous pouvez définir le taux de transfert maximal pour la relation SnapMirror af
 
 Vous pouvez exporter des copies instantanées vers un magasin d'objets pour initialiser les sauvegardes dans le cloud en déplaçant les anciennes copies instantanées vers la copie de sauvegarde de base.
 
-. Dans la console NetApp Backup and Recovery, sélectionnez **Paramètres**.
+. Dans la console NetApp Backup and Recovery , sélectionnez **Paramètres**.
 . Sélectionnez **Paramètres avancés**.
 . Sélectionnez **Exporter des copies instantanées vers un magasin d'objets**.
 . Sélectionnez la copie instantanée que vous souhaitez exporter.
@@ -111,7 +111,7 @@ Vous pouvez exporter des copies instantanées vers un magasin d'objets pour init
 
 Vous pouvez activer la suppression automatique des instantanés annuels pour supprimer les instantanés datant de plus d'un an.
 
-. Dans la console NetApp Backup and Recovery, sélectionnez **Paramètres**.
+. Dans la console NetApp Backup and Recovery , sélectionnez **Paramètres**.
 . Sélectionnez **Paramètres avancés**.
 . Sélectionnez **Activer la suppression automatique des instantanés annuels**.
 . Sélectionnez **Activer**.
@@ -123,7 +123,7 @@ Vous pouvez activer la suppression automatique des instantanés annuels pour sup
 
 Vous pouvez activer le mode maintenance afin que les mises à jour ou les tâches de maintenance puissent être effectuées.
 
-. Dans la console NetApp Backup and Recovery, sélectionnez **Paramètres**.
+. Dans la console NetApp Backup and Recovery , sélectionnez **Paramètres**.
 . Sélectionnez **Paramètres avancés**.
 . Sélectionnez **Activer le mode maintenance**.
 . Sélectionnez **Activer**.
@@ -135,7 +135,7 @@ Vous pouvez activer le mode maintenance afin que les mises à jour ou les tâche
 
 Vous pouvez mettre à jour le plugin d'application pour vous assurer que les dernières fonctionnalités sont disponibles.
 
-. Dans la console NetApp Backup and Recovery, sélectionnez **Paramètres**.
+. Dans la console NetApp Backup and Recovery , sélectionnez **Paramètres**.
 . Sélectionnez **Paramètres avancés**.
 . Sélectionnez **Mettre à jour le plug-in d’application**.
 . Sélectionnez **Mettre à jour**.

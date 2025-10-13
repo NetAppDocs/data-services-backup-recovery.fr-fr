@@ -16,7 +16,7 @@ summary: Le service NetApp Backup and Recovery doit d’abord découvrir les don
 [role="lead"]
 Les plates-formes, appareils ou fonctionnalités qui ne fonctionnent pas ou ne fonctionnent pas bien avec cette version sont répertoriés ici.  Lisez attentivement ces limitations.
 
-Les actions suivantes ne sont pas prises en charge dans la version préliminaire des charges de travail VMware dans NetApp Backup and Recovery :
+Les actions suivantes ne sont pas prises en charge dans la version préliminaire des charges de travail VMware dans NetApp Backup and Recovery:
 
 * Monter
 * Démonter

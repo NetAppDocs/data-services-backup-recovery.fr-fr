@@ -16,11 +16,11 @@ summary: Protégez vos charges de travail VMware avec NetApp NetApp Backup and R
 [role="lead"]
 Effectuez quelques étapes dans NetApp Backup and Recovery pour commencer à sauvegarder les données de volume de vos principaux systèmes ONTAP sur site.  Vous pouvez envoyer des sauvegardes vers un système de stockage ONTAP secondaire (un volume répliqué) ou vers un bucket sur un système ONTAP configuré comme serveur S3 (un fichier de sauvegarde), ou les deux.
 
-Le système ONTAP principal sur site peut être un système FAS, AFF ou ONTAP Select .  Le système ONTAP secondaire peut être un système ONTAP sur site ou Cloud Volumes ONTAP .  Le stockage d'objets peut se trouver sur un système ONTAP local ou sur un système Cloud Volumes ONTAP sur lequel vous avez activé un serveur de stockage d'objets Simple Storage Service (S3).
+Le système ONTAP principal sur site peut être un système FAS, AFF ou ONTAP Select .  Le système ONTAP secondaire peut être un système ONTAP local ou Cloud Volumes ONTAP .  Le stockage d'objets peut se trouver sur un système ONTAP local ou sur un système Cloud Volumes ONTAP sur lequel vous avez activé un serveur de stockage d'objets Simple Storage Service (S3).
 
 []
 ====
-*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery, reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de sauvegarde et de récupération NetApp"] .
+*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
 
 ====
 
@@ -75,7 +75,7 @@ Assurez-vous que le réseau sur lequel l’agent de console est installé permet
 
 ==== Considérations sur le mode privé (site sombre)
 
-La fonctionnalité de sauvegarde et de récupération NetApp est intégrée à l’agent de la console.  Lorsqu'il est installé en mode privé, vous devrez mettre à jour périodiquement le logiciel de l'agent de la console pour accéder aux nouvelles fonctionnalités.  Vérifiez lelink:whats-new.html["Nouveautés de NetApp Backup and Recovery"] pour voir les nouvelles fonctionnalités de chaque version de NetApp Backup and Recovery.  Lorsque vous souhaitez utiliser les nouvelles fonctionnalités, suivez les étapes pour https://docs.netapp.com/us-en/console-setup-admin/task-upgrade-connector.html["mettre à niveau le logiciel de l'agent de la console"^] .
+La fonctionnalité de NetApp Backup and Recovery est intégrée à l’agent de la console.  Lorsqu'il est installé en mode privé, vous devrez mettre à jour périodiquement le logiciel de l'agent de la console pour accéder aux nouvelles fonctionnalités.  Vérifiez lelink:whats-new.html["Nouveautés de NetApp Backup and Recovery"] pour voir les nouvelles fonctionnalités de chaque version de NetApp Backup and Recovery .  Lorsque vous souhaitez utiliser les nouvelles fonctionnalités, suivez les étapes pour https://docs.netapp.com/us-en/console-setup-admin/task-upgrade-connector.html["mettre à niveau le logiciel de l'agent de la console"^] .
 
 Lorsque vous utilisez NetApp Backup and Recovery dans un environnement SaaS standard, les données de configuration de NetApp Backup and Recovery sont sauvegardées dans le cloud.  Lorsque vous utilisez NetApp Backup and Recovery sur un site sans accès Internet, les données de configuration de NetApp Backup and Recovery sont sauvegardées dans le compartiment ONTAP S3 où vos sauvegardes sont stockées.
 
@@ -98,7 +98,7 @@ Vous devrez préparer votre système ONTAP source sur site et tous les systèmes
 
 La préparation de vos clusters ONTAP implique les étapes suivantes :
 
-* Découvrez vos systèmes ONTAP dans la console NetApp
+* Découvrez vos systèmes ONTAP dans la NetApp Console
 * Vérifier la configuration système requise ONTAP
 * Vérifier les exigences réseau ONTAP pour la sauvegarde des données sur le stockage d'objets
 * Vérifier les exigences réseau ONTAP pour la réplication des volumes
@@ -106,9 +106,9 @@ La préparation de vos clusters ONTAP implique les étapes suivantes :
 
 
 
-=== Découvrez vos systèmes ONTAP dans la console NetApp
+=== Découvrez vos systèmes ONTAP dans la NetApp Console
 
-Votre système ONTAP source sur site et tous les systèmes ONTAP ou Cloud Volumes ONTAP secondaires sur site doivent être disponibles sur la page *Systèmes* de la console NetApp .
+Votre système ONTAP source sur site et tous les systèmes ONTAP ou Cloud Volumes ONTAP secondaires sur site doivent être disponibles sur la page *Systèmes* de la NetApp Console .
 
 Vous devrez connaître l’adresse IP de gestion du cluster et le mot de passe du compte utilisateur administrateur pour ajouter le cluster. https://docs.netapp.com/us-en/storage-management-ontap-onprem/task-discovering-ontap.html["Apprenez à découvrir un cluster"^] .
 
@@ -129,7 +129,7 @@ Apprenez à https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-con
 * L'heure et le fuseau horaire sont correctement réglés.  Apprenez à https://docs.netapp.com/us-en/ontap/system-admin/manage-cluster-time-concept.html["configurer l'heure de votre cluster"^] .
 * Si vous envisagez de répliquer des données, vous devez vérifier que les systèmes source et de destination exécutent des versions ONTAP compatibles avant de répliquer les données.
 +
-https://docs.netapp.com/us-en/ontap/data-protection/compatible-ontap-versions-snapmirror-concept.html["Afficher les versions ONTAP compatibles pour les relations SnapMirror"^] .
+https://docs.netapp.com/us-en/ontap/data-protection/compatible-ontap-versions-snapmirror-concept.html["Afficher les versions ONTAP compatibles pour les relations SnapMirror"^].
 
 
 
@@ -144,7 +144,7 @@ Vous devez vous assurer que les exigences suivantes sont respectées sur le syst
 * Lorsque vous utilisez une architecture de sauvegarde en éventail, les paramètres doivent être configurés sur le système de stockage _principal_.
 * Lorsque vous utilisez une architecture de sauvegarde en cascade, les paramètres doivent être configurés sur le système de stockage _secondaire_.
 +
-link:prev-ontap-protect-journey.html["En savoir plus sur les types d'architecture de sauvegarde"] .
+link:prev-ontap-protect-journey.html["En savoir plus sur les types d'architecture de sauvegarde"].
 
 
 
@@ -153,12 +153,12 @@ Les exigences de mise en réseau du cluster ONTAP suivantes sont nécessaires :
 
 * Le cluster ONTAP initie une connexion HTTPS via un port spécifié par l'utilisateur depuis le LIF intercluster vers le serveur ONTAP S3 pour les opérations de sauvegarde et de restauration.  Le port est configurable lors de la configuration de la sauvegarde.
 +
-ONTAP lit et écrit des données vers et depuis le stockage d'objets. Le stockage d'objets ne s'initialise jamais, il répond simplement.
+ONTAP lit et écrit des données vers et depuis le stockage d'objets.  Le stockage d'objets ne s'initialise jamais, il répond simplement.
 
 * ONTAP nécessite une connexion entrante de l'agent de console au LIF de gestion du cluster.
 * Un LIF intercluster est requis sur chaque nœud ONTAP qui héberge les volumes que vous souhaitez sauvegarder.  Le LIF doit être associé à l'_IPspace_ ONTAP doit utiliser pour se connecter au stockage d'objets. https://docs.netapp.com/us-en/ontap/networking/standard_properties_of_ipspaces.html["En savoir plus sur IPspaces"^] .
 +
-Lorsque vous configurez NetApp Backup and Recovery, vous êtes invité à indiquer l'espace IP à utiliser. Vous devez choisir l’espace IP auquel chaque LIF est associé. Il peut s'agir de l'espace IP « par défaut » ou d'un espace IP personnalisé que vous avez créé.
+Lorsque vous configurez NetApp Backup and Recovery, vous êtes invité à indiquer l'espace IP à utiliser.  Vous devez choisir l’espace IP auquel chaque LIF est associé.  Il peut s'agir de l'espace IP « par défaut » ou d'un espace IP personnalisé que vous avez créé.
 
 * Les LIF intercluster des nœuds peuvent accéder au magasin d'objets (non requis lorsque l'agent de console est installé sur un site « sombre »).
 * Les serveurs DNS ont été configurés pour la machine virtuelle de stockage où se trouvent les volumes.  Découvrez comment https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html["configurer les services DNS pour le SVM"^] .
@@ -176,7 +176,7 @@ Si vous prévoyez de créer des volumes répliqués sur un système ONTAP second
 
 ==== Exigences de mise en réseau ONTAP sur site
 
-* Si le cluster se trouve dans vos locaux, vous devez disposer d’une connexion entre votre réseau d’entreprise et votre réseau virtuel chez le fournisseur de cloud.  Il s’agit généralement d’une connexion VPN.
+* Si le cluster se trouve dans vos locaux, vous devez disposer d’une connexion entre votre réseau d’entreprise et votre réseau virtuel chez le fournisseur de cloud. Il s’agit généralement d’une connexion VPN.
 * Les clusters ONTAP doivent répondre à des exigences supplémentaires en matière de sous-réseau, de port, de pare-feu et de cluster.
 +
 Étant donné que vous pouvez répliquer vers Cloud Volumes ONTAP ou vers des systèmes locaux, examinez les exigences de peering pour les systèmes ONTAP locaux. https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html["Consultez les conditions préalables pour le peering de cluster dans la documentation ONTAP"^] .
@@ -187,14 +187,14 @@ Si vous prévoyez de créer des volumes répliqués sur un système ONTAP second
 
 ==== Exigences réseau de Cloud Volumes ONTAP
 
-* Le groupe de sécurité de l'instance doit inclure les règles entrantes et sortantes requises : en particulier, les règles pour ICMP et les ports 11104 et 11105.  Ces règles sont incluses dans le groupe de sécurité prédéfini.
+* Le groupe de sécurité de l'instance doit inclure les règles entrantes et sortantes requises : en particulier, les règles pour ICMP et les ports 11104 et 11105. Ces règles sont incluses dans le groupe de sécurité prédéfini.
 
 
 
 
 == Préparez ONTAP S3 comme cible de sauvegarde
 
-Vous devez activer un serveur de stockage d'objets Simple Storage Service (S3) dans le cluster ONTAP que vous prévoyez d'utiliser pour les sauvegardes de stockage d'objets. Voir le https://docs.netapp.com/us-en/ontap/s3-config/index.html["Documentation ONTAP S3"^] pour plus de détails.
+Vous devez activer un serveur de stockage d'objets Simple Storage Service (S3) dans le cluster ONTAP que vous prévoyez d'utiliser pour les sauvegardes de stockage d'objets.  Voir le https://docs.netapp.com/us-en/ontap/s3-config/index.html["Documentation ONTAP S3"^] pour plus de détails.
 
 *Remarque :* vous pouvez ajouter ce cluster à la page *Systèmes* de la console, mais il n'est pas identifié comme étant un serveur de stockage d'objets S3 et vous ne pouvez pas glisser-déposer un système source sur ce système S3 pour lancer l'activation de la sauvegarde.
 
@@ -233,7 +233,7 @@ Un assistant vous guide à travers les principales étapes suivantes :
 * Revoyez vos sélections
 
 
-Vous pouvez également<<Afficher les commandes API>> à l'étape de révision, vous pouvez donc copier le code pour automatiser l'activation de la sauvegarde pour les futurs systèmes.
+Vous pouvez également<<Afficher les commandes de l'API>> à l'étape de révision, vous pouvez donc copier le code pour automatiser l'activation de la sauvegarde pour les futurs systèmes.
 
 
 
@@ -252,7 +252,7 @@ La page d’introduction de l’assistant affiche les options de protection, not
 . Continuez avec les options suivantes :
 +
 ** Si vous disposez déjà d’un agent de console, vous êtes prêt.  Sélectionnez simplement *Suivant*.
-** Si vous n’avez pas d’agent de console, l’option *Ajouter un agent de console* apparaît. <<Préparez votre agent de console>> .
+** Si vous n’avez pas d’agent de console, l’option *Ajouter un agent de console* apparaît.  Se référer à<<Préparez votre agent de console>> .
 
 
 
@@ -318,7 +318,7 @@ Pour plus de détails sur ces architectures, reportez-vous àlink:prev-ontap-pro
 . *Instantané local* : choisissez une politique d'instantané existante ou créez-en une nouvelle.
 +
 
-TIP: Si vous souhaitez créer une politique personnalisée avant d'activer le Snapshot, vous pouvez utiliser System Manager ou l'interface de ligne de commande ONTAP. `snapmirror policy create` commande. Se référer à .
+TIP: Si vous souhaitez créer une politique personnalisée avant d'activer le Snapshot, vous pouvez utiliser System Manager ou l'interface de ligne de commande ONTAP. `snapmirror policy create` commande.  Se référer à .
 
 +
 
@@ -413,7 +413,7 @@ Vous pouvez également surveiller l’état des tâches de sauvegarde et de rest
 
 
 
-=== Afficher les commandes API
+=== Afficher les commandes de l'API
 
 Vous souhaiterez peut-être afficher et éventuellement copier les commandes API utilisées dans l’assistant d’activation de la sauvegarde et de la récupération.  Vous souhaiterez peut-être faire cela pour automatiser l’activation de la sauvegarde dans les futurs systèmes.
 

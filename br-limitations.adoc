@@ -44,7 +44,7 @@ Le nom du cluster Windows ne peut pas contenir de caractère de soulignement (_)
 
 La migration des ressources de SnapCenter vers NetApp Backup and Recovery présente les limitations suivantes.
 
-Pour plus de détails sur la façon dont les politiques SnapCenter migrent vers les politiques de sauvegarde et de récupération NetApp , consultezlink:reference-policy-differences-snapcenter.html["Stratégies dans SnapCenter comparées à celles de NetApp Backup and Recovery"] .
+Pour plus de détails sur la façon dont les politiques SnapCenter migrent vers les politiques de NetApp Backup and Recovery , consultezlink:reference-policy-differences-snapcenter.html["Stratégies dans SnapCenter comparées à celles de NetApp Backup and Recovery"] .
 
 
 
@@ -98,7 +98,7 @@ NetApp Backup and Recovery n'importe pas les stratégies de sauvegarde de journa
 
 === Cartographie de l'hôte
 
-SnapCenter ne dispose pas de clusters de stockage de cartes ou de SVM pour les ressources vers les hôtes, mais NetApp Backup and Recovery en dispose.  Le cluster ONTAP ou SVM sur site ne sera pas mappé à un hôte dans les versions d'aperçu de NetApp Backup and Recovery.  De plus, la console NetApp ne prend pas en charge les SVM.
+SnapCenter ne dispose pas de clusters de stockage de cartes ou de SVM pour les ressources vers les hôtes, mais NetApp Backup and Recovery en dispose.  Le cluster ONTAP ou SVM sur site ne sera pas mappé à un hôte dans les versions d'aperçu de NetApp Backup and Recovery .  De plus, la NetApp Console ne prend pas en charge les SVM.
 
 *Solution de contournement* : avant d’importer des ressources depuis SnapCenter, créez un système dans NetApp Backup and Recovery pour tous les systèmes de stockage ONTAP locaux enregistrés dans SnapCenter local.  Ensuite, importez les ressources de ce cluster depuis SnapCenter dans NetApp Backup and Recovery.
 

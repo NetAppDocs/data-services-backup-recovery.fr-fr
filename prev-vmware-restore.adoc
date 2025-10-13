@@ -21,7 +21,7 @@ NOTE: Vous ne pouvez pas restaurer des machines virtuelles qui s’étendent sur
 
 []
 ====
-*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery, reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de sauvegarde et de récupération NetApp"] .
+*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
 
 ====
 .Avant de commencer
@@ -29,7 +29,7 @@ NOTE: Vous ne pouvez pas restaurer des machines virtuelles qui s’étendent sur
 * Si vous effectuez une restauration vers un autre emplacement :
 +
 ** Assurez-vous que les vCenters source et de destination sont en mode lié.
-** Assurez-vous que les détails du cluster source et de destination sont ajoutés dans la page *Systèmes* de la console NetApp et dans les vCenters en mode lié dans les deux hôtes SnapCenter Plug-in for VMware vSphere .
+** Assurez-vous que les détails du cluster source et de destination sont ajoutés dans la page *Systèmes* de la NetApp Console et dans les vCenters en mode lié dans les deux hôtes SnapCenter Plug-in for VMware vSphere .
 ** Assurez-vous que le système est ajouté en fonction de l'emplacement alternatif dans la page *Systèmes* de la console.
 
 

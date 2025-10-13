@@ -16,16 +16,16 @@ summary: NetApp Backup and Recovery doit d’abord découvrir les charges de tra
 [role="lead"]
 NetApp Backup and Recovery doit découvrir les hôtes KVM et les machines virtuelles avant de les protéger.
 
-*Rôle de console requis* Super administrateur de sauvegarde et de récupération. En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de console requis* Super administrateur de sauvegarde et de récupération.  En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 
 
 == Ajoutez un hôte KVM et découvrez des ressources
 
-Ajoutez les informations de l’hôte KVM et laissez NetApp Backup and Recovery découvrir les charges de travail.  Dans chaque agent de console, sélectionnez les systèmes sur lesquels vous souhaitez découvrir les charges de travail.
+Ajoutez les informations de l’hôte KVM et laissez NetApp Backup and Recovery découvrir les charges de travail. Dans chaque agent de console, sélectionnez les systèmes sur lesquels vous souhaitez découvrir les charges de travail.
 
 .Étapes
-. Dans le menu de la console NetApp , sélectionnez *Protection > Sauvegarde et récupération*.
+. Dans le menu de la NetApp Console , sélectionnez *Protection > Sauvegarde et récupération*.
 . Dans la mosaïque KVM, sélectionnez *Découvrir et gérer*.
 +
 Si c'est la première fois que vous vous connectez à Backup and Recovery, que vous avez déjà un système dans la console, mais que vous n'avez découvert aucune ressource, la page d'accueil « Bienvenue dans la nouvelle version de NetApp Backup and Recovery» apparaît et affiche une option pour *Découvrir les ressources*.
@@ -58,9 +58,9 @@ La charge de travail KVM s'affiche dans la liste des charges de travail sur la p
 
 
 
-== Accéder au tableau de bord de sauvegarde et de récupération NetApp
+== Accéder au tableau de bord de NetApp Backup and Recovery
 
 .Étapes
-. Pour afficher le tableau de bord de sauvegarde et de récupération NetApp , dans le menu supérieur, sélectionnez *Tableau de bord*.
+. Pour afficher le tableau de bord de NetApp Backup and Recovery , dans le menu supérieur, sélectionnez *Tableau de bord*.
 . Examiner l’état de santé de la protection des données.  Le nombre de charges de travail à risque ou protégées augmente en fonction des charges de travail nouvellement découvertes, protégées et sauvegardées.
 

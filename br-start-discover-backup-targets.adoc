@@ -30,7 +30,7 @@ Fournissez les informations d’identification pour accéder au compte de stocka
 Vous devez découvrir au moins une charge de travail avant de pouvoir ajouter une cible de sauvegarde hors site.
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez l’onglet *Cibles de sauvegarde hors site*.
 . Sélectionnez *Découvrir la cible de sauvegarde*.
 . Sélectionnez l'un des types de cibles de sauvegarde : *Amazon Web Services (AWS) S3*, *Microsoft Azure Blob Storage*, * StorageGRID* ou * ONTAP S3*.
@@ -42,7 +42,7 @@ Vous devez découvrir au moins une charge de travail avant de pouvoir ajouter un
 +
 *** *Nom d'identification* : saisissez le nom d'identification AWS.
 *** *Clé d'accès* : Saisissez le secret AWS.
-*** *Clé secrète* : Saisissez la clé secrète AWS.
+*** *Clé secrète* : saisissez la clé secrète AWS.
 
 
 ** Pour Azure :
@@ -83,7 +83,7 @@ Vous devez découvrir au moins une charge de travail avant de pouvoir ajouter un
 Plutôt que de laisser NetApp Backup and Recovery découvrir automatiquement les buckets, vous pouvez ajouter manuellement un bucket à une cible de sauvegarde hors site.
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez *Cibles de sauvegarde hors site*.
 . Sélectionnez la cible et à droite, sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Ajouter un bucket*.
 . Saisissez les informations du bucket.  Les informations diffèrent selon le type de cible de sauvegarde que vous avez sélectionné.
@@ -134,7 +134,7 @@ Plutôt que de laisser NetApp Backup and Recovery découvrir automatiquement les
 *** *Nom de la cible du bucket* : saisissez le nom du bucket ONTAP S3.
 *** *Capacité* : saisissez la capacité du bucket ONTAP S3.  Il s’agit de la quantité maximale de données pouvant être stockée dans le bucket.
 *** *Activer le contrôle de version* : sélectionnez cette option pour activer le contrôle de version pour le bucket ONTAP S3.  Le contrôle de version vous permet de conserver plusieurs versions d'objets dans le bucket, ce qui peut être utile à des fins de sauvegarde et de récupération.
-*** *Verrouillage d'objet* : sélectionnez cette option pour activer le verrouillage d'objet pour le bucket ONTAP S3.  Le verrouillage des objets empêche la suppression ou l'écrasement des objets pendant une période de conservation spécifiée, offrant ainsi une couche supplémentaire de protection des données.  Vous ne pouvez activer cette option que lorsque vous créez un bucket et vous ne pouvez pas la désactiver ultérieurement.
+*** *Verrouillage d'objet* : sélectionnez cette option pour activer le verrouillage d'objet pour le compartiment ONTAP S3.  Le verrouillage des objets empêche la suppression ou l'écrasement des objets pendant une période de conservation spécifiée, offrant ainsi une couche supplémentaire de protection des données.  Vous ne pouvez activer cette option que lorsque vous créez un bucket et vous ne pouvez pas la désactiver ultérieurement.
 
 
 
@@ -149,7 +149,7 @@ Plutôt que de laisser NetApp Backup and Recovery découvrir automatiquement les
 Saisissez les informations d’identification nécessaires pour accéder à la cible de sauvegarde.
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez *Cibles de sauvegarde hors site*.
 . Sélectionnez la cible et à droite, sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Modifier les informations d'identification*.
 . Saisissez les nouvelles informations d’identification pour la cible de sauvegarde.  Les informations diffèrent selon le type de cible de sauvegarde que vous avez sélectionné.

@@ -28,7 +28,7 @@ Utilisez NetApp Backup and Recovery pour mettre en œuvre une stratégie de prot
 
 
 
-NOTE: Pour basculer vers et depuis les versions de l'interface utilisateur NetApp Backup and Recovery, reportez-vous àlink:br-start-switch-ui.html["Passer à l'interface utilisateur précédente de sauvegarde et de récupération NetApp"] .
+NOTE: Pour basculer vers et depuis les versions de l'interface utilisateur NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Passer à l'interface utilisateur précédente de NetApp Backup and Recovery"] .
 
 Vous pouvez utiliser NetApp Backup and Recovery pour effectuer les tâches suivantes liées aux charges de travail KVM :
 

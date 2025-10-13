@@ -14,12 +14,12 @@ summary: Protégez vos charges de travail KVM avec la sauvegarde et la récupér
 
 
 [role="lead"]
-Sauvegardez les groupes de protection KVM des systèmes ONTAP locaux vers Amazon Web Services, Azure NetApp Files ou StorageGRID pour garantir la protection de vos données.  Lorsque vous sauvegardez un groupe de protection, la console NetApp sauvegarde les machines virtuelles et les pools de stockage contenus dans le groupe de protection. Les sauvegardes sont automatiquement générées et stockées dans un magasin d’objets sur votre compte cloud public ou privé.
+Sauvegardez les groupes de protection KVM des systèmes ONTAP locaux vers Amazon Web Services, Azure NetApp Files ou StorageGRID pour garantir la protection de vos données.  Lorsque vous sauvegardez un groupe de protection, la NetApp Console sauvegarde les machines virtuelles et les pools de stockage contenus dans le groupe de protection. Les sauvegardes sont automatiquement générées et stockées dans un magasin d’objets sur votre compte cloud public ou privé.
 
 
-NOTE: Pour sauvegarder des groupes de protection selon une planification, créez des stratégies qui régissent les opérations de sauvegarde et de restauration. Voirlink:br-use-policies-create.html["Créer des politiques"] pour les instructions.
+NOTE: Pour sauvegarder des groupes de protection selon une planification, créez des stratégies qui régissent les opérations de sauvegarde et de restauration.  Voirlink:br-use-policies-create.html["Créer des politiques"] pour les instructions.
 
-* Créez des groupes de protection pour gérer les opérations de sauvegarde et de restauration d’un ensemble de ressources. Voir link:br-use-kvm-protection-groups.html["Créez et gérez des groupes de protection pour les charges de travail KVM avec NetApp Backup and Recovery"] pour plus d'informations.
+* Créez des groupes de protection pour gérer les opérations de sauvegarde et de restauration d’un ensemble de ressources. Voirlink:br-use-kvm-protection-groups.html["Créez et gérez des groupes de protection pour les charges de travail KVM avec NetApp Backup and Recovery"] pour plus d'informations.
 
 
 
@@ -28,10 +28,10 @@ NOTE: Pour sauvegarder des groupes de protection selon une planification, créez
 
 Vous pouvez exécuter une sauvegarde à la demande immédiatement.  Cela est utile si vous êtes sur le point d'apporter des modifications à votre système et que vous souhaitez vous assurer que vous disposez d'une sauvegarde avant de commencer.
 
-*Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 .Étapes
-. Dans le menu de la console NetApp , sélectionnez *Protection > Sauvegarde et récupération*.
+. Dans le menu de la NetApp Console , sélectionnez *Protection > Sauvegarde et récupération*.
 . Dans la mosaïque KVM, sélectionnez *Découvrir et gérer*.
 . Sélectionnez *Inventaire*.
 . Sélectionnez une charge de travail pour afficher les détails de protection.

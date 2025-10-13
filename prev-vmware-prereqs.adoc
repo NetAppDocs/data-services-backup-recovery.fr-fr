@@ -22,7 +22,7 @@ Avant de commencer à protéger les charges de travail de vos machines virtuelle
 
 
 * ONTAP 9.8 ou version ultérieure
-* Console NetApp
+* NetApp Console
 * Les banques de données NFS et VMFS sont prises en charge. Les vVols ne sont pas pris en charge.
 * Pour la prise en charge de VMFS, le SnapCenter Plug-in for VMware vSphere doit être exécuté sur la version 4.9 ou une version ultérieure.  Assurez-vous d'effectuer une sauvegarde de la banque de données VMFS si l'hôte SnapCenter Plug-in for VMware vSphere a été mis à niveau d'une version antérieure vers la version 4.9.
 * Au moins une sauvegarde doit avoir été effectuée dans SnapCenter Plug-in for VMware vSphere 4.6P1.

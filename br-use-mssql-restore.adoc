@@ -14,7 +14,7 @@ summary: 'Restaurez les charges de travail de la base de données à partir d"un
 
 
 [role="lead"]
-Restaurez les charges de travail Microsoft SQL Server à partir de copies instantanées, d’une sauvegarde de charge de travail répliquée sur un stockage secondaire ou de sauvegardes stockées dans un stockage d’objets à l’aide de NetApp Backup and Recovery.  Vous pouvez restaurer une charge de travail sur le système d'origine, sur un autre système utilisant le même compte cloud ou sur un système ONTAP sur site.
+Restaurez les charges de travail Microsoft SQL Server à partir de copies instantanées, d'une sauvegarde de charge de travail répliquée sur un stockage secondaire ou de sauvegardes stockées dans un stockage d'objets à l'aide de NetApp Backup and Recovery.  Vous pouvez restaurer une charge de travail sur le système d'origine, sur un autre système utilisant le même compte cloud ou sur un système ONTAP sur site.
 
 .Restaurer à partir de ces emplacements
 Vous pouvez restaurer des charges de travail à partir de différents emplacements de départ :
@@ -62,7 +62,7 @@ Vous pouvez restaurer les charges de travail à l’aide de l’une des méthode
 * *À partir de la page Inventaire* : utilisez cette option lorsque vous devez restaurer une ressource spécifique de la semaine ou du mois dernier, et que vous connaissez le nom et l'emplacement de la ressource, ainsi que la date à laquelle elle était en bon état pour la dernière fois.  Vous parcourez une liste de ressources pour trouver celle que vous souhaitez restaurer.
 
 
-*Rôle de console NetApp requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération ou rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération ou rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 
 
@@ -71,7 +71,7 @@ Vous pouvez restaurer les charges de travail à l’aide de l’une des méthode
 Restaurez les charges de travail de la base de données à l’aide de l’option Restaurer.
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Restaurer*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Restaurer*.
 . Sélectionnez la base de données que vous souhaitez restaurer.  Utilisez les filtres pour rechercher.
 . Sélectionnez l'option de restauration :
 +
@@ -97,7 +97,7 @@ Vous verrez ensuite les options de destination.
 
 . Dans la page Détails de la destination, saisissez les informations suivantes :
 +
-** *Paramètres de destination* : Choisissez si vous souhaitez restaurer les données à leur emplacement d'origine ou à un autre emplacement.  Pour un autre emplacement, sélectionnez le nom de l’hôte et l’instance, entrez le nom de la base de données et entrez le chemin de destination où vous souhaitez restaurer l’instantané.
+** *Paramètres de destination* : choisissez si vous souhaitez restaurer les données à leur emplacement d'origine ou à un autre emplacement.  Pour un autre emplacement, sélectionnez le nom de l’hôte et l’instance, entrez le nom de la base de données et entrez le chemin de destination où vous souhaitez restaurer l’instantané.
 ** *Options de pré-restauration*:
 +
 *** *Écraser la base de données avec le même nom lors de la restauration* : Lors de la restauration, le nom de la base de données d'origine est conservé.
@@ -137,7 +137,7 @@ NetApp Backup and Recovery utilise les journaux et les instantanés les plus ré
 . Sélectionnez *Suivant*.
 . Dans la page Détails de la destination, saisissez les informations suivantes :
 +
-** *Paramètres de destination* : choisissez si vous souhaitez restaurer les données à leur emplacement d'origine ou à un autre emplacement.  Pour un autre emplacement, sélectionnez le nom de l’hôte et l’instance, entrez le nom de la base de données et entrez le chemin de destination.
+** *Paramètres de destination* : Choisissez si vous souhaitez restaurer les données à leur emplacement d'origine ou à un autre emplacement.  Pour un autre emplacement, sélectionnez le nom de l’hôte et l’instance, entrez le nom de la base de données et entrez le chemin de destination.
 ** *Options de pré-restauration*:
 +
 *** *Conserver le nom de la base de données d'origine* : lors de la restauration, le nom de la base de données d'origine est conservé.
@@ -172,7 +172,7 @@ NetApp Backup and Recovery vous montre les snapshots disponibles pour l'opérati
 . Sélectionnez *Suivant*.
 . Dans la page Détails de la destination, saisissez les informations suivantes :
 +
-** *Paramètres de destination* : choisissez si vous souhaitez restaurer les données à leur emplacement d'origine ou à un autre emplacement.  Pour un autre emplacement, sélectionnez le nom de l’hôte et l’instance, entrez le nom de la base de données et entrez le chemin de destination.
+** *Paramètres de destination* : Choisissez si vous souhaitez restaurer les données à leur emplacement d'origine ou à un autre emplacement.  Pour un autre emplacement, sélectionnez le nom de l’hôte et l’instance, entrez le nom de la base de données et entrez le chemin de destination.
 ** *Options de pré-restauration*:
 +
 *** *Écraser la base de données avec le même nom lors de la restauration* : Lors de la restauration, le nom de la base de données d'origine est conservé.
@@ -202,11 +202,11 @@ NetApp Backup and Recovery vous montre les snapshots disponibles pour l'opérati
 Restaurer les charges de travail de la base de données à partir de la page Inventaire.  En utilisant l’option Inventaire, vous pouvez restaurer uniquement les bases de données, pas les instances.
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Choisissez l’hôte sur lequel se trouve la ressource que vous souhaitez restaurer.
 . Sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Afficher les détails*.
 . Sur la page Microsoft SQL Server, sélectionnez l’onglet *Bases de données*.
-. Dans l’onglet Bases de données, sélectionnez la base de données qui affiche un statut « Protégé » indiquant qu’il existe une sauvegarde que vous pouvez restaurer.
+. Dans l’onglet Bases de données, sélectionnez la base de données qui affiche un statut « Protégé » indiquant qu’il existe une sauvegarde que vous pouvez restaurer.
 . Sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Restaurer*.
 +
 Les trois mêmes options s'affichent lorsque vous restaurez à partir de la page Restaurer :

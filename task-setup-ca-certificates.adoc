@@ -30,13 +30,13 @@ Le certificat généré doit avoir un CN et un nom alternatif du sujet comme nom
 https://docs.netapp.com/us-en/storagegrid-118/admin/configuring-load-balancer-endpoints.html#attach-certificate["Informations StorageGRID sur la configuration des certificats"]
 
 . Mettez à jour StorageGRID avec le certificat si vous ne l’avez pas déjà fait.
-. Connectez-vous à l’agent de la console en tant qu’utilisateur root.  Courir:
+. Connectez-vous à l’agent de la console en tant qu’utilisateur root. Courir:
 +
 [source, console]
 ----
 sudo su
 ----
-. Obtenez le volume Docker NetApp Backup and Recovery (Cloud Backup Service).  Courir:
+. Obtenez le volume Docker NetApp Backup and Recovery (Cloud Backup Service). Courir:
 +
 [source, console]
 ----
@@ -52,9 +52,9 @@ local service-manager-2_cloudmanager_cbs_volume"
 ----
 +
 
-NOTE: Le nom du volume diffère selon les modes de déploiement Standard, Privé et Restreint.  Cet exemple utilise le mode Standard. Se référer à https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["Modes de déploiement de la console NetApp"] .
+NOTE: Le nom du volume diffère selon les modes de déploiement Standard, Privé et Restreint. Cet exemple utilise le mode Standard. Se référer à https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["Modes de déploiement de la NetApp Console"] .
 
-. Recherchez le point de montage du volume NetApp Backup and Recovery .  Courir:
+. Recherchez le point de montage du volume NetApp Backup and Recovery . Courir:
 +
 [source, console]
 ----
@@ -70,15 +70,15 @@ Exemple de sortie :
 ----
 +
 
-NOTE: Le point de montage diffère selon les modes de déploiement Standard, Privé et Restreint.  Cet exemple montre un déploiement cloud standard. Se référer à https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["Modes de déploiement de la console NetApp"] .
+NOTE: Le point de montage diffère selon les modes de déploiement Standard, Privé et Restreint. Cet exemple montre un déploiement cloud standard. Se référer à https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["Modes de déploiement de la NetApp Console"] .
 
-. Accédez au répertoire MountPoint.  Courir:
+. Accédez au répertoire MountPoint. Courir:
 +
 [source, console]
 ----
 cd /var/lib/docker/volumes/service-manager-2_cloudmanager_cbs_volume/_data
 ----
-. Si le certificat de StorageGRID est signé par l'autorité de certification racine et une autorité de certification intermédiaire, ajoutez le `pem` fichiers des deux dans un seul fichier nommé `sgws.crt` à l'emplacement actuel.  N'ajoutez pas le certificat feuille à ce fichier.
+. Si le certificat de StorageGRID est signé par l'autorité de certification racine et une autorité de certification intermédiaire, ajoutez le `pem` fichiers des deux dans un seul fichier nommé `sgws.crt` à l'emplacement actuel. N'ajoutez pas le certificat feuille à ce fichier.
 
 
 
@@ -104,7 +104,7 @@ cd cbs_config
 ** `production-customer.json`Utilisé pour les déploiements en mode standard et en mode restreint.
 ** `darksite-customer.json`Utilisé pour les déploiements en mode privé.
 +
-Se référer à https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["Modes de déploiement de la console NetApp"] .
+Se référer à https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["Modes de déploiement de la NetApp Console"] .
 
 +
 *Fichier de configuration*
@@ -125,13 +125,13 @@ Se référer à https://docs.netapp.com/us-en/console-setup-admin/concept-modes.
 ----
 
 
-. Sortez du conteneur.  Courir:
+. Sortez du conteneur. Courir:
 +
 [source, console]
 ----
 exit
 ----
-. Redémarrage `cloudmanager_cbs` .  Courir:
+. Redémarrage `cloudmanager_cbs` . Courir:
 +
 [source, console]
 ----
@@ -162,7 +162,7 @@ cd cbs_catalog_config
 ** `production-customer.json`Utilisé pour les déploiements en mode standard et en mode restreint.
 ** `darksite-customer.json`Utilisé pour les déploiements en mode privé.
 +
-Se référer à https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["Modes de déploiement de la console NetApp"] .
+Se référer à https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["Modes de déploiement de la NetApp Console"] .
 
 +
 *Fichier de configuration du catalogue*
@@ -183,7 +183,7 @@ Se référer à https://docs.netapp.com/us-en/console-setup-admin/concept-modes.
 ----
 
 
-. Redémarrer le catalogue.  Courir:
+. Redémarrer le catalogue. Courir:
 +
 [source, console]
 ----
@@ -256,7 +256,7 @@ openssl crl2pkcs7 -nocrl -certfile /etc/pki/tls/certs/ca-bundle.crt | openssl pk
 
 Si la communication entre les conteneurs NetApp Backup and Recovery et ONTAP doit valider le certificat ONTAP , procédez comme suit.
 
-NetApp Backup and Recovery utilise l'IP de gestion de cluster pour se connecter à ONTAP.  Saisissez l’adresse IP du cluster dans les noms alternatifs du sujet du certificat.  Spécifiez cette étape lorsque vous générez la CSR à l’aide de l’interface utilisateur du gestionnaire système.
+NetApp Backup and Recovery utilise l'IP de gestion de cluster pour se connecter à ONTAP. Saisissez l’adresse IP du cluster dans les noms alternatifs du sujet du certificat. Spécifiez cette étape lorsque vous générez la CSR à l’aide de l’interface utilisateur du gestionnaire système.
 
 Utilisez la documentation du gestionnaire de système pour créer un nouveau certificat CA pour ONTAP.
 
@@ -265,13 +265,13 @@ Utilisez la documentation du gestionnaire de système pour créer un nouveau cer
 
 
 .Étapes
-. Connectez-vous à l'agent de la console en tant que root.  Courir:
+. Connectez-vous à l'agent de la console en tant que root. Courir:
 +
 [source, console]
 ----
 sudo su
 ----
-. Obtenez le volume Docker de NetApp Backup and Recovery .  Courir:
+. Obtenez le volume Docker de NetApp Backup and Recovery . Courir:
 +
 [source, console]
 ----
@@ -287,9 +287,9 @@ local service-manager-2_cloudmanager_cbs_volume
 ----
 +
 
-NOTE: Le nom du volume diffère selon les modes de déploiement Standard, Privé et Restreint.  Cet exemple montre un déploiement cloud standard. Se référer à https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["Modes de déploiement de la console NetApp"] .
+NOTE: Le nom du volume diffère selon les modes de déploiement Standard, Privé et Restreint. Cet exemple montre un déploiement cloud standard. Se référer à https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["Modes de déploiement de la NetApp Console"] .
 
-. Obtenez le support pour le volume.  Courir:
+. Obtenez le support pour le volume. Courir:
 +
 [source, console]
 ----
@@ -305,9 +305,9 @@ Exemple de sortie :
 ----
 +
 
-NOTE: Le point de montage diffère selon les modes de déploiement Standard, Privé et Restreint.  Cet exemple montre un déploiement cloud standard. Se référer à https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["Modes de déploiement de la console NetApp"] .
+NOTE: Le point de montage diffère selon les modes de déploiement Standard, Privé et Restreint. Cet exemple montre un déploiement cloud standard. Se référer à https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["Modes de déploiement de la NetApp Console"] .
 
-. Accédez au répertoire du point de montage.  Courir:
+. Accédez au répertoire du point de montage. Courir:
 +
 [source, console]
 ----
@@ -316,7 +316,7 @@ cd /var/lib/docker/volumes/service-manager-2_cloudmanager_cbs_volume/_data
 . Effectuez l’une des étapes suivantes :
 +
 ** Si le certificat ONTAP est signé par l'autorité de certification racine et une autorité de certification intermédiaire, ajoutez le `pem` fichiers des deux dans un seul fichier nommé `ontap.crt` à l'emplacement actuel.
-** Si le certificat ONTAP est signé par une seule autorité de certification, renommez-le `pem` déposer comme `ontap.crt` et copiez-le à l'emplacement actuel.  N'ajoutez pas le certificat feuille à ce fichier.
+** Si le certificat ONTAP est signé par une seule autorité de certification, renommez-le `pem` déposer comme `ontap.crt` et copiez-le à l'emplacement actuel. N'ajoutez pas le certificat feuille à ce fichier.
 
 
 
@@ -333,7 +333,7 @@ Ensuite, activez la vérification du certificat du serveur ONTAP dans NetApp Bac
 ----
 cd /var/lib/docker/volumes/service-manager-2_cloudmanager_cbs_volume/_data
 ----
-. Accédez au répertoire de configuration.  Courir:
+. Accédez au répertoire de configuration. Courir:
 +
 [source, console]
 ----
@@ -344,7 +344,7 @@ cd cbs_config
 ** `production-customer.json`Utilisé pour les déploiements en mode standard et en mode restreint.
 ** `darksite-customer.json`Utilisé pour les déploiements en mode privé.
 +
-Se référer à https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["Modes de déploiement de la console NetApp"] .
+Se référer à https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["Modes de déploiement de la NetApp Console"] .
 
 +
 *Fichier de configuration*
@@ -363,13 +363,13 @@ Se référer à https://docs.netapp.com/us-en/console-setup-admin/concept-modes.
 ----
 
 
-. Sortez du conteneur.  Courir:
+. Sortez du conteneur. Courir:
 +
 [source, console]
 ----
 exit
 ----
-. Redémarrez NetApp Backup and Recovery.  Courir:
+. Redémarrez NetApp Backup and Recovery. Courir:
 +
 [source, console]
 ----
@@ -383,7 +383,7 @@ docker restart cloudmanager_cbs
 
 Activez la vérification du certificat du serveur ONTAP pour le service de catalogage.
 
-. Changez les répertoires vers le volume Docker.  Courir:
+. Changez les répertoires vers le volume Docker. Courir:
 +
 [source, console]
 ----
@@ -400,7 +400,7 @@ cd cbs_catalog_config
 ** `production-customer.json`Utilisé pour les déploiements en mode standard et en mode restreint.
 ** `darksite-customer.json`Utilisé pour les déploiements en mode privé.
 +
-Se référer à https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["Modes de déploiement de la console NetApp"] .
+Se référer à https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["Modes de déploiement de la NetApp Console"] .
 
 +
 *Fichier de configuration*
@@ -419,7 +419,7 @@ Se référer à https://docs.netapp.com/us-en/console-setup-admin/concept-modes.
 ----
 
 
-. Redémarrez NetApp Backup and Recovery.  Courir:
+. Redémarrez NetApp Backup and Recovery. Courir:
 +
 [source, console]
 ----

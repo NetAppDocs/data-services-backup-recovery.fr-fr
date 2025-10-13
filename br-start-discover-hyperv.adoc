@@ -16,7 +16,7 @@ summary: NetApp Backup and Recovery doit détecter les machines virtuelles Hyper
 [role="lead"]
 NetApp Backup and Recovery doit détecter les machines virtuelles Hyper-V avant de pouvoir les protéger.
 
-*Rôle de console requis* Super administrateur de sauvegarde et de récupération. En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de console requis* Super administrateur de sauvegarde et de récupération.  En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 
 
@@ -28,9 +28,9 @@ Ajoutez les informations de l’hôte Hyper-V et laissez NetApp Backup and Recov
 NOTE: Lorsque vous ajoutez des hôtes Hyper-V et découvrez des ressources, NetApp Backup and Recovery installe le plug-in NetApp Hyper-V et le plug-in NetApp SnapCenter Windows FileSystem sur l'hôte Hyper-V pour faciliter la gestion et la protection des machines virtuelles.
 
 .Étapes
-. Dans le menu de la console NetApp , sélectionnez *Protection* > *Sauvegarde et récupération*.
+. Dans le menu de la NetApp Console , sélectionnez *Protection* > *Sauvegarde et récupération*.
 +
-Si c'est la première fois que vous vous connectez à NetApp Backup and Recovery, que vous avez déjà un système dans la console, mais que vous n'avez découvert aucune ressource, la page d'accueil « Bienvenue dans la nouvelle version de NetApp Backup and Recovery » apparaît et affiche une option pour *Découvrir les ressources*.
+Si c'est la première fois que vous vous connectez à NetApp Backup and Recovery, que vous avez déjà un système dans la console, mais que vous n'avez découvert aucune ressource, la page d'accueil « Bienvenue dans la nouvelle NetApp Backup and Recovery» apparaît et affiche une option pour *Découvrir les ressources*.
 
 . Sélectionnez *Découvrir les ressources*.
 . Saisissez les informations suivantes :
@@ -59,9 +59,9 @@ Une fois que NetApp Backup and Recovery a découvert les ressources, la page Inv
 
 
 
-== Accéder au tableau de bord de sauvegarde et de récupération NetApp
+== Accéder au tableau de bord de NetApp Backup and Recovery
 
 .Étapes
-. Pour afficher le tableau de bord de sauvegarde et de récupération NetApp , dans le menu de la console NetApp , sélectionnez *Tableau de bord*.
+. Pour afficher le tableau de bord de NetApp Backup and Recovery , dans le menu de la NetApp Console , sélectionnez *Tableau de bord*.
 . Examiner l’état de santé de la protection des données.  Le nombre de charges de travail à risque ou protégées augmente en fonction des charges de travail nouvellement découvertes, protégées et sauvegardées.
 

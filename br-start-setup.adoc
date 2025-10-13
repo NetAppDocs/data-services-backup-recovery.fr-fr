@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-start-setup.html 
 keywords: backup, back up, restore, recovery, aws, azure 
-summary: Avant d’utiliser NetApp Backup and Recovery, effectuez quelques étapes pour configurer les destinations de sauvegarde. 
+summary: 'Avant d"utiliser NetApp Backup and Recovery, effectuez quelques étapes pour configurer les destinations de sauvegarde.' 
 ---
 = Configurez les destinations de sauvegarde avant d'utiliser NetApp Backup and Recovery
 :hardbreaks:
@@ -12,7 +12,7 @@ summary: Avant d’utiliser NetApp Backup and Recovery, effectuez quelques étap
 
 
 [role="lead"]
-Avant d’utiliser NetApp Backup and Recovery, effectuez quelques étapes pour configurer les destinations de sauvegarde.
+Avant d'utiliser NetApp Backup and Recovery, effectuez quelques étapes pour configurer les destinations de sauvegarde.
 
 Avant de commencer, révisezlink:concept-start-prereq.html["prérequis"] pour garantir que votre environnement est prêt.
 
@@ -29,12 +29,12 @@ Se référer à https://docs.netapp.com/us-en/storage-management-storagegrid/tas
 +
 Se référer à https://docs.netapp.com/us-en/storagegrid/index.html["Documentation de StorageGRID"^] pour plus de détails sur StorageGRID.
 
-* Services Web Amazon. Se référer à https://docs.netapp.com/us-en/storage-management-s3-storage/index.html["Documentation Amazon S3"^] .
+* Services Web Amazon.  Se référer à https://docs.netapp.com/us-en/storage-management-s3-storage/index.html["Documentation Amazon S3"^] .
 +
 Procédez comme suit pour préparer AWS comme destination de sauvegarde :
 
 +
-** Configurer un compte dans AWS.
+** Configurez un compte dans AWS.
 ** Configurez les autorisations S3 dans AWS, répertoriées dans la section suivante.
 ** Pour plus de détails sur la gestion de votre stockage AWS dans la console, reportez-vous à https://docs.netapp.com/us-en/console-setup-admin/task-viewing-amazon-s3.html["Gérez vos buckets Amazon S3"^] .
 
@@ -51,7 +51,7 @@ Procédez comme suit pour préparer AWS comme destination de sauvegarde :
 
 
 
-Après avoir configuré les options dans la destination de sauvegarde elle-même, vous la configurerez ultérieurement comme destination de sauvegarde dans NetApp Backup and Recovery.  Pour plus d'informations sur la configuration de la destination de sauvegarde dans NetApp Backup and Recovery, reportez-vous àlink:br-start-discover-backup-targets.html["Découvrir les cibles de sauvegarde"] .
+Après avoir configuré les options dans la destination de sauvegarde elle-même, vous la configurerez ultérieurement comme destination de sauvegarde dans NetApp Backup and Recovery.  Pour plus de détails sur la configuration de la destination de sauvegarde dans NetApp Backup and Recovery, reportez-vous àlink:br-start-discover-backup-targets.html["Découvrir les cibles de sauvegarde"] .
 
 
 
@@ -64,7 +64,7 @@ Vous devrez configurer deux ensembles d’autorisations AWS S3 :
 
 
 .Étapes
-. Assurez-vous que l’agent de la console dispose des autorisations requises. Pour plus de détails, voir https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-aws.html["Autorisations de stratégie de la console NetApp"] .
+. Assurez-vous que l’agent de la console dispose des autorisations requises.  Pour plus de détails, voir https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-aws.html["Autorisations de stratégie de la NetApp Console"] .
 +
 
 NOTE: Lors de la création de sauvegardes dans les régions AWS Chine, vous devez modifier le nom de ressource AWS « arn » sous toutes les sections _Resource_ dans les politiques IAM de « aws » à « aws-cn » ; par exemple `arn:aws-cn:s3:::netapp-backup-*` .

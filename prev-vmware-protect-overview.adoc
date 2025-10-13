@@ -20,7 +20,7 @@ Vous pouvez sauvegarder des banques de données sur Amazon Web Services S3, Micr
 
 []
 ====
-*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery, reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de sauvegarde et de récupération NetApp"] .
+*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
 
 ====
 Pour obtenir des instructions sur la protection des charges de travail des machines virtuelles, consultez les rubriques suivantes :

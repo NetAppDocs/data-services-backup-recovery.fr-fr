@@ -6,7 +6,7 @@
 
 === Version préliminaire de NetApp Backup and Recovery
 
-Cette version préliminaire de NetApp Backup and Recovery fournit une interface utilisateur mise à jour qui vous permet de gérer les charges de travail Microsoft SQL Server à l'aide d'une stratégie de protection 3-2-1, familière à NetApp Backup and Recovery.  Avec cette nouvelle version, vous pouvez sauvegarder ces charges de travail sur le stockage principal, les répliquer sur le stockage secondaire et les sauvegarder sur le stockage d'objets cloud.
+Cette version préliminaire de NetApp Backup and Recovery fournit une interface utilisateur mise à jour qui vous permet de gérer les charges de travail Microsoft SQL Server à l'aide d'une stratégie de protection 3-2-1, familière dans NetApp Backup and Recovery. Avec cette nouvelle version, vous pouvez sauvegarder ces charges de travail sur le stockage principal, les répliquer sur le stockage secondaire et les sauvegarder sur le stockage d'objets cloud.
 
 
 NOTE: Cette documentation est fournie à titre d'aperçu technologique. Avec cette offre préliminaire, NetApp se réserve le droit de modifier les détails, le contenu et le calendrier de l'offre avant la disponibilité générale.
@@ -14,7 +14,7 @@ NOTE: Cette documentation est fournie à titre d'aperçu technologique. Avec cet
 Cette version de NetApp Backup and Recovery Preview 2025 inclut les mises à jour suivantes.
 
 * Une interface utilisateur repensée qui offre une expérience plus intuitive pour la gestion de vos tâches de sauvegarde et de récupération.
-* La version Preview vous permet de sauvegarder et de restaurer les bases de données Microsoft SQL Server.  (La prise en charge d’autres charges de travail sera ajoutée dans les prochaines versions.)
-* Cette version intègre les fonctionnalités de SnapCenter , vous permettant de gérer et de protéger vos ressources SnapCenter avec une stratégie de protection des données 3-2-1 à partir de l'interface utilisateur de NetApp Backup and Recovery.
+* La version Preview vous permet de sauvegarder et de restaurer les bases de données Microsoft SQL Server. (La prise en charge d’autres charges de travail sera ajoutée dans les prochaines versions.)
+* Cette version intègre les fonctionnalités de SnapCenter , vous permettant de gérer et de protéger vos ressources SnapCenter avec une stratégie de protection des données 3-2-1 à partir de l'interface utilisateur de NetApp Backup and Recovery .
 * Cette version vous permet d'importer des charges de travail SnapCenter dans NetApp Backup and Recovery.
 

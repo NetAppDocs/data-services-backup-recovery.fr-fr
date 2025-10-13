@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: br-api-backup-restore.html 
 keywords: api, apis, rest, restful, authorization, getting started, body, header, token, reference, expired token, expires, expired, token expired, list apis 
-summary: Les fonctionnalités de sauvegarde et de récupération NetApp disponibles via l’interface utilisateur Web sont également disponibles via les API RESTful. 
+summary: Les fonctionnalités de NetApp Backup and Recovery disponibles via l’interface utilisateur Web sont également disponibles via les API RESTful. 
 ---
-= Automatisez avec les API REST de sauvegarde et de récupération NetApp
+= Automatisez avec les API REST de NetApp Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -16,7 +16,7 @@ summary: Les fonctionnalités de sauvegarde et de récupération NetApp disponib
 [role="lead"]
 Les fonctionnalités de NetApp Backup and Recovery disponibles via l'interface utilisateur Web sont également disponibles via l'API REST de sauvegarde et de récupération.
 
-Il existe dix catégories de points de terminaison définis dans NetApp Backup and Recovery :
+Il existe dix catégories de points de terminaison définis dans NetApp Backup and Recovery:
 
 * `backup`- gère les opérations de sauvegarde des ressources cloud et sur site et récupère les détails des données de sauvegarde
 * `catalog`- gère la recherche de catalogue indexée de fichiers en fonction d'une requête (Recherche et restauration)
@@ -34,21 +34,21 @@ Il existe dix catégories de points de terminaison définis dans NetApp Backup a
 
 == Référence API
 
-La documentation de chaque API de sauvegarde et de récupération NetApp est disponible à partir de https://docs.netapp.com/us-en/console-automation/cbs/overview.html["Automatisation de la console NetApp pour la sauvegarde et la récupération NetApp"^] .
+La documentation de chaque API de NetApp Backup and Recovery est disponible à partir de https://docs.netapp.com/us-en/console-automation/cbs/overview.html["Automatisation de la NetApp Console pour la NetApp Backup and Recovery"^] .
 
 
 
 == Commencer
 
-Pour commencer à utiliser les API de sauvegarde et de récupération NetApp , vous devez obtenir un jeton utilisateur, votre ID de compte de console NetApp et l'ID de l'agent de console.
+Pour commencer à utiliser les API de NetApp Backup and Recovery , vous devez obtenir un jeton utilisateur, votre ID de compte de NetApp Console et l'ID de l'agent de console.
 
-Lors des appels d'API, vous ajouterez le jeton utilisateur dans l'en-tête d'autorisation et l'ID de l'agent de la console dans l'en-tête x-agent-id.  Vous devez utiliser l’ID de compte de la console NetApp dans les API.
+Lors des appels d'API, vous ajouterez le jeton utilisateur dans l'en-tête d'autorisation et l'ID de l'agent de la console dans l'en-tête x-agent-id.  Vous devez utiliser l’ID de compte de la NetApp Console dans les API.
 
 
 NOTE: Si vous utilisez un compte de service, vous devez utiliser le jeton d’accès au service au lieu d’un jeton utilisateur. La valeur de « client_id » (« Mu0V1ywgYteI6w1MbD15fKfVIUrNXGWC ») est une valeur fixe et ne peut pas être modifiée. Dans ce cas, suivez les instructions ici : https://docs.netapp.com/us-en/console-automation/platform/create_service_token.html["Créer un jeton d'accès au service"^] .
 
 .Étapes
-. Obtenez un jeton utilisateur à partir du site Web NetApp NetApp Console.
+. Obtenez un jeton utilisateur à partir du site Web NetApp NetApp Console .
 +
 Assurez-vous de générer le jeton d'actualisation à partir du lien suivant : https://services.cloud.netapp.com/refresh-token/.  Le jeton d'actualisation est une chaîne alphanumérique que vous utiliserez pour générer un jeton utilisateur.
 
@@ -65,9 +65,9 @@ curl --location --request POST 'https://netapp-cloud-account.auth0.com/oauth/tok
 ----
 +
 
-NOTE: Le jeton utilisateur du site Web de la console NetApp a une date d’expiration.  La réponse de l'API inclut un champ « expires_in » qui indique quand le jeton expire.  Pour actualiser le jeton, vous devrez appeler à nouveau cette API.
+NOTE: Le jeton utilisateur du site Web de la NetApp Console a une date d’expiration. La réponse de l'API inclut un champ « expires_in » qui indique quand le jeton expire.  Pour actualiser le jeton, vous devrez appeler à nouveau cette API.
 
-. Obtenez votre ID de compte NetApp Console.
+. Obtenez votre ID de compte NetApp Console .
 +
 [source, console]
 ----
@@ -112,12 +112,12 @@ Vous pouvez récupérer l'ID de l'agent à partir de la réponse en analysant la
 
 
 
-== Exemple d'utilisation des API
+== Exemple utilisant les API
 
 L'exemple suivant montre un appel d'API pour activer NetApp Backup and Recovery sur un système avec une nouvelle stratégie qui a des étiquettes quotidiennes, horaires et hebdomadaires définies, l'archivage après les jours étant défini sur 180 jours, dans la région East-US-2 dans le cloud Azure.  Notez que cela active uniquement la sauvegarde sur le système, mais aucun volume n'est sauvegardé.
 
 .Demande d'API
-Vous verrez que nous utilisons l'ID de compte de la console NetApp `account-DpTFcxN3` , ID de l'agent de la console `iZwFFeVCZjWnzGlw8RgD0QQNANZvpP7Iclients` , et le jeton utilisateur `Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5rSXlPVFUzUWpZek1E…y6nyhBjwkeMwHc4ValobjUmju2x0xUH48g` dans cette commande.
+Vous verrez que nous utilisons l'ID de compte de la NetApp Console `account-DpTFcxN3` , ID de l'agent de la console `iZwFFeVCZjWnzGlw8RgD0QQNANZvpP7Iclients` , et le jeton utilisateur `Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5rSXlPVFUzUWpZek1E…y6nyhBjwkeMwHc4ValobjUmju2x0xUH48g` dans cette commande.
 
 [source, console]
 ----

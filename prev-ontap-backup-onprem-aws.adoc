@@ -21,7 +21,7 @@ NOTE: Les « systèmes ONTAP sur site » incluent les systèmes FAS, AFF et ON
 
 []
 ====
-*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery, reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de sauvegarde et de récupération NetApp"] .
+*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
 
 ====
 
@@ -36,11 +36,11 @@ Choisissez laquelle des deux méthodes de connexion vous utiliserez lors de la c
 
 En option, vous pouvez également vous connecter à un système ONTAP secondaire pour les volumes répliqués à l'aide de la connexion publique ou privée.
 
-Le diagramme suivant montre la méthode de *connexion publique* et les connexions que vous devez préparer entre les composants. Vous pouvez utiliser un agent de console que vous avez installé sur vos locaux ou un agent de console que vous avez déployé dans AWS VPC.
+Le diagramme suivant montre la méthode de *connexion publique* et les connexions que vous devez préparer entre les composants.  Vous pouvez utiliser un agent de console que vous avez installé sur vos locaux ou un agent de console que vous avez déployé dans AWS VPC.
 
 image:diagram_cloud_backup_onprem_aws_public.png["Un diagramme montrant comment NetApp Backup and Recovery communique via une connexion publique avec les volumes du cluster et le stockage AWS S3 où se trouvent les fichiers de sauvegarde."]
 
-Le diagramme suivant montre la méthode de *connexion privée* et les connexions que vous devez préparer entre les composants. Vous pouvez utiliser un agent de console que vous avez installé sur vos locaux ou un agent de console que vous avez déployé dans AWS VPC.
+Le diagramme suivant montre la méthode de *connexion privée* et les connexions que vous devez préparer entre les composants.  Vous pouvez utiliser un agent de console que vous avez installé sur vos locaux ou un agent de console que vous avez déployé dans AWS VPC.
 
 image:diagram_cloud_backup_onprem_aws_private.png["Un diagramme montrant comment NetApp Backup and Recovery communique via une connexion privée avec les volumes du cluster et le stockage AWS S3 où se trouvent les fichiers de sauvegarde."]
 
@@ -48,7 +48,7 @@ image:diagram_cloud_backup_onprem_aws_private.png["Un diagramme montrant comment
 
 == Préparez votre agent de console
 
-L'agent de console est le logiciel principal pour la fonctionnalité de la console NetApp .  Un agent de console est requis pour sauvegarder et restaurer vos données ONTAP .
+L'agent de console est le logiciel principal pour la fonctionnalité de la NetApp Console .  Un agent de console est requis pour sauvegarder et restaurer vos données ONTAP .
 
 
 
@@ -63,7 +63,7 @@ Sinon, vous devrez créer un agent de console dans l’un de ces emplacements po
 * https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-on-prem.html["Installer un agent Console dans vos locaux"^]
 * https://docs.netapp.com/us-en/console-setup-admin/task-install-restricted-mode.html["Installer un agent de console dans une région AWS GovCloud"^]
 +
-NetApp Backup and Recovery est pris en charge dans les régions GovCloud lorsque l'agent de console est déployé dans le cloud, et non lorsqu'il est installé dans vos locaux.  De plus, vous devez déployer l’agent de console à partir d’AWS Marketplace.  Vous ne pouvez pas déployer l'agent de console dans une région gouvernementale à partir du site Web SaaS de la console NetApp .
+NetApp Backup and Recovery est pris en charge dans les régions GovCloud lorsque l'agent de console est déployé dans le cloud, et non lorsqu'il est installé dans vos locaux.  De plus, vous devez déployer l’agent de console à partir d’AWS Marketplace.  Vous ne pouvez pas déployer l'agent de console dans une région gouvernementale à partir du site Web SaaS de la NetApp Console .
 
 
 
@@ -87,12 +87,12 @@ Assurez-vous que les exigences réseau suivantes sont respectées :
 
 == Vérifier les exigences de licence
 
-Vous devrez vérifier les exigences de licence pour AWS et la console NetApp :
+Vous devrez vérifier les exigences de licence pour AWS et la NetApp Console:
 
 * Avant de pouvoir activer NetApp Backup and Recovery pour votre cluster, vous devez soit vous abonner à une offre NetApp Console Marketplace à paiement à l'utilisation (PAYGO) d'AWS, soit acheter et activer une licence BYOL NetApp Backup and Recovery auprès de NetApp.  Ces licences sont destinées à votre compte et peuvent être utilisées sur plusieurs systèmes.
 +
 ** Pour les licences NetApp Backup and Recovery PAYGO, vous aurez besoin d'un abonnement au https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["Offre NetApp Console de la place de marché AWS"^] .  La facturation de NetApp Backup and Recovery s'effectue via cet abonnement.
-** Pour les licences BYOL de NetApp Backup and Recovery, vous aurez besoin du numéro de série de NetApp qui vous permet d'utiliser le service pendant la durée et la capacité de la licence.
+** Pour les licences BYOL de NetApp Backup and Recovery , vous aurez besoin du numéro de série de NetApp qui vous permet d'utiliser le service pendant la durée et la capacité de la licence.
 
 
 * Vous devez disposer d’un abonnement AWS pour l’espace de stockage d’objets où vos sauvegardes seront situées.
@@ -110,7 +110,7 @@ Vous devrez préparer votre système ONTAP source sur site et tous les systèmes
 
 La préparation de vos clusters ONTAP implique les étapes suivantes :
 
-* Découvrez vos systèmes ONTAP dans la console NetApp
+* Découvrez vos systèmes ONTAP dans la NetApp Console
 * Vérifier la configuration système requise ONTAP
 * Vérifier les exigences réseau ONTAP pour la sauvegarde des données sur le stockage d'objets
 * Vérifier les exigences réseau ONTAP pour la réplication des volumes
@@ -118,9 +118,9 @@ La préparation de vos clusters ONTAP implique les étapes suivantes :
 
 
 
-=== Découvrez vos systèmes ONTAP dans la console NetApp
+=== Découvrez vos systèmes ONTAP dans la NetApp Console
 
-Votre système ONTAP source sur site et tous les systèmes ONTAP ou Cloud Volumes ONTAP secondaires sur site doivent être disponibles sur la page *Systèmes* de la console NetApp .
+Votre système ONTAP source sur site et tous les systèmes ONTAP ou Cloud Volumes ONTAP secondaires sur site doivent être disponibles sur la page *Systèmes* de la NetApp Console .
 
 Vous devrez connaître l’adresse IP de gestion du cluster et le mot de passe du compte utilisateur administrateur pour ajouter le cluster. https://docs.netapp.com/us-en/storage-management-ontap-onprem/task-discovering-ontap.html["Apprenez à découvrir un cluster"^] .
 
@@ -141,7 +141,7 @@ Apprenez à https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-con
 * L'heure et le fuseau horaire sont correctement réglés.  Apprenez à https://docs.netapp.com/us-en/ontap/system-admin/manage-cluster-time-concept.html["configurer l'heure de votre cluster"^] .
 * Si vous envisagez de répliquer des données, vous devez vérifier que les systèmes source et de destination exécutent des versions ONTAP compatibles avant de répliquer les données.
 +
-https://docs.netapp.com/us-en/ontap/data-protection/compatible-ontap-versions-snapmirror-concept.html["Afficher les versions ONTAP compatibles pour les relations SnapMirror"^] .
+https://docs.netapp.com/us-en/ontap/data-protection/compatible-ontap-versions-snapmirror-concept.html["Afficher les versions ONTAP compatibles pour les relations SnapMirror"^].
 
 
 
@@ -158,19 +158,19 @@ Vous devez configurer les exigences suivantes sur le système qui se connecte au
 Les exigences de mise en réseau du cluster ONTAP suivantes sont nécessaires :
 
 * Le cluster nécessite une connexion HTTPS entrante de l'agent de console au LIF de gestion du cluster.
-* Un LIF intercluster est requis sur chaque nœud ONTAP qui héberge les volumes que vous souhaitez sauvegarder. Ces LIF interclusters doivent pouvoir accéder au magasin d’objets.
+* Un LIF intercluster est requis sur chaque nœud ONTAP qui héberge les volumes que vous souhaitez sauvegarder.  Ces LIF interclusters doivent pouvoir accéder au magasin d’objets.
 +
-Le cluster initie une connexion HTTPS sortante via le port 443 depuis les LIF interclusters vers le stockage Amazon S3 pour les opérations de sauvegarde et de restauration. ONTAP lit et écrit des données vers et depuis le stockage d'objets : le stockage d'objets ne s'initialise jamais, il répond simplement.
+Le cluster initie une connexion HTTPS sortante via le port 443 depuis les LIF interclusters vers le stockage Amazon S3 pour les opérations de sauvegarde et de restauration.  ONTAP lit et écrit des données vers et depuis le stockage d'objets : le stockage d'objets ne s'initialise jamais, il répond simplement.
 
 * Les LIF intercluster doivent être associés à l'_IPspace_ ONTAP doit utiliser pour se connecter au stockage d'objets. https://docs.netapp.com/us-en/ontap/networking/standard_properties_of_ipspaces.html["En savoir plus sur IPspaces"^] .
 +
-Lorsque vous configurez NetApp Backup and Recovery, vous êtes invité à indiquer l'espace IP à utiliser. Vous devez choisir l’espace IP auquel ces LIF sont associés. Il peut s'agir de l'espace IP « par défaut » ou d'un espace IP personnalisé que vous avez créé.
+Lorsque vous configurez NetApp Backup and Recovery, vous êtes invité à indiquer l'espace IP à utiliser.  Vous devez choisir l’espace IP auquel ces LIF sont associés.  Il peut s'agir de l'espace IP « par défaut » ou d'un espace IP personnalisé que vous avez créé.
 
 +
 Si vous utilisez un espace IP différent de « Par défaut », vous devrez peut-être créer une route statique pour accéder au stockage d'objets.
 
 +
-Tous les LIF interclusters au sein de l'espace IP doivent avoir accès au magasin d'objets. Si vous ne pouvez pas configurer cela pour l'espace IP actuel, vous devrez créer un espace IP dédié où tous les LIF interclusters ont accès au magasin d'objets.
+Tous les LIF interclusters au sein de l'espace IP doivent avoir accès au magasin d'objets.  Si vous ne pouvez pas configurer cela pour l'espace IP actuel, vous devrez créer un espace IP dédié où tous les LIF interclusters ont accès au magasin d'objets.
 
 * Les serveurs DNS doivent avoir été configurés pour la machine virtuelle de stockage où se trouvent les volumes.  Découvrez comment https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html["configurer les services DNS pour le SVM"^] .
 * Mettez à jour les règles de pare-feu, si nécessaire, pour autoriser les connexions NetApp Backup and Recovery d' ONTAP au stockage d'objets via le port 443 et le trafic de résolution de noms de la machine virtuelle de stockage vers le serveur DNS via le port 53 (TCP/UDP).
@@ -187,7 +187,7 @@ Si vous prévoyez de créer des volumes répliqués sur un système ONTAP second
 
 ==== Exigences de mise en réseau ONTAP sur site
 
-* Si le cluster se trouve dans vos locaux, vous devez disposer d’une connexion entre votre réseau d’entreprise et votre réseau virtuel chez le fournisseur de cloud.  Il s’agit généralement d’une connexion VPN.
+* Si le cluster se trouve dans vos locaux, vous devez disposer d’une connexion entre votre réseau d’entreprise et votre réseau virtuel chez le fournisseur de cloud. Il s’agit généralement d’une connexion VPN.
 * Les clusters ONTAP doivent répondre à des exigences supplémentaires en matière de sous-réseau, de port, de pare-feu et de cluster.
 +
 Étant donné que vous pouvez répliquer vers Cloud Volumes ONTAP ou vers des systèmes locaux, examinez les exigences de peering pour les systèmes ONTAP locaux. https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html["Consultez les conditions préalables pour le peering de cluster dans la documentation ONTAP"^] .
@@ -198,7 +198,7 @@ Si vous prévoyez de créer des volumes répliqués sur un système ONTAP second
 
 ==== Exigences réseau de Cloud Volumes ONTAP
 
-* Le groupe de sécurité de l'instance doit inclure les règles entrantes et sortantes requises : en particulier, les règles pour ICMP et les ports 11104 et 11105.  Ces règles sont incluses dans le groupe de sécurité prédéfini.
+* Le groupe de sécurité de l'instance doit inclure les règles entrantes et sortantes requises : en particulier, les règles pour ICMP et les ports 11104 et 11105. Ces règles sont incluses dans le groupe de sécurité prédéfini.
 
 
 
@@ -224,7 +224,7 @@ Vous devrez configurer deux ensembles d’autorisations :
 
 
 .Étapes
-. Assurez-vous que l’agent de la console dispose des autorisations requises. Pour plus de détails, voir https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-aws.html["Autorisations de stratégie de la console NetApp"^] .
+. Assurez-vous que l’agent de la console dispose des autorisations requises.  Pour plus de détails, voir https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-aws.html["Autorisations de stratégie de la NetApp Console"^] .
 +
 
 NOTE: Lors de la création de sauvegardes dans les régions AWS Chine, vous devez modifier le nom de ressource AWS « arn » sous toutes les sections _Resource_ dans les politiques IAM de « aws » à « aws-cn » ; par exemple `arn:aws-cn:s3:::netapp-backup-*` .
@@ -292,7 +292,7 @@ Reportez-vous à la https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_cr
 
 Par défaut, le service crée des buckets pour vous.  Ou, si vous souhaitez utiliser vos propres buckets, vous pouvez les créer avant de démarrer l'assistant d'activation de sauvegarde, puis sélectionner ces buckets dans l'assistant.
 
-link:prev-ontap-protect-journey.html["En savoir plus sur la création de vos propres buckets"^] .
+link:prev-ontap-protect-journey.html["En savoir plus sur la création de vos propres buckets"^].
 
 Si vous créez vos propres buckets, vous devez utiliser un nom de bucket « netapp-backup ».  Si vous devez utiliser un nom personnalisé, modifiez le `ontapcloud-instance-policy-netapp-backup` IAMRole pour les CVO existants et ajoutez la liste suivante aux autorisations S3.  Vous devez inclure `"Resource": "arn:aws:s3:::*"` et attribuez toutes les autorisations nécessaires qui doivent être associées au bucket.
 
@@ -307,11 +307,11 @@ Si vous créez vos propres buckets, vous devez utiliser un nom de bucket « neta
 
 Si vous souhaitez utiliser les clés de chiffrement Amazon S3 par défaut pour chiffrer les données transmises entre votre cluster sur site et le compartiment S3, vous êtes prêt car l'installation par défaut utilise ce type de chiffrement.
 
-Si, au lieu de cela, vous souhaitez utiliser vos propres clés gérées par le client pour le chiffrement des données plutôt que d'utiliser les clés par défaut, vous devrez alors avoir les clés gérées par le chiffrement déjà configurées avant de démarrer l'assistant de sauvegarde et de récupération NetApp .
+Si, au lieu de cela, vous souhaitez utiliser vos propres clés gérées par le client pour le chiffrement des données plutôt que d'utiliser les clés par défaut, vous devrez alors avoir les clés gérées par le chiffrement déjà configurées avant de démarrer l'assistant de NetApp Backup and Recovery .
 
-https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-setting-up-kms.html["Découvrez comment utiliser vos propres clés de chiffrement Amazon avec Cloud Volumes ONTAP"^] .
+https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-setting-up-kms.html["Découvrez comment utiliser vos propres clés de chiffrement Amazon avec Cloud Volumes ONTAP"^].
 
-https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-aws-bluexp.html#configure-encryption-settings["Découvrez comment utiliser vos propres clés de chiffrement Amazon avec NetApp Backup and Recovery"^] .
+https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-aws-bluexp.html#configure-encryption-settings["Découvrez comment utiliser vos propres clés de chiffrement Amazon avec NetApp Backup and Recovery"^].
 
 
 
@@ -319,19 +319,19 @@ https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-aws-blu
 
 Si vous souhaitez utiliser une connexion Internet publique standard, toutes les autorisations sont définies par l'agent de la console et vous n'avez rien d'autre à faire.
 
-Si vous souhaitez disposer d'une connexion Internet plus sécurisée entre votre centre de données sur site et le VPC, vous pouvez sélectionner une connexion AWS PrivateLink dans l'assistant d'activation de sauvegarde. Cela est nécessaire si vous prévoyez d'utiliser un VPN ou AWS Direct Connect pour connecter votre système sur site via une interface de point de terminaison VPC qui utilise une adresse IP privée.
+Si vous souhaitez disposer d'une connexion Internet plus sécurisée entre votre centre de données sur site et le VPC, vous pouvez sélectionner une connexion AWS PrivateLink dans l'assistant d'activation de sauvegarde.  Cela est nécessaire si vous prévoyez d'utiliser un VPN ou AWS Direct Connect pour connecter votre système sur site via une interface de point de terminaison VPC qui utilise une adresse IP privée.
 
 .Étapes
 . Créez une configuration de point de terminaison d’interface à l’aide de la console Amazon VPC ou de la ligne de commande. https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html["Consultez les détails sur l'utilisation d'AWS PrivateLink pour Amazon S3"^] .
-. Modifiez la configuration du groupe de sécurité associé à l’agent de console. Vous devez modifier la politique en « Personnalisé » (à partir de « Accès complet ») et vous devez<<Configurer les autorisations S3,ajouter les autorisations S3 à partir de la politique de sauvegarde>> comme indiqué précédemment.
+. Modifiez la configuration du groupe de sécurité associé à l’agent de console.  Vous devez modifier la politique en « Personnalisé » (à partir de « Accès complet ») et vous devez<<Configurer les autorisations S3,ajouter les autorisations S3 à partir de la politique de sauvegarde>> comme indiqué précédemment.
 +
-Si vous utilisez le port 80 (HTTP) pour communiquer avec le point de terminaison privé, vous êtes prêt. Vous pouvez désormais activer NetApp Backup and Recovery sur le cluster.
+Si vous utilisez le port 80 (HTTP) pour communiquer avec le point de terminaison privé, vous êtes prêt.  Vous pouvez désormais activer NetApp Backup and Recovery sur le cluster.
 
 +
 Si vous utilisez le port 443 (HTTPS) pour la communication avec le point de terminaison privé, vous devez copier le certificat du point de terminaison VPC S3 et l'ajouter à votre cluster ONTAP , comme indiqué dans les 4 étapes suivantes.
 
 . Obtenez le nom DNS du point de terminaison à partir de la console AWS.
-. Obtenez le certificat à partir du point de terminaison VPC S3. Vous faites cela en https://docs.netapp.com/us-en/console-setup-admin/task-maintain-connectors.html#connect-to-the-linux-vm["connexion à la machine virtuelle qui héberge l'agent de la console"^] et exécutez la commande suivante. Lors de la saisie du nom DNS du point de terminaison, ajoutez « bucket » au début, en remplaçant le « * » :
+. Obtenez le certificat à partir du point de terminaison VPC S3.  Vous faites cela en https://docs.netapp.com/us-en/console-setup-admin/task-maintain-connectors.html#connect-to-the-linux-vm["connexion à la machine virtuelle qui héberge l'agent de la console"^] et exécutez la commande suivante.  Lors de la saisie du nom DNS du point de terminaison, ajoutez « bucket » au début, en remplaçant le « * » :
 +
 [source, text]
 ----
@@ -373,7 +373,7 @@ Un assistant vous guide à travers les principales étapes suivantes :
 * <<Revoyez vos sélections>>
 
 
-Vous pouvez également<<Afficher les commandes API>> à l'étape de révision, vous pouvez donc copier le code pour automatiser l'activation de la sauvegarde pour les futurs systèmes.
+Vous pouvez également<<Afficher les commandes de l'API>> à l'étape de révision, vous pouvez donc copier le code pour automatiser l'activation de la sauvegarde pour les futurs systèmes.
 
 
 
@@ -395,7 +395,7 @@ La page d'introduction de l'assistant affiche les options de protection, notamme
 . Continuez avec les options suivantes :
 +
 ** Si vous disposez déjà d’un agent de console, vous êtes prêt.  Sélectionnez simplement *Suivant*.
-** Si vous ne disposez pas encore d’un agent de console, l’option *Ajouter un agent de console* apparaît. <<Préparez votre agent de console>> .
+** Si vous ne disposez pas encore d’un agent de console, l’option *Ajouter un agent de console* apparaît.  Se référer à<<Préparez votre agent de console>> .
 
 
 
@@ -504,7 +504,7 @@ Pour créer une politique, sélectionnez *Créer une nouvelle politique* et proc
 +
 La clé d’accès et la clé secrète sont destinées à l’utilisateur IAM que vous avez créé pour donner au cluster ONTAP l’accès au bucket S3.
 
-** *Bucket* : Choisissez un bucket S3 existant ou créez-en un nouveau. Se référer à https://docs.netapp.com/us-en/storage-management-s3-storage/task-add-s3-bucket.html["Ajouter des buckets S3"^] .
+** *Bucket* : Choisissez un bucket S3 existant ou créez-en un nouveau.  Se référer à https://docs.netapp.com/us-en/storage-management-s3-storage/task-add-s3-bucket.html["Ajouter des buckets S3"^] .
 ** *Clé de chiffrement* : si vous avez créé un nouveau compartiment S3, saisissez les informations de clé de chiffrement fournies par le fournisseur.  Choisissez si vous utiliserez les clés de chiffrement Amazon S3 par défaut ou si vous choisirez vos propres clés gérées par le client à partir de votre compte AWS pour gérer le chiffrement de vos données.
 
 
@@ -515,7 +515,7 @@ NOTE: Si vous avez choisi un bucket existant, les informations de chiffrement so
 +
 ** *Réseau* : Choisissez l'espace IP et indiquez si vous utiliserez un point de terminaison privé.  Le point de terminaison privé est désactivé par défaut.
 +
-... L'espace IP dans le cluster ONTAP où résident les volumes que vous souhaitez sauvegarder.  Les LIF intercluster pour cet espace IP doivent disposer d'un accès Internet sortant.
+... L'espace IP dans le cluster ONTAP où résident les volumes que vous souhaitez sauvegarder. Les LIF intercluster pour cet espace IP doivent disposer d'un accès Internet sortant.
 ... Vous pouvez également choisir si vous utiliserez un AWS PrivateLink que vous avez précédemment configuré. https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html["Voir les détails sur l'utilisation d'AWS PrivateLink pour Amazon S3"^] .
 
 
@@ -562,7 +562,7 @@ Vous pouvez également surveiller l’état des tâches de sauvegarde et de rest
 
 
 
-=== Afficher les commandes API
+=== Afficher les commandes de l'API
 
 Vous souhaiterez peut-être afficher et éventuellement copier les commandes API utilisées dans l’assistant d’activation de la sauvegarde et de la récupération.  Vous souhaiterez peut-être faire cela pour automatiser l’activation de la sauvegarde dans les futurs systèmes.
 

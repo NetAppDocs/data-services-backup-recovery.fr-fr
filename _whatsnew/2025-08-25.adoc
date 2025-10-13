@@ -11,7 +11,7 @@ Cette version ajoute une prise en charge préliminaire pour la protection des ch
 
 NOTE: La documentation sur la protection des charges de travail VMware est fournie sous forme d'aperçu technologique. Avec cette offre préliminaire, NetApp se réserve le droit de modifier les détails, le contenu et le calendrier de l'offre avant la disponibilité générale.
 
-link:br-use-vmware-protect-overview.html["En savoir plus sur la protection des charges de travail VMware avec NetApp Backup and Recovery"] .
+link:br-use-vmware-protect-overview.html["En savoir plus sur la protection des charges de travail VMware avec NetApp Backup and Recovery"].
 
 
 

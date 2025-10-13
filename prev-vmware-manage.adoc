@@ -14,11 +14,11 @@ summary: Protégez vos charges de travail VMware avec NetApp NetApp Backup and R
 
 
 [role="lead"]
-Vous pouvez afficher les politiques, les banques de données et les machines virtuelles avant de sauvegarder et de restaurer les données avec NetApp Backup and Recovery.  En fonction de la modification apportée à la base de données, aux stratégies ou aux groupes de ressources, vous pouvez afficher les mises à jour à partir de l'interface utilisateur de la console NetApp .
+Vous pouvez afficher les politiques, les banques de données et les machines virtuelles avant de sauvegarder et de restaurer les données avec NetApp Backup and Recovery.  En fonction de la modification apportée à la base de données, aux stratégies ou aux groupes de ressources, vous pouvez afficher les mises à jour à partir de l'interface utilisateur de la NetApp Console .
 
 []
 ====
-*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery, reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de sauvegarde et de récupération NetApp"] .
+*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
 
 ====
 
@@ -105,11 +105,11 @@ Toutes les banques de données et machines virtuelles associées à l'hôte Snap
 
 == Surveiller les emplois
 
-Des tâches sont créées pour toutes les opérations de sauvegarde et de récupération NetApp .  Vous pouvez surveiller tous les travaux et toutes les sous-tâches qui sont effectuées dans le cadre de chaque tâche.
+Des tâches sont créées pour toutes les opérations de NetApp Backup and Recovery .  Vous pouvez surveiller tous les travaux et toutes les sous-tâches qui sont effectuées dans le cadre de chaque tâche.
 
 . Sélectionnez *Sauvegarde et récupération* > *Surveillance des tâches*.
 +
 Lorsque vous lancez une opération, une fenêtre apparaît indiquant que la tâche est lancée.  Vous pouvez sélectionner le lien pour surveiller le travail.
 
-. Sélectionnez la tâche principale pour afficher les sous-tâches et le statut de chacune de ces sous-tâches.
+. Sélectionnez la tâche principale pour afficher les sous-tâches et l’état de chacune de ces sous-tâches.
 

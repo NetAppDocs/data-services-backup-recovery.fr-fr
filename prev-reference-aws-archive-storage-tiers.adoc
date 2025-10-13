@@ -18,7 +18,7 @@ NetApp Backup and Recovery prend en charge deux classes de stockage d'archivage 
 
 []
 ====
-*REMARQUE* Pour basculer vers et depuis les versions de l'interface utilisateur de sauvegarde et de récupération NetApp , reportez-vous àlink:br-start-switch-ui.html["Passer à l'interface utilisateur précédente de sauvegarde et de récupération NetApp"] .
+*REMARQUE* Pour basculer vers et depuis les versions de l'interface utilisateur de NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Passer à l'interface utilisateur précédente de NetApp Backup and Recovery"] .
 
 ====
 
@@ -27,7 +27,7 @@ NetApp Backup and Recovery prend en charge deux classes de stockage d'archivage 
 
 Lorsque les fichiers de sauvegarde sont initialement créés, ils sont stockés dans le stockage S3 _Standard_.  Ce niveau est optimisé pour stocker des données rarement consultées, mais qui vous permet également d'y accéder immédiatement.  Après 30 jours, les sauvegardes passent à la classe de stockage S3 _Standard-Infrequent Access_ pour réduire les coûts.
 
-Si vos clusters sources exécutent ONTAP 9.10.1 ou une version ultérieure, vous pouvez choisir de hiérarchiser les sauvegardes vers le stockage _S3 Glacier_ ou _S3 Glacier Deep Archive_ après un certain nombre de jours (généralement plus de 30 jours) pour une optimisation supplémentaire des coûts.  Vous pouvez définir cette valeur sur « 0 » ou sur 1 à 999 jours.  Si vous le définissez sur « 0 » jours, vous ne pourrez pas le modifier ultérieurement sur 1 à 999 jours.
+Si vos clusters sources exécutent ONTAP 9.10.1 ou une version ultérieure, vous pouvez choisir de hiérarchiser les sauvegardes vers le stockage _S3 Glacier_ ou _S3 Glacier Deep Archive_ après un certain nombre de jours (généralement plus de 30 jours) pour une optimisation supplémentaire des coûts.  Vous pouvez définir cette valeur sur « 0 » ou sur 1 à 999 jours.  Si vous le définissez sur « 0 » jours, vous ne pourrez pas le modifier ultérieurement sur 1 à 999 jours.
 
 Les données de ces niveaux ne sont pas accessibles immédiatement en cas de besoin et nécessiteront un coût de récupération plus élevé. Vous devez donc tenir compte de la fréquence à laquelle vous devrez peut-être restaurer les données à partir de ces fichiers de sauvegarde archivés.  Consultez la section sur cette page concernant la restauration des données à partir du stockage d'archives.
 
@@ -38,7 +38,7 @@ Les données de ces niveaux ne sont pas accessibles immédiatement en cas de bes
 
 Notez que lorsque vous configurez NetApp Backup and Recovery avec ce type de règle de cycle de vie, vous ne devez configurer aucune règle de cycle de vie lors de la configuration du bucket dans votre compte AWS.
 
-https://aws.amazon.com/s3/storage-classes/["En savoir plus sur les classes de stockage S3"^] .
+https://aws.amazon.com/s3/storage-classes/["En savoir plus sur les classes de stockage S3"^].
 
 
 

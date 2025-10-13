@@ -31,7 +31,7 @@ Vous pouvez restaurer les données à ces points :
 
 
 .Considérations relatives à la restauration à partir du stockage d'objets
-Si vous sélectionnez un fichier de sauvegarde dans le stockage d'objets et que la protection contre les ransomwares est active pour cette sauvegarde (si vous avez activé DataLock et Ransomware Resilience dans la stratégie de sauvegarde), vous êtes invité à exécuter une vérification d'intégrité supplémentaire sur le fichier de sauvegarde avant de restaurer les données. Nous vous recommandons d'effectuer l'analyse.
+Si vous sélectionnez un fichier de sauvegarde dans le stockage d'objets et que la protection contre les ransomwares est active pour cette sauvegarde (si vous avez activé DataLock et Ransomware Resilience dans la stratégie de sauvegarde), vous êtes invité à exécuter une vérification d'intégrité supplémentaire sur le fichier de sauvegarde avant de restaurer les données.  Nous vous recommandons d'effectuer l'analyse.
 
 
 TIP: Des frais de sortie supplémentaires seront facturés par votre fournisseur de cloud pour accéder au contenu du fichier de sauvegarde.
@@ -58,10 +58,10 @@ image:diagram_browse_restore_volume-unified.png["Un diagramme qui montre le flux
 
 Restaurez les charges de travail VMware à l’aide de l’option Restaurer. Vous pouvez rechercher l'instantané par son nom ou en utilisant des filtres.
 
-*Rôle de console NetApp requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, rôle d'administrateur de restauration de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, rôle d'administrateur de restauration de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Restaurer*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Restaurer*.
 . Dans la liste déroulante à droite du champ de recherche de nom, sélectionnez *Machines virtuelles*.
 . Saisissez le nom de la ressource que vous souhaitez restaurer ou filtrez le vCenter, le centre de données ou la banque de données où se trouve la ressource que vous souhaitez restaurer.
 +

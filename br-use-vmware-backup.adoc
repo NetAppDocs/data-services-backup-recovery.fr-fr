@@ -16,8 +16,8 @@ summary: Protégez vos charges de travail VMware avec NetApp NetApp Backup and R
 [role="lead"]
 Sauvegardez les machines virtuelles VMware et les banques de données des systèmes ONTAP locaux vers Amazon Web Services, Azure NetApp Files ou StorageGRID pour garantir la protection de vos données. Les sauvegardes sont automatiquement générées et stockées dans un magasin d’objets sur votre compte cloud public ou privé.
 
-* Pour sauvegarder des charges de travail selon une planification, créez des stratégies qui régissent les opérations de sauvegarde et de restauration. Voirlink:br-use-policies-create.html["Créer des politiques"] pour les instructions.
-* Créez des groupes de protection pour gérer les opérations de sauvegarde et de restauration d’un ensemble de ressources. Voir link:br-use-vmware-protection-groups.html["Créez et gérez des groupes de protection pour les charges de travail VMware avec NetApp Backup and Recovery"] pour plus d'informations.
+* Pour sauvegarder des charges de travail selon une planification, créez des stratégies qui régissent les opérations de sauvegarde et de restauration.  Voirlink:br-use-policies-create.html["Créer des politiques"] pour les instructions.
+* Créez des groupes de protection pour gérer les opérations de sauvegarde et de restauration d’un ensemble de ressources. Voirlink:br-use-vmware-protection-groups.html["Créez et gérez des groupes de protection pour les charges de travail VMware avec NetApp Backup and Recovery"] pour plus d'informations.
 * Sauvegardez vos charges de travail maintenant (créez une sauvegarde à la demande maintenant).
 
 
@@ -27,7 +27,7 @@ Sauvegardez les machines virtuelles VMware et les banques de données des systè
 
 Créez immédiatement une sauvegarde à la demande.  Vous souhaiterez peut-être exécuter une sauvegarde à la demande si vous êtes sur le point d'apporter des modifications à votre système et que vous souhaitez vous assurer que vous disposez d'une sauvegarde avant de commencer.
 
-*Rôle de console NetApp requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération ou rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération ou rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 .Étapes
 . Dans le menu Sauvegarde et récupération, sélectionnez *Inventaire*.

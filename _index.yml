@@ -1,6 +1,6 @@
 ---
 indexpage:
-  title: Documentation sur la sauvegarde et la restauration NetApp
+  title: Documentation sur la NetApp Backup and Recovery
   summary: NetApp Backup and Recovery est un service de données qui fournit une protection
     des données efficace, sécurisée et rentable pour toutes vos charges de travail
     ONTAP , y compris les volumes, les bases de données, les machines virtuelles et
@@ -23,7 +23,7 @@ indexpage:
     - title: Configurez les destinations de sauvegarde avant d'utiliser NetApp Backup
         and Recovery
       url: br-start-setup.html
-    - title: Configurer les paramètres de sauvegarde et de récupération NetApp
+    - title: Configurer les paramètres de NetApp Backup and Recovery
       url: br-start-configure.html
   - title: Protéger les charges de travail des volumes ONTAP
     links:
@@ -119,9 +119,9 @@ indexpage:
       url: br-use-restore-kubernetes-applications.html
   - title: Blogs et communauté
     links:
-    - title: Console NetApp
+    - title: NetApp Console
       url: https://www.netapp.com/console
-    - title: Services de données NetApp
+    - title: NetApp Data Services
       url: https://www.netapp.com/data-services/
     - title: Communauté NetApp
       url: https://community.netapp.com/

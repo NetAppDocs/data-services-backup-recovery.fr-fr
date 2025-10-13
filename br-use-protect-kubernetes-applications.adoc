@@ -14,10 +14,10 @@ summary: NetApp Backup and Recovery vous permet de gérer les informations de vo
 
 
 [role="lead"]
-NetApp Backup and Recovery vous permet de découvrir facilement vos clusters Kubernetes, sans générer ni télécharger de fichiers kubeconfig.  Vous pouvez connecter des clusters Kubernetes et installer le logiciel requis à l’aide de commandes simples copiées à partir de l’interface utilisateur de la console NetApp .
+NetApp Backup and Recovery vous permet de découvrir facilement vos clusters Kubernetes, sans générer ni télécharger de fichiers kubeconfig.  Vous pouvez connecter des clusters Kubernetes et installer le logiciel requis à l’aide de commandes simples copiées à partir de l’interface utilisateur de la NetApp Console .
 
-.Rôle de console NetApp requis
-Administrateur d'organisation ou administrateur SnapCenter . link:reference-roles.html["En savoir plus sur les rôles d'accès NetApp Backup and Recovery"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+.Rôle de NetApp Console requis
+Administrateur d'organisation ou administrateur SnapCenter . link:reference-roles.html["En savoir plus sur les rôles d'accès à NetApp Backup and Recovery"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 
 
@@ -26,7 +26,7 @@ Administrateur d'organisation ou administrateur SnapCenter . link:reference-role
 La première étape de la protection des applications Kubernetes consiste à créer une application dans NetApp Backup and Recovery.  Lorsque vous créez une application, vous informez la console de l’application en cours d’exécution sur le cluster Kubernetes.
 
 .Avant de commencer
-Avant de pouvoir ajouter et protéger une application Kubernetes, vous devez link:br-start-discover.html["découvrir les charges de travail Kubernetes"] .
+Avant de pouvoir ajouter et protéger une application Kubernetes, vous devezlink:br-start-discover.html["découvrir les charges de travail Kubernetes"] .
 
 .Étapes
 . Dans NetApp Backup and Recovery, sélectionnez *Inventaire*.
@@ -56,7 +56,7 @@ NOTE: La console ne stocke pas les paramètres ou les résultats de recherche ;
 
 
 .Résultat
-L'application est créée et apparaît dans la liste des applications dans l'onglet *Applications* de l'inventaire Kubernetes.  La console NetApp active la protection de l'application en fonction de vos paramètres et vous pouvez surveiller la progression dans la zone *Surveillance* de la sauvegarde et de la récupération.
+L'application est créée et apparaît dans la liste des applications dans l'onglet *Applications* de l'inventaire Kubernetes.  La NetApp Console active la protection de l'application en fonction de vos paramètres et vous pouvez surveiller la progression dans la zone *Surveillance* de la sauvegarde et de la récupération.
 
 
 

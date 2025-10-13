@@ -14,11 +14,11 @@ summary: Protégez vos charges de travail VMware avec NetApp NetApp Backup and R
 
 
 [role="lead"]
-NetApp Backup and Recovery vous permet de créer jusqu'à trois copies de vos volumes sources pour protéger vos données. Il existe de nombreuses options que vous pouvez sélectionner lors de l'activation de la sauvegarde et de la récupération sur vos volumes. Vous devez donc revoir vos choix afin d'être prêt.
+NetApp Backup and Recovery vous permet de créer jusqu'à trois copies de vos volumes sources pour protéger vos données.  Il existe de nombreuses options que vous pouvez sélectionner lors de l'activation de la sauvegarde et de la récupération sur vos volumes. Vous devez donc revoir vos choix afin d'être prêt.
 
 []
 ====
-*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery, reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de sauvegarde et de récupération NetApp"] .
+*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
 
 ====
 Nous passerons en revue les options suivantes :
@@ -125,9 +125,9 @@ Vous pouvez utiliser les politiques par défaut fournies par NetApp pour créer 
 
 Si vous créez des stratégies personnalisées pour la réplication ou la sauvegarde, les étiquettes de stratégie (par exemple, « quotidienne » ou « hebdomadaire ») doivent correspondre aux étiquettes qui existent dans vos stratégies de snapshot, sinon les volumes répliqués et les fichiers de sauvegarde ne seront pas créés.
 
-Vous pouvez créer des stratégies de snapshot, de réplication et de sauvegarde vers des stockages d'objets dans l'interface utilisateur de NetApp Backup and Recovery.  Voir la section pourlink:prev-ontap-backup-manage.html["ajout d'une nouvelle politique de sauvegarde"] pour plus de détails.
+Vous pouvez créer des stratégies de snapshot, de réplication et de sauvegarde vers des stockages d'objets dans l'interface utilisateur de NetApp Backup and Recovery .  Voir la section pourlink:prev-ontap-backup-manage.html["ajout d'une nouvelle politique de sauvegarde"] pour plus de détails.
 
-Outre l'utilisation de NetApp Backup and Recovery pour créer des politiques personnalisées, vous pouvez utiliser System Manager ou l'interface de ligne de commande ONTAP (CLI) :
+En plus d'utiliser NetApp Backup and Recovery pour créer des politiques personnalisées, vous pouvez utiliser System Manager ou l'interface de ligne de commande ONTAP (CLI) :
 
 * https://docs.netapp.com/us-en/ontap/task_dp_configure_snapshot.html["Créer une stratégie de capture instantanée à l'aide de System Manager ou de l'interface de ligne de commande ONTAP"^]
 * https://docs.netapp.com/us-en/ontap/task_dp_create_custom_data_protection_policies.html["Créer une politique de réplication à l'aide de System Manager ou de l'interface de ligne de commande ONTAP"^]
@@ -161,7 +161,7 @@ Voici quelques exemples de commandes CLI ONTAP qui pourraient être utiles si vo
 `snapmirror policy add-rule -policy <policy_name> -vserver <vserver_name> -snapmirror-label <snapmirror_label> -keep` 
 |===
 
-NOTE: Seules les politiques de coffre-fort peuvent être utilisées pour la sauvegarde dans les relations cloud.
+NOTE: Seules les politiques de coffre-fort peuvent être utilisées pour la sauvegarde vers les relations cloud.
 
 
 
@@ -219,7 +219,7 @@ Si vous prévoyez de déplacer des fichiers de sauvegarde plus anciens vers un s
 
 * La protection DataLock et Ransomware est prise en charge dans le stockage AWS lors de l’utilisation du logiciel ONTAP 9.11.1 ou supérieur sur vos clusters, et dans le stockage Azure lors de l’utilisation du logiciel ONTAP 9.12.1 ou supérieur.
 +
-** Pour AWS, vous devez activer le verrouillage d'objet sur le bucket à l'aide d'une période de conservation de 30 jours.
+** Pour AWS, vous devez activer le verrouillage d’objet sur le bucket à l’aide d’une période de conservation de 30 jours.
 ** Pour Azure, vous devez créer la classe de stockage avec prise en charge de l’immuabilité au niveau de la version.
 
 
@@ -231,9 +231,9 @@ Si vous prévoyez de déplacer des fichiers de sauvegarde plus anciens vers un s
 
 Si vous utilisez déjà la console pour gérer votre stockage, un agent de console a déjà été installé.  Si vous prévoyez d'utiliser le même agent de console avec NetApp Backup and Recovery, vous êtes prêt.  Si vous devez utiliser un autre agent de console, vous devrez l'installer avant de démarrer votre implémentation de sauvegarde et de récupération.
 
-La console NetApp propose plusieurs modes de déploiement qui vous permettent d'utiliser la console d'une manière qui répond à vos exigences commerciales et de sécurité.  Le _mode standard_ exploite la couche SaaS de la console pour fournir toutes les fonctionnalités, tandis que le _mode restreint_ et le _mode privé_ sont disponibles pour les organisations qui ont des restrictions de connectivité.
+La NetApp Console propose plusieurs modes de déploiement qui vous permettent d'utiliser la console d'une manière qui répond à vos exigences commerciales et de sécurité.  Le _mode standard_ exploite la couche SaaS de la console pour fournir toutes les fonctionnalités, tandis que le _mode restreint_ et le _mode privé_ sont disponibles pour les organisations qui ont des restrictions de connectivité.
 
-https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["En savoir plus sur les modes de déploiement de la console NetApp"^] .
+https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["En savoir plus sur les modes de déploiement de la NetApp Console"^].
 
 
 
@@ -241,7 +241,7 @@ https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["En savoir 
 
 Lorsque NetApp Backup and Recovery est utilisé sur un site doté d'une connectivité Internet complète (également appelé _mode standard_ ou _mode SaaS_), vous pouvez créer des volumes répliqués sur n'importe quel système ONTAP ou Cloud Volumes ONTAP local géré par la console, et vous pouvez créer des fichiers de sauvegarde sur le stockage d'objets dans l'un des fournisseurs de cloud pris en charge. link:concept-backup-to-cloud.html["Consultez la liste complète des destinations de sauvegarde prises en charge"] .
 
-Pour obtenir la liste des emplacements d'agent de console valides, reportez-vous à l'une des procédures de sauvegarde suivantes pour le fournisseur de cloud où vous prévoyez de créer des fichiers de sauvegarde.  Il existe certaines restrictions selon lesquelles l'agent de console doit être installé manuellement sur une machine Linux ou déployé dans un fournisseur de cloud spécifique.
+Pour obtenir la liste des emplacements d'agent de console valides, reportez-vous à l'une des procédures de sauvegarde suivantes pour le fournisseur de cloud où vous prévoyez de créer des fichiers de sauvegarde.  Il existe certaines restrictions selon lesquelles l'agent de console doit être installé manuellement sur une machine Linux ou déployé chez un fournisseur de cloud spécifique.
 
 * link:prev-ontap-backup-cvo-aws.html["Sauvegarder les données Cloud Volumes ONTAP sur Amazon S3"]
 * link:prev-ontap-backup-cvo-azure.html["Sauvegarder les données Cloud Volumes ONTAP sur Azure Blob"]
@@ -277,7 +277,7 @@ endif::azure[]
 
 === Prise en charge des sites sans connexion Internet
 
-NetApp Backup and Recovery peut être utilisé sur un site sans connexion Internet (également appelé _mode privé_ ou sites _sombres_) pour sauvegarder les données de volume.  Dans ce cas, vous devrez déployer l’agent de console sur un hôte Linux sur le même site.
+NetApp Backup and Recovery peut être utilisé sur un site sans connexion Internet (également appelé _mode privé_ ou _sites sombres_) pour sauvegarder les données de volume.  Dans ce cas, vous devrez déployer l’agent de console sur un hôte Linux sur le même site.
 
 
 NOTE: Le mode privé BlueXP (interface BlueXP héritée) est généralement utilisé avec des environnements locaux qui n’ont pas de connexion Internet et avec des régions cloud sécurisées, notamment AWS Secret Cloud, AWS Top Secret Cloud et Azure IL6. NetApp continue de prendre en charge ces environnements avec l’interface BlueXP héritée. Pour la documentation du mode privé dans l'ancienne interface BlueXP , reportez-vous à la https://docs.netapp.com/us-en/console-setup-admin/media/BlueXP-Private-Mode-legacy-interface.pdf["Documentation PDF pour le mode privé BlueXP"] .

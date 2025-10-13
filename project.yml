@@ -23,7 +23,7 @@ settings:
   langs: fr-fr,us-en,de-de,es-es,it-it,pt-br,ja-jp,ko-kr,zh-cn,zh-tw
 sidebar:
   entries:
-  - title: Documentation sur la sauvegarde et la récupération NetApp
+  - title: Documentation sur la NetApp Backup and Recovery
     url: "/index.html"
   - title: Notes de version
     entries:
@@ -45,7 +45,7 @@ sidebar:
     entries:
     - title: En savoir plus sur NetApp Backup and Recovery
       url: "/concept-backup-to-cloud.html"
-    - title: Conditions préalables pour la sauvegarde et la récupération NetApp
+    - title: Conditions préalables pour la NetApp Backup and Recovery
       url: "/concept-start-prereq.html"
     - title: Configurer les licences pour NetApp Backup and Recovery
       url: "/br-start-licensing.html"
@@ -58,8 +58,7 @@ sidebar:
       url: "/br-start-login.html"
     - title: Découvrir les cibles de sauvegarde
       url: "/br-start-discover-backup-targets.html"
-    - title: Basculer vers différentes charges de travail de sauvegarde et de récupération
-        NetApp
+    - title: Basculer vers différentes charges de travail de NetApp Backup and Recovery
       url: "/br-start-switch-ui.html"
     - title: Configurer les paramètres généraux de NetApp Backup and Recovery
       url: "/br-start-configure.html"
@@ -234,10 +233,9 @@ sidebar:
     entries:
     - title: Stratégies dans SnapCenter comparées à NetApp Backup and Recovery
       url: "/reference-policy-differences-snapcenter.html"
-    - title: Rôles et privilèges de sauvegarde et de récupération NetApp
+    - title: Rôles et privilèges de NetApp Backup and Recovery
       url: "/reference-roles.html"
-    - title: Restaurer les données de sauvegarde et de récupération NetApp dans un
-        site sombre
+    - title: Restaurer les données de NetApp Backup and Recovery dans un site sombre
       url: "/reference-backup-cbs-db-in-dark-site.html"
     - title: Niveaux de stockage d'archives AWS pris en charge
       url: "/prev-reference-aws-archive-storage-tiers.html"

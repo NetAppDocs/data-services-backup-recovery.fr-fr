@@ -28,7 +28,7 @@ Vous pouvez restaurer des charges de travail à partir de différents emplacemen
 Vous pouvez restaurer les données à l'emplacement d'origine ; la restauration vers un autre emplacement n'est pas disponible dans cette version d'aperçu privée.
 
 .Considérations relatives à la restauration à partir du stockage d'objets
-Si vous sélectionnez un fichier de sauvegarde dans le stockage d'objets et que la protection contre les ransomwares est active pour cette sauvegarde (si vous avez activé DataLock et Ransomware Resilience dans la stratégie de sauvegarde), vous êtes invité à exécuter une vérification d'intégrité supplémentaire sur le fichier de sauvegarde avant de restaurer les données. Nous vous recommandons d'effectuer l'analyse.
+Si vous sélectionnez un fichier de sauvegarde dans le stockage d'objets et que la protection contre les ransomwares est active pour cette sauvegarde (si vous avez activé DataLock et Ransomware Resilience dans la stratégie de sauvegarde), vous êtes invité à exécuter une vérification d'intégrité supplémentaire sur le fichier de sauvegarde avant de restaurer les données.  Nous vous recommandons d'effectuer l'analyse.
 
 
 TIP: Des frais de sortie supplémentaires seront facturés par votre fournisseur de cloud pour accéder au contenu du fichier de sauvegarde.
@@ -51,10 +51,10 @@ Lorsque vous restaurez des charges de travail, les événements suivants se prod
 
 Restaurez les charges de travail Hyper-V à l’aide de l’option Restaurer. Vous pouvez rechercher l'instantané par son nom ou en utilisant des filtres.
 
-*Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de restauration de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de restauration de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Restaurer*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Restaurer*.
 . Dans la liste déroulante à droite du champ de recherche de nom, sélectionnez *Hyper-V*.
 . Saisissez le nom de la ressource que vous souhaitez restaurer ou filtrez le nom de la machine virtuelle, l’hôte de la machine virtuelle ou le pool de stockage où se trouve la ressource que vous souhaitez restaurer.
 +

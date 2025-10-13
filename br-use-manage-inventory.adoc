@@ -39,7 +39,7 @@ Vous pouvez accomplir les tâches suivantes liées à la gestion de votre invent
 ** Sauvegardez maintenant en démarrant une sauvegarde à la demande
 
 
-* Configurez le répertoire des journaux (depuis Inventaire > Hôtes).  Si vous souhaitez sauvegarder les journaux de vos hôtes de base de données dans l’instantané, configurez d’abord les journaux dans NetApp Backup and Recovery. Pour plus de détails, reportez-vous àlink:br-start-setup.html["Configurer les paramètres de sauvegarde et de récupération NetApp"] .
+* Configurez le répertoire des journaux (depuis Inventaire > Hôtes).  Si vous souhaitez sauvegarder les journaux de vos hôtes de base de données dans l'instantané, configurez d'abord les journaux dans NetApp Backup and Recovery.  Pour plus de détails, reportez-vous àlink:br-start-setup.html["Configurer les paramètres de NetApp Backup and Recovery"] .
 
 
 
@@ -48,9 +48,9 @@ Vous pouvez accomplir les tâches suivantes liées à la gestion de votre invent
 
 Vous pouvez gérer les informations de l'hôte pour garantir que les bons hôtes sont protégés.  Vous pouvez afficher, modifier et supprimer les informations de l'hôte.
 
-*Rôle de console NetApp requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, administrateur de sauvegarde et de récupération, administrateur de restauration de sauvegarde et de récupération ou rôle d'administrateur de clone de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, administrateur de sauvegarde et de récupération, administrateur de restauration de sauvegarde et de récupération ou rôle d'administrateur de clone de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
-* Configurer le répertoire des journaux. Pour plus de détails, reportez-vous àlink:br-start-setup.html["Configurer les paramètres de sauvegarde et de récupération NetApp"] .
+* Configurer le répertoire des journaux.  Pour plus de détails, reportez-vous àlink:br-start-setup.html["Configurer les paramètres de NetApp Backup and Recovery"] .
 * Suspendre les horaires
 * Modifier un hôte
 * Supprimer un hôte
@@ -67,7 +67,7 @@ TIP: Vous ne pouvez gérer que les hôtes qui affichent un statut « Non géré
 
 Une fois que vous avez géré les hôtes dans NetApp Backup and Recovery, SnapCenter ne gère plus les ressources sur ces hôtes.
 
-*Rôle de console NetApp requis* Visualiseur de stockage ou super administrateur de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de NetApp Console requis* Visualiseur de stockage ou super administrateur de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 .Étapes
 . Dans le menu, sélectionnez *Inventaire*.
@@ -93,7 +93,7 @@ Une fois que vous avez géré les hôtes dans NetApp Backup and Recovery, SnapCe
 Vous pouvez suspendre les planifications pour arrêter les opérations de sauvegarde et de restauration d'un hôte.  Vous souhaiterez peut-être le faire si vous devez effectuer des activités de maintenance sur l’hôte.
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez l’hôte sur lequel vous souhaitez suspendre les planifications.
 . Sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Suspendre les programmes*.
 . Dans la boîte de dialogue de confirmation, sélectionnez *Suspendre*.
@@ -106,7 +106,7 @@ Vous pouvez suspendre les planifications pour arrêter les opérations de sauveg
 Vous pouvez modifier les informations du serveur vCenter, les informations d’identification d’enregistrement de l’hôte et les options de paramètres avancés.
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez l’hôte que vous souhaitez modifier.
 . Sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Modifier l'hôte*.
 . Modifier les informations de l'hôte.
@@ -120,7 +120,7 @@ Vous pouvez modifier les informations du serveur vCenter, les informations d’i
 Vous pouvez supprimer les informations de l'hôte pour arrêter les frais de service.
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez l’hôte que vous souhaitez supprimer.
 . Sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Supprimer l'hôte*.
 . Vérifiez les informations de confirmation et sélectionnez *Supprimer*.
@@ -139,7 +139,7 @@ Vous pouvez gérer les informations des instances pour vous assurer que les ress
 * Sauvegardez maintenant
 
 
-*Rôle de console NetApp requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 
 
@@ -148,7 +148,7 @@ Vous pouvez gérer les informations des instances pour vous assurer que les ress
 Vous pouvez attribuer une politique à une instance de base de données à l'aide de politiques qui régissent les planifications et la conservation de la protection des ressources.
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez la charge de travail que vous souhaitez afficher et sélectionnez *Afficher*.
 . Sélectionnez l'onglet *Instances*.
 . Sélectionnez l'instance.
@@ -178,10 +178,10 @@ Pour plus de détails sur la création d'une politique, reportez-vous àlink:br-
 
 Vous pouvez associer des informations d’identification à une ressource afin que la protection puisse se produire.
 
-Pour plus de détails, consultez la section link:br-start-configure.html["Configurer les paramètres de sauvegarde et de récupération NetApp , y compris les informations d'identification"] .
+Pour plus de détails, voirlink:br-start-configure.html["Configurer les paramètres de NetApp Backup and Recovery , y compris les informations d'identification"] .
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez la charge de travail que vous souhaitez afficher et sélectionnez *Afficher*.
 . Sélectionnez l'onglet *Instances*.
 . Sélectionnez l'instance.
@@ -196,7 +196,7 @@ Pour plus de détails, consultez la section link:br-start-configure.html["Config
 Vous pouvez modifier la politique, créer une nouvelle politique, définir une planification et définir les paramètres de conservation.
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez la charge de travail que vous souhaitez afficher et sélectionnez *Afficher*.
 . Sélectionnez l'onglet *Instances*.
 . Sélectionnez l'instance.
@@ -213,7 +213,7 @@ Pour plus de détails sur la création d'une politique, reportez-vous àlink:br-
 Vous pouvez sauvegarder vos données maintenant pour garantir qu'elles sont immédiatement protégées.
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez la charge de travail que vous souhaitez afficher et sélectionnez *Afficher*.
 . Sélectionnez l'onglet *Instances*.
 . Sélectionnez l'instance.
@@ -243,10 +243,10 @@ Vous pouvez gérer les informations de la base de données des manières suivant
 
 Vous pouvez modifier la politique, créer une nouvelle politique, définir une planification et définir les paramètres de conservation.
 
-*Rôle de console NetApp requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez la charge de travail que vous souhaitez afficher et sélectionnez *Afficher*.
 . Sélectionnez l'onglet *Bases de données*.
 . Sélectionnez la base de données.
@@ -262,7 +262,7 @@ Pour plus de détails sur la création d'une politique, reportez-vous àlink:br-
 
 Vous pouvez restaurer une base de données pour garantir la protection de vos données.
 
-*Rôle de console NetApp requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 . Sélectionnez l'onglet *Bases de données*.
 . Sélectionnez la base de données.
@@ -278,10 +278,10 @@ Pour plus d'informations sur la restauration des charges de travail, reportez-vo
 
 Vous pouvez modifier la politique, créer une nouvelle politique, définir une planification et définir les paramètres de conservation.
 
-*Rôle de console NetApp requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez la charge de travail que vous souhaitez afficher et sélectionnez *Afficher*.
 . Sélectionnez l'onglet *Bases de données*.
 . Sélectionnez la base de données.
@@ -297,10 +297,10 @@ Pour plus de détails sur la création d'une politique, reportez-vous àlink:br-
 
 Vous pouvez désormais sauvegarder vos instances et bases de données Microsoft SQL Server pour garantir que vos données sont immédiatement protégées.
 
-*Rôle de console NetApp requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez la charge de travail que vous souhaitez afficher et sélectionnez *Afficher*.
 . Sélectionnez l'onglet *Instances* ou *Bases de données*.
 . Sélectionnez l'instance ou la base de données.

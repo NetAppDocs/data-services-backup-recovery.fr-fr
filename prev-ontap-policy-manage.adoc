@@ -18,7 +18,7 @@ Avec NetApp Backup and Recovery, utilisez les stratégies de sauvegarde par déf
 
 []
 ====
-*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery, reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de sauvegarde et de récupération NetApp"] .
+*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
 
 ====
 Lorsque vous utilisez l'assistant d'activation pour activer le service de sauvegarde et de récupération pour vos volumes, vous pouvez sélectionner parmi les stratégies par défaut et toutes les autres stratégies déjà existantes dans le système (Cloud Volumes ONTAP ou système ONTAP sur site).  Si vous souhaitez utiliser une politique différente de celles existantes, vous pouvez créer la politique avant ou pendant que vous utilisez l'assistant d'activation.
@@ -39,7 +39,7 @@ NetApp Backup and Recovery fournit trois types de sauvegardes de données ONTAP�
 |===
 Créez des politiques de sauvegarde à l’aide des outils suivants en fonction de votre environnement, de vos préférences et du type de protection :
 
-* Interface utilisateur de la console NetApp
+* UI de la NetApp Console
 * Interface utilisateur du gestionnaire de système
 * Interface de ligne de commande ONTAP
 
@@ -151,14 +151,14 @@ Cette politique de stockage réside dans différents emplacements du système de
 . Spécifiez les paramètres, y compris la planification du transfert et le moment d'archivage des sauvegardes.
 . (Facultatif) Pour déplacer les anciens fichiers de sauvegarde vers une classe de stockage ou un niveau d'accès moins coûteux après un certain nombre de jours, sélectionnez l'option *Archiver* et indiquez le nombre de jours qui doivent s'écouler avant que les données ne soient archivées.  Entrez *0* comme « Archiver après jours » pour envoyer votre fichier de sauvegarde directement vers le stockage d'archivage.
 +
-link:prev-ontap-policy-object-options.html["En savoir plus sur les paramètres de stockage d'archives"] .
+link:prev-ontap-policy-object-options.html["En savoir plus sur les paramètres de stockage d'archives"].
 
 . (Facultatif) Pour protéger vos sauvegardes contre toute modification ou suppression, sélectionnez l'option *Protection DataLock et Ransomware*.
 +
 Si votre cluster utilise ONTAP 9.11.1 ou une version ultérieure, vous pouvez choisir de protéger vos sauvegardes contre la suppression en configurant _DataLock_ et _Ransomware protection_.
 
 +
-link:prev-ontap-policy-object-options.html["En savoir plus sur les paramètres DataLock disponibles"] .
+link:prev-ontap-policy-object-options.html["En savoir plus sur les paramètres DataLock disponibles"].
 
 . Sélectionnez *Créer*.
 

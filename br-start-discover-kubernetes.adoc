@@ -16,7 +16,7 @@ summary: NetApp Backup and Recovery doit d’abord découvrir les charges de tra
 [role="lead"]
 NetApp Backup and Recovery doit découvrir les charges de travail Kubernetes avant de les protéger.
 
-*Rôle de console NetApp requis* Super administrateur de sauvegarde et de récupération. En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de NetApp Console requis* Super administrateur de sauvegarde et de récupération.  En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 
 
@@ -53,13 +53,13 @@ Le cluster est ajouté à l'inventaire.
 
 
 
-== Accéder au tableau de bord de sauvegarde et de récupération NetApp
+== Accéder au tableau de bord de NetApp Backup and Recovery
 
 Suivez ces étapes pour afficher le tableau de bord de NetApp Backup and Recovery .
 
 . Dans le menu supérieur, sélectionnez *Tableau de bord*.
 . Examiner l’état de santé de la protection des données.  Le nombre de charges de travail à risque ou protégées augmente en fonction des charges de travail nouvellement découvertes, protégées et sauvegardées.
 +
-link:br-use-dashboard.html["Découvrez ce que le tableau de bord vous montre"] .
+link:br-use-dashboard.html["Découvrez ce que le tableau de bord vous montre"].
 
 

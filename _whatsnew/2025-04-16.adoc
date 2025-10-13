@@ -35,7 +35,7 @@ Pour commencer à utiliser un stockage tiers comme magasin d’objets, vous deve
 
 .Étapes
 . Connectez-vous en SSH à votre connecteur.
-. Accédez au conteneur du serveur NetApp Backup and Recovery CBS :
+. Accédez au conteneur du serveur CBS NetApp Backup and Recovery :
 +
 [listing]
 ----
@@ -54,7 +54,7 @@ vi default.json
 
 
 .Résultat
-Une fois le conteneur réactivé, ouvrez l’interface utilisateur de NetApp Backup and Recovery.  Lorsque vous lancez une sauvegarde ou modifiez une stratégie de sauvegarde, vous verrez le nouveau fournisseur « Compatible S3 » répertorié avec d'autres fournisseurs de sauvegarde d'AWS, Microsoft Azure, Google Cloud, StorageGRID et ONTAP S3.
+Une fois le conteneur réactivé, ouvrez l’interface utilisateur de NetApp Backup and Recovery .  Lorsque vous lancez une sauvegarde ou modifiez une stratégie de sauvegarde, vous verrez le nouveau fournisseur « Compatible S3 » répertorié avec d'autres fournisseurs de sauvegarde d'AWS, Microsoft Azure, Google Cloud, StorageGRID et ONTAP S3.
 
 
 

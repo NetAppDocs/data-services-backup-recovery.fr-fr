@@ -49,11 +49,11 @@ Lorsque vous restaurez des bases de données Oracle, les événements suivants s
 
 Selon vos besoins, restaurez une base de données Oracle à un moment précis, à un numéro de modification système (SCN) spécifique ou au dernier état correct.  Vous pouvez également simplement restaurer la base de données à partir d'instantanés et ignorer le processus de récupération automatique.  Vous souhaiterez peut-être ignorer le processus de récupération automatique si vous souhaitez effectuer la récupération manuellement.  Vous pouvez rechercher la base de données en utilisant son nom ou avec des filtres spécifiques.
 
-*Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de restauration de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de restauration de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 .Étapes
-. Dans le menu de la console NetApp , sélectionnez *Protection > Sauvegarde et récupération*.
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Restaurer*.
+. Dans le menu de la NetApp Console , sélectionnez *Protection > Sauvegarde et récupération*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Restaurer*.
 . Dans la liste déroulante à droite du champ de recherche de nom, sélectionnez *Oracle*.
 . Saisissez le nom de la base de données que vous souhaitez restaurer ou filtrez l'hôte de base de données sur lequel se trouve la base de données que vous souhaitez restaurer.
 +
@@ -138,7 +138,7 @@ Ensuite, vous pouvez choisir les paramètres de destination et les options de pr
 
 . *Options post-restauration*:
 +
-** *Postscript* : Activez éventuellement cette option et saisissez le chemin complet d'un script qui doit être exécuté après l'opération de restauration et tous les arguments pris par le script.
+** *Postscript* : Activez éventuellement cette option et saisissez le chemin complet d'un script qui doit être exécuté après l'opération de restauration et tous les arguments que le script prend.
 ** *Ouvrez la base de données ou la base de données conteneur en mode LECTURE-ÉCRITURE après la récupération* : Une fois l'opération de restauration terminée, Backup and Recovery activera le mode LECTURE-ÉCRITURE pour la base de données.
 
 

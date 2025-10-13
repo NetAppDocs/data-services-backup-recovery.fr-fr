@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-use-monitor-tasks.html 
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery, jobs 
-summary: 'Avec NetApp Backup and Recovery, surveillez l"état des snapshots locaux, des réplications et des tâches de sauvegarde vers le stockage d"objets que vous avez initiées, ainsi que les tâches de restauration que vous avez initiées.' 
+summary: 'Avec NetApp Backup and Recovery, surveillez l"état des snapshots locaux, des réplications et des tâches de sauvegarde sur le stockage d"objets que vous avez initiées, ainsi que les tâches de restauration que vous avez initiées.' 
 ---
 = Surveiller les tâches dans NetApp Backup and Recovery
 :hardbreaks:
@@ -14,17 +14,17 @@ summary: 'Avec NetApp Backup and Recovery, surveillez l"état des snapshots loca
 
 
 [role="lead"]
-Avec NetApp Backup and Recovery, surveillez l'état des snapshots locaux, des réplications et des tâches de sauvegarde vers le stockage d'objets que vous avez initiées, ainsi que les tâches de restauration que vous avez initiées.  Vous pouvez voir les tâches terminées, en cours ou ayant échoué afin de pouvoir diagnostiquer et résoudre les problèmes.  À l'aide du centre de notifications de la console NetApp , vous pouvez activer l'envoi de notifications par courrier électronique afin d'être informé de l'activité importante du système, même lorsque vous n'êtes pas connecté au système.  À l’aide de la chronologie de la console, vous pouvez voir les détails de toutes les actions initiées via l’interface utilisateur ou l’API.
+Avec NetApp Backup and Recovery, surveillez l'état des snapshots locaux, des réplications et des tâches de sauvegarde vers le stockage d'objets que vous avez initiées, ainsi que les tâches de restauration que vous avez initiées.  Vous pouvez voir les tâches terminées, en cours ou ayant échoué afin de pouvoir diagnostiquer et résoudre les problèmes.  À l'aide du centre de notifications de la NetApp Console , vous pouvez activer l'envoi de notifications par e-mail afin d'être informé de l'activité importante du système, même lorsque vous n'êtes pas connecté au système.  À l’aide de la chronologie de la console, vous pouvez voir les détails de toutes les actions initiées via l’interface utilisateur ou l’API.
 
 NetApp Backup and Recovery conserve les informations des tâches pendant 15 jours, après quoi elles sont purgées et ne sont plus visibles dans le moniteur des tâches.
 
-*Rôle de console NetApp requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, administrateur de sauvegarde et de récupération, administrateur de restauration de sauvegarde et de récupération, administrateur de clone de sauvegarde et de récupération ou rôle de visualiseur de sauvegarde et de récupération. En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, administrateur de sauvegarde et de récupération, administrateur de restauration de sauvegarde et de récupération, administrateur de clone de sauvegarde et de récupération ou rôle de visualiseur de sauvegarde et de récupération.  En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 
 
 == Afficher l'état du travail sur le moniteur de travail
 
-Vous pouvez afficher une liste de toutes les opérations de capture instantanée, de réplication, de sauvegarde sur le stockage d'objets et de restauration ainsi que leur état actuel dans l'onglet *Surveillance des tâches*.  Cela inclut les opérations de vos Cloud Volumes ONTAP, ONTAP sur site, applications et machines virtuelles.  Chaque opération, ou tâche, possède un identifiant et un statut uniques.
+Vous pouvez afficher une liste de toutes les opérations de snapshot, de réplication, de sauvegarde sur stockage d'objets et de restauration ainsi que leur état actuel dans l'onglet *Surveillance des tâches*.  Cela inclut les opérations de vos Cloud Volumes ONTAP, ONTAP sur site, applications et machines virtuelles.  Chaque opération, ou tâche, possède un identifiant et un statut uniques.
 
 Le statut peut être :
 
@@ -41,7 +41,7 @@ Les instantanés, les réplications, les sauvegardes sur le stockage d'objets et
 NOTE: Si vous avez mis à niveau vos systèmes ONTAP vers la version 9.13.x et que vous ne voyez pas d'opérations de sauvegarde planifiées en cours dans le moniteur de tâches, vous devrez redémarrer NetApp Backup and Recovery. link:reference-restart-backup.html["Apprenez à redémarrer NetApp Backup and Recovery"] .
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Surveillance*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Surveillance*.
 . Pour afficher des colonnes supplémentaires (Système, SVM, Nom d'utilisateur, Charge de travail, Nom de la politique, Étiquette d'instantané), sélectionnez le signe plus.
 
 
@@ -54,7 +54,7 @@ Vous pouvez filtrer les opérations sur la page Surveillance des tâches à l'ai
 Par défaut, la page Surveillance des tâches affiche les tâches de protection et de récupération des dernières 24 heures.  Vous pouvez modifier la période à l'aide du filtre Période.
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Surveillance*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Surveillance*.
 . Pour trier les résultats différemment, sélectionnez chaque en-tête de colonne pour trier par statut, heure de début, nom de la ressource, etc.
 . Si vous recherchez des emplois spécifiques, sélectionnez la zone *Recherche avancée et filtrage* pour ouvrir le panneau de recherche.
 +
@@ -92,7 +92,7 @@ Vous pouvez afficher des détails tels que le type de tâche (planifiée ou à l
 Les tâches de restauration affichent des détails tels que le fournisseur cible de sauvegarde (Amazon Web Services, Microsoft Azure, Google Cloud, sur site), le nom du bucket S3, le nom de la SVM, le nom du volume source, le volume de destination, l'étiquette de l'instantané, le nombre d'objets récupérés, les noms de fichiers, les tailles de fichiers, la date de dernière modification et le chemin d'accès complet au fichier.
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Surveillance*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Surveillance*.
 . Sélectionnez le nom du travail.
 . Sélectionnez le menu Actionsimage:icon-action.png["Icône Actions"] et sélectionnez *Afficher les détails*.
 . Développez chaque section pour voir les détails.
@@ -102,12 +102,12 @@ Les tâches de restauration affichent des détails tels que le fournisseur cible
 
 === Télécharger les résultats de la surveillance des tâches sous forme de rapport
 
-Vous pouvez télécharger le contenu de la page principale de surveillance des tâches sous forme de rapport après l'avoir affiné.  NetApp Backup and Recovery génère et télécharge un fichier .CSV que vous pouvez consulter et envoyer à d'autres groupes selon vos besoins. Le fichier .CSV comprend jusqu'à 10 000 lignes de données.
+Vous pouvez télécharger le contenu de la page principale de surveillance des tâches sous forme de rapport après l'avoir affiné.  NetApp Backup and Recovery génère et télécharge un fichier .CSV que vous pouvez consulter et envoyer à d'autres groupes selon vos besoins.  Le fichier .CSV comprend jusqu'à 10 000 lignes de données.
 
 À partir des informations sur les détails de la surveillance des tâches, vous pouvez télécharger un fichier JSON contenant les détails d'une tâche unique.
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Surveillance*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Surveillance*.
 . Pour télécharger un fichier CSV pour tous les travaux, sélectionnez le bouton Télécharger et recherchez le fichier dans votre répertoire de téléchargement.
 . Pour télécharger un fichier JSON pour une seule tâche, sélectionnez le menu Actionsimage:icon-action.png["Icône Actions"] pour le travail, sélectionnez *Télécharger le fichier JSON* et localisez le fichier dans votre répertoire de téléchargement.
 
@@ -123,16 +123,16 @@ Une tâche de cycle de vie de sauvegarde suit toutes les copies Snapshot qui son
 Le type de tâche « Rétention » capture toutes les tâches de suppression de snapshots lancées sur un volume protégé par NetApp Backup and Recovery.
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Surveillance*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Surveillance*.
 . Sélectionnez la zone *Recherche avancée et filtrage* pour ouvrir le panneau de recherche.
 . Sélectionnez « Rétention » comme type de travail.
 
 
 
 
-== Consultez les alertes de sauvegarde et de restauration dans le centre de notifications de la console NetApp
+== Consultez les alertes de sauvegarde et de restauration dans le centre de notifications de la NetApp Console
 
-Le centre de notifications de la console NetApp suit la progression des tâches de sauvegarde et de restauration que vous avez lancées afin que vous puissiez vérifier si l'opération a réussi ou non.
+Le centre de notifications de la NetApp Console suit la progression des tâches de sauvegarde et de restauration que vous avez lancées afin que vous puissiez vérifier si l'opération a réussi ou non.
 
 En plus d'afficher les alertes dans le centre de notifications, vous pouvez configurer la console pour envoyer certains types de notifications par e-mail sous forme d'alertes afin d'être informé de l'activité importante du système même lorsque vous n'êtes pas connecté au système. https://docs.netapp.com/us-en/console-setup-admin/task-monitor-cm-operations.html["En savoir plus sur le centre de notifications et comment envoyer des e-mails d'alerte pour les tâches de sauvegarde et de restauration"^] .
 
@@ -149,37 +149,37 @@ Le centre de notifications affiche de nombreux événements de capture instantan
 | Activation | Échec de la modification de la sauvegarde et de la récupération pour le système | Erreur | Oui 
 
 
-| Instantané local | Échec de la tâche de création d'instantanés ad hoc de sauvegarde et de récupération NetApp | Erreur | Oui 
+| Instantané local | Échec de la tâche de création d'instantanés ad hoc de NetApp Backup and Recovery | Erreur | Oui 
 
 
-| Réplication | Échec de la tâche de réplication ad hoc de sauvegarde et de récupération NetApp | Erreur | Oui 
+| Réplication | Échec de la tâche de réplication ad hoc de NetApp Backup and Recovery | Erreur | Oui 
 
 
-| Réplication | Échec de la tâche de pause de réplication de sauvegarde et de récupération NetApp | Erreur | Non 
+| Réplication | Échec de la tâche de pause de réplication de NetApp Backup and Recovery | Erreur | Non 
 
 
-| Réplication | Échec de la tâche d'interruption de la réplication de sauvegarde et de récupération NetApp | Erreur | Non 
+| Réplication | Échec de la tâche d'interruption de la réplication de NetApp Backup and Recovery | Erreur | Non 
 
 
 | Réplication | Échec de la tâche de resynchronisation de la réplication NetApp Backup and Recovery | Erreur | Non 
 
 
-| Réplication | Échec de la tâche d'arrêt de la réplication de sauvegarde et de récupération NetApp | Erreur | Non 
+| Réplication | Échec de la tâche d'arrêt de la réplication de NetApp Backup and Recovery | Erreur | Non 
 
 
 | Réplication | Échec de la tâche de resynchronisation inverse de la réplication NetApp Backup and Recovery | Erreur | Oui 
 
 
-| Réplication | Échec de la tâche de suppression de réplication de sauvegarde et de récupération NetApp | Erreur | Oui 
+| Réplication | Échec de la tâche de suppression de réplication de NetApp Backup and Recovery | Erreur | Oui 
 |===
 
 NOTE: À partir d' ONTAP 9.13.0, toutes les alertes apparaissent pour Cloud Volumes ONTAP et les systèmes ONTAP sur site.  Pour les systèmes avec Cloud Volumes ONTAP 9.13.0 et ONTAP sur site, seule l'alerte relative à « Tâche de restauration terminée, mais avec des avertissements » s'affiche.
 
-Par défaut, les administrateurs de compte et d'organisation de la console NetApp reçoivent des e-mails pour toutes les alertes « Critiques » et « Recommandation ».  Tous les autres utilisateurs et destinataires sont configurés, par défaut, pour ne recevoir aucun e-mail de notification.  Les e-mails peuvent être envoyés à tous les utilisateurs de la console qui font partie de votre compte NetApp Cloud, ou à tout autre destinataire qui doit être informé de l'activité de sauvegarde et de restauration.
+Par défaut, les administrateurs de compte et d'organisation de la NetApp Console reçoivent des e-mails pour toutes les alertes « Critiques » et « Recommandation ».  Tous les autres utilisateurs et destinataires sont configurés, par défaut, pour ne recevoir aucun e-mail de notification.  Les e-mails peuvent être envoyés à tous les utilisateurs de la console qui font partie de votre compte NetApp Cloud, ou à tout autre destinataire qui doit être informé de l'activité de sauvegarde et de restauration.
 
-Pour recevoir les alertes par e-mail de NetApp Backup and Recovery, vous devez sélectionner les types de gravité de notification « Critique », « Avertissement » et « Erreur » dans la page des paramètres de notifications.
+Pour recevoir les alertes par e-mail de NetApp Backup and Recovery , vous devez sélectionner les types de gravité de notification « Critique », « Avertissement » et « Erreur » dans la page des paramètres de notifications.
 
-https://docs.netapp.com/us-en/console-setup-admin/task-monitor-cm-operations.html["Découvrez comment envoyer des e-mails d'alerte pour les tâches de sauvegarde et de restauration"^] .
+https://docs.netapp.com/us-en/console-setup-admin/task-monitor-cm-operations.html["Découvrez comment envoyer des e-mails d'alerte pour les tâches de sauvegarde et de restauration"^].
 
 .Étapes
 . Dans le menu de la console, sélectionnez l'option (image:icon_bell.png["cloche de notification"] ).
@@ -192,4 +192,4 @@ https://docs.netapp.com/us-en/console-setup-admin/task-monitor-cm-operations.htm
 
 Vous pouvez afficher les détails des opérations de sauvegarde et de restauration pour une enquête plus approfondie dans la chronologie de la console.  La chronologie de la console fournit des détails sur chaque événement, qu'il soit initié par l'utilisateur ou par le système, et affiche les actions initiées dans l'interface utilisateur ou via l'API.
 
-https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operations.html["Découvrez les différences entre la chronologie et le centre de notifications"^] .
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operations.html["Découvrez les différences entre la chronologie et le centre de notifications"^].

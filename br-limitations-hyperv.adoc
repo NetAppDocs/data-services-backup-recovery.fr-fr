@@ -20,10 +20,10 @@ Les plates-formes, appareils ou fonctionnalités qui ne fonctionnent pas ou ne f
 
 == Actions non prises en charge
 
-Les actions suivantes ne sont pas prises en charge dans la version d'aperçu privée des charges de travail Hyper-V dans NetApp Backup and Recovery :
+Les actions suivantes ne sont pas prises en charge dans la version d'aperçu privée des charges de travail Hyper-V dans NetApp Backup and Recovery:
 
 * Créer des groupes de ressources
-* Disques répartis (sur plusieurs partages CIFS)
+* Répartition des disques (sur plusieurs partages CIFS)
 * Protéger les machines virtuelles via SAN
 * Modifier les groupes de protection
 * Protégez les hôtes Hyper-V mis en cluster à l'aide de System Center Virtual Machine Manager (SCVMM)

@@ -14,7 +14,7 @@ summary: Protégez vos charges de travail VMware avec NetApp NetApp Backup and R
 
 
 [role="lead"]
-Protégez vos machines virtuelles et vos banques de données VMware avec NetApp Backup and Recovery.  NetApp Backup and Recovery fournit des opérations de sauvegarde et de restauration rapides, peu encombrantes, cohérentes en cas de panne et cohérentes avec les machines virtuelles. Vous pouvez sauvegarder les charges de travail VMware sur Amazon Web Services S3 ou StorageGRID et restaurer les charges de travail VMware sur un hôte VMware local.
+Protégez vos machines virtuelles et banques de données VMware avec NetApp Backup and Recovery.  NetApp Backup and Recovery fournit des opérations de sauvegarde et de restauration rapides, peu encombrantes, cohérentes en cas de panne et cohérentes avec les machines virtuelles. Vous pouvez sauvegarder les charges de travail VMware sur Amazon Web Services S3 ou StorageGRID et restaurer les charges de travail VMware sur un hôte VMware local.
 
 
 NOTE: Cette version de NetApp Backup and Recovery prend uniquement en charge VMware vCenter et ne détecte pas les vVols ou les machines virtuelles sur les vVols.
@@ -28,7 +28,7 @@ Utilisez NetApp Backup and Recovery pour mettre en œuvre une stratégie 3-2-1, 
 
 []
 ====
-*REMARQUE* Pour basculer vers et depuis les versions de l'interface utilisateur de sauvegarde et de récupération NetApp , reportez-vous àlink:br-start-switch-ui.html["Passer à l'interface utilisateur précédente de sauvegarde et de récupération NetApp"] .
+*REMARQUE* Pour basculer vers et depuis les versions de l'interface utilisateur de NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Passer à l'interface utilisateur précédente de NetApp Backup and Recovery"] .
 
 ====
 Vous pouvez utiliser NetApp Backup and Recovery pour effectuer les tâches suivantes liées aux charges de travail VMware :

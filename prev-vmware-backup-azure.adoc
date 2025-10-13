@@ -20,14 +20,14 @@ Si le magasin de données est associé à une politique d'archivage, vous aurez 
 
 []
 ====
-*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery, reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de sauvegarde et de récupération NetApp"] .
+*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
 
 ====
 .Avant de commencer
 Assurez-vous d'avoir respecté toutes leslink:prev-vmware-prereqs.html["exigences de protection des machines virtuelles"] avant de sauvegarder les banques de données dans le cloud.
 
 .Étapes
-. Dans l'interface utilisateur de la console NetApp , sélectionnez *Protection* > *Sauvegarde et récupération* > *Machines virtuelles*.
+. Dans l'interface utilisateur de la NetApp Console , sélectionnez *Protection* > *Sauvegarde et récupération* > *Machines virtuelles*.
 . Sélectionnerimage:icon-action.png["action"] correspondant à la banque de données que vous souhaitez sauvegarder et sélectionnez *Activer la sauvegarde*.
 . Dans la page Attribuer une politique, sélectionnez la politique et sélectionnez *Suivant*.
 . Ajoutez le système.

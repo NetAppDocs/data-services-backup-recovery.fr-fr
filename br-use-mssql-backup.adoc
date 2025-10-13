@@ -16,7 +16,7 @@ summary: 'Sauvegardez les données des applications Microsoft SQL Server à part
 [role="lead"]
 Sauvegardez les données des applications Microsoft SQL Server à partir des systèmes ONTAP locaux vers Amazon Web Services, Microsoft Azure et StorageGRID pour garantir la protection de vos données. Les sauvegardes sont automatiquement générées et stockées dans un magasin d’objets sur votre compte cloud public ou privé.
 
-* Pour sauvegarder des charges de travail selon une planification, créez des stratégies qui régissent les opérations de sauvegarde et de restauration. Voirlink:br-use-policies-create.html["Créer des politiques"] pour les instructions.
+* Pour sauvegarder des charges de travail selon une planification, créez des stratégies qui régissent les opérations de sauvegarde et de restauration.  Voirlink:br-use-policies-create.html["Créer des politiques"] pour les instructions.
 * Configurez le répertoire de journaux pour les hôtes découverts avant de lancer une sauvegarde.
 * Sauvegardez vos charges de travail maintenant (créez une sauvegarde à la demande maintenant).
 
@@ -27,10 +27,10 @@ Sauvegardez les données des applications Microsoft SQL Server à partir des sys
 
 Avant de lancer une sauvegarde, affichez l’état de protection de vos charges de travail.
 
-*Rôle de console NetApp requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, administrateur de sauvegarde et de récupération, administrateur de restauration de sauvegarde et de récupération, administrateur de clone de sauvegarde et de récupération ou rôle de visualiseur de sauvegarde et de récupération. En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, administrateur de sauvegarde et de récupération, administrateur de restauration de sauvegarde et de récupération, administrateur de clone de sauvegarde et de récupération ou rôle de visualiseur de sauvegarde et de récupération.  En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez une charge de travail pour afficher les détails de protection.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
 . Consultez les détails des onglets Hôtes, Groupes de protection, Groupes de disponibilité, Instances et Bases de données.
@@ -42,10 +42,10 @@ Avant de lancer une sauvegarde, affichez l’état de protection de vos charges 
 
 Avant de sauvegarder vos charges de travail, définissez le chemin d’accès aux journaux d’activité des hôtes découverts.  Cela vous aide à suivre l’état des opérations.
 
-*Rôle de console NetApp requis* Rôle de visualiseur de stockage, de super administrateur de sauvegarde et de récupération, d'administrateur de sauvegarde et de récupération ou d'administrateur de restauration de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de NetApp Console requis* Rôle de visualiseur de stockage, de super administrateur de sauvegarde et de récupération, d'administrateur de sauvegarde et de récupération ou d'administrateur de restauration de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez une charge de travail pour afficher les détails de protection.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
 . Sélectionnez un hôte.
@@ -65,10 +65,10 @@ NOTE: Les champs qui s'affichent diffèrent selon le modèle de déploiement sé
 
 Vous pouvez créer un groupe de protection pour gérer les opérations de sauvegarde et de restauration d’un ensemble de charges de travail.  Un groupe de protection est un regroupement logique de charges de travail que vous souhaitez protéger ensemble.
 
-*Rôle de console NetApp requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération ou rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération ou rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez une charge de travail pour afficher les détails de protection.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
 . Sélectionnez l'onglet *Groupes de protection*.
@@ -78,7 +78,7 @@ Vous pouvez créer un groupe de protection pour gérer les opérations de sauveg
 . Sélectionnez *Suivant*.
 . Sélectionnez la *politique de sauvegarde* que vous souhaitez appliquer au groupe de protection.
 +
-Si vous souhaitez créer une politique, sélectionnez *Créer une nouvelle politique* et suivez les instructions pour créer une politique. Voir link:br-use-policies-create.html["Créer des politiques"] pour plus d'informations.
+Si vous souhaitez créer une politique, sélectionnez *Créer une nouvelle politique* et suivez les instructions pour créer une politique.  Voirlink:br-use-policies-create.html["Créer des politiques"] pour plus d'informations.
 
 . Sélectionnez *Suivant*.
 . Vérifiez la configuration.
@@ -91,7 +91,7 @@ Si vous souhaitez créer une politique, sélectionnez *Créer une nouvelle polit
 
 Créez immédiatement une sauvegarde à la demande.  Vous souhaiterez peut-être exécuter une sauvegarde à la demande si vous êtes sur le point d'apporter des modifications à votre système et que vous souhaitez vous assurer que vous disposez d'une sauvegarde avant de commencer.
 
-*Rôle de console NetApp requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération ou rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération ou rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 .Étapes
 . Dans le menu, sélectionnez *Inventaire*.
@@ -111,10 +111,10 @@ Créez immédiatement une sauvegarde à la demande.  Vous souhaiterez peut-être
 
 La suspension de la planification empêche temporairement l'exécution de la sauvegarde à l'heure planifiée.  Vous souhaiterez peut-être le faire si vous effectuez une maintenance sur le système ou si vous rencontrez des problèmes avec la sauvegarde.
 
-*Rôle de console NetApp requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération ou rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération ou rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez une charge de travail pour afficher les détails de protection.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
 . Sélectionnez l'onglet *Groupe de protection*, *Instances* ou *Bases de données*.
@@ -128,10 +128,10 @@ La suspension de la planification empêche temporairement l'exécution de la sau
 
 Vous pouvez créer un groupe de protection pour gérer les opérations de sauvegarde et de restauration d’un ensemble de charges de travail.  Un groupe de protection est un regroupement logique de charges de travail que vous souhaitez protéger ensemble.
 
-*Rôle de console NetApp requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération ou rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération ou rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez une charge de travail pour afficher les détails de protection.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
 . Sélectionnez l'onglet *Groupes de protection*.
@@ -144,10 +144,10 @@ Vous pouvez créer un groupe de protection pour gérer les opérations de sauveg
 
 Vous pouvez supprimer la protection d'une charge de travail si vous ne souhaitez plus la sauvegarder ou si vous souhaitez arrêter de la gérer dans NetApp Backup and Recovery.
 
-*Rôle de console NetApp requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération ou rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération ou rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez une charge de travail pour afficher les détails de protection.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
 . Sélectionnez l'onglet *Groupe de protection*, *Instances* ou *Bases de données*.

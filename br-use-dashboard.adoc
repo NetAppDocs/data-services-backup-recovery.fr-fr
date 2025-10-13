@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: br-use-dashboard.html 
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery, backup, recovery, dashboard, view, health, status, alerts, notifications 
-summary: La surveillance de l’état de vos charges de travail garantit que vous êtes conscient des problèmes de protection des charges de travail et que vous pouvez prendre des mesures pour les résoudre.  Affichez l’état de vos sauvegardes et restaurations et répondez à toutes les alertes qui s’affichent sur le tableau de bord de sauvegarde et de récupération NetApp .  Vous pouvez consulter le résumé de la protection, le résumé de la restauration, le résumé du système et bien plus encore. 
+summary: La surveillance de l’état de vos charges de travail garantit que vous êtes conscient des problèmes de protection des charges de travail et que vous pouvez prendre des mesures pour les résoudre.  Affichez l’état de vos sauvegardes et restaurations et répondez à toutes les alertes qui s’affichent sur le tableau de bord de NetApp Backup and Recovery .  Vous pouvez consulter le résumé de la protection, le résumé de la restauration, le résumé du système et bien plus encore. 
 ---
-= Afficher l'état de la protection sur le tableau de bord de sauvegarde et de récupération NetApp
+= Afficher l'état de la protection sur le tableau de bord de NetApp Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,12 +14,12 @@ summary: La surveillance de l’état de vos charges de travail garantit que vou
 
 
 [role="lead"]
-La surveillance de l’état de vos charges de travail garantit que vous êtes conscient des problèmes de protection des charges de travail et que vous pouvez prendre des mesures pour les résoudre.  Affichez l’état de vos sauvegardes et restaurations sur le tableau de bord de sauvegarde et de récupération NetApp .  Vous pouvez consulter le résumé du système, le résumé de la protection, le résumé du travail, le résumé de la restauration, etc.
+La surveillance de l’état de vos charges de travail garantit que vous êtes conscient des problèmes de protection des charges de travail et que vous pouvez prendre des mesures pour les résoudre.  Affichez l’état de vos sauvegardes et restaurations sur le tableau de bord de NetApp Backup and Recovery .  Vous pouvez consulter le résumé du système, le résumé de la protection, le résumé du travail, le résumé de la restauration, etc.
 
-*Rôle de console NetApp requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, administrateur de sauvegarde et de récupération, administrateur de restauration de sauvegarde et de récupération, administrateur de clone de sauvegarde et de récupération ou rôle de visualiseur de sauvegarde et de récupération. En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, administrateur de sauvegarde et de récupération, administrateur de restauration de sauvegarde et de récupération, administrateur de clone de sauvegarde et de récupération ou rôle de visualiseur de sauvegarde et de récupération.  En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Tableau de bord*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Tableau de bord*.
 +
 ** Nombre d'hôtes ou de machines virtuelles découverts
 ** Nombre de clusters Kubernetes découverts

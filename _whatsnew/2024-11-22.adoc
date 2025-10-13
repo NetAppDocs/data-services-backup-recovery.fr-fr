@@ -19,7 +19,7 @@ Avant de pouvoir utiliser la recherche et la restauration, vous devez activer «
 * Indexé : Les volumes ont été indexés.
 * En cours
 * Non indexé
-* Indexation suspendue
+* Indexation interrompue
 * Erreur
 * Non activé
 

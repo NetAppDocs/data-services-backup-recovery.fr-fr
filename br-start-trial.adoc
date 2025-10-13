@@ -16,7 +16,7 @@ summary: 'Démarrez ou terminez un essai gratuit de NetApp Backup and Recovery. 
 [role="lead"]
 Un essai gratuit de 30 jours de NetApp Backup and Recovery est disponible si vous souscrivez à un abonnement à la carte sur la place de marché de votre fournisseur de cloud pour * NetApp Intelligent Services*.  L'essai gratuit commence au moment où vous vous abonnez à la liste du marché.  Notez que si vous payez l'abonnement Marketplace lors du déploiement d'un système Cloud Volumes ONTAP , puis démarrez votre essai gratuit de NetApp Backup and Recovery 10 jours plus tard, il vous restera 20 jours pour utiliser l'essai gratuit.
 
-Une fois l'essai gratuit terminé, vous passerez automatiquement à l'abonnement PAYGO sans interruption.  Si vous décidez de ne pas continuer à utiliser NetApp Backup and Recovery, mettez simplement fin à l’essai gratuit.
+Une fois l'essai gratuit terminé, vous passerez automatiquement à l'abonnement PAYGO sans interruption.  Si vous décidez de ne pas continuer à utiliser NetApp Backup and Recovery, mettez simplement fin à l'essai gratuit.
 
 Vous pouvez démarrer l'essai gratuit de NetApp Backup and Recovery après vous être connecté à la console.
 
@@ -51,7 +51,7 @@ Vous pouvez mettre fin à l'essai gratuit à tout moment.  Si vous mettez fin à
 +
 image:screen-br-landing-unified.png["Capture d'écran de la page de destination pour NetApp Backup and Recovery"]
 
-. Depuis la page d'accueil « Bienvenue sur la nouvelle solution NetApp Backup and Recovery », sélectionnez *Afficher les détails - essai gratuit* ou, dans le coin supérieur droit de la page, sélectionnez *Essai gratuit*.
+. Depuis la page d'accueil « Bienvenue sur la nouvelle NetApp Backup and Recovery», sélectionnez *Afficher les détails - essai gratuit* ou, dans le coin supérieur droit de la page, sélectionnez *Essai gratuit*.
 +
 image:screen-br-landing-unified-end-trial.png["Capture d'écran de la page de destination pour l'essai gratuit de NetApp Backup and Recovery"]
 

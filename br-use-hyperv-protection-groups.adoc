@@ -20,7 +20,7 @@ Vous pouvez effectuer les tâches suivantes liées aux groupes de protection :
 
 * Créer un groupe de protection.
 * Afficher les détails de la protection.
-* Sauvegardez un groupe de protection maintenant. Voir link:br-use-hyperv-backup.html["Sauvegardez les charges de travail Hyper-V maintenant"] .
+* Sauvegardez un groupe de protection maintenant. Voirlink:br-use-hyperv-backup.html["Sauvegardez les charges de travail Hyper-V maintenant"] .
 * Supprimer un groupe de protection.
 
 
@@ -30,10 +30,10 @@ Vous pouvez effectuer les tâches suivantes liées aux groupes de protection :
 
 Regroupez les charges de travail que vous souhaitez protéger dans un groupe de protection. Vous pouvez créer un groupe de protection pour un ensemble de charges de travail que vous souhaitez sauvegarder et restaurer ensemble.
 
-*Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez une charge de travail pour afficher les détails de protection.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
 . Sélectionnez l'onglet *Groupes de protection*.
@@ -54,7 +54,7 @@ Regroupez les charges de travail que vous souhaitez protéger dans un groupe de 
 La suppression d’un groupe de protection le supprime ainsi que toutes les planifications de sauvegarde associées. Vous souhaiterez peut-être supprimer un groupe de protection s’il n’est plus nécessaire.
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Inventaire*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez une charge de travail pour afficher les détails de protection.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
 . Sélectionnez l'onglet *Groupes de protection*.

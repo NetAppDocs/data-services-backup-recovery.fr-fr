@@ -32,7 +32,7 @@ Utilisez NetApp Backup and Recovery pour atteindre les objectifs suivants :
 ** Créez des instantanés locaux, répliquez-les vers un stockage secondaire et sauvegardez les volumes ONTAP à partir des systèmes ONTAP locaux ou Cloud Volumes ONTAP vers le stockage d'objets dans votre compte cloud public ou privé.
 ** Créez des sauvegardes incrémentielles permanentes au niveau des blocs qui sont stockées sur un autre cluster ONTAP et dans un stockage d'objets dans le cloud.
 ** Utilisez NetApp Backup and Recovery avec SnapCenter.
-** link:prev-ontap-protect-overview.html["Protéger les volumes ONTAP"] .
+** Se référer àlink:prev-ontap-protect-overview.html["Protéger les volumes ONTAP"] .
 
 
 * *Charges de travail Microsoft SQL Server*:
@@ -41,16 +41,16 @@ Utilisez NetApp Backup and Recovery pour atteindre les objectifs suivants :
 ** Restaurer les bases de données Microsoft SQL Server.
 ** Cloner des bases de données Microsoft SQL Server.
 ** Utilisez NetApp Backup and Recovery sans SnapCenter.
-** link:br-use-mssql-protect-overview.html["Protégez les charges de travail Microsoft SQL Server"] .
+** Se référer àlink:br-use-mssql-protect-overview.html["Protégez les charges de travail Microsoft SQL Server"] .
 
 
 * *Charges de travail VMware (Aperçu avec nouvelle interface utilisateur sans SnapCenter Plug-in for VMware vSphere)*:
 +
-** Protégez vos machines virtuelles et vos banques de données VMware avec NetApp Backup and Recovery.
+** Protégez vos machines virtuelles et banques de données VMware avec NetApp Backup and Recovery.
 ** Sauvegardez les charges de travail VMware sur Amazon Web Services S3 ou StorageGRID (pour l'aperçu).
 ** Restaurez les données VMware du cloud vers le vCenter local.
 ** Utilisez NetApp Backup and Recovery sans SnapCenter Plug-in for VMware vSphere.
-** link:br-use-vmware-protect-overview.html["Protégez les charges de travail VMware"] .
+** Se référer àlink:br-use-vmware-protect-overview.html["Protégez les charges de travail VMware"] .
 
 
 * *Charges de travail VMware (avec SnapCenter Plug-in for VMware vSphere)* :
@@ -58,7 +58,7 @@ Utilisez NetApp Backup and Recovery pour atteindre les objectifs suivants :
 ** Sauvegardez les machines virtuelles et les banques de données sur Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Platform et StorageGRID et restaurez les machines virtuelles sur l'hôte SnapCenter Plug-in for VMware vSphere sur site.
 ** Restaurez les données de la machine virtuelle depuis le cloud vers le vCenter local avec NetApp Backup and Recovery. Vous pouvez restaurer la machine virtuelle exactement au même emplacement à partir duquel la sauvegarde a été effectuée ou vers un autre emplacement.
 ** Utilisez NetApp Backup and Recovery avec le SnapCenter Plug-in for VMware vSphere.
-** link:prev-vmware-protect-overview.html["Protégez les charges de travail VMware"] .
+** Se référer àlink:prev-vmware-protect-overview.html["Protégez les charges de travail VMware"] .
 
 
 * *Charges de travail KVM (Aperçu)*:
@@ -66,14 +66,14 @@ Utilisez NetApp Backup and Recovery pour atteindre les objectifs suivants :
 ** Sauvegarder et restaurer des machines virtuelles
 ** Sauvegarder les pools de stockage KVM
 ** Utiliser des groupes de protection pour gérer les tâches de sauvegarde
-** link:br-use-kvm-protect-overview.html["Protégez les charges de travail KVM"] .
+** Se référer àlink:br-use-kvm-protect-overview.html["Protégez les charges de travail KVM"] .
 
 
 * *Charges de travail Hyper-V (Aperçu)*:
 +
 ** Sauvegarder et restaurer des machines virtuelles
 ** Utiliser des groupes de protection pour gérer les tâches de sauvegarde
-** link:br-use-hyperv-protect-overview.html["Protégez les charges de travail Hyper-V"] .
+** Se référer àlink:br-use-hyperv-protect-overview.html["Protégez les charges de travail Hyper-V"] .
 
 
 * *Charges de travail Oracle (Aperçu)*:
@@ -84,7 +84,7 @@ Utilisez NetApp Backup and Recovery pour atteindre les objectifs suivants :
 ** Protéger une base de données avec une architecture de sauvegarde 3-2-1
 ** Configurer la conservation des sauvegardes
 ** Monter et démonter les sauvegardes ARCHIVELOG
-** link:br-use-oracle-protect-overview.html["Protégez les charges de travail Oracle"] .
+** Se référer àlink:br-use-oracle-protect-overview.html["Protégez les charges de travail Oracle"] .
 
 
 * *Charges de travail Kubernetes (Aperçu)*:
@@ -93,7 +93,7 @@ Utilisez NetApp Backup and Recovery pour atteindre les objectifs suivants :
 ** Utilisez des politiques de protection pour structurer vos sauvegardes incrémentielles.
 ** Restaurez les applications et les ressources sur les mêmes clusters et espaces de noms ou sur des clusters et espaces de noms différents.
 ** Utilisez NetApp Backup and Recovery sans SnapCenter.
-** link:br-use-kubernetes-protect-overview.html["Protégez les charges de travail Kubernetes"] .
+** Se référer àlink:br-use-kubernetes-protect-overview.html["Protégez les charges de travail Kubernetes"] .
 
 
 
@@ -199,13 +199,13 @@ Une licence de sauvegarde est requise uniquement pour la sauvegarde et la restau
 
 BYOL est basé sur la durée (1, 2 ou 3 ans) _et_ sur la capacité par incréments de 1 Tio.  Vous payez NetApp pour utiliser le service pendant une période donnée, par exemple 1 an, et pour une capacité maximale, par exemple 10 Tio.
 
-Vous recevrez un numéro de série que vous saisirez dans la console NetApp pour activer le service.  Lorsque l'une ou l'autre des limites est atteinte, vous devrez renouveler la licence.  La licence Backup BYOL s'applique à tous les systèmes sources associés à votre organisation ou compte NetApp Console.
+Vous recevrez un numéro de série que vous saisirez dans la NetApp Console pour activer le service.  Lorsque l'une ou l'autre des limites est atteinte, vous devrez renouveler la licence.  La licence Backup BYOL s'applique à tous les systèmes sources associés à votre organisation ou compte NetApp Console .
 
-link:br-start-licensing.html["Apprenez à configurer des licences"] .
+link:br-start-licensing.html["Apprenez à configurer des licences"].
 
 *Abonnement à la carte*
 
-NetApp Backup and Recovery propose des licences basées sur la consommation dans un modèle de paiement à l'utilisation.  Après avoir souscrit un abonnement via la place de marché de votre fournisseur cloud, vous payez par Gio pour les données sauvegardées — il n'y a pas de paiement initial. Vous êtes facturé par votre fournisseur cloud via votre facture mensuelle.
+NetApp Backup and Recovery propose des licences basées sur la consommation dans un modèle de paiement à l'utilisation.  Après avoir souscrit un abonnement via la place de marché de votre fournisseur cloud, vous payez par Gio pour les données sauvegardées — il n'y a pas de paiement initial.  Vous êtes facturé par votre fournisseur cloud via votre facture mensuelle.
 
 Notez qu'un essai gratuit de 30 jours est disponible lorsque vous souscrivez initialement à un abonnement PAYGO.
 
@@ -229,7 +229,7 @@ Lorsque vous utilisez Azure, deux contrats annuels sont disponibles pour 1, 2 ou
 
 ifdef::gcp[]
 
-Lorsque vous utilisez GCP, vous pouvez demander une offre privée auprès de NetApp, puis sélectionner le plan lorsque vous vous abonnez à partir de Google Cloud Marketplace lors de l'activation de NetApp Backup and Recovery. endif::gcp[]
+Lorsque vous utilisez GCP, vous pouvez demander une offre privée auprès de NetApp, puis sélectionner le plan lorsque vous vous abonnez à partir de Google Cloud Marketplace lors de l'activation de NetApp Backup and Recovery . endif::gcp[]
 
 
 
@@ -264,7 +264,7 @@ NetApp Backup and Recovery protège les charges de travail suivantes :
 
 
 
-== Comment fonctionne la sauvegarde et la récupération NetApp
+== Comment fonctionne la NetApp Backup and Recovery
 
 Lorsque vous activez NetApp Backup and Recovery, le service effectue une sauvegarde complète de vos données.  Après la sauvegarde initiale, toutes les sauvegardes supplémentaires sont incrémentielles.  Cela permet de maintenir le trafic réseau à un minimum.
 
@@ -279,16 +279,16 @@ NOTE: Le stockage primaire vers le stockage d'objets est également pris en char
 
 === Où résident les sauvegardes dans les emplacements de stockage d'objets
 
-Les copies de sauvegarde sont stockées dans un magasin d’objets que la console NetApp crée dans votre compte cloud.  Il existe un magasin d'objets par cluster ou système, et la console nomme le magasin d'objets comme suit : `netapp-backup-clusteruuid` .  Assurez-vous de ne pas supprimer ce magasin d’objets.
+Les copies de sauvegarde sont stockées dans un magasin d’objets que la NetApp Console crée dans votre compte cloud.  Il existe un magasin d'objets par cluster ou système, et la console nomme le magasin d'objets comme suit : `netapp-backup-clusteruuid` .  Assurez-vous de ne pas supprimer ce magasin d’objets.
 
 ifdef::aws[]
 
-* Dans AWS, la console NetApp permet la https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html["Fonctionnalité d'accès public au bloc Amazon S3"^] sur le bucket S3. endif::aws[]
+* Dans AWS, la NetApp Console permet la https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html["Fonctionnalité d'accès public au bloc Amazon S3"^] sur le bucket S3. endif::aws[]
 
 
 ifdef::azure[]
 
-* Dans Azure, la console NetApp utilise un groupe de ressources nouveau ou existant avec un compte de stockage pour le conteneur Blob. la console https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent["bloque l'accès public à vos données blob"] par défaut. endif::azure[]
+* Dans Azure, la NetApp Console utilise un groupe de ressources nouveau ou existant avec un compte de stockage pour le conteneur Blob. la console https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent["bloque l'accès public à vos données blob"] par défaut. endif::azure[]
 
 
 ifdef::gcp[]
@@ -303,9 +303,9 @@ endif::gcp[]
 
 === Les copies de sauvegarde sont associées à votre organisation NetApp Console
 
-Les copies de sauvegarde sont associées à l'organisation de la console NetApp dans laquelle réside l'agent de la console. https://docs.netapp.com/us-en/console-setup-admin/concept-identity-and-access-management.html["En savoir plus sur l'identité et l'accès à la console NetApp"^] .
+Les copies de sauvegarde sont associées à l’organisation de la NetApp Console dans laquelle réside l’agent de la console. https://docs.netapp.com/us-en/console-setup-admin/concept-identity-and-access-management.html["En savoir plus sur l'identité et l'accès à la NetApp Console"^] .
 
-Si vous disposez de plusieurs agents de console dans la même organisation de console NetApp , chaque agent de console affiche la même liste de sauvegardes.
+Si vous disposez de plusieurs agents de console dans la même organisation de NetApp Console , chaque agent de console affiche la même liste de sauvegardes.
 
 
 

@@ -6,7 +6,7 @@
 
 === Charge de travail Microsoft SQL Server prise en charge en disponibilité générale (GA)
 
-La prise en charge de la charge de travail Microsoft SQL Server est désormais généralement disponible (GA) dans NetApp Backup and Recovery. Les organisations utilisant un environnement MSSQL sur ONTAP, Cloud Volumes ONTAP et Amazon FSx for NetApp ONTAP peuvent désormais profiter de ce nouveau service de sauvegarde et de récupération pour protéger leurs données.
+La prise en charge des charges de travail Microsoft SQL Server est désormais généralement disponible (GA) dans NetApp Backup and Recovery. Les organisations utilisant un environnement MSSQL sur ONTAP, Cloud Volumes ONTAP et Amazon FSx for NetApp ONTAP peuvent désormais profiter de ce nouveau service de sauvegarde et de récupération pour protéger leurs données.
 
 Cette version inclut les améliorations suivantes apportées à la prise en charge de la charge de travail Microsoft SQL Server par rapport à la version d'aperçu précédente :
 
@@ -24,7 +24,7 @@ Pour plus de détails, reportez-vous à https://docs.netapp.com/us-en/data-servi
 
 * *Nom d’instantané personnalisé* : vous pouvez désormais utiliser votre propre nom d’instantané dans une stratégie qui régit les sauvegardes des charges de travail Microsoft SQL Server. Saisissez ces informations dans la section *Paramètres avancés* de la page Politique.
 +
-image:../media/screen-br-sql-policy-create-advanced-snapmirror.png["Capture d'écran des paramètres de format SnapMirror et snapshot pour les stratégies de sauvegarde et de récupération NetApp"]
+image:../media/screen-br-sql-policy-create-advanced-snapmirror.png["Capture d'écran des paramètres de format SnapMirror et snapshot pour les stratégies de NetApp Backup and Recovery"]
 
 +
 Se référer à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-policies-create.html["Utilisez des politiques pour protéger vos charges de travail"] .
@@ -32,13 +32,13 @@ Se référer à https://docs.netapp.com/us-en/data-services-backup-recovery/br-u
 * *Préfixe et suffixe du volume secondaire* : Vous pouvez saisir un préfixe et un suffixe personnalisés dans la section *Paramètres avancés* de la page Politique.
 * *Identité et accès* : Vous pouvez désormais contrôler l'accès des utilisateurs aux fonctionnalités.
 +
-Se référer à https://docs.netapp.com/us-en/data-services-backup-recovery/br-start-login.html["Connectez-vous à NetApp Backup and Recovery"] et https://docs.netapp.com/us-en/data-services-backup-recovery/reference-roles.html["Accès aux fonctionnalités de sauvegarde et de récupération NetApp"] .
+Se référer à https://docs.netapp.com/us-en/data-services-backup-recovery/br-start-login.html["Connectez-vous à NetApp Backup and Recovery"] et https://docs.netapp.com/us-en/data-services-backup-recovery/reference-roles.html["Accès aux fonctionnalités de NetApp Backup and Recovery"] .
 
 * *Restauration à partir du stockage d'objets vers un autre hôte* : vous pouvez désormais restaurer à partir du stockage d'objets vers un autre hôte même si le stockage principal est en panne.
 * *Données de sauvegarde du journal* : la page des détails de protection de la base de données affiche désormais les sauvegardes du journal. Vous pouvez voir la colonne Type de sauvegarde qui indique si la sauvegarde est une sauvegarde complète ou une sauvegarde de journal.
 * *Tableau de bord amélioré* : le tableau de bord affiche désormais les économies de stockage et de clonage.
 +
-image:../media/screen-br-dashboard3.png["Tableau de bord de sauvegarde et de récupération NetApp"]
+image:../media/screen-br-dashboard3.png["Tableau de bord de NetApp Backup and Recovery"]
 
 
 
@@ -47,7 +47,7 @@ image:../media/screen-br-dashboard3.png["Tableau de bord de sauvegarde et de ré
 === Améliorations de la charge de travail du volume ONTAP
 
 * *Restauration multi-dossiers pour les volumes ONTAP * : Jusqu'à présent, vous pouviez restaurer un dossier ou plusieurs fichiers à la fois à partir de la fonction Parcourir et restaurer. NetApp Backup and Recovery offre désormais la possibilité de sélectionner plusieurs dossiers à la fois à l'aide de la fonction Parcourir et restaurer.
-* *Afficher et gérer les sauvegardes des volumes supprimés* : le tableau de bord de sauvegarde et de récupération NetApp offre désormais une option permettant d'afficher et de gérer les volumes supprimés d' ONTAP. Avec cela, vous pouvez afficher et supprimer les sauvegardes des volumes qui n'existent plus dans ONTAP.
+* *Afficher et gérer les sauvegardes des volumes supprimés* : le tableau de bord de NetApp Backup and Recovery offre désormais une option permettant d'afficher et de gérer les volumes supprimés d' ONTAP. Avec cela, vous pouvez afficher et supprimer les sauvegardes des volumes qui n'existent plus dans ONTAP.
 * *Forcer la suppression des sauvegardes* : dans certains cas extrêmes, vous souhaiterez peut-être que NetApp Backup and Recovery n'ait plus accès aux sauvegardes. Cela peut se produire par exemple si le service n'a plus accès au bucket de sauvegarde ou si les sauvegardes sont protégées par DataLock mais que vous n'en voulez plus. Auparavant, vous ne pouviez pas les supprimer vous-même et deviez appeler le support NetApp . Avec cette version, vous pouvez utiliser l'option permettant de forcer la suppression des sauvegardes (au niveau du volume et de l'environnement de travail).
 
 

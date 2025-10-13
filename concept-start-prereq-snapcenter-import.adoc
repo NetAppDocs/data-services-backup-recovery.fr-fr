@@ -18,7 +18,7 @@ Si vous souhaitez importer des ressources du service de plug-in SnapCenter pour 
 
 
 
-== Créez d'abord des systèmes dans la console NetApp
+== Créez d'abord des systèmes dans la NetApp Console
 
 Si vous souhaitez importer des ressources depuis SnapCenter, vous devez d'abord ajouter tout le stockage de cluster SnapCenter local à la page *Systèmes* de la console avant de procéder à l'importation depuis SnapCenter.  Cela garantit que les ressources de l’hôte peuvent être découvertes et importées correctement.
 
@@ -28,7 +28,7 @@ Si vous souhaitez importer des ressources depuis SnapCenter, vous devez d'abord 
 
 Pour importer des ressources à partir du plug-in SnapCenter pour Microsoft SQL Server, assurez-vous que les exigences de l'hôte pour installer le plug-in SnapCenter pour Microsoft SQL Server sont respectées.
 
-Vérifiez spécifiquement les exigences de SnapCenter danslink:concept-start-prereq.html["Conditions préalables à la sauvegarde et à la récupération NetApp"] .
+Vérifiez spécifiquement les exigences de SnapCenter danslink:concept-start-prereq.html["Conditions préalables à la NetApp Backup and Recovery"] .
 
 
 

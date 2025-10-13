@@ -17,4 +17,4 @@ Cette version de NetApp Backup and Recovery introduit la prise en charge de la d
 * Créez des sauvegardes cohérentes avec les applications à l’aide de hooks d’exécution et de modèles.
 
 
-Pour plus de détails sur la protection des charges de travail Kubernetes, reportez-vous à  https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kubernetes-protect-overview.html["Présentation de la protection des charges de travail Kubernetes"] .
+Pour plus de détails sur la protection des charges de travail Kubernetes, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kubernetes-protect-overview.html["Présentation de la protection des charges de travail Kubernetes"] .

@@ -4,7 +4,7 @@ permalink: br-limitations-kvm.html
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, KVM, SAP HANA database, virtual machine, vm 
 summary: Cette version de NetApp Backup and Recovery présente les limitations connues suivantes. 
 ---
-= Limitations connues avec NetApp Backup and Recovery pour les charges de travail KVM
+= Limitations connues de NetApp Backup and Recovery pour les charges de travail KVM
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -16,7 +16,7 @@ summary: Cette version de NetApp Backup and Recovery présente les limitations c
 [role="lead"]
 Les plates-formes, appareils ou fonctionnalités qui ne fonctionnent pas ou ne fonctionnent pas bien avec cette version sont répertoriés ici.  Lisez attentivement ces limitations.
 
-Les actions et configurations suivantes ne sont pas prises en charge dans la version d'aperçu privée des charges de travail KVM dans NetApp Backup and Recovery :
+Les actions et configurations suivantes ne sont pas prises en charge dans la version d'aperçu privée des charges de travail KVM dans NetApp Backup and Recovery:
 
 
 
@@ -30,7 +30,7 @@ Les actions suivantes ne sont pas prises en charge dans la version d’aperçu p
 * Protéger les applications
 * Modifier les groupes de protection
 * Créer des groupes de protection à l'aide de machines virtuelles provenant de plusieurs hôtes KVM
-* Créer des sauvegardes définies par l'utilisateur (seules les sauvegardes lancées à partir de la console NetApp sont prises en charge)
+* Créer des sauvegardes définies par l'utilisateur (seules les sauvegardes lancées à partir de la NetApp Console sont prises en charge)
 
 
 

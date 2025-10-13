@@ -18,7 +18,7 @@ Effectuez quelques étapes dans NetApp Backup and Recovery pour commencer à sau
 
 []
 ====
-*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery, reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de sauvegarde et de récupération NetApp"] .
+*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
 
 ====
 
@@ -47,9 +47,9 @@ Configuration requise pour la création de sauvegardes dans un autre abonnement 
 
 == Vérifier les exigences de licence
 
-Pour les licences PAYGO de NetApp Backup and Recovery, un abonnement via Azure Marketplace est requis avant d’activer NetApp Backup and Recovery.  La facturation de NetApp Backup and Recovery s'effectue via cet abonnement. https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-deploying-otc-azure.html["Vous pouvez vous abonner à partir de la page Détails et informations d'identification de l'assistant système"^] .
+Pour les licences NetApp Backup and Recovery PAYGO, un abonnement via Azure Marketplace est requis avant d’activer NetApp Backup and Recovery.  La facturation de NetApp Backup and Recovery s'effectue via cet abonnement. https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-deploying-otc-azure.html["Vous pouvez vous abonner à partir de la page Détails et informations d'identification de l'assistant système"^] .
 
-Pour les licences BYOL de NetApp Backup and Recovery, vous avez besoin du numéro de série de NetApp qui vous permet d'utiliser le service pendant la durée et la capacité de la licence. link:br-start-licensing.html["Apprenez à gérer vos licences BYOL"] .  Vous devez utiliser une licence BYOL lorsque l'agent de console et le système Cloud Volumes ONTAP sont déployés sur un site sombre (« mode privé »).
+Pour les licences BYOL de NetApp Backup and Recovery , vous avez besoin du numéro de série de NetApp qui vous permet d'utiliser le service pendant la durée et la capacité de la licence. link:br-start-licensing.html["Apprenez à gérer vos licences BYOL"] .  Vous devez utiliser une licence BYOL lorsque l'agent de console et le système Cloud Volumes ONTAP sont déployés sur un site sombre (« mode privé »).
 
 Et vous devez disposer d’un abonnement Microsoft Azure pour l’espace de stockage où seront situées vos sauvegardes.
 
@@ -57,7 +57,7 @@ Et vous devez disposer d’un abonnement Microsoft Azure pour l’espace de stoc
 
 == Préparez votre agent de console
 
-L'agent de console peut être installé dans une région Azure avec un accès Internet complet ou limité (mode « standard » ou « restreint »). https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["Consultez les modes de déploiement de la console NetApp pour plus de détails."^] .
+L'agent de console peut être installé dans une région Azure avec un accès Internet complet ou limité (mode « standard » ou « restreint »). https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["Consultez les modes de déploiement de la NetApp Console pour plus de détails."^] .
 
 * https://docs.netapp.com/us-en/console-setup-admin/concept-connectors.html["En savoir plus sur les agents de console"^]
 * https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-azure.html["Déployer un agent de console dans Azure en mode standard (accès Internet complet)"^]
@@ -68,7 +68,7 @@ L'agent de console peut être installé dans une région Azure avec un accès In
 
 === Vérifier ou ajouter des autorisations à l'agent de la console
 
-Pour utiliser la fonctionnalité de recherche et de restauration de sauvegarde et de récupération NetApp , vous devez disposer d’autorisations spécifiques dans le rôle de l’agent de console afin qu’il puisse accéder au compte Azure Synapse Workspace et Data Lake Storage.  Consultez les autorisations ci-dessous et suivez les étapes si vous devez modifier la politique.
+Pour utiliser la fonctionnalité de recherche et de restauration de NetApp Backup and Recovery , vous devez disposer d’autorisations spécifiques dans le rôle de l’agent de console afin qu’il puisse accéder au compte Azure Synapse Workspace et Data Lake Storage.  Consultez les autorisations ci-dessous et suivez les étapes si vous devez modifier la politique.
 
 .Avant de commencer
 * Vous devez enregistrer le fournisseur de ressources Azure Synapse Analytics (appelé « Microsoft.Synapse ») avec votre abonnement. https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider["Découvrez comment enregistrer ce fournisseur de ressources pour votre abonnement"^] .  Vous devez être le *Propriétaire* ou le *Contributeur* de l'abonnement pour enregistrer le fournisseur de ressources.
@@ -156,7 +156,7 @@ NetApp Backup and Recovery prend en charge les _stratégies d'accès Azure_, le 
 
 Par défaut, le service crée des comptes de stockage pour vous.  Si vous souhaitez utiliser vos propres comptes de stockage, vous pouvez les créer avant de démarrer l'assistant d'activation de sauvegarde, puis sélectionner ces comptes de stockage dans l'assistant.
 
-link:prev-ontap-protect-journey.html["En savoir plus sur la création de vos propres comptes de stockage"] .
+link:prev-ontap-protect-journey.html["En savoir plus sur la création de vos propres comptes de stockage"].
 
 
 
@@ -168,7 +168,7 @@ Si vous prévoyez de créer des volumes répliqués sur un système ONTAP second
 
 ==== Exigences de mise en réseau ONTAP sur site
 
-* Si le cluster se trouve dans vos locaux, vous devez disposer d’une connexion entre votre réseau d’entreprise et votre réseau virtuel chez le fournisseur de cloud.  Il s’agit généralement d’une connexion VPN.
+* Si le cluster se trouve dans vos locaux, vous devez disposer d’une connexion entre votre réseau d’entreprise et votre réseau virtuel chez le fournisseur de cloud. Il s’agit généralement d’une connexion VPN.
 * Les clusters ONTAP doivent répondre à des exigences supplémentaires en matière de sous-réseau, de port, de pare-feu et de cluster.
 +
 Étant donné que vous pouvez répliquer vers Cloud Volumes ONTAP ou vers des systèmes locaux, examinez les exigences de peering pour les systèmes ONTAP locaux. https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html["Consultez les conditions préalables pour le peering de cluster dans la documentation ONTAP"^] .
@@ -179,7 +179,7 @@ Si vous prévoyez de créer des volumes répliqués sur un système ONTAP second
 
 ==== Exigences réseau de Cloud Volumes ONTAP
 
-* Le groupe de sécurité de l'instance doit inclure les règles entrantes et sortantes requises : en particulier, les règles pour ICMP et les ports 11104 et 11105.  Ces règles sont incluses dans le groupe de sécurité prédéfini.
+* Le groupe de sécurité de l'instance doit inclure les règles entrantes et sortantes requises : en particulier, les règles pour ICMP et les ports 11104 et 11105. Ces règles sont incluses dans le groupe de sécurité prédéfini.
 
 
 * Pour répliquer des données entre deux systèmes Cloud Volumes ONTAP dans différents sous-réseaux, les sous-réseaux doivent être routés ensemble (il s'agit du paramètre par défaut).
@@ -187,13 +187,13 @@ Si vous prévoyez de créer des volumes répliqués sur un système ONTAP second
 
 
 
-== Activer la sauvegarde et la récupération NetApp sur Cloud Volumes ONTAP
+== Activer la NetApp Backup and Recovery sur Cloud Volumes ONTAP
 
-L'activation de la sauvegarde et de la récupération NetApp est simple.  Les étapes diffèrent légèrement selon que vous disposez d’un système Cloud Volumes ONTAP existant ou d’un nouveau.
+L'activation de la NetApp Backup and Recovery est simple.  Les étapes diffèrent légèrement selon que vous disposez d’un système Cloud Volumes ONTAP existant ou d’un nouveau.
 
-*Activer la sauvegarde et la récupération NetApp sur un nouveau système*
+*Activer la NetApp Backup and Recovery sur un nouveau système*
 
-La sauvegarde et la récupération NetApp sont activées par défaut dans l’assistant système.  Assurez-vous de garder l'option activée.
+NetApp Backup and Recovery est activé par défaut dans l'assistant système.  Assurez-vous de garder l'option activée.
 
 Voir https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-deploying-otc-azure.html["Lancement de Cloud Volumes ONTAP dans Azure"^] pour connaître les exigences et les détails de création de votre système Cloud Volumes ONTAP .
 
@@ -212,7 +212,7 @@ NOTE: Si vous souhaitez choisir le nom du groupe de ressources, *désactivez* Ne
 .Résultat
 NetApp Backup and Recovery est activé sur le système.  Après avoir créé des volumes sur ces systèmes Cloud Volumes ONTAP , lancez NetApp Backup and Recovery etlink:prev-ontap-backup-manage.html["activer la sauvegarde sur chaque volume que vous souhaitez protéger"] .
 
-*Activer la sauvegarde et la récupération NetApp sur un système existant*
+*Activer la NetApp Backup and Recovery sur un système existant*
 
 Activez NetApp Backup and Recovery à tout moment directement depuis le système.
 
@@ -238,7 +238,7 @@ Un assistant vous guide à travers les principales étapes suivantes :
 * <<Revoyez vos sélections>>
 
 
-Vous pouvez également<<Afficher les commandes API>> à l'étape de révision, vous pouvez donc copier le code pour automatiser l'activation de la sauvegarde pour les futurs systèmes.
+Vous pouvez également<<Afficher les commandes de l'API>> à l'étape de révision, vous pouvez donc copier le code pour automatiser l'activation de la sauvegarde pour les futurs systèmes.
 
 
 
@@ -260,7 +260,7 @@ La page d'introduction de l'assistant affiche les options de protection, notamme
 . Continuez avec les options suivantes :
 +
 ** Si vous disposez déjà d’un agent de console, vous êtes prêt.  Sélectionnez simplement *Suivant*.
-** Si vous ne disposez pas encore d’un agent de console, l’option *Ajouter un agent de console* apparaît. <<Préparez votre agent de console>> .
+** Si vous ne disposez pas encore d’un agent de console, l’option *Ajouter un agent de console* apparaît.  Se référer à<<Préparez votre agent de console>> .
 
 
 
@@ -397,7 +397,7 @@ NOTE: Si vous avez choisi un compte de stockage Microsoft existant, les informat
 +
 ** *Réseau* : Choisissez l'espace IP et indiquez si vous utiliserez un point de terminaison privé.  Le point de terminaison privé est désactivé par défaut.
 +
-... L'espace IP dans le cluster ONTAP où résident les volumes que vous souhaitez sauvegarder.  Les LIF intercluster pour cet espace IP doivent disposer d'un accès Internet sortant.
+... L'espace IP dans le cluster ONTAP où résident les volumes que vous souhaitez sauvegarder. Les LIF intercluster pour cet espace IP doivent disposer d'un accès Internet sortant.
 ... Vous pouvez également choisir si vous utiliserez un point de terminaison privé Azure que vous avez précédemment configuré. https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview["En savoir plus sur l'utilisation d'un point de terminaison privé Azure"^] .
 
 
@@ -449,7 +449,7 @@ Vous pouvez également surveiller l’état des tâches de sauvegarde et de rest
 
 
 
-=== Afficher les commandes API
+=== Afficher les commandes de l'API
 
 Vous souhaiterez peut-être afficher et éventuellement copier les commandes API utilisées dans l’assistant d’activation de la sauvegarde et de la récupération.  Vous souhaiterez peut-être faire cela pour automatiser l’activation de la sauvegarde dans les futurs systèmes.
 
@@ -462,7 +462,7 @@ Vous souhaiterez peut-être afficher et éventuellement copier les commandes API
 
 == Quelle est la prochaine étape ?
 
-* Vous pouvez link:prev-ontap-backup-manage.html["gérez vos fichiers de sauvegarde et vos politiques de sauvegarde"] . Cela inclut le démarrage et l'arrêt des sauvegardes, la suppression des sauvegardes, l'ajout et la modification de la planification de sauvegarde, et bien plus encore.
-* Vous pouvez link:prev-ontap-policy-object-advanced-settings.html["gérer les paramètres de sauvegarde au niveau du cluster"] . Cela inclut la modification des clés de stockage ONTAP utilise pour accéder au stockage cloud, la modification de la bande passante réseau disponible pour télécharger des sauvegardes vers le stockage d'objets, la modification du paramètre de sauvegarde automatique pour les volumes futurs, et bien plus encore.
+* Tu peuxlink:prev-ontap-backup-manage.html["gérez vos fichiers de sauvegarde et vos politiques de sauvegarde"] .  Cela inclut le démarrage et l'arrêt des sauvegardes, la suppression des sauvegardes, l'ajout et la modification de la planification de sauvegarde, et bien plus encore.
+* Tu peuxlink:prev-ontap-policy-object-advanced-settings.html["gérer les paramètres de sauvegarde au niveau du cluster"] .  Cela inclut la modification des clés de stockage ONTAP utilise pour accéder au stockage cloud, la modification de la bande passante réseau disponible pour télécharger des sauvegardes vers le stockage d'objets, la modification du paramètre de sauvegarde automatique pour les volumes futurs, et bien plus encore.
 * Vous pouvez égalementlink:prev-ontap-restore.html["restaurer des volumes, des dossiers ou des fichiers individuels à partir d'un fichier de sauvegarde"] vers un système Cloud Volumes ONTAP dans AWS ou vers un système ONTAP sur site.
 

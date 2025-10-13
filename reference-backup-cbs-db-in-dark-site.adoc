@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: reference-backup-cbs-db-in-dark-site.html 
 keywords: backup database, recover database, dark site, private mode, restore database, backup and recovery, Console agent 
-summary: 'Lorsque vous utilisez NetApp Backup and Recovery sur un site sans accès Internet, appelé « mode privé », les données de configuration de NetApp Backup and Recovery sont sauvegardées dans le compartiment StorageGRID ou ONTAP S3 où vos sauvegardes sont stockées.  Si vous rencontrez un problème avec le système hôte de l"agent de console à l"avenir, vous pouvez déployer un nouvel agent de console et restaurer les données critiques de sauvegarde et de récupération NetApp .' 
+summary: 'Lorsque vous utilisez NetApp Backup and Recovery sur un site sans accès Internet, appelé « mode privé », les données de configuration de NetApp Backup and Recovery sont sauvegardées dans le compartiment StorageGRID ou ONTAP S3 où vos sauvegardes sont stockées.  Si vous rencontrez un problème avec le système hôte de l"agent de console à l"avenir, vous pouvez déployer un nouvel agent de console et restaurer les données critiques de NetApp Backup and Recovery .' 
 ---
 = Restaurer les données de configuration de NetApp Backup and Recovery sur un site sombre
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 'Lorsque vous utilisez NetApp Backup and Recovery sur un site sans acc�
 
 
 [role="lead"]
-Lorsque vous utilisez NetApp Backup and Recovery sur un site sans accès Internet, appelé _mode privé_, les données de configuration de NetApp Backup and Recovery sont sauvegardées dans le compartiment StorageGRID ou ONTAP S3 où vos sauvegardes sont stockées.  Si vous rencontrez un problème avec le système hôte de l'agent de console, vous pouvez déployer un nouvel agent de console et restaurer les données critiques de sauvegarde et de récupération NetApp .
+Lorsque vous utilisez NetApp Backup and Recovery sur un site sans accès Internet, appelé _mode privé_, les données de configuration de NetApp Backup and Recovery sont sauvegardées dans le compartiment StorageGRID ou ONTAP S3 où vos sauvegardes sont stockées.  Si vous rencontrez un problème avec le système hôte de l'agent de console, vous pouvez déployer un nouvel agent de console et restaurer les données critiques de NetApp Backup and Recovery .
 
 
 NOTE: Cette procédure s'applique uniquement aux données de volume ONTAP .
@@ -23,27 +23,27 @@ Lorsque vous utilisez NetApp Backup and Recovery dans un environnement SaaS où 
 
 Il existe deux types de données sauvegardées :
 
-* Base de données de sauvegarde et de récupération NetApp : contient une liste de tous les volumes, fichiers de sauvegarde, politiques de sauvegarde et informations de configuration.
+* Base de données de NetApp Backup and Recovery : contient une liste de tous les volumes, fichiers de sauvegarde, politiques de sauvegarde et informations de configuration.
 * Fichiers de catalogue indexés - contiennent des index détaillés utilisés pour la fonctionnalité de recherche et de restauration qui rendent vos recherches très rapides et efficaces lorsque vous recherchez des données de volume que vous souhaitez restaurer.
 
 
-Ces données sont sauvegardées une fois par jour à minuit et un maximum de 7 copies de chaque fichier sont conservées. Si l'agent de console gère plusieurs systèmes ONTAP sur site, les fichiers de sauvegarde et de récupération NetApp seront situés dans le compartiment du système qui a été activé en premier.
+Ces données sont sauvegardées une fois par jour à minuit et un maximum de 7 copies de chaque fichier sont conservées. Si l'agent de console gère plusieurs systèmes ONTAP sur site, les fichiers de NetApp Backup and Recovery seront situés dans le compartiment du système qui a été activé en premier.
 
 
 TIP: Aucune donnée de volume n'est jamais incluse dans la base de données NetApp Backup and Recovery ou dans les fichiers de catalogue indexés.
 
 
 
-== Restaurer les données de sauvegarde et de récupération NetApp vers un nouvel agent de console
+== Restaurer les données de NetApp Backup and Recovery vers un nouvel agent de console
 
 Si votre agent de console sur site subit une panne catastrophique, vous devrez installer un nouvel agent de console, puis restaurer les données NetApp Backup and Recovery sur le nouvel agent de console.
 
 Vous devrez effectuer les tâches suivantes pour remettre votre système NetApp Backup and Recovery en état de fonctionnement :
 
 * Installer un nouvel agent de console
-* Restaurer la base de données de sauvegarde et de récupération NetApp
+* Restaurer la base de données de NetApp Backup and Recovery
 * Restaurer les fichiers du catalogue indexé
-* Redécouvrez tous vos systèmes ONTAP et StorageGRID sur site sur l'interface utilisateur de la console NetApp
+* Redécouvrez tous vos systèmes ONTAP et StorageGRID sur site sur l'interface utilisateur de la NetApp Console
 
 
 Une fois que vous avez vérifié que votre système est à nouveau en état de fonctionnement, nous vous recommandons de créer de nouveaux fichiers de sauvegarde.
@@ -51,7 +51,7 @@ Une fois que vous avez vérifié que votre système est à nouveau en état de f
 .Ce dont vous aurez besoin
 Vous devrez accéder aux sauvegardes de base de données et d'index les plus récentes à partir du compartiment StorageGRID ou ONTAP S3 où vos fichiers de sauvegarde sont stockés :
 
-* Fichier de base de données MySQL de sauvegarde et de récupération NetApp
+* Fichier de base de données MySQL de NetApp Backup and Recovery
 +
 Ce fichier se trouve à l'emplacement suivant dans le bucket `netapp-backup-<GUID>/mysql_backup/` , et il s'appelle `CBS_DB_Backup_<day>_<month>_<year>.sql` .
 
@@ -65,7 +65,7 @@ Ce fichier se trouve à l'emplacement suivant dans le bucket `netapp-backup-<GUI
 
 === Installer un nouvel agent de console sur un nouvel hôte Linux local
 
-Lors de l'installation d'un nouvel agent de console, assurez-vous de télécharger la même version du logiciel que celle que vous aviez installée sur l'agent de console d'origine.  Les modifications périodiques apportées à la structure de la base de données NetApp Backup and Recovery peuvent rendre les nouvelles versions du logiciel incompatibles avec les sauvegardes de base de données d'origine. Tu peux https://docs.netapp.com/us-en/console-setup-admin/task-upgrade-connector.html["mettre à niveau le logiciel de l'agent de la console vers la version la plus récente après la restauration de la base de données de sauvegarde"^] .
+Lors de l'installation d'un nouvel agent de console, assurez-vous de télécharger la même version du logiciel que celle que vous aviez installée sur l'agent de console d'origine.  Les modifications périodiques apportées à la structure de la base de données NetApp Backup and Recovery peuvent rendre les nouvelles versions du logiciel incompatibles avec les sauvegardes de base de données d'origine.  Tu peux https://docs.netapp.com/us-en/console-setup-admin/task-upgrade-connector.html["mettre à niveau le logiciel de l'agent de la console vers la version la plus récente après la restauration de la base de données de sauvegarde"^] .
 
 . https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-private-mode.html["Installer l'agent de console sur un nouvel hôte Linux local"^]
 . Connectez-vous à la console à l’aide des informations d’identification de l’utilisateur administrateur que vous venez de créer.
@@ -73,7 +73,7 @@ Lors de l'installation d'un nouvel agent de console, assurez-vous de télécharg
 
 
 
-=== Restaurer la base de données de sauvegarde et de récupération NetApp
+=== Restaurer la base de données de NetApp Backup and Recovery
 
 . Copiez la sauvegarde MySQL de l’emplacement de sauvegarde vers le nouvel hôte de l’agent de console. Nous utiliserons le nom de fichier d'exemple « CBS_DB_Backup_23_05_2023.sql » ci-dessous.
 . Copiez la sauvegarde dans le conteneur Docker MySQL à l'aide de l'une des commandes suivantes, selon que vous utilisez un conteneur Docker ou Podman :
@@ -100,13 +100,13 @@ podman exec -it ds_mysql_1 sh
 ----
 . Dans le shell du conteneur, déployez « env ».
 . Vous aurez besoin du mot de passe de la base de données MySQL, copiez donc la valeur de la clé « MYSQL_ROOT_PASSWORD ».
-. Restaurez la base de données MySQL de sauvegarde et de récupération NetApp à l'aide de la commande suivante :
+. Restaurez la base de données MySQL de NetApp Backup and Recovery à l'aide de la commande suivante :
 +
 [source, cli]
 ----
 mysql -u root -p cloud_backup < CBS_DB_Backup_23_05_2023.sql
 ----
-. Vérifiez que la base de données MySQL de sauvegarde et de récupération NetApp a été restaurée correctement à l'aide des commandes SQL suivantes :
+. Vérifiez que la base de données MySQL de NetApp Backup and Recovery a été restaurée correctement à l'aide des commandes SQL suivantes :
 +
 [source, cli]
 ----
@@ -145,16 +145,16 @@ unzip Indexed_Catalog_DB_Backup_catalogdb1_23_05_2023.zip -d catalogdb1
 === Découvrez vos clusters ONTAP et vos systèmes StorageGRID
 
 . https://docs.netapp.com/us-en/storage-management-ontap-onprem/task-discovering-ontap.html#discover-clusters-using-a-connector["Découvrez tous les systèmes ONTAP sur site"^]qui étaient disponibles dans votre environnement précédent. Cela inclut le système ONTAP que vous avez utilisé comme serveur S3.
-. https://docs.netapp.com/us-en/storage-management-storagegrid/task-discover-storagegrid.html["Découvrez vos systèmes StorageGRID"^] .
+. https://docs.netapp.com/us-en/storage-management-storagegrid/task-discover-storagegrid.html["Découvrez vos systèmes StorageGRID"^].
 
 
 
 
 === Configurer les détails de l'environnement StorageGRID
 
-Ajoutez les détails du système StorageGRID associé à vos systèmes ONTAP tels qu'ils ont été configurés lors de la configuration de l'agent de console d'origine à l'aide de l' https://docs.netapp.com/us-en/console-automation/index.html["API de la console NetApp"^] .
+Ajoutez les détails du système StorageGRID associé à vos systèmes ONTAP tels qu'ils ont été configurés lors de la configuration de l'agent de console d'origine à l'aide de l' https://docs.netapp.com/us-en/console-automation/index.html["API de la NetApp Console"^] .
 
-Les informations suivantes s'appliquent aux installations en mode privé à partir de NetApp Console 3.9.xx. Pour les versions plus anciennes, utilisez la procédure suivante : https://community.netapp.com/t5/Tech-ONTAP-Blogs/DarkSite-Cloud-Backup-MySQL-and-Indexed-Catalog-Backup-and-Restore/ba-p/440800["Sauvegarde Cloud DarkSite : sauvegarde et restauration de MySQL et du catalogue indexé"^] .
+Les informations suivantes s'appliquent aux installations en mode privé à partir de NetApp Console 3.9.xx.  Pour les versions plus anciennes, utilisez la procédure suivante : https://community.netapp.com/t5/Tech-ONTAP-Blogs/DarkSite-Cloud-Backup-MySQL-and-Indexed-Catalog-Backup-and-Restore/ba-p/440800["Sauvegarde Cloud DarkSite : sauvegarde et restauration de MySQL et du catalogue indexé"^] .
 
 Vous devrez effectuer ces étapes pour chaque système qui sauvegarde des données sur StorageGRID.
 
@@ -199,7 +199,7 @@ curl -X POST 'http://10.193.192.202/account/account-DARKSITE1/providers/cloudman
 
 
 
-=== Vérifier les paramètres de sauvegarde et de récupération NetApp
+=== Vérifier les paramètres de NetApp Backup and Recovery
 
 . Sélectionnez chaque système ONTAP et cliquez sur *Afficher les sauvegardes* à côté du service de sauvegarde et de récupération dans le panneau de droite.
 +

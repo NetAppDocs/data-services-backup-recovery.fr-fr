@@ -17,7 +17,7 @@ Dans NetApp Backup and Recovery, créez vos propres stratégies qui régissent l
 
 NOTE: Certaines de ces options et sections de configuration ne sont pas disponibles pour toutes les charges de travail.
 
-Si vous importez des ressources depuis SnapCenter, vous risquez de rencontrer des différences entre les stratégies utilisées dans SnapCenter et celles utilisées dans NetApp Backup and Recovery. Voir link:reference-policy-differences-snapcenter.html["Différences de politique entre SnapCenter et NetApp Backup and Recovery"] .
+Si vous importez des ressources depuis SnapCenter, vous risquez de rencontrer des différences entre les stratégies utilisées dans SnapCenter et celles utilisées dans NetApp Backup and Recovery.  Voirlink:reference-policy-differences-snapcenter.html["Différences de politique entre SnapCenter et NetApp Backup and Recovery"] .
 
 Vous pouvez atteindre les objectifs suivants liés aux politiques :
 
@@ -33,7 +33,7 @@ Vous pouvez atteindre les objectifs suivants liés aux politiques :
 
 == Voir les politiques
 
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Politiques*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Politiques*.
 . Consultez les détails de cette politique.
 +
 ** *Charge de travail* : les exemples incluent Microsoft SQL Server, Volumes, VMware, KVM, Hyper-V ou Kubernetes.
@@ -51,7 +51,7 @@ Vous pouvez atteindre les objectifs suivants liés aux politiques :
 
 Vous pouvez créer des stratégies qui régissent vos snapshots locaux, vos réplications vers un stockage secondaire et vos sauvegardes vers un stockage d'objets.  Une partie de votre stratégie 3-2-1 consiste à créer une copie instantanée des instances, des bases de données, des applications ou des machines virtuelles sur le système de stockage *principal*.
 
-*Rôle de console NetApp requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, administrateur de sauvegarde de sauvegarde et de récupération. En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, administrateur de sauvegarde de sauvegarde et de récupération.  En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 .Avant de commencer
 Si vous prévoyez de répliquer vers un stockage secondaire et que vous souhaitez utiliser le verrouillage des snapshots sur des snapshots locaux ou sur un stockage secondaire ONTAP distant, vous devez d'abord initialiser l'horloge de conformité ONTAP au niveau du cluster.  Il s’agit d’une exigence pour activer le verrouillage des instantanés dans la politique.
@@ -61,7 +61,7 @@ Pour obtenir des instructions sur la façon de procéder, reportez-vous à https
 Pour plus d'informations sur le verrouillage des instantanés en général, reportez-vous à https://docs.netapp.com/us-en/ontap/snaplock/snapshot-lock-concept.html["Verrouillage des instantanés dans ONTAP"^] .
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Politiques*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Politiques*.
 . Depuis la page Politiques, sélectionnez *Créer une nouvelle politique*.
 . Dans la page Politiques, fournissez les informations suivantes.
 +
@@ -98,7 +98,7 @@ Pour les charges de travail VMware, cela configure l'instantané local sur les b
 +
 Pour les charges de travail VMware, cela configure l'instantané local sur les banques de données ou les VMware sur le système de stockage principal, puis réplique les données du système de stockage sur disque principal vers le système de stockage sur disque secondaire.
 
-*** *Disque vers magasin d'objets* : Stockage principal (disque) vers cloud (magasin d'objets).  Cela réplique les données d'un système ONTAP vers un système de stockage d'objets, tel qu'AWS S3, Azure Blob Storage ou StorageGRID.  Cela est généralement réalisé à l'aide de SnapMirror Cloud, qui fournit des sauvegardes incrémentielles permanentes en transférant uniquement les blocs de données modifiés après le transfert de base initial. Il peut s'agir d'un magasin d'objets hyperscaler cloud ou d'un magasin d'objets privé - StorageGRID.  Cette méthode est idéale pour la conservation et l’archivage des données à long terme, offrant une solution rentable et évolutive pour la protection des données.
+*** *Disque vers magasin d'objets* : Stockage principal (disque) vers cloud (magasin d'objets).  Cela réplique les données d'un système ONTAP vers un système de stockage d'objets, tel qu'AWS S3, Azure Blob Storage ou StorageGRID.  Ceci est généralement réalisé à l'aide de SnapMirror Cloud, qui fournit des sauvegardes incrémentielles permanentes en transférant uniquement les blocs de données modifiés après le transfert de base initial. Il peut s'agir d'un magasin d'objets hyperscaler cloud ou d'un magasin d'objets privé - StorageGRID.  Cette méthode est idéale pour la conservation et l’archivage des données à long terme, offrant une solution rentable et évolutive pour la protection des données.
 +
 Pour les charges de travail VMWare, cela configure l'instantané local sur les banques de données ou les machines virtuelles sur le disque principal et la réplication du stockage sur disque principal vers le stockage d'objets cloud.
 
@@ -110,7 +110,7 @@ NOTE: Vous pouvez configurer plusieurs paramètres secondaires pour l’option d
 +
 Pour les charges de travail VMware, cela configure le stockage sur disque principal sur le stockage sur disque secondaire et réplique le stockage sur disque principal sur le stockage sur disque secondaire.
 
-*** *Instantanés locaux* : Instantané local sur le volume sélectionné (Microsoft SQL Server). Les instantanés locaux sont un élément clé des stratégies de protection des données, capturant l'état de vos données à des moments précis. Cela crée des copies en lecture seule, à un instant T, des volumes de production sur lesquels vos charges de travail s'exécutent. L'instantané consomme un espace de stockage minimal et entraîne une surcharge de performances négligeable, car il enregistre uniquement les modifications apportées aux fichiers depuis le dernier instantané. Vous pouvez utiliser des instantanés locaux pour récupérer des données après une perte ou une corruption, ainsi que pour créer des sauvegardes à des fins de reprise après sinistre.
+*** *Instantanés locaux* : instantané local sur le volume sélectionné (Microsoft SQL Server). Les instantanés locaux sont un élément clé des stratégies de protection des données, capturant l'état de vos données à des moments précis. Cela crée des copies en lecture seule, à un instant T, des volumes de production sur lesquels vos charges de travail s'exécutent. L'instantané consomme un espace de stockage minimal et entraîne une surcharge de performances négligeable, car il enregistre uniquement les modifications apportées aux fichiers depuis le dernier instantané. Vous pouvez utiliser des instantanés locaux pour récupérer des données après une perte ou une corruption, ainsi que pour créer des sauvegardes à des fins de reprise après sinistre.
 +
 Pour les charges de travail VMware, cela configure le snapshot local sur les banques de données ou les machines virtuelles sur le système de stockage principal.
 
@@ -126,10 +126,10 @@ Pour les charges de travail VMware, cela configure le snapshot local sur les ban
 
 Fournir des informations pour l'instantané local.
 
-* Sélectionnez l’option *Ajouter une planification* pour sélectionner la ou les planifications d’instantanés.  Vous pouvez avoir un maximum de 5 horaires.
+* Sélectionnez l'option *Ajouter une planification* pour sélectionner la ou les planifications d'instantanés.  Vous pouvez avoir un maximum de 5 horaires.
 * *Fréquence des instantanés* : sélectionnez la fréquence horaire, quotidienne, hebdomadaire, mensuelle ou annuelle.  La fréquence annuelle n'est pas disponible pour les charges de travail Kubernetes.
 * *Conservation des instantanés* : saisissez le nombre d'instantanés à conserver.
-* *Activer la sauvegarde du journal* : (S'applique uniquement aux charges de travail Microsoft SQL Server et aux charges de travail Oracle Database.)  Activez cette option pour sauvegarder les journaux et définir la fréquence et la conservation des sauvegardes des journaux. Pour ce faire, vous devez déjà avoir configuré une sauvegarde du journal. Voir link:br-start-configure.html["Configurer les répertoires de journaux"] .
+* *Activer la sauvegarde du journal* : (S'applique uniquement aux charges de travail Microsoft SQL Server et aux charges de travail Oracle Database.)  Activez cette option pour sauvegarder les journaux et définir la fréquence et la conservation des sauvegardes des journaux. Pour ce faire, vous devez déjà avoir configuré une sauvegarde du journal.  Voirlink:br-start-configure.html["Configurer les répertoires de journaux"] .
 +
 ** *Élaguer les journaux d'archive après la sauvegarde* : (charges de travail de base de données Oracle uniquement) Si les sauvegardes de journaux sont activées, vous pouvez éventuellement activer cette fonctionnalité pour limiter la durée pendant laquelle Backup and Recovery conserve les journaux d'archive Oracle.  Vous pouvez choisir la période de conservation ainsi que l'endroit où Backup and Recovery doit supprimer les journaux d'archive.
 
@@ -225,7 +225,7 @@ Saisissez les informations dans ces champs :
 En option, vous pouvez configurer des paramètres avancés dans la politique.  Ces paramètres sont disponibles pour toutes les architectures de sauvegarde, y compris les snapshots locaux, la réplication vers le stockage secondaire et les sauvegardes vers le stockage d'objets. Ces paramètres ne sont pas disponibles pour les charges de travail Kubernetes.  Les paramètres avancés disponibles varient en fonction de la charge de travail que vous avez sélectionnée en haut de la page. Par conséquent, les paramètres avancés décrits ici peuvent ne pas s'appliquer à toutes les charges de travail.  Les paramètres avancés ne sont pas disponibles lors de la configuration d’une politique pour les charges de travail Kubernetes.
 
 .Étapes
-. Dans le menu Sauvegarde et récupération NetApp , sélectionnez *Politiques*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Politiques*.
 . Depuis la page Politiques, sélectionnez *Créer une nouvelle politique*.
 . Dans la section *Politique > Paramètres avancés*, sélectionnez le menu *Sélectionner une action avancée* pour choisir parmi une liste de paramètres avancés.
 . Activez les paramètres que vous souhaitez afficher ou modifier, puis sélectionnez *Accepter*.
@@ -248,7 +248,7 @@ De plus, configurez les options suivantes :
 +
 *** Vérification *quotidienne*, *hebdomadaire*, *mensuelle* ou *annuelle* : si vous avez choisi *plus tard* comme vérification de sauvegarde, sélectionnez la fréquence de vérification de sauvegarde.  Cela garantit que les sauvegardes sont régulièrement vérifiées pour leur intégrité et peuvent être restaurées avec succès.
 *** *Étiquettes de sauvegarde* : saisissez une étiquette pour la sauvegarde.  Cette étiquette est utilisée pour identifier la sauvegarde dans le système et peut être utile pour le suivi et la gestion des sauvegardes.
-*** *Vérification de la cohérence de la base de données* : (non applicable aux charges de travail VMware) Sélectionnez si vous souhaitez activer les vérifications de cohérence de la base de données. Cette option garantit que les bases de données sont dans un état cohérent avant la sauvegarde, ce qui est essentiel pour garantir l'intégrité des données.
+*** *Vérification de cohérence de la base de données* : (non applicable aux charges de travail VMware) Sélectionnez si vous souhaitez activer les vérifications de cohérence de la base de données. Cette option garantit que les bases de données sont dans un état cohérent avant la sauvegarde, ce qui est essentiel pour garantir l'intégrité des données.
 *** *Vérifier les sauvegardes de journaux* : (Non applicable aux charges de travail VMware) Sélectionnez si vous souhaitez vérifier les sauvegardes de journaux. Sélectionnez le serveur de vérification. Si vous avez choisi disque à disque ou 3-2-1, sélectionnez également l'emplacement de stockage de vérification. Cette option garantit que les sauvegardes de journaux sont valides et peuvent être restaurées avec succès, ce qui est important pour maintenir l'intégrité de vos bases de données.
 
 
@@ -276,15 +276,15 @@ NOTE: Cette fonctionnalité n’est pas disponible pour les charges de travail V
 
 Vous pouvez ajouter un autre niveau de protection lorsque vous modifiez une politique, mais vous ne pouvez pas supprimer un niveau de protection.  Par exemple, si la politique protège uniquement les snapshots locaux, vous pouvez ajouter la réplication au stockage secondaire ou les sauvegardes au stockage d'objets.  Si vous disposez de snapshots et de réplications locaux, vous pouvez ajouter un stockage d'objets.  Cependant, si vous disposez de snapshots locaux, de réplication et de stockage d'objets, vous ne pouvez pas supprimer l'un de ces niveaux.
 
-Si vous modifiez une politique qui effectue une sauvegarde sur un stockage d’objets, vous pouvez activer l’archivage.
+Si vous modifiez une politique qui sauvegarde sur un stockage d’objets, vous pouvez activer l’archivage.
 
-Si vous avez importé des ressources depuis SnapCenter, vous risquez de rencontrer certaines différences entre les stratégies utilisées dans SnapCenter et celles utilisées dans NetApp Backup and Recovery. Voir link:reference-policy-differences-snapcenter.html["Différences de politique entre SnapCenter et NetApp Backup and Recovery"] .
+Si vous avez importé des ressources depuis SnapCenter, vous risquez de rencontrer certaines différences entre les stratégies utilisées dans SnapCenter et celles utilisées dans NetApp Backup and Recovery.  Voirlink:reference-policy-differences-snapcenter.html["Différences de politique entre SnapCenter et NetApp Backup and Recovery"] .
 
-.Rôle de console NetApp requis
-Super administrateur de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la console NetApp pour tous les services"^] .
+.Rôle de NetApp Console requis
+Super administrateur de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 .Étapes
-. Dans la console NetApp , accédez à *Protection* > *Sauvegarde et récupération*.
+. Dans la NetApp Console, accédez à *Protection* > *Sauvegarde et récupération*.
 . Sélectionnez l’option *Politiques*.
 . Sélectionnez la politique que vous souhaitez modifier.
 . Sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Modifier*.

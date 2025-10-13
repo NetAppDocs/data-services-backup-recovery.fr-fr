@@ -21,7 +21,7 @@ NOTE: Ces paramètres de stratégie s'appliquent uniquement au stockage de sauve
 
 []
 ====
-*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery, reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de sauvegarde et de récupération NetApp"] .
+*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
 
 ====
 
@@ -38,7 +38,7 @@ Le planning comporte deux parties : l'étiquette et la valeur de rétention :
 +
 ** Vous pouvez choisir un délai, ou une combinaison de délais, *horaires*, *quotidiens*, *hebdomadaires*, *mensuels* et *annuels*.
 ** Vous pouvez sélectionner l’une des politiques définies par le système qui fournissent une sauvegarde et une conservation pendant 3 mois, 1 an ou 7 ans.
-** Si vous avez créé des stratégies de protection de sauvegarde personnalisées sur le cluster à l'aide ONTAP System Manager ou de l'interface de ligne de commande ONTAP , vous pouvez sélectionner l'une de ces stratégies.
+** Si vous avez créé des stratégies de protection de sauvegarde personnalisées sur le cluster à l’aide ONTAP System Manager ou de l’interface de ligne de commande ONTAP , vous pouvez sélectionner l’une de ces stratégies.
 
 
 * La valeur *rétention* définit le nombre de fichiers de sauvegarde conservés pour chaque étiquette (période).  Une fois que le nombre maximal de sauvegardes a été atteint dans une catégorie ou un intervalle, les sauvegardes les plus anciennes sont supprimées afin que vous disposiez toujours des sauvegardes les plus récentes.  Cela vous permet également d'économiser des coûts de stockage, car les sauvegardes obsolètes ne continuent pas à occuper de l'espace dans le cloud.
@@ -59,15 +59,15 @@ Les sauvegardes annuelles sont automatiquement supprimées du système source ap
 
 NetApp Backup and Recovery prend en charge la protection DataLock et Ransomware pour vos sauvegardes de volumes.  Ces fonctionnalités vous permettent de verrouiller vos fichiers de sauvegarde et de les analyser pour détecter d'éventuels ransomwares sur les fichiers de sauvegarde.  Il s’agit d’un paramètre facultatif que vous pouvez définir dans vos politiques de sauvegarde lorsque vous souhaitez une protection supplémentaire pour vos sauvegardes de volume pour un cluster.
 
-Ces deux fonctionnalités protègent vos fichiers de sauvegarde afin que vous disposiez toujours d'un fichier de sauvegarde valide pour récupérer des données en cas de tentative d'attaque par ransomware sur vos sauvegardes. Il est également utile de répondre à certaines exigences réglementaires selon lesquelles les sauvegardes doivent être verrouillées et conservées pendant une certaine période. Lorsque l'option DataLock et Ransomware Resilience est activée, le verrouillage et le contrôle de version des objets seront activés pour le bucket cloud provisionné dans le cadre de l'activation de NetApp Backup and Recovery.
+Ces deux fonctionnalités protègent vos fichiers de sauvegarde afin que vous disposiez toujours d'un fichier de sauvegarde valide pour récupérer des données en cas de tentative d'attaque par ransomware sur vos sauvegardes.  Il est également utile de répondre à certaines exigences réglementaires selon lesquelles les sauvegardes doivent être verrouillées et conservées pendant une certaine période.  Lorsque l'option DataLock et Ransomware Resilience est activée, le verrouillage et le contrôle de version des objets seront activés pour le bucket cloud provisionné dans le cadre de l'activation de NetApp Backup and Recovery .
 
-https://bluexp.netapp.com/blog/cbs-blg-the-bluexp-feature-that-protects-backups-from-ransomware["Consultez le blog sur la protection DataLock et Ransomware pour plus de détails."^] .
+https://bluexp.netapp.com/blog/cbs-blg-the-bluexp-feature-that-protects-backups-from-ransomware["Consultez le blog sur la protection DataLock et Ransomware pour plus de détails."^].
 
 Cette fonctionnalité ne fournit pas de protection pour vos volumes sources ; uniquement pour les sauvegardes de ces volumes sources.  Utilisez certains des https://docs.netapp.com/us-en/ontap/anti-ransomware/index.html["protections anti-ransomware fournies par ONTAP"^] pour protéger vos volumes sources.
 
 [CAUTION]
 ====
-* Si vous prévoyez d’utiliser la protection DataLock et Ransomware, vous pouvez l’activer lors de la création de votre première politique de sauvegarde et de l’activation de NetApp Backup and Recovery pour ce cluster.  Vous pouvez ultérieurement activer ou désactiver l’analyse des ransomwares à l’aide des paramètres avancés de NetApp Backup and Recovery.
+* Si vous prévoyez d’utiliser la protection DataLock et Ransomware, vous pouvez l’activer lors de la création de votre première politique de sauvegarde et de l’activation de NetApp Backup and Recovery pour ce cluster.  Vous pouvez ultérieurement activer ou désactiver l’analyse des ransomwares à l’aide des paramètres avancés de NetApp Backup and Recovery .
 * Lorsque la console analyse un fichier de sauvegarde à la recherche de ransomware lors de la restauration des données du volume, vous encourez des frais de sortie supplémentaires auprès de votre fournisseur de cloud pour accéder au contenu du fichier de sauvegarde.
 
 
@@ -105,7 +105,7 @@ Voici quelques exemples :
 * Si vous créez une planification de sauvegarde mensuelle avec 12 rétentions, vos sauvegardes sont verrouillées pendant 12 mois (plus 31 jours) avant d'être supprimées (remplacées par le fichier de sauvegarde suivant).
 * Si vous créez une politique de sauvegarde qui crée 30 sauvegardes quotidiennes, 7 sauvegardes hebdomadaires et 12 sauvegardes mensuelles, il existe trois périodes de conservation verrouillées :
 +
-** Les sauvegardes « 30 quotidiennes » sont conservées pendant 61 jours (30 jours plus 31 jours de mémoire tampon),
+** Les sauvegardes « 30 journées quotidiennes » sont conservées pendant 61 jours (30 jours plus 31 jours de mémoire tampon),
 ** Les sauvegardes « 7 semaines » sont conservées pendant 11 semaines (7 semaines plus 31 jours), et
 ** Les sauvegardes « 12 mensuelles » sont conservées pendant 12 mois (plus 31 jours).
 
@@ -134,7 +134,7 @@ Vous pouvez activer la protection DataLock et Ransomware lorsque vous créez une
 
 
 
-link:prev-ontap-policy-object-advanced-settings.html["Comment mettre à jour les options de protection contre les ransomwares dans la page Paramètres avancés"] .
+Se référer àlink:prev-ontap-policy-object-advanced-settings.html["Comment mettre à jour les options de protection contre les ransomwares dans la page Paramètres avancés"] .
 
 
 
@@ -155,7 +155,7 @@ Lorsqu'une attaque de ransomware est détectée, le service utilise l'API REST I
 
 Voyons comment cela fonctionne :
 
-* En cas d'attaque par ransomware, le service tente d'écraser ou de supprimer l'objet dans le bucket.
+* En cas d'attaque de ransomware, le service tente d'écraser ou de supprimer l'objet dans le bucket.
 * Étant donné que le stockage cloud est compatible avec le contrôle de version, il crée automatiquement une nouvelle version de l'objet de sauvegarde.  Si un objet est supprimé avec le contrôle de version activé, il est marqué comme supprimé mais peut toujours être récupéré.  Si un objet est écrasé, les versions précédentes sont stockées et marquées.
 * Lorsqu'une analyse de ransomware est lancée, les sommes de contrôle sont validées pour les deux versions d'objet et comparées.  Si les sommes de contrôle sont incohérentes, un ransomware potentiel a été détecté.
 * Le processus de récupération implique de revenir à la dernière bonne copie connue.
@@ -228,7 +228,7 @@ ifdef::aws[]
 
 ====
 +
-https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-aws.html["Affichez le format JSON complet de la politique où vous pouvez copier et coller les autorisations requises"^] .
+https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-aws.html["Affichez le format JSON complet de la politique où vous pouvez copier et coller les autorisations requises"^].
 
 
 
@@ -267,7 +267,7 @@ endif::gcp[]
 ** L'agent Console doit être déployé dans vos locaux (il peut être installé sur un site avec ou sans accès Internet)
 ** Les autorisations S3 suivantes doivent faire partie du rôle IAM qui fournit des autorisations à l'agent de console :
 +
-.Autorisations S3 StorageGRID
+.Autorisations StorageGRID S3
 [%collapsible]
 ====
 *** s3 : Obtenir le balisage de la version de l'objet
@@ -316,7 +316,7 @@ endif::gcp[]
 
 
 
-=== Conseils pour atténuer les coûts de DataLock
+=== Conseils pour réduire les coûts de DataLock
 
 Vous pouvez activer ou désactiver la fonction Ransomware Scan tout en gardant la fonction DataLock active.  Pour éviter des frais supplémentaires, vous pouvez désactiver les analyses de ransomware programmées.  Cela vous permet de personnaliser vos paramètres de sécurité et d'éviter d'engager des frais auprès du fournisseur de cloud.
 

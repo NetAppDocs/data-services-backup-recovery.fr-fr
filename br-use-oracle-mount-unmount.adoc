@@ -20,10 +20,10 @@ Vous souhaiterez peut-être monter un point de récupération de base de donnée
 
 == Monter un point de restauration de base de données Oracle
 
-Si vous configurez la stratégie de protection d'une base de données afin de conserver les journaux d'archive, vous pouvez monter les points de récupération de la base de données pour afficher l'historique de toutes les modifications apportées à la base de données.
+Si vous configurez la politique de protection d'une base de données pour conserver les journaux d'archive, vous pouvez monter les points de récupération de la base de données pour afficher l'historique de toutes les modifications apportées à la base de données.
 
 .Étapes
-. Dans le menu de la console NetApp , sélectionnez *Protection > Sauvegarde et récupération*.
+. Dans le menu de la NetApp Console , sélectionnez *Protection > Sauvegarde et récupération*.
 . Sélectionnez la tuile Oracle.
 . Dans le menu Sauvegarde et récupération, sélectionnez *Inventaire*.
 . Pour la charge de travail de la base de données Oracle dans la liste, sélectionnez *Afficher*.
@@ -55,7 +55,7 @@ Le point de récupération est monté sur l’hôte Oracle.
 Démontez le point de récupération lorsque vous n’avez plus besoin d’afficher les modifications apportées à cette base de données.
 
 .Étapes
-. Dans le menu de la console NetApp , sélectionnez *Protection > Sauvegarde et récupération*.
+. Dans le menu de la NetApp Console , sélectionnez *Protection > Sauvegarde et récupération*.
 . Sélectionnez la tuile Oracle.
 . Dans le menu Sauvegarde et récupération, sélectionnez *Inventaire*.
 . Pour la charge de travail Oracle dans la liste, sélectionnez *Afficher*.

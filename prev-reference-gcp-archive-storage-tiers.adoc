@@ -18,7 +18,7 @@ NetApp Backup and Recovery prend en charge une classe de stockage d'archivage Go
 
 []
 ====
-*REMARQUE* Pour basculer vers et depuis les versions de l'interface utilisateur de sauvegarde et de récupération NetApp , reportez-vous àlink:br-start-switch-ui.html["Passer à l'interface utilisateur précédente de sauvegarde et de récupération NetApp"] .
+*REMARQUE* Pour basculer vers et depuis les versions de l'interface utilisateur de NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Passer à l'interface utilisateur précédente de NetApp Backup and Recovery"] .
 
 ====
 
@@ -31,7 +31,7 @@ Si votre cluster sur site utilise ONTAP 9.12.1 ou une version ultérieure, vous 
 
 Notez que lorsque vous configurez NetApp Backup and Recovery avec ce type de règle de cycle de vie, vous ne devez configurer aucune règle de cycle de vie lors de la configuration du bucket dans votre compte Google.
 
-https://cloud.google.com/storage/docs/storage-classes["En savoir plus sur les classes de stockage Google"^] .
+https://cloud.google.com/storage/docs/storage-classes["En savoir plus sur les classes de stockage Google"^].
 
 
 

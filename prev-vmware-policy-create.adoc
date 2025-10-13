@@ -14,11 +14,11 @@ summary: Protégez vos charges de travail VMware avec NetApp NetApp Backup and R
 
 
 [role="lead"]
-Vous pouvez créer une politique ou utiliser l’une des politiques prédéfinies suivantes disponibles dans NetApp Backup and Recovery.
+Vous pouvez créer une politique ou utiliser l'une des politiques prédéfinies suivantes disponibles dans NetApp Backup and Recovery.
 
 []
 ====
-*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery, reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de sauvegarde et de récupération NetApp"] .
+*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
 
 ====
 .Avant de commencer
@@ -28,7 +28,7 @@ Vous pouvez créer une politique ou utiliser l’une des politiques prédéfinie
 
 
 .À propos de cette tâche
-Les politiques prédéfinies suivantes sont disponibles dans la console NetApp :
+Les politiques prédéfinies suivantes sont disponibles dans la NetApp Console:
 
 |===
 | Nom de la politique | Étiquette | Valeur de rétention 

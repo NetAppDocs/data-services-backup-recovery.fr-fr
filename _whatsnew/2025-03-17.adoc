@@ -18,7 +18,7 @@ Cette mise à jour de NetApp Backup and Recovery a corrigé un problème qui emp
 
 === Limites de conservation de la politique de sauvegarde
 
-Auparavant, l’interface utilisateur de sauvegarde et de récupération NetApp limitait les sauvegardes à 999 copies, tandis que l’interface de ligne de commande en autorisait davantage.  Désormais, vous pouvez attacher jusqu'à 4 000 volumes à une politique de sauvegarde et inclure 1 018 volumes non attachés à une politique de sauvegarde.  Cette mise à jour inclut des validations supplémentaires qui empêchent de dépasser ces limites.
+Auparavant, l’interface utilisateur de NetApp Backup and Recovery limitait les sauvegardes à 999 copies, tandis que l’interface de ligne de commande en autorisait davantage.  Désormais, vous pouvez attacher jusqu’à 4 000 volumes à une politique de sauvegarde et inclure 1 018 volumes non attachés à une politique de sauvegarde.  Cette mise à jour inclut des validations supplémentaires qui empêchent de dépasser ces limites.
 
 
 

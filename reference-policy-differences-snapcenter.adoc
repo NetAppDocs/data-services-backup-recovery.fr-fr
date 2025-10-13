@@ -30,7 +30,7 @@ NetApp Backup and Recovery utilise les niveaux de planification suivants, qui so
 
 * *Toutes les heures* : effectue des instantanés uniquement à des intervalles de 15 minutes, par exemple, des intervalles d'une heure ou de 15 minutes inférieurs à 60.
 * *Quotidien* : Heures de la journée (0-23) avec heure de début par exemple à 10h00 avec une option pour effectuer toutes les heures.
-* *Hebdomadaire* : Jour de la semaine (du dimanche au lundi) avec possibilité de jouer sur 1 jour ou sur plusieurs jours.  C'est la même chose que SnapCenter.
+* *Hebdomadaire* : Jour de la semaine (du dimanche au lundi) avec possibilité de jouer sur 1 jour ou plusieurs jours.  C'est la même chose que SnapCenter.
 * *Mensuel* : Dates du mois (0-30) avec une heure de début à plusieurs dates du mois.
 * *Annuel* : Mensuel.  Cela correspond au mensuel de SnapCenter.
 
@@ -101,4 +101,4 @@ Si vous disposez d'une ressource avec une protection secondaire activée dans Sn
 
 Les étiquettes SnapMirror pour chaque politique dans SnapCenter restent intactes après la migration, même si le niveau est modifié.
 
-*Exemple* : Une politique horaire de SnapCenter peut changer en politique quotidienne dans NetApp Backup and Recovery.  Cependant, les étiquettes SnapMirror restent les mêmes après la migration.
+*Exemple* : Une politique horaire de SnapCenter peut changer en quotidienne dans NetApp Backup and Recovery.  Cependant, les étiquettes SnapMirror restent les mêmes après la migration.

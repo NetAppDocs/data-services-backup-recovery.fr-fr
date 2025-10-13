@@ -21,7 +21,7 @@ NOTE: Ces paramètres sont disponibles uniquement pour le stockage de sauvegarde
 
 []
 ====
-*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery, reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de sauvegarde et de récupération NetApp"] .
+*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
 
 ====
 Vous pouvez modifier les options suivantes dans la page Paramètres avancés :
@@ -97,7 +97,7 @@ Notez que cette option s'applique uniquement aux nouveaux fichiers de sauvegarde
 
 == Modifier si les instantanés « annuels » sont supprimés du système source
 
-Lorsque vous sélectionnez l’étiquette de sauvegarde « annuelle » pour une politique de sauvegarde pour l’un de vos volumes, la copie instantanée créée est très volumineuse.  Par défaut, ces instantanés annuels sont automatiquement supprimés du système source après avoir été transférés vers le stockage d'objets.  Vous pouvez modifier ce comportement par défaut à partir de la section Suppression des instantanés annuels.
+Lorsque vous sélectionnez l’étiquette de sauvegarde « annuelle » pour une politique de sauvegarde pour l’un de vos volumes, la copie instantanée créée est très volumineuse.  Par défaut, ces instantanés annuels sont supprimés automatiquement du système source après avoir été transférés vers le stockage d'objets.  Vous pouvez modifier ce comportement par défaut à partir de la section Suppression des instantanés annuels.
 
 .Étapes
 . Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.

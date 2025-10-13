@@ -10,7 +10,7 @@ Avec cette version, vous pouvez désormais restaurer les volumes que vous avez c
 
 
 
-=== Conseils pour atténuer les coûts de DataLock
+=== Conseils pour réduire les coûts de DataLock
 
 La fonction DataLock protège vos fichiers de sauvegarde contre toute modification ou suppression pendant une période spécifiée.  Cela est utile pour protéger vos fichiers contre les attaques de ransomware.
 
