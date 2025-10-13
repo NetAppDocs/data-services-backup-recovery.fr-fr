@@ -52,7 +52,7 @@ Pour plus de détails sur la protection des charges de travail KVM, reportez-vou
 
 === Améliorations de l'aperçu de Kubernetes
 
-La version préliminaire des charges de travail Kubernetes introduit les améliorations suivantes :
+La version préliminaire des charges de travail Kubernetes introduit les fonctionnalités améliorées suivantes :
 
 * Prise en charge de l'architecture de sauvegarde en éventail 3-2-1
 * Prise en charge d' ONTAP S3 comme cible de sauvegarde
@@ -70,6 +70,24 @@ La version préliminaire des charges de travail Kubernetes introduit les amélio
 
 
 Pour plus de détails sur la protection des charges de travail Kubernetes, reportez-vous à  https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kubernetes-protect-overview.html["Présentation de la protection des charges de travail Kubernetes"] .
+
+
+
+=== Améliorations de l'aperçu de VMware
+
+La version préliminaire des charges de travail VMware introduit les fonctionnalités améliorées suivantes :
+
+* Prise en charge de la restauration à partir du stockage d'objets
+* Le tableau de bord de la NetApp Console affiche désormais les informations sur l'état de la charge de travail VMware
+* Prise en charge du mode démo : explorez les fonctionnalités des charges de travail VMware sans ajouter d'environnement VMware vCenter Server
+* Prise en charge du contrôle d'accès basé sur les rôles (RBAC)
+* Alerte par e-mail et prise en charge des notifications pour les événements professionnels
+* Prise en charge de la sauvegarde et de la restauration sur un stockage basé sur NVMe
+* Modifier les groupes de protection
+* Modifier les politiques de protection
+
+
+Pour plus de détails sur la protection des charges de travail VMware, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-vmware-protect-overview.html["Présentation de la protection des charges de travail VMware"] .
 
 
 

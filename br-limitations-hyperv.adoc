@@ -25,7 +25,7 @@ Les actions suivantes ne sont pas prises en charge dans la version d'aperçu pri
 * Créer des groupes de ressources
 * Disques répartis (sur plusieurs partages CIFS)
 * Protéger les machines virtuelles via SAN
-* Restaurer à partir du magasin d'objets
+* Modifier les groupes de protection
 * Protégez les hôtes Hyper-V mis en cluster à l'aide de System Center Virtual Machine Manager (SCVMM)
 
 

@@ -28,7 +28,6 @@ Les actions suivantes ne sont pas prises en charge dans la version d’aperçu p
 * Restaurer les machines virtuelles vers un autre emplacement
 * Protéger les machines virtuelles stockées sur SAN
 * Protéger les applications
-* Sauvegarde ou restauration à partir de magasins d'objets
 * Modifier les groupes de protection
 * Créer des groupes de protection à l'aide de machines virtuelles provenant de plusieurs hôtes KVM
 * Créer des sauvegardes définies par l'utilisateur (seules les sauvegardes lancées à partir de la console NetApp sont prises en charge)
