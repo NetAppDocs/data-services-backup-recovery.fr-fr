@@ -31,10 +31,10 @@ Vous pouvez restaurer les données à ces points :
 
 
 .Considérations relatives à la restauration à partir du stockage d'objets
-Si vous sélectionnez un fichier de sauvegarde dans le stockage d'objets et que la protection contre les ransomwares est active pour cette sauvegarde (si vous avez activé DataLock et Ransomware Resilience dans la stratégie de sauvegarde), vous êtes invité à exécuter une vérification d'intégrité supplémentaire sur le fichier de sauvegarde avant de restaurer les données.  Nous vous recommandons d'effectuer l'analyse.
+Si la résilience aux ransomwares est activée pour un fichier de sauvegarde dans le stockage d'objets, vous êtes invité à exécuter une vérification supplémentaire avant la restauration.  Nous vous recommandons d'effectuer l'analyse.
 
 
-TIP: Des frais de sortie supplémentaires seront facturés par votre fournisseur de cloud pour accéder au contenu du fichier de sauvegarde.
+TIP: Vous devrez peut-être payer des frais supplémentaires à votre fournisseur de cloud pour accéder au fichier de sauvegarde.
 
 
 
@@ -50,7 +50,7 @@ image:diagram_browse_restore_volume-unified.png["Un diagramme qui montre le flux
 * Lorsque vous restaurez une sauvegarde à partir du stockage d’objets, vous pouvez restaurer les données sur le système d’origine ou sur un système ONTAP local.
 
 
-À partir de la page Restaurer (également appelée Rechercher et restaurer), vous pouvez restaurer une ressource, même si vous ne vous souvenez pas du nom exact, de l'emplacement où elle réside ou de la date à laquelle elle était en bon état pour la dernière fois. Vous pouvez rechercher l'instantané à l'aide de filtres.
+À partir de la page Restaurer (Rechercher et restaurer), vous pouvez restaurer une ressource en recherchant l'instantané avec des filtres, même si vous ne vous souvenez pas de son nom exact, de son emplacement ou de sa dernière date connue.
 
 
 
@@ -76,7 +76,7 @@ Une liste d’options d’emplacement de restauration s’affiche.
 ** Local : restaure l’instantané à l’emplacement d’origine.
 ** Stockage secondaire : restaure l’instantané vers un emplacement de stockage secondaire.
 +
-Si vous choisissez le stockage secondaire, saisissez les informations d'emplacement source et de destination, ainsi que l'emplacement source et secondaire des journaux.
+Si vous choisissez un stockage secondaire, saisissez les emplacements source et de destination des données et des journaux.
 
 ** Stockage d’objets : restaure l’instantané vers un emplacement de stockage d’objets.
 +
@@ -86,7 +86,7 @@ Si vous choisissez le stockage d’objets, vérifiez si vous souhaitez analyser 
 
 . Sélectionnez *Terminé* ou *Suivant* pour continuer vers la page des paramètres de destination de restauration.
 +
-Ensuite, vous pouvez choisir les paramètres de destination et les options de pré-restauration et de post-restauration.
+Ensuite, choisissez les paramètres de destination et les options de pré- et post-restauration.
 
 
 
@@ -102,7 +102,7 @@ Ensuite, vous pouvez choisir les paramètres de destination et les options de pr
 --
 Dans la page Détails de la destination de restauration, saisissez les informations suivantes :
 
-. *Activer la restauration rapide* : sélectionnez cette option pour effectuer une opération de restauration rapide. Les volumes et données restaurés seront disponibles immédiatement. N'utilisez pas cette option sur des volumes nécessitant des performances élevées, car pendant le processus de restauration rapide, l'accès aux données peut être plus lent que d'habitude.
+. *Activer la restauration rapide* : sélectionnez cette option pour effectuer une opération de restauration rapide. Vous pouvez utiliser les volumes et les données restaurés immédiatement. N'utilisez pas cette option sur des volumes nécessitant des performances élevées, car pendant le processus de restauration rapide, l'accès aux données peut être plus lent que d'habitude.
 . *Options de pré-restauration* : saisissez le chemin complet d'un script qui doit être exécuté avant l'opération de restauration et tous les arguments que le script prend.
 . *Options post-restauration*:
 +
@@ -112,7 +112,7 @@ Dans la page Détails de la destination de restauration, saisissez les informati
 
 . Section *Notification* :
 +
-** *Activer les notifications par e-mail* : sélectionnez cette option pour recevoir des notifications par e-mail concernant l'opération de restauration et indiquez le type de notifications que vous souhaitez recevoir.
+** *Activer les notifications par e-mail* : sélectionnez cette option pour recevoir des notifications par e-mail concernant l'opération de restauration et choisissez les types de notification souhaités.
 
 
 . Sélectionnez *Restaurer*.
@@ -122,9 +122,6 @@ Dans la page Détails de la destination de restauration, saisissez les informati
 .Restaurer vers un autre emplacement
 --
 Non disponible pour l'aperçu VMware.
-
-. Sélectionnez *Restaurer*.
-
 
 --
 ====

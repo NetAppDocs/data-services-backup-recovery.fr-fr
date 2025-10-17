@@ -14,23 +14,21 @@ summary: Protégez vos charges de travail VMware avec NetApp NetApp Backup and R
 
 
 [role="lead"]
-Vous pouvez restaurer les données des machines virtuelles depuis le cloud vers le vCenter local avec NetApp Backup and Recovery.  Vous pouvez restaurer la machine virtuelle exactement au même emplacement à partir duquel la sauvegarde a été effectuée ou vers un autre emplacement.  Si la machine virtuelle a été sauvegardée à l’aide d’une stratégie d’archivage, vous pouvez définir la priorité de restauration d’archivage.
+Vous pouvez restaurer les données des machines virtuelles depuis le cloud vers le serveur vCenter local avec NetApp Backup and Recovery. Vous pouvez restaurer la machine virtuelle exactement au même emplacement à partir duquel la sauvegarde a été effectuée ou vers un autre emplacement. Si la machine virtuelle a été sauvegardée à l’aide d’une stratégie d’archivage, vous pouvez définir la priorité de restauration d’archivage.
 
 
 NOTE: Vous ne pouvez pas restaurer des machines virtuelles qui s’étendent sur plusieurs banques de données.
 
-[]
-====
-*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
 
-====
+NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
+
 .Avant de commencer
 * Assurez-vous d'avoir respecté toutes leslink:prev-vmware-prereqs.html["exigences de protection des machines virtuelles"] avant de sauvegarder les banques de données dans le cloud.
 * Si vous effectuez une restauration vers un autre emplacement :
 +
 ** Assurez-vous que les vCenters source et de destination sont en mode lié.
 ** Assurez-vous que les détails du cluster source et de destination sont ajoutés dans la page *Systèmes* de la NetApp Console et dans les vCenters en mode lié dans les deux hôtes SnapCenter Plug-in for VMware vSphere .
-** Assurez-vous que le système est ajouté en fonction de l'emplacement alternatif dans la page *Systèmes* de la console.
+** Assurez-vous que le système est ajouté pour l'autre emplacement dans la page *Systèmes* de la console.
 
 
 
@@ -40,7 +38,7 @@ NOTE: Vous ne pouvez pas restaurer des machines virtuelles qui s’étendent sur
 
 
 
-NOTE: Si la machine virtuelle source est déplacée vers un autre emplacement (vMotion) et si l'utilisateur déclenche une restauration de cette machine virtuelle à partir de la console, la machine virtuelle est restaurée à l'emplacement source à partir duquel la sauvegarde a été effectuée.
+NOTE: Si vous déplacez une machine virtuelle à l'aide de VMware vSphere vMotion et la restaurez à partir de la console, Backup and Recovery la restaure à l'emplacement de sauvegarde d'origine.
 
 . Vous pouvez restaurer la machine virtuelle à l'emplacement d'origine ou à un autre emplacement à partir du magasin de données ou des machines virtuelles :
 
@@ -58,7 +56,7 @@ vers l'emplacement d'origine à partir du magasin de données
 . Assurez-vous que *Original* est sélectionné et sélectionnez *Continuer*.
 . Si la machine virtuelle est protégée à l'aide d'une politique dans laquelle les paramètres d'archivage sont configurés, sélectionnez *Priorité de restauration d'archivage* et sélectionnez *Suivant*.
 +
-Les priorités de restauration d'archivage prises en charge pour Amazon Web Services sont élevées, standard et faibles et les priorités de restauration d'archivage prises en charge pour Microsoft Azure sont élevées et standard.
+Les priorités de restauration d’archives prises en charge sont élevées, standard et faibles pour Amazon Web Services, et élevées et standard pour Microsoft Azure.
 
 . Vérifiez les détails et sélectionnez *Restaurer*.
 
@@ -76,7 +74,7 @@ vers un autre emplacement à partir du magasin de données
 . Donnez un nom à la machine virtuelle après la restauration et sélectionnez *Continuer*.
 . Si la machine virtuelle est protégée à l'aide d'une politique dans laquelle les paramètres d'archivage sont configurés, sélectionnez *Priorité de restauration d'archivage* et sélectionnez *Suivant*.
 +
-Les priorités de restauration d'archivage prises en charge pour Amazon Web Services sont élevées, standard et faibles et les priorités de restauration d'archivage prises en charge pour Microsoft Azure sont élevées et standard.
+Les priorités de restauration d’archives prises en charge sont élevées, standard et faibles pour Amazon Web Services, et élevées et standard pour Microsoft Azure.
 
 . Vérifiez les détails et sélectionnez *Restaurer*.
 
@@ -91,7 +89,7 @@ vers l'emplacement d'origine à partir des machines virtuelles
 . Assurez-vous que *Original* est sélectionné et sélectionnez *Continuer*.
 . Si la machine virtuelle est protégée à l'aide d'une politique dans laquelle les paramètres d'archivage sont configurés, sélectionnez *Priorité de restauration d'archivage* et sélectionnez *Suivant*.
 +
-Les priorités de restauration d'archivage prises en charge pour Amazon Web Services sont élevées, standard et faibles et les priorités de restauration d'archivage prises en charge pour Microsoft Azure sont élevées et standard.
+Les priorités de restauration d’archives prises en charge sont élevées, standard et faibles pour Amazon Web Services, et élevées et standard pour Microsoft Azure.
 
 . Vérifiez les détails et sélectionnez *Restaurer*.
 
@@ -108,11 +106,11 @@ vers un autre emplacement à partir de machines virtuelles
 . Donnez un nom à la machine virtuelle après la restauration et sélectionnez *Continuer*.
 . Si la machine virtuelle est protégée à l'aide d'une politique dans laquelle les paramètres d'archivage sont configurés, sélectionnez *Priorité de restauration d'archivage* et sélectionnez *Suivant*.
 +
-Les priorités de restauration d'archivage prises en charge pour Amazon Web Services sont élevées, standard et faibles et les priorités de restauration d'archivage prises en charge pour Microsoft Azure sont élevées et standard.
+Les priorités de restauration d’archives prises en charge sont élevées, standard et faibles pour Amazon Web Services, et élevées et standard pour Microsoft Azure.
 
 . Vérifiez les détails et sélectionnez *Restaurer*.
 
 
 |===
 
-NOTE: Si l'opération de restauration ne se termine pas, ne réessayez pas le processus de restauration jusqu'à ce que le moniteur de tâches indique que l'opération de restauration a échoué.  Si vous essayez à nouveau le processus de restauration avant que le moniteur de tâches n'indique que l'opération de restauration a échoué, l'opération de restauration échouera à nouveau.  Lorsque le statut du moniteur de tâches indique « Échec », vous pouvez réessayer le processus de restauration.
+NOTE: Si l'opération de restauration ne se termine pas, attendez que le moniteur de tâches affiche « Échec » avant de réessayer l'opération de restauration.

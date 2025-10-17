@@ -16,7 +16,7 @@ summary: Il peut y avoir des situations dans lesquelles vous devrez redémarrer 
 [role="lead"]
 Il peut y avoir des situations dans lesquelles vous devrez redémarrer NetApp Backup and Recovery.
 
-La fonctionnalité de NetApp Backup and Recovery est intégrée à l’agent de la console.
+L'agent de console inclut la fonctionnalité de NetApp Backup and Recovery .
 
 .Étapes
 . Connectez-vous au système Linux sur lequel l’agent de console s’exécute.

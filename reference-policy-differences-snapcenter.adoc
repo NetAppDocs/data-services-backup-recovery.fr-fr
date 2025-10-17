@@ -21,9 +21,9 @@ Il existe certaines différences entre les stratégies utilisées dans SnapCente
 SnapCenter utilise les niveaux de planification suivants :
 
 * *Horaire* : Plusieurs heures et minutes avec n'importe quelle heure (0-23) et n'importe quelle minute (0-60).
-* *Quotidien* : Inclut une option permettant de répéter tous les quelques jours, par exemple, tous les 3 jours.
+* *Quotidien* : Option permettant de répéter tous les nombres de jours définis, par exemple, tous les 3 jours.
 * *Hebdomadaire* : du dimanche au lundi, avec la possibilité d'effectuer un instantané le jour 1 de la semaine ou sur plusieurs jours de la semaine.
-* *Mensuel* : Mois de janvier à décembre, avec une option pour jouer à des jours spécifiques du mois, par exemple, le 7 de chaque mois et même sur plusieurs jours du mois.
+* *Mensuel* : de janvier à décembre, avec la possibilité de jouer un ou plusieurs jours spécifiques chaque mois, par exemple le 7.
 
 
 NetApp Backup and Recovery utilise les niveaux de planification suivants, qui sont légèrement différents :
@@ -49,13 +49,13 @@ Vous pouvez attribuer plusieurs politiques avec le même niveau de planification
 
 NetApp Backup and Recovery ajuste les planifications SnapCenter comme suit :
 
-* Si la planification SnapCenter est définie sur une durée inférieure ou égale à 7 jours, NetApp Backup and Recovery définit la planification sur une durée hebdomadaire.  Certains instantanés seront ignorés au cours de la semaine.
+* Si la planification SnapCenter est définie sur une durée inférieure ou égale à 7 jours, NetApp Backup and Recovery définit la planification sur une durée hebdomadaire. Certains instantanés sont ignorés au cours de la semaine.
 +
 *Exemple* : Si vous disposez d'une stratégie quotidienne SnapCenter avec un intervalle répétitif tous les 3 jours à partir du lundi, NetApp Backup and Recovery définit la planification sur une base hebdomadaire le lundi, le jeudi et le dimanche.  Certains jours seront sautés car ce n'est pas exactement tous les 3 jours.
 
 * Si la planification SnapCenter est définie sur une durée supérieure à 7 jours, NetApp Backup and Recovery définit la planification sur mensuelle.  Certains instantanés seront ignorés au cours du mois.
 +
-*Exemple* : Si vous disposez d'une stratégie quotidienne SnapCenter avec un intervalle répétitif tous les 10 jours à partir du 2 du mois, NetApp Backup and Recovery (post-migration) définit la planification sur une base mensuelle les 2, 12 et 22 du mois.  Certains jours seront sautés le mois prochain.
+*Exemple* : Si vous disposez d'une stratégie quotidienne SnapCenter avec un intervalle répétitif tous les 10 jours à partir du 2 du mois, NetApp Backup and Recovery, après la migration, définit la planification sur une base mensuelle les 2, 12 et 22 du mois.  NetApp Backup and Recovery saute quelques jours au cours du mois prochain.
 
 
 
@@ -85,7 +85,7 @@ Si vous disposez d'une ressource dans SnapCenter avec plusieurs stratégies, Net
 
 == Conservation des sauvegardes des journaux
 
-Avec SnapCenter, vous pouvez avoir plusieurs valeurs de rétention dans plusieurs stratégies attachées à une ressource. Cependant, NetApp Backup and Recovery ne prend en charge qu'une seule valeur de rétention pour toutes les stratégies attachées à une ressource.
+SnapCenter prend en charge plusieurs valeurs de rétention pour les stratégies sur une ressource.  NetApp Backup and Recovery ne prend en charge qu'une seule valeur de rétention par ressource.
 
 
 
@@ -99,6 +99,6 @@ Si vous disposez d'une ressource avec une protection secondaire activée dans Sn
 
 == Étiquettes SnapMirror à partir des politiques SnapCenter
 
-Les étiquettes SnapMirror pour chaque politique dans SnapCenter restent intactes après la migration, même si le niveau est modifié.
+SnapCenter conserve les étiquettes SnapMirror pour chaque politique après la migration, même si le niveau change.
 
 *Exemple* : Une politique horaire de SnapCenter peut changer en quotidienne dans NetApp Backup and Recovery.  Cependant, les étiquettes SnapMirror restent les mêmes après la migration.

@@ -63,7 +63,7 @@ Vous pouvez gérer les informations de l'hôte pour garantir que les bons hôtes
 Vous pouvez gérer les hôtes découverts dans votre système.  Vous pouvez les gérer séparément ou en groupe.
 
 
-TIP: Vous ne pouvez gérer que les hôtes qui affichent un statut « Non géré » dans la colonne Hôtes.  Si le statut est « Géré », cela signifie que l'hôte est déjà géré par NetApp Backup and Recovery.
+TIP: Vous pouvez gérer les hôtes avec un statut « Non géré » dans la colonne Hôtes.  NetApp Backup and Recovery gère déjà les hôtes avec un statut « Géré ».
 
 Une fois que vous avez géré les hôtes dans NetApp Backup and Recovery, SnapCenter ne gère plus les ressources sur ces hôtes.
 
@@ -90,7 +90,7 @@ Une fois que vous avez géré les hôtes dans NetApp Backup and Recovery, SnapCe
 
 === Suspendre les horaires
 
-Vous pouvez suspendre les planifications pour arrêter les opérations de sauvegarde et de restauration d'un hôte.  Vous souhaiterez peut-être le faire si vous devez effectuer des activités de maintenance sur l’hôte.
+Suspendez les planifications pour arrêter les opérations de sauvegarde et de restauration pendant la maintenance de l'hôte.
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
@@ -130,7 +130,7 @@ Vous pouvez supprimer les informations de l'hôte pour arrêter les frais de ser
 
 == Gérer les informations des instances
 
-Vous pouvez gérer les informations des instances pour vous assurer que les ressources disposent des informations d'identification appropriées pour la protection et vous pouvez sauvegarder les ressources des manières suivantes :
+Vous pouvez gérer les informations des instances pour attribuer les informations d'identification appropriées pour la protection des ressources et sauvegarder les ressources des manières suivantes :
 
 * Protéger les instances
 * Titres d'associé
@@ -210,7 +210,7 @@ Pour plus de détails sur la création d'une politique, reportez-vous àlink:br-
 
 === Sauvegardez maintenant
 
-Vous pouvez sauvegarder vos données maintenant pour garantir qu'elles sont immédiatement protégées.
+Sauvegardez vos données maintenant pour les protéger immédiatement.
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
@@ -260,7 +260,7 @@ Pour plus de détails sur la création d'une politique, reportez-vous àlink:br-
 
 === Restaurer les bases de données
 
-Vous pouvez restaurer une base de données pour garantir la protection de vos données.
+Restaurez une base de données pour protéger vos données.
 
 *Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
@@ -295,7 +295,7 @@ Pour plus de détails sur la création d'une politique, reportez-vous àlink:br-
 
 === Sauvegardez maintenant
 
-Vous pouvez désormais sauvegarder vos instances et bases de données Microsoft SQL Server pour garantir que vos données sont immédiatement protégées.
+Vous pouvez désormais sauvegarder vos instances et bases de données Microsoft SQL Server pour protéger vos données immédiatement.
 
 *Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
