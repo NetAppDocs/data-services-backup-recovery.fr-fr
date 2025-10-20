@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-use-mssql-backup.html 
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery 
-summary: 'Sauvegardez les données des applications Microsoft SQL Server à partir des systèmes ONTAP locaux vers Amazon Web Services, Microsoft Azure, Google Cloud Platform et StorageGRID pour garantir la protection de vos données. Les sauvegardes sont automatiquement générées et stockées dans un magasin d’objets sur votre compte cloud public ou privé.  Vous pouvez mettre en œuvre une stratégie 3-2-1, où vous disposez de 3 copies de vos données sources sur 2 systèmes de stockage différents ainsi que d"une copie dans le cloud.' 
+summary: Sauvegardez les données des applications Microsoft SQL Server à partir des systèmes ONTAP locaux vers Amazon Web Services, Microsoft Azure et StorageGRID pour garantir la protection de vos données. 
 ---
 = Sauvegardez les charges de travail Microsoft SQL Server avec NetApp Backup and Recovery
 :hardbreaks:
@@ -14,10 +14,10 @@ summary: 'Sauvegardez les données des applications Microsoft SQL Server à part
 
 
 [role="lead"]
-Sauvegardez les données des applications Microsoft SQL Server à partir des systèmes ONTAP locaux vers Amazon Web Services, Microsoft Azure et StorageGRID pour garantir la protection de vos données. Les sauvegardes sont automatiquement générées et stockées dans un magasin d’objets sur votre compte cloud public ou privé.
+Sauvegardez les données d’application Microsoft SQL Server à partir de systèmes ONTAP locaux vers Amazon Web Services, Microsoft Azure ou StorageGRID.  Le système crée automatiquement des sauvegardes et les stocke dans un magasin d'objets de votre compte cloud pour la protection des données.
 
-* Pour sauvegarder des charges de travail selon une planification, créez des stratégies qui régissent les opérations de sauvegarde et de restauration.  Voirlink:br-use-policies-create.html["Créer des politiques"] pour les instructions.
-* Configurez le répertoire de journaux pour les hôtes découverts avant de lancer une sauvegarde.
+* Pour sauvegarder des charges de travail selon une planification, créez des stratégies qui gèrent les opérations de sauvegarde et de restauration. Voirlink:br-use-policies-create.html["Créer des politiques"] pour les instructions.
+* Configurez le répertoire de journaux pour les hôtes découverts avant de démarrer une sauvegarde.
 * Sauvegardez vos charges de travail maintenant (créez une sauvegarde à la demande maintenant).
 
 
@@ -25,7 +25,7 @@ Sauvegardez les données des applications Microsoft SQL Server à partir des sys
 
 == Afficher l'état de protection de la charge de travail
 
-Avant de lancer une sauvegarde, affichez l’état de protection de vos charges de travail.
+Avant de démarrer une sauvegarde, affichez l’état de protection de vos charges de travail.
 
 *Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, administrateur de sauvegarde et de récupération, administrateur de restauration de sauvegarde et de récupération, administrateur de clone de sauvegarde et de récupération ou rôle de visualiseur de sauvegarde et de récupération.  En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
@@ -40,7 +40,7 @@ Avant de lancer une sauvegarde, affichez l’état de protection de vos charges 
 
 == Configurer le répertoire de journaux pour les hôtes découverts
 
-Avant de sauvegarder vos charges de travail, définissez le chemin d’accès aux journaux d’activité des hôtes découverts.  Cela vous aide à suivre l’état des opérations.
+Définissez le chemin du journal d’activité pour les hôtes découverts afin de suivre l’état de l’opération avant de sauvegarder les charges de travail.
 
 *Rôle de NetApp Console requis* Rôle de visualiseur de stockage, de super administrateur de sauvegarde et de récupération, d'administrateur de sauvegarde et de récupération ou d'administrateur de restauration de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
@@ -50,7 +50,7 @@ Avant de sauvegarder vos charges de travail, définissez le chemin d’accès au
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
 . Sélectionnez un hôte.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Configurer le répertoire des journaux*.
-. Fournissez le chemin de l'hôte ou parcourez une liste d'hôtes ou de nœuds hôtes sur l'hôte pour localiser l'endroit où vous souhaitez que le journal de l'hôte soit stocké.
+. Saisissez le chemin de l'hôte ou parcourez une liste d'hôtes ou de nœuds pour trouver où vous souhaitez stocker le journal de l'hôte.
 . Sélectionnez ceux sur lesquels vous souhaitez stocker les journaux.
 +
 
@@ -63,7 +63,7 @@ NOTE: Les champs qui s'affichent diffèrent selon le modèle de déploiement sé
 
 == Créer un groupe de protection
 
-Vous pouvez créer un groupe de protection pour gérer les opérations de sauvegarde et de restauration d’un ensemble de charges de travail.  Un groupe de protection est un regroupement logique de charges de travail que vous souhaitez protéger ensemble.
+Créez un groupe de protection pour gérer les opérations de sauvegarde et de restauration de plusieurs charges de travail.  Un groupe de protection est un regroupement logique de charges de travail.
 
 *Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération ou rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
@@ -89,7 +89,7 @@ Si vous souhaitez créer une politique, sélectionnez *Créer une nouvelle polit
 
 == Sauvegardez vos charges de travail maintenant avec une sauvegarde à la demande
 
-Créez immédiatement une sauvegarde à la demande.  Vous souhaiterez peut-être exécuter une sauvegarde à la demande si vous êtes sur le point d'apporter des modifications à votre système et que vous souhaitez vous assurer que vous disposez d'une sauvegarde avant de commencer.
+Exécutez une sauvegarde à la demande avant d’apporter des modifications à votre système pour garantir la protection de vos données.
 
 *Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération ou rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
@@ -109,7 +109,7 @@ Créez immédiatement une sauvegarde à la demande.  Vous souhaiterez peut-être
 
 == Suspendre la planification de sauvegarde
 
-La suspension de la planification empêche temporairement l'exécution de la sauvegarde à l'heure planifiée.  Vous souhaiterez peut-être le faire si vous effectuez une maintenance sur le système ou si vous rencontrez des problèmes avec la sauvegarde.
+Suspendez la planification pour arrêter temporairement les sauvegardes pendant la maintenance ou le dépannage.
 
 *Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération ou rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
@@ -126,7 +126,7 @@ La suspension de la planification empêche temporairement l'exécution de la sau
 
 == Supprimer un groupe de protection
 
-Vous pouvez créer un groupe de protection pour gérer les opérations de sauvegarde et de restauration d’un ensemble de charges de travail.  Un groupe de protection est un regroupement logique de charges de travail que vous souhaitez protéger ensemble.
+La suppression d’un groupe de protection le supprime ainsi que toutes les planifications de sauvegarde associées. Vous souhaiterez peut-être supprimer un groupe de protection s’il n’est plus nécessaire.
 
 *Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération ou rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 

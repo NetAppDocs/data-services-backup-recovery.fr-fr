@@ -29,7 +29,7 @@ Vous pouvez effectuer les tâches suivantes liées aux groupes de protection :
 
 == Créer un groupe de protection
 
-Regroupez les charges de travail que vous souhaitez protéger dans un groupe de protection. Vous pouvez créer un groupe de protection pour un ensemble de charges de travail que vous souhaitez sauvegarder et restaurer ensemble.
+Regroupez les charges de travail que vous souhaitez protéger dans un groupe de protection pour les sauvegarder et les restaurer ensemble.
 
 *Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
@@ -55,7 +55,7 @@ Si vous souhaitez créer une politique, sélectionnez *Créer une nouvelle polit
 
 == Suspendre la planification de sauvegarde d'un groupe de protection
 
-La suspension d’un groupe de protection interrompt les sauvegardes planifiées pour le groupe de protection. Vous souhaiterez peut-être suspendre un groupe de protection si vous souhaitez arrêter temporairement les sauvegardes pour les charges de travail de ce groupe.
+Suspendez un groupe de protection pour suspendre ses sauvegardes planifiées.
 
 L'état de protection passe à « En maintenance » lorsque vous suspendez un groupe de protection. Vous pouvez reprendre le programme de sauvegarde à tout moment.
 
@@ -92,7 +92,7 @@ Le système valide les plannings et change le statut de protection en « Protég
 
 == Supprimer un groupe de protection
 
-La suppression d’un groupe de protection le supprime ainsi que toutes les planifications de sauvegarde associées. Vous souhaiterez peut-être supprimer un groupe de protection s’il n’est plus nécessaire.
+Lorsque vous supprimez un groupe de protection, vous le supprimez ainsi que toutes les planifications de sauvegarde du groupe.  Supprimez un groupe de protection si vous n’en avez plus besoin.
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.

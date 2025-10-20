@@ -38,7 +38,7 @@ Vous pouvez déprotéger une application si vous ne souhaitez plus la protéger.
 
 == Supprimer une application Kubernetes
 
-Vous pouvez supprimer une application dont vous n'avez plus besoin. Lorsque vous supprimez une application, NetApp Backup and Recovery cesse de protéger l'application et supprime toutes les sauvegardes et snapshots associés.
+Supprimez une application dont vous n’avez plus besoin.  NetApp Backup and Recovery arrête la protection et supprime toutes les sauvegardes et tous les instantanés des applications supprimées.
 
 .Étapes
 . Dans NetApp Backup and Recovery, sélectionnez *Inventaire*.

@@ -25,7 +25,7 @@ Sauvegardez les machines virtuelles Hyper-V des systèmes ONTAP locaux vers Amaz
 
 == Sauvegardez vos charges de travail maintenant avec une sauvegarde à la demande
 
-Vous pouvez exécuter une sauvegarde à la demande immédiatement.  Cela est utile si vous êtes sur le point d'apporter des modifications à votre système et que vous souhaitez vous assurer que vous disposez d'une sauvegarde avant de commencer.
+Utilisez la sauvegarde à la demande afin que vos données soient protégées avant d’effectuer des modifications sur le système.
 
 *Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
@@ -38,7 +38,7 @@ Vous pouvez exécuter une sauvegarde à la demande immédiatement.  Cela est uti
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Reculez maintenant*.
 +
 
-NOTE: La politique appliquée à la sauvegarde est la même politique que celle attribuée au groupe de protection ou à la machine virtuelle.
+NOTE: La sauvegarde utilise la même politique que celle que vous avez attribuée au groupe de protection ou à la machine virtuelle.
 
 . Sélectionnez le niveau de planification.
 . Sélectionnez *Sauvegarder*.

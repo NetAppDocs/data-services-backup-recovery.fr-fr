@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-use-manage-inventory.html 
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery, snapcenter 
-summary: NetApp Backup and Recovery vous permet de gérer les informations de votre hôte de charge de travail, les informations de votre base de données et les informations de vos instances.  Vous pouvez afficher, modifier et supprimer les paramètres de protection de votre inventaire. 
+summary: NetApp Backup and Recovery vous aide à gérer vos hôtes, bases de données et instances Microsoft SQL Server. 
 ---
 = Gérez l'inventaire Microsoft SQL Server avec NetApp Backup and Recovery
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: NetApp Backup and Recovery vous permet de gérer les informations de vo
 
 
 [role="lead"]
-NetApp Backup and Recovery vous permet de gérer les informations de l'hôte de charge de travail, de la base de données et des instances de votre Microsoft SQL Server.  Vous pouvez afficher, modifier et supprimer les paramètres de protection de votre inventaire.
+NetApp Backup and Recovery vous aide à gérer vos hôtes, bases de données et instances Microsoft SQL Server.  Vous pouvez afficher, modifier ou supprimer les paramètres de protection de votre inventaire.
 
 Vous pouvez accomplir les tâches suivantes liées à la gestion de votre inventaire :
 

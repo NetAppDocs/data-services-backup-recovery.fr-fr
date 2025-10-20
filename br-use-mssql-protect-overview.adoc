@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: br-use-mssql-protect-overview.html 
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery 
-summary: 'Vous pouvez sauvegarder les données des applications Microsoft SQL Server à partir de systèmes ONTAP locaux vers Amazon Web Services, Microsoft Azure et StorageGRID, garantissant ainsi la protection de vos données. Les sauvegardes sont automatiquement générées et stockées dans un magasin d’objets sur votre compte cloud public ou privé.  Vous pouvez mettre en œuvre une stratégie 3-2-1, où vous disposez de 3 copies de vos données sources sur 2 systèmes de stockage différents ainsi que d"une copie dans le cloud.' 
+summary: 'Protégez les données de vos applications Microsoft SQL Server depuis les systèmes ONTAP locaux vers Amazon Web Services, Microsoft Azure ou StorageGRID à l"aide de NetApp Backup and Recovery.' 
 ---
-= Présentation de la protection des charges de travail Microsoft SQL avec NetApp Backup and Recovery
+= Présentation de la protection des charges de travail Microsoft SQL à l'aide de NetApp Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,18 +14,18 @@ summary: 'Vous pouvez sauvegarder les données des applications Microsoft SQL Se
 
 
 [role="lead"]
-Protégez les données de vos applications Microsoft SQL Server depuis les systèmes ONTAP locaux vers Amazon Web Services, Microsoft Azure ou StorageGRID à l'aide de NetApp Backup and Recovery. Les sauvegardes sont automatiquement générées et stockées dans un magasin d’objets de votre compte cloud public ou privé en fonction des politiques que vous créez.  Vous pouvez mettre en œuvre une stratégie 3-2-1, où vous disposez de 3 copies de vos données sources sur 2 systèmes de stockage différents ainsi que d'une copie dans le cloud.
+Sauvegardez les données de votre application Microsoft SQL Server à partir de systèmes ONTAP locaux vers AWS, Azure ou StorageGRID à l'aide de NetApp Backup and Recovery.  Le système crée et stocke automatiquement des sauvegardes dans votre compte cloud, conformément à vos politiques.  Utilisez une stratégie 3-2-1 : conservez trois copies de vos données sur deux systèmes de stockage et une copie dans le cloud.
 
 Les avantages de l’approche 3-2-1 incluent :
 
-* Plusieurs copies de données offrent une protection multicouche contre les menaces de cybersécurité internes (initiées) et externes.
-* Plusieurs types de supports garantissent la viabilité du basculement en cas de défaillance physique ou logique d'un type de support.
-* La copie sur site facilite les restaurations rapides, les copies hors site étant disponibles au cas où la copie sur site serait compromise.
+* Plusieurs copies de données protègent contre les menaces de cybersécurité internes et externes.
+* L’utilisation de différents types de supports vous aide à récupérer si l’un d’eux tombe en panne.
+* Vous pouvez restaurer rapidement à partir de la copie sur site et utiliser les copies hors site si la copie sur site est compromise.
 
 
-NetApp Backup and Recovery exploite la technologie de réplication de données NetApp SnapMirror pour garantir que toutes les sauvegardes sont entièrement synchronisées en créant des copies instantanées et en les transférant vers les emplacements de sauvegarde.
+NetApp Backup and Recovery utilise NetApp SnapMirror pour synchroniser les sauvegardes en créant des copies instantanées et en les transférant vers les emplacements de sauvegarde.
 
-Vous pouvez atteindre les objectifs de protection suivants :
+Vous pouvez faire ce qui suit pour protéger vos données :
 
 * link:concept-start-prereq-snapcenter-import.html["Configurer des éléments supplémentaires en cas d'importation depuis SnapCenter"]
 * link:br-start-discover.html["Découvrez les charges de travail Microsoft SQL Server et importez éventuellement des ressources SnapCenter"]
@@ -39,7 +39,7 @@ Vous pouvez atteindre les objectifs de protection suivants :
 * link:br-use-manage-snapshots.html["Gérer les instantanés"]
 
 
-Pour sauvegarder les charges de travail, vous créez généralement des politiques qui régissent les opérations de sauvegarde et de restauration.  Voirlink:br-use-policies-create.html["Créer des politiques"] pour plus d'informations.
+Pour sauvegarder les charges de travail, vous créez des stratégies qui gèrent les opérations de sauvegarde et de restauration. Voirlink:br-use-policies-create.html["Créer des politiques"] pour plus d'informations.
 
 .Destinations de sauvegarde prises en charge
 NetApp Backup and Recovery vous permet de sauvegarder des instances et des bases de données Microsoft SQL Server à partir des systèmes sources suivants vers les systèmes secondaires suivants et le stockage d'objets dans les fournisseurs de cloud public et privé.  Les copies instantanées résident sur le système source.

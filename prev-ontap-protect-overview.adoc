@@ -34,9 +34,9 @@ NetApp Backup and Recovery exploite la technologie de réplication de données S
 
 Les avantages de l’approche 3-2-1 incluent :
 
-* Plusieurs copies de données offrent une protection multicouche contre les menaces de cybersécurité internes (initiées) et externes.
-* Plusieurs types de supports garantissent la viabilité du basculement en cas de défaillance physique ou logique d'un type de support.
-* La copie sur site facilite les restaurations rapides, avec les copies hors site prêtes au cas où la copie sur site serait compromise.
+* Plusieurs copies de données protègent contre les menaces de cybersécurité internes et externes.
+* L’utilisation de différents types de supports vous aide à récupérer si l’un d’eux tombe en panne.
+* Vous pouvez restaurer rapidement à partir de la copie sur site et utiliser les copies hors site si la copie sur site est compromise.
 
 
 Si nécessaire, vous pouvez restaurer un _volume_ entier, un _dossier_ ou un ou plusieurs _fichiers_, à partir de n'importe quelle copie de sauvegarde vers le même système ou vers un système différent.

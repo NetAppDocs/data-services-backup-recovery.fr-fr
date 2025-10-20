@@ -20,7 +20,7 @@ Vous souhaiterez peut-être monter un point de récupération de base de donnée
 
 == Monter un point de restauration de base de données Oracle
 
-Si vous configurez la politique de protection d'une base de données pour conserver les journaux d'archive, vous pouvez monter les points de récupération de la base de données pour afficher l'historique de toutes les modifications apportées à la base de données.
+Si vous configurez la politique de protection d'une base de données afin de conserver les journaux d'archive, vous pouvez monter des points de récupération pour afficher l'historique des modifications de la base de données.
 
 .Étapes
 . Dans le menu de la NetApp Console , sélectionnez *Protection > Sauvegarde et récupération*.

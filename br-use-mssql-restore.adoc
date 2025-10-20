@@ -14,7 +14,7 @@ summary: 'Restaurez les charges de travail de la base de données à partir d"un
 
 
 [role="lead"]
-Restaurez les charges de travail Microsoft SQL Server à partir de copies instantanées, d'une sauvegarde de charge de travail répliquée sur un stockage secondaire ou de sauvegardes stockées dans un stockage d'objets à l'aide de NetApp Backup and Recovery.  Vous pouvez restaurer une charge de travail sur le système d'origine, sur un autre système utilisant le même compte cloud ou sur un système ONTAP sur site.
+Restaurez les charges de travail Microsoft SQL Server à l’aide de NetApp Backup and Recovery.  Utilisez des copies instantanées, des sauvegardes répliquées sur un stockage secondaire ou des sauvegardes dans un stockage d’objets.  Restaurez les charges de travail sur le système d’origine, un système différent avec le même compte cloud ou un système ONTAP sur site.
 
 .Restaurer à partir de ces emplacements
 Vous pouvez restaurer des charges de travail à partir de différents emplacements de départ :
@@ -28,7 +28,7 @@ Vous pouvez restaurer des charges de travail à partir de différents emplacemen
 Vous pouvez restaurer les données vers le dernier instantané ou vers ces points :
 
 * Restaurer à partir d'instantanés
-* Restaurer à un moment précis dans le temps.  Cela est utile si vous connaissez le nom et l'emplacement du fichier, ainsi que la date à laquelle il a été conservé en bon état pour la dernière fois.
+* Restaurez à un moment précis si vous connaissez le nom du fichier, l'emplacement et la dernière date valide
 * Restaurer la dernière sauvegarde
 
 
@@ -36,7 +36,7 @@ Vous pouvez restaurer les données vers le dernier instantané ou vers ces point
 Si vous sélectionnez un fichier de sauvegarde dans le stockage d'objets et que Ransomware Resilience est actif pour cette sauvegarde (si vous avez activé DataLock et Ransomware Resilience dans la stratégie de sauvegarde), vous êtes invité à exécuter une vérification d'intégrité supplémentaire sur le fichier de sauvegarde avant de restaurer les données.  Nous vous recommandons d'effectuer l'analyse.
 
 
-TIP: Des frais de sortie supplémentaires seront facturés par votre fournisseur de cloud pour accéder au contenu du fichier de sauvegarde.
+TIP: Vous payez des frais supplémentaires à votre fournisseur de cloud pour accéder au fichier de sauvegarde.
 
 
 
@@ -56,10 +56,10 @@ image:diagram_browse_restore_volume-unified.png["Un diagramme qui montre le flux
 
 == Méthodes de restauration
 
-Vous pouvez restaurer les charges de travail à l’aide de l’une des méthodes suivantes.  En règle générale, choisissez l’une des méthodes suivantes en fonction de vos besoins de restauration :
+Restaurez les charges de travail à l’aide de l’une de ces méthodes :
 
-* *Depuis la page Restaurer* : utilisez cette option lorsque vous devez restaurer une ressource, mais que vous ne vous souvenez pas du nom exact, de l'emplacement où elle se trouve ou de la date à laquelle elle était en bon état pour la dernière fois. Vous pouvez rechercher l'instantané à l'aide de filtres.
-* *À partir de la page Inventaire* : utilisez cette option lorsque vous devez restaurer une ressource spécifique de la semaine ou du mois dernier, et que vous connaissez le nom et l'emplacement de la ressource, ainsi que la date à laquelle elle était en bon état pour la dernière fois.  Vous parcourez une liste de ressources pour trouver celle que vous souhaitez restaurer.
+* *Depuis la page Restaurer* : utilisez cette option pour restaurer une ressource lorsque vous ne connaissez pas son nom, son emplacement ou sa dernière date de validité.  Recherchez l'instantané à l'aide de filtres.
+* *Depuis la page Inventaire* : utilisez cette option pour restaurer une ressource spécifique lorsque vous connaissez son nom, son emplacement et sa dernière date de disponibilité.  Parcourez la liste pour trouver la ressource.
 
 
 *Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération ou rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
@@ -76,7 +76,7 @@ Restaurez les charges de travail de la base de données à l’aide de l’optio
 . Sélectionnez l'option de restauration :
 +
 ** Restaurer à partir d'instantanés
-** Restaurer à un moment précis dans le temps.  Cela est utile si vous connaissez le nom et l'emplacement du fichier, ainsi que la date à laquelle il a été conservé en bon état pour la dernière fois.
+** Restaurez à un moment précis si vous connaissez le nom du fichier, l'emplacement et la dernière date valide
 ** Restaurer la dernière sauvegarde
 
 
@@ -206,7 +206,7 @@ Restaurer les charges de travail de la base de données à partir de la page Inv
 . Choisissez l’hôte sur lequel se trouve la ressource que vous souhaitez restaurer.
 . Sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Afficher les détails*.
 . Sur la page Microsoft SQL Server, sélectionnez l’onglet *Bases de données*.
-. Dans l’onglet Bases de données, sélectionnez la base de données qui affiche un statut « Protégé » indiquant qu’il existe une sauvegarde que vous pouvez restaurer.
+. Dans le menu Bases de données, sélectionnez une base de données avec le statut « Protégé ».
 . Sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Restaurer*.
 +
 Les trois mêmes options s'affichent lorsque vous restaurez à partir de la page Restaurer :

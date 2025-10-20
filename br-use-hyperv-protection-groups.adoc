@@ -28,7 +28,7 @@ Vous pouvez effectuer les tâches suivantes liées aux groupes de protection :
 
 == Créer un groupe de protection
 
-Regroupez les charges de travail que vous souhaitez protéger dans un groupe de protection. Vous pouvez créer un groupe de protection pour un ensemble de charges de travail que vous souhaitez sauvegarder et restaurer ensemble.
+Regroupez les charges de travail que vous souhaitez protéger dans un groupe de protection. Créez un groupe de protection pour sauvegarder et restaurer les charges de travail ensemble.
 
 *Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
