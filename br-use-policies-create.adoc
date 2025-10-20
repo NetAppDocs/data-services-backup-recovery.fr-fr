@@ -271,9 +271,6 @@ De plus, configurez les options suivantes :
 
 Vous pouvez modifier l’architecture de sauvegarde, la fréquence de sauvegarde, la politique de rétention et d’autres paramètres d’une politique.
 
-
-NOTE: Cette fonctionnalité n’est pas disponible pour les charges de travail VMware Preview.
-
 Vous pouvez ajouter un autre niveau de protection lorsque vous modifiez une politique, mais vous ne pouvez pas supprimer un niveau de protection.  Par exemple, si la politique protège uniquement les snapshots locaux, vous pouvez ajouter la réplication au stockage secondaire ou les sauvegardes au stockage d'objets.  Si vous disposez de snapshots et de réplications locaux, vous pouvez ajouter un stockage d'objets.  Cependant, si vous disposez de snapshots locaux, de réplication et de stockage d'objets, vous ne pouvez pas supprimer l'un de ces niveaux.
 
 Si vous modifiez une politique qui sauvegarde sur un stockage d’objets, vous pouvez activer l’archivage.
