@@ -19,7 +19,12 @@ La surveillance de l’état de vos charges de travail garantit que vous êtes c
 *Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, administrateur de sauvegarde et de récupération, administrateur de restauration de sauvegarde et de récupération, administrateur de clone de sauvegarde et de récupération ou rôle de visualiseur de sauvegarde et de récupération.  En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 .Étapes
-. Dans le menu NetApp Backup and Recovery , sélectionnez *Tableau de bord*.
+. Dans le menu de la NetApp Console , sélectionnez *Protection* > *Sauvegarde et récupération*.
+. Sélectionnez une mosaïque de charge de travail (par exemple, Microsoft SQL Server).
+. Dans le menu Sauvegarde et récupération, sélectionnez *Tableau de bord*.
++
+Vous pouvez consulter les types d’informations suivants :
+
 +
 ** Nombre d'hôtes ou de machines virtuelles découverts
 ** Nombre de clusters Kubernetes découverts

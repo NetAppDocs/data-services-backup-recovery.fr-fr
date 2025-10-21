@@ -194,7 +194,9 @@ Avec les paramètres avancés, vous pouvez installer manuellement l'agent du plu
 
 ==== Accéder au tableau de bord de NetApp Backup and Recovery
 
-. Pour afficher le tableau de bord de NetApp Backup and Recovery , dans le menu Sauvegarde et récupération, sélectionnez *Tableau de bord*.
+. Dans le menu de la NetApp Console , sélectionnez *Protection* > *Sauvegarde et récupération*.
+. Sélectionnez une mosaïque de charge de travail (par exemple, Microsoft SQL Server).
+. Dans le menu Sauvegarde et récupération, sélectionnez *Tableau de bord*.
 . Examiner l’état de santé de la protection des données.  Le nombre de charges de travail à risque ou protégées augmente en fonction des charges de travail nouvellement découvertes, protégées et sauvegardées.
 +
 link:br-use-dashboard.html["Découvrez ce que le tableau de bord vous montre"].

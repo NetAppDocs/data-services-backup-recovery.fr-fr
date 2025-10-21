@@ -682,7 +682,6 @@
   <block id="98ab4e23cce41ca38b39c7baf6ef4567" category="admonition">Ce processus peut prendre quelques minutes.</block>
   <block id="d4908a7dd622060706f5e0df98a716da" category="paragraph">Une fois que NetApp Backup and Recovery a découvert les ressources, la page Inventaire affiche la charge de travail Hyper-V dans la liste des charges de travail.</block>
   <block id="8c75bc4aab98ebfa4607c6737296d0fa" category="section-title">Accéder au tableau de bord de NetApp Backup and Recovery</block>
-  <block id="4a94cfaf243c22ac5a3b2acf1849db11" category="list-text">Pour afficher le tableau de bord de NetApp Backup and Recovery , dans le menu de la NetApp Console , sélectionnez *Tableau de bord*.</block>
   <block id="8c0d3ed018f04fbf259db34d9167eae7" category="list-text">Examiner l’état de santé de la protection des données.  Le nombre de charges de travail à risque ou protégées augmente en fonction des charges de travail nouvellement découvertes, protégées et sauvegardées.</block>
   <block id="dd9e4491810d247bd97912faae187a39" category="summary">NetApp Backup and Recovery doit d’abord découvrir les charges de travail pour que vous puissiez utiliser le service.</block>
   <block id="dfbbf83657db8e9ef8d6ee3a468873c2" category="doc">Découvrez les charges de travail Kubernetes dans NetApp Backup and Recovery</block>
@@ -705,7 +704,6 @@
   <block id="6b3946603d5588826f1cd3f2695b8542" category="paragraph">Le cluster est ajouté à l'inventaire.</block>
   <block id="95f06f6ac101b19d86ae2a17fb3eb848" category="list-text">Sélectionnez *Afficher* dans la charge de travail Kubernetes associée pour voir la liste des applications, des clusters et des espaces de noms pour cette charge de travail.</block>
   <block id="b0719c20a836424f725e51c9b181748d" category="paragraph">Suivez ces étapes pour afficher le tableau de bord de NetApp Backup and Recovery .</block>
-  <block id="0023e6c28000b2b0e540612bd4511db3" category="list-text">Dans le menu supérieur, sélectionnez *Tableau de bord*.</block>
   <block id="09799d4864834161536cca195023364b" category="inline-link-macro">Découvrez ce que le tableau de bord vous montre</block>
   <block id="d5292ed1370bb405095587cd10827f95" category="paragraph"><block ref="2a35d34f81dbac907e6068b45b5d538a" category="inline-link-macro-rx"></block>.</block>
   <block id="a8d8543f27c131c1d9b3ca0cf9f1f4ea" category="summary">NetApp Backup and Recovery doit d’abord découvrir les charges de travail afin que vous puissiez les protéger.</block>
@@ -721,7 +719,6 @@
   <block id="4eefc3e53a1cd35eca7d32b6b2c550f5" category="list-text">Choisissez d'utiliser des informations d'identification root ou non root.</block>
   <block id="87f459dd6c99dc89040246d5ef818100" category="list-text">*Enregistrement de l'hôte* : ajoutez un nouvel hôte KVM.  Saisissez le nom de domaine complet ou l'adresse IP de l'hôte, les informations d'identification, l'agent de console et le numéro de port.</block>
   <block id="238fb750ebdea9faf36668536aaa8b42" category="paragraph">La charge de travail KVM s'affiche dans la liste des charges de travail sur la page Inventaire.</block>
-  <block id="bcfa92e95d27d2c808d23768de744fd9" category="list-text">Pour afficher le tableau de bord de NetApp Backup and Recovery , dans le menu supérieur, sélectionnez *Tableau de bord*.</block>
   <block id="0a6dc8ac33152480a18098d8eb98ccb6" category="doc">Découvrez les charges de travail Oracle dans NetApp Backup and Recovery</block>
   <block id="945f74309f719db5d0fb0d1bb5a31781" category="paragraph">NetApp Backup and Recovery doit d’abord découvrir vos bases de données Oracle afin que vous puissiez les protéger.</block>
   <block id="bf36d800e1bbaf0ef44cd361867e4e09" category="section-title">Ajoutez un hôte Oracle et découvrez des ressources</block>
@@ -788,7 +785,6 @@
   <block id="80be79a75ac4a79f740ad2838c734534" category="list-text">*Utiliser l'installation manuelle* : Cochez cette case pour installer le plugin manuellement.</block>
   <block id="628bc160a519e5ae69b6c8aa88610900" category="list-text">*Ajouter tous les hôtes du cluster* : cochez cette case pour ajouter tous les hôtes du cluster à NetApp Backup and Recovery pendant la découverte.</block>
   <block id="b7dfb6860d9af743a7d3f0fe2adfde3d" category="list-text">*Ignorer les vérifications de préinstallation facultatives* : cochez cette case pour ignorer les vérifications de préinstallation facultatives.  Vous souhaiterez peut-être le faire par exemple si vous savez que les considérations de mémoire ou d'espace seront modifiées dans un avenir proche et que vous souhaitez installer le plugin maintenant.</block>
-  <block id="413f1bdf68093f037d6630a5904e6a17" category="list-text">Pour afficher le tableau de bord de NetApp Backup and Recovery , dans le menu Sauvegarde et récupération, sélectionnez *Tableau de bord*.</block>
   <block id="2a9ab4f690bade887dade42f4a0f412b" category="inline-link">Modes de déploiement de la NetApp Console</block>
   <block id="02a0978d1df3ca052a64d05249709cc3" category="summary">Vous pouvez obtenir une licence NetApp Backup and Recovery en achetant un abonnement annuel ou à la place de marché auprès de votre fournisseur de cloud, ou en achetant une licence « Bring Your Own » auprès de NetApp.  Une licence valide est requise pour activer NetApp Backup and Recovery sur un système, pour créer des sauvegardes de vos données de production et pour restaurer les données de sauvegarde sur un système de production.</block>
   <block id="d44c500b8ff5c565a7d3b02d14def6a3" category="paragraph">Vous pouvez obtenir une licence NetApp Backup and Recovery en achetant un abonnement payant à l'utilisation (PAYGO) ou un abonnement annuel à * NetApp Intelligent Services* auprès de votre fournisseur de cloud, ou en achetant une licence BYOL (Bring Your Own License) auprès de NetApp.  Une licence valide est requise pour activer NetApp Backup and Recovery sur un système, pour créer des sauvegardes de vos données de production et pour restaurer les données de sauvegarde sur un système de production.</block>
@@ -936,7 +932,6 @@
   <block id="a160325dcdf365b6a979dfed5c7d50f7" category="doc">Afficher l'état de la protection sur le tableau de bord de NetApp Backup and Recovery</block>
   <block id="2da92f995ab136dd344c314ba2b4eed1" category="paragraph">La surveillance de l’état de vos charges de travail garantit que vous êtes conscient des problèmes de protection des charges de travail et que vous pouvez prendre des mesures pour les résoudre.  Affichez l’état de vos sauvegardes et restaurations sur le tableau de bord de NetApp Backup and Recovery .  Vous pouvez consulter le résumé du système, le résumé de la protection, le résumé du travail, le résumé de la restauration, etc.</block>
   <block id="f8dd3e1869946d83a9dde01dd1d1532b" category="paragraph">*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, administrateur de sauvegarde et de récupération, administrateur de restauration de sauvegarde et de récupération, administrateur de clone de sauvegarde et de récupération ou rôle de visualiseur de sauvegarde et de récupération.  En savoir plus sur<block ref="c66026e4383ae9f791b566ffeb2b3bc3" category="inline-link-macro-rx"></block> .<block ref="8d054a08e0e901ba9c326f172eb3627b" category="inline-link-rx"></block> .</block>
-  <block id="cb8f96f7586f61e5cb6878a228c22371" category="list-text">Dans le menu NetApp Backup and Recovery , sélectionnez *Tableau de bord*.</block>
   <block id="786dc54a357443785ac613f07c08cc8f" category="list-text">Nombre d'hôtes ou de machines virtuelles découverts</block>
   <block id="6393f4da4761be4d85c7778d5e5ebdea" category="list-text">Nombre de clusters Kubernetes découverts</block>
   <block id="54b82ae02ee9c233cf025fb2566edaf9" category="list-text">Nombre de cibles de sauvegarde sur le stockage d'objets</block>
@@ -4776,4 +4771,7 @@
   <block id="96de4b90f5864c84829fbe7735879827" category="list-text">*Paramètres iGroup* : sélectionnez l'iGroup pour le clone. L'iGroup est un regroupement logique d'initiateurs utilisés pour accéder au clone. Vous pouvez sélectionner un iGroup existant ou en créer un nouveau. Sélectionnez l’iGroup à partir du système de stockage ONTAP principal ou secondaire.</block>
   <block id="5261c1383d98ed2b1e8b4a1fd943a918" category="list-text">*Quitter la restauration si la sauvegarde du journal des transactions avant la restauration échoue* : arrête l'opération de restauration si la sauvegarde du journal des transactions échoue.</block>
   <block id="8f40cc47127edbc609e36af0ad86f259" category="list-text">Saisissez les détails de livraison du rapport : si vous souhaitez que le rapport soit envoyé par e-mail, cochez *Envoyer le rapport par e-mail*. Saisissez l’adresse e-mail à laquelle vous souhaitez que le rapport soit envoyé.</block>
+  <block id="e666fdc6314d0f6cb22614788075b3bc" category="list-text">Sélectionnez une mosaïque de charge de travail (par exemple, Microsoft SQL Server).</block>
+  <block id="55398f7948e83c03d38dfb4b136d75ee" category="list-text">Dans le menu Sauvegarde et récupération, sélectionnez *Tableau de bord*.</block>
+  <block id="4837f0befea6b35d3b9827d282853ed9" category="paragraph">Vous pouvez consulter les types d’informations suivants :</block>
 </blocks>
