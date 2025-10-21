@@ -31,7 +31,7 @@ Dans NetApp Backup and Recovery, créez des rapports pour les charges de travail
 
 
 . Entrez la plage de rapport : choisissez si vous souhaitez que le rapport inclue les données du dernier jour, des 7 derniers jours, des 30 derniers jours, du dernier trimestre ou de l'année dernière.
-. Saisissez les détails de livraison du rapport : si vous souhaitez que le rapport soit envoyé par e-mail, cochez *Envoyer le rapport par e-mail*.  Saisissez l’adresse e-mail à laquelle vous souhaitez que le rapport soit envoyé.
+. Saisissez les détails de livraison du rapport : si vous souhaitez que le rapport soit envoyé par e-mail, cochez *Envoyer le rapport par e-mail*. Saisissez l’adresse e-mail à laquelle vous souhaitez que le rapport soit envoyé.
 +
 Configurez les notifications par e-mail dans la page Paramètres.  Pour plus de détails sur la configuration des notifications par e-mail, voirlink:br-use-settings-advanced.html["Configurer les paramètres"] .
 

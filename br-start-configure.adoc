@@ -110,7 +110,7 @@ Fournissez les informations d’identification VMware vCenter pour découvrir le
 
 == Importer et gérer les ressources de l'hôte SnapCenter
 
-Si vous avez déjà utilisé SnapCenter pour sauvegarder vos ressources, vous pouvez importer et gérer ces ressources dans NetApp Backup and Recovery.  Cette option vous permet d'importer les informations du serveur SnapCenter pour enregistrer plusieurs serveurs Snapcenter et découvrir les charges de travail de la base de données.
+Si vous avez déjà utilisé SnapCenter pour sauvegarder vos ressources, vous pouvez importer et gérer ces ressources dans NetApp Backup and Recovery. Cette option vous permet d'importer les informations du serveur SnapCenter pour enregistrer plusieurs serveurs SnapCenter et découvrir les charges de travail de la base de données.
 
 Il s’agit d’un processus en deux parties :
 

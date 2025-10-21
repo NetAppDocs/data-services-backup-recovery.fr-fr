@@ -79,7 +79,6 @@ La version préliminaire des charges de travail VMware introduit les fonctionnal
 
 * Prise en charge de la restauration à partir du stockage d'objets
 * Le tableau de bord de la NetApp Console affiche désormais les informations sur l'état de la charge de travail VMware
-* Prise en charge du mode démo : explorez les fonctionnalités des charges de travail VMware sans ajouter d'environnement VMware vCenter Server
 * Prise en charge du contrôle d'accès basé sur les rôles (RBAC)
 * Alerte par e-mail et prise en charge des notifications pour les événements professionnels
 * Prise en charge de la sauvegarde et de la restauration sur un stockage basé sur NVMe
