@@ -128,6 +128,14 @@ Pour plus de détails sur la protection des charges de travail de la base de don
 
 
 
+=== Améliorations de la charge de travail du volume ONTAP
+
+Cette version des charges de travail de volume ONTAP introduit la fonctionnalité améliorée suivante :
+
+À partir d' ONTAP 9.17.1 et des versions plus récentes, DataLock est désormais pris en charge avec Google Cloud Platform. Cela complète la prise en charge DataLock existante avec Amazon AWS, Microsoft Azure et NetApp StorageGRID.
+
+
+
 == 25 août 2025
 
 Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.

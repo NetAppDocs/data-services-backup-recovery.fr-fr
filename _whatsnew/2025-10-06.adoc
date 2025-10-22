@@ -105,3 +105,11 @@ Cette version de NetApp Backup and Recovery introduit la prise en charge de la d
 
 
 Pour plus de détails sur la protection des charges de travail de la base de données Oracle, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Présentation de Protect Oracle Workloads"] .
+
+
+
+=== Améliorations de la charge de travail du volume ONTAP
+
+Cette version des charges de travail de volume ONTAP introduit la fonctionnalité améliorée suivante :
+
+À partir d' ONTAP 9.17.1 et des versions plus récentes, DataLock est désormais pris en charge avec Google Cloud Platform. Cela complète la prise en charge DataLock existante avec Amazon AWS, Microsoft Azure et NetApp StorageGRID.

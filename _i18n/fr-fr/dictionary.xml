@@ -4774,4 +4774,6 @@
   <block id="e666fdc6314d0f6cb22614788075b3bc" category="list-text">Sélectionnez une mosaïque de charge de travail (par exemple, Microsoft SQL Server).</block>
   <block id="55398f7948e83c03d38dfb4b136d75ee" category="list-text">Dans le menu Sauvegarde et récupération, sélectionnez *Tableau de bord*.</block>
   <block id="4837f0befea6b35d3b9827d282853ed9" category="paragraph">Vous pouvez consulter les types d’informations suivants :</block>
+  <block id="70cc82710208295496c70c203368aaf9" category="paragraph">Cette version des charges de travail de volume ONTAP introduit la fonctionnalité améliorée suivante :</block>
+  <block id="bb13349ac4c9ef7d368732d3a4fdabed" category="paragraph">À partir d' ONTAP 9.17.1 et des versions plus récentes, DataLock est désormais pris en charge avec Google Cloud Platform. Cela complète la prise en charge DataLock existante avec Amazon AWS, Microsoft Azure et NetApp StorageGRID.</block>
 </blocks>
