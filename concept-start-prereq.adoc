@@ -135,6 +135,27 @@ Vous avez besoin d’exigences spécifiques pour découvrir et protéger les mac
 * libvirt version 10.5.0 ou ultérieure
 
 
+[NOTE]
+====
+Pour activer la protection des machines virtuelles KVM administrées par des utilisateurs non root, procédez comme suit :
+
+. Montez le volume en tant que type NFS3 pour éviter l'utilisation de `nobody` utilisateur et groupe.
+. Utilisez la commande suivante pour ajouter un utilisateur non root à la liste `qemu` groupe tout en préservant leurs groupes existants :
++
+[source, console]
+----
+usermod -aG qemu <non-root-user>
+----
+. Utilisez la commande suivante pour accorder la propriété du chemin de montage à `qemu` utilisateur et groupe et modifier les autorisations du chemin de montage :
++
+[source, console]
+----
+chown -R qemu:qemu <kvm_vm_mount_path> & chmod 771 <kvm_vm_mount_path>
+----
+. Supprimez le répertoire NetApp_SnapCenter_Backups existant s'il existe.
+
+
+====
 
 
 == Exigences pour la protection des charges de travail Oracle
