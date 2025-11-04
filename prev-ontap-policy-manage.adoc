@@ -16,11 +16,9 @@ summary: Protégez vos charges de travail VMware avec NetApp NetApp Backup and R
 [role="lead"]
 Avec NetApp Backup and Recovery, utilisez les stratégies de sauvegarde par défaut fournies par NetApp pour créer vos sauvegardes ou créez des stratégies personnalisées.  Les politiques régissent la fréquence de sauvegarde, l’heure à laquelle la sauvegarde est effectuée et le nombre de fichiers de sauvegarde conservés.
 
-[]
-====
-*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
 
-====
+NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
+
 Lorsque vous utilisez l'assistant d'activation pour activer le service de sauvegarde et de récupération pour vos volumes, vous pouvez sélectionner parmi les stratégies par défaut et toutes les autres stratégies déjà existantes dans le système (Cloud Volumes ONTAP ou système ONTAP sur site).  Si vous souhaitez utiliser une politique différente de celles existantes, vous pouvez créer la politique avant ou pendant que vous utilisez l'assistant d'activation.
 
 Pour en savoir plus sur les politiques de sauvegarde par défaut fournies, reportez-vous àlink:prev-ontap-protect-journey.html["Planifiez votre voyage de protection"] .

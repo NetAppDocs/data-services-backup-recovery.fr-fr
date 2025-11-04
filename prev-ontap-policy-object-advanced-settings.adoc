@@ -19,11 +19,9 @@ Vous pouvez modifier les paramètres de stockage de sauvegarde sur objet au nive
 
 NOTE: Ces paramètres sont disponibles uniquement pour le stockage de sauvegarde sur objet.  Aucun de ces paramètres n’affecte vos paramètres de snapshot ou de réplication.
 
-[]
-====
-*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
 
-====
+NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
+
 Vous pouvez modifier les options suivantes dans la page Paramètres avancés :
 
 * Modification de la bande passante réseau allouée au téléchargement des sauvegardes vers le stockage d'objets à l'aide de l'option Taux de transfert maximal ifdef::aws[]

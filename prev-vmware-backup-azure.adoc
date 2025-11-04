@@ -18,11 +18,9 @@ Vous pouvez sauvegarder une ou plusieurs banques de données sur Microsoft Azure
 
 Si le magasin de données est associé à une politique d'archivage, vous aurez la possibilité de sélectionner le niveau d'archivage.  Le niveau d’archivage pris en charge est Azure Archive Blob Storage.
 
-[]
-====
-*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
 
-====
+NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
+
 .Avant de commencer
 Assurez-vous d'avoir respecté toutes leslink:prev-vmware-prereqs.html["exigences de protection des machines virtuelles"] avant de sauvegarder les banques de données dans le cloud.
 

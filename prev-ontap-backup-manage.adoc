@@ -19,11 +19,9 @@ Avec NetApp Backup and Recovery, gérez les sauvegardes de vos systèmes Cloud V
 
 CAUTION: Ne gérez pas et ne modifiez pas les fichiers de sauvegarde directement sur vos systèmes de stockage ou depuis l'environnement de votre fournisseur de cloud.  Cela peut corrompre les fichiers et entraîner une configuration non prise en charge.
 
-[]
-====
-*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
 
-====
+NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
+
 
 
 == Afficher l'état de sauvegarde des volumes de vos systèmes

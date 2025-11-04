@@ -19,11 +19,9 @@ NetApp Backup and Recovery vous permet de créer des politiques de sauvegarde av
 
 NOTE: Ces paramètres de stratégie s'appliquent uniquement au stockage de sauvegarde sur objet.  Aucun de ces paramètres n’affecte vos stratégies de capture instantanée ou de réplication.
 
-[]
-====
-*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
 
-====
+NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
+
 
 
 == Options de planification de sauvegarde

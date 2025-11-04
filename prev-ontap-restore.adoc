@@ -16,11 +16,9 @@ summary: 'Avec NetApp Backup and Recovery, restaurez un volume ONTAP entier à p
 [role="lead"]
 Les sauvegardes de vos données de volume ONTAP sont disponibles à partir des emplacements où vous avez créé des sauvegardes : copies instantanées, volumes répliqués et sauvegardes stockées dans le stockage d'objets.  Vous pouvez restaurer des données à partir d’un moment précis à partir de n’importe lequel de ces emplacements de sauvegarde.  Avec NetApp Backup and Recovery, restaurez un volume ONTAP entier à partir d'un fichier de sauvegarde ou, si vous avez seulement besoin de restaurer quelques fichiers, restaurez un dossier ou des fichiers individuels.
 
-[]
-====
-*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
 
-====
+NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
+
 * Vous pouvez restaurer un *volume* (en tant que nouveau volume) sur le système d'origine, sur un autre système utilisant le même compte cloud ou sur un système ONTAP sur site.
 * Vous pouvez restaurer un *dossier* sur un volume du système d'origine, sur un volume d'un autre système utilisant le même compte cloud ou sur un volume d'un système ONTAP local.
 * Vous pouvez restaurer des *fichiers* sur un volume du système d'origine, sur un volume d'un autre système utilisant le même compte cloud ou sur un volume d'un système ONTAP local.

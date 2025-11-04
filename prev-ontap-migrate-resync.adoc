@@ -23,11 +23,9 @@ NOTE: Cette fonctionnalité est disponible à partir de la version 4.0.3 de NetA
 
 La resynchronisation SnapMirror vers le cloud assure la continuité des sauvegardes entre les environnements, facilitant ainsi la gestion des données dans les configurations hybrides et multicloud.
 
-[]
-====
-*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
 
-====
+NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
+
 .Avant de commencer
 Assurez-vous que ces conditions préalables ont été remplies :
 

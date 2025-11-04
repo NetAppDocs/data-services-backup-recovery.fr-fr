@@ -19,11 +19,9 @@ Effectuez quelques étapes dans NetApp Backup and Recovery pour commencer à sau
 
 NOTE: Les « systèmes ONTAP sur site » incluent les systèmes FAS, AFF et ONTAP Select .
 
-[]
-====
-*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
 
-====
+NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
+
 
 
 == Identifier la méthode de connexion
@@ -208,7 +206,7 @@ Lorsque vous configurez la sauvegarde sur StorageGRID, l'assistant de sauvegarde
 
 Ces clés d’accès doivent être associées à un utilisateur disposant des autorisations suivantes :
 
-[source, json]
+[source, console]
 ----
 "s3:ListAllMyBuckets",
 "s3:ListBucket",

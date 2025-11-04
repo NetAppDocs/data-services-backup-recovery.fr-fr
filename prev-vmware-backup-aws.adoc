@@ -18,11 +18,9 @@ Vous pouvez sauvegarder et archiver un ou plusieurs magasins de données avec Ne
 
 Si le magasin de données est associé à une politique d’archivage, vous avez la possibilité de sélectionner le niveau d’archivage.  Les niveaux d'archivage pris en charge sont Glacier et Glacier Deep.
 
-[]
-====
-*REMARQUE* Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
 
-====
+NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
+
 .Avant de commencer
 Assurez-vous d'avoir respecté toutes leslink:prev-vmware-prereqs.html["exigences de protection des machines virtuelles"] avant de sauvegarder les banques de données dans le cloud.
 
