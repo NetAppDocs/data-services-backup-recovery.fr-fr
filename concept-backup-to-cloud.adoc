@@ -281,20 +281,8 @@ NOTE: Le stockage primaire vers le stockage d'objets est également pris en char
 
 Les copies de sauvegarde sont stockées dans un magasin d’objets que la NetApp Console crée dans votre compte cloud.  Il existe un magasin d'objets par cluster ou système, et la console nomme le magasin d'objets comme suit : `netapp-backup-clusteruuid` .  Assurez-vous de ne pas supprimer ce magasin d’objets.
 
-ifdef::aws[]
-
-* Dans AWS, la NetApp Console permet la https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html["Fonctionnalité d'accès public au bloc Amazon S3"^] sur le bucket S3. endif::aws[]
-
-
-ifdef::azure[]
-
-* Dans Azure, la NetApp Console utilise un groupe de ressources nouveau ou existant avec un compte de stockage pour le conteneur Blob. la console https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent["bloque l'accès public à vos données blob"] par défaut. endif::azure[]
-
-
-ifdef::gcp[]
-
-endif::gcp[]
-
+* Dans AWS, la NetApp Console permet https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html["Fonctionnalité d'accès public au bloc Amazon S3"^] sur le bucket S3.
+* Dans Azure, la NetApp Console utilise un groupe de ressources nouveau ou existant avec un compte de stockage pour le conteneur Blob. https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent["bloque l'accès public à vos données blob"] par défaut.
 * Dans StorageGRID, la console utilise un compte de stockage existant pour le bucket de magasin d’objets.
 * Dans ONTAP S3, la console utilise un compte utilisateur existant pour le bucket S3.
 

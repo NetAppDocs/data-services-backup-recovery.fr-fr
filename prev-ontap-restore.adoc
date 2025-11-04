@@ -110,9 +110,10 @@ Consultez les exigences et les étapes de restauration pour le type d’opérati
 
 == Restaurer les données ONTAP à l'aide de Parcourir et restaurer
 
-Avant de commencer à restaurer un volume, un dossier ou un fichier, vous devez connaître le nom du volume à partir duquel vous souhaitez effectuer la restauration, le nom du système et du SVM où réside le volume, ainsi que la date approximative du fichier de sauvegarde à partir duquel vous souhaitez effectuer la restauration.  Vous pouvez restaurer les données ONTAP à partir d'une copie Snapshot, d'un volume répliqué ou de sauvegardes stockées dans le stockage d'objets.
+Avant la restauration, notez le nom du volume source, le système source et le SVM, ainsi que la date du fichier de sauvegarde. Vous pouvez restaurer les données ONTAP à partir d'une copie Snapshot, d'un volume répliqué ou de sauvegardes stockées dans le stockage d'objets.
 
-*Remarque :* si le fichier de sauvegarde contenant les données que vous souhaitez restaurer réside dans un stockage cloud d'archivage (à partir d' ONTAP 9.10.1), l'opération de restauration prendra plus de temps et entraînera un coût.  De plus, le cluster de destination doit également exécuter ONTAP 9.10.1 ou une version ultérieure pour la restauration de volumes, 9.11.1 pour la restauration de fichiers, 9.12.1 pour Google Archive et StorageGRID et 9.13.1 pour la restauration de dossiers.
+
+NOTE: Si le fichier de sauvegarde que vous souhaitez restaurer se trouve dans un stockage cloud d'archivage (à partir d' ONTAP 9.10.1), l'opération de restauration prend plus de temps et engendre des coûts.  Le cluster de destination doit également exécuter ONTAP 9.10.1 ou supérieur pour la restauration de volumes, 9.11.1 pour la restauration de fichiers, 9.12.1 pour Google Archive et StorageGRID, et 9.13.1 pour la restauration de dossiers.
 
 ifdef::aws[]
 
@@ -159,18 +160,6 @@ Vous pouvez restaurer les données ONTAP à partir d'un fichier de sauvegarde r�
 
 | Vers le système ONTAP sur site | ONTAP S3 | Système ONTAP sur site | Système ONTAP sur site Cloud Volumes ONTAP 
 |===
-ifdef::aws[]
-
-endif::aws[]
-
-ifdef::azure[]
-
-endif::azure[]
-
-ifdef::gcp[]
-
-endif::gcp[]
-
 Pour la navigation et la restauration, l'agent de console peut être installé aux emplacements suivants :
 
 ifdef::aws[]
@@ -315,7 +304,7 @@ Si vous devez restaurer uniquement quelques fichiers à partir d'une sauvegarde 
 
 NOTE: Vous ne pouvez restaurer un dossier ou des fichiers individuels qu'à partir d'un fichier de sauvegarde dans le stockage d'objets à ce stade.  La restauration de fichiers et de dossiers n'est actuellement pas prise en charge à partir d'une copie instantanée locale ou d'un fichier de sauvegarde résidant dans un système secondaire (un volume répliqué).
 
-Si vous sélectionnez plusieurs fichiers, tous les fichiers sont restaurés sur le même volume de destination que vous choisissez.  Donc, si vous souhaitez restaurer des fichiers sur différents volumes, vous devrez exécuter le processus de restauration plusieurs fois.
+Si vous sélectionnez plusieurs fichiers, ils seront restaurés sur le même volume de destination.  Pour restaurer des fichiers sur différents volumes, exécutez le processus plusieurs fois.
 
 Lorsque vous utilisez ONTAP 9.13.0 ou une version ultérieure, vous pouvez restaurer un dossier avec tous les fichiers et sous-dossiers qu'il contient.  Lorsque vous utilisez une version d' ONTAP antérieure à 9.13.0, seuls les fichiers de ce dossier sont restaurés - aucun sous-dossier, ni fichier dans les sous-dossiers, n'est restauré.
 
@@ -345,7 +334,7 @@ Vous pouvez le tester en utilisant un indicateur spécial décrit dans le https:
 
 Le processus se déroule comme suit :
 
-. Lorsque vous souhaitez restaurer un dossier, ou un ou plusieurs fichiers, à partir d'une sauvegarde de volume, cliquez sur l'onglet *Restaurer*, puis sur *Restaurer les fichiers ou le dossier* sous _Parcourir et restaurer_.
+. Pour restaurer un dossier ou des fichiers à partir d'une sauvegarde de volume, sélectionnez le menu *Restaurer*, puis *Restaurer des fichiers ou un dossier* sous _Parcourir et restaurer_.
 . Sélectionnez le système source, le volume et le fichier de sauvegarde dans lesquels résident le dossier ou les fichiers.
 . NetApp Backup and Recovery affiche les dossiers et fichiers qui existent dans le fichier de sauvegarde sélectionné.
 . Sélectionnez le dossier ou le(s) fichier(s) que vous souhaitez restaurer à partir de cette sauvegarde.
@@ -355,7 +344,7 @@ Le processus se déroule comme suit :
 
 image:diagram_browse_restore_file.png["Un diagramme qui montre le flux pour effectuer une opération de restauration de fichier à l'aide de Parcourir et restaurer."]
 
-Comme vous pouvez le voir, vous devez connaître le nom du système, le nom du volume, la date du fichier de sauvegarde et le nom du dossier/fichier pour effectuer une restauration de dossier ou de fichier.
+Pour restaurer un volume, vous avez besoin du nom du système source, de la machine virtuelle de stockage, du nom du volume et de la date du fichier de sauvegarde.
 
 
 
@@ -433,7 +422,7 @@ Vous disposez de plusieurs options pour l'emplacement lors de la restauration de
 
 * Si vous avez sélectionné le même système de destination et le même volume que celui où se trouvait le dossier/fichier source, vous pouvez sélectionner *Conserver le chemin du dossier source* pour restaurer le dossier ou les fichiers dans le même dossier où ils existaient dans la structure source.  Tous les mêmes dossiers et sous-dossiers doivent déjà exister ; les dossiers ne sont pas créés.  Lors de la restauration des fichiers à leur emplacement d'origine, vous pouvez choisir d'écraser le(s) fichier(s) source ou de créer de nouveaux fichiers.
 +
-.. Sélectionnez *Restaurer* et vous serez renvoyé au tableau de bord de restauration afin que vous puissiez examiner la progression de l'opération de restauration.  Vous pouvez également cliquer sur l’onglet *Surveillance des tâches* pour voir la progression de la restauration.
+.. Sélectionnez *Restaurer* pour revenir au tableau de bord de restauration et consulter la progression de l'opération de restauration.
 
 
 
@@ -701,7 +690,7 @@ Selon la taille des volumes du système et le nombre de fichiers de sauvegarde d
 
 === Restaurer des volumes, des dossiers et des fichiers à l'aide de la recherche et de la restauration
 
-Après avoir<<enable-the-indexed-catalog-for-each-working-environment,Activation de l'indexation pour votre système>> , vous pouvez restaurer des volumes, des dossiers et des fichiers à l'aide de la recherche et de la restauration.  Cela vous permet d'utiliser une large gamme de filtres pour trouver le fichier ou le volume exact que vous souhaitez restaurer à partir de tous les fichiers de sauvegarde.
+Après avoir<<enable-the-indexed-catalog-for-each-system,Activation de l'indexation pour votre système>> , vous pouvez restaurer des volumes, des dossiers et des fichiers à l'aide de la recherche et de la restauration. Cela vous permet d'utiliser une large gamme de filtres pour trouver le fichier ou le volume exact que vous souhaitez restaurer à partir de tous les fichiers de sauvegarde.
 
 .Étapes
 . Dans le menu de la console, sélectionnez *Protection > Sauvegarde et récupération*.

@@ -17,7 +17,7 @@ summary: Protégez vos charges de travail Hyper-V avec la sauvegarde et la récu
 Sauvegardez les machines virtuelles Hyper-V des systèmes ONTAP locaux vers Amazon Web Services, Azure NetApp Files ou StorageGRID pour garantir la protection de vos données. Les sauvegardes sont automatiquement générées et stockées dans un magasin d’objets sur votre compte cloud public ou privé.
 
 * Pour sauvegarder des charges de travail selon une planification, créez des stratégies qui régissent les opérations de sauvegarde et de restauration.  Voirlink:br-use-policies-create.html["Créer des politiques"] pour les instructions.
-* Créez des groupes de protection pour gérer les opérations de sauvegarde et de restauration d’un ensemble de ressources. Voirlink:br-use-hyper-v-protection-groups.html["Créez et gérez des groupes de protection pour les charges de travail Hyper-V avec NetApp Backup and Recovery"] pour plus d'informations.
+* Créez des groupes de protection pour gérer les opérations de sauvegarde et de restauration d’un ensemble de ressources. Voirlink:br-use-hyperv-protection-groups.html["Créez et gérez des groupes de protection pour les charges de travail Hyper-V avec NetApp Backup and Recovery"] pour plus d'informations.
 * Sauvegardez vos charges de travail maintenant (créez une sauvegarde à la demande maintenant).
 
 
