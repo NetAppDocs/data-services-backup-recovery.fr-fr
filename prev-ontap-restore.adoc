@@ -670,6 +670,42 @@ Si vous avez activé le catalogue indexé avant la version v2, les événements 
 Si l’indexation a déjà été activée pour votre système, passez à la section suivante pour restaurer vos données.
 
 .Étapes pour activer l'indexation pour un système :
+Si l’indexation a déjà été activée pour votre système, passez à la section suivante pour restaurer vos données.
+
+Vous devrez d'abord monter un volume séparé pour stocker les fichiers de catalogue. Cela évite la perte de données si la taille des fichiers contenant les instantanés devient trop importante. Cela n'est pas nécessaire sur tous les clusters ; vous pouvez monter n'importe quel volume provenant de n'importe quel cluster de votre environnement. Si vous ne le faites pas, l'indexation risque de ne pas fonctionner correctement.
+
+Pour le volume monté, utilisez les indications de dimensionnement suivantes :
+
+* Utilisez un volume NVS NetApp
+* Stockage AFF recommandé avec un débit disque de 300 Mo/s. La baisse du débit aura un impact sur la recherche et les autres opérations.
+* Activez les instantanés NetApp pour sécuriser les métadonnées du catalogue en plus des fichiers zip de sauvegarde du catalogue.
+* 50 Go par milliard de fichiers
+* 20 Go pour les données du catalogue, avec un espace supplémentaire pour la création de fichiers zip et les fichiers temporaires.
+
+
+.Étape pour monter le volume afin de réindexer le catalogue
+. Montez le volume sur `/opt/application/netapp/cbs` en saisissant la commande suivante, où :
++
+** `volume name` est le volume du cluster où seront stockés les fichiers de catalogue
+** `/opt/application/netapp/cbs` est le chemin où il est monté
++
+[source, console]
+----
+mount <cluster IP address>:/<volume name> /opt/application/netapp/cbs
+----
++
+Exemple:
+
++
+[source, console]
+----
+mount 10.192.24.17:/CATALOG_SCALE_234 /opt/application/netapp/cbs
+----
+
+
+
+
+.Étapes pour activer l'index
 . Effectuez l’une des opérations suivantes :
 +
 ** Si aucun système n'a été indexé, sur le tableau de bord de restauration sous _Rechercher et restaurer_, sélectionnez *Activer l'indexation pour les systèmes*.
