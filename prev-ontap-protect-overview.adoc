@@ -21,14 +21,14 @@ NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Reco
 
 Après l'activation, la sauvegarde et la récupération créent des sauvegardes incrémentielles permanentes au niveau des blocs qui sont stockées sur un autre cluster ONTAP et dans le stockage d'objets dans le cloud.  En plus de votre volume source, vous disposerez de :
 
-* Copie instantanée du volume sur le système source
+* Instantané du volume sur le système source
 * Volume répliqué sur un autre système de stockage
 * Sauvegarde du volume dans le stockage d'objets
 
 
-image:diagram-321-overview-unified.png["Un diagramme montrant comment les fichiers de sauvegarde existent sur le système source sous forme de copies instantanées, sous forme de volumes répliqués sur le système de stockage secondaire et sous forme de fichiers de sauvegarde dans le stockage d'objets."]
+image:diagram-321-overview-unified.png["Un diagramme montrant comment les fichiers de sauvegarde existent sur le système source sous forme d'instantanés, sous forme de volumes répliqués sur le système de stockage secondaire et sous forme de fichiers de sauvegarde dans le stockage objet."]
 
-NetApp Backup and Recovery exploite la technologie de réplication de données SnapMirror de NetApp pour garantir que toutes les sauvegardes sont entièrement synchronisées en créant des copies Snapshot et en les transférant vers les emplacements de sauvegarde.
+NetApp Backup and Recovery exploite la technologie de réplication de données SnapMirror de NetApp pour garantir que toutes les sauvegardes sont entièrement synchronisées en créant des instantanés et en les transférant vers les emplacements de sauvegarde.
 
 Les avantages de l’approche 3-2-1 incluent :
 
@@ -77,7 +77,7 @@ Voirlink:br-reference-limitations.html["Limitations de réplication pour les vol
 
 *Restaurer les fonctionnalités :*
 
-* Restaurez les données à partir d’un moment précis à partir de copies Snapshot locales, de volumes répliqués ou de volumes sauvegardés dans le stockage d’objets.
+* Restaurez des données à partir d'un point précis dans le temps à partir d'instantanés locaux, de volumes répliqués ou de volumes sauvegardés dans un stockage objet.
 * Restaurer un volume, un dossier ou des fichiers individuels, sur le système source ou sur un autre système.
 * Restaurer les données sur un système utilisant un abonnement/compte différent ou situé dans une région différente.
 * Effectuez une _restauration rapide_ d'un volume depuis un stockage cloud vers un système Cloud Volumes ONTAP ou vers un système sur site ; parfait pour les situations de reprise après sinistre où vous devez fournir l'accès à un volume dès que possible.
@@ -103,7 +103,7 @@ https://bluexp.netapp.com/cloud-volumes-global-regions["En savoir plus en utilis
 
 === Destinations de sauvegarde prises en charge
 
-NetApp Backup and Recovery vous permet de sauvegarder les volumes ONTAP des systèmes sources suivants vers les systèmes secondaires suivants et le stockage d'objets dans les fournisseurs de cloud public et privé.  Les copies instantanées résident sur le système source.
+NetApp Backup and Recovery vous permet de sauvegarder des volumes ONTAP à partir des systèmes sources suivants vers les systèmes secondaires et le stockage objet suivants, chez les fournisseurs de cloud public et privé. Les snapshots résident sur le système source.
 
 [cols="33,33,33"]
 |===
@@ -125,7 +125,7 @@ NetApp Backup and Recovery vous permet de sauvegarder les volumes ONTAP des syst
 
 === Destinations de restauration prises en charge
 
-Vous pouvez restaurer les données ONTAP à partir d'un fichier de sauvegarde résidant dans un système secondaire (un volume répliqué) ou dans un stockage d'objets (un fichier de sauvegarde) sur les systèmes suivants.  Les copies instantanées résident sur le système source et ne peuvent être restaurées que sur ce même système.
+Vous pouvez restaurer les données ONTAP à partir d'un fichier de sauvegarde situé sur un système secondaire (volume répliqué) ou dans un stockage objet (fichier de sauvegarde) vers les systèmes suivants. Les instantanés résident sur le système source et ne peuvent être restaurés que sur ce même système.
 
 [cols="33,33,33"]
 |===
@@ -175,7 +175,7 @@ Voir les sections surlink:br-reference-limitations.html["Limitations de sauvegar
 
 Il existe deux types de coûts associés à l’utilisation de NetApp Backup and Recovery avec les systèmes ONTAP : les frais de ressources et les frais de service.  Ces deux frais concernent la partie sauvegarde sur objet du service.
 
-La création de copies Snapshot ou de volumes répliqués est gratuite, à l'exception de l'espace disque requis pour stocker les copies Snapshot et les volumes répliqués.
+La création d'instantanés ou de volumes répliqués est gratuite, hormis l'espace disque nécessaire à leur stockage.
 
 *Frais de ressources*
 
@@ -236,7 +236,7 @@ NetApp Backup and Recovery est disponible avec les modèles de consommation suiv
 * *Annuel* : Un contrat annuel de la place de marché de votre fournisseur de cloud.
 
 
-Une licence de sauvegarde est requise uniquement pour la sauvegarde et la restauration à partir du stockage d'objets.  La création de copies instantanées et de volumes répliqués ne nécessite pas de licence.
+Une licence de sauvegarde est requise uniquement pour la sauvegarde et la restauration à partir du stockage d'objets. La création d'instantanés et de volumes répliqués ne nécessite pas de licence.
 
 
 
@@ -311,7 +311,7 @@ Ce diagramme montre les volumes en cours de réplication sur un système Cloud V
 
 Les sauvegardes résident à différents emplacements en fonction du type de sauvegarde :
 
-* Les _copies instantanées_ résident sur le volume source dans le système source.
+* Les _instantanés_ résident sur le volume source du système source.
 * Les _volumes répliqués_ résident sur le système de stockage secondaire : un système Cloud Volumes ONTAP ou ONTAP sur site.
 * Les _copies de sauvegarde_ sont stockées dans un magasin d’objets que la console crée dans votre compte cloud.  Il existe un magasin d'objets par cluster/système, et la console nomme le magasin d'objets comme suit : « netapp-backup-clusteruuid ».  Assurez-vous de ne pas supprimer ce magasin d’objets.
 
@@ -344,12 +344,12 @@ Si vous souhaitez modifier le magasin d'objets de destination d'un cluster à l'
 
 === Planification de sauvegarde et paramètres de conservation personnalisables
 
-Lorsque vous activez NetApp Backup and Recovery pour un système, tous les volumes que vous sélectionnez initialement sont sauvegardés à l'aide des stratégies que vous sélectionnez.  Vous pouvez sélectionner des politiques distinctes pour les copies instantanées, les volumes répliqués et les fichiers de sauvegarde.  Si vous souhaitez attribuer différentes stratégies de sauvegarde à certains volumes ayant des objectifs de point de récupération (RPO) différents, vous pouvez créer des stratégies supplémentaires pour ce cluster et attribuer ces stratégies aux autres volumes une fois NetApp Backup and Recovery activé.
+Lorsque vous activez NetApp Backup and Recovery pour un système, tous les volumes que vous sélectionnez initialement sont sauvegardés à l'aide des stratégies que vous sélectionnez. Vous pouvez sélectionner des politiques distinctes pour les instantanés, les volumes répliqués et les fichiers de sauvegarde. Si vous souhaitez attribuer différentes stratégies de sauvegarde à certains volumes ayant des objectifs de point de récupération (RPO) différents, vous pouvez créer des stratégies supplémentaires pour ce cluster et attribuer ces stratégies aux autres volumes une fois NetApp Backup and Recovery activé.
 
 Vous pouvez choisir une combinaison de sauvegardes horaires, quotidiennes, hebdomadaires, mensuelles et annuelles de tous les volumes.  Pour la sauvegarde d'un objet, vous pouvez également sélectionner l'une des politiques définies par le système qui fournissent des sauvegardes et une conservation pendant 3 mois, 1 an et 7 ans.  Les stratégies de protection de sauvegarde que vous avez créées sur le cluster à l’aide ONTAP System Manager ou de l’interface de ligne de commande ONTAP apparaîtront également sous forme de sélections.  Cela inclut les politiques créées à l’aide d’étiquettes SnapMirror personnalisées.
 
 
-NOTE: La politique de capture instantanée appliquée au volume doit avoir l’une des étiquettes que vous utilisez dans votre politique de réplication et votre politique de sauvegarde vers l’objet.  Si aucune étiquette correspondante n'est trouvée, aucun fichier de sauvegarde ne sera créé.  Par exemple, si vous souhaitez créer des volumes répliqués et des fichiers de sauvegarde « hebdomadaires », vous devez utiliser une stratégie de snapshot qui crée des copies de snapshot « hebdomadaires ».
+NOTE: La politique de capture instantanée appliquée au volume doit avoir l’une des étiquettes que vous utilisez dans votre politique de réplication et votre politique de sauvegarde vers l’objet. Si aucune étiquette correspondante n'est trouvée, aucun fichier de sauvegarde ne sera créé. Par exemple, si vous souhaitez créer des volumes répliqués et des fichiers de sauvegarde « hebdomadaires », vous devez utiliser une stratégie de snapshot qui crée des snapshots « hebdomadaires ».
 
 Une fois que vous atteignez le nombre maximal de sauvegardes pour une catégorie ou un intervalle, les sauvegardes les plus anciennes sont supprimées afin que vous disposiez toujours des sauvegardes les plus récentes (et ainsi les sauvegardes obsolètes ne continuent pas à occuper de l'espace).
 
@@ -366,7 +366,7 @@ Si votre cluster utilise ONTAP 9.11.1 ou une version ultérieure, vous pouvez pr
 * _La protection contre les ransomwares_ analyse vos fichiers de sauvegarde pour rechercher des preuves d'une attaque de ransomware lorsqu'un fichier de sauvegarde est créé et lorsque les données d'un fichier de sauvegarde sont en cours de restauration.
 
 
-Les analyses de protection contre les ransomwares planifiées sont activées par défaut.  Le paramètre par défaut pour la fréquence d'analyse est de 7 jours.  L'analyse s'effectue uniquement sur la dernière copie Snapshot.  Les analyses programmées peuvent être désactivées pour réduire vos coûts.  Vous pouvez activer ou désactiver les analyses de ransomware planifiées sur la dernière copie Snapshot en utilisant l'option sur la page Paramètres avancés.  Si vous l'activez, les analyses sont effectuées chaque semaine par défaut.  Vous pouvez modifier ce calendrier en jours ou en semaines ou le désactiver, ce qui permet de réduire les coûts.
+Les analyses de protection contre les ransomwares planifiées sont activées par défaut. Le paramètre par défaut pour la fréquence d'analyse est de 7 jours. L'analyse s'effectue uniquement sur le dernier instantané. Les analyses programmées peuvent être désactivées pour réduire vos coûts. Vous pouvez activer ou désactiver les analyses planifiées de logiciels de ransomware sur le dernier instantané en utilisant l'option de la page Paramètres avancés. Si vous l'activez, les analyses sont effectuées chaque semaine par défaut. Vous pouvez modifier ce calendrier en jours ou en semaines ou le désactiver, ce qui permet de réduire les coûts.
 
 La période de conservation des sauvegardes est la même que la période de conservation de la planification des sauvegardes, plus une mémoire tampon maximale de 31 jours.  Par exemple, des sauvegardes hebdomadaires avec 5 copies conservées verrouillent chaque fichier de sauvegarde pendant 5 semaines.  Les sauvegardes _mensuelles_ avec _6_ copies conservées verrouillent chaque fichier de sauvegarde pendant 6 mois.
 

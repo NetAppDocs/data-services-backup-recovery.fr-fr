@@ -14,7 +14,7 @@ summary: Protégez vos charges de travail VMware avec NetApp NetApp Backup and R
 
 
 [role="lead"]
-Vous pouvez modifier les paramètres de stockage de sauvegarde sur objet au niveau du cluster que vous définissez lors de l'activation de NetApp Backup and Recovery pour chaque système ONTAP à l'aide de la page Paramètres avancés.  Vous pouvez également modifier certains paramètres appliqués comme paramètres de sauvegarde « par défaut ».  Cela inclut la modification du taux de transfert des sauvegardes vers le stockage d'objets, l'exportation ou non des copies Snapshot historiques sous forme de fichiers de sauvegarde et l'activation ou la désactivation des analyses de ransomware pour un système.
+Vous pouvez modifier les paramètres de stockage de sauvegarde sur objet au niveau du cluster que vous définissez lors de l'activation de NetApp Backup and Recovery pour chaque système ONTAP à l'aide de la page Paramètres avancés. Vous pouvez également modifier certains paramètres appliqués comme paramètres de sauvegarde « par défaut ». Cela inclut la modification du taux de transfert des sauvegardes vers le stockage objet, l'exportation des instantanés historiques en tant que fichiers de sauvegarde et l'activation ou la désactivation des analyses de ransomware pour un système.
 
 
 NOTE: Ces paramètres sont disponibles uniquement pour le stockage de sauvegarde sur objet.  Aucun de ces paramètres n’affecte vos paramètres de snapshot ou de réplication.
@@ -29,7 +29,7 @@ Vous pouvez modifier les options suivantes dans la page Paramètres avancés :
 
 endif::aws[]
 
-* Modifier si les copies Snapshot historiques sont exportées en tant que fichiers de sauvegarde et incluses dans vos fichiers de sauvegarde de base initiaux pour les volumes futurs
+* Modification de la façon dont les instantanés historiques sont exportés ou non en tant que fichiers de sauvegarde et inclus dans vos fichiers de sauvegarde de référence initiaux pour les volumes futurs
 * Modifier si les instantanés « annuels » sont supprimés du système source
 * Activation ou désactivation des analyses de ransomware pour un système, y compris les analyses planifiées
 
@@ -77,17 +77,17 @@ endif::aws[]
 
 
 
-== Modifier si les copies d'instantanés historiques sont exportées en tant que fichiers de sauvegarde
+== Modifiez si les instantanés historiques sont exportés en tant que fichiers de sauvegarde
 
-S'il existe des copies d'instantanés locaux pour les volumes qui correspondent à l'étiquette de planification de sauvegarde que vous utilisez dans ce système (par exemple, quotidienne, hebdomadaire, etc.), vous pouvez exporter ces instantanés historiques vers le stockage d'objets sous forme de fichiers de sauvegarde.  Cela vous permet d'initialiser vos sauvegardes dans le cloud en déplaçant les anciennes copies instantanées vers la copie de sauvegarde de base.
+S'il existe des instantanés locaux pour les volumes qui correspondent à l'étiquette de planification de sauvegarde que vous utilisez dans ce système (par exemple, quotidien, hebdomadaire, etc.), vous pouvez exporter ces instantanés historiques vers le stockage d'objets en tant que fichiers de sauvegarde.  Cela vous permet d'initialiser vos sauvegardes dans le cloud en déplaçant les anciens instantanés dans la copie de sauvegarde de base.
 
 Notez que cette option s'applique uniquement aux nouveaux fichiers de sauvegarde pour les nouveaux volumes de lecture/écriture et qu'elle n'est pas prise en charge avec les volumes de protection des données (DP).
 
 .Étapes
 . Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.
 . Depuis la page _Paramètres de sauvegarde_, cliquez surimage:icon-actions-horizontal.gif["Plus d'icônes"] pour le système et sélectionnez *Paramètres avancés*.
-. Dans la page Paramètres avancés, développez la section *Exporter les copies d’instantanés existantes*.
-. Sélectionnez si vous souhaitez que les copies instantanées existantes soient exportées.
+. Dans la page Paramètres avancés, développez la section *Exporter les instantanés existants*.
+. Indiquez si vous souhaitez exporter les instantanés existants.
 . Sélectionnez *Appliquer*.
 
 
@@ -95,7 +95,7 @@ Notez que cette option s'applique uniquement aux nouveaux fichiers de sauvegarde
 
 == Modifier si les instantanés « annuels » sont supprimés du système source
 
-Lorsque vous sélectionnez l’étiquette de sauvegarde « annuelle » pour une politique de sauvegarde pour l’un de vos volumes, la copie instantanée créée est très volumineuse.  Par défaut, ces instantanés annuels sont supprimés automatiquement du système source après avoir été transférés vers le stockage d'objets.  Vous pouvez modifier ce comportement par défaut à partir de la section Suppression des instantanés annuels.
+Lorsque vous sélectionnez l'étiquette de sauvegarde « annuelle » pour une stratégie de sauvegarde de l'un de vos volumes, l'instantané créé est très volumineux. Par défaut, ces instantanés annuels sont supprimés automatiquement du système source après avoir été transférés vers le stockage d'objets. Vous pouvez modifier ce comportement par défaut à partir de la section Suppression des instantanés annuels.
 
 .Étapes
 . Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.
@@ -112,7 +112,7 @@ image:screenshot_backup_edit_yearly_snap_delete.png["Une capture d’écran de l
 
 == Activer ou désactiver les analyses de ransomware
 
-Les analyses de protection contre les ransomwares sont activées par défaut.  Le paramètre par défaut pour la fréquence d'analyse est de 7 jours.  L'analyse s'effectue uniquement sur la dernière copie instantanée.  Vous pouvez activer ou désactiver les analyses de ransomware sur la dernière copie instantanée en utilisant l'option sur la page Paramètres avancés.  Si vous l'activez, les analyses sont effectuées tous les 7 jours par défaut.
+Les analyses de protection contre les ransomwares sont activées par défaut. Le paramètre par défaut pour la fréquence d'analyse est de 7 jours. L'analyse s'effectue uniquement sur le dernier instantané. Vous pouvez activer ou désactiver les analyses de ransomware sur le dernier instantané en utilisant l'option disponible sur la page Paramètres avancés. Si vous l'activez, les analyses sont effectuées tous les 7 jours par défaut.
 
 Pour plus de détails sur les options DataLock et Ransomware Resilience, reportez-vous àlink:prev-ontap-policy-object-options.html["Options de résilience DataLock et Ransomware"] .
 
@@ -121,7 +121,7 @@ Vous pouvez modifier ce calendrier en jours ou en semaines ou le désactiver, ce
 
 TIP: L'activation des analyses de ransomware entraînera des frais supplémentaires en fonction du fournisseur de cloud.
 
-Les analyses de ransomware planifiées s'exécutent uniquement sur la dernière copie instantanée.
+Les analyses planifiées des logiciels de ransomware ne s'exécutent que sur le dernier instantané.
 
 Si les analyses de ransomware planifiées sont désactivées, vous pouvez toujours effectuer des analyses à la demande et l'analyse pendant une opération de restauration se produira toujours.
 

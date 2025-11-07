@@ -39,7 +39,7 @@ Vous pouvez accomplir les tâches suivantes liées à la gestion de votre invent
 ** Sauvegardez maintenant en démarrant une sauvegarde à la demande
 
 
-* Configurez le répertoire des journaux (depuis Inventaire > Hôtes).  Si vous souhaitez sauvegarder les journaux de vos hôtes de base de données dans l'instantané, configurez d'abord les journaux dans NetApp Backup and Recovery.  Pour plus de détails, reportez-vous àlink:br-start-setup.html["Configurer les paramètres de NetApp Backup and Recovery"] .
+* Configurez le répertoire des journaux (depuis *Inventaire* > *Hôtes*). Si vous souhaitez sauvegarder les journaux de vos hôtes de base de données dans l'instantané, configurez d'abord les journaux dans NetApp Backup and Recovery. Pour plus de détails, reportez-vous àlink:br-start-setup.html["Configurer les paramètres de NetApp Backup and Recovery"] .
 
 
 

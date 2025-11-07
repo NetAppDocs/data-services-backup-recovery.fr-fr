@@ -14,7 +14,7 @@ summary: Protégez vos charges de travail VMware avec NetApp NetApp Backup and R
 
 
 [role="lead"]
-Restaurez les charges de travail VMware à partir de copies instantanées, d'une sauvegarde de charge de travail répliquée sur un stockage secondaire ou de sauvegardes stockées dans un stockage d'objets à l'aide de NetApp Backup and Recovery.
+Restaurez les charges de travail VMware à partir d'instantanés, d'une sauvegarde de charge de travail répliquée sur un stockage secondaire ou de sauvegardes stockées dans un stockage objet à l'aide de NetApp Backup and Recovery.
 
 .Restaurer à partir de ces emplacements
 Vous pouvez restaurer des charges de travail à partir de différents emplacements de départ :

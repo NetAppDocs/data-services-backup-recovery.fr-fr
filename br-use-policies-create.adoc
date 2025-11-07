@@ -49,7 +49,7 @@ Vous pouvez atteindre les objectifs suivants liés aux politiques :
 
 == Créer une politique
 
-Vous pouvez créer des stratégies qui régissent vos snapshots locaux, vos réplications vers un stockage secondaire et vos sauvegardes vers un stockage d'objets.  Une partie de votre stratégie 3-2-1 consiste à créer une copie instantanée des instances, des bases de données, des applications ou des machines virtuelles sur le système de stockage *principal*.
+Vous pouvez créer des stratégies qui régissent vos snapshots locaux, vos réplications vers un stockage secondaire et vos sauvegardes vers un stockage d'objets. Une partie de votre stratégie 3-2-1 consiste à créer un instantané des instances, bases de données, applications ou machines virtuelles sur le système de stockage *principal*.
 
 *Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, administrateur de sauvegarde de sauvegarde et de récupération.  En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 

@@ -14,7 +14,7 @@ summary: 'Avec NetApp Backup and Recovery, restaurez un volume ONTAP entier à p
 
 
 [role="lead"]
-Les sauvegardes de vos données de volume ONTAP sont disponibles à partir des emplacements où vous avez créé des sauvegardes : copies instantanées, volumes répliqués et sauvegardes stockées dans le stockage d'objets.  Vous pouvez restaurer des données à partir d’un moment précis à partir de n’importe lequel de ces emplacements de sauvegarde.  Avec NetApp Backup and Recovery, restaurez un volume ONTAP entier à partir d'un fichier de sauvegarde ou, si vous avez seulement besoin de restaurer quelques fichiers, restaurez un dossier ou des fichiers individuels.
+Les sauvegardes de vos données de volume ONTAP sont disponibles aux emplacements où vous les avez créées : instantanés, volumes répliqués et sauvegardes stockées dans le stockage d’objets. Vous pouvez restaurer des données à partir d’un moment précis à partir de n’importe lequel de ces emplacements de sauvegarde. Avec NetApp Backup and Recovery, restaurez un volume ONTAP entier à partir d'un fichier de sauvegarde ou, si vous avez seulement besoin de restaurer quelques fichiers, restaurez un dossier ou des fichiers individuels.
 
 
 NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
@@ -30,7 +30,7 @@ Pour résumer, voici les flux valides que vous pouvez utiliser pour restaurer de
 
 * Fichier de sauvegarde -> volume restauré
 * Volume répliqué -> volume restauré
-* Copie instantanée -> volume restauré
+* Instantané -> volume restauré
 
 
 
@@ -87,7 +87,7 @@ Ce tableau fournit une liste d’opérations de restauration valides en fonction
 |  | *Restaurer le volume* | *Restaurer les fichiers* | *Restaurer le dossier* | *Restaurer le volume* | *Restaurer les fichiers* | *Restaurer le dossier* 
 
 
-| Copie instantanée | Oui | Non | Non | Oui | Oui | Oui 
+| Instantané | Oui | Non | Non | Oui | Oui | Oui 
 
 
 | Volume répliqué | Oui | Non | Non | Oui | Oui | Oui 
@@ -108,7 +108,7 @@ Consultez les exigences et les étapes de restauration pour le type d’opérati
 
 == Restaurer les données ONTAP à l'aide de Parcourir et restaurer
 
-Avant la restauration, notez le nom du volume source, le système source et le SVM, ainsi que la date du fichier de sauvegarde. Vous pouvez restaurer les données ONTAP à partir d'une copie Snapshot, d'un volume répliqué ou de sauvegardes stockées dans le stockage d'objets.
+Avant la restauration, notez le nom du volume source, le système source et le SVM, ainsi que la date du fichier de sauvegarde. Vous pouvez restaurer les données ONTAP à partir d'un instantané, d'un volume répliqué ou de sauvegardes stockées dans un stockage objet.
 
 
 NOTE: Si le fichier de sauvegarde que vous souhaitez restaurer se trouve dans un stockage cloud d'archivage (à partir d' ONTAP 9.10.1), l'opération de restauration prend plus de temps et engendre des coûts.  Le cluster de destination doit également exécuter ONTAP 9.10.1 ou supérieur pour la restauration de volumes, 9.11.1 pour la restauration de fichiers, 9.12.1 pour Google Archive et StorageGRID, et 9.13.1 pour la restauration de dossiers.
@@ -138,7 +138,7 @@ NOTE: La priorité élevée n’est pas prise en charge lors de la restauration 
 
 === Parcourir et restaurer les systèmes pris en charge et les fournisseurs de stockage d'objets
 
-Vous pouvez restaurer les données ONTAP à partir d'un fichier de sauvegarde résidant dans un système secondaire (un volume répliqué) ou dans un stockage d'objets (un fichier de sauvegarde) sur les systèmes suivants.  Les copies instantanées résident sur le système source et ne peuvent être restaurées que sur ce même système.
+Vous pouvez restaurer les données ONTAP à partir d'un fichier de sauvegarde résidant dans un système secondaire (un volume répliqué) ou dans un stockage d'objets (un fichier de sauvegarde) sur les systèmes suivants. Les instantanés résident sur le système source et ne peuvent être restaurés que sur ce même système.
 
 *Remarque :* vous pouvez restaurer un volume à partir de n’importe quel type de fichier de sauvegarde, mais vous ne pouvez restaurer un dossier ou des fichiers individuels qu’à partir d’un fichier de sauvegarde dans le stockage d’objets pour le moment.
 
@@ -213,7 +213,7 @@ Comme vous pouvez le voir, vous devrez connaître le nom du système source, la 
 . Dans la section _Parcourir et restaurer_, sélectionnez *Restaurer le volume*.
 . Dans la page _Sélectionner la source_, accédez au fichier de sauvegarde du volume que vous souhaitez restaurer.  Sélectionnez le *système*, le *volume* et le fichier de *sauvegarde* contenant l'horodatage à partir duquel vous souhaitez effectuer la restauration.
 +
-La colonne *Emplacement* indique si le fichier de sauvegarde (Snapshot) est *Local* (une copie Snapshot sur le système source), *Secondaire* (un volume répliqué sur un système ONTAP secondaire) ou *Object Storage* (un fichier de sauvegarde dans le stockage d'objets).  Choisissez le fichier que vous souhaitez restaurer.
+La colonne *Emplacement* indique si le fichier de sauvegarde (instantané) est *Local* (un instantané sur le système source), *Secondaire* (un volume répliqué sur un système ONTAP secondaire) ou *Stockage d'objets* (un fichier de sauvegarde dans le stockage d'objets). Choisissez le fichier que vous souhaitez restaurer.
 
 . Sélectionnez *Suivant*.
 +
@@ -300,7 +300,7 @@ Notez que la restauration d’un volume à partir d’un fichier de sauvegarde r
 Si vous devez restaurer uniquement quelques fichiers à partir d'une sauvegarde de volume ONTAP , vous pouvez choisir de restaurer un dossier ou des fichiers individuels au lieu de restaurer l'intégralité du volume.  Vous pouvez restaurer des dossiers et des fichiers sur un volume existant dans le système d'origine ou sur un autre système utilisant le même compte cloud.  Vous pouvez également restaurer des dossiers et des fichiers sur un volume sur un système ONTAP local.
 
 
-NOTE: Vous ne pouvez restaurer un dossier ou des fichiers individuels qu'à partir d'un fichier de sauvegarde dans le stockage d'objets à ce stade.  La restauration de fichiers et de dossiers n'est actuellement pas prise en charge à partir d'une copie instantanée locale ou d'un fichier de sauvegarde résidant dans un système secondaire (un volume répliqué).
+NOTE: Vous ne pouvez restaurer un dossier ou des fichiers individuels qu'à partir d'un fichier de sauvegarde dans le stockage d'objets à ce stade. La restauration de fichiers et de dossiers n'est actuellement pas prise en charge à partir d'un instantané local ou d'un fichier de sauvegarde situé sur un système secondaire (un volume répliqué).
 
 Si vous sélectionnez plusieurs fichiers, ils seront restaurés sur le même volume de destination.  Pour restaurer des fichiers sur différents volumes, exécutez le processus plusieurs fois.
 
@@ -431,7 +431,7 @@ Vous disposez de plusieurs options pour l'emplacement lors de la restauration de
 
 Vous pouvez restaurer un volume, un dossier ou des fichiers à partir d'un fichier de sauvegarde ONTAP à l'aide de la fonction Rechercher et restaurer.  La recherche et la restauration vous permettent de rechercher un volume, un dossier ou un fichier spécifique à partir de toutes les sauvegardes, puis d'effectuer une restauration.  Vous n'avez pas besoin de connaître le nom exact du système, le nom du volume ou le nom du fichier : la recherche examine tous les fichiers de sauvegarde de volume.
 
-L'opération de recherche examine toutes les copies de snapshots locaux qui existent pour vos volumes ONTAP , tous les volumes répliqués sur les systèmes de stockage secondaires et tous les fichiers de sauvegarde qui existent dans le stockage d'objets.  Étant donné que la restauration des données à partir d’une copie instantanée locale ou d’un volume répliqué peut être plus rapide et moins coûteuse que la restauration à partir d’un fichier de sauvegarde dans un stockage d’objets, vous souhaiterez peut-être restaurer les données à partir de ces autres emplacements.
+L'opération de recherche examine tous les instantanés locaux existants pour vos volumes ONTAP , tous les volumes répliqués sur les systèmes de stockage secondaires et tous les fichiers de sauvegarde existants dans le stockage d'objets.  Étant donné que la restauration de données à partir d'un instantané local ou d'un volume répliqué peut être plus rapide et moins coûteuse que la restauration à partir d'un fichier de sauvegarde dans un stockage objet, vous pourriez souhaiter restaurer les données à partir de ces autres emplacements.
 
 Lorsque vous restaurez un _volume complet_ à partir d'un fichier de sauvegarde, NetApp Backup and Recovery crée un _nouveau_ volume à l'aide des données de la sauvegarde.  Vous pouvez restaurer les données sous forme de volume dans le système d'origine, sur un autre système situé dans le même compte cloud que le système source ou sur un système ONTAP sur site.
 
@@ -474,7 +474,7 @@ Avant de commencer, vous devez avoir une idée du nom ou de l’emplacement du v
 
 === Systèmes pris en charge par la recherche et la restauration et fournisseurs de stockage d'objets
 
-Vous pouvez restaurer les données ONTAP à partir d'un fichier de sauvegarde résidant dans un système secondaire (un volume répliqué) ou dans un stockage d'objets (un fichier de sauvegarde) sur les systèmes suivants.  Les copies instantanées résident sur le système source et ne peuvent être restaurées que sur ce même système.
+Vous pouvez restaurer les données ONTAP à partir d'un fichier de sauvegarde résidant dans un système secondaire (un volume répliqué) ou dans un stockage d'objets (un fichier de sauvegarde) sur les systèmes suivants. Les instantanés résident sur le système source et ne peuvent être restaurés que sur ce même système.
 
 *Remarque :* vous pouvez restaurer des volumes et des fichiers à partir de n’importe quel type de fichier de sauvegarde, mais vous ne pouvez restaurer un dossier qu’à partir de fichiers de sauvegarde dans le stockage d’objets pour le moment.
 
@@ -538,7 +538,7 @@ Notez que les références aux « systèmes ONTAP sur site » incluent les sys
 ** La version ONTAP doit être 9.8 ou supérieure.
 ** La machine virtuelle de stockage (SVM) sur laquelle réside le volume doit avoir un LIF de données configuré.
 ** NFS doit être activé sur le volume (les volumes NFS et SMB/CIFS sont pris en charge).
-** Le serveur SnapDiff RPC doit être activé sur le SVM.  La console le fait automatiquement lorsque vous activez l’indexation sur le système.  (SnapDiff est la technologie qui identifie rapidement les différences de fichiers et de répertoires entre les copies Snapshot.)
+** Le serveur SnapDiff RPC doit être activé sur le SVM. La console le fait automatiquement lorsque vous activez l’indexation sur le système. (SnapDiff est la technologie qui identifie rapidement les différences entre les fichiers et les répertoires dans les instantanés.)
 
 
 
@@ -699,14 +699,14 @@ Après avoir<<enable-the-indexed-catalog-for-each-system,Activation de l'indexat
 +
 .. Dans la _barre de recherche_, saisissez un nom de volume, un nom de dossier ou un nom de fichier complet ou partiel.
 .. Sélectionnez le type de ressource : *Volumes*, *Fichiers*, *Dossiers* ou *Tous*.
-.. Dans la zone _Filtrer par_, sélectionnez les critères de filtre.  Par exemple, vous pouvez sélectionner le système sur lequel résident les données et le type de fichier, par exemple un fichier .JPEG.  Vous pouvez également sélectionner le type d'emplacement de sauvegarde si vous souhaitez rechercher des résultats uniquement dans les copies instantanées disponibles ou les fichiers de sauvegarde dans le stockage d'objets.
+.. Dans la zone _Filtrer par_, sélectionnez les critères de filtre. Par exemple, vous pouvez sélectionner le système sur lequel résident les données et le type de fichier, par exemple un fichier .JPEG. Vous pouvez également sélectionner le type d'emplacement de sauvegarde si vous souhaitez effectuer la recherche uniquement parmi les instantanés ou les fichiers de sauvegarde disponibles dans le stockage d'objets.
 
 
 . Sélectionnez *Rechercher* et la zone Résultats de la recherche affiche toutes les ressources qui ont un fichier, un dossier ou un volume correspondant à votre recherche.
 . Recherchez la ressource contenant les données que vous souhaitez restaurer et sélectionnez *Afficher toutes les sauvegardes* pour afficher tous les fichiers de sauvegarde contenant le volume, le dossier ou le fichier correspondant.
 . Localisez le fichier de sauvegarde que vous souhaitez utiliser pour restaurer les données et sélectionnez *Restaurer*.
 +
-Notez que les résultats identifient les copies instantanées du volume local et les volumes répliqués distants qui contiennent le fichier dans votre recherche.  Vous pouvez choisir de restaurer à partir du fichier de sauvegarde cloud, de la copie instantanée ou du volume répliqué.
+Notez que les résultats identifient les instantanés de volumes locaux et les volumes répliqués distants qui contiennent le fichier recherché.  Vous pouvez choisir de restaurer à partir du fichier de sauvegarde cloud, à partir de l'instantané ou à partir du volume répliqué.
 
 . Sélectionnez l'emplacement de destination où vous souhaitez que le volume, le dossier ou les fichiers soient restaurés et sélectionnez *Restaurer*.
 +

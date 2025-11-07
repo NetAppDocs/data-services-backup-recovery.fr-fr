@@ -69,7 +69,7 @@ Assurez-vous que le réseau sur lequel l’agent de console est installé permet
 
 * La fonctionnalité de NetApp Backup and Recovery est intégrée à l’agent de la console.  Lorsqu'il est installé en mode privé, vous devrez mettre à jour périodiquement le logiciel de l'agent de la console pour accéder aux nouvelles fonctionnalités.  Vérifiez lelink:whats-new.html["Nouveautés de NetApp Backup and Recovery"] pour voir les nouvelles fonctionnalités de chaque version de NetApp Backup and Recovery .  Lorsque vous souhaitez utiliser les nouvelles fonctionnalités, suivez les étapes pour https://docs.netapp.com/us-en/console-setup-admin/task-upgrade-connector.html["mettre à niveau le logiciel de l'agent de la console"^] .
 +
-La nouvelle version de NetApp Backup and Recovery qui inclut la possibilité de planifier et de créer des copies Snapshot et des volumes répliqués, en plus de créer des sauvegardes sur le stockage d'objets, nécessite que vous utilisiez la version 3.9.31 ou supérieure de l'agent de console.  Il est donc recommandé d'obtenir cette dernière version pour gérer toutes vos sauvegardes.
+La nouvelle version de NetApp Backup and Recovery , qui inclut la possibilité de planifier et de créer des instantanés et des volumes répliqués, en plus de créer des sauvegardes sur le stockage d'objets, nécessite que vous utilisiez la version 3.9.31 ou supérieure de l'agent Console. Il est donc recommandé d'obtenir cette dernière version pour gérer toutes vos sauvegardes.
 
 * Lorsque vous utilisez NetApp Backup and Recovery dans un environnement SaaS, les données de configuration de NetApp Backup and Recovery sont sauvegardées dans le cloud.  Lorsque vous utilisez NetApp Backup and Recovery sur un site sans accès Internet, les données de configuration de NetApp Backup and Recovery sont sauvegardées dans le bucket StorageGRID où vos sauvegardes sont stockées.
 
@@ -447,7 +447,7 @@ Si votre cluster utilise ONTAP 9.12.1 ou une version ultérieure et que votre sy
 +
 Sélectionnez ou créez un nouveau cluster StorageGRID .  Pour plus de détails sur la création d'un cluster StorageGRID afin que la console puisse le découvrir, reportez-vous à https://docs.netapp.com/us-en/storagegrid-117/["Documentation de StorageGRID"^] .
 
-** *Exporter des copies Snapshot existantes vers le stockage d'objets en tant que copies de sauvegarde* : s'il existe des copies snapshot locales pour les volumes de ce système qui correspondent à l'étiquette de planification de sauvegarde que vous venez de sélectionner pour ce système (par exemple, quotidienne, hebdomadaire, etc.), cette invite supplémentaire s'affiche.  Cochez cette case pour que tous les instantanés historiques soient copiés vers le stockage d'objets en tant que fichiers de sauvegarde afin de garantir la protection la plus complète pour vos volumes.
+** *Exporter les instantanés existants vers le stockage objet en tant que copies de sauvegarde* : Si des instantanés locaux de volumes de ce système correspondent à l’étiquette de planification de sauvegarde que vous venez de sélectionner pour ce système (par exemple, quotidien, hebdomadaire, etc.), cette invite supplémentaire s’affiche. Cochez cette case pour que tous les instantanés historiques soient copiés vers le stockage d'objets en tant que fichiers de sauvegarde afin de garantir la protection la plus complète pour vos volumes.
 
 
 . Sélectionnez *Suivant*.
@@ -466,7 +466,7 @@ C'est l'occasion de revoir vos sélections et de faire des ajustements, si néce
 
 
 .Résultat
-NetApp Backup and Recovery commence à effectuer les sauvegardes initiales de vos volumes.  Le transfert de base du volume répliqué et du fichier de sauvegarde inclut une copie complète des données sources.  Les transferts ultérieurs contiennent des copies différentielles des données de stockage principales contenues dans les copies Snapshot.
+NetApp Backup and Recovery commence à effectuer les sauvegardes initiales de vos volumes. Le transfert de base du volume répliqué et du fichier de sauvegarde inclut une copie complète des données sources. Les transferts suivants contiennent des copies différentielles des données de stockage primaire contenues dans les instantanés.
 
 Un volume répliqué est créé dans le cluster de destination qui sera synchronisé avec le volume de stockage principal.
 

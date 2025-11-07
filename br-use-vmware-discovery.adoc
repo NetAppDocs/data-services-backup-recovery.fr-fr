@@ -22,7 +22,7 @@ Le service NetApp Backup and Recovery doit d’abord détecter les banques de do
 
 == Découvrez les charges de travail VMware et importez éventuellement des ressources SnapCenter
 
-Lors de la découverte, NetApp Backup and Recovery analyse les charges de travail VMware au sein de votre organisation et évalue et importe les politiques de protection existantes, les copies instantanées et les options de sauvegarde et de restauration.
+Lors de la phase de découverte, NetApp Backup and Recovery analyse les charges de travail VMware au sein de votre organisation, évalue et importe les politiques de protection, les instantanés et les options de sauvegarde et de restauration existants.
 
 Vous pouvez importer des banques de données et des machines virtuelles VMware NFS et VMFS à partir de leur SnapCenter Plug-in for VMware vSphere dans l'inventaire NetApp Backup and Recovery .
 
@@ -36,7 +36,7 @@ Pendant le processus d’importation, NetApp Backup and Recovery effectue les t�
 * Prépare les métadonnées du vCenter et les marque comme non gérées dans la NetApp Console.
 * Configure l'accès à la base de données.
 * Découvre VMware vCenter, les banques de données et les machines virtuelles.
-* Importe les politiques de protection existantes, les copies instantanées et les options de sauvegarde et de restauration à partir du SnapCenter Plug-in for VMware vSphere.
+* Importe les politiques de protection, les instantanés et les options de sauvegarde et de restauration existants à partir du SnapCenter Plug-in for VMware vSphere.
 * Affiche les ressources découvertes dans la page Inventaire de NetApp Backup and Recovery .
 
 
@@ -156,3 +156,14 @@ Une fois que vous avez choisi de gérer les ressources, les ressources, les mach
 
 .Résultat
 La page Inventaire affiche les ressources vCenter nouvellement gérées.
+
+
+
+==== Accéder au tableau de bord de NetApp Backup and Recovery
+
+. Pour afficher le tableau de bord, dans le menu Sauvegarde et restauration, sélectionnez *Tableau de bord*.
+. Examiner l’état de santé de la protection des données.  Le nombre de charges de travail à risque ou protégées augmente en fonction des charges de travail nouvellement découvertes, protégées et sauvegardées.
++
+link:br-use-dashboard.html["Découvrez ce que le tableau de bord vous montre"].
+
+

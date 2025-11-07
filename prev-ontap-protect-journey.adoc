@@ -21,7 +21,7 @@ NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Reco
 
 Nous passerons en revue les options suivantes :
 
-* Quelles fonctionnalités de protection utiliserez-vous : copies instantanées, volumes répliqués et/ou sauvegarde dans le cloud ?
+* Quelles fonctionnalités de protection utiliserez-vous : instantanés, volumes répliqués et/ou sauvegarde dans le cloud ?
 * Quelle architecture de sauvegarde utiliserez-vous : une sauvegarde en cascade ou en éventail de vos volumes ?
 * Allez-vous utiliser les politiques de sauvegarde par défaut ou devez-vous créer des politiques personnalisées ?
 * Voulez-vous que le service crée les buckets cloud pour vous ou souhaitez-vous créer vos conteneurs de stockage d'objets avant de commencer ?
@@ -39,7 +39,7 @@ Avant de sélectionner les fonctionnalités que vous utiliserez, voici une expli
 | Type de sauvegarde | Description 
 
 
-| Instantané | Crée une image en lecture seule, à un instant T, d'un volume dans le volume source sous forme de copie instantanée.  Vous pouvez utiliser la copie instantanée pour récupérer des fichiers individuels ou pour restaurer l'intégralité du contenu d'un volume. 
+| Instantané | Crée une image en lecture seule et à un instant donné d'un volume au sein du volume source, sous forme d'instantané.  Vous pouvez utiliser l'instantané pour récupérer des fichiers individuels ou pour restaurer l'intégralité du contenu d'un volume. 
 
 
 | Réplication | Crée une copie secondaire de vos données sur un autre système de stockage ONTAP et met à jour en permanence les données secondaires.  Vos données sont maintenues à jour et restent disponibles à chaque fois que vous en avez besoin. 
@@ -47,17 +47,17 @@ Avant de sélectionner les fonctionnalités que vous utiliserez, voici une expli
 
 | Sauvegarde dans le cloud | Crée des sauvegardes de vos données dans le cloud à des fins de protection et d'archivage à long terme.  Si nécessaire, vous pouvez restaurer un volume, un dossier ou des fichiers individuels à partir de la sauvegarde sur le même système ou sur un système différent. 
 |===
-Les instantanés sont la base de toutes les méthodes de sauvegarde et sont nécessaires pour utiliser le service de sauvegarde et de récupération.  Une copie instantanée est une image en lecture seule, à un instant T, d'un volume.  L'image consomme un espace de stockage minimal et entraîne une surcharge de performances négligeable, car elle enregistre uniquement les modifications apportées aux fichiers depuis la dernière copie instantanée.  La copie instantanée créée sur votre volume est utilisée pour maintenir le volume répliqué et le fichier de sauvegarde synchronisés avec les modifications apportées au volume source, comme illustré dans la figure.
+Les instantanés sont la base de toutes les méthodes de sauvegarde et sont nécessaires pour utiliser le service de sauvegarde et de récupération. Un instantané est une image en lecture seule, à un instant T, d'un volume. L'image consomme un espace de stockage minimal et n'entraîne qu'une surcharge de performance négligeable, car elle n'enregistre que les modifications apportées aux fichiers depuis la dernière capture d'écran.  L'instantané créé sur votre volume est utilisé pour maintenir la synchronisation entre le volume répliqué et le fichier de sauvegarde avec les modifications apportées au volume source, comme illustré sur la figure.
 
-image:diagram-321-overview.png["Un diagramme montrant comment les fichiers de sauvegarde existent sur le système source sous forme de copies instantanées, sous forme de volumes répliqués sur le système de stockage secondaire et sous forme de fichiers de sauvegarde dans le stockage d'objets."]
+image:diagram-321-overview.png["Un diagramme montrant comment les fichiers de sauvegarde existent sur le système source sous forme d'instantanés, sous forme de volumes répliqués sur le système de stockage secondaire et sous forme de fichiers de sauvegarde dans le stockage objet."]
 
 Vous pouvez choisir de créer à la fois des volumes répliqués sur un autre système de stockage ONTAP et des fichiers de sauvegarde dans le cloud.  Ou vous pouvez choisir simplement de créer des volumes répliqués ou des fichiers de sauvegarde : c'est votre choix.
 
 Pour résumer, voici les flux de protection valides que vous pouvez créer pour les volumes de votre système ONTAP :
 
-* Volume source -> Copie instantanée -> Volume répliqué -> Fichier de sauvegarde
-* Volume source -> Copie instantanée -> Fichier de sauvegarde
-* Volume source -> Copie instantanée -> Volume répliqué
+* Volume source -> Instantané -> Volume répliqué -> Fichier de sauvegarde
+* Volume source -> Instantané -> Fichier de sauvegarde
+* Volume source -> Instantané -> Volume répliqué
 
 
 
@@ -88,13 +88,13 @@ En plus de ces critères, le stockage cloud offre des options de sécurité supp
 
 Lors de la création de volumes répliqués et de fichiers de sauvegarde, vous pouvez choisir une architecture en éventail ou en cascade pour sauvegarder vos volumes.
 
-Une architecture *fan-out* transfère la copie instantanée indépendamment vers le système de stockage de destination et l'objet de sauvegarde dans le cloud.
+Une architecture *en éventail* transfère l'instantané indépendamment vers le système de stockage de destination et l'objet de sauvegarde dans le cloud.
 
-image:diagram-321-fanout-detailed.png["Un diagramme montrant comment une copie instantanée d'un volume est utilisée pour créer et mettre à jour un volume répliqué et un fichier de sauvegarde."]
+image:diagram-321-fanout-detailed.png["Un schéma illustrant comment un instantané d'un volume est utilisé pour créer et mettre à jour un volume répliqué et un fichier de sauvegarde."]
 
-Une architecture *en cascade* transfère d'abord la copie instantanée vers le système de stockage de destination, puis ce système transfère la copie vers l'objet de sauvegarde dans le cloud.
+Une architecture en cascade transfère d'abord l'instantané vers le système de stockage de destination, puis ce système transfère la copie vers l'objet de sauvegarde dans le cloud.
 
-image:diagram-321-cascade-detailed.png["Un diagramme montrant comment une copie instantanée d'un volume est utilisée pour créer et mettre à jour un volume répliqué et un fichier de sauvegarde."]
+image:diagram-321-cascade-detailed.png["Un schéma illustrant comment un instantané d'un volume est utilisé pour créer et mettre à jour un volume répliqué et un fichier de sauvegarde."]
 
 *Comparaison des différents choix d'architecture*
 
@@ -105,7 +105,7 @@ Ce tableau fournit une comparaison des architectures en éventail et en cascade.
 | Fan-out | Cascade 
 
 
-| Faible impact sur les performances du système source car il envoie des copies instantanées à 2 systèmes distincts | Moins d'effet sur les performances du système de stockage source car il envoie la copie instantanée une seule fois 
+| Faible impact sur les performances du système source car il envoie des instantanés à 2 systèmes distincts | L'impact sur les performances du système de stockage source est moindre car l'instantané n'est envoyé qu'une seule fois. 
 
 
 | Plus facile à configurer car toutes les politiques, la mise en réseau et les configurations ONTAP sont effectuées sur le système source | Nécessite également que certaines configurations réseau et ONTAP soient effectuées à partir du système secondaire. 
@@ -116,9 +116,9 @@ Ce tableau fournit une comparaison des architectures en éventail et en cascade.
 
 Vous pouvez utiliser les politiques par défaut fournies par NetApp pour créer vos sauvegardes, ou vous pouvez créer des politiques personnalisées.  Lorsque vous utilisez l'assistant d'activation pour activer le service de sauvegarde et de récupération pour vos volumes, vous pouvez sélectionner parmi les stratégies par défaut et toutes les autres stratégies déjà existantes dans le système (Cloud Volumes ONTAP ou système ONTAP sur site).  Si vous souhaitez utiliser une politique différente de celles existantes, vous pouvez créer la politique avant de démarrer ou pendant l'utilisation de l'assistant d'activation.
 
-* La stratégie de capture instantanée par défaut crée des copies de capture instantanée horaires, quotidiennes et hebdomadaires, en conservant 6 copies de capture instantanée horaires, 2 copies de capture instantanée quotidiennes et 2 copies de capture instantanée hebdomadaires.
-* La politique de réplication par défaut réplique des copies instantanées quotidiennes et hebdomadaires, en conservant 7 copies instantanées quotidiennes et 52 copies instantanées hebdomadaires.
-* La politique de sauvegarde par défaut réplique des copies instantanées quotidiennes et hebdomadaires, en conservant 7 copies instantanées quotidiennes et 52 copies instantanées hebdomadaires.
+* La politique de capture d'instantanés par défaut crée des instantanés horaires, quotidiens et hebdomadaires, en conservant 6 instantanés horaires, 2 quotidiens et 2 hebdomadaires.
+* La politique de réplication par défaut réplique les instantanés quotidiens et hebdomadaires, en conservant 7 instantanés quotidiens et 52 instantanés hebdomadaires.
+* La politique de sauvegarde par défaut réplique les instantanés quotidiens et hebdomadaires, en conservant 7 instantanés quotidiens et 52 instantanés hebdomadaires.
 
 
 Si vous créez des stratégies personnalisées pour la réplication ou la sauvegarde, les étiquettes de stratégie (par exemple, « quotidienne » ou « hebdomadaire ») doivent correspondre aux étiquettes qui existent dans vos stratégies de snapshot, sinon les volumes répliqués et les fichiers de sauvegarde ne seront pas créés.

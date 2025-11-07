@@ -24,7 +24,7 @@ NetApp Backup and Recovery doit d’abord découvrir les charges de travail Micr
 
 Lors de la découverte, NetApp Backup and Recovery analyse les instances et les bases de données Microsoft SQL Server dans les systèmes de votre organisation.
 
-NetApp Backup and Recovery évalue les applications Microsoft SQL Server.  Le service évalue le niveau de protection existant, y compris les politiques de protection de sauvegarde actuelles, les copies instantanées et les options de sauvegarde et de récupération.
+NetApp Backup and Recovery évalue les applications Microsoft SQL Server. Ce service évalue le niveau de protection existant, y compris les politiques de protection des sauvegardes, les instantanés et les options de sauvegarde et de restauration en vigueur.
 
 La découverte se déroule de la manière suivante :
 
@@ -59,7 +59,7 @@ Il s’agit d’un processus en deux parties :
 
 ==== Importer l'application SnapCenter Server et les ressources de l'hôte
 
-Cette première étape importe les ressources de l’hôte depuis SnapCenter et affiche ces ressources dans la page Inventaire de NetApp Backup and Recovery .  À ce stade, les ressources ne sont pas encore gérées par NetApp Backup and Recovery.
+Cette première étape importe les ressources de l'hôte depuis SnapCenter et affiche ces ressources sur la page d'inventaire de NetApp Backup and Recovery . À ce stade, les ressources ne sont pas encore gérées par NetApp Backup and Recovery.
 
 
 TIP: Une fois les ressources de l'hôte SnapCenter importées, NetApp Backup and Recovery ne prend pas automatiquement en charge la gestion de la protection.  Pour ce faire, vous devez choisir explicitement de gérer les ressources importées dans NetApp Backup and Recovery.  Cela garantit que vous êtes prêt à ce que ces ressources soient sauvegardées par NetApp Backup and Recovery.

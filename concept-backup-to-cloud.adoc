@@ -123,7 +123,7 @@ Il existe deux types de coûts associés à l'utilisation de la fonctionnalité 
 * Frais de service
 
 
-La création de copies instantanées ou de volumes répliqués est gratuite, à l'exception de l'espace disque requis pour stocker les copies instantanées et les volumes répliqués.
+La création d'instantanés ou de volumes répliqués est gratuite, hormis l'espace disque nécessaire à leur stockage.
 
 *Frais de ressources*
 
@@ -193,7 +193,7 @@ NetApp Backup and Recovery est disponible avec les modèles de consommation suiv
 * *Annuel* : Un contrat annuel de la place de marché de votre fournisseur de cloud.
 
 
-Une licence de sauvegarde est requise uniquement pour la sauvegarde et la restauration à partir du stockage d'objets.  La création de copies instantanées et de volumes répliqués ne nécessite pas de licence.
+Une licence de sauvegarde est requise uniquement pour la sauvegarde et la restauration à partir du stockage d'objets. La création d'instantanés et de volumes répliqués ne nécessite pas de licence.
 
 *Apportez votre propre permis*
 

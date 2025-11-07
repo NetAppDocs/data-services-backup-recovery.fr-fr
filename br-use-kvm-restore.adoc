@@ -14,7 +14,7 @@ summary: Protégez vos charges de travail KVM avec NetApp Backup and Recovery.
 
 
 [role="lead"]
-Restaurez des machines virtuelles KVM à partir de copies instantanées, d'une sauvegarde de groupe de protection répliquée sur un stockage secondaire ou de sauvegardes stockées dans un stockage d'objets à l'aide de NetApp Backup and Recovery.
+Restaurez des machines virtuelles KVM à partir d'instantanés, d'une sauvegarde de groupe de protection répliquée sur un stockage secondaire ou de sauvegardes stockées dans un stockage objet à l'aide de NetApp Backup and Recovery.
 
 .Restaurer à partir de ces emplacements
 Vous pouvez restaurer des machines virtuelles à partir de différents emplacements de départ :

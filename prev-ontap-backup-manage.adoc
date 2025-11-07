@@ -14,7 +14,7 @@ summary: Avec NetApp Backup and Recovery, gérez les sauvegardes de vos système
 
 
 [role="lead"]
-Avec NetApp Backup and Recovery, gérez les sauvegardes de vos systèmes Cloud Volumes ONTAP et ONTAP sur site en modifiant la planification de sauvegarde, en activant/désactivant les sauvegardes de volume, en suspendant les sauvegardes, en supprimant les sauvegardes, en forçant la suppression des sauvegardes, etc. Cela inclut tous les types de sauvegardes, y compris les copies instantanées, les volumes répliqués et les fichiers de sauvegarde dans le stockage d'objets.  Vous pouvez également désinscrire NetApp Backup and Recovery.
+Avec NetApp Backup and Recovery, gérez les sauvegardes de vos systèmes Cloud Volumes ONTAP et ONTAP sur site en modifiant la planification de sauvegarde, en activant/désactivant les sauvegardes de volume, en suspendant les sauvegardes, en supprimant les sauvegardes, en forçant la suppression des sauvegardes, etc. Cela inclut tous les types de sauvegardes, y compris les instantanés, les volumes répliqués et les fichiers de sauvegarde stockés dans des objets. Vous pouvez également désinscrire NetApp Backup and Recovery.
 
 
 CAUTION: Ne gérez pas et ne modifiez pas les fichiers de sauvegarde directement sur vos systèmes de stockage ou depuis l'environnement de votre fournisseur de cloud.  Cela peut corrompre les fichiers et entraîner une configuration non prise en charge.
@@ -26,7 +26,7 @@ NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Reco
 
 == Afficher l'état de sauvegarde des volumes de vos systèmes
 
-Vous pouvez afficher une liste de tous les volumes en cours de sauvegarde dans le tableau de bord de sauvegarde des volumes. Cela inclut tous les types de sauvegardes, y compris les copies instantanées, les volumes répliqués et les fichiers de sauvegarde dans le stockage d'objets.  Vous pouvez également afficher les volumes des systèmes qui ne sont pas actuellement sauvegardés.
+Vous pouvez afficher une liste de tous les volumes en cours de sauvegarde dans le tableau de bord de sauvegarde des volumes. Cela inclut tous les types de sauvegardes, y compris les instantanés, les volumes répliqués et les fichiers de sauvegarde stockés dans des objets. Vous pouvez également afficher les volumes des systèmes qui ne sont pas actuellement sauvegardés.
 
 .Étapes
 . Dans le menu de la console, sélectionnez *Protection > Sauvegarde et récupération*.
@@ -35,7 +35,7 @@ Vous pouvez afficher une liste de tous les volumes en cours de sauvegarde dans l
 +
 Pour afficher des colonnes supplémentaires (agrégats, style de sécurité (Windows ou UNIX), politique de snapshot, politique de réplication et politique de sauvegarde), sélectionnez le signe plus.
 
-. Vérifiez l’état des options de protection dans la colonne « Protection existante ».  Les 3 icônes représentent « Copies de snapshots locaux », « Volumes répliqués » et « Sauvegardes dans le stockage d'objets ».
+. Vérifiez l’état des options de protection dans la colonne « Protection existante ». Les 3 icônes représentent « Instantanés locaux », « Volumes répliqués » et « Sauvegardes dans le stockage d'objets ».
 +
 Chaque icône est bleue lorsque ce type de sauvegarde est activé et elle est grise lorsque le type de sauvegarde est inactif.  Vous pouvez passer votre curseur sur chaque icône pour voir la politique de sauvegarde utilisée et d'autres informations pertinentes pour chaque type de sauvegarde.
 
@@ -49,7 +49,7 @@ Si vous avez activé la sauvegarde uniquement sur certains volumes d'un système
 
 .Étapes
 . Depuis l'onglet *Volumes*, identifiez le volume sur lequel vous souhaitez activer les sauvegardes, sélectionnez le menu Actionsimage:icon-action.png["Icône Actions"] à la fin de la ligne, puis sélectionnez *Activer la sauvegarde*.
-. Dans la page _Définir la stratégie de sauvegarde_, sélectionnez l'architecture de sauvegarde, puis définissez les politiques et autres détails pour les copies de snapshots locaux, les volumes répliqués et les fichiers de sauvegarde.  Consultez les détails des options de sauvegarde des volumes initiaux que vous avez activés dans ce système. Sélectionnez ensuite *Suivant*.
+. Sur la page _Définir la stratégie de sauvegarde_, sélectionnez l'architecture de sauvegarde, puis définissez les politiques et autres détails pour les instantanés locaux, les volumes répliqués et les fichiers de sauvegarde. Consultez les détails des options de sauvegarde des volumes initiaux que vous avez activés dans ce système. Sélectionnez ensuite *Suivant*.
 . Vérifiez les paramètres de sauvegarde de ce volume, puis sélectionnez *Activer la sauvegarde*.
 
 
@@ -57,7 +57,7 @@ Si vous avez activé la sauvegarde uniquement sur certains volumes d'un système
 
 == Modifier les paramètres de sauvegarde attribués aux volumes existants
 
-Vous pouvez modifier les politiques de sauvegarde attribuées à vos volumes existants auxquels des politiques sont attribuées.  Vous pouvez modifier les politiques de vos copies instantanées locales, de vos volumes répliqués et de vos fichiers de sauvegarde.  Toute nouvelle stratégie de snapshot, de réplication ou de sauvegarde que vous souhaitez appliquer aux volumes doit déjà exister.
+Vous pouvez modifier les politiques de sauvegarde attribuées à vos volumes existants auxquels des politiques sont attribuées. Vous pouvez modifier les stratégies appliquées à vos instantanés locaux, à vos volumes répliqués et à vos fichiers de sauvegarde. Toute nouvelle stratégie de snapshot, de réplication ou de sauvegarde que vous souhaitez appliquer aux volumes doit déjà exister.
 
 
 
@@ -65,7 +65,7 @@ Vous pouvez modifier les politiques de sauvegarde attribuées à vos volumes exi
 
 .Étapes
 . Dans l'onglet *Volumes*, identifiez le volume pour lequel vous souhaitez modifier la stratégie, sélectionnez le menu Actionsimage:icon-action.png["Icône Actions"] à la fin de la ligne et sélectionnez *Modifier la stratégie de sauvegarde*.
-. Dans la page _Modifier la stratégie de sauvegarde_, apportez des modifications aux stratégies de sauvegarde existantes pour les copies de snapshots locaux, les volumes répliqués et les fichiers de sauvegarde, puis sélectionnez *Suivant*.
+. Sur la page _Modifier la stratégie de sauvegarde_, apportez des modifications aux politiques de sauvegarde existantes pour les instantanés locaux, les volumes répliqués et les fichiers de sauvegarde, puis sélectionnez *Suivant*.
 +
 Si vous avez activé _DataLock et Ransomware Resilience_ pour les sauvegardes cloud dans la stratégie de sauvegarde initiale lors de l'activation de NetApp Backup and Recovery pour ce cluster, vous ne verrez que les autres stratégies qui ont été configurées avec DataLock.  Et si vous n'avez pas activé _DataLock et Ransomware Resilience_ lors de l'activation de NetApp Backup and Recovery, vous ne verrez que d'autres stratégies de sauvegarde cloud pour lesquelles DataLock n'est pas configuré.
 
@@ -108,7 +108,7 @@ Lorsque plus de cinq volumes sont activés pour la sauvegarde, NetApp Backup and
 
 | Gérez plusieurs types de paramètres de sauvegarde.  Cette option vous permet également de modifier l’architecture de sauvegarde. | *Gérer la sauvegarde et la récupération* 
 |===
-. Dans la page de sauvegarde qui s'affiche, modifiez les stratégies de sauvegarde existantes pour les copies d'instantanés locaux, les volumes répliqués ou les fichiers de sauvegarde et sélectionnez *Enregistrer*.
+. Sur la page de sauvegarde qui apparaît, modifiez les politiques de sauvegarde existantes pour les instantanés locaux, les volumes répliqués ou les fichiers de sauvegarde, puis sélectionnez *Enregistrer*.
 +
 Si vous avez activé _DataLock et Ransomware Resilience_ pour les sauvegardes cloud dans la stratégie de sauvegarde initiale lors de l'activation de NetApp Backup and Recovery pour ce cluster, vous ne verrez que les autres stratégies qui ont été configurées avec DataLock.  Et si vous n'avez pas activé _DataLock et Ransomware Resilience_ lors de l'activation de NetApp Backup and Recovery, vous ne verrez que d'autres stratégies de sauvegarde cloud pour lesquelles DataLock n'est pas configuré.
 
@@ -120,7 +120,7 @@ Si vous avez activé _DataLock et Ransomware Resilience_ pour les sauvegardes cl
 
 Vous pouvez créer une sauvegarde à la demande à tout moment pour capturer l’état actuel du volume.  Cela peut être utile si des modifications très importantes ont été apportées à un volume et que vous ne souhaitez pas attendre la prochaine sauvegarde planifiée pour protéger ces données.  Vous pouvez également utiliser cette fonctionnalité pour créer une sauvegarde pour un volume qui n'est pas actuellement en cours de sauvegarde et dont vous souhaitez capturer l'état actuel.
 
-Vous pouvez créer une copie instantanée ad hoc ou une sauvegarde sur un objet d'un volume.  Vous ne pouvez pas créer un volume répliqué ad hoc.
+Vous pouvez créer un instantané ad hoc ou une sauvegarde d'un volume. Vous ne pouvez pas créer un volume répliqué ad hoc.
 
 Le nom de la sauvegarde inclut l’horodatage afin que vous puissiez identifier votre sauvegarde à la demande parmi d’autres sauvegardes planifiées.
 
@@ -146,7 +146,7 @@ Vous pouvez afficher la liste de tous les fichiers de sauvegarde existants pour 
 .Étapes
 . Dans l'onglet *Volumes*, sélectionnezimage:icon-actions-horizontal.gif["Icône Actions"] pour le volume source et sélectionnez *Afficher les détails du volume*.
 +
-Les détails du volume et la liste des copies instantanées sont affichés.
+Les détails du volume et la liste des instantanés sont affichés.
 
 . Sélectionnez *Snapshot*, *Réplication* ou *Sauvegarde* pour voir la liste de tous les fichiers de sauvegarde pour chaque type de sauvegarde.
 
@@ -195,7 +195,7 @@ Le tableau suivant décrit les actions disponibles :
 | Mettre à jour la réplication | Démarre un transfert incrémentiel pour mettre à jour le volume de destination à synchroniser avec le volume source. 
 
 
-| Suspendre la réplication | Suspendez le transfert incrémentiel des copies Snapshot pour mettre à jour le volume de destination.  Vous pouvez reprendre plus tard si vous souhaitez redémarrer les mises à jour incrémentielles. 
+| Suspendre la réplication | Interrompez le transfert incrémentiel des instantanés pour mettre à jour le volume de destination. Vous pouvez reprendre plus tard si vous souhaitez redémarrer les mises à jour incrémentielles. 
 
 
 | Interrompre la réplication | Rompt la relation entre les volumes source et de destination et active le volume de destination pour l'accès aux données - le rend en lecture-écriture.  Cette option est généralement utilisée lorsque le volume source ne peut pas fournir de données en raison d'événements tels qu'une corruption de données, une suppression accidentelle ou un état hors ligne.https://docs.netapp.com/us-en/ontap-sm-classic/volume-disaster-recovery/index.html["Découvrez comment configurer un volume de destination pour l'accès aux données et réactiver un volume source dans la documentation ONTAP"^] 
@@ -319,7 +319,7 @@ CAUTION: Si vous prévoyez de supprimer un système ou un cluster contenant des 
 
 La suppression de toutes les sauvegardes sur le stockage d’objets d’un système ne désactive pas les futures sauvegardes des volumes de ce système.  Si vous souhaitez arrêter de créer des sauvegardes de tous les volumes d'un système, vous pouvez désactiver les sauvegardes<<Désactiver NetApp Backup and Recovery pour un système,comme décrit ici>> .
 
-Notez que cette action n’affecte pas les copies instantanées ou les volumes répliqués : ces types de fichiers de sauvegarde ne sont pas supprimés.
+Notez que cette action n'affecte pas les instantanés ni les volumes répliqués ; ces types de fichiers de sauvegarde ne sont pas supprimés.
 
 .Étapes
 . Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.
@@ -366,14 +366,14 @@ CAUTION: Utilisez cette option avec précaution et uniquement en cas de besoins 
 
 === Supprimer un seul fichier de sauvegarde pour un volume
 
-Vous pouvez supprimer un seul fichier de sauvegarde si vous n'en avez plus besoin.  Cela inclut la suppression d'une seule sauvegarde d'une copie instantanée de volume ou d'une sauvegarde dans le stockage d'objets.
+Vous pouvez supprimer un seul fichier de sauvegarde si vous n'en avez plus besoin. Cela inclut la suppression d'une seule sauvegarde d'un instantané de volume ou d'une sauvegarde dans un stockage d'objets.
 
 Vous ne pouvez pas supprimer les volumes répliqués (volumes de protection des données).
 
 .Étapes
 . Dans l'onglet *Volumes*, sélectionnezimage:icon-actions-horizontal.gif["Plus d'icônes"] pour le volume source et sélectionnez *Afficher les détails du volume*.
 +
-Les détails du volume sont affichés et vous pouvez sélectionner *Snapshot*, *Réplication* ou *Sauvegarde* pour voir la liste de tous les fichiers de sauvegarde du volume.  Par défaut, les copies instantanées disponibles sont affichées.
+Les détails du volume sont affichés et vous pouvez sélectionner *Snapshot*, *Réplication* ou *Sauvegarde* pour voir la liste de tous les fichiers de sauvegarde du volume. Par défaut, les instantanés disponibles sont affichés.
 
 . Sélectionnez *Instantané* ou *Sauvegarde* pour voir le type de fichiers de sauvegarde que vous souhaitez supprimer.
 . Sélectionnerimage:icon-actions-horizontal.gif["Icône Actions"] pour le fichier de sauvegarde du volume que vous souhaitez supprimer et sélectionnez *Supprimer*.

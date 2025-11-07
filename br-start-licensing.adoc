@@ -75,19 +75,9 @@ https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-lic
 
 Utilisez ces liens pour vous abonner à NetApp Backup and Recovery depuis la place de marché de votre fournisseur de cloud :
 
-ifdef::aws[]
-
-* AWS : https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4["Accédez à l'offre Marketplace pour les NetApp Intelligent Services pour connaître les détails des tarifs."^] . endif::aws[]
-
-
-ifdef::azure[]
-
-* Azuré: https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["Accédez à l'offre Marketplace pour les NetApp Intelligent Services pour connaître les détails des tarifs."^] . endif::azure[]
-
-
-ifdef::gcp[]
-
-* Google Cloud : https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project["Accédez à l'offre Marketplace pour les NetApp Intelligent Services pour connaître les détails des tarifs."^] . endif::gcp[]
+* AWS : https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4["Accédez à l'offre Marketplace pour les NetApp Intelligent Services pour connaître les détails des tarifs."^] .
+* Azuré: https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["Accédez à l'offre Marketplace pour les NetApp Intelligent Services pour connaître les détails des tarifs."^] .
+* Google Cloud : https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project["Accédez à l'offre Marketplace pour les NetApp Intelligent Services pour connaître les détails des tarifs."^] .
 
 
 
@@ -97,8 +87,6 @@ ifdef::gcp[]
 Payez NetApp Backup and Recovery annuellement en achetant un contrat annuel.  Ils sont disponibles pour des durées de 1, 2 ou 3 ans.
 
 Si vous disposez d'un contrat annuel auprès d'une place de marché, toute consommation de NetApp Backup and Recovery est facturée sur ce contrat.  Vous ne pouvez pas combiner un contrat de marché annuel avec un BYOL.
-
-ifdef::aws[]
 
 Lorsque vous utilisez AWS, deux contrats annuels sont disponibles auprès du https://aws.amazon.com/marketplace/pp/prodview-q7dg6zwszplri["Page AWS Marketplace"^] pour les systèmes Cloud Volumes ONTAP et ONTAP sur site :
 

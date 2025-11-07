@@ -81,7 +81,7 @@ Lorsque vous utilisez NetApp Backup and Recovery dans un environnement SaaS stan
 
 == Vérifier les exigences de licence
 
-Avant de pouvoir activer NetApp Backup and Recovery pour votre cluster, vous devez acheter et activer une licence BYOL NetApp Backup and Recovery auprès de NetApp.  La licence est destinée à la sauvegarde et à la restauration sur le stockage d'objets - aucune licence n'est nécessaire pour créer des copies Snapshot ou des volumes répliqués.  Cette licence est destinée au compte et peut être utilisée sur plusieurs systèmes.
+Avant de pouvoir activer NetApp Backup and Recovery pour votre cluster, vous devez acheter et activer une licence BYOL NetApp Backup and Recovery auprès de NetApp. La licence concerne la sauvegarde et la restauration sur stockage objet ; aucune licence n’est nécessaire pour créer des instantanés ou des volumes répliqués. Cette licence est destinée au compte et peut être utilisée sur plusieurs systèmes.
 
 Vous aurez besoin du numéro de série de NetApp qui vous permet d'utiliser le service pendant la durée et la capacité de la licence. link:br-start-licensing.html["Apprenez à gérer vos licences BYOL"] .
 
@@ -213,7 +213,8 @@ Ces clés d’accès doivent être associées à un utilisateur disposant des au
 "s3:GetObject",
 "s3:PutObject",
 "s3:DeleteObject",
-"s3:CreateBucket"
+"s3:CreateBucket",
+"s3:GetBucketLocation"
 ----
 --
 
@@ -299,7 +300,7 @@ La définition de la stratégie de sauvegarde implique la configuration des opti
 .Étapes
 . Dans la page Définir la stratégie de sauvegarde, choisissez une ou toutes les options suivantes.  Les trois sont sélectionnés par défaut :
 +
-** *Instantanés locaux* : crée des copies d'instantanés locaux.
+** *Instantanés locaux* : Crée des instantanés locaux.
 ** *Réplication* : crée des volumes répliqués sur un autre système de stockage ONTAP .
 ** *Sauvegarde* : sauvegarde les volumes dans un bucket sur un système ONTAP configuré pour S3.
 
@@ -380,7 +381,7 @@ Pour créer une politique, sélectionnez *Créer une nouvelle politique* et proc
 
 
 +
-** *Exporter des copies Snapshot existantes vers le stockage d'objets en tant que fichiers de sauvegarde* : s'il existe des copies snapshot locales pour les volumes de ce système qui correspondent à l'étiquette de planification de sauvegarde que vous venez de sélectionner (par exemple, quotidienne, hebdomadaire, etc.), cette invite supplémentaire s'affiche.  Cochez cette case pour que tous les instantanés historiques soient copiés vers le stockage d'objets en tant que fichiers de sauvegarde afin de garantir la protection la plus complète pour vos volumes.
+** *Exporter les instantanés existants vers le stockage objet en tant que fichiers de sauvegarde* : Si des instantanés locaux de volumes de ce système correspondent à l’étiquette de planification de sauvegarde que vous venez de sélectionner (par exemple, quotidienne, hebdomadaire, etc.), cette invite supplémentaire s’affiche. Cochez cette case pour que tous les instantanés historiques soient copiés vers le stockage d'objets en tant que fichiers de sauvegarde afin de garantir la protection la plus complète pour vos volumes.
 
 
 . Sélectionnez *Suivant*.
@@ -399,7 +400,7 @@ C'est l'occasion de revoir vos sélections et de faire des ajustements, si néce
 
 
 .Résultat
-NetApp Backup and Recovery commence à effectuer les sauvegardes initiales de vos volumes.  Le transfert de base du volume répliqué et du fichier de sauvegarde inclut une copie complète des données sources.  Les transferts ultérieurs contiennent des copies différentielles des données de stockage principales contenues dans les copies instantanées.
+NetApp Backup and Recovery commence à effectuer les sauvegardes initiales de vos volumes. Le transfert de base du volume répliqué et du fichier de sauvegarde inclut une copie complète des données sources. Les transferts suivants contiennent des copies différentielles des données de stockage primaire contenues dans les instantanés.
 
 Un volume répliqué est créé dans le cluster de destination qui sera synchronisé avec le volume de stockage principal.
 

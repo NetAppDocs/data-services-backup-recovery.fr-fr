@@ -61,7 +61,7 @@ La page de gestion des politiques apparaît.  Les stratégies de capture instant
 
 == Créer des politiques
 
-Vous pouvez créer des politiques qui régissent vos copies instantanées, vos réplications et vos sauvegardes sur le stockage d'objets :
+Vous pouvez créer des politiques qui régissent vos instantanés, vos réplications et vos sauvegardes sur le stockage objet :
 
 * <<Créer une politique de snapshot avant de lancer le snapshot>>
 * <<Créer une politique de réplication avant de lancer la réplication>>
@@ -72,7 +72,7 @@ Vous pouvez créer des politiques qui régissent vos copies instantanées, vos r
 
 === Créer une politique de snapshot avant de lancer le snapshot
 
-Une partie de votre stratégie 3-2-1 consiste à créer une copie instantanée du volume sur le système de stockage *principal*.
+Une partie de votre stratégie 3-2-1 consiste à créer un instantané du volume sur le système de stockage *principal*.
 
 Une partie du processus de création de politique implique l’identification des étiquettes d’instantané et de SnapMirror qui indiquent la planification et la conservation.  Vous pouvez utiliser des étiquettes prédéfinies ou créer les vôtres.
 

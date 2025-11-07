@@ -414,7 +414,7 @@ Pour créer une politique, sélectionnez *Créer une nouvelle politique* et proc
 *** Sélectionnez *Créer*.
 
 
-** *Exporter des copies Snapshot existantes vers le stockage d'objets en tant que copies de sauvegarde* : s'il existe des copies snapshot locales pour les volumes de ce système qui correspondent à l'étiquette de planification de sauvegarde que vous venez de sélectionner pour ce système (par exemple, quotidienne, hebdomadaire, etc.), cette invite supplémentaire s'affiche.  Cochez cette case pour que tous les instantanés historiques soient copiés vers le stockage d'objets en tant que fichiers de sauvegarde afin de garantir la protection la plus complète pour vos volumes.
+** *Exporter les instantanés existants vers le stockage objet en tant que copies de sauvegarde* : Si des instantanés locaux de volumes de ce système correspondent à l’étiquette de planification de sauvegarde que vous venez de sélectionner pour ce système (par exemple, quotidien, hebdomadaire, etc.), cette invite supplémentaire s’affiche. Cochez cette case pour que tous les instantanés historiques soient copiés vers le stockage d'objets en tant que fichiers de sauvegarde afin de garantir la protection la plus complète pour vos volumes.
 
 
 . Sélectionnez *Suivant*.
@@ -433,7 +433,7 @@ C'est l'occasion de revoir vos sélections et de faire des ajustements, si néce
 
 
 .Résultat
-NetApp Backup and Recovery commence à effectuer les sauvegardes initiales de vos volumes.  Le transfert de base du volume répliqué et du fichier de sauvegarde inclut une copie complète des données du système de stockage principal.  Les transferts ultérieurs contiennent des copies différentielles des données de stockage principales contenues dans les copies Snapshot.
+NetApp Backup and Recovery commence à effectuer les sauvegardes initiales de vos volumes. Le transfert de base du volume répliqué et du fichier de sauvegarde inclut une copie complète des données du système de stockage principal. Les transferts suivants contiennent des copies différentielles des données de stockage primaire contenues dans les instantanés.
 
 Un volume répliqué est créé dans le cluster de destination qui sera synchronisé avec le volume principal.
 

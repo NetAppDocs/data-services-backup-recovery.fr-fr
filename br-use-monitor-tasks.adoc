@@ -118,7 +118,7 @@ Vous pouvez télécharger le contenu de la page principale de surveillance des t
 
 Surveillez les flux de rétention (_cycle de vie des sauvegardes_) pour vérifier les sauvegardes, les protéger et prendre en charge les audits.  Identifiez quand les copies de sauvegarde expirent pour suivre le cycle de vie.
 
-Une tâche de cycle de vie de sauvegarde suit toutes les copies Snapshot qui sont supprimées ou dans la file d'attente pour être supprimées.  À partir d' ONTAP 9.13, vous pouvez consulter tous les types de tâches appelés « Rétention » sur la page Surveillance des tâches.
+Une tâche de cycle de vie de sauvegarde suit tous les instantanés supprimés ou en attente de suppression. À partir d' ONTAP 9.13, vous pouvez consulter tous les types de tâches appelés « Rétention » sur la page Surveillance des tâches.
 
 Le type de tâche « Rétention » capture toutes les tâches de suppression de snapshots lancées sur un volume protégé par NetApp Backup and Recovery.
 
