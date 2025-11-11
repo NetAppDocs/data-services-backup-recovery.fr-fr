@@ -16,8 +16,6 @@ summary: Vous pouvez protéger les machines virtuelles Oracle des systèmes ONTA
 [role="lead"]
 Protégez les bases de données et les journaux Oracle à l’aide de NetApp Backup and Recovery.  Obtenez des sauvegardes et des restaurations rapides, peu encombrantes, cohérentes en cas de panne et cohérentes avec la base de données.  Sauvegardez les charges de travail Oracle sur AWS S3, NetApp StorageGRID, Azure Blob Storage ou ONTAP S3.  Restaurer les sauvegardes sur un hôte Oracle sur site.
 
-image:../media/diagram-backup-recovery-general.png["Schéma d'architecture de sauvegarde et de restauration en général"]
-
 Utilisez NetApp Backup and Recovery pour mettre en œuvre une stratégie de protection 3-2-1, où vous disposez de 3 copies de vos données sources sur 2 systèmes de stockage différents ainsi que d'une copie dans le cloud. Les avantages de l’approche 3-2-1 incluent :
 
 * Plusieurs copies de données protègent contre les menaces de cybersécurité internes et externes.
