@@ -184,52 +184,34 @@ Il existe trois façons de payer le service de sauvegarde :
 
 == Licences
 
-NetApp Backup and Recovery est disponible en version d'essai gratuite.  Vous pouvez utiliser le service sans clé de licence pendant une durée limitée.
+NetApp Backup and Recovery propose un essai gratuit, vous permettant de l'utiliser sans clé de licence pendant une durée limitée.
 
-NetApp Backup and Recovery est disponible avec les modèles de consommation suivants :
+Une licence de sauvegarde est uniquement requise pour les opérations de sauvegarde et de restauration impliquant le stockage d'objets.  La création d'instantanés et de volumes répliqués ne nécessite pas de licence.
 
-* *Apportez votre propre licence (BYOL)* : une licence achetée auprès de NetApp qui peut être utilisée avec n'importe quel fournisseur de cloud.
-* *Payez à l'utilisation (PAYGO)* : un abonnement horaire sur la place de marché de votre fournisseur de cloud.
-* *Annuel* : Un contrat annuel de la place de marché de votre fournisseur de cloud.
+Vous pouvez choisir parmi trois options de licence :
+
+* *Apportez votre propre licence (BYOL)* : Achetez une licence à durée déterminée (1, 2 ou 3 ans) et à capacité déterminée (par incréments de 1 Tio) auprès de NetApp.  Saisissez le numéro de série fourni dans la NetApp Console pour activer le produit.  La licence couvre tous les systèmes sources de votre organisation.  Le renouvellement est requis lorsque la durée ou la limite de capacité est atteinte.
+* *Paiement à l'utilisation (PAYGO)* : Abonnez-vous via la place de marché de votre fournisseur de cloud et payez par GiB de données sauvegardées, facturé mensuellement.  Aucun paiement initial n'est requis.  Un essai gratuit de 30 jours est disponible lors de votre première inscription. Pour plus d'informations, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-start-licensing.html#use-a-netapp-backup-and-recovery-paygo-subscription["utiliser un abonnement NetApp Backup and Recovery PAYGO"] .
+* *Contrat annuel* : Disponible via les places de marché AWS et Azure pour 1, 2 ou 3 ans.  Deux contrats annuels sont disponibles :
++
+** *Sauvegarde dans le cloud* : Sauvegarde les données Cloud Volumes ONTAP et les données ONTAP sur site.
+** *CVO Professional* : Regroupe Cloud Volumes ONTAP et NetApp Backup and Recovery, avec des sauvegardes illimitées pour les volumes Cloud Volumes ONTAP (la capacité de sauvegarde n’est pas décomptée de la licence).
++
+*** Avec le forfait CVO Professional, il existe deux types de frais :
++
+**** *Frais de ressources* : Basés sur l’utilisation du stockage. Pour plus d'informations, reportez-vous à https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html#packages["Licence pour Cloud Volumes ONTAP"] .
+**** *Frais de service* : Frais de NetApp Backup and Recovery.  Toutefois, si le volume source se trouve dans un système de stockage utilisant le plan CVO Professional, NetApp Backup and Recovery est fourni gratuitement.
 
 
-Une licence de sauvegarde est requise uniquement pour la sauvegarde et la restauration à partir du stockage d'objets. La création d'instantanés et de volumes répliqués ne nécessite pas de licence.
 
-*Apportez votre propre permis*
 
-BYOL est basé sur la durée (1, 2 ou 3 ans) _et_ sur la capacité par incréments de 1 Tio.  Vous payez NetApp pour utiliser le service pendant une période donnée, par exemple 1 an, et pour une capacité maximale, par exemple 10 Tio.
 
-Vous recevrez un numéro de série que vous saisirez dans la NetApp Console pour activer le service.  Lorsque l'une ou l'autre des limites est atteinte, vous devrez renouveler la licence.  La licence Backup BYOL s'applique à tous les systèmes sources associés à votre organisation ou compte NetApp Console .
+
+
+
+Lorsque vous utilisez Google Cloud Platform, demandez une offre privée à NetApp et sélectionnez votre forfait lors de l'activation sur Google Cloud Marketplace.
 
 link:br-start-licensing.html["Apprenez à configurer des licences"].
-
-*Abonnement à la carte*
-
-NetApp Backup and Recovery propose des licences basées sur la consommation dans un modèle de paiement à l'utilisation.  Après avoir souscrit un abonnement via la place de marché de votre fournisseur cloud, vous payez par Gio pour les données sauvegardées — il n'y a pas de paiement initial.  Vous êtes facturé par votre fournisseur cloud via votre facture mensuelle.
-
-Notez qu'un essai gratuit de 30 jours est disponible lorsque vous souscrivez initialement à un abonnement PAYGO.
-
-*Contrat annuel*
-
-ifdef::aws[]
-
-Lorsque vous utilisez AWS, deux contrats annuels sont disponibles pour 1, 2 ou 3 ans :
-
-* Un plan « Cloud Backup » qui vous permet de sauvegarder les données Cloud Volumes ONTAP et les données ONTAP sur site.
-* Un plan « CVO Professional » qui vous permet de regrouper Cloud Volumes ONTAP et NetApp Backup and Recovery.  Cela inclut des sauvegardes illimitées pour les Cloud Volumes ONTAP facturés sur cette licence (la capacité de sauvegarde n'est pas comptabilisée dans la licence). endif::aws[]
-
-
-ifdef::azure[]
-
-Lorsque vous utilisez Azure, deux contrats annuels sont disponibles pour 1, 2 ou 3 ans :
-
-* Un plan « Cloud Backup » qui vous permet de sauvegarder les données Cloud Volumes ONTAP et les données ONTAP sur site.
-* Un plan « CVO Professional » qui vous permet de regrouper Cloud Volumes ONTAP et NetApp Backup and Recovery.  Cela inclut des sauvegardes illimitées pour les Cloud Volumes ONTAP facturés sur cette licence (la capacité de sauvegarde n'est pas comptabilisée dans la licence). endif::azure[]
-
-
-ifdef::gcp[]
-
-Lorsque vous utilisez GCP, vous pouvez demander une offre privée auprès de NetApp, puis sélectionner le plan lorsque vous vous abonnez à partir de Google Cloud Marketplace lors de l'activation de NetApp Backup and Recovery . endif::gcp[]
 
 
 
@@ -243,6 +225,7 @@ NetApp Backup and Recovery protège les charges de travail suivantes :
 * Machines virtuelles et banques de données VMware
 * Charges de travail KVM (Aperçu)
 * Charges de travail Hyper-V (Aperçu)
+* Charges de travail Oracle (Aperçu)
 * Charges de travail Kubernetes (Aperçu)
 
 
