@@ -216,7 +216,6 @@ Assurez-vous que votre instance Hyper-V répond à des exigences spécifiques po
 ** Éditions Microsoft Hyper-V 2019, 2022 et 2025
 ** Pack d'hébergement ASP.NET Core Runtime 8.0.12 (et tous les correctifs 8.0.x ultérieurs)
 ** PowerShell 7.4.2 ou version ultérieure
-** Assurez-vous que le rôle Host Guardian Service est installé (reportez-vous à la https://learn.microsoft.com/en-us/windows-server/administration/server-manager/add-remove-roles-features?tabs=gui#add-roles-and-features-to-windows-server["Documentation de Microsoft Windows Server"^] pour les instructions)
 ** Assurez-vous que le trafic HTTPS bidirectionnel est autorisé pour les ports suivants dans les paramètres du pare-feu Windows :
 +
 *** 8144 (plugin NetApp pour Hyper-V)
