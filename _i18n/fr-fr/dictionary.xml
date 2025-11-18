@@ -346,7 +346,6 @@
   <block id="a9ad02ebb13f3d9fa3cb4a1b59be6548" category="paragraph">Les plates-formes, appareils ou fonctionnalités qui ne fonctionnent pas ou ne fonctionnent pas bien avec cette version sont répertoriés ici.  Lisez attentivement ces limitations.</block>
   <block id="0e32e31adc232e70ce479856e16c7f00" category="section-title">Actions non prises en charge</block>
   <block id="57a114780f98fd4bb0b06506b0ca9577" category="paragraph">Les actions suivantes ne sont pas prises en charge dans la version d'aperçu privée des charges de travail Hyper-V dans NetApp Backup and Recovery:</block>
-  <block id="020a36deb114af1bb518c70d5975e940" category="list-text">Créer des groupes de ressources</block>
   <block id="5ae6a8a06c30125d00a57910609856cf" category="list-text">Répartition des disques (sur plusieurs partages CIFS)</block>
   <block id="5cb642b37b3102019402cbd3b93a5693" category="list-text">Protéger les machines virtuelles via SAN</block>
   <block id="0fffe3f2fb1497b9e344ba8dceac922b" category="list-text">Protégez les hôtes Hyper-V mis en cluster à l'aide de System Center Virtual Machine Manager (SCVMM)</block>
@@ -677,7 +676,6 @@
   <block id="6fa0f470d5826983538c3b3091b8d4f3" category="list-text">Sélectionnez l’agent de console à utiliser avec cet hôte.</block>
   <block id="f536637d4867fa48ae5f42ffcabb3da0" category="list-text">Saisissez un nom pour ces informations d’identification.</block>
   <block id="c7312d0cf4cda8f78a6f1769e7958906" category="list-text">Entrez le nom d'utilisateur et le mot de passe du compte.</block>
-  <block id="5cf90f1e7bb7c40d89ed2ddaf928978f" category="list-text">*Enregistrement de l'hôte* : ajoutez un nouvel hôte Hyper-V.  Saisissez le nom de domaine complet ou l'adresse IP de l'hôte, les informations d'identification, l'agent de console et le numéro de port.</block>
   <block id="98ab4e23cce41ca38b39c7baf6ef4567" category="admonition">Ce processus peut prendre quelques minutes.</block>
   <block id="d4908a7dd622060706f5e0df98a716da" category="paragraph">Une fois que NetApp Backup and Recovery a découvert les ressources, la page Inventaire affiche la charge de travail Hyper-V dans la liste des charges de travail.</block>
   <block id="8c75bc4aab98ebfa4607c6737296d0fa" category="section-title">Accéder au tableau de bord de NetApp Backup and Recovery</block>
@@ -4538,8 +4536,6 @@
   <block id="299981ed6b0aaf1c2eed2a8e35151313" category="list-text">*Activer la restauration rapide* : sélectionnez cette option pour effectuer une opération de restauration rapide. Vous pouvez utiliser les volumes et les données restaurés immédiatement. N'utilisez pas cette option sur des volumes nécessitant des performances élevées, car pendant le processus de restauration rapide, l'accès aux données peut être plus lent que d'habitude.</block>
   <block id="ca9d8ef3573c04098ddeb120eb1f19e5" category="list-text">*Activer les notifications par e-mail* : sélectionnez cette option pour recevoir des notifications par e-mail concernant l'opération de restauration et choisissez les types de notification souhaités.</block>
   <block id="63751d750873479f94855f0a16fc63d8" category="list-text">Configuration logicielle requise pour l'hôte Windows Server Hyper-V :</block>
-  <block id="1acabacd9fabb89313b2019250c36913" category="inline-link">Documentation de Microsoft Windows Server</block>
-  <block id="a05b36aea5976933f3daab44cd5602a1" category="list-text">Assurez-vous que le rôle Host Guardian Service est installé (reportez-vous à la<block ref="48d767cc816bb4d4b129a75bf7c81af1" category="inline-link-rx"></block> pour les instructions)</block>
   <block id="fd7bb5c3777005321645f38a2d07ea27" category="admonition">Si l'opération de restauration ne se termine pas, attendez que le moniteur de tâches affiche « Échec » avant de réessayer l'opération de restauration.</block>
   <block id="df3ee99c8171743d8bd35d65cf62b2ed" category="paragraph">Vous pouvez restaurer les données des machines virtuelles depuis le cloud vers le serveur vCenter local avec NetApp Backup and Recovery. Vous pouvez restaurer la machine virtuelle exactement au même emplacement à partir duquel la sauvegarde a été effectuée ou vers un autre emplacement. Si la machine virtuelle a été sauvegardée à l’aide d’une stratégie d’archivage, vous pouvez définir la priorité de restauration d’archivage.</block>
   <block id="51e153ee1aa6cdb4ca7796e926180b53" category="admonition">Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous à<block ref="e56b09183f5489111204017fecace77e" category="inline-link-macro-rx"></block> .</block>
@@ -4791,4 +4787,9 @@
   <block id="b341302252cb59acb02da2074d4fe6c4" category="list-text">*Frais de service* : Frais de NetApp Backup and Recovery.  Toutefois, si le volume source se trouve dans un système de stockage utilisant le plan CVO Professional, NetApp Backup and Recovery est fourni gratuitement.</block>
   <block id="40d372f97e4d897da51bc1fa5978329b" category="paragraph">Lorsque vous utilisez Google Cloud Platform, demandez une offre privée à NetApp et sélectionnez votre forfait lors de l'activation sur Google Cloud Marketplace.</block>
   <block id="3cd3cc23191003954a83615e7dc619e1" category="list-text">Charges de travail Oracle (Aperçu)</block>
+  <block id="14e2c3c5d70d421449af52fed7355245" category="list-text">Créez des groupes de ressources à l'aide de machines virtuelles provenant de plusieurs hôtes Hyper-V.</block>
+  <block id="c224c03fd1f5cab444913dab60a8d013" category="list-text">*Enregistrement de l'hôte* : Ajoutez un nouvel hôte Hyper-V en saisissant le nom de domaine complet (FQDN) ou l'adresse IP de l'hôte, ses informations d'identification, l'agent de console et le numéro de port. Si le nom de domaine complet (FQDN) n'est pas résoluble par l'agent de la console, utilisez plutôt l'adresse IP. Pour les clusters FCI, saisissez l'adresse IP de gestion du cluster FCI.</block>
+  <block id="36c0d00755a4d8daae367144e5daca38" category="list-text">Si des utilisateurs n'appartenant pas à un domaine d'administrateur doivent protéger des machines virtuelles Hyper-V, assurez-vous qu'ils disposent des autorisations suivantes :</block>
+  <block id="57d2171dbc8d8d7a864a60de1ab4656c" category="list-text">Assurez-vous que l'utilisateur est membre du groupe des administrateurs locaux.</block>
+  <block id="27bc296e867cae2ef33b5cac51392cb2" category="list-text">Assurez-vous que l'utilisateur fait partie de la stratégie de sécurité locale « Ouvrir une session en tant que service ».</block>
 </blocks>

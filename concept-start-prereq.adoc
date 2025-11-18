@@ -216,6 +216,12 @@ Assurez-vous que votre instance Hyper-V répond à des exigences spécifiques po
 ** Éditions Microsoft Hyper-V 2019, 2022 et 2025
 ** Pack d'hébergement ASP.NET Core Runtime 8.0.12 (et tous les correctifs 8.0.x ultérieurs)
 ** PowerShell 7.4.2 ou version ultérieure
+** Si des utilisateurs n'appartenant pas à un domaine d'administrateur doivent protéger des machines virtuelles Hyper-V, assurez-vous qu'ils disposent des autorisations suivantes :
++
+*** Assurez-vous que l'utilisateur est membre du groupe des administrateurs locaux.
+*** Assurez-vous que l'utilisateur fait partie de la stratégie de sécurité locale « Ouvrir une session en tant que service ».
+
+
 ** Assurez-vous que le trafic HTTPS bidirectionnel est autorisé pour les ports suivants dans les paramètres du pare-feu Windows :
 +
 *** 8144 (plugin NetApp pour Hyper-V)

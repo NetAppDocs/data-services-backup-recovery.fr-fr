@@ -22,7 +22,8 @@ Les plates-formes, appareils ou fonctionnalités qui ne fonctionnent pas ou ne f
 
 Les actions suivantes ne sont pas prises en charge dans la version d'aperçu privée des charges de travail Hyper-V dans NetApp Backup and Recovery:
 
-* Créer des groupes de ressources
+* Créez des groupes de ressources à l'aide de machines virtuelles provenant de plusieurs hôtes Hyper-V.
+* Restaurer les machines virtuelles vers un autre emplacement
 * Répartition des disques (sur plusieurs partages CIFS)
 * Protéger les machines virtuelles via SAN
 * Modifier les groupes de protection

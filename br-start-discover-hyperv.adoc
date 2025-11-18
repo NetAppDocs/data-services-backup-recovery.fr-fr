@@ -44,7 +44,7 @@ Si c'est la première fois que vous vous connectez à NetApp Backup and Recovery
 ... Sélectionnez *Terminé*.
 
 
-.. *Enregistrement de l'hôte* : ajoutez un nouvel hôte Hyper-V.  Saisissez le nom de domaine complet ou l'adresse IP de l'hôte, les informations d'identification, l'agent de console et le numéro de port.
+.. *Enregistrement de l'hôte* : Ajoutez un nouvel hôte Hyper-V en saisissant le nom de domaine complet (FQDN) ou l'adresse IP de l'hôte, ses informations d'identification, l'agent de console et le numéro de port. Si le nom de domaine complet (FQDN) n'est pas résoluble par l'agent de la console, utilisez plutôt l'adresse IP. Pour les clusters FCI, saisissez l'adresse IP de gestion du cluster FCI.
 
 
 . Sélectionnez *Découvrir*.
