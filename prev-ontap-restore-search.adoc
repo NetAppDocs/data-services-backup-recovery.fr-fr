@@ -1,0 +1,363 @@
+---
+sidebar: sidebar 
+permalink: prev-ontap-restore-search.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Vous pouvez utiliser la fonction Rechercher et restaurer pour récupérer des volumes, des dossiers ou des fichiers à partir de fichiers de sauvegarde ONTAP . 
+---
+= Restaurez les données à partir des sauvegardes ONTAP à l'aide de la fonction Rechercher et restaurer.
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez utiliser la fonction Rechercher et restaurer pour récupérer des volumes, des dossiers ou des fichiers à partir de fichiers de sauvegarde ONTAP .  La fonction Recherche et restauration vous permet d'effectuer des recherches dans toutes les sauvegardes (y compris les instantanés locaux, les volumes répliqués et le stockage d'objets) sans avoir besoin des noms exacts du système, du volume ou des fichiers.
+
+La restauration à partir d'instantanés locaux ou de volumes répliqués est généralement plus rapide et moins coûteuse que la restauration à partir d'un stockage objet.
+
+Lors de la restauration d'un volume complet, NetApp Backup and Recovery crée un nouveau volume à partir des données de sauvegarde.  Vous pouvez effectuer une restauration sur le système d'origine, sur un autre système du même compte cloud ou sur un système ONTAP sur site.  Les dossiers et les fichiers peuvent être restaurés à leur emplacement d'origine, sur un autre volume du même système, sur un autre système du même compte cloud ou sur un système sur site.
+
+Les fonctionnalités de restauration dépendent de votre version ONTAP :
+
+* *Dossiers :* Avec ONTAP 9.13.0 ou une version supérieure, vous pouvez restaurer des dossiers avec tous les fichiers et sous-dossiers ; avec les versions antérieures, vous ne pouvez restaurer que les fichiers contenus dans le dossier.
+* *Stockage d'archives :* La restauration à partir du stockage d'archives (disponible avec ONTAP 9.10.1 ou supérieur) est plus lente et peut entraîner des coûts supplémentaires.
+* *Exigences relatives aux clusters de destination :*
++
+** Restauration du volume : ONTAP 9.10.1 ou version ultérieure
+** Restauration de fichiers : ONTAP 9.11.1 ou version ultérieure
+** Google Archive et StorageGRID: ONTAP 9.12.1 ou version ultérieure
+** Restauration de dossiers : ONTAP 9.13.1 ou version ultérieure
+
+
+
+
+ifdef::aws[]
+
+link:prev-reference-aws-archive-storage-tiers.html["En savoir plus sur la restauration à partir du stockage d'archives AWS"].
+
+endif::aws[]
+
+ifdef::azure[]
+
+link:prev-reference-azure-archive-storage-tiers.html["En savoir plus sur la restauration à partir du stockage d'archives Azure"].
+
+endif::azure[]
+
+ifdef::gcp[]
+
+link:prev-reference-gcp-archive-storage-tiers.html["En savoir plus sur la restauration à partir du stockage d'archives Google"].
+
+endif::gcp[]
+
+[NOTE]
+====
+* Si le fichier de sauvegarde dans le stockage d'objets a été configuré avec la protection DataLock et Ransomware, la restauration au niveau du dossier n'est prise en charge que si la version ONTAP est 9.13.1 ou supérieure.  Si vous utilisez une version antérieure d' ONTAP, vous pouvez restaurer l'intégralité du volume à partir du fichier de sauvegarde, puis accéder au dossier et aux fichiers dont vous avez besoin.
+* Si le fichier de sauvegarde dans le stockage d'objets réside dans le stockage d'archives, la restauration au niveau du dossier est prise en charge uniquement si la version ONTAP est 9.13.1 ou supérieure.  Si vous utilisez une version antérieure d' ONTAP, vous pouvez restaurer le dossier à partir d'un fichier de sauvegarde plus récent qui n'a pas été archivé, ou vous pouvez restaurer l'intégralité du volume à partir de la sauvegarde archivée, puis accéder au dossier et aux fichiers dont vous avez besoin.
+* La priorité de restauration « Élevée » n’est pas prise en charge lors de la restauration des données du stockage d’archivage Azure vers les systèmes StorageGRID .
+* La restauration de dossiers n'est actuellement pas prise en charge à partir de volumes dans le stockage d'objets ONTAP S3.
+
+
+====
+Avant de commencer, vous devez avoir une idée du nom ou de l’emplacement du volume ou du fichier que vous souhaitez restaurer.
+
+
+
+== Systèmes pris en charge par la recherche et la restauration et fournisseurs de stockage d'objets
+
+Vous pouvez restaurer les données ONTAP à partir d'un fichier de sauvegarde résidant dans un système secondaire (un volume répliqué) ou dans un stockage d'objets (un fichier de sauvegarde) sur les systèmes suivants. Les instantanés résident sur le système source et ne peuvent être restaurés que sur ce même système.
+
+*Remarque :* vous pouvez restaurer des volumes et des fichiers à partir de n’importe quel type de fichier de sauvegarde, mais vous ne pouvez restaurer un dossier qu’à partir de fichiers de sauvegarde dans le stockage d’objets pour le moment.
+
+[cols="33,33,33"]
+|===
+2+| Emplacement du fichier de sauvegarde | Système de destination 
+
+
+| *Magasin d'objets (sauvegarde)* | *Système secondaire (réplication)* | ifdef::aws[] 
+
+
+| Amazon S3 | Cloud Volumes ONTAP dans le système ONTAP sur site AWS | Cloud Volumes ONTAP dans AWS Système ONTAP sur site endif::aws[] ifdef::azure[] 
+
+
+| Azure Blob | Cloud Volumes ONTAP dans le système ONTAP sur site Azure | Cloud Volumes ONTAP dans le système ONTAP local Azure endif::azure[] ifdef::gcp[] 
+
+
+| Stockage Google Cloud | Cloud Volumes ONTAP dans le système ONTAP sur site de Google | Cloud Volumes ONTAP dans le système ONTAP sur site de Google endif::gcp[] 
+
+
+| NetApp StorageGRID | Système ONTAP sur site Cloud Volumes ONTAP | Système ONTAP sur site 
+
+
+| ONTAP S3 | Système ONTAP sur site Cloud Volumes ONTAP | Système ONTAP sur site 
+|===
+Pour la recherche et la restauration, l'agent de console peut être installé aux emplacements suivants :
+
+ifdef::aws[]
+
+* Pour Amazon S3, l'agent de console peut être déployé dans AWS ou dans vos locaux
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* Pour Azure Blob, l'agent de console peut être déployé dans Azure ou dans vos locaux
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* Pour Google Cloud Storage, l'agent de la console doit être déployé dans votre VPC Google Cloud Platform
+
+
+endif::gcp[]
+
+* Pour StorageGRID, l'agent de console doit être déployé dans vos locaux ; avec ou sans accès Internet
+* Pour ONTAP S3, l'agent de console peut être déployé dans vos locaux (avec ou sans accès Internet) ou dans un environnement de fournisseur de cloud
+
+
+Notez que les références aux « systèmes ONTAP sur site » incluent les systèmes FAS, AFF et ONTAP Select .
+
+
+
+== Prérequis de recherche et de restauration
+
+* Exigences du cluster :
++
+** La version ONTAP doit être 9.8 ou supérieure.
+** La machine virtuelle de stockage (SVM) sur laquelle réside le volume doit avoir un LIF de données configuré.
+** NFS doit être activé sur le volume (les volumes NFS et SMB/CIFS sont pris en charge).
+** Le serveur SnapDiff RPC doit être activé sur le SVM. La console le fait automatiquement lorsque vous activez l’indexation sur le système. (SnapDiff est la technologie qui identifie rapidement les différences entre les fichiers et les répertoires dans les instantanés.)
+
+
+* NetApp recommande de monter un volume distinct sur l'agent Console pour améliorer la résilience de la fonction Recherche et restauration. Pour les instructions, reportez-vous à<<mount-volume-steps,monter le volume pour réindexer le catalogue>> .
+
+
+
+
+=== Prérequis pour la recherche et la restauration héritées (avec Indexed Catalog v1)
+
+ifdef::aws[]
+
+* Exigences AWS :
++
+** Des autorisations spécifiques Amazon Athena, AWS Glue et AWS S3 doivent être ajoutées au rôle d’utilisateur qui fournit des autorisations à la console. link:prev-ontap-backup-onprem-aws.html["Assurez-vous que toutes les autorisations sont correctement configurées"] .
++
+Notez que si vous utilisiez déjà NetApp Backup and Recovery avec un agent de console que vous avez configuré dans le passé, vous devrez désormais ajouter les autorisations Athena et Glue au rôle d'utilisateur de la console.  Ils sont nécessaires pour la recherche et la restauration.
+
+
+
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* Exigences Azure :
++
+** Vous devez enregistrer le fournisseur de ressources Azure Synapse Analytics (appelé « Microsoft.Synapse ») avec votre abonnement. https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider["Découvrez comment enregistrer ce fournisseur de ressources pour votre abonnement"^] .  Vous devez être le *Propriétaire* ou le *Contributeur* de l'abonnement pour enregistrer le fournisseur de ressources.
+** Des autorisations spécifiques au compte Azure Synapse Workspace et Data Lake Storage doivent être ajoutées au rôle d’utilisateur qui fournit des autorisations à la console. link:prev-ontap-backup-onprem-azure.html["Assurez-vous que toutes les autorisations sont correctement configurées"] .
++
+Notez que si vous utilisiez déjà NetApp Backup and Recovery avec un agent de console que vous avez configuré dans le passé, vous devrez désormais ajouter les autorisations du compte Azure Synapse Workspace et Data Lake Storage au rôle d’utilisateur de la console.  Ils sont nécessaires pour la recherche et la restauration.
+
+** L'agent de console doit être configuré *sans* serveur proxy pour la communication HTTP vers Internet.  Si vous avez configuré un serveur proxy HTTP pour votre agent de console, vous ne pouvez pas utiliser la fonctionnalité de recherche et de restauration.
+
+
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* Exigences de Google Cloud :
++
+** Des autorisations Google BigQuery spécifiques doivent être ajoutées au rôle d’utilisateur qui fournit des autorisations à la NetApp Console . link:prev-ontap-backup-onprem-gcp.html["Assurez-vous que toutes les autorisations sont correctement configurées"] .
++
+Si vous utilisiez déjà NetApp Backup and Recovery avec un agent de console que vous avez configuré dans le passé, vous devrez maintenant ajouter les autorisations BigQuery au rôle d’utilisateur de la console.  Ils sont nécessaires pour la recherche et la restauration.
+
+
+
+
+
+endif::gcp[]
+
+* Exigences StorageGRID et ONTAP S3 :
++
+Selon votre configuration, la recherche et la restauration sont implémentées de deux manières :
+
++
+** S'il n'y a pas d'informations d'identification de fournisseur cloud dans votre compte, les informations du catalogue indexé sont stockées sur l'agent de la console.
++
+Pour plus d'informations sur le catalogue indexé v2, consultez la section ci-dessous expliquant comment activer le catalogue indexé.
+
+** Si vous utilisez un agent de console sur un site privé (sombre), les informations du catalogue indexé sont stockées sur l'agent de console (nécessite la version 3.9.25 ou supérieure de l'agent de console).
+** Si vous avez https://docs.netapp.com/us-en/console-setup-admin/concept-accounts-aws.html["Informations d'identification AWS"^] ou https://docs.netapp.com/us-en/console-setup-admin/concept-accounts-azure.html["Informations d'identification Azure"^] dans le compte, le catalogue indexé est alors stocké chez le fournisseur de cloud, tout comme avec un agent de console déployé dans le cloud.  (Si vous disposez des deux informations d’identification, AWS est sélectionné par défaut.)
++
+Même si vous utilisez un agent de console sur site, les exigences du fournisseur de cloud doivent être respectées pour les autorisations de l'agent de console et les ressources du fournisseur de cloud.  Consultez les exigences AWS et Azure ci-dessus lors de l’utilisation de cette implémentation.
+
+
+
+
+
+
+
+== Processus de recherche et de restauration
+
+Le processus se déroule comme suit :
+
+. Avant de pouvoir utiliser la recherche et la restauration, vous devez activer « Indexation » sur chaque système source à partir duquel vous souhaitez restaurer les données du volume.  Cela permet au catalogue indexé de suivre les fichiers de sauvegarde pour chaque volume.
+. Lorsque vous souhaitez restaurer un volume ou des fichiers à partir d'une sauvegarde de volume, sous _Rechercher et restaurer_, sélectionnez *Rechercher et restaurer*.
+. Saisissez les critères de recherche d'un volume, d'un dossier ou d'un fichier par nom de volume partiel ou complet, nom de fichier partiel ou complet, emplacement de sauvegarde, plage de taille, plage de dates de création, autres filtres de recherche, puis sélectionnez *Rechercher*.
++
+La page Résultats de la recherche affiche tous les emplacements contenant un fichier ou un volume correspondant à vos critères de recherche.
+
+. Sélectionnez *Afficher toutes les sauvegardes* pour l’emplacement que vous souhaitez utiliser pour restaurer le volume ou le fichier, puis sélectionnez *Restaurer* sur le fichier de sauvegarde réel que vous souhaitez utiliser.
+. Sélectionnez l'emplacement où vous souhaitez que le volume, le dossier ou les fichiers soient restaurés et sélectionnez *Restaurer*.
+. Le volume, le dossier ou le(s) fichier(s) sont restaurés.
+
+
+image:diagram_search_restore_vol_file.png["Un diagramme qui montre le flux pour effectuer une opération de restauration de volume, de dossier ou de fichier à l'aide de la recherche et de la restauration."]
+
+Il vous suffit de connaître une partie du nom, et NetApp Backup and Recovery effectue une recherche dans tous les fichiers de sauvegarde correspondants.
+
+
+
+== Activer le catalogue indexé pour chaque système
+
+Avant de pouvoir utiliser la recherche et la restauration, vous devez activer « Indexation » sur chaque système source à partir duquel vous prévoyez de restaurer des volumes ou des fichiers.  Cela permet au catalogue indexé de suivre chaque volume et chaque fichier de sauvegarde, ce qui rend vos recherches très rapides et efficaces.
+
+Le catalogue indexé est une base de données qui stocke les métadonnées sur tous les volumes et fichiers de sauvegarde de votre système.  Il est utilisé par la fonctionnalité Rechercher et restaurer pour trouver rapidement les fichiers de sauvegarde contenant les données que vous souhaitez restaurer.
+
+.Fonctionnalités du catalogue indexé
+NetApp Backup and Recovery ne provisionne pas de compartiment séparé lorsque vous utilisez le catalogue indexé. Au lieu de cela, pour les sauvegardes stockées dans AWS, Azure, Google Cloud Platform, StorageGRID ou ONTAP S3, le service fournit de l'espace sur l'agent de la console ou sur l'environnement du fournisseur de cloud.
+
+Le catalogue indexé prend en charge les éléments suivants :
+
+* Efficacité de la recherche globale en moins de 3 minutes
+* Jusqu'à 5 milliards de fichiers
+* Jusqu'à 5 000 volumes par cluster
+* Jusqu'à 100 000 instantanés par volume
+* Le délai maximal pour l’indexation de base est inférieur à 7 jours.  Le temps réel varie en fonction de votre environnement.
+
+
+.Étapes pour activer l'indexation pour un système :
+Si l’indexation a déjà été activée pour votre système, passez à la section suivante pour restaurer vos données.
+
+Vous devrez d'abord monter un volume séparé pour stocker les fichiers de catalogue. Cela évite la perte de données si la taille des fichiers contenant les instantanés devient trop importante. Cela n'est pas nécessaire sur tous les clusters ; vous pouvez monter n'importe quel volume provenant de n'importe quel cluster de votre environnement. Si vous ne le faites pas, l'indexation risque de ne pas fonctionner correctement.
+
+Pour le volume monté, utilisez les indications de dimensionnement suivantes :
+
+* Utilisez un volume NVS NetApp
+* Stockage AFF recommandé avec un débit disque de 300 Mo/s. La baisse du débit aura un impact sur la recherche et les autres opérations.
+* Activez les instantanés NetApp pour sécuriser les métadonnées du catalogue en plus des fichiers zip de sauvegarde du catalogue.
+* 50 Go par milliard de fichiers
+* 20 Go pour les données du catalogue, avec un espace supplémentaire pour la création de fichiers zip et les fichiers temporaires.
+
+
+[[mount-volume-steps]]
+.Étape pour monter le volume afin de réindexer le catalogue
+. Montez le volume sur `/opt/application/netapp/cbs` en saisissant la commande suivante, où :
++
+** `volume name` est le volume du cluster où seront stockés les fichiers de catalogue
+** `/opt/application/netapp/cbs` est le chemin où il est monté
++
+[source, console]
+----
+mount <cluster IP address>:/<volume name> /opt/application/netapp/cbs
+----
++
+Exemple:
+
++
+[source, console]
+----
+mount 10.192.24.17:/CATALOG_SCALE_234 /opt/application/netapp/cbs
+----
+
+
+
+
+.Étapes pour activer l'index
+. Effectuez l’une des opérations suivantes :
++
+** Si aucun système n'a été indexé, sur le tableau de bord de restauration sous _Rechercher et restaurer_, sélectionnez *Activer l'indexation pour les systèmes*.
+** Si au moins un système a déjà été indexé, sur le tableau de bord de restauration sous _Rechercher et restaurer_, sélectionnez *Paramètres d'indexation*.
+
+
+. Sélectionnez *Activer l'indexation* pour le système.
+
+
+.Résultat
+Une fois tous les services provisionnés et le catalogue indexé activé, le système s'affiche comme « Actif ».
+
+Selon la taille des volumes du système et le nombre de fichiers de sauvegarde dans les 3 emplacements de sauvegarde, le processus d'indexation initial peut prendre jusqu'à une heure.  Après cela, il est mis à jour de manière transparente toutes les heures avec des modifications progressives pour rester à jour.
+
+
+
+== Restaurer des volumes, des dossiers et des fichiers à l'aide de la recherche et de la restauration
+
+Après avoir<<enable-the-indexed-catalog-for-each-system,Activation de l'indexation pour votre système>> , vous pouvez restaurer des volumes, des dossiers et des fichiers à l'aide de la recherche et de la restauration. Cela vous permet d'utiliser une large gamme de filtres pour trouver le fichier ou le volume exact que vous souhaitez restaurer à partir de tous les fichiers de sauvegarde.
+
+.Étapes
+. Dans le menu de la console, sélectionnez *Protection > Sauvegarde et récupération*.
+. Sélectionnez l’onglet *Restaurer* et le tableau de bord de restauration s’affiche.
+. Dans la section _Rechercher et restaurer_, sélectionnez *Rechercher et restaurer*.
+. Dans la section _Rechercher et restaurer_, sélectionnez *Rechercher et restaurer*.
+. Depuis la page Rechercher et restaurer :
++
+.. Dans la _barre de recherche_, saisissez un nom de volume, un nom de dossier ou un nom de fichier complet ou partiel.
+.. Sélectionnez le type de ressource : *Volumes*, *Fichiers*, *Dossiers* ou *Tous*.
+.. Dans la zone _Filtrer par_, sélectionnez les critères de filtre. Par exemple, vous pouvez sélectionner le système sur lequel résident les données et le type de fichier, par exemple un fichier .JPEG. Vous pouvez également sélectionner le type d'emplacement de sauvegarde si vous souhaitez effectuer la recherche uniquement parmi les instantanés ou les fichiers de sauvegarde disponibles dans le stockage d'objets.
+
+
+. Sélectionnez *Rechercher* et la zone Résultats de la recherche affiche toutes les ressources qui ont un fichier, un dossier ou un volume correspondant à votre recherche.
+. Recherchez la ressource contenant les données que vous souhaitez restaurer et sélectionnez *Afficher toutes les sauvegardes* pour afficher tous les fichiers de sauvegarde contenant le volume, le dossier ou le fichier correspondant.
+. Localisez le fichier de sauvegarde que vous souhaitez utiliser pour restaurer les données et sélectionnez *Restaurer*.
++
+Notez que les résultats identifient les instantanés de volumes locaux et les volumes répliqués distants qui contiennent le fichier recherché.  Vous pouvez choisir de restaurer à partir du fichier de sauvegarde cloud, à partir de l'instantané ou à partir du volume répliqué.
+
+. Sélectionnez l'emplacement de destination où vous souhaitez que le volume, le dossier ou les fichiers soient restaurés et sélectionnez *Restaurer*.
++
+** Pour les volumes, vous pouvez sélectionner le système de destination d’origine ou un autre système.  Lors de la restauration d'un volume FlexGroup , vous devrez choisir plusieurs agrégats.
+** Pour les dossiers, vous pouvez restaurer l'emplacement d'origine ou sélectionner un autre emplacement, notamment le système, le volume et le dossier.
+** Pour les fichiers, vous pouvez restaurer l'emplacement d'origine ou sélectionner un autre emplacement, notamment le système, le volume et le dossier.  Lors de la sélection de l'emplacement d'origine, vous pouvez choisir d'écraser le(s) fichier(s) source ou de créer de nouveaux fichiers.
++
+Si vous sélectionnez un système ONTAP sur site et que vous n'avez pas encore configuré la connexion du cluster au stockage d'objets, vous êtes invité à fournir des informations supplémentaires :
+
++
+ifdef::aws[]
+
++
+*** Lors de la restauration à partir d'Amazon S3, sélectionnez l'espace IP dans le cluster ONTAP où résidera le volume de destination, entrez la clé d'accès et la clé secrète de l'utilisateur que vous avez créé pour donner au cluster ONTAP l'accès au compartiment S3 et choisissez éventuellement un point de terminaison VPC privé pour un transfert de données sécurisé. link:prev-ontap-backup-onprem-aws.html["Voir les détails sur ces exigences"] .
+
+
+
+
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* Lors de la restauration à partir d’Azure Blob, sélectionnez l’espace IP dans le cluster ONTAP où résidera le volume de destination et choisissez éventuellement un point de terminaison privé pour le transfert de données sécurisé en sélectionnant le réseau virtuel et le sous-réseau. link:prev-ontap-backup-onprem-azure.html["Voir les détails sur ces exigences"] .
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* Lors de la restauration à partir de Google Cloud Storage, sélectionnez l'espace IP dans le cluster ONTAP où résidera le volume de destination, ainsi que la clé d'accès et la clé secrète pour accéder au stockage d'objets. link:prev-ontap-backup-onprem-gcp.html["Voir les détails sur ces exigences"] .
+
+
+endif::gcp[]
+
+* Lors de la restauration à partir de StorageGRID, entrez le nom de domaine complet du serveur StorageGRID et le port ONTAP doit utiliser pour la communication HTTPS avec StorageGRID, entrez la clé d'accès et la clé secrète nécessaires pour accéder au stockage d'objets, ainsi que l'espace IP dans le cluster ONTAP où réside le volume de destination. link:prev-ontap-backup-onprem-storagegrid.html["Voir les détails sur ces exigences"] .
+* Lors de la restauration à partir d' ONTAP S3, saisissez le nom de domaine complet du serveur ONTAP S3 et le port ONTAP doit utiliser pour la communication HTTPS avec ONTAP S3, sélectionnez la clé d'accès et la clé secrète nécessaires pour accéder au stockage d'objets, ainsi que l'espace IP dans le cluster ONTAP où résidera le volume de destination. link:prev-ontap-backup-onprem-ontaps3.html["Voir les détails sur ces exigences"] .
+
+
+.Résultats
+Le volume, le dossier ou les fichiers sont restaurés et vous revenez au tableau de bord de restauration afin que vous puissiez examiner la progression de l'opération de restauration.  Vous pouvez également sélectionner l’onglet *Surveillance des tâches* pour voir la progression de la restauration.  Voirlink:br-use-monitor-tasks.html["Page de surveillance des tâches"] .

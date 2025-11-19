@@ -206,7 +206,7 @@ Lorsque vous configurez la sauvegarde sur ONTAP S3, l'assistant de sauvegarde vo
 
 Ces clés d’accès doivent être associées à un utilisateur disposant des autorisations suivantes :
 
-[source, console]
+[source, text]
 ----
 "s3:ListAllMyBuckets",
 "s3:ListBucket",

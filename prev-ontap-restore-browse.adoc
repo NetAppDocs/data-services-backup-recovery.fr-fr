@@ -1,0 +1,324 @@
+---
+sidebar: sidebar 
+permalink: prev-ontap-restore-browse.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: 'Avec NetApp Backup and Recovery, restaurez les données ONTAP à l"aide de Browse & Restore.' 
+---
+= Restaurer les données ONTAP à l'aide de Parcourir et restaurer
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Avec NetApp Backup and Recovery, restaurez les données ONTAP à l'aide de Browse & Restore. Avant la restauration, notez le nom du volume source, le système source et le SVM, ainsi que la date du fichier de sauvegarde. Vous pouvez restaurer les données ONTAP à partir d'un instantané, d'un volume répliqué ou de sauvegardes stockées dans un stockage objet.
+
+Les fonctionnalités de restauration dépendent de votre version ONTAP :
+
+* *Dossiers :* Avec ONTAP 9.13.0 ou une version supérieure, vous pouvez restaurer des dossiers avec tous les fichiers et sous-dossiers ; avec les versions antérieures, vous ne pouvez restaurer que les fichiers contenus dans le dossier.
+* *Stockage d'archives :* La restauration à partir du stockage d'archives (disponible avec ONTAP 9.10.1 ou supérieur) est plus lente et peut entraîner des coûts supplémentaires.
+* *Exigences relatives aux clusters de destination :*
++
+** Restauration du volume : ONTAP 9.10.1 ou version ultérieure
+** Restauration de fichiers : ONTAP 9.11.1 ou version ultérieure
+** Google Archive et StorageGRID: ONTAP 9.12.1 ou version ultérieure
+** Restauration de dossiers : ONTAP 9.13.1 ou version ultérieure
+
+
+
+
+ifdef::aws[]
+
+link:prev-reference-aws-archive-storage-tiers.html["En savoir plus sur la restauration à partir du stockage d'archives AWS"].
+
+endif::aws[]
+
+ifdef::azure[]
+
+link:prev-reference-azure-archive-storage-tiers.html["En savoir plus sur la restauration à partir du stockage d'archives Azure"].
+
+endif::azure[]
+
+ifdef::gcp[]
+
+link:prev-reference-gcp-archive-storage-tiers.html["En savoir plus sur la restauration à partir du stockage d'archives Google"].
+
+endif::gcp[]
+
+
+NOTE: La priorité élevée n’est pas prise en charge lors de la restauration des données du stockage d’archivage Azure vers les systèmes StorageGRID .
+
+
+
+== Parcourir et restaurer les systèmes pris en charge et les fournisseurs de stockage d'objets
+
+Vous pouvez restaurer les données ONTAP à partir d'un fichier de sauvegarde résidant dans un système secondaire (un volume répliqué) ou dans un stockage d'objets (un fichier de sauvegarde) sur les systèmes suivants. Les instantanés résident sur le système source et ne peuvent être restaurés que sur ce même système.
+
+*Remarque :* vous pouvez restaurer un volume à partir de n’importe quel type de fichier de sauvegarde, mais vous ne pouvez restaurer un dossier ou des fichiers individuels qu’à partir d’un fichier de sauvegarde dans le stockage d’objets pour le moment.
+
+[cols="25,25,25,25"]
+|===
+| *Depuis le magasin d'objets (sauvegarde)* | *Depuis le primaire (instantané)* | *Depuis le système secondaire (réplication)* | Vers le système de destination ifdef::aws[] 
+
+
+| Amazon S3 | Cloud Volumes ONTAP dans le système ONTAP sur site AWS | Cloud Volumes ONTAP dans AWS Système ONTAP sur site endif::aws[] ifdef::azure[] | Azure Blob 
+
+
+| Cloud Volumes ONTAP dans le système ONTAP sur site Azure | Cloud Volumes ONTAP dans le système ONTAP local Azure endif::azure[] ifdef::gcp[] | Stockage Google Cloud | Cloud Volumes ONTAP dans le système ONTAP sur site de Google 
+
+
+| Cloud Volumes ONTAP dans le système ONTAP sur site de Google endif::gcp[] | NetApp StorageGRID | Système ONTAP sur site | Système ONTAP sur site Cloud Volumes ONTAP 
+
+
+| Vers le système ONTAP sur site | ONTAP S3 | Système ONTAP sur site | Système ONTAP sur site Cloud Volumes ONTAP 
+|===
+Pour la navigation et la restauration, l'agent de console peut être installé aux emplacements suivants :
+
+ifdef::aws[]
+
+* Pour Amazon S3, l'agent de console peut être déployé dans AWS ou dans vos locaux
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* Pour Azure Blob, l'agent de console peut être déployé dans Azure ou dans vos locaux
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* Pour Google Cloud Storage, l'agent de la console doit être déployé dans votre VPC Google Cloud Platform
+
+
+endif::gcp[]
+
+* Pour StorageGRID, l'agent de console doit être déployé dans vos locaux ; avec ou sans accès Internet
+* Pour ONTAP S3, l'agent de console peut être déployé dans vos locaux (avec ou sans accès Internet) ou dans un environnement de fournisseur de cloud
+
+
+Notez que les références aux « systèmes ONTAP sur site » incluent les systèmes FAS, AFF et ONTAP Select .
+
+
+NOTE: Si la version ONTAP de votre système est inférieure à 9.13.1, vous ne pouvez pas restaurer de dossiers ou de fichiers si le fichier de sauvegarde a été configuré avec DataLock & Ransomware.  Dans ce cas, vous pouvez restaurer l'intégralité du volume à partir du fichier de sauvegarde, puis accéder aux fichiers dont vous avez besoin.
+
+
+
+== Restaurer les volumes à l'aide de Parcourir et restaurer
+
+Lorsque vous restaurez un volume à partir d'un fichier de sauvegarde, NetApp Backup and Recovery crée un _nouveau_ volume à l'aide des données de la sauvegarde.  Lorsque vous utilisez une sauvegarde à partir du stockage d'objets, vous pouvez restaurer les données sur un volume du système d'origine, sur un autre système situé dans le même compte cloud que le système source ou sur un système ONTAP local.
+
+Lors de la restauration d'une sauvegarde cloud sur un système Cloud Volumes ONTAP utilisant ONTAP 9.13.0 ou une version ultérieure ou sur un système ONTAP local exécutant ONTAP 9.14.1, vous aurez la possibilité d'effectuer une opération de _restauration rapide_. La restauration rapide est idéale pour les situations de reprise après sinistre où vous devez fournir l'accès à un volume dès que possible. Une restauration rapide restaure les métadonnées du fichier de sauvegarde sur un volume au lieu de restaurer l'intégralité du fichier de sauvegarde.  La restauration rapide n'est pas recommandée pour les applications sensibles aux performances ou à la latence, et elle n'est pas prise en charge avec les sauvegardes dans le stockage archivé.
+
+
+NOTE: La restauration rapide est prise en charge pour les volumes FlexGroup uniquement si le système source à partir duquel la sauvegarde cloud a été créée exécutait ONTAP 9.12.1 ou une version ultérieure.  Et il est pris en charge pour les volumes SnapLock uniquement si le système source exécutait ONTAP 9.11.0 ou une version ultérieure.
+
+Lors de la restauration à partir d'un volume répliqué, vous pouvez restaurer le volume sur le système d'origine ou sur un système Cloud Volumes ONTAP ou ONTAP sur site.
+
+image:diagram_browse_restore_volume.png["Un diagramme qui montre le flux pour effectuer une opération de restauration de volume à l'aide de Parcourir et restaurer."]
+
+Pour restaurer un volume, vous avez besoin du nom du système source, de la machine virtuelle de stockage, du nom du volume et de la date du fichier de sauvegarde.
+
+.Étapes
+. Dans le menu de la console, sélectionnez *Protection > Sauvegarde et récupération*.
+. Sélectionnez l’onglet *Restaurer* et le tableau de bord de restauration s’affiche.
+. Dans la section _Parcourir et restaurer_, sélectionnez *Restaurer le volume*.
+. Dans la page _Sélectionner la source_, accédez au fichier de sauvegarde du volume que vous souhaitez restaurer.  Sélectionnez le *système*, le *volume* et le fichier de *sauvegarde* contenant l'horodatage à partir duquel vous souhaitez effectuer la restauration.
++
+La colonne *Emplacement* indique si le fichier de sauvegarde (instantané) est *Local* (un instantané sur le système source), *Secondaire* (un volume répliqué sur un système ONTAP secondaire) ou *Stockage d'objets* (un fichier de sauvegarde dans le stockage d'objets). Choisissez le fichier que vous souhaitez restaurer.
+
+. Sélectionnez *Suivant*.
++
+Notez que si vous sélectionnez un fichier de sauvegarde dans le stockage d'objets et que Ransomware Resilience est actif pour cette sauvegarde (si vous avez activé DataLock et Ransomware Resilience dans la politique de sauvegarde), vous êtes invité à exécuter une analyse de ransomware supplémentaire sur le fichier de sauvegarde avant de restaurer les données.  Nous vous recommandons d'analyser le fichier de sauvegarde à la recherche de ransomwares.  (Vous devrez payer des frais de sortie supplémentaires auprès de votre fournisseur de cloud pour accéder au contenu du fichier de sauvegarde.)
+
+. Dans la page _Sélectionner la destination_, sélectionnez le *système* sur lequel vous souhaitez restaurer le volume.
+. Lors de la restauration d'un fichier de sauvegarde à partir du stockage d'objets, si vous sélectionnez un système ONTAP local et que vous n'avez pas déjà configuré la connexion du cluster au stockage d'objets, vous êtes invité à fournir des informations supplémentaires :
++
+ifdef::aws[]
+
++
+** Lors de la restauration à partir d'Amazon S3, sélectionnez l'espace IP dans le cluster ONTAP où résidera le volume de destination, entrez la clé d'accès et la clé secrète de l'utilisateur que vous avez créé pour donner au cluster ONTAP l'accès au compartiment S3 et choisissez éventuellement un point de terminaison VPC privé pour un transfert de données sécurisé.
+
+
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* Lors de la restauration à partir d’Azure Blob, sélectionnez l’espace IP dans le cluster ONTAP où résidera le volume de destination, sélectionnez l’abonnement Azure pour accéder au stockage d’objets et choisissez éventuellement un point de terminaison privé pour le transfert de données sécurisé en sélectionnant le réseau virtuel et le sous-réseau.
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* Lors de la restauration à partir de Google Cloud Storage, sélectionnez le projet Google Cloud et la clé d'accès et la clé secrète pour accéder au stockage d'objets, la région où les sauvegardes sont stockées et l'espace IP dans le cluster ONTAP où résidera le volume de destination.
+
+
+endif::gcp[]
+
+* Lors de la restauration à partir de StorageGRID, saisissez le nom de domaine complet du serveur StorageGRID et le port ONTAP doit utiliser pour la communication HTTPS avec StorageGRID, sélectionnez la clé d'accès et la clé secrète nécessaires pour accéder au stockage d'objets, ainsi que l'espace IP dans le cluster ONTAP où résidera le volume de destination.
+* Lors de la restauration à partir d' ONTAP S3, saisissez le nom de domaine complet du serveur ONTAP S3 et le port ONTAP doit utiliser pour la communication HTTPS avec ONTAP S3, sélectionnez la clé d'accès et la clé secrète nécessaires pour accéder au stockage d'objets, ainsi que l'espace IP dans le cluster ONTAP où résidera le volume de destination.
++
+.. Saisissez le nom que vous souhaitez utiliser pour le volume restauré, puis sélectionnez la machine virtuelle de stockage et l’agrégat où résidera le volume.  Lors de la restauration d'un volume FlexGroup , vous devrez sélectionner plusieurs agrégats.  Par défaut, *<source_volume_name>_restore* est utilisé comme nom de volume.
++
+Lors de la restauration d'une sauvegarde à partir du stockage d'objets vers un système Cloud Volumes ONTAP utilisant ONTAP 9.13.0 ou une version ultérieure ou vers un système ONTAP local exécutant ONTAP 9.14.1, vous aurez la possibilité d'effectuer une opération de _restauration rapide_.
+
++
+Et si vous restaurez le volume à partir d'un fichier de sauvegarde qui réside dans un niveau de stockage d'archivage (disponible à partir d' ONTAP 9.10.1), vous pouvez sélectionner la priorité de restauration.
+
++
+ifdef::aws[]
+
+
+
+
+
+link:prev-reference-aws-archive-storage-tiers.html["En savoir plus sur la restauration à partir du stockage d'archives AWS"].
+
+endif::aws[]
+
+ifdef::azure[]
+
+link:prev-reference-azure-archive-storage-tiers.html["En savoir plus sur la restauration à partir du stockage d'archives Azure"].
+
+endif::azure[]
+
+ifdef::gcp[]
+
+link:prev-reference-gcp-archive-storage-tiers.html["En savoir plus sur la restauration à partir du stockage d'archives Google"].  Les fichiers de sauvegarde dans le niveau de stockage Google Archive sont restaurés presque immédiatement et ne nécessitent aucune priorité de restauration.
+
+endif::gcp[]
+
+. Sélectionnez *Suivant* pour choisir si vous souhaitez effectuer un processus de restauration normale ou rapide :
++
+** *Restauration normale* : utilisez la restauration normale sur les volumes qui nécessitent des performances élevées.  Les volumes ne seront pas disponibles tant que le processus de restauration ne sera pas terminé.
+** *Restauration rapide* : les volumes et données restaurés seront disponibles immédiatement. N'utilisez pas cette option sur des volumes nécessitant des performances élevées, car pendant le processus de restauration rapide, l'accès aux données peut être plus lent que d'habitude.
+
+
+. Sélectionnez *Restaurer* et vous revenez au tableau de bord de restauration afin de pouvoir examiner la progression de l'opération de restauration.
+
+
+.Résultat
+NetApp Backup and Recovery crée un nouveau volume basé sur la sauvegarde que vous avez sélectionnée.
+
+Notez que la restauration d’un volume à partir d’un fichier de sauvegarde résidant dans un stockage d’archives peut prendre plusieurs minutes ou heures selon le niveau d’archivage et la priorité de restauration.  Vous pouvez sélectionner l'onglet *Surveillance des tâches* pour voir la progression de la restauration.
+
+
+
+== Restaurer des dossiers et des fichiers à l'aide de Parcourir et restaurer
+
+Si vous devez restaurer uniquement quelques fichiers à partir d'une sauvegarde de volume ONTAP , vous pouvez choisir de restaurer un dossier ou des fichiers individuels au lieu de restaurer l'intégralité du volume.  Vous pouvez restaurer des dossiers et des fichiers sur un volume existant dans le système d'origine ou sur un autre système utilisant le même compte cloud.  Vous pouvez également restaurer des dossiers et des fichiers sur un volume sur un système ONTAP local.
+
+
+NOTE: Vous ne pouvez restaurer un dossier ou des fichiers individuels qu'à partir d'un fichier de sauvegarde dans le stockage d'objets à ce stade. La restauration de fichiers et de dossiers n'est actuellement pas prise en charge à partir d'un instantané local ou d'un fichier de sauvegarde situé sur un système secondaire (un volume répliqué).
+
+Si vous sélectionnez plusieurs fichiers, ils seront restaurés sur le même volume de destination.  Pour restaurer des fichiers sur différents volumes, exécutez le processus plusieurs fois.
+
+Lorsque vous utilisez ONTAP 9.13.0 ou une version ultérieure, vous pouvez restaurer un dossier avec tous les fichiers et sous-dossiers qu'il contient.  Lorsque vous utilisez une version d' ONTAP antérieure à 9.13.0, seuls les fichiers de ce dossier sont restaurés - aucun sous-dossier, ni fichier dans les sous-dossiers, n'est restauré.
+
+[NOTE]
+====
+* Si le fichier de sauvegarde a été configuré avec la protection DataLock et Ransomware, la restauration au niveau du dossier n'est prise en charge que si la version ONTAP est 9.13.1 ou supérieure.  Si vous utilisez une version antérieure d' ONTAP, vous pouvez restaurer l'intégralité du volume à partir du fichier de sauvegarde, puis accéder au dossier et aux fichiers dont vous avez besoin.
+* Si le fichier de sauvegarde réside dans un stockage d'archives, la restauration au niveau du dossier n'est prise en charge que si la version ONTAP est 9.13.1 ou supérieure.  Si vous utilisez une version antérieure d' ONTAP, vous pouvez restaurer le dossier à partir d'un fichier de sauvegarde plus récent qui n'a pas été archivé, ou vous pouvez restaurer l'intégralité du volume à partir de la sauvegarde archivée, puis accéder au dossier et aux fichiers dont vous avez besoin.
+* Avec ONTAP 9.15.1, vous pouvez restaurer les dossiers FlexGroup à l'aide de l'option « Parcourir et restaurer ».  Cette fonctionnalité est en mode Aperçu technologique.
++
+Vous pouvez le tester en utilisant un indicateur spécial décrit dans le https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-July-2024-Release/ba-p/453993#toc-hId-1830672444["Blog sur la version de juillet 2024 de NetApp Backup and Recovery"^] .
+
+
+
+====
+
+
+=== Restaurer des dossiers et des fichiers
+
+Suivez ces étapes pour restaurer des dossiers ou des fichiers sur un volume à partir d’une sauvegarde de volume ONTAP .  Vous devez connaître le nom du volume et la date du fichier de sauvegarde que vous souhaitez utiliser pour restaurer le dossier ou le(s) fichier(s).  Cette fonctionnalité utilise la navigation en direct pour que vous puissiez afficher la liste des répertoires et des fichiers dans chaque fichier de sauvegarde.
+
+image:diagram_browse_restore_file.png["Un diagramme qui montre le flux pour effectuer une opération de restauration de fichier à l'aide de Parcourir et restaurer."]
+
+.Avant de commencer
+* La version ONTAP doit être 9.6 ou supérieure pour effectuer des opérations de restauration de _fichier_.
+* La version ONTAP doit être 9.11.1 ou supérieure pour effectuer des opérations de restauration de _dossier_.  La version 9.13.1 ONTAP est requise si les données sont stockées dans un stockage d'archives ou si le fichier de sauvegarde utilise la protection DataLock et Ransomware.
+* La version ONTAP doit être 9.15.1 p2 ou supérieure pour restaurer les répertoires FlexGroup à l'aide de l'option Parcourir et restaurer.
+
+
+.Étapes
+. Dans le menu de la console, sélectionnez *Protection > Sauvegarde et récupération*.
+. Sélectionnez l’onglet *Restaurer* et le tableau de bord de restauration s’affiche.
+. Dans la section _Parcourir et restaurer_, sélectionnez *Restaurer les fichiers ou le dossier*.
+. Dans la page _Sélectionner la source_, accédez au fichier de sauvegarde du volume qui contient le dossier ou les fichiers que vous souhaitez restaurer.  Sélectionnez le *système*, le *volume* et la *sauvegarde* contenant la date et l'heure à partir desquelles vous souhaitez restaurer les fichiers.
+. Sélectionnez *Suivant* et la liste des dossiers et fichiers de la sauvegarde du volume s'affiche.
++
+Si vous restaurez des dossiers ou des fichiers à partir d'un fichier de sauvegarde qui réside dans un niveau de stockage d'archivage, vous pouvez sélectionner la priorité de restauration.
+
++
+link:prev-reference-aws-archive-storage-tiers.html["En savoir plus sur la restauration à partir du stockage d'archives AWS"]. link:prev-reference-azure-archive-storage-tiers.html["En savoir plus sur la restauration à partir du stockage d'archives Azure"] . link:prev-reference-gcp-archive-storage-tiers.html["En savoir plus sur la restauration à partir du stockage d'archives Google"] .  Les fichiers de sauvegarde dans le niveau de stockage Google Archive sont restaurés presque immédiatement et ne nécessitent aucune priorité de restauration.
+
++
+Et si Ransomware Resilience est actif pour le fichier de sauvegarde (si vous avez activé DataLock et Ransomware Resilience dans la politique de sauvegarde), vous êtes alors invité à exécuter une analyse de ransomware supplémentaire sur le fichier de sauvegarde avant de restaurer les données.  Nous vous recommandons d'analyser le fichier de sauvegarde à la recherche de ransomwares.  (Vous devrez payer des frais de sortie supplémentaires auprès de votre fournisseur de cloud pour accéder au contenu du fichier de sauvegarde.)
+
+. Dans la page _Sélectionner les éléments_, sélectionnez le dossier ou le(s) fichier(s) que vous souhaitez restaurer et sélectionnez *Continuer*.  Pour vous aider à trouver l'article :
++
+** Vous pouvez sélectionner le nom du dossier ou du fichier si vous le voyez.
+** Vous pouvez sélectionner l’icône de recherche et saisir le nom du dossier ou du fichier pour accéder directement à l’élément.
+** Vous pouvez parcourir les niveaux vers le bas dans les dossiers en utilisant la flèche vers le bas à la fin de la ligne pour rechercher des fichiers spécifiques.
++
+Au fur et à mesure que vous sélectionnez des fichiers, ils sont ajoutés sur le côté gauche de la page afin que vous puissiez voir les fichiers que vous avez déjà choisis.  Vous pouvez supprimer un fichier de cette liste si nécessaire en sélectionnant le *x* à côté du nom du fichier.
+
+
+
+. Dans la page _Sélectionner la destination_, sélectionnez le *système* sur lequel vous souhaitez restaurer les éléments.
++
+Si vous sélectionnez un cluster sur site et que vous n'avez pas encore configuré la connexion du cluster au stockage d'objets, vous êtes invité à fournir des informations supplémentaires :
+
++
+ifdef::aws[]
+
++
+** Lors de la restauration à partir d'Amazon S3, saisissez l'espace IP dans le cluster ONTAP où réside le volume de destination, ainsi que la clé d'accès AWS et la clé secrète nécessaires pour accéder au stockage d'objets.  Vous pouvez également sélectionner une configuration de lien privé pour la connexion au cluster.
+
+
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* Lors de la restauration à partir d’Azure Blob, entrez l’espace IP dans le cluster ONTAP où réside le volume de destination.  Vous pouvez également sélectionner une configuration de point de terminaison privé pour la connexion au cluster.
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* Lors de la restauration à partir de Google Cloud Storage, saisissez l'espace IP dans le cluster ONTAP où résident les volumes de destination, ainsi que la clé d'accès et la clé secrète nécessaires pour accéder au stockage d'objets.
+
+
+endif::gcp[]
+
+* Lors de la restauration à partir de StorageGRID, entrez le nom de domaine complet du serveur StorageGRID et le port ONTAP doit utiliser pour la communication HTTPS avec StorageGRID, entrez la clé d'accès et la clé secrète nécessaires pour accéder au stockage d'objets, ainsi que l'espace IP dans le cluster ONTAP où réside le volume de destination.
++
+.. Sélectionnez ensuite le *Volume* et le *Dossier* dans lesquels vous souhaitez restaurer le dossier ou les fichiers.
++
+Vous disposez de plusieurs options pour l'emplacement lors de la restauration des dossiers et des fichiers.
+
+
+
+* Lorsque vous avez choisi *Sélectionner le dossier cible*, comme indiqué ci-dessus :
++
+** Vous pouvez sélectionner n’importe quel dossier.
+** Vous pouvez survoler un dossier et cliquer à la fin de la ligne pour accéder aux sous-dossiers, puis sélectionner un dossier.
+
+
+* Si vous avez sélectionné le même système de destination et le même volume que celui où se trouvait le dossier/fichier source, vous pouvez sélectionner *Conserver le chemin du dossier source* pour restaurer le dossier ou les fichiers dans le même dossier où ils existaient dans la structure source.  Tous les mêmes dossiers et sous-dossiers doivent déjà exister ; les dossiers ne sont pas créés.  Lors de la restauration des fichiers à leur emplacement d'origine, vous pouvez choisir d'écraser le(s) fichier(s) source ou de créer de nouveaux fichiers.
++
+.. Sélectionnez *Restaurer* pour revenir au tableau de bord de restauration et consulter la progression de l'opération de restauration.
+
+
+

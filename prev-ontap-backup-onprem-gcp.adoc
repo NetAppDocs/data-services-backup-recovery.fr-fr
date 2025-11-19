@@ -92,7 +92,7 @@ Pour utiliser la fonctionnalité « Recherche et restauration » de NetApp Bac
 . Sélectionnez *Modifier le rôle* pour mettre à jour les autorisations du rôle.
 . Sélectionnez *Ajouter des autorisations* pour ajouter les nouvelles autorisations suivantes au rôle.
 +
-[source, console]
+[source, text]
 ----
 bigquery.jobs.get
 bigquery.jobs.list
@@ -243,7 +243,7 @@ Vous devez fournir des clés d’accès au stockage pour un compte de service di
 . Dans le https://console.cloud.google.com["Console Google Cloud"^] , allez à la page *Rôles*.
 . https://cloud.google.com/iam/docs/creating-custom-roles#creating_a_custom_role["Créer un nouveau rôle"^]avec les autorisations suivantes :
 +
-[source, console]
+[source, text]
 ----
 storage.buckets.create
 storage.buckets.delete
@@ -297,7 +297,7 @@ Si vous prévoyez d'utiliser vos propres clés gérées par le client :
 * Vous aurez besoin du trousseau de clés et du nom de la clé pour pouvoir ajouter ces informations dans l'assistant d'activation. https://cloud.google.com/kms/docs/cmek["En savoir plus sur les clés de chiffrement gérées par le client"^] .
 * Vous devrez vérifier que ces autorisations requises sont incluses dans le rôle de l'agent de console :
 +
-[source, console]
+[source, text]
 ----
 cloudkms.cryptoKeys.get
 cloudkms.cryptoKeys.getIamPolicy

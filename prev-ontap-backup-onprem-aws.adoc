@@ -293,12 +293,40 @@ Par défaut, le service crée des buckets pour vous.  Ou, si vous souhaitez util
 
 link:prev-ontap-protect-journey.html["En savoir plus sur la création de vos propres buckets"^].
 
-Si vous créez vos propres buckets, vous devez utiliser un nom de bucket « netapp-backup ».  Si vous devez utiliser un nom personnalisé, modifiez le `ontapcloud-instance-policy-netapp-backup` IAMRole pour les CVO existants et ajoutez la liste suivante aux autorisations S3.  Vous devez inclure `"Resource": "arn:aws:s3:::*"` et attribuez toutes les autorisations nécessaires qui doivent être associées au bucket.
+Si vous créez vos propres buckets, vous devez utiliser un nom de bucket « netapp-backup ». Si vous devez utiliser un nom personnalisé, modifiez le `ontapcloud-instance-policy-netapp-backup` Ajoutez une IAMRole aux CVO existants et le bloc JSON suivant aux autorisations S3. `Statement` tableau. Vous devez inclure `"Resource": "arn:aws:s3:::*"` et attribuez toutes les autorisations nécessaires qui doivent être associées au bucket.
 
 [%collapsible]
 ====
-"Action": [ "S3:ListBucket" "S3:GetBucketLocation" ] "Ressource": "arn:aws:s3:::*", "Effet": "Autoriser" }, { "Action": [ "S3:GetObject", "S3:PutObject", "S3:DeleteObject", "S3:ListAllMyBuckets", "S3:PutObjectTagging", "S3:GetObjectTagging", "S3:RestoreObject", "S3:GetBucketObjectLockConfiguration", "S3:GetObjectRetention", "S3:PutBucketObjectLockConfiguration", "S3:PutObjectRetention" ] "Ressource": "arn:aws:s3:::*",
-
+[source, json]
+----
+[
+  {
+    "Effect": "Allow",
+    "Action": [
+      "s3:ListBucket",
+      "s3:GetBucketLocation"
+    ],
+    "Resource": "arn:aws:s3:::*"
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "s3:GetObject",
+      "s3:PutObject",
+      "s3:DeleteObject",
+      "s3:ListAllMyBuckets",
+      "s3:PutObjectTagging",
+      "s3:GetObjectTagging",
+      "s3:RestoreObject",
+      "s3:GetBucketObjectLockConfiguration",
+      "s3:GetObjectRetention",
+      "s3:PutBucketObjectLockConfiguration",
+      "s3:PutObjectRetention"
+    ],
+    "Resource": "arn:aws:s3:::*"
+  }
+]
+----
 ====
 
 
@@ -332,9 +360,9 @@ Si vous utilisez le port 443 (HTTPS) pour la communication avec le point de term
 . Obtenez le nom DNS du point de terminaison à partir de la console AWS.
 . Obtenez le certificat à partir du point de terminaison VPC S3.  Vous faites cela en https://docs.netapp.com/us-en/console-setup-admin/task-maintain-connectors.html#connect-to-the-linux-vm["connexion à la machine virtuelle qui héberge l'agent de la console"^] et exécutez la commande suivante.  Lors de la saisie du nom DNS du point de terminaison, ajoutez « bucket » au début, en remplaçant le « * » :
 +
-[source, text]
+[source, console]
 ----
-[ec2-user@ip-10-160-4-68 ~]$ openssl s_client -connect bucket.vpce-0ff5c15df7e00fbab-yxs7lt8v.s3.us-west-2.vpce.amazonaws.com:443 -showcerts
+openssl s_client -connect bucket.vpce-0ff5c15df7e00fbab-yxs7lt8v.s3.us-west-2.vpce.amazonaws.com:443 -showcerts
 ----
 . À partir de la sortie de cette commande, copiez les données du certificat S3 (toutes les données comprises entre les balises BEGIN / END CERTIFICATE incluses) :
 +
@@ -352,7 +380,7 @@ GqvbOz/oO2NWLLFCqI+xmkLcMiPrZy+/6Af+HH2mLCM4EsI2b+IpBmPkriWnnxo=
 ----
 . Connectez-vous à l'interface de ligne de commande du cluster ONTAP et appliquez le certificat que vous avez copié à l'aide de la commande suivante (remplacez le nom de votre propre machine virtuelle de stockage) :
 +
-[source, text]
+[source, console]
 ----
 cluster1::> security certificate install -vserver cluster1 -type server-ca
 Please enter Certificate: Press <Enter> when done

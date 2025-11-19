@@ -111,7 +111,7 @@ Vous devez enregistrer le fournisseur de ressources Azure Synapse Analytics (app
 +
 [%collapsible]
 ====
-[source, console]
+[source, text]
 ----
 "Microsoft.Storage/storageAccounts/listkeys/action",
 "Microsoft.Storage/storageAccounts/read",
