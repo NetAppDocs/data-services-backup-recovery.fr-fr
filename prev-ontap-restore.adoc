@@ -69,12 +69,6 @@ Ce tableau fournit une comparaison des fonctionnalités des deux méthodes.
 | Ne gère pas la récupération de fichier si le fichier a été supprimé ou renommé et que l'utilisateur ne connaît pas le nom du fichier d'origine | Gère les répertoires nouvellement créés/supprimés/renommés et les fichiers nouvellement créés/supprimés/renommés 
 
 
-| Aucune ressource supplémentaire du fournisseur de cloud n'est requise | Lorsque vous restaurez à partir du cloud, des ressources de bucket et de fournisseur de cloud public supplémentaires sont requises par compte. 
-
-
-| Aucun coût supplémentaire n'est requis pour le fournisseur de cloud | Lorsque vous restaurez à partir du cloud, des coûts supplémentaires sont nécessaires lors de l'analyse de vos sauvegardes et volumes pour obtenir des résultats de recherche. 
-
-
 | La restauration rapide est prise en charge. | La restauration rapide n'est pas prise en charge. 
 |===
 Ce tableau fournit une liste d’opérations de restauration valides en fonction de l’emplacement où résident vos fichiers de sauvegarde.

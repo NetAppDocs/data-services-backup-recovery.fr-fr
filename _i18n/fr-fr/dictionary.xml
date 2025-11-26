@@ -3734,10 +3734,6 @@
   <block id="c601431e32ca59eda5545781d799fc84" category="cell">Recherchez un volume, un dossier ou un fichier dans *tous les fichiers de sauvegarde* par nom de volume partiel ou complet, nom de dossier/fichier partiel ou complet, plage de taille et filtres de recherche supplémentaires.</block>
   <block id="8042f6982b79849d158e3d7ac9190cc2" category="cell">Ne gère pas la récupération de fichier si le fichier a été supprimé ou renommé et que l'utilisateur ne connaît pas le nom du fichier d'origine</block>
   <block id="609c9e9bd29468f2ba84839f3741b886" category="cell">Gère les répertoires nouvellement créés/supprimés/renommés et les fichiers nouvellement créés/supprimés/renommés</block>
-  <block id="c6df30fd69d443c5f65257f03e22d182" category="cell">Aucune ressource supplémentaire du fournisseur de cloud n'est requise</block>
-  <block id="ba3b7ed6a9e20a17536af523c17d7d72" category="cell">Lorsque vous restaurez à partir du cloud, des ressources de bucket et de fournisseur de cloud public supplémentaires sont requises par compte.</block>
-  <block id="f487cfb88239842615093e7eb26153a0" category="cell">Aucun coût supplémentaire n'est requis pour le fournisseur de cloud</block>
-  <block id="e4da0c30ee3e36e87eec129bd901c319" category="cell">Lorsque vous restaurez à partir du cloud, des coûts supplémentaires sont nécessaires lors de l'analyse de vos sauvegardes et volumes pour obtenir des résultats de recherche.</block>
   <block id="bc7f13477d0119c48bad565ccf971e6a" category="cell">La restauration rapide est prise en charge.</block>
   <block id="acf00c252198c9be0294aaf561c5d662" category="cell">La restauration rapide n'est pas prise en charge.</block>
   <block id="36bce3524e4446bfe42ccad6f813430a" category="paragraph">Ce tableau fournit une liste d’opérations de restauration valides en fonction de l’emplacement où résident vos fichiers de sauvegarde.</block>
@@ -4715,7 +4711,6 @@
   <block id="4fbc8584021c60a153dbf213f698df58" category="paragraph">Notez que les résultats identifient les instantanés de volumes locaux et les volumes répliqués distants qui contiennent le fichier recherché.  Vous pouvez choisir de restaurer à partir du fichier de sauvegarde cloud, à partir de l'instantané ou à partir du volume répliqué.</block>
   <block id="8cb59bcb28ab4d28eff3f32b41c1619f" category="paragraph">Vous devrez d'abord monter un volume séparé pour stocker les fichiers de catalogue. Cela évite la perte de données si la taille des fichiers contenant les instantanés devient trop importante. Cela n'est pas nécessaire sur tous les clusters ; vous pouvez monter n'importe quel volume provenant de n'importe quel cluster de votre environnement. Si vous ne le faites pas, l'indexation risque de ne pas fonctionner correctement.</block>
   <block id="49b1bd86131611255094bea2f77118b7" category="paragraph">Pour le volume monté, utilisez les indications de dimensionnement suivantes :</block>
-  <block id="0207db4ce855854d816d06443ff062ea" category="list-text">Utilisez un volume NVS NetApp</block>
   <block id="aa45cf8d923bfb8185fed2178e78d921" category="list-text">Stockage AFF recommandé avec un débit disque de 300 Mo/s. La baisse du débit aura un impact sur la recherche et les autres opérations.</block>
   <block id="076bea46cdc896921ec2687cf3f345bb" category="list-text">Activez les instantanés NetApp pour sécuriser les métadonnées du catalogue en plus des fichiers zip de sauvegarde du catalogue.</block>
   <block id="1c3669c2099ac1b271c6bc4f19601ca5" category="list-text">50 Go par milliard de fichiers</block>
@@ -4779,4 +4774,7 @@
   <block id="b72cbffce68718636e4f9c2f1c2a8173" category="list-text"><block ref="f0a1a1822bca6dd563c941cbc831d447" category="inline-link-macro-rx"></block></block>
   <block id="cee41b55e417d2c681bd345802b719fd" category="sidebar">Aperçu de la restauration</block>
   <block id="a49488740a7ad2d76917598dae6b3fbb" category="sidebar">Restaurez les sauvegardes ONTAP à l'aide de la fonction Parcourir et restaurer.</block>
+  <block id="4db9a239be0f58f8e4742665ad2371e2" category="paragraph">Assurez-vous que votre environnement répond à ces exigences avant d'activer la fonction Rechercher et restaurer :</block>
+  <block id="d0320c3b870d5944eb8c31ee83638872" category="paragraph">Voici les exigences relatives à la recherche et à la restauration lors de l'utilisation de l'indexation héritée :</block>
+  <block id="9078cbf758e0949f0dca426e9aa6c0ce" category="list-text">Utilisez un volume NFS NetApp</block>
 </blocks>

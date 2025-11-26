@@ -126,6 +126,8 @@ Notez que les références aux « systèmes ONTAP sur site » incluent les sys
 
 == Prérequis de recherche et de restauration
 
+Assurez-vous que votre environnement répond à ces exigences avant d'activer la fonction Rechercher et restaurer :
+
 * Exigences du cluster :
 +
 ** La version ONTAP doit être 9.8 ou supérieure.
@@ -141,6 +143,10 @@ Notez que les références aux « systèmes ONTAP sur site » incluent les sys
 
 === Prérequis pour la recherche et la restauration héritées (avec Indexed Catalog v1)
 
+Voici les exigences relatives à la recherche et à la restauration lors de l'utilisation de l'indexation héritée :
+
+[%collapsible]
+====
 ifdef::aws[]
 
 * Exigences AWS :
@@ -203,6 +209,7 @@ Même si vous utilisez un agent de console sur site, les exigences du fournisseu
 
 
 
+====
 
 
 == Processus de recherche et de restauration
@@ -251,7 +258,7 @@ Vous devrez d'abord monter un volume séparé pour stocker les fichiers de catal
 
 Pour le volume monté, utilisez les indications de dimensionnement suivantes :
 
-* Utilisez un volume NVS NetApp
+* Utilisez un volume NFS NetApp
 * Stockage AFF recommandé avec un débit disque de 300 Mo/s. La baisse du débit aura un impact sur la recherche et les autres opérations.
 * Activez les instantanés NetApp pour sécuriser les métadonnées du catalogue en plus des fichiers zip de sauvegarde du catalogue.
 * 50 Go par milliard de fichiers
