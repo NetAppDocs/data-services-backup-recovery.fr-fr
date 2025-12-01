@@ -4777,4 +4777,5 @@
   <block id="4db9a239be0f58f8e4742665ad2371e2" category="paragraph">Assurez-vous que votre environnement répond à ces exigences avant d'activer la fonction Rechercher et restaurer :</block>
   <block id="d0320c3b870d5944eb8c31ee83638872" category="paragraph">Voici les exigences relatives à la recherche et à la restauration lors de l'utilisation de l'indexation héritée :</block>
   <block id="9078cbf758e0949f0dca426e9aa6c0ce" category="list-text">Utilisez un volume NFS NetApp</block>
+  <block id="459af9b852bd375bac17fb30c8c1b979" category="list-text">NetApp Backup &amp; Recovery ne prend pas en charge la conversion d'un FlexVol volume ayant une relation de sauvegarde cloud active en un volume FlexGroup tout en conservant la fonctionnalité de sauvegarde cloud.</block>
 </blocks>

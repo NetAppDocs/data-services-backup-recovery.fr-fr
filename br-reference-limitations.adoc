@@ -46,6 +46,7 @@ Il n'y a aucune limitation pour les volumes FlexVol : vous pouvez sélectionner 
 
 
 * Lors de la création de réplications à partir de systèmes ONTAP locaux, si la version ONTAP sur le système Cloud Volumes ONTAP cible est 9.8, 9.9 ou 9.11, seules les stratégies de coffre-fort miroir sont autorisées.
+* NetApp Backup & Recovery ne prend pas en charge la conversion d'un FlexVol volume ayant une relation de sauvegarde cloud active en un volume FlexGroup tout en conservant la fonctionnalité de sauvegarde cloud.
 
 
 
