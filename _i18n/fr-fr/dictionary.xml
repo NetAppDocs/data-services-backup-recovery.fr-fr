@@ -1037,7 +1037,6 @@
   <block id="8dee103972185c1aba0e0c814961a8db" category="list-text">Section *Notification* :</block>
   <block id="d705348f84095bf9f266942da2cf2b84" category="list-text">*Activer les notifications par e-mail* : sélectionnez cette option pour recevoir des notifications par e-mail concernant l'opération de restauration et indiquez le type de notifications que vous souhaitez recevoir.</block>
   <block id="f77361b272ce81d8275727f7b1a756a8" category="list-text">Sélectionnez *Restaurer*.</block>
-  <block id="aef04a364ab7bd7fcab1346a4084cdaa" category="paragraph">Non disponible pour l'aperçu privé Hyper-V.</block>
   <block id="4c931104d6ff5fdc2a76bdfc6fba4662" category="summary">Vous pouvez protéger les applications Kubernetes et les données d'application des systèmes ONTAP sur site vers Amazon Web Services, Microsoft Azure, Google Cloud Platform et StorageGRID, garantissant ainsi la protection de vos données.</block>
   <block id="ff1a3fbe6f92249e286b8a93cf5b5d2e" category="doc">Présentation de la gestion des charges de travail Kubernetes</block>
   <block id="14cca4b1ac5c46a49fffa25e733381e7" category="paragraph">La gestion des charges de travail Kubernetes dans NetApp Backup and Recovery vous permet de découvrir, de gérer et de protéger vos clusters et applications Kubernetes en un seul endroit. Vous pouvez gérer les ressources et les applications hébergées sur vos clusters Kubernetes. Vous pouvez également créer et associer des politiques de protection à vos charges de travail Kubernetes, le tout depuis une interface unique.</block>
@@ -1090,7 +1089,6 @@
   <block id="42b3c9b2282ae6b4644cee5b5995979d" category="summary">Protégez vos charges de travail KVM avec NetApp Backup and Recovery.</block>
   <block id="02055854e5f8d7c0a2161503c5645d5a" category="doc">Restaurer les machines virtuelles KVM avec NetApp Backup and Recovery</block>
   <block id="4ebed5b1ff5b9230bfba78b5f3751082" category="paragraph">Vous pouvez restaurer des machines virtuelles à partir de différents emplacements de départ :</block>
-  <block id="2003d1dd0ff605a8b0183ae69c3823f3" category="paragraph">Vous pouvez restaurer les données à l'emplacement d'origine ; la restauration vers un autre emplacement n'est pas disponible dans cette version d'aperçu.</block>
   <block id="c149f6b4ccbdba8011de4b1e3579b42f" category="list-text">Restaurer à l'emplacement d'origine</block>
   <block id="25a77bf38583c396d6997e367e9268c8" category="section-title">Comment fonctionne la restauration des machines virtuelles</block>
   <block id="01d60535f98ec4122ee816d29473c760" category="paragraph">Lorsque vous restaurez des machines virtuelles, les événements suivants se produisent :</block>
@@ -1101,7 +1099,6 @@
   <block id="108ce4e259c8e5532d28e1f7b55053e0" category="paragraph">Restaurez les machines virtuelles KVM à l’aide de l’option Restaurer. Vous pouvez rechercher l'instantané par son nom ou en utilisant des filtres.</block>
   <block id="28826b6f1571b9d0354ca0ae481f50c6" category="list-text">Dans la liste déroulante à droite du champ de recherche de nom, sélectionnez *KVM*.</block>
   <block id="066fa262c239f022506c95a1e09ebb65" category="list-text">Saisissez le nom de la machine virtuelle que vous souhaitez restaurer ou filtrez l’hôte de la machine virtuelle ou le pool de stockage où se trouve la ressource que vous souhaitez restaurer.</block>
-  <block id="7f95c9104d9c5d062c442ee5aade255c" category="paragraph">Non disponible pour l'aperçu KVM.</block>
   <block id="67833cdc3e0f9b5bea226d3734262615" category="summary">NetApp Backup and Recovery vous permet de gérer les hooks d'exécution pour agir avant ou après les opérations de protection des applications.</block>
   <block id="3d932cbb71cd117a65669b165e078b5b" category="doc">Gérer les modèles de hook d'exécution de NetApp Backup and Recovery pour les charges de travail Kubernetes</block>
   <block id="ac84b7596169ab3fb6c24e8a5c85c234" category="inline-link">Protection des données avec les machines virtuelles KubeVirt</block>
@@ -1916,16 +1913,7 @@
   <block id="ba48c3305320f5df1a8db5cbd6fed75a" category="paragraph">Vous pouvez restaurer les données à ces points :</block>
   <block id="600582313b42616fbf96d317e8033ef9" category="paragraph">Restaurez les charges de travail VMware à l’aide de l’option Restaurer. Vous pouvez rechercher l'instantané par son nom ou en utilisant des filtres.</block>
   <block id="1ca9578c25474d5cfeaa6c44bdbaa9b2" category="paragraph">*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, rôle d'administrateur de restauration de sauvegarde et de récupération.<block ref="8d054a08e0e901ba9c326f172eb3627b" category="inline-link-rx"></block> .</block>
-  <block id="71032b474c00a68ab57e3f805cdf5d61" category="list-text">Dans la liste déroulante à droite du champ de recherche de nom, sélectionnez *Machines virtuelles*.</block>
   <block id="2aceb93307f82c2d88347faa7eaa4e71" category="list-text">Saisissez le nom de la ressource que vous souhaitez restaurer ou filtrez le vCenter, le centre de données ou la banque de données où se trouve la ressource que vous souhaitez restaurer.</block>
-  <block id="3fca73cfa6e5a82be82156106e4db553" category="paragraph">Une liste d’options d’emplacement de restauration s’affiche.</block>
-  <block id="eb58d19c210547f2e0cbe6a7689d6a12" category="list-text">Sélectionnez l’emplacement de restauration où vous souhaitez restaurer l’instantané :</block>
-  <block id="c318ddc11c1d9b56e2cfda2af9351a42" category="list-text">Local : restaure l’instantané à l’emplacement d’origine.</block>
-  <block id="e4e4935a5dbb6b2200b975d599e683e4" category="list-text">Stockage secondaire : restaure l’instantané vers un emplacement de stockage secondaire.</block>
-  <block id="33a039fcca21669940ad7ee10455c43d" category="list-text">Stockage d’objets : restaure l’instantané vers un emplacement de stockage d’objets.</block>
-  <block id="6fa9a019160376f2b85947c9116180fb" category="paragraph">Si vous choisissez le stockage d’objets, vérifiez si vous souhaitez analyser à nouveau l’instantané avant la restauration.</block>
-  <block id="0bff45ae654663c7b091c0f6dd70d653" category="paragraph">Dans la page Détails de la destination de restauration, saisissez les informations suivantes :</block>
-  <block id="c8f730ad9d8597b4dfcdd623d5a511aa" category="paragraph">Non disponible pour l'aperçu VMware.</block>
   <block id="a5315c2927cf2b05876fdd6713fbd713" category="summary">NetApp Backup and Recovery est un service de données qui fournit une protection des données efficace, sécurisée et rentable pour toutes vos charges de travail ONTAP , y compris les volumes, les bases de données, les machines virtuelles et les charges de travail Kubernetes.</block>
   <block id="0541ead918a4013aad82336e0654ba53" category="paragraph">La prise en charge de la sauvegarde et de la récupération est déjà intégrée à tous les systèmes ONTAP , il n'est donc pas nécessaire de recourir à du matériel supplémentaire, à des licences logicielles ou à des passerelles multimédias.  Cela rend les opérations de sauvegarde simples et rentables.  La console NetApp simplifie la mise en œuvre de toute stratégie de sauvegarde, y compris la gamme complète de variantes de sauvegarde 3-2-1, sans avoir besoin de plusieurs gestionnaires de ressources ou de personnel spécialisé.</block>
   <block id="8fa16cd18cf0722e85fe3e62f649f0c8" category="admonition">La documentation sur la protection des charges de travail VMware, KVM, Hyper-V et Kubernetes est fournie sous forme d'aperçu technologique. Avec cette offre préliminaire, NetApp se réserve le droit de modifier les détails, le contenu et le calendrier de l'offre avant la disponibilité générale.</block>
@@ -4487,9 +4475,6 @@
   <block id="2b2261b532e949e52edc443eb38fcb1c" category="admonition">Vous devrez peut-être payer des frais supplémentaires à votre fournisseur de cloud pour accéder au fichier de sauvegarde.</block>
   <block id="d4356e3242caba9699bd9bc147a04798" category="paragraph">À partir de la page Restaurer (Rechercher et restaurer), vous pouvez restaurer une ressource en recherchant l'instantané avec des filtres, même si vous ne vous souvenez pas de son nom exact, de son emplacement ou de sa dernière date connue.</block>
   <block id="167f8fde1782c144b38a4f581246608e" category="paragraph">Si vous choisissez un stockage secondaire, saisissez les emplacements source et de destination des données et des journaux.</block>
-  <block id="9908b0e588dc1ce9587bfb1206e3118e" category="paragraph">Ensuite, choisissez les paramètres de destination et les options de pré- et post-restauration.</block>
-  <block id="299981ed6b0aaf1c2eed2a8e35151313" category="list-text">*Activer la restauration rapide* : sélectionnez cette option pour effectuer une opération de restauration rapide. Vous pouvez utiliser les volumes et les données restaurés immédiatement. N'utilisez pas cette option sur des volumes nécessitant des performances élevées, car pendant le processus de restauration rapide, l'accès aux données peut être plus lent que d'habitude.</block>
-  <block id="ca9d8ef3573c04098ddeb120eb1f19e5" category="list-text">*Activer les notifications par e-mail* : sélectionnez cette option pour recevoir des notifications par e-mail concernant l'opération de restauration et choisissez les types de notification souhaités.</block>
   <block id="63751d750873479f94855f0a16fc63d8" category="list-text">Configuration logicielle requise pour l'hôte Windows Server Hyper-V :</block>
   <block id="fd7bb5c3777005321645f38a2d07ea27" category="admonition">Si l'opération de restauration ne se termine pas, attendez que le moniteur de tâches affiche « Échec » avant de réessayer l'opération de restauration.</block>
   <block id="df3ee99c8171743d8bd35d65cf62b2ed" category="paragraph">Vous pouvez restaurer les données des machines virtuelles depuis le cloud vers le serveur vCenter local avec NetApp Backup and Recovery. Vous pouvez restaurer la machine virtuelle exactement au même emplacement à partir duquel la sauvegarde a été effectuée ou vers un autre emplacement. Si la machine virtuelle a été sauvegardée à l’aide d’une stratégie d’archivage, vous pouvez définir la priorité de restauration d’archivage.</block>
@@ -4778,4 +4763,40 @@
   <block id="d0320c3b870d5944eb8c31ee83638872" category="paragraph">Voici les exigences relatives à la recherche et à la restauration lors de l'utilisation de l'indexation héritée :</block>
   <block id="9078cbf758e0949f0dca426e9aa6c0ce" category="list-text">Utilisez un volume NFS NetApp</block>
   <block id="459af9b852bd375bac17fb30c8c1b979" category="list-text">NetApp Backup &amp; Recovery ne prend pas en charge la conversion d'un FlexVol volume ayant une relation de sauvegarde cloud active en un volume FlexGroup tout en conservant la fonctionnalité de sauvegarde cloud.</block>
+  <block id="063090df0880212c0ba8eec878096a21" category="doc">Améliorations en avant-première des charges de travail VMware</block>
+  <block id="24936fb650df7af8295e75a3667becef" category="list-text">Vous pouvez désormais restaurer les sauvegardes et les instantanés vers un autre emplacement. Ceci est utile si vous souhaitez gérer des versions d'une machine virtuelle sur différents déploiements VMware vCenter, hôtes VMware ESXi ou banques de données VMware.</block>
+  <block id="99ee61e75520f174d08caa35e0ad294d" category="list-text">Vous pouvez désormais restaurer des disques virtuels VMware spécifiques (images VMDK) à partir d'un emplacement principal ou secondaire, ce qui permet un contrôle plus précis de la restauration des données de la machine virtuelle.</block>
+  <block id="814957340a966bc73ff87feca2905da9" category="inline-link-macro">Découvrez comment restaurer les charges de travail VMware avec NetApp Backup and Recovery.</block>
+  <block id="8b8a6f71e41f04ff546fb14f0800f38f" category="paragraph"><block ref="9f09945a70747c90951b9e96b5ea16be" category="inline-link-macro-rx"></block>.</block>
+  <block id="7689264f717abcf16a917111f707d7e0" category="paragraph">Non disponible pour la préversion des charges de travail Hyper-V.</block>
+  <block id="77f252cb66af8ee7dab8b27bcf3851ca" category="paragraph">Non disponible en préversion pour les charges de travail KVM.</block>
+  <block id="516f1f530028d7905b72cd1b035c8a73" category="list-text">*Restauration à l'emplacement d'origine* : La machine virtuelle est restaurée à son emplacement d'origine, sur le même déploiement vCenter, le même hôte ESXi et la même banque de données. La machine virtuelle et toutes ses données ont été écrasées.</block>
+  <block id="d2f574e5e69d11881580660614b89ba3" category="list-text">*Restaurer vers un autre emplacement* : Vous pouvez choisir un autre vCenter, hôte ESXi ou datastore comme cible de restauration pour la VM. Ceci est utile pour gérer différentes copies d'une même machine virtuelle situées à différents endroits et dans différents états.</block>
+  <block id="fa378eb8651e1bbe815e91c2a4ec5b2b" category="list-text">Dans la liste déroulante située à droite du champ de recherche par nom, sélectionnez *VMware*.</block>
+  <block id="b2135f4d6adba994b22c157197d8699b" category="paragraph">Une liste de machines virtuelles correspondant à vos critères de recherche s'affiche.</block>
+  <block id="7e4be521d13fb903d20636d087795bdb" category="list-text">Trouvez dans la liste la machine virtuelle que vous souhaitez restaurer, puis sélectionnez le bouton *Restaurer la machine virtuelle* correspondant.</block>
+  <block id="02e027e60aca2a9aa354a74b09718442" category="paragraph">Une liste des instantanés (points de restauration) créés sur cette machine virtuelle s'affiche.</block>
+  <block id="a15361d377b43197c1044f0729f9742e" category="list-text">Cochez la case correspondant à l'instantané que vous souhaitez restaurer.</block>
+  <block id="4716cc8d1f61fba6b3c321e87aece13d" category="paragraph">Les options de localisation de l'instantané apparaissent.</block>
+  <block id="f16b36eea83bd45d35d7613cab7f6cf8" category="list-text">Sélectionnez la destination de restauration de l'instantané :</block>
+  <block id="086fbde8fbe590f104f5100808b42c0b" category="list-text">*Local* : Restaure l’instantané à partir de l’emplacement local.</block>
+  <block id="3a786499ea5d54fb6bb418032aca3117" category="list-text">*Secondaire* : Restaure l’instantané à partir d’un emplacement de stockage distant.</block>
+  <block id="bc9234ce73c565f247a8ae290b842ff6" category="list-text">Choisissez les paramètres de destination et les options de pré- et post-restauration.</block>
+  <block id="8ed9e5a565b596ef7f9cb364cf2536d7" category="paragraph">Lors de la restauration à l'emplacement d'origine, vous ne pouvez pas modifier le vCenter de destination, l'hôte ESXi, le datastore ou le nom de la VM. La machine virtuelle d'origine est écrasée lors de l'opération de restauration.</block>
+  <block id="10b0d3ffb47c4e67fc652e3b0f0220d7" category="list-text">Sélectionnez le volet *Emplacement d'origine*.</block>
+  <block id="1b8d4d654146b4eec3cc22bd8b461dbb" category="list-text">Choisissez parmi les options suivantes :</block>
+  <block id="9969fdcd80f8f04232cfe10158190f8c" category="list-text">Section *Options de pré-restauration* :</block>
+  <block id="3e4b444bf949d263dd0a42369aeba637" category="list-text">*Script* : Activez cette option pour automatiser des tâches supplémentaires en exécutant un script personnalisé avant le début de l’opération de restauration. Saisissez le chemin d'accès complet au script à exécuter ainsi que les arguments qu'il accepte.</block>
+  <block id="181dff5c613144551ed16703a090b3b5" category="list-text">Section *Options après restauration* :</block>
+  <block id="81dcec9119b8491a178fac7f1cf17c92" category="list-text">*Redémarrer la machine virtuelle* : Activez cette option pour redémarrer la machine virtuelle une fois l’opération de restauration terminée et après l’application du script post-restauration.</block>
+  <block id="7de4def82cb6f4cb7277085992e1be0a" category="list-text">*Post-scriptum* : Activez cette option pour automatiser des tâches supplémentaires en exécutant un script personnalisé une fois la restauration terminée. Saisissez le chemin d'accès complet au script à exécuter ainsi que les arguments qu'il accepte.</block>
+  <block id="72e03b5a87389f676881b79f8d4170ca" category="paragraph">Lors de la restauration vers un autre emplacement, vous pouvez modifier le vCenter de destination, l'hôte ESXi, le datastore et le nom de la VM pour créer une nouvelle copie de la VM dans un emplacement différent ou avec un nom différent.</block>
+  <block id="d9a04cc80eb84134a783629255c7bc36" category="list-text">Sélectionnez le volet *Emplacement alternatif*.</block>
+  <block id="f78868ada341077e1afdf76ea00e0454" category="list-text">Section *Paramètres de destination* :</block>
+  <block id="fd6f2a9c82421585e9dfe5f8820c97c0" category="list-text">*Nom de domaine complet (FQDN) ou adresse IP du serveur vCenter* : Sélectionnez le serveur vCenter sur lequel vous souhaitez restaurer l’instantané.</block>
+  <block id="a239cc572a24441f1bb1a7abc259ccab" category="list-text">*Hôte ESXi* : Sélectionnez l’hôte sur lequel vous souhaitez restaurer l’instantané.</block>
+  <block id="c2942751152cd0449e1de7861200bde4" category="list-text">*Réseau* : Sélectionnez le réseau sur lequel vous souhaitez restaurer l’instantané.</block>
+  <block id="08c806f7ec865a3481f751e978944e5d" category="list-text">*Banque de données* : Saisissez le nom de la banque de données dans laquelle vous souhaitez restaurer l’instantané.</block>
+  <block id="70fd3915e87d44c5f19fc35858b165f8" category="list-text">*Nom de la machine virtuelle* : Saisissez le nom de la machine virtuelle sur laquelle vous souhaitez restaurer l’instantané. Si le nom correspond à une machine virtuelle qui existe déjà dans la banque de données, Backup and Recovery rend le nom unique en y ajoutant un horodatage actuel.</block>
+  <block id="2727f68982ff25e8b3c57e026120561d" category="section-title">8 décembre 2025</block>
 </blocks>

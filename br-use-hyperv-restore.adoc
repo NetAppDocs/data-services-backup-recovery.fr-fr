@@ -25,7 +25,10 @@ Vous pouvez restaurer des charges de travail à partir de différents emplacemen
 
 
 .Restaurer ces points
-Vous pouvez restaurer les données à l'emplacement d'origine ; la restauration vers un autre emplacement n'est pas disponible dans cette version d'aperçu privée.
+Vous pouvez restaurer les données à ces points :
+
+* Restaurer à l'emplacement d'origine
+
 
 .Considérations relatives à la restauration à partir du stockage d'objets
 Si vous sélectionnez un fichier de sauvegarde dans le stockage d'objets et que la protection contre les ransomwares est active pour cette sauvegarde (si vous avez activé DataLock et Ransomware Resilience dans la stratégie de sauvegarde), vous êtes invité à exécuter une vérification d'intégrité supplémentaire sur le fichier de sauvegarde avant de restaurer les données.  Nous vous recommandons d'effectuer l'analyse.
@@ -101,10 +104,7 @@ Ensuite, vous pouvez choisir les paramètres de destination et les options de pr
 --
 .Restaurer vers un autre emplacement
 --
-Non disponible pour l'aperçu privé Hyper-V.
-
-. Sélectionnez *Restaurer*.
-
+Non disponible pour la préversion des charges de travail Hyper-V.
 
 --
 ====

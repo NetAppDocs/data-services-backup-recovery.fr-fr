@@ -25,7 +25,7 @@ Vous pouvez restaurer des machines virtuelles à partir de différents emplaceme
 
 
 .Restaurer ces points
-Vous pouvez restaurer les données à l'emplacement d'origine ; la restauration vers un autre emplacement n'est pas disponible dans cette version d'aperçu.
+Vous pouvez restaurer les données à ces points :
 
 * Restaurer à l'emplacement d'origine
 
@@ -108,10 +108,7 @@ Ensuite, vous pouvez choisir les paramètres de destination et les options de pr
 --
 .Restaurer vers un autre emplacement
 --
-Non disponible pour l'aperçu KVM.
-
-. Sélectionnez *Restaurer*.
-
+Non disponible en préversion pour les charges de travail KVM.
 
 --
 ====
