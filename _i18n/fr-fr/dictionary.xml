@@ -4846,7 +4846,4 @@
   <block id="985aacac93e75bfb41dca796dd136773" category="cell">Échec de la restauration à la demande</block>
   <block id="df660ed534483b04ecb1bf0371cdbe53" category="cell">Opérations système</block>
   <block id="eb31ef8eb2f5dc2e91e3fc628c278047" category="cell">Échec de la création d'un instantané de volume ad hoc</block>
-  <block id="cf45f15c2dbe19bdbf9de3e329061b93" category="paragraph">Les frais de service sont versés à NetApp et couvrent à la fois le coût de création des sauvegardes sur un stockage objet ou une cible ONTAP et celui de la restauration des volumes ou des fichiers à partir de ces sauvegardes.  Vous ne payez que pour les données que vous protégez dans le stockage objet ou dans ONTAP (y compris les configurations SnapMirror ).  Les frais sont calculés en fonction de la capacité logique utilisée source (avant les gains d'efficacité ONTAP ) des volumes ONTAP sauvegardés sur un stockage objet ou sur une cible ONTAP . Cette capacité est également connue sous le nom de téraoctets frontaux (FETB).</block>
-  <block id="1da151060a18e6460ac3d7eb0f913a37" category="paragraph">Il existe trois façons de payer pour la sauvegarde et la restauration :</block>
-  <block id="6fa5c823869ff5f58a4f5dcaaa68d86d" category="list-text">La deuxième option consiste à souscrire un contrat annuel.</block>
 </blocks>

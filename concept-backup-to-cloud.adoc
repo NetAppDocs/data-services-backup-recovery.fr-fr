@@ -169,15 +169,15 @@ ifdef::gcp[]
 
 *Frais de service*
 
-Les frais de service sont versés à NetApp et couvrent à la fois le coût de création des sauvegardes sur un stockage objet ou une cible ONTAP et celui de la restauration des volumes ou des fichiers à partir de ces sauvegardes.  Vous ne payez que pour les données que vous protégez dans le stockage objet ou dans ONTAP (y compris les configurations SnapMirror ).  Les frais sont calculés en fonction de la capacité logique utilisée source (avant les gains d'efficacité ONTAP ) des volumes ONTAP sauvegardés sur un stockage objet ou sur une cible ONTAP . Cette capacité est également connue sous le nom de téraoctets frontaux (FETB).
+40ff88020bcb9f0e42545b8535db30db
 
 
 NOTE: Pour Microsoft SQL Server, des frais s'appliquent lorsque vous lancez la réplication de snapshots vers une cible ONTAP secondaire ou un stockage d'objets.
 
-Il existe trois façons de payer pour la sauvegarde et la restauration :
+da19f2e50cbb3312d0bcc973d8486544
 
 * La première option est de vous abonner auprès de votre fournisseur cloud, ce qui vous permet de payer par mois.
-* La deuxième option consiste à souscrire un contrat annuel.
+* a426b39cc5038676b39d2265b22cebec
 * La troisième option consiste à acheter des licences directement auprès de NetApp.  Lire le<<Licences,Licences>> section pour plus de détails.
 
 
