@@ -1286,7 +1286,6 @@
   <block id="f12cc055f626f9974e07168ee36fc2b6" category="list-text">Dans le menu NetApp Backup and Recovery , sélectionnez *Surveillance*.</block>
   <block id="e81a8bad1be4be12a837fcfb49f51617" category="list-text">Pour afficher des colonnes supplémentaires (Système, SVM, Nom d'utilisateur, Charge de travail, Nom de la politique, Étiquette d'instantané), sélectionnez le signe plus.</block>
   <block id="87aa191eff82d3ce3518c07577f209bd" category="section-title">Rechercher et filtrer la liste des emplois</block>
-  <block id="9d0747ab797d5b67d7daca67845988b1" category="paragraph">Vous pouvez filtrer les opérations sur la page Surveillance des tâches à l'aide de plusieurs filtres, tels que la stratégie, l'étiquette d'instantané, le type d'opération (protection, restauration, rétention ou autre) et le type de protection (instantané local, réplication ou sauvegarde dans le cloud).</block>
   <block id="7f8ba7d41d11ab3b1061dbce2eeadb52" category="paragraph">Par défaut, la page Surveillance des tâches affiche les tâches de protection et de récupération des dernières 24 heures.  Vous pouvez modifier la période à l'aide du filtre Période.</block>
   <block id="a466bc110c2ee16333fcf19f4e7b5dc2" category="list-text">Pour trier les résultats différemment, sélectionnez chaque en-tête de colonne pour trier par statut, heure de début, nom de la ressource, etc.</block>
   <block id="abfa7a0ebf0068a9c8b2a22cab7ee2b3" category="list-text">Si vous recherchez des emplois spécifiques, sélectionnez la zone *Recherche avancée et filtrage* pour ouvrir le panneau de recherche.</block>
@@ -1311,16 +1310,13 @@
   <block id="2b0ecb40cc305f7af9fe7f986b5bb2dd" category="list-text">Pour télécharger un fichier CSV pour tous les travaux, sélectionnez le bouton Télécharger et recherchez le fichier dans votre répertoire de téléchargement.</block>
   <block id="1dc45daaf063a4c51a123d4f491b6b42" category="list-text">Pour télécharger un fichier JSON pour une seule tâche, sélectionnez le menu Actions<block ref="2a0f14b836fbf833847542e256b2473a" category="inline-image-macro-rx" type="image"></block> pour le travail, sélectionnez *Télécharger le fichier JSON* et localisez le fichier dans votre répertoire de téléchargement.</block>
   <block id="f1a15f873b659fefcf2800c9489b580b" category="section-title">Examiner les tâches de rétention (cycle de vie des sauvegardes)</block>
-  <block id="5168f75ce01db43e41309dbb9ba106a7" category="paragraph">Le type de tâche « Rétention » capture toutes les tâches de suppression de snapshots lancées sur un volume protégé par NetApp Backup and Recovery.</block>
   <block id="9304f305aa89a02039b5cb4ac930f498" category="list-text">Sélectionnez la zone *Recherche avancée et filtrage* pour ouvrir le panneau de recherche.</block>
   <block id="67e8772c27eee052c978af0d5760e36a" category="list-text">Sélectionnez « Rétention » comme type de travail.</block>
   <block id="1c3cccbea914c20304f63319b99fb585" category="section-title">Consultez les alertes de sauvegarde et de restauration dans le centre de notifications de la NetApp Console</block>
   <block id="bacd9783e91bb01896a4e564be2f9207" category="paragraph">Le centre de notifications de la NetApp Console suit la progression des tâches de sauvegarde et de restauration que vous avez lancées afin que vous puissiez vérifier si l'opération a réussi ou non.</block>
   <block id="44d4deb8868ac8159ee85f4a8e68725c" category="inline-link">En savoir plus sur le centre de notifications et comment envoyer des e-mails d'alerte pour les tâches de sauvegarde et de restauration</block>
-  <block id="3b27991b1aa229f52835df236ba4b917" category="paragraph">Le centre de notifications affiche de nombreux événements de capture instantanée, de réplication, de sauvegarde dans le cloud et de restauration, mais seuls certains événements déclenchent des alertes par e-mail :</block>
   <block id="9e35f94818feb2156d0744e4be9fb2ea" category="cell">Type d'opération</block>
   <block id="a4ecfc70574394990cf17bd83df499f7" category="cell">Événement</block>
-  <block id="630469b1210edbcdbdfbbd418f05c1ca" category="cell">Niveau d'alerte</block>
   <block id="cfa4593b1fb6aea2e32d9928f2c4349b" category="cell">E-mail envoyé</block>
   <block id="a9a62e70841c4d06dd16306a85700d36" category="cell">Activation</block>
   <block id="c74709859d025e289686ff60f170d924" category="cell">L'activation de la sauvegarde et de la récupération a échoué pour le système</block>
@@ -1992,11 +1988,8 @@
   <block id="705d7d5204c001ada8d7869c065a6a70" category="list-text">Si vous prévoyez de restaurer des données de volume à partir d'un fichier de sauvegarde qui a été déplacé vers un stockage d'objets d'archivage, des frais de récupération par Gio et des frais par demande supplémentaires sont facturés par le fournisseur de cloud.</block>
   <block id="e44d61516574d94ce56af3468723e18a" category="list-text">Si vous prévoyez d'analyser un fichier de sauvegarde à la recherche de ransomwares pendant le processus de restauration des données du volume (si vous avez activé DataLock et Ransomware Resilience pour vos sauvegardes cloud), vous devrez également supporter des frais de sortie supplémentaires auprès de votre fournisseur cloud.</block>
   <block id="e1b4a0ddcd3124f71fd5c65649282433" category="paragraph">*Frais de service*</block>
-  <block id="40ff88020bcb9f0e42545b8535db30db" category="paragraph">Les frais de service sont payés à NetApp et couvrent à la fois le coût de _création_ de sauvegardes sur le stockage d'objets et de _restauration_ de volumes ou de fichiers à partir de ces sauvegardes.  Vous payez uniquement pour les données que vous protégez dans le stockage d'objets, calculées par la capacité logique source utilisée (avant l'efficacité ONTAP ) des volumes ONTAP sauvegardés sur le stockage d'objets.  Cette capacité est également connue sous le nom de téraoctets frontaux (FETB).</block>
   <block id="9b84371e23a14f93e2d9314a2599ac9a" category="admonition">Pour Microsoft SQL Server, des frais s'appliquent lorsque vous lancez la réplication de snapshots vers une cible ONTAP secondaire ou un stockage d'objets.</block>
-  <block id="da19f2e50cbb3312d0bcc973d8486544" category="paragraph">Il existe trois façons de payer le service de sauvegarde :</block>
   <block id="032820ef020ebdcb4972d36db7394681" category="list-text">La première option est de vous abonner auprès de votre fournisseur cloud, ce qui vous permet de payer par mois.</block>
-  <block id="a426b39cc5038676b39d2265b22cebec" category="list-text">La deuxième option est d’obtenir un contrat annuel.</block>
   <block id="0b9c6eef4e3d3a222eb04e910d252339" category="inline-xref">Licences</block>
   <block id="8426d45850b9ec06adef93652db54080" category="list-text">La troisième option consiste à acheter des licences directement auprès de NetApp.  Lire le<block ref="b839456cc57645a9392f4db60a4f044a" category="inline-xref-macro-rx"></block> section pour plus de détails.</block>
   <block id="30c887a11915f5c1adb97321b93a9e39" category="paragraph">NetApp Backup and Recovery est disponible avec les modèles de consommation suivants :</block>
@@ -4608,7 +4601,6 @@
   <block id="35521e84b87db7ff299e3d292854a426" category="paragraph">Restaurez les charges de travail Hyper-V à partir d'instantanés, d'une sauvegarde de charge de travail répliquée sur un stockage secondaire ou de sauvegardes stockées dans un stockage objet à l'aide de NetApp Backup and Recovery.</block>
   <block id="c71707f07223923dbaab7d7f94cf956b" category="paragraph">Restaurez des machines virtuelles KVM à partir d'instantanés, d'une sauvegarde de groupe de protection répliquée sur un stockage secondaire ou de sauvegardes stockées dans un stockage objet à l'aide de NetApp Backup and Recovery.</block>
   <block id="c4a9fad82bfaa655d1dc063df314c9ed" category="list-text">Configurez le répertoire des journaux (depuis *Inventaire* &gt; *Hôtes*). Si vous souhaitez sauvegarder les journaux de vos hôtes de base de données dans l'instantané, configurez d'abord les journaux dans NetApp Backup and Recovery. Pour plus de détails, reportez-vous à<block ref="24412093cd6bfc9d3bb3355f8f2561e8" category="inline-link-macro-rx"></block> .</block>
-  <block id="d4269b8b09864c01c1c86fd8fbf36f7e" category="paragraph">Une tâche de cycle de vie de sauvegarde suit tous les instantanés supprimés ou en attente de suppression. À partir d' ONTAP 9.13, vous pouvez consulter tous les types de tâches appelés « Rétention » sur la page Surveillance des tâches.</block>
   <block id="e55271e37b053fabbe06b3671cfb3c48" category="paragraph">NetApp Backup and Recovery utilise NetApp SnapMirror pour synchroniser les sauvegardes en créant des instantanés et en les transférant vers les emplacements de sauvegarde.</block>
   <block id="ac953870175731881060585a6b9ee690" category="paragraph">NetApp Backup and Recovery vous permet de sauvegarder des instances et des bases de données Microsoft SQL Server à partir des systèmes sources suivants vers les systèmes secondaires et le stockage objet suivants, chez les fournisseurs de cloud public et privé. Les instantanés résident sur le système source.</block>
   <block id="d07d19d5986209f0a00db1f8289e73d2" category="paragraph">Vous pouvez restaurer des instances et des bases de données Microsoft SQL Server à partir d’une sauvegarde qui réside dans le stockage principal ou un système secondaire (un volume répliqué) ou dans le stockage d’objets (un fichier de sauvegarde) sur les systèmes suivants. Les instantanés résident sur le système source et ne peuvent être restaurés que sur ce même système.</block>
@@ -4825,4 +4817,36 @@
   <block id="7580e90069a8f15fc27aabfe1ca9e800" category="list-text">Dans le menu qui s'affiche, sélectionnez *Restaurer la machine virtuelle*.</block>
   <block id="17f7a448c0fdbce6c9a45d289bcf9e83" category="list-text">*Banque de données* : Dans la liste déroulante, sélectionnez le nom de la banque de données dans laquelle vous souhaitez restaurer l’instantané.</block>
   <block id="92ef4bdfd24483ff1f89cbc83ac91ce5" category="list-text">Vous pouvez restaurer la machine virtuelle exactement au même emplacement à partir duquel la sauvegarde a été effectuée ou vers un autre emplacement.</block>
+  <block id="c8114f7295c45b5e4daffaaf7225f524" category="paragraph">Vous pouvez filtrer les opérations sur la page de surveillance des tâches à l'aide de plusieurs filtres, tels que la politique, l'étiquette de l'instantané, le type d'opération (protection, restauration, conservation ou autre) et le type de protection (instantané local, réplication ou sauvegarde dans le cloud).</block>
+  <block id="8e357ee9c7f7033fb2069bec01bfa7b5" category="paragraph">Une tâche de cycle de vie de sauvegarde suit tous les instantanés supprimés ou en attente de suppression. À partir d' ONTAP 9.13, vous pouvez consulter tous les types de tâches appelés « Rétention » sur la page de surveillance des tâches.</block>
+  <block id="192bfa3d569dc6662018c9e874cd07e8" category="paragraph">Le type de tâche « Rétention » capture toutes les tâches de suppression d’instantanés lancées sur un volume protégé par NetApp Backup and Recovery.</block>
+  <block id="81f2ef03318777ac36a4a73237288610" category="paragraph">Le Centre de notifications affiche de nombreux événements de capture instantanée, de réplication, de sauvegarde dans le cloud et de restauration, mais seuls certains événements déclenchent des alertes par e-mail :</block>
+  <block id="5dd32721e3e223e6a87039f75b4c315d" category="cell">Alerte générée</block>
+  <block id="a907ac316a0e62996e50939eddb00cf1" category="cell">Volume désormais associé à la politique d'instantané</block>
+  <block id="de05700e8dd719721f13f9c6b00f1b7a" category="cell">Sauvegarde de volume ou état modifié</block>
+  <block id="832781ccddafcada7da950ee920e4677" category="cell">Activation de la sauvegarde et de la restauration réussie pour le système</block>
+  <block id="f4ceecec904030bc411eb94dfb80f45a" category="cell">La sauvegarde ad hoc du volume a échoué</block>
+  <block id="80fd95bd893f8df76c2fa9dd4bad6849" category="cell">Sauvegarde de volume ad hoc réussie</block>
+  <block id="5ed835b77018cbf32fbdfb39bcc25527" category="cell">La sauvegarde multivolume a échoué</block>
+  <block id="0298583ff5a55aeec25dc314bbd47357" category="cell">Opérations Cron</block>
+  <block id="f771739629c02b8a1545a40985444450" category="cell">Vérification des étiquettes d'instantané manquantes</block>
+  <block id="39e7a35fbe3bf187f05710b99a1abab5" category="cell">Échec de l'envoi du jeton de sécurité à ONTAP pour ce système</block>
+  <block id="1da6059b2e40a5d5dcd0f29c0344d522" category="cell">Événements Pub/Sub</block>
+  <block id="75c3b3bb89bde01f9166a94cbfa98588" category="cell">Échec de la connexion</block>
+  <block id="4d40cebef25fff7de69b66a1fd2b91ac" category="cell">Échec de la suppression d'un instantané planifié</block>
+  <block id="01a38301f446b2e021e1fa29a4fb17a3" category="cell">La sauvegarde planifiée du volume a échoué</block>
+  <block id="331af99e5b6a5cf68b545ebe121bccfb" category="cell">La restauration du volume a réussi.</block>
+  <block id="6be567f0c08a3a4af17cffb149fa98ce" category="cell">La restauration du volume a échoué.</block>
+  <block id="232a2b16a1710c0ed1d16548ba8bb8f1" category="cell">Ransomware</block>
+  <block id="cac26c3a96c9684d7c23fab2394f7ee9" category="cell">Attaque potentielle par ransomware identifiée sur une copie de sauvegarde</block>
+  <block id="4f7bae4887ae7adfba52529b1ef897f1" category="cell">Une attaque potentielle de type ransomware a été identifiée sur une copie de sauvegarde de ce système.</block>
+  <block id="781ab27075c39bdc6b2c5a6f2d1c7999" category="cell">Modification de la relation de réplication de l'échec de volume</block>
+  <block id="dcbc181d9286ddc85c2def0e5a88a627" category="cell">Opérations ciblées</block>
+  <block id="490b6cef8b42244be7db684255156f74" category="cell">Échec de la restauration vers une destination locale ou cloud</block>
+  <block id="985aacac93e75bfb41dca796dd136773" category="cell">Échec de la restauration à la demande</block>
+  <block id="df660ed534483b04ecb1bf0371cdbe53" category="cell">Opérations système</block>
+  <block id="eb31ef8eb2f5dc2e91e3fc628c278047" category="cell">Échec de la création d'un instantané de volume ad hoc</block>
+  <block id="cf45f15c2dbe19bdbf9de3e329061b93" category="paragraph">Les frais de service sont versés à NetApp et couvrent à la fois le coût de création des sauvegardes sur un stockage objet ou une cible ONTAP et celui de la restauration des volumes ou des fichiers à partir de ces sauvegardes.  Vous ne payez que pour les données que vous protégez dans le stockage objet ou dans ONTAP (y compris les configurations SnapMirror ).  Les frais sont calculés en fonction de la capacité logique utilisée source (avant les gains d'efficacité ONTAP ) des volumes ONTAP sauvegardés sur un stockage objet ou sur une cible ONTAP . Cette capacité est également connue sous le nom de téraoctets frontaux (FETB).</block>
+  <block id="1da151060a18e6460ac3d7eb0f913a37" category="paragraph">Il existe trois façons de payer pour la sauvegarde et la restauration :</block>
+  <block id="6fa5c823869ff5f58a4f5dcaaa68d86d" category="list-text">La deuxième option consiste à souscrire un contrat annuel.</block>
 </blocks>

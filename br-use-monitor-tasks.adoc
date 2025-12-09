@@ -49,7 +49,7 @@ NOTE: Si vous avez mis à niveau vos systèmes ONTAP vers la version 9.13.x et q
 
 === Rechercher et filtrer la liste des emplois
 
-Vous pouvez filtrer les opérations sur la page Surveillance des tâches à l'aide de plusieurs filtres, tels que la stratégie, l'étiquette d'instantané, le type d'opération (protection, restauration, rétention ou autre) et le type de protection (instantané local, réplication ou sauvegarde dans le cloud).
+Vous pouvez filtrer les opérations sur la page de surveillance des tâches à l'aide de plusieurs filtres, tels que la politique, l'étiquette de l'instantané, le type d'opération (protection, restauration, conservation ou autre) et le type de protection (instantané local, réplication ou sauvegarde dans le cloud).
 
 Par défaut, la page Surveillance des tâches affiche les tâches de protection et de récupération des dernières 24 heures.  Vous pouvez modifier la période à l'aide du filtre Période.
 
@@ -118,9 +118,9 @@ Vous pouvez télécharger le contenu de la page principale de surveillance des t
 
 Surveillez les flux de rétention (_cycle de vie des sauvegardes_) pour vérifier les sauvegardes, les protéger et prendre en charge les audits.  Identifiez quand les copies de sauvegarde expirent pour suivre le cycle de vie.
 
-Une tâche de cycle de vie de sauvegarde suit tous les instantanés supprimés ou en attente de suppression. À partir d' ONTAP 9.13, vous pouvez consulter tous les types de tâches appelés « Rétention » sur la page Surveillance des tâches.
+Une tâche de cycle de vie de sauvegarde suit tous les instantanés supprimés ou en attente de suppression. À partir d' ONTAP 9.13, vous pouvez consulter tous les types de tâches appelés « Rétention » sur la page de surveillance des tâches.
 
-Le type de tâche « Rétention » capture toutes les tâches de suppression de snapshots lancées sur un volume protégé par NetApp Backup and Recovery.
+Le type de tâche « Rétention » capture toutes les tâches de suppression d’instantanés lancées sur un volume protégé par NetApp Backup and Recovery.
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Surveillance*.
@@ -136,41 +136,98 @@ Le centre de notifications de la NetApp Console suit la progression des tâches 
 
 Vous pouvez afficher les alertes dans le Centre de notifications et configurer la console pour envoyer des alertes par e-mail pour les activités système importantes, même lorsque vous n'êtes pas connecté. https://docs.netapp.com/us-en/console-setup-admin/task-monitor-cm-operations.html["En savoir plus sur le centre de notifications et comment envoyer des e-mails d'alerte pour les tâches de sauvegarde et de restauration"^] .
 
-Le centre de notifications affiche de nombreux événements de capture instantanée, de réplication, de sauvegarde dans le cloud et de restauration, mais seuls certains événements déclenchent des alertes par e-mail :
+Le Centre de notifications affiche de nombreux événements de capture instantanée, de réplication, de sauvegarde dans le cloud et de restauration, mais seuls certains événements déclenchent des alertes par e-mail :
 
 [cols="1,2,1,1"]
 |===
-| Type d'opération | Événement | Niveau d'alerte | E-mail envoyé 
+| Type d'opération | Événement | Alerte générée | E-mail envoyé 
 
 
-| Activation | L'activation de la sauvegarde et de la récupération a échoué pour le système | Erreur | Oui 
+| Activation | L'activation de la sauvegarde et de la récupération a échoué pour le système | Oui | Oui 
 
 
-| Activation | Échec de la modification de la sauvegarde et de la récupération pour le système | Erreur | Oui 
+| Activation | Échec de la modification de la sauvegarde et de la récupération pour le système | Oui | Oui 
 
 
-| Instantané local | Échec de la tâche de création d'instantanés ad hoc de NetApp Backup and Recovery | Erreur | Oui 
+| Activation | Volume désormais associé à la politique d'instantané | Oui | Oui 
 
 
-| Réplication | Échec de la tâche de réplication ad hoc de NetApp Backup and Recovery | Erreur | Oui 
+| Activation | Sauvegarde de volume ou état modifié | Oui | Oui 
 
 
-| Réplication | Échec de la tâche de pause de réplication de NetApp Backup and Recovery | Erreur | Non 
+| Activation | Activation de la sauvegarde et de la restauration réussie pour le système | Oui | Oui 
 
 
-| Réplication | Échec de la tâche d'interruption de la réplication de NetApp Backup and Recovery | Erreur | Non 
+| Activation | La sauvegarde ad hoc du volume a échoué | Oui | Oui 
 
 
-| Réplication | Échec de la tâche de resynchronisation de la réplication NetApp Backup and Recovery | Erreur | Non 
+| Activation | Sauvegarde de volume ad hoc réussie | Oui | Non 
 
 
-| Réplication | Échec de la tâche d'arrêt de la réplication de NetApp Backup and Recovery | Erreur | Non 
+| Activation | La sauvegarde multivolume a échoué | Oui | Oui 
 
 
-| Réplication | Échec de la tâche de resynchronisation inverse de la réplication NetApp Backup and Recovery | Erreur | Oui 
+| Opérations Cron | Vérification des étiquettes d'instantané manquantes | Oui | Oui 
 
 
-| Réplication | Échec de la tâche de suppression de réplication de NetApp Backup and Recovery | Erreur | Oui 
+| Opérations Cron | Échec de l'envoi du jeton de sécurité à ONTAP pour ce système | Oui | Oui 
+
+
+| Événements Pub/Sub | Échec de la connexion | Oui | Non 
+
+
+| Événements Pub/Sub | Échec de la suppression d'un instantané planifié | Oui | Non 
+
+
+| Événements Pub/Sub | La sauvegarde planifiée du volume a échoué | Oui | Non 
+
+
+| Événements Pub/Sub | La restauration du volume a réussi. | Oui | Non 
+
+
+| Événements Pub/Sub | La restauration du volume a échoué. | Oui | Non 
+
+
+| Ransomware | Attaque potentielle par ransomware identifiée sur une copie de sauvegarde | Oui | Oui 
+
+
+| Ransomware | Une attaque potentielle de type ransomware a été identifiée sur une copie de sauvegarde de ce système. | Oui | Oui 
+
+
+| Instantané local | Échec de la tâche de création d'instantanés ad hoc de NetApp Backup and Recovery | Oui | Oui 
+
+
+| Réplication | Modification de la relation de réplication de l'échec de volume | Oui | Oui 
+
+
+| Réplication | Échec de la tâche de réplication ad hoc de NetApp Backup and Recovery | Oui | Oui 
+
+
+| Réplication | Échec de la tâche de pause de réplication de NetApp Backup and Recovery | Oui | Non 
+
+
+| Réplication | Échec de la tâche d'interruption de la réplication de NetApp Backup and Recovery | Oui | Non 
+
+
+| Réplication | Échec de la tâche de resynchronisation de la réplication NetApp Backup and Recovery | Oui | Non 
+
+
+| Réplication | Échec de la tâche d'arrêt de la réplication de NetApp Backup and Recovery | Oui | Non 
+
+
+| Réplication | Échec de la tâche de resynchronisation inverse de la réplication NetApp Backup and Recovery | Oui | Oui 
+
+
+| Réplication | Échec de la tâche de suppression de réplication de NetApp Backup and Recovery | Oui | Oui 
+
+
+| Opérations ciblées | Échec de la restauration vers une destination locale ou cloud | Oui | Oui 
+
+
+| Opérations ciblées | Échec de la restauration à la demande | Oui | Oui 
+
+
+| Opérations système | Échec de la création d'un instantané de volume ad hoc | Oui | Oui 
 |===
 
 NOTE: À partir d' ONTAP 9.13.0, toutes les alertes apparaissent pour Cloud Volumes ONTAP et les systèmes ONTAP sur site.  Pour les systèmes avec Cloud Volumes ONTAP 9.13.0 et ONTAP sur site, seule l'alerte relative à « Tâche de restauration terminée, mais avec des avertissements » s'affiche.
