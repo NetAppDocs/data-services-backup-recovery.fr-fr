@@ -43,8 +43,8 @@ TIP: Vous devrez peut-être payer des frais supplémentaires à votre fournisseu
 
 Lorsque vous restaurez des charges de travail, les événements suivants se produisent :
 
-* Lorsque vous restaurez une charge de travail à partir d'un fichier de sauvegarde local, NetApp Backup and Recovery crée une _nouvelle_ ressource à l'aide des données de la sauvegarde.
-* Lorsque vous effectuez une restauration à partir d’une charge de travail répliquée, vous pouvez restaurer la charge de travail sur le système d’origine ou sur un système ONTAP local.
+* Lorsque vous restaurez une charge de travail à partir d'un instantané local ou d'une sauvegarde distante, NetApp Backup and Recovery écrase la machine virtuelle d'origine si vous effectuez la restauration à l'emplacement d'origine, et crée une _nouvelle_ ressource si vous effectuez la restauration à un emplacement alternatif.
+* Lorsque vous restaurez une charge de travail répliquée, vous pouvez la restaurer sur le système ONTAP local d'origine ou sur un autre système ONTAP local.
 +
 image:diagram_browse_restore_volume-unified.png["Un diagramme qui montre le flux pour restaurer une ressource"]
 
@@ -68,11 +68,15 @@ Restaurez les charges de travail VMware à l’aide de l’option Restaurer. Vou
 +
 Une liste de machines virtuelles correspondant à vos critères de recherche s'affiche.
 
-. Trouvez dans la liste la machine virtuelle que vous souhaitez restaurer, puis sélectionnez le bouton *Restaurer la machine virtuelle* correspondant.
+. Trouvez dans la liste la machine virtuelle que vous souhaitez restaurer, puis sélectionnez le bouton du menu des options correspondant à cette machine virtuelle.
+. Dans le menu qui s'affiche, sélectionnez *Restaurer la machine virtuelle*.
 +
-Une liste des instantanés (points de restauration) créés sur cette machine virtuelle s'affiche.
+Une liste des instantanés (points de restauration) créés sur cette machine virtuelle s'affiche. Par défaut, les dernières captures d'écran sont affichées pour la période que vous sélectionnez dans le menu déroulant *Période*.
 
-. Cochez la case correspondant à l'instantané que vous souhaitez restaurer.
++
+Pour chaque instantané, les icônes illuminées dans la colonne *Emplacement* indiquent les emplacements de stockage où l'instantané est disponible (stockage principal, secondaire ou objet).
+
+. Activez l'option correspondant à la capture d'écran que vous souhaitez restaurer.
 . Sélectionnez *Suivant*.
 +
 Les options de localisation de l'instantané apparaissent.
@@ -81,12 +85,13 @@ Les options de localisation de l'instantané apparaissent.
 +
 ** *Local* : Restaure l’instantané à partir de l’emplacement local.
 ** *Secondaire* : Restaure l’instantané à partir d’un emplacement de stockage distant.
+** *Stockage d'objets* : Restaure l'instantané à partir du stockage d'objets.
 +
-Si vous choisissez un stockage secondaire, saisissez les emplacements source et de destination des données et des journaux.
+Si vous choisissez un stockage secondaire, sélectionnez l'emplacement de destination dans la liste déroulante.
 
 
 
-. Sélectionnez *Suivant* pour continuer vers la page des paramètres de destination de restauration.
+. Sélectionnez *Suivant*.
 . Choisissez les paramètres de destination et les options de pré- et post-restauration.
 
 
@@ -131,7 +136,7 @@ Lors de la restauration vers un autre emplacement, vous pouvez modifier le vCent
 *** *Nom de domaine complet (FQDN) ou adresse IP du serveur vCenter* : Sélectionnez le serveur vCenter sur lequel vous souhaitez restaurer l’instantané.
 *** *Hôte ESXi* : Sélectionnez l’hôte sur lequel vous souhaitez restaurer l’instantané.
 *** *Réseau* : Sélectionnez le réseau sur lequel vous souhaitez restaurer l’instantané.
-*** *Banque de données* : Saisissez le nom de la banque de données dans laquelle vous souhaitez restaurer l’instantané.
+*** *Banque de données* : Dans la liste déroulante, sélectionnez le nom de la banque de données dans laquelle vous souhaitez restaurer l’instantané.
 *** *Nom de la machine virtuelle* : Saisissez le nom de la machine virtuelle sur laquelle vous souhaitez restaurer l’instantané. Si le nom correspond à une machine virtuelle qui existe déjà dans la banque de données, Backup and Recovery rend le nom unique en y ajoutant un horodatage actuel.
 
 

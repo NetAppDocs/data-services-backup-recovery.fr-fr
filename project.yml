@@ -151,6 +151,8 @@ sidebar:
         url: "/br-use-vmware-backup.html"
       - title: Restaurer les charges de travail VMware
         url: "/br-use-vmware-restore.html"
+      - title: Restaurer des disques virtuels spécifiques à partir de sauvegardes
+        url: "/br-use-vmware-restore-vmdks-from-backups.html"
     - title: Protégez les charges de travail VMware (avec le plug-in SnapCenter pour
         VMware)
       entries:

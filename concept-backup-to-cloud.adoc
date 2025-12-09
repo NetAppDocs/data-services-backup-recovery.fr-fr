@@ -49,6 +49,7 @@ Utilisez NetApp Backup and Recovery pour atteindre les objectifs suivants :
 ** Protégez vos machines virtuelles et banques de données VMware avec NetApp Backup and Recovery.
 ** Sauvegardez les charges de travail VMware sur Amazon Web Services S3 ou StorageGRID (pour l'aperçu).
 ** Restaurez les données VMware du cloud vers le vCenter local.
+** Vous pouvez restaurer la machine virtuelle exactement au même emplacement à partir duquel la sauvegarde a été effectuée ou vers un autre emplacement.
 ** Utilisez NetApp Backup and Recovery sans SnapCenter Plug-in for VMware vSphere.
 ** Se référer àlink:br-use-vmware-protect-overview.html["Protégez les charges de travail VMware"] .
 

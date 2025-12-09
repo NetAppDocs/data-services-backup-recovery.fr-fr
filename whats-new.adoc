@@ -29,10 +29,14 @@ Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
 La version préliminaire des charges de travail VMware introduit les fonctionnalités améliorées suivantes :
 
 * Vous pouvez désormais restaurer les sauvegardes et les instantanés vers un autre emplacement. Ceci est utile si vous souhaitez gérer des versions d'une machine virtuelle sur différents déploiements VMware vCenter, hôtes VMware ESXi ou banques de données VMware.
+
+
+link:br-use-vmware-restore.html["Découvrez comment restaurer des machines virtuelles VMware avec NetApp Backup and Recovery."].
+
 * Vous pouvez désormais restaurer des disques virtuels VMware spécifiques (images VMDK) à partir d'un emplacement principal ou secondaire, ce qui permet un contrôle plus précis de la restauration des données de la machine virtuelle.
 
 
-link:br-use-vmware-restore.html["Découvrez comment restaurer les charges de travail VMware avec NetApp Backup and Recovery."].
+link:br-use-vmware-restore-vmdks-from-backups.html["Découvrez comment restaurer les disques virtuels VMware avec NetApp Backup and Recovery."].
 
 
 

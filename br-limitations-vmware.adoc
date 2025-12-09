@@ -20,8 +20,6 @@ Les actions suivantes ne sont pas prises en charge dans la version préliminaire
 
 * Monter
 * Démonter
-* Restaurer vers un autre emplacement
-* Restaurer VMDK
 * Attacher VMDK
 * Détacher VMDK
 * Prise en charge de vVol
