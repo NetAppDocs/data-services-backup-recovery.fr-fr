@@ -12,7 +12,7 @@ summary: 'Dans NetApp Backup and Recovery, créez des rapports pour afficher l"�
 
 
 [role="lead"]
-Dans NetApp Backup and Recovery, créez des rapports pour les charges de travail Microsoft SQL Server afin d’afficher l’état de vos sauvegardes, y compris le nombre de sauvegardes, le nombre de sauvegardes réussies et le nombre de sauvegardes ayant échoué.  Vous pouvez également afficher les détails de chaque sauvegarde, y compris le type de sauvegarde, le système de stockage utilisé pour la sauvegarde et l'heure de la sauvegarde.
+Dans NetApp Backup and Recovery, créez des rapports pour les charges de travail Microsoft SQL Server afin de consulter l'état et les détails des sauvegardes, notamment le nombre de sauvegardes réussies et échouées, les types de sauvegarde, les systèmes de stockage et les horodatages.
 
 
 

@@ -16,7 +16,7 @@ summary: NetApp Backup and Recovery est un service de données qui fournit une p
 [role="lead"]
 NetApp Backup and Recovery est un service de données qui fournit une protection des données efficace, sécurisée et rentable pour toutes vos charges de travail ONTAP , y compris les volumes, les bases de données, les machines virtuelles et les charges de travail Kubernetes.
 
-La prise en charge de la sauvegarde et de la récupération est déjà intégrée à tous les systèmes ONTAP , il n'est donc pas nécessaire de recourir à du matériel supplémentaire, à des licences logicielles ou à des passerelles multimédias.  Cela rend les opérations de sauvegarde simples et rentables.  La console NetApp simplifie la mise en œuvre de toute stratégie de sauvegarde, y compris la gamme complète de variantes de sauvegarde 3-2-1, sans avoir besoin de plusieurs gestionnaires de ressources ou de personnel spécialisé.
+La prise en charge de la sauvegarde et de la récupération est déjà intégrée à tous les systèmes ONTAP , il n'est donc pas nécessaire de recourir à du matériel supplémentaire, à des licences logicielles ou à des passerelles multimédias. Cela rend les opérations de sauvegarde simples et rentables. La NetApp Console simplifie la mise en œuvre de toute stratégie de sauvegarde, y compris toute la gamme des variantes de sauvegarde 3-2-1, sans nécessiter plusieurs gestionnaires de ressources ou du personnel spécialisé.
 
 
 NOTE: La documentation sur la protection des charges de travail VMware, KVM, Hyper-V et Kubernetes est fournie sous forme d'aperçu technologique. Avec cette offre préliminaire, NetApp se réserve le droit de modifier les détails, le contenu et le calendrier de l'offre avant la disponibilité générale.
@@ -169,16 +169,16 @@ ifdef::gcp[]
 
 *Frais de service*
 
-40ff88020bcb9f0e42545b8535db30db
+Les frais de service sont versés à NetApp et couvrent à la fois le coût de création des sauvegardes sur un stockage objet ou une cible ONTAP et celui de la restauration des volumes ou des fichiers à partir de ces sauvegardes. Vous ne payez que pour les données que vous protégez dans le stockage objet ou dans ONTAP (y compris les configurations SnapMirror ). Les frais sont calculés en fonction de la capacité logique utilisée source (avant les gains d'efficacité ONTAP ) des volumes ONTAP sauvegardés sur un stockage objet ou sur une cible ONTAP . Cette capacité est également connue sous le nom de téraoctets frontaux (FETB).
 
 
 NOTE: Pour Microsoft SQL Server, des frais s'appliquent lorsque vous lancez la réplication de snapshots vers une cible ONTAP secondaire ou un stockage d'objets.
 
-da19f2e50cbb3312d0bcc973d8486544
+Il existe trois façons de payer pour la sauvegarde et la restauration :
 
 * La première option est de vous abonner auprès de votre fournisseur cloud, ce qui vous permet de payer par mois.
-* a426b39cc5038676b39d2265b22cebec
-* La troisième option consiste à acheter des licences directement auprès de NetApp.  Lire le<<Licences,Licences>> section pour plus de détails.
+* La deuxième option consiste à souscrire un contrat annuel.
+* La troisième option consiste à acheter des licences directement auprès de NetApp. Se référer à <<Licences,Licences>> section pour plus de détails.
 
 
 
