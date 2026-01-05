@@ -215,31 +215,31 @@ link:br-start-licensing.html["Apprenez à configurer des licences"].
 
 
 
-== Sources de données, systèmes et cibles de sauvegarde pris en charge
+== Charges de travail, systèmes et cibles de sauvegarde pris en charge
 
-.Sources de données de charge de travail prises en charge
-NetApp Backup and Recovery protège les charges de travail suivantes :
+.Charges de travail prises en charge
+NetApp Backup and Recovery protège les types de charges de travail suivants :
 
 * Volumes ONTAP
-* Instances et bases de données Microsoft SQL Server pour NFS physique, VMware Virtual Machine File System (VMFS) et VMware Virtual Machine Disk (VMDK)
+* Instances et bases de données Microsoft SQL Server stockées sur disque physique et sur disque de machine virtuelle VMware (VMDK) via VMFS ou NFS
 * Machines virtuelles et banques de données VMware
 * Charges de travail KVM (Aperçu)
 * Charges de travail Hyper-V (Aperçu)
-* Charges de travail Oracle (Aperçu)
+* Charges de travail de base de données Oracle (Aperçu)
 * Charges de travail Kubernetes (Aperçu)
 
 
 .Systèmes pris en charge
-* SAN ONTAP sur site (protocole iSCSI) et NAS (utilisant les protocoles NFS et CIFS) avec ONTAP version 9.8 et supérieure
+* SAN ONTAP sur site (protocole iSCSI) et NAS (utilisant les protocoles NFS et CIFS) avec ONTAP version 9.8 ou supérieure
 * Cloud Volumes ONTAP 9.8 ou supérieur pour AWS (utilisant SAN et NAS)
-
-
+* Cloud Volumes ONTAP 9.8 ou supérieur pour Google Cloud Platform (utilisant les protocoles NFS et CIFS)
 * Cloud Volumes ONTAP 9.8 ou supérieur pour Microsoft Azure (utilisant SAN et NAS)
-* Amazon FSx for NetApp ONTAP
+* Amazon FSx for NetApp ONTAP (charges de travail Microsoft SQL Server uniquement)
 
 
 .Cibles de sauvegarde prises en charge
 * Amazon Web Services (AWS) S3
+* Stockage Google Cloud
 * Microsoft Azure Blob (non disponible pour les charges de travail VMware en version préliminaire)
 * StorageGRID
 * ONTAP S3 (non disponible pour les charges de travail VMware en version préliminaire)
