@@ -1972,7 +1972,6 @@
   <block id="31f9c16bc3570a56499294176c354ee7" category="inline-link">Stockage Azure Data Lake</block>
   <block id="82ba9e045163c7c72098c50671704351" category="list-text">Dans Azure, un<block ref="a3ff4de37e7a195a145416e9f02577ac" category="inline-link-rx"></block> et<block ref="47b506e6a2508a9b210c02fa89bbdc24" category="inline-link-rx"></block> sont provisionnés dans votre compte de stockage pour stocker et analyser vos données.</block>
   <block id="9fece9ac1c7d50fbf1a1498b93cbeb15" category="inline-link">Services Google Cloud BigQuery</block>
-  <block id="a9e0f848e6e51d1ca02fdbb4bf91773a" category="list-text">Dans Google, un nouveau bucket est déployé et le<block ref="7c8e47e4f5e61b3b1d7f7769baa8100f" category="inline-link-rx"></block> sont provisionnés au niveau du compte/projet. endif::gcp[]</block>
   <block id="705d7d5204c001ada8d7869c065a6a70" category="list-text">Si vous prévoyez de restaurer des données de volume à partir d'un fichier de sauvegarde qui a été déplacé vers un stockage d'objets d'archivage, des frais de récupération par Gio et des frais par demande supplémentaires sont facturés par le fournisseur de cloud.</block>
   <block id="e44d61516574d94ce56af3468723e18a" category="list-text">Si vous prévoyez d'analyser un fichier de sauvegarde à la recherche de ransomwares pendant le processus de restauration des données du volume (si vous avez activé DataLock et Ransomware Resilience pour vos sauvegardes cloud), vous devrez également supporter des frais de sortie supplémentaires auprès de votre fournisseur cloud.</block>
   <block id="e1b4a0ddcd3124f71fd5c65649282433" category="paragraph">*Frais de service*</block>
@@ -2643,12 +2642,8 @@
   <block id="1f2242e2c4c50f131ef13c9b0750cece" category="list-text">Depuis la page _Modifier la politique_, sélectionnez la flèche vers le bas pour développer la section _Étiquettes et rétention_ afin de modifier la planification et/ou la rétention de sauvegarde, puis sélectionnez *Enregistrer*.</block>
   <block id="11424b9a70e420c1dd25a5c8dd143872" category="paragraph">Si votre cluster exécute ONTAP 9.10.1 ou une version ultérieure, vous avez également la possibilité d'activer ou de désactiver la hiérarchisation des sauvegardes vers le stockage d'archivage après un certain nombre de jours.</block>
   <block id="2ee1435ab41f69d919a20dc4c3d48cc8" category="inline-link-macro">En savoir plus sur l'utilisation du stockage d'archives AWS</block>
-  <block id="c86e8102bf4f78e9feec6f5707740536" category="paragraph"><block ref="74169e9d6aed252bcfdf8c7b3af7403c" category="inline-link-macro-rx"></block>.</block>
   <block id="2a42635401c2f16c2080bd6994708fa1" category="inline-link-macro">En savoir plus sur l'utilisation du stockage d'archives Azure</block>
-  <block id="ba495708b905a450346e6127df6e1205" category="paragraph"><block ref="2ee7cc9e20761e67f0920429cf98cc54" category="inline-link-macro-rx"></block>.</block>
   <block id="0d1c0309cd5a222639167f043ad2659c" category="inline-link-macro">En savoir plus sur l'utilisation du stockage d'archives Google</block>
-  <block id="619556a98b7ce9c2609fd64276c45841" category="paragraph"><block ref="aba7d321ee8cc50f731dfdd9ecd7c01c" category="inline-link-macro-rx"></block>.  (Nécessite ONTAP 9.12.1.)</block>
-  <block id="273a0c18ae7ae64c7f1016a71ed51d1e" category="paragraph">+ Notez que tous les fichiers de sauvegarde qui ont été hiérarchisés vers le stockage d'archivage sont laissés dans ce niveau si vous arrêtez de hiérarchiser les sauvegardes vers l'archive - ils ne sont pas automatiquement déplacés vers le niveau standard.  Seules les nouvelles sauvegardes de volume résideront dans le niveau standard.</block>
   <block id="d3b3f333837b21ed08dfd04c10e48346" category="section-title">Ajouter une nouvelle politique de sauvegarde dans le cloud</block>
   <block id="704cbb6a4b98702a1ff1e784b08e0bc1" category="paragraph">Lorsque vous activez NetApp Backup and Recovery pour un système, tous les volumes que vous sélectionnez initialement sont sauvegardés à l'aide de la stratégie de sauvegarde par défaut que vous avez définie.  Si vous souhaitez attribuer différentes politiques de sauvegarde à certains volumes ayant des objectifs de point de récupération (RPO) différents, vous pouvez créer des politiques supplémentaires pour ce cluster et attribuer ces politiques à d'autres volumes.</block>
   <block id="ebef09b04d71dbdf490084193f232a2f" category="inline-xref">appliquer la politique aux volumes de ce système</block>
@@ -3214,7 +3209,6 @@
   <block id="d6b2f75c5e7cc6c2d5da7268c117d88e" category="doc">Gérer les options de stockage de sauvegarde vers objet dans les paramètres avancés de NetApp Backup and Recovery</block>
   <block id="2f5538c2e34ba12aae307adeb8e9361f" category="admonition">Ces paramètres sont disponibles uniquement pour le stockage de sauvegarde sur objet.  Aucun de ces paramètres n’affecte vos paramètres de snapshot ou de réplication.</block>
   <block id="c7097337eab210464618620268aa80bc" category="paragraph">Vous pouvez modifier les options suivantes dans la page Paramètres avancés :</block>
-  <block id="6d1da260b80b103438f3aedda67c1b8e" category="list-text">Modification de la bande passante réseau allouée au téléchargement des sauvegardes vers le stockage d'objets à l'aide de l'option Taux de transfert maximal ifdef::aws[]</block>
   <block id="90262b49b516aea0770d54c5389860ab" category="list-text">Modifier si les instantanés « annuels » sont supprimés du système source</block>
   <block id="6866e75c6eebeffef8ecc7e577b86a5c" category="list-text">Activation ou désactivation des analyses de ransomware pour un système, y compris les analyses planifiées</block>
   <block id="0b1dbe1ca2e686301ad63250cc03207d" category="section-title">Afficher les paramètres de sauvegarde au niveau du cluster</block>
@@ -3275,7 +3269,6 @@
   <block id="9d6ba5ad698127fccb9f60a35f6f12bc" category="list-text">Si vous prévoyez d’utiliser la protection DataLock et Ransomware, vous pouvez l’activer lors de la création de votre première politique de sauvegarde et de l’activation de NetApp Backup and Recovery pour ce cluster.  Vous pouvez ultérieurement activer ou désactiver l’analyse des ransomwares à l’aide des paramètres avancés de NetApp Backup and Recovery .</block>
   <block id="b786f06f750594e45a7a7ec6d9cf4ac2" category="list-text">Lorsque la console analyse un fichier de sauvegarde à la recherche de ransomware lors de la restauration des données du volume, vous encourez des frais de sortie supplémentaires auprès de votre fournisseur de cloud pour accéder au contenu du fichier de sauvegarde.</block>
   <block id="921b747c1abfd997d26a273c0b62011b" category="section-title">Qu'est-ce que DataLock</block>
-  <block id="8c5ed3c4325fc24dbf86bb370210fae8" category="paragraph">Avec cette fonctionnalité, vous pouvez verrouiller les snapshots cloud répliqués via SnapMirror sur le cloud et également activer la fonctionnalité pour détecter une attaque de ransomware et récupérer une copie cohérente du snapshot sur le magasin d'objets.  Cette fonctionnalité est prise en charge sur AWS, Azure et StorageGRID.</block>
   <block id="1ba4a0b9c57fe8015ce8449413192339" category="paragraph">DataLock protège vos fichiers de sauvegarde contre toute modification ou suppression pendant une certaine période de temps - également appelée _stockage immuable_.  Cette fonctionnalité utilise la technologie du fournisseur de stockage d'objets pour le « verrouillage d'objets ».</block>
   <block id="4e596858d3955027bd4bc8cab9e72010" category="paragraph">Les fournisseurs de cloud utilisent une date de conservation jusqu'à (RUD), qui est calculée en fonction de la période de conservation des instantanés.  La période de conservation des instantanés est calculée en fonction de l'étiquette et du nombre de conservations définis dans la politique de sauvegarde.</block>
   <block id="f50811813bbd72e21d2cb23e440692d9" category="paragraph">La période minimale de conservation des instantanés est de 30 jours.  Voyons quelques exemples de la façon dont cela fonctionne :</block>
@@ -3320,12 +3313,7 @@
   <block id="1364637fafeabf3ff1cd69cc9cda6bcf" category="list-text">Le processus de récupération implique de revenir à la dernière bonne copie connue.</block>
   <block id="b3f1b65a3c7ad581029671863ce84f3e" category="section-title">Systèmes pris en charge et fournisseurs de stockage d'objets</block>
   <block id="04caa6fde87b21be8738fc7aac2130d5" category="paragraph">Vous pouvez activer la protection DataLock et Ransomware sur les volumes ONTAP des systèmes suivants lorsque vous utilisez le stockage d'objets dans les fournisseurs de cloud public et privé suivants.</block>
-  <block id="49930e1d4376887999c072bd91775525" category="cell">Destination du fichier de sauvegarde ifdef::aws[]</block>
-  <block id="8889077573d45691231050324d93b6a9" category="cell">Amazon S3 endif::aws[] ifdef::azure[]</block>
-  <block id="0959a2f5eff65303771c49363a01d789" category="cell">Objet blob Azure endif::azure[] ifdef::gcp[]</block>
   <block id="155ec659cc4e13b84e26ac8a60d0983e" category="cell">Cloud Volumes ONTAP dans Google Cloud</block>
-  <block id="a9a9ab6f27a7c96f41b3ea91feb1ef02" category="cell">Google Cloud endif::gcp[]</block>
-  <block id="4e592a9288f7e548ef70784305002a5e" category="cell">ifdef::aws[] Amazon S3 endif::aws[] ifdef::azure[] Azure Blob endif::azure[] ifdef::gcp[] Google Cloud endif::gcp[] NetApp StorageGRID</block>
   <block id="f3ec603ab9c35660f371c0fc057b7fd1" category="list-text">Vos clusters doivent exécuter ONTAP 9.11.1 ou supérieur</block>
   <block id="6eccb1b4300ae9587c674c0708c7ee79" category="list-text">L'agent de console peut être déployé dans le cloud ou dans vos locaux</block>
   <block id="685a143757efe250c8c69c08616cbe33" category="list-text">Les autorisations S3 suivantes doivent faire partie du rôle IAM qui fournit des autorisations à l’agent de console.  Ils résident dans la section « backupS3Policy » pour la ressource « arn:aws:s3:::netapp-backup-* » :</block>
@@ -3403,8 +3391,6 @@
   <block id="934b0a65e87eaa0952123591f2e40ba3" category="paragraph">Si votre cluster sur site utilise ONTAP 9.12.1 ou une version ultérieure, vous pouvez choisir de hiérarchiser les sauvegardes plus anciennes vers le stockage _Archive_ dans l'interface utilisateur NetApp Backup and Recovery après un certain nombre de jours pour une optimisation supplémentaire des coûts. <block ref="a5f5ea528fdc4d7b7927a7bc5e75da85" category="inline-link-macro-rx"></block> .</block>
   <block id="c811e121a426ef27a318d7ddd351730d" category="list-text">Dans StorageGRID, les sauvegardes sont associées à la classe de stockage _Standard_.</block>
   <block id="858f352aed10fc578bc936929dbfe50b" category="paragraph">Si votre cluster sur site utilise ONTAP 9.12.1 ou une version ultérieure et que votre système StorageGRID utilise 11.4 ou une version ultérieure, vous pouvez archiver les anciens fichiers de sauvegarde dans un stockage d'archivage cloud public.</block>
-  <block id="8a63c8142c234622452551e194e08f2c" category="paragraph">+ ** Pour AWS, vous pouvez hiérarchiser les sauvegardes vers le stockage AWS _S3 Glacier_ ou _S3 Glacier Deep Archive_. <block ref="da672f43205b0c90027c7dfb66aec892" category="inline-link-macro-rx"></block> .</block>
-  <block id="d9687428f28d3ac3ad41d545b8ad9fb3" category="paragraph">+ ** Pour Azure, vous pouvez hiérarchiser les sauvegardes plus anciennes vers le stockage _Azure Archive_. <block ref="378f4ee26769b0f22cf8e5c4c18a63bc" category="inline-link-macro-rx"></block> .</block>
   <block id="bb4d18abee2ac1ac9616f24e56d8201d" category="doc">Planifiez votre parcours de protection avec NetApp Backup and Recovery</block>
   <block id="854bc156a37cbbf040c040fbef53bdec" category="paragraph">NetApp Backup and Recovery vous permet de créer jusqu'à trois copies de vos volumes sources pour protéger vos données.  Il existe de nombreuses options que vous pouvez sélectionner lors de l'activation de la sauvegarde et de la récupération sur vos volumes. Vous devez donc revoir vos choix afin d'être prêt.</block>
   <block id="abb8243f73c63e089a9cc6cdf95785b2" category="paragraph">Nous passerons en revue les options suivantes :</block>
@@ -3539,7 +3525,6 @@
   <block id="c91b161e73b74151a87e57d1b478a8bf" category="admonition">Le mode privé BlueXP (interface BlueXP héritée) est généralement utilisé avec des environnements locaux qui n’ont pas de connexion Internet et avec des régions cloud sécurisées, notamment AWS Secret Cloud, AWS Top Secret Cloud et Azure IL6. NetApp continue de prendre en charge ces environnements avec l’interface BlueXP héritée. Pour la documentation du mode privé dans l'ancienne interface BlueXP , reportez-vous à la<block ref="48f65378777d422181826aa490861bdb" category="inline-link-rx"></block> .</block>
   <block id="7d137c690fd8c0d815296a007443c889" category="list-text">Vous pouvez sauvegarder des données à partir de systèmes ONTAP locaux sur site vers des systèmes NetApp StorageGRID locaux. <block ref="860e591e9b4ec768065d563e22bafdf4" category="inline-link-macro-rx"></block> .</block>
   <block id="02cb06ba88a3c5f99e8d4b475bd0ac1b" category="inline-link-macro">Sauvegarder les données ONTAP sur site sur ONTAP S3</block>
-  <block id="f64e5b9e38f4a83fb5814d4090a2cb6b" category="list-text">Vous pouvez sauvegarder des données à partir de systèmes ONTAP locaux sur site vers des systèmes ONTAP locaux sur site ou des systèmes Cloud Volumes ONTAP configurés pour le stockage d'objets S3. <block ref="61d8249673309599fa2a7a8b0c67a195" category="inline-link-macro-rx"></block> . ifdef::aws[]</block>
   <block id="8116cbee5887b07b452fecf9c1836d5c" category="doc">Protégez vos données de volume ONTAP à l'aide de NetApp Backup and Recovery</block>
   <block id="f147568c086732bd86eb443dc52d5e33" category="paragraph">NetApp Backup and Recovery fournit des fonctionnalités de sauvegarde et de restauration pour la protection et l'archivage à long terme de vos données de volume ONTAP .  Vous pouvez mettre en œuvre une stratégie 3-2-1 dans laquelle vous disposez de 3 copies de vos données sources sur 2 systèmes de stockage différents ainsi que d'une copie dans le cloud.</block>
   <block id="80281310e7f1753680348f039d61ece0" category="paragraph">Après l'activation, la sauvegarde et la récupération créent des sauvegardes incrémentielles permanentes au niveau des blocs qui sont stockées sur un autre cluster ONTAP et dans le stockage d'objets dans le cloud.  En plus de votre volume source, vous disposerez de :</block>
@@ -3581,17 +3566,11 @@
   <block id="8c4b25218155a1fdb972f4169855d04f" category="section-title">Régions prises en charge</block>
   <block id="c120c4e2a5b4e4e9674aa4b23a31ab0a" category="paragraph">NetApp Backup and Recovery est pris en charge avec Cloud Volumes ONTAP dans de nombreuses régions Amazon Web Services, Microsoft Azure et Google Cloud.</block>
   <block id="6c6a0225cb0a619d8872981b7be0ac95" category="inline-link">En savoir plus en utilisant la carte des régions mondiales</block>
-  <block id="1d85e7a2656bd01575d59e1548bbed4b" category="cell">Magasin d'objets de destination (sauvegarde) ifdef::aws[]</block>
   <block id="c373a9aa878db8431d1195796e8e6695" category="cell">Cloud Volumes ONTAP dans Google</block>
   <block id="9ecea76e21268445d7d03aec4130ba29" category="cell">Cloud Volumes ONTAP dans le système ONTAP sur site de Google</block>
-  <block id="c0b279eeed106351906f95aa546f2ffa" category="cell">Stockage Google Cloud endif::gcp[]</block>
-  <block id="54ae5f645a65dd82ea439de20806bd9f" category="cell">ifdef::aws[] Amazon S3 endif::aws[] ifdef::azure[] Azure Blob endif::azure[] ifdef::gcp[] Google Cloud Storage endif::gcp[] NetApp StorageGRID ONTAP S3</block>
   <block id="85970a97aacb509bbf4ce9364724b494" category="cell">Emplacement du fichier de sauvegarde</block>
   <block id="1f7c54e25f65414cece608c8f0604e55" category="cell">Système de destination</block>
-  <block id="bc7aa7434d0ca9752e2c02b4ffee9953" category="cell">Cloud Volumes ONTAP dans AWS Système ONTAP sur site endif::aws[] ifdef::azure[]</block>
-  <block id="b97f160a229c063bdce958beafa0f695" category="cell">Cloud Volumes ONTAP dans le système ONTAP local Azure endif::azure[] ifdef::gcp[]</block>
   <block id="833c2c211a541e50ad94433664e4b5c1" category="cell">Stockage Google Cloud</block>
-  <block id="a9f8eef7fdd18a9397fd96b661adbbf3" category="cell">Cloud Volumes ONTAP dans le système ONTAP sur site de Google endif::gcp[]</block>
   <block id="8c7ae1ac5e93ce07c68e74f8dae54373" category="cell">Système ONTAP sur site Cloud Volumes ONTAP</block>
   <block id="b1b998a9bc88754640934520205257d6" category="paragraph">Notez que les références aux « systèmes ONTAP sur site » incluent les systèmes FAS, AFF et ONTAP Select .</block>
   <block id="8c9b6b8729507556572552d0d8f472e3" category="section-title">Volumes pris en charge</block>
@@ -3635,11 +3614,6 @@
   <block id="19fe226921eb8023a05c222ee84c5db8" category="paragraph">Les sauvegardes résident à différents emplacements en fonction du type de sauvegarde :</block>
   <block id="84b23b52a16a2d456b93cfcd37a9fb17" category="list-text">Les _volumes répliqués_ résident sur le système de stockage secondaire : un système Cloud Volumes ONTAP ou ONTAP sur site.</block>
   <block id="9b1fec5e0f334c7c6734500536c26eec" category="list-text">Les _copies de sauvegarde_ sont stockées dans un magasin d’objets que la console crée dans votre compte cloud.  Il existe un magasin d'objets par cluster/système, et la console nomme le magasin d'objets comme suit : « netapp-backup-clusteruuid ».  Assurez-vous de ne pas supprimer ce magasin d’objets.</block>
-  <block id="6dd0453948f319bf0e93a8760cf57765" category="paragraph">+ ** Dans AWS, la console permet la<block ref="b38667957fcdf9b9da65b213e7fb2492" category="inline-link-rx"></block> sur le bucket S3.</block>
-  <block id="49f986a30678b9238f4b6ca6f8da583b" category="paragraph">+ ** Dans Azure, la console utilise un groupe de ressources nouveau ou existant avec un compte de stockage pour le conteneur Blob.  La console<block ref="a7068b8d2b60241ce77a1051f3a66ed5" category="inline-link-rx"></block> par défaut.</block>
-  <block id="57e10e6b47afffacbbee5d09e4bc9473" category="paragraph">+ ** Dans GCP, la console utilise un projet nouveau ou existant avec un compte de stockage pour le bucket Google Cloud Storage.</block>
-  <block id="564b1e8b7bc04c9ca474231a3cbf4c49" category="paragraph">+ ** Dans StorageGRID, la console utilise un compte de locataire existant pour le bucket S3.</block>
-  <block id="fc0acb7cce83e6633e2048efb8274cd6" category="paragraph">+ ** Dans ONTAP S3, la console utilise un compte utilisateur existant pour le bucket S3.</block>
   <block id="ce6bd8b7e44a144f2c3eefb8fb43c028" category="inline-link-macro">désinscrire NetApp Backup and Recovery pour le système</block>
   <block id="dde7812a2b64115f166d47da097a615f" category="paragraph">Si vous souhaitez modifier le magasin d'objets de destination d'un cluster à l'avenir, vous devrez<block ref="4b0267ab70996ada4858bf6db6495e68" category="inline-link-macro-rx"></block> , puis activez NetApp Backup and Recovery à l’aide des informations du nouveau fournisseur de cloud.</block>
   <block id="47c63e2d9d67be358326c1eff2c87d12" category="section-title">Planification de sauvegarde et paramètres de conservation personnalisables</block>
@@ -3707,20 +3681,14 @@
   <block id="8996e9eaff78ab540aab279a66de20ac" category="inline-xref">Restaurer des volumes, des dossiers et des fichiers à l'aide de la recherche et de la restauration</block>
   <block id="685a6ba7b83ab5e286920feb961c08bb" category="section-title">Restaurer les données ONTAP à l'aide de Parcourir et restaurer</block>
   <block id="b23bca1a2a7f2ec270c7be93eb3d5720" category="inline-link-macro">En savoir plus sur la restauration à partir du stockage d'archives AWS</block>
-  <block id="b03a3a022eb328afd14c51f9d25fd0aa" category="paragraph"><block ref="ee2d4c64a4d42f71a3357c6cd2b7b94b" category="inline-link-macro-rx"></block>.</block>
   <block id="f0a32293e7110abfd30f9402fa924815" category="inline-link-macro">En savoir plus sur la restauration à partir du stockage d'archives Azure</block>
-  <block id="4f7a7f0966b49199b4fcb96bfb027259" category="paragraph"><block ref="bf09a0f29ffa1dc0ee63da51e58f16ef" category="inline-link-macro-rx"></block>.</block>
   <block id="e57e5c06a7f562addb87315f013677ab" category="inline-link-macro">En savoir plus sur la restauration à partir du stockage d'archives Google</block>
-  <block id="5257e1b4d697f8d8bc3d04bda6a273e8" category="paragraph"><block ref="9220ac6939e2eccbf843225c6d0eb5f6" category="inline-link-macro-rx"></block>.</block>
   <block id="e429a3dcdf9ca5d36834b72490aae784" category="admonition">La priorité élevée n’est pas prise en charge lors de la restauration des données du stockage d’archivage Azure vers les systèmes StorageGRID .</block>
   <block id="598e51a2b37024d5f553af642c739db8" category="section-title">Parcourir et restaurer les systèmes pris en charge et les fournisseurs de stockage d'objets</block>
   <block id="bc6bfb0b14fd7cced8ee62c645d8aa17" category="paragraph">*Remarque :* vous pouvez restaurer un volume à partir de n’importe quel type de fichier de sauvegarde, mais vous ne pouvez restaurer un dossier ou des fichiers individuels qu’à partir d’un fichier de sauvegarde dans le stockage d’objets pour le moment.</block>
   <block id="4392d15c8884c7cc66b17ff794eb41d2" category="cell">*Depuis le magasin d'objets (sauvegarde)*</block>
   <block id="a4e7ccecf7c1ff2d3e2de88d9f7559d4" category="cell">*Depuis le primaire (instantané)*</block>
   <block id="c1ad4111606308626e152e2bc5089a8b" category="cell">*Depuis le système secondaire (réplication)*</block>
-  <block id="aab3dd6e73e091e7f55c3e923a012dbb" category="cell">Vers le système de destination ifdef::aws[]</block>
-  <block id="508c69ac69618e417c42c1ec4f1802fe" category="cell">Cloud Volumes ONTAP dans AWS Système ONTAP sur site endif::aws[] ifdef::azure[]</block>
-  <block id="a57e78a7b424a1f155d5c251bf4bfe16" category="cell">Cloud Volumes ONTAP dans le système ONTAP local Azure endif::azure[] ifdef::gcp[]</block>
   <block id="f6bc09197fbc5599ccf48032f3ead672" category="cell">Vers le système ONTAP sur site</block>
   <block id="56a66e1fc15e989f40186eb5d1841f59" category="paragraph">Pour la navigation et la restauration, l'agent de console peut être installé aux emplacements suivants :</block>
   <block id="26b66b8e6541c0f2e46ee638955dab17" category="list-text">Pour Amazon S3, l'agent de console peut être déployé dans AWS ou dans vos locaux</block>
@@ -3749,7 +3717,6 @@
   <block id="2f7ffcf09fd8291d200be9f94baef41d" category="list-text">Saisissez le nom que vous souhaitez utiliser pour le volume restauré, puis sélectionnez la machine virtuelle de stockage et l’agrégat où résidera le volume.  Lors de la restauration d'un volume FlexGroup , vous devrez sélectionner plusieurs agrégats.  Par défaut, *&lt;source_volume_name&gt;_restore* est utilisé comme nom de volume.</block>
   <block id="7a2007148011e973184940a379d2cfeb" category="paragraph">Lors de la restauration d'une sauvegarde à partir du stockage d'objets vers un système Cloud Volumes ONTAP utilisant ONTAP 9.13.0 ou une version ultérieure ou vers un système ONTAP local exécutant ONTAP 9.14.1, vous aurez la possibilité d'effectuer une opération de _restauration rapide_.</block>
   <block id="15c25e27b550e844257a7920d4c7a5ea" category="paragraph">Et si vous restaurez le volume à partir d'un fichier de sauvegarde qui réside dans un niveau de stockage d'archivage (disponible à partir d' ONTAP 9.10.1), vous pouvez sélectionner la priorité de restauration.</block>
-  <block id="05a3d8f98ebfb8438c88a925f984d2a0" category="paragraph"><block ref="9220ac6939e2eccbf843225c6d0eb5f6" category="inline-link-macro-rx"></block>.  Les fichiers de sauvegarde dans le niveau de stockage Google Archive sont restaurés presque immédiatement et ne nécessitent aucune priorité de restauration.</block>
   <block id="f88c0e05820f08ba199e29b639f011b8" category="list-text">Sélectionnez *Suivant* pour choisir si vous souhaitez effectuer un processus de restauration normale ou rapide :</block>
   <block id="2618b905cdc9e04055a7d6a5328eebfb" category="list-text">*Restauration normale* : utilisez la restauration normale sur les volumes qui nécessitent des performances élevées.  Les volumes ne seront pas disponibles tant que le processus de restauration ne sera pas terminé.</block>
   <block id="64063115b259542737cce343064e3233" category="list-text">*Restauration rapide* : les volumes et données restaurés seront disponibles immédiatement. N'utilisez pas cette option sur des volumes nécessitant des performances élevées, car pendant le processus de restauration rapide, l'accès aux données peut être plus lent que d'habitude.</block>
@@ -4408,19 +4375,7 @@
   <block id="0253148ca606e51aa3fdb4d9f8b84f32" category="sidebar">Niveaux de stockage d'archives AWS pris en charge</block>
   <block id="62967cdcfc7912e3c1a9b3870580fe3f" category="sidebar">Niveaux de stockage d'archives Azure pris en charge</block>
   <block id="6af2225d62ab9c4b0de4dfa7f9e852f5" category="sidebar">Niveaux de stockage d'archives Google Cloud pris en charge</block>
-  <block id="e29d7c0b36af68edd13ebac84f15b44b" category="sidebar">Fournisseur de cloud</block>
-  <block id="46aef2e5080a5347df1ce7546e1be1df" category="sidebar">Tous les fournisseurs de cloud</block>
-  <block id="6beccc67ff905f7da0b29dece26b0485" category="sidebar">Amazon Web Services</block>
-  <block id="4847e034bb0a55fcbc8a3380d6a3ab80" category="sidebar">AWS</block>
   <block id="56ef2682280ac110060b881925a87b80" category="sidebar">Google Cloud</block>
-  <block id="1668ca1bd914c1d847f23b491319ac91" category="sidebar">Microsoft Azure</block>
-  <block id="3a580f142203677f1f0bc30898f63f53" category="sidebar">Azuré</block>
-  <block id="5a81378cdc7edd9ea960cf02d6ca78d2" category="paragraph">ifdef::aws[]</block>
-  <block id="6beb2fa01dc121194547db1bfbe03408" category="paragraph">endif::aws[]</block>
-  <block id="b010c7530103ef9947582474d65ff9a3" category="paragraph">ifdef::azure[]</block>
-  <block id="6e1e9c83b80f4d22d34cbdf60a71383b" category="paragraph">ifdef::gcp[]</block>
-  <block id="879701946bb2bc7241d0f85fd843455a" category="paragraph">endif::azure[]</block>
-  <block id="310c228207a0f8446bbe4c5d16978cb7" category="paragraph">endif::gcp[]</block>
   <block id="6fc478198b32debce80454c7af87f2a6" category="paragraph">Préparez votre système ONTAP source sur site et tous les systèmes ONTAP ou Cloud Volumes ONTAP secondaires sur site.</block>
   <block id="9d6517026ceae75d40ad31bbce85a01f" category="paragraph">Assurez-vous que votre système ONTAP répond aux exigences suivantes :</block>
   <block id="412575a7231cf720dd454d12218d97e8" category="list-text">Si vous répliquez des données, vérifiez que les systèmes source et de destination exécutent des versions ONTAP compatibles.</block>
@@ -4841,4 +4796,19 @@
   <block id="7a90fde5622dcca215688cd078d7dd01" category="list-text">Cloud Volumes ONTAP 9.8 ou supérieur pour Google Cloud Platform (utilisant les protocoles NFS et CIFS)</block>
   <block id="6f1c9788058344e9232a35579eac91e2" category="list-text">Amazon FSx for NetApp ONTAP (charges de travail Microsoft SQL Server uniquement)</block>
   <block id="0b115ac5b217f989a1fc7dd422161b82" category="list-title">Cibles de sauvegarde prises en charge</block>
+  <block id="c1ff016c5b916007ee8f97689d0cf42d" category="paragraph"><block ref="74169e9d6aed252bcfdf8c7b3af7403c" category="inline-link-macro-rx"></block>. <block ref="2ee7cc9e20761e67f0920429cf98cc54" category="inline-link-macro-rx"></block>. <block ref="aba7d321ee8cc50f731dfdd9ecd7c01c" category="inline-link-macro-rx"></block>. (Nécessite ONTAP 9.12.1.)</block>
+  <block id="6d7ca5f3a62a8450cd1f9e559fa7f7d2" category="paragraph">Notez que les fichiers de sauvegarde qui ont été classés dans le stockage d'archives restent dans ce niveau si vous arrêtez de classer les sauvegardes dans l'archive ; ils ne sont pas automatiquement déplacés vers le niveau standard. Seules les nouvelles sauvegardes de volumes seront stockées dans le niveau standard.</block>
+  <block id="6fe3c37e727721914225ad76304d3726" category="list-text">Modification de la bande passante réseau allouée au chargement des sauvegardes vers le stockage d'objets à l'aide de l'option Taux de transfert maximal</block>
+  <block id="5b9be87b8cd311cb68b9eddc1c1d9d4b" category="paragraph">Grâce à cette fonctionnalité, vous pouvez verrouiller les instantanés cloud répliqués via SnapMirror sur le cloud et également activer la fonctionnalité permettant de détecter une attaque de ransomware et de récupérer une copie cohérente de l'instantané sur le stockage d'objets. Cette fonctionnalité est prise en charge sur AWS, Azure, Google Cloud Platform et StorageGRID.</block>
+  <block id="ed56c48eb3d77598d7dd71524f288c12" category="cell">Destination du fichier de sauvegarde</block>
+  <block id="e6af6ec70c8f1f9b1b24a05417aae82a" category="cell">Amazon S3, Azure Blob, Google Cloud , NetApp StorageGRID</block>
+  <block id="31c25778a66dd9ff2087fb25f9f003e3" category="list-text">Pour AWS, vous pouvez hiérarchiser les sauvegardes vers le stockage AWS _S3 Glacier_ ou _S3 Glacier Deep Archive_. <block ref="da672f43205b0c90027c7dfb66aec892" category="inline-link-macro-rx"></block>.</block>
+  <block id="cf79bdcd3a75ca2aaf153bfbee77f91f" category="list-text">Pour Azure, vous pouvez hiérarchiser les anciennes sauvegardes vers le stockage _Azure Archive_. <block ref="378f4ee26769b0f22cf8e5c4c18a63bc" category="inline-link-macro-rx"></block>.</block>
+  <block id="55746a30fb9b4c5182484dec9b3600d3" category="list-text">Vous pouvez sauvegarder des données à partir de systèmes ONTAP locaux sur site vers des systèmes ONTAP locaux sur site ou des systèmes Cloud Volumes ONTAP configurés pour le stockage d'objets S3. <block ref="61d8249673309599fa2a7a8b0c67a195" category="inline-link-macro-rx"></block>.</block>
+  <block id="a99979a95e2c9dcb0b5768f80898dd11" category="cell">Amazon S3, Azure Blob, Google Cloud Storage, NetApp StorageGRID , ONTAP S3</block>
+  <block id="5cbc97866d11e9b3160156a597fbd5bf" category="list-text">Dans AWS, la console permet<block ref="b38667957fcdf9b9da65b213e7fb2492" category="inline-link-rx"></block> sur le compartiment S3.</block>
+  <block id="108d25df82fe933520bf967ad1d14b85" category="list-text">Dans Azure, la console utilise un groupe de ressources nouveau ou existant avec un compte de stockage pour le conteneur Blob. La console<block ref="a7068b8d2b60241ce77a1051f3a66ed5" category="inline-link-rx"></block> par défaut.</block>
+  <block id="fc2c90af4df4de3a15611b7cf431a683" category="list-text">Dans GCP, la console utilise un projet nouveau ou existant avec un compte de stockage pour le bucket Google Cloud Storage.</block>
+  <block id="96e895b3970ec91a00e97afd2eb59250" category="list-text">Dans StorageGRID, la console utilise un compte locataire existant pour le compartiment S3.</block>
+  <block id="836b4aa41fc8e9938df6b2350419d4f6" category="paragraph"><block ref="ee2d4c64a4d42f71a3357c6cd2b7b94b" category="inline-link-macro-rx"></block>. <block ref="bf09a0f29ffa1dc0ee63da51e58f16ef" category="inline-link-macro-rx"></block>. <block ref="9220ac6939e2eccbf843225c6d0eb5f6" category="inline-link-macro-rx"></block>.</block>
 </blocks>

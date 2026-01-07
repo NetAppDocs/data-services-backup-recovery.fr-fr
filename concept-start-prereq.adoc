@@ -287,24 +287,8 @@ Pour créer un agent de console dans la NetApp Console avant d’utiliser le ser
 .Où installer l'agent de console
 Pour terminer une opération de restauration, l'agent de console peut être installé aux emplacements suivants :
 
-ifdef::aws[]
-
 * Pour Amazon S3, l’agent de console peut être déployé sur vos locaux.
-
-
-endif::aws[]
-
-ifdef::azure[]
-
 * Pour Azure Blob, l’agent de console peut être déployé sur vos locaux.
-
-
-endif::azure[]
-
-ifdef::gcp[]
-
-endif::gcp[]
-
 * Pour StorageGRID, l'agent de console doit être déployé dans vos locaux ; avec ou sans accès Internet.
 * Pour ONTAP S3, l'agent de console peut être déployé dans vos locaux (avec ou sans accès Internet) ou dans un environnement de fournisseur de cloud
 

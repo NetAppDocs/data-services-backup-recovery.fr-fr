@@ -136,35 +136,13 @@ Des frais de ressources sont payés au fournisseur de cloud pour la capacité de
 
 * Pour restaurer des données à l'aide de la recherche et de la restauration, certaines ressources sont provisionnées par votre fournisseur de cloud et un coût par Tio est associé à la quantité de données analysées par vos demandes de recherche.  (Ces ressources ne sont pas nécessaires pour parcourir et restaurer.)
 +
-ifdef::aws[]
-
-+
 ** Dans AWS, https://aws.amazon.com/athena/faqs/["Amazone Athéna"^] et https://aws.amazon.com/glue/faqs/["Colle AWS"^] les ressources sont déployées dans un nouveau bucket S3.
-+
-endif::aws[]
-
-
-
-+
-ifdef::azure[]
-
-+
 ** Dans Azure, un https://azure.microsoft.com/en-us/services/synapse-analytics/?&ef_id=EAIaIQobChMI46_bxcWZ-QIVjtiGCh2CfwCsEAAYASAAEgKwjvD_BwE:G:s&OCID=AIDcmm5edswduu_SEM_EAIaIQobChMI46_bxcWZ-QIVjtiGCh2CfwCsEAAYASAAEgKwjvD_BwE:G:s&gclid=EAIaIQobChMI46_bxcWZ-QIVjtiGCh2CfwCsEAAYASAAEgKwjvD_BwE["Espace de travail Azure Synapse"^] et https://azure.microsoft.com/en-us/services/storage/data-lake-storage/?&ef_id=EAIaIQobChMIuYz0qsaZ-QIVUDizAB1EmACvEAAYASAAEgJH5fD_BwE:G:s&OCID=AIDcmm5edswduu_SEM_EAIaIQobChMIuYz0qsaZ-QIVUDizAB1EmACvEAAYASAAEgJH5fD_BwE:G:s&gclid=EAIaIQobChMIuYz0qsaZ-QIVUDizAB1EmACvEAAYASAAEgJH5fD_BwE["Stockage Azure Data Lake"^] sont provisionnés dans votre compte de stockage pour stocker et analyser vos données.
-+
-endif::azure[]
+** Dans Google, un nouveau bucket est déployé et le https://cloud.google.com/bigquery["Services Google Cloud BigQuery"^] sont provisionnés au niveau du compte/projet.
 
 
-
-
-
-ifdef::gcp[]
-
-* Dans Google, un nouveau bucket est déployé et le https://cloud.google.com/bigquery["Services Google Cloud BigQuery"^] sont provisionnés au niveau du compte/projet. endif::gcp[]
-+
-** Si vous prévoyez de restaurer des données de volume à partir d'un fichier de sauvegarde qui a été déplacé vers un stockage d'objets d'archivage, des frais de récupération par Gio et des frais par demande supplémentaires sont facturés par le fournisseur de cloud.
-** Si vous prévoyez d'analyser un fichier de sauvegarde à la recherche de ransomwares pendant le processus de restauration des données du volume (si vous avez activé DataLock et Ransomware Resilience pour vos sauvegardes cloud), vous devrez également supporter des frais de sortie supplémentaires auprès de votre fournisseur cloud.
-
-
+* Si vous prévoyez de restaurer des données de volume à partir d'un fichier de sauvegarde qui a été déplacé vers un stockage d'objets d'archivage, des frais de récupération par Gio et des frais par demande supplémentaires sont facturés par le fournisseur de cloud.
+* Si vous prévoyez d'analyser un fichier de sauvegarde à la recherche de ransomwares pendant le processus de restauration des données du volume (si vous avez activé DataLock et Ransomware Resilience pour vos sauvegardes cloud), vous devrez également supporter des frais de sortie supplémentaires auprès de votre fournisseur cloud.
 
 
 *Frais de service*

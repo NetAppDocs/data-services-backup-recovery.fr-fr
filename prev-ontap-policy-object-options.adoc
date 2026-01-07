@@ -72,7 +72,7 @@ Cette fonctionnalité ne fournit pas de protection pour vos volumes sources ; u
 
 === Qu'est-ce que DataLock
 
-Avec cette fonctionnalité, vous pouvez verrouiller les snapshots cloud répliqués via SnapMirror sur le cloud et également activer la fonctionnalité pour détecter une attaque de ransomware et récupérer une copie cohérente du snapshot sur le magasin d'objets.  Cette fonctionnalité est prise en charge sur AWS, Azure et StorageGRID.
+Grâce à cette fonctionnalité, vous pouvez verrouiller les instantanés cloud répliqués via SnapMirror sur le cloud et également activer la fonctionnalité permettant de détecter une attaque de ransomware et de récupérer une copie cohérente de l'instantané sur le stockage d'objets. Cette fonctionnalité est prise en charge sur AWS, Azure, Google Cloud Platform et StorageGRID.
 
 DataLock protège vos fichiers de sauvegarde contre toute modification ou suppression pendant une certaine période de temps - également appelée _stockage immuable_.  Cette fonctionnalité utilise la technologie du fournisseur de stockage d'objets pour le « verrouillage d'objets ».
 
@@ -165,25 +165,23 @@ Vous pouvez activer la protection DataLock et Ransomware sur les volumes ONTAP d
 
 [cols="55,45"]
 |===
-| Système source | Destination du fichier de sauvegarde ifdef::aws[] 
+| Système source | Destination du fichier de sauvegarde 
 
 
-| Cloud Volumes ONTAP dans AWS | Amazon S3 endif::aws[] ifdef::azure[] 
+| Cloud Volumes ONTAP dans AWS | Amazon S3 
 
 
-| Cloud Volumes ONTAP dans Azure | Objet blob Azure endif::azure[] ifdef::gcp[] 
+| Cloud Volumes ONTAP dans Azure | Azure Blob 
 
 
-| Cloud Volumes ONTAP dans Google Cloud | Google Cloud endif::gcp[] 
+| Cloud Volumes ONTAP dans Google Cloud | Google Cloud 
 
 
-| Système ONTAP sur site | ifdef::aws[] Amazon S3 endif::aws[] ifdef::azure[] Azure Blob endif::azure[] ifdef::gcp[] Google Cloud endif::gcp[] NetApp StorageGRID 
+| Système ONTAP sur site | Amazon S3, Azure Blob, Google Cloud , NetApp StorageGRID 
 |===
 
 
 === Exigences
-
-ifdef::aws[]
 
 * Pour AWS :
 +
@@ -228,33 +226,17 @@ https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-aws.html
 
 
 
-
-
-endif::aws[]
-
-ifdef::azure[]
-
 * Pour Azure :
 +
 ** Vos clusters doivent exécuter ONTAP 9.12.1 ou supérieur
 ** L'agent de console peut être déployé dans le cloud ou dans vos locaux
 
 
-
-
-endif::azure[]
-
-ifdef::gcp[]
-
 * Pour Google Cloud :
 +
 ** Vos clusters doivent exécuter ONTAP 9.17.1 ou une version ultérieure
 ** L'agent de console peut être déployé dans le cloud ou dans vos locaux
 
-
-
-
-endif::gcp[]
 
 * Pour StorageGRID:
 +
@@ -355,8 +337,6 @@ Les données des niveaux d'archivage ne sont pas immédiatement accessibles en c
 ====
 Chaque politique de sauvegarde fournit une section pour la _Politique d'archivage_ que vous pouvez appliquer à vos fichiers de sauvegarde.
 
-ifdef::aws[]
-
 * Dans AWS, les sauvegardes démarrent dans la classe de stockage _Standard_ et passent à la classe de stockage _Standard-Infrequent Access_ après 30 jours.
 +
 Si votre cluster utilise ONTAP 9.10.1 ou une version ultérieure, vous pouvez hiérarchiser les sauvegardes plus anciennes vers le stockage _S3 Glacier_ ou _S3 Glacier Deep Archive_. link:prev-reference-aws-archive-storage-tiers.html["En savoir plus sur le stockage d'archives AWS"] .
@@ -369,42 +349,23 @@ Si votre cluster utilise ONTAP 9.10.1 ou une version ultérieure, vous pouvez hi
 
 
 
-endif::aws[]
-
-ifdef::azure[]
-
 * Dans Azure, les sauvegardes sont associées au niveau d’accès _Cool_.
 +
 Si votre cluster utilise ONTAP 9.10.1 ou une version ultérieure, vous pouvez hiérarchiser les sauvegardes plus anciennes vers le stockage _Azure Archive_. link:prev-reference-azure-archive-storage-tiers.html["En savoir plus sur le stockage d'archives Azure"] .
 
 
 
-endif::azure[]
-
-ifdef::gcp[]
-
 * Dans GCP, les sauvegardes sont associées à la classe de stockage _Standard_.
 +
 Si votre cluster sur site utilise ONTAP 9.12.1 ou une version ultérieure, vous pouvez choisir de hiérarchiser les sauvegardes plus anciennes vers le stockage _Archive_ dans l'interface utilisateur NetApp Backup and Recovery après un certain nombre de jours pour une optimisation supplémentaire des coûts. link:prev-reference-gcp-archive-storage-tiers.html["En savoir plus sur le stockage d'archives Google"] .
-
-
-
-endif::gcp[]
 
 * Dans StorageGRID, les sauvegardes sont associées à la classe de stockage _Standard_.
 +
 Si votre cluster sur site utilise ONTAP 9.12.1 ou une version ultérieure et que votre système StorageGRID utilise 11.4 ou une version ultérieure, vous pouvez archiver les anciens fichiers de sauvegarde dans un stockage d'archivage cloud public.
 
++
+** Pour AWS, vous pouvez hiérarchiser les sauvegardes vers le stockage AWS _S3 Glacier_ ou _S3 Glacier Deep Archive_. link:prev-reference-aws-archive-storage-tiers.html["En savoir plus sur le stockage d'archives AWS"^].
+** Pour Azure, vous pouvez hiérarchiser les anciennes sauvegardes vers le stockage _Azure Archive_. link:prev-reference-azure-archive-storage-tiers.html["En savoir plus sur le stockage d'archives Azure"^].
 
 
-ifdef::aws[]
 
-+ ** Pour AWS, vous pouvez hiérarchiser les sauvegardes vers le stockage AWS _S3 Glacier_ ou _S3 Glacier Deep Archive_. link:prev-reference-aws-archive-storage-tiers.html["En savoir plus sur le stockage d'archives AWS"^] .
-
-endif::aws[]
-
-ifdef::azure[]
-
-+ ** Pour Azure, vous pouvez hiérarchiser les sauvegardes plus anciennes vers le stockage _Azure Archive_. link:prev-reference-azure-archive-storage-tiers.html["En savoir plus sur le stockage d'archives Azure"^] .
-
-endif::azure[]

@@ -24,11 +24,7 @@ NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Reco
 
 Vous pouvez modifier les options suivantes dans la page Paramètres avancés :
 
-* Modification de la bande passante réseau allouée au téléchargement des sauvegardes vers le stockage d'objets à l'aide de l'option Taux de transfert maximal ifdef::aws[]
-
-
-endif::aws[]
-
+* Modification de la bande passante réseau allouée au chargement des sauvegardes vers le stockage d'objets à l'aide de l'option Taux de transfert maximal
 * Modification de la façon dont les instantanés historiques sont exportés ou non en tant que fichiers de sauvegarde et inclus dans vos fichiers de sauvegarde de référence initiaux pour les volumes futurs
 * Modifier si les instantanés « annuels » sont supprimés du système source
 * Activation ou désactivation des analyses de ransomware pour un système, y compris les analyses planifiées
@@ -70,10 +66,6 @@ Lorsque vous activez NetApp Backup and Recovery pour un système, par défaut, O
 
 
 Ce paramètre n’affecte pas la bande passante allouée à d’autres relations de réplication pouvant être configurées pour les volumes du système.
-
-ifdef::aws[]
-
-endif::aws[]
 
 
 

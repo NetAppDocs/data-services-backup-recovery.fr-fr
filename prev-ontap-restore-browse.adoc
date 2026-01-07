@@ -30,23 +30,7 @@ Les fonctionnalités de restauration dépendent de votre version ONTAP :
 
 
 
-ifdef::aws[]
-
-link:prev-reference-aws-archive-storage-tiers.html["En savoir plus sur la restauration à partir du stockage d'archives AWS"].
-
-endif::aws[]
-
-ifdef::azure[]
-
-link:prev-reference-azure-archive-storage-tiers.html["En savoir plus sur la restauration à partir du stockage d'archives Azure"].
-
-endif::azure[]
-
-ifdef::gcp[]
-
-link:prev-reference-gcp-archive-storage-tiers.html["En savoir plus sur la restauration à partir du stockage d'archives Google"].
-
-endif::gcp[]
+link:prev-reference-aws-archive-storage-tiers.html["En savoir plus sur la restauration à partir du stockage d'archives AWS"]. link:prev-reference-azure-archive-storage-tiers.html["En savoir plus sur la restauration à partir du stockage d'archives Azure"]. link:prev-reference-gcp-archive-storage-tiers.html["En savoir plus sur la restauration à partir du stockage d'archives Google"].
 
 
 NOTE: La priorité élevée n’est pas prise en charge lors de la restauration des données du stockage d’archivage Azure vers les systèmes StorageGRID .
@@ -61,43 +45,25 @@ Vous pouvez restaurer les données ONTAP à partir d'un fichier de sauvegarde r�
 
 [cols="25,25,25,25"]
 |===
-| *Depuis le magasin d'objets (sauvegarde)* | *Depuis le primaire (instantané)* | *Depuis le système secondaire (réplication)* | Vers le système de destination ifdef::aws[] 
+| *Depuis le magasin d'objets (sauvegarde)* | *Depuis le primaire (instantané)* | *Depuis le système secondaire (réplication)* | Vers le système de destination 
 
 
-| Amazon S3 | Cloud Volumes ONTAP dans le système ONTAP sur site AWS | Cloud Volumes ONTAP dans AWS Système ONTAP sur site endif::aws[] ifdef::azure[] | Azure Blob 
+| Amazon S3 | Cloud Volumes ONTAP dans le système ONTAP sur site AWS | Cloud Volumes ONTAP dans le système ONTAP sur site AWS | Azure Blob 
 
 
-| Cloud Volumes ONTAP dans le système ONTAP sur site Azure | Cloud Volumes ONTAP dans le système ONTAP local Azure endif::azure[] ifdef::gcp[] | Stockage Google Cloud | Cloud Volumes ONTAP dans le système ONTAP sur site de Google 
+| Cloud Volumes ONTAP dans le système ONTAP sur site Azure | Cloud Volumes ONTAP dans le système ONTAP sur site Azure | Stockage Google Cloud | Cloud Volumes ONTAP dans le système ONTAP sur site de Google 
 
 
-| Cloud Volumes ONTAP dans le système ONTAP sur site de Google endif::gcp[] | NetApp StorageGRID | Système ONTAP sur site | Système ONTAP sur site Cloud Volumes ONTAP 
+| Cloud Volumes ONTAP dans le système ONTAP sur site de Google | NetApp StorageGRID | Système ONTAP sur site | Système ONTAP sur site Cloud Volumes ONTAP 
 
 
 | Vers le système ONTAP sur site | ONTAP S3 | Système ONTAP sur site | Système ONTAP sur site Cloud Volumes ONTAP 
 |===
 Pour la navigation et la restauration, l'agent de console peut être installé aux emplacements suivants :
 
-ifdef::aws[]
-
 * Pour Amazon S3, l'agent de console peut être déployé dans AWS ou dans vos locaux
-
-
-endif::aws[]
-
-ifdef::azure[]
-
 * Pour Azure Blob, l'agent de console peut être déployé dans Azure ou dans vos locaux
-
-
-endif::azure[]
-
-ifdef::gcp[]
-
 * Pour Google Cloud Storage, l'agent de la console doit être déployé dans votre VPC Google Cloud Platform
-
-
-endif::gcp[]
-
 * Pour StorageGRID, l'agent de console doit être déployé dans vos locaux ; avec ou sans accès Internet
 * Pour ONTAP S3, l'agent de console peut être déployé dans vos locaux (avec ou sans accès Internet) ou dans un environnement de fournisseur de cloud
 
@@ -139,34 +105,14 @@ Notez que si vous sélectionnez un fichier de sauvegarde dans le stockage d'obje
 . Dans la page _Sélectionner la destination_, sélectionnez le *système* sur lequel vous souhaitez restaurer le volume.
 . Lors de la restauration d'un fichier de sauvegarde à partir du stockage d'objets, si vous sélectionnez un système ONTAP local et que vous n'avez pas déjà configuré la connexion du cluster au stockage d'objets, vous êtes invité à fournir des informations supplémentaires :
 +
-ifdef::aws[]
-
-+
 ** Lors de la restauration à partir d'Amazon S3, sélectionnez l'espace IP dans le cluster ONTAP où résidera le volume de destination, entrez la clé d'accès et la clé secrète de l'utilisateur que vous avez créé pour donner au cluster ONTAP l'accès au compartiment S3 et choisissez éventuellement un point de terminaison VPC privé pour un transfert de données sécurisé.
+** Lors de la restauration à partir d’Azure Blob, sélectionnez l’espace IP dans le cluster ONTAP où résidera le volume de destination, sélectionnez l’abonnement Azure pour accéder au stockage d’objets et choisissez éventuellement un point de terminaison privé pour le transfert de données sécurisé en sélectionnant le réseau virtuel et le sous-réseau.
+** Lors de la restauration à partir de Google Cloud Storage, sélectionnez le projet Google Cloud et la clé d'accès et la clé secrète pour accéder au stockage d'objets, la région où les sauvegardes sont stockées et l'espace IP dans le cluster ONTAP où résidera le volume de destination.
+** Lors de la restauration à partir de StorageGRID, saisissez le nom de domaine complet du serveur StorageGRID et le port ONTAP doit utiliser pour la communication HTTPS avec StorageGRID, sélectionnez la clé d'accès et la clé secrète nécessaires pour accéder au stockage d'objets, ainsi que l'espace IP dans le cluster ONTAP où résidera le volume de destination.
+** Lors de la restauration à partir d' ONTAP S3, saisissez le nom de domaine complet du serveur ONTAP S3 et le port ONTAP doit utiliser pour la communication HTTPS avec ONTAP S3, sélectionnez la clé d'accès et la clé secrète nécessaires pour accéder au stockage d'objets, ainsi que l'espace IP dans le cluster ONTAP où résidera le volume de destination.
 
 
-
-
-endif::aws[]
-
-ifdef::azure[]
-
-* Lors de la restauration à partir d’Azure Blob, sélectionnez l’espace IP dans le cluster ONTAP où résidera le volume de destination, sélectionnez l’abonnement Azure pour accéder au stockage d’objets et choisissez éventuellement un point de terminaison privé pour le transfert de données sécurisé en sélectionnant le réseau virtuel et le sous-réseau.
-
-
-endif::azure[]
-
-ifdef::gcp[]
-
-* Lors de la restauration à partir de Google Cloud Storage, sélectionnez le projet Google Cloud et la clé d'accès et la clé secrète pour accéder au stockage d'objets, la région où les sauvegardes sont stockées et l'espace IP dans le cluster ONTAP où résidera le volume de destination.
-
-
-endif::gcp[]
-
-* Lors de la restauration à partir de StorageGRID, saisissez le nom de domaine complet du serveur StorageGRID et le port ONTAP doit utiliser pour la communication HTTPS avec StorageGRID, sélectionnez la clé d'accès et la clé secrète nécessaires pour accéder au stockage d'objets, ainsi que l'espace IP dans le cluster ONTAP où résidera le volume de destination.
-* Lors de la restauration à partir d' ONTAP S3, saisissez le nom de domaine complet du serveur ONTAP S3 et le port ONTAP doit utiliser pour la communication HTTPS avec ONTAP S3, sélectionnez la clé d'accès et la clé secrète nécessaires pour accéder au stockage d'objets, ainsi que l'espace IP dans le cluster ONTAP où résidera le volume de destination.
-+
-.. Saisissez le nom que vous souhaitez utiliser pour le volume restauré, puis sélectionnez la machine virtuelle de stockage et l’agrégat où résidera le volume.  Lors de la restauration d'un volume FlexGroup , vous devrez sélectionner plusieurs agrégats.  Par défaut, *<source_volume_name>_restore* est utilisé comme nom de volume.
+. Saisissez le nom que vous souhaitez utiliser pour le volume restauré, puis sélectionnez la machine virtuelle de stockage et l’agrégat où résidera le volume.  Lors de la restauration d'un volume FlexGroup , vous devrez sélectionner plusieurs agrégats.  Par défaut, *<source_volume_name>_restore* est utilisé comme nom de volume.
 +
 Lors de la restauration d'une sauvegarde à partir du stockage d'objets vers un système Cloud Volumes ONTAP utilisant ONTAP 9.13.0 ou une version ultérieure ou vers un système ONTAP local exécutant ONTAP 9.14.1, vous aurez la possibilité d'effectuer une opération de _restauration rapide_.
 
@@ -174,27 +120,7 @@ Lors de la restauration d'une sauvegarde à partir du stockage d'objets vers un 
 Et si vous restaurez le volume à partir d'un fichier de sauvegarde qui réside dans un niveau de stockage d'archivage (disponible à partir d' ONTAP 9.10.1), vous pouvez sélectionner la priorité de restauration.
 
 +
-ifdef::aws[]
-
-
-
-
-
-link:prev-reference-aws-archive-storage-tiers.html["En savoir plus sur la restauration à partir du stockage d'archives AWS"].
-
-endif::aws[]
-
-ifdef::azure[]
-
-link:prev-reference-azure-archive-storage-tiers.html["En savoir plus sur la restauration à partir du stockage d'archives Azure"].
-
-endif::azure[]
-
-ifdef::gcp[]
-
-link:prev-reference-gcp-archive-storage-tiers.html["En savoir plus sur la restauration à partir du stockage d'archives Google"].  Les fichiers de sauvegarde dans le niveau de stockage Google Archive sont restaurés presque immédiatement et ne nécessitent aucune priorité de restauration.
-
-endif::gcp[]
+link:prev-reference-aws-archive-storage-tiers.html["En savoir plus sur la restauration à partir du stockage d'archives AWS"]. link:prev-reference-azure-archive-storage-tiers.html["En savoir plus sur la restauration à partir du stockage d'archives Azure"] . link:prev-reference-gcp-archive-storage-tiers.html["En savoir plus sur la restauration à partir du stockage d'archives Google"] .  Les fichiers de sauvegarde dans le niveau de stockage Google Archive sont restaurés presque immédiatement et ne nécessitent aucune priorité de restauration.
 
 . Sélectionnez *Suivant* pour choisir si vous souhaitez effectuer un processus de restauration normale ou rapide :
 +
@@ -278,47 +204,25 @@ Au fur et à mesure que vous sélectionnez des fichiers, ils sont ajoutés sur l
 Si vous sélectionnez un cluster sur site et que vous n'avez pas encore configuré la connexion du cluster au stockage d'objets, vous êtes invité à fournir des informations supplémentaires :
 
 +
-ifdef::aws[]
-
-+
 ** Lors de la restauration à partir d'Amazon S3, saisissez l'espace IP dans le cluster ONTAP où réside le volume de destination, ainsi que la clé d'accès AWS et la clé secrète nécessaires pour accéder au stockage d'objets.  Vous pouvez également sélectionner une configuration de lien privé pour la connexion au cluster.
+** Lors de la restauration à partir d’Azure Blob, entrez l’espace IP dans le cluster ONTAP où réside le volume de destination.  Vous pouvez également sélectionner une configuration de point de terminaison privé pour la connexion au cluster.
+** Lors de la restauration à partir de Google Cloud Storage, saisissez l'espace IP dans le cluster ONTAP où résident les volumes de destination, ainsi que la clé d'accès et la clé secrète nécessaires pour accéder au stockage d'objets.
+** Lors de la restauration à partir de StorageGRID, entrez le nom de domaine complet du serveur StorageGRID et le port ONTAP doit utiliser pour la communication HTTPS avec StorageGRID, entrez la clé d'accès et la clé secrète nécessaires pour accéder au stockage d'objets, ainsi que l'espace IP dans le cluster ONTAP où réside le volume de destination.
 
 
-
-
-endif::aws[]
-
-ifdef::azure[]
-
-* Lors de la restauration à partir d’Azure Blob, entrez l’espace IP dans le cluster ONTAP où réside le volume de destination.  Vous pouvez également sélectionner une configuration de point de terminaison privé pour la connexion au cluster.
-
-
-endif::azure[]
-
-ifdef::gcp[]
-
-* Lors de la restauration à partir de Google Cloud Storage, saisissez l'espace IP dans le cluster ONTAP où résident les volumes de destination, ainsi que la clé d'accès et la clé secrète nécessaires pour accéder au stockage d'objets.
-
-
-endif::gcp[]
-
-* Lors de la restauration à partir de StorageGRID, entrez le nom de domaine complet du serveur StorageGRID et le port ONTAP doit utiliser pour la communication HTTPS avec StorageGRID, entrez la clé d'accès et la clé secrète nécessaires pour accéder au stockage d'objets, ainsi que l'espace IP dans le cluster ONTAP où réside le volume de destination.
-+
-.. Sélectionnez ensuite le *Volume* et le *Dossier* dans lesquels vous souhaitez restaurer le dossier ou les fichiers.
+. Sélectionnez ensuite le *Volume* et le *Dossier* dans lesquels vous souhaitez restaurer le dossier ou les fichiers.
 +
 Vous disposez de plusieurs options pour l'emplacement lors de la restauration des dossiers et des fichiers.
 
-
-
-* Lorsque vous avez choisi *Sélectionner le dossier cible*, comme indiqué ci-dessus :
 +
-** Vous pouvez sélectionner n’importe quel dossier.
-** Vous pouvez survoler un dossier et cliquer à la fin de la ligne pour accéder aux sous-dossiers, puis sélectionner un dossier.
-
-
-* Si vous avez sélectionné le même système de destination et le même volume que celui où se trouvait le dossier/fichier source, vous pouvez sélectionner *Conserver le chemin du dossier source* pour restaurer le dossier ou les fichiers dans le même dossier où ils existaient dans la structure source.  Tous les mêmes dossiers et sous-dossiers doivent déjà exister ; les dossiers ne sont pas créés.  Lors de la restauration des fichiers à leur emplacement d'origine, vous pouvez choisir d'écraser le(s) fichier(s) source ou de créer de nouveaux fichiers.
+** Lorsque vous avez choisi *Sélectionner le dossier cible*, comme indiqué ci-dessus :
 +
-.. Sélectionnez *Restaurer* pour revenir au tableau de bord de restauration et consulter la progression de l'opération de restauration.
+*** Vous pouvez sélectionner n’importe quel dossier.
+*** Vous pouvez survoler un dossier et cliquer à la fin de la ligne pour accéder aux sous-dossiers, puis sélectionner un dossier.
 
 
+** Si vous avez sélectionné le même système de destination et le même volume que celui où se trouvait le dossier/fichier source, vous pouvez sélectionner *Conserver le chemin du dossier source* pour restaurer le dossier ou les fichiers dans le même dossier où ils existaient dans la structure source.  Tous les mêmes dossiers et sous-dossiers doivent déjà exister ; les dossiers ne sont pas créés.  Lors de la restauration des fichiers à leur emplacement d'origine, vous pouvez choisir d'écraser le(s) fichier(s) source ou de créer de nouveaux fichiers.
+
+
+. Sélectionnez *Restaurer* pour revenir au tableau de bord de restauration et consulter la progression de l'opération de restauration.
 

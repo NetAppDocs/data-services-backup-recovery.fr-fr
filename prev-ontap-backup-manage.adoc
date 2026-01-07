@@ -236,27 +236,12 @@ Vous pouvez modifier les attributs d’une politique de sauvegarde actuellement 
 Si votre cluster exécute ONTAP 9.10.1 ou une version ultérieure, vous avez également la possibilité d'activer ou de désactiver la hiérarchisation des sauvegardes vers le stockage d'archivage après un certain nombre de jours.
 
 +
-ifdef::aws[]
+link:prev-reference-aws-archive-storage-tiers.html["En savoir plus sur l'utilisation du stockage d'archives AWS"]. link:prev-reference-azure-archive-storage-tiers.html["En savoir plus sur l'utilisation du stockage d'archives Azure"]. link:prev-reference-gcp-archive-storage-tiers.html["En savoir plus sur l'utilisation du stockage d'archives Google"]. (Nécessite ONTAP 9.12.1.)
+
++
+Notez que les fichiers de sauvegarde qui ont été classés dans le stockage d'archives restent dans ce niveau si vous arrêtez de classer les sauvegardes dans l'archive ; ils ne sont pas automatiquement déplacés vers le niveau standard. Seules les nouvelles sauvegardes de volumes seront stockées dans le niveau standard.
 
 
-
-link:prev-reference-aws-archive-storage-tiers.html["En savoir plus sur l'utilisation du stockage d'archives AWS"].
-
-endif::aws[]
-
-ifdef::azure[]
-
-link:prev-reference-azure-archive-storage-tiers.html["En savoir plus sur l'utilisation du stockage d'archives Azure"].
-
-endif::azure[]
-
-ifdef::gcp[]
-
-link:prev-reference-gcp-archive-storage-tiers.html["En savoir plus sur l'utilisation du stockage d'archives Google"].  (Nécessite ONTAP 9.12.1.)
-
-endif::gcp[]
-
-+ Notez que tous les fichiers de sauvegarde qui ont été hiérarchisés vers le stockage d'archivage sont laissés dans ce niveau si vous arrêtez de hiérarchiser les sauvegardes vers l'archive - ils ne sont pas automatiquement déplacés vers le niveau standard.  Seules les nouvelles sauvegardes de volume résideront dans le niveau standard.
 
 
 
@@ -282,25 +267,9 @@ Si vous souhaitez appliquer une nouvelle politique de sauvegarde à certains vol
 Si votre cluster exécute ONTAP 9.10.1 ou une version ultérieure, vous avez également la possibilité d'activer ou de désactiver la hiérarchisation des sauvegardes vers le stockage d'archivage après un certain nombre de jours.
 
 +
-ifdef::aws[]
+link:prev-reference-aws-archive-storage-tiers.html["En savoir plus sur l'utilisation du stockage d'archives AWS"]. link:prev-reference-azure-archive-storage-tiers.html["En savoir plus sur l'utilisation du stockage d'archives Azure"]. link:prev-reference-gcp-archive-storage-tiers.html["En savoir plus sur l'utilisation du stockage d'archives Google"]. (Nécessite ONTAP 9.12.1.)
 
 
-
-link:prev-reference-aws-archive-storage-tiers.html["En savoir plus sur l'utilisation du stockage d'archives AWS"].
-
-endif::aws[]
-
-ifdef::azure[]
-
-link:prev-reference-azure-archive-storage-tiers.html["En savoir plus sur l'utilisation du stockage d'archives Azure"].
-
-endif::azure[]
-
-ifdef::gcp[]
-
-link:prev-reference-gcp-archive-storage-tiers.html["En savoir plus sur l'utilisation du stockage d'archives Google"].  (Nécessite ONTAP 9.12.1.)
-
-endif::gcp[]
 
 
 
