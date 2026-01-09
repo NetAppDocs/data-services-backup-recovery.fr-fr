@@ -91,8 +91,8 @@ Si vous choisissez un stockage secondaire, sélectionnez l'emplacement de destin
 
 
 
-. Sélectionnez *Suivant*.
-. Choisissez les paramètres de destination et les options de pré- et post-restauration.
+. Sélectionnez *Suivant* pour continuer.
+. Choisissez la destination et les paramètres de restauration :
 
 
 [discrete]

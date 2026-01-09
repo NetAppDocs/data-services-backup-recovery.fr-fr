@@ -1013,10 +1013,7 @@
   <block id="47d76616568defc7344e2cfbcdf92653" category="paragraph">Une liste de points de restauration possibles apparaît.</block>
   <block id="effade56c0dfab07db57229c5b4e6e4e" category="list-text">Sélectionnez le point de restauration que vous souhaitez utiliser.</block>
   <block id="6f012e8e8abed5b3c7ee277d331469f3" category="list-text">Sélectionnez un emplacement source d’instantané.</block>
-  <block id="39e791cd576f013480b8ac3c88fcd655" category="list-text">Sélectionnez *Terminé* ou *Suivant* pour continuer vers la page des paramètres de destination de restauration.</block>
-  <block id="94697b58b65e2562f9eac2c0fef08c35" category="paragraph">Ensuite, vous pouvez choisir les paramètres de destination et les options de pré-restauration et de post-restauration.</block>
   <block id="23de539bf06cfaf2cd9dc515802272ce" category="floating-title">Sélection de la destination</block>
-  <block id="5dd0bd8435aec915fe085d771534ba47" category="list-text">Choisissez les paramètres de destination et les options de pré-restauration et de post-restauration.</block>
   <block id="abfc7c0c366258e23e15cd12a5f89811" category="open-title">Restaurer à l'emplacement d'origine</block>
   <block id="f841432c2e7b95f0e1480a64c27a957d" category="list-text">*Activer la restauration rapide* : sélectionnez cette option pour effectuer une opération de restauration rapide. Les volumes et données restaurés seront disponibles immédiatement. N'utilisez pas cette option sur des volumes nécessitant des performances élevées, car pendant le processus de restauration rapide, l'accès aux données peut être plus lent que d'habitude.</block>
   <block id="6ca1e0675a4f2fa0425b153f38956afe" category="list-text">*Options de pré-restauration* : saisissez le chemin complet d'un script qui doit être exécuté avant l'opération de restauration et tous les arguments que le script prend.</block>
@@ -1590,7 +1587,6 @@
   <block id="e778183067d12c261c4b71b0ccc4eaad" category="open-title">Restaurer à partir d'instantanés sans récupération</block>
   <block id="e9bde7b168cf5fbb3d9d5b297ca8bfb2" category="list-text">Sélectionnez *Restaurer à partir d'instantanés sans récupération*.</block>
   <block id="002b8c566162a2cd02c4e355805ac3f6" category="paragraph">Les instantanés correspondants sont affichés.</block>
-  <block id="ae0355b3acbc8735275d2415050e631f" category="list-text">Sélectionnez *Suivant* pour continuer vers la page des paramètres de destination de restauration.</block>
   <block id="98b2af096c36f02920b21c788a2a0dc6" category="list-text">*Paramètres de destination*:</block>
   <block id="12c0707880528cef62d0f97d7a498d1a" category="list-text">Choisissez de restaurer la base de données entière ou uniquement les espaces table de la base de données.</block>
   <block id="78847577cebd91850d891ed95fe6bce3" category="list-text">*Fichiers de contrôle* : Activez éventuellement cette option pour restaurer également les fichiers de contrôle de la base de données.</block>
@@ -4698,7 +4694,6 @@
   <block id="f16b36eea83bd45d35d7613cab7f6cf8" category="list-text">Sélectionnez la destination de restauration de l'instantané :</block>
   <block id="086fbde8fbe590f104f5100808b42c0b" category="list-text">*Local* : Restaure l’instantané à partir de l’emplacement local.</block>
   <block id="3a786499ea5d54fb6bb418032aca3117" category="list-text">*Secondaire* : Restaure l’instantané à partir d’un emplacement de stockage distant.</block>
-  <block id="bc9234ce73c565f247a8ae290b842ff6" category="list-text">Choisissez les paramètres de destination et les options de pré- et post-restauration.</block>
   <block id="8ed9e5a565b596ef7f9cb364cf2536d7" category="paragraph">Lors de la restauration à l'emplacement d'origine, vous ne pouvez pas modifier le vCenter de destination, l'hôte ESXi, le datastore ou le nom de la VM. La machine virtuelle d'origine est écrasée lors de l'opération de restauration.</block>
   <block id="10b0d3ffb47c4e67fc652e3b0f0220d7" category="list-text">Sélectionnez le volet *Emplacement d'origine*.</block>
   <block id="1b8d4d654146b4eec3cc22bd8b461dbb" category="list-text">Choisissez parmi les options suivantes :</block>
@@ -4737,7 +4732,6 @@
   <block id="cd1f1a4a4415e09f2c3fc9ab17aff625" category="list-text">Activez l'option correspondant à la capture d'écran que vous souhaitez restaurer.</block>
   <block id="57385260ec48afcc58eb70dc9059c8c0" category="list-text">*Stockage d'objets* : Restaure l'instantané à partir du stockage d'objets.</block>
   <block id="c1389ae5f188f85d79b6e1088e21576d" category="paragraph">Si vous choisissez un stockage secondaire, sélectionnez l'emplacement de destination dans la liste déroulante.</block>
-  <block id="a1ff6993d36232fbd0d0471769216a69" category="list-text">Choisissez les paramètres de destination et les options de pré- et post-restauration :</block>
   <block id="21ba1fcc630eae9c060829f621ac7124" category="paragraph">Lors de la restauration à l'emplacement d'origine, vous ne pouvez pas modifier le vCenter de destination, l'hôte ESXi, le datastore ou le nom du disque virtuel. Le disque virtuel d'origine est écrasé.</block>
   <block id="9f63eee4b169a6ac1fce2d2e6ec65d64" category="list-text">Dans la section *Paramètres de destination*, cochez la case correspondant aux disques virtuels que vous souhaitez restaurer.</block>
   <block id="e3926503d87ede09d428d2ca5fc4abf5" category="paragraph">Lors de la restauration vers un emplacement alternatif, vous pouvez modifier le magasin de données de destination. Le disque virtuel est rattaché à la machine virtuelle d'origine après l'opération de restauration, quel que soit le datastore choisi.</block>
@@ -4811,4 +4805,9 @@
   <block id="fc2c90af4df4de3a15611b7cf431a683" category="list-text">Dans GCP, la console utilise un projet nouveau ou existant avec un compte de stockage pour le bucket Google Cloud Storage.</block>
   <block id="96e895b3970ec91a00e97afd2eb59250" category="list-text">Dans StorageGRID, la console utilise un compte locataire existant pour le compartiment S3.</block>
   <block id="836b4aa41fc8e9938df6b2350419d4f6" category="paragraph"><block ref="ee2d4c64a4d42f71a3357c6cd2b7b94b" category="inline-link-macro-rx"></block>. <block ref="bf09a0f29ffa1dc0ee63da51e58f16ef" category="inline-link-macro-rx"></block>. <block ref="9220ac6939e2eccbf843225c6d0eb5f6" category="inline-link-macro-rx"></block>.</block>
+  <block id="ab042cf6b82a1ca2824a55aecccf0f72" category="list-text">Sélectionnez *Suivant* pour continuer.</block>
+  <block id="38cf859695687379726e3ea14b05ddc1" category="list-text">Choisissez la destination et les paramètres de restauration :</block>
+  <block id="a30b9d9cd5fcd792454de596b4a70bbf" category="paragraph">Lorsque vous restaurez l'emplacement d'origine, vous pouvez consulter les paramètres de destination en développant la section *Paramètres de destination*, mais vous ne pouvez pas les modifier.</block>
+  <block id="6ae1e8b4e49e0eb340bfe865ab9bf2be" category="list-text">Dans la section *Options post-restauration*, considérez l'option suivante :</block>
+  <block id="549fac1df4ed1f1a9ecf014524bf6245" category="paragraph">*Redémarrer la machine virtuelle* : Activez cette option pour démarrer la nouvelle machine virtuelle après sa restauration.</block>
 </blocks>

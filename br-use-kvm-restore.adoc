@@ -73,17 +73,12 @@ Une liste de points de restauration possibles apparaît.
 . Sélectionnez un emplacement source d’instantané.
 
 
-. Sélectionnez *Terminé* ou *Suivant* pour continuer vers la page des paramètres de destination de restauration.
-+
-Ensuite, vous pouvez choisir les paramètres de destination et les options de pré-restauration et de post-restauration.
-
+. Sélectionnez *Suivant* pour continuer.
+. Choisissez la destination et les paramètres de restauration :
 
 
 [discrete]
 ===== Sélection de la destination
-
-. Choisissez les paramètres de destination et les options de pré-restauration et de post-restauration.
-
 
 [role="tabbed-block"]
 ====

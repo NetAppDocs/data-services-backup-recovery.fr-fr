@@ -69,34 +69,22 @@ Une liste de points de restauration possibles apparaît.
 
 . Sélectionnez le point de restauration que vous souhaitez utiliser.
 . Sélectionnez un emplacement source d’instantané.
-. Sélectionnez *Terminé* ou *Suivant* pour continuer vers la page des paramètres de destination de restauration.
-+
-Ensuite, vous pouvez choisir les paramètres de destination et les options de pré-restauration et de post-restauration.
-
+. Sélectionnez *Suivant* pour continuer.
+. Choisissez la destination et les paramètres de restauration :
 
 
 [discrete]
 ===== Sélection de la destination
 
-. Choisissez les paramètres de destination et les options de pré-restauration et de post-restauration.
-
-
 [role="tabbed-block"]
 ====
 .Restaurer à l'emplacement d'origine
 --
-. *Activer la restauration rapide* : sélectionnez cette option pour effectuer une opération de restauration rapide. Les volumes et données restaurés seront disponibles immédiatement. N'utilisez pas cette option sur des volumes nécessitant des performances élevées, car pendant le processus de restauration rapide, l'accès aux données peut être plus lent que d'habitude.
-. *Options de pré-restauration* : saisissez le chemin complet d'un script qui doit être exécuté avant l'opération de restauration et tous les arguments que le script prend.
-. *Options post-restauration*:
+Lorsque vous restaurez l'emplacement d'origine, vous pouvez consulter les paramètres de destination en développant la section *Paramètres de destination*, mais vous ne pouvez pas les modifier.
+
+. Dans la section *Options post-restauration*, considérez l'option suivante :
 +
-** *Redémarrer la machine virtuelle* : sélectionnez cette option pour redémarrer la machine virtuelle une fois l'opération de restauration terminée et une fois le script de post-restauration appliqué.
-** *Postscript* : Saisissez le chemin complet d'un script qui doit être exécuté après l'opération de restauration et tous les arguments que le script prend.
-
-
-. Section *Notification* :
-+
-** *Activer les notifications par e-mail* : sélectionnez cette option pour recevoir des notifications par e-mail concernant l'opération de restauration et indiquez le type de notifications que vous souhaitez recevoir.
-
+*Redémarrer la machine virtuelle* : Activez cette option pour démarrer la nouvelle machine virtuelle après sa restauration.
 
 . Sélectionnez *Restaurer*.
 
