@@ -17,12 +17,9 @@ summary: Vous pouvez restaurer un ou plusieurs fichiers ou dossiers à partir d�
 Vous pouvez restaurer un ou plusieurs fichiers ou dossiers à partir d’un VMDK sur un système d’exploitation invité Windows.
 
 .Avant de commencer
-
-NOTE: Vous devez créer des informations d'identification pour la machine virtuelle invitée dans NetApp Backup and Recovery avant de pouvoir restaurer des fichiers et des dossiers à partir de celle-ci. NetApp Backup and Recovery utilise ces informations d'identification pour s'authentifier auprès de la machine virtuelle invitée lors de la connexion du disque virtuel.
+Vous devez créer des informations d'identification pour la machine virtuelle invitée dans NetApp Backup and Recovery avant de pouvoir restaurer des fichiers et des dossiers à partir de celle-ci. NetApp Backup and Recovery utilise ces informations d'identification pour s'authentifier auprès de la machine virtuelle invitée lors de la connexion du disque virtuel.
 
 .À propos de cette tâche
-Par défaut, NetApp Backup and Recovery rend le disque virtuel connecté disponible pendant 24 heures, puis le détache automatiquement. Dans l'assistant, vous pouvez choisir de supprimer automatiquement la session de restauration des fichiers invités après l'opération de restauration ou de supprimer la session manuellement.
-
 Les performances de restauration des fichiers ou dossiers invités dépendent de deux facteurs : la taille des fichiers ou dossiers restaurés ; et le nombre de fichiers ou dossiers restaurés. La restauration d'un grand nombre de fichiers de petite taille peut prendre plus de temps que prévu par rapport à la restauration d'un petit nombre de fichiers de grande taille, si l'ensemble de données à restaurer est de la même taille.
 
 

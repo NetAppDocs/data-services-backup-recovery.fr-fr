@@ -24,7 +24,7 @@ Les opérations de restauration du système d’exploitation invité incluent le
 
 . Attacher
 +
-Attachez un disque virtuel à une machine virtuelle invitée ou à une machine virtuelle proxy et démarrez une session de restauration de fichiers invités.
+Attachez un disque virtuel à une machine virtuelle invitée et démarrez une session de restauration de fichiers invitée.
 
 . Attendez
 +
@@ -50,7 +50,7 @@ Veuillez vérifier toutes les exigences avant de restaurer des fichiers ou des d
 +
 NetApp Backup and Recovery utilise les informations des outils VMware pour établir une connexion avec le système d'exploitation invité VMware.
 
-* Le système d’exploitation invité Windows doit exécuter Windows Server 2008 R2 ou une version ultérieure.
+* Le système d'exploitation invité Windows doit exécuter Windows Server 2008 R2 ou une version ultérieure.
 +
 Pour obtenir les dernières informations sur les versions prises en charge, reportez-vous à https://imt.netapp.com/imt/imt.jsp?components=180121;&solution=1517&isHWU&src=IMT["Outil de matrice d'interopérabilité NetApp (IMT)"^] .
 
@@ -82,8 +82,9 @@ Vous pouvez restaurer des fichiers avec des noms non alphabétiques, tels que de
 Avant de restaurer un fichier ou un dossier à partir d'un système d'exploitation invité, vous devez prendre connaissance des limitations de cette fonctionnalité.
 
 * Vous ne pouvez pas restaurer les types de disques dynamiques dans un système d’exploitation invité.
-* Si vous restaurez un fichier ou un dossier chiffré, l’attribut de chiffrement n’est pas conservé. Vous ne pouvez pas restaurer des fichiers ou des dossiers dans un dossier crypté.
-* La page Parcourir les fichiers invités affiche les fichiers et dossiers cachés, que vous ne pouvez pas filtrer.
+* Si vous restaurez un fichier ou un dossier chiffré, l’attribut de chiffrement n’est pas conservé.
+* Vous ne pouvez pas restaurer des fichiers ou des dossiers dans un dossier crypté.
+* Les fichiers et dossiers cachés sont affichés dans la page de navigation des fichiers, et vous ne pouvez pas les filtrer.
 * Vous ne pouvez pas restaurer à partir d’un système d’exploitation invité Linux.
 +
 Vous ne pouvez pas restaurer des fichiers et des dossiers à partir d’une machine virtuelle exécutant un système d’exploitation invité Linux. Cependant, vous pouvez attacher un VMDK, puis restaurer manuellement les fichiers et les dossiers. Pour obtenir les dernières informations sur les systèmes d'exploitation invités pris en charge, reportez-vous à la https://imt.netapp.com/imt/imt.jsp?components=180121;&solution=1517&isHWU&src=IMT["Outil de matrice d'interopérabilité NetApp (IMT)"^] .
