@@ -27,7 +27,7 @@ Dans l’inventaire de sauvegarde et de récupération, découvrez les charges d
 .Étapes
 . Effectuez l’une des opérations suivantes :
 +
-** Si vous découvrez des charges de travail Kubernetes pour la première fois, dans NetApp Backup and Recovery, sélectionnez *Découvrir et gérer* sous le type de charge de travail Kubernetes.
+** Si vous découvrez les charges de travail Kubernetes pour la première fois, dans NetApp Backup and Recovery, sous *Charges de travail*, sélectionnez la vignette *Kubernetes*.
 ** Si vous avez déjà découvert des charges de travail Kubernetes, dans NetApp Backup and Recovery, sélectionnez *Inventaire* > *Charges de travail*, puis sélectionnez *Découvrir les ressources*.
 
 

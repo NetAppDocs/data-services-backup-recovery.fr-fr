@@ -137,9 +137,19 @@ sidebar:
       - title: Sauvegarder les charges de travail VMware
         url: "/br-use-vmware-backup.html"
       - title: Restaurer les charges de travail VMware
-        url: "/br-use-vmware-restore.html"
-      - title: Restaurer des disques virtuels spécifiques à partir de sauvegardes
-        url: "/br-use-vmware-restore-vmdks-from-backups.html"
+        entries:
+        - title: Restaurer les machines virtuelles VMware
+          url: "/br-use-vmware-restore.html"
+        - title: Restaurer des disques virtuels spécifiques
+          url: "/br-use-vmware-restore-vmdks-from-backups.html"
+        - title: Restaurer les fichiers et dossiers invités
+          entries:
+          - title: Flux de travail, prérequis et limitations
+            url: "/br-use-vmware-restore-guest-files-and-folders-overview.html"
+          - title: Restaurer les fichiers et dossiers invités à partir des VMDK
+            url: "/br-use-vmware-restore-guest-files-and-folders-from-vmdks.html"
+          - title: Résolution des problèmes de restauration des fichiers invités
+            url: "/br-use-vmware-guest-file-restore-scenarios-you-might-encounter.html"
     - title: Protégez les charges de travail VMware (avec le plug-in SnapCenter pour
         VMware)
       entries:

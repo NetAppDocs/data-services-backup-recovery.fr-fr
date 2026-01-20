@@ -258,7 +258,7 @@ Vous pouvez également<<Afficher les commandes de l'API>> à l'étape de révisi
 +
 Si la destination AWS de vos sauvegardes existe en tant que système sur la page *Systèmes* de la console, vous pouvez faire glisser le cluster ONTAP sur le stockage d'objets AWS.
 
-** Sélectionnez *Volumes* dans la barre de sauvegarde et de récupération.  Dans l'onglet Volumes, sélectionnez les *Actions*image:icon-action.png["Icône Actions"] option d'icône et sélectionnez *Activer la sauvegarde* pour un seul volume (qui n'a pas déjà la réplication ou la sauvegarde sur le stockage d'objets activée).
+** Sélectionnez *Volumes* dans la barre Sauvegarde et restauration. Dans l'onglet Volumes, sélectionnez *Actions* image:icon-action.png["Icône Actions"] Choisissez l'option icône et sélectionnez *Activer la protection 3-2-1* pour un seul volume (qui n'a pas déjà la réplication ou la sauvegarde sur le stockage d'objets activée).
 
 
 +
@@ -322,7 +322,7 @@ NOTE: Si les volumes que vous choisissez ont des stratégies de snapshot et de r
 +
 ** * Instantanés locaux * : si vous effectuez une réplication ou une sauvegarde sur un stockage d'objets, des instantanés locaux doivent être créés.
 ** *Réplication* : crée des volumes répliqués sur un autre système de stockage ONTAP .
-** *Sauvegarde* : sauvegarde les volumes sur le stockage d’objets.
+** *Sauvegarde* : Sauvegarde les volumes sur un stockage objet. Lors de la sélection de compartiments existants ou de la configuration de nouveaux compartiments, vous pouvez sauvegarder des volumes dans un maximum de six compartiments par cluster.
 
 
 . *Architecture* : Si vous avez choisi la réplication et la sauvegarde, choisissez l’un des flux d’informations suivants :
@@ -343,14 +343,14 @@ TIP: Pour créer une politique personnalisée avant d'activer l'instantané, rep
 Pour créer une politique, sélectionnez *Créer une nouvelle politique* et procédez comme suit :
 
 +
-** Entrez le nom de la politique.
-** Sélectionnez jusqu'à cinq programmes, généralement de fréquences différentes.
-** Sélectionnez *Créer*.
+.. Entrez le nom de la politique.
+.. Sélectionnez jusqu'à cinq programmes, généralement de fréquences différentes.
+.. Sélectionnez *Créer*.
 
 
 . *Réplication* : définissez les options suivantes :
 +
-** *Cible de réplication* : sélectionnez le système de destination et le SVM.  Vous pouvez également sélectionner l'agrégat ou les agrégats de destination et le préfixe ou le suffixe qui seront ajoutés au nom du volume répliqué.
+** *Cible de réplication* : Sélectionnez le système de destination et la machine virtuelle de stockage. Vous pouvez également sélectionner le ou les agrégats de destination ainsi que le préfixe ou le suffixe qui sera ajouté au nom du volume répliqué.
 ** *Politique de réplication* : Choisissez une politique de réplication existante ou créez-en une.
 +
 
@@ -360,14 +360,14 @@ TIP: Pour créer une politique personnalisée, reportez-vous àlink:br-use-polic
 Pour créer une politique, sélectionnez *Créer une nouvelle politique* et procédez comme suit :
 
 +
-*** Entrez le nom de la politique.
-*** Sélectionnez jusqu'à cinq programmes, généralement de fréquences différentes.
-*** Sélectionnez *Créer*.
+... Entrez le nom de la politique.
+... Sélectionnez jusqu'à cinq programmes, généralement de fréquences différentes.
+... Sélectionnez *Créer*.
 
 
 
 
-. *Sauvegarder vers l'objet* : Si vous avez sélectionné *Sauvegarder*, définissez les options suivantes :
+. *Sauvegarde* : Définissez les options suivantes :
 +
 ** *Fournisseur* : Sélectionnez *Amazon Web Services*.
 ** *Paramètres du fournisseur* : saisissez les détails du fournisseur et la région où les sauvegardes seront stockées.
@@ -383,17 +383,15 @@ Sélectionnez la région où les sauvegardes seront stockées.  Il peut s'agir d
 +
 Créez un nouveau bucket ou sélectionnez-en un existant.
 
-** *Clé de chiffrement* : si vous avez créé un nouveau bucket, saisissez les informations de clé de chiffrement fournies par le fournisseur.  Choisissez si vous utiliserez les clés de chiffrement AWS par défaut ou si vous choisirez vos propres clés gérées par le client à partir de votre compte AWS pour gérer le chiffrement de vos données. (https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-setting-up-kms.html["Découvrez comment utiliser vos propres clés de chiffrement"^] ).
+** *Chiffrement* : Si vous avez créé un nouveau compartiment, saisissez les informations de clé de chiffrement fournies par le fournisseur. Choisissez si vous utiliserez les clés de chiffrement AWS par défaut ou si vous choisirez vos propres clés gérées par le client depuis votre compte AWS pour gérer le chiffrement de vos données. (https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-setting-up-kms.html["Découvrez comment utiliser vos propres clés de chiffrement"^]).
 +
 Si vous choisissez d'utiliser vos propres clés gérées par le client, saisissez le coffre-fort de clés et les informations sur la clé.
-
-
 
 +
 
 NOTE: Si vous avez choisi un bucket existant, les informations de chiffrement sont déjà disponibles, vous n'avez donc pas besoin de les saisir maintenant.
 
-+
+** *Réseau* : Configurez les options réseau pour ce fournisseur.
 ** *Politique de sauvegarde* : sélectionnez une politique de stockage de sauvegarde sur objet existante ou créez-en une.
 +
 
@@ -403,13 +401,13 @@ TIP: Pour créer une politique personnalisée avant d'activer la sauvegarde, rep
 Pour créer une politique, sélectionnez *Créer une nouvelle politique* et procédez comme suit :
 
 +
-*** Entrez le nom de la politique.
-*** Sélectionnez jusqu'à cinq programmes, généralement de fréquences différentes.
-*** Pour les politiques de sauvegarde sur objet, définissez les paramètres DataLock et Ransomware Resilience.  Pour plus de détails sur DataLock et la résilience aux ransomwares, reportez-vous àlink:prev-ontap-policy-object-options.html["Paramètres de la politique de sauvegarde sur objet"] .
-*** Sélectionnez *Créer*.
+... Entrez le nom de la politique.
+... Sélectionnez jusqu'à cinq programmes, généralement de fréquences différentes.
+... Pour les politiques de sauvegarde sur objet, définissez les paramètres DataLock et Ransomware Resilience.  Pour plus de détails sur DataLock et la résilience aux ransomwares, reportez-vous àlink:prev-ontap-policy-object-options.html["Paramètres de la politique de sauvegarde sur objet"] .
+... Sélectionnez *Créer*.
 
 
-** *Exporter les instantanés existants vers le stockage objet en tant que copies de sauvegarde* : Si des instantanés locaux de volumes de ce système correspondent à l’étiquette de planification de sauvegarde que vous venez de sélectionner pour ce système (par exemple, quotidien, hebdomadaire, etc.), cette invite supplémentaire s’affiche. Cochez cette case pour que tous les instantanés historiques soient copiés vers le stockage d'objets en tant que fichiers de sauvegarde afin de garantir la protection la plus complète pour vos volumes.
+** *Exporter l'instantané existant* : Si des instantanés locaux de volumes de ce système correspondent à l'étiquette de planification de sauvegarde que vous venez de sélectionner pour ce système (par exemple, quotidien, hebdomadaire, etc.), cette invite supplémentaire s'affiche. Cochez cette case pour que tous les instantanés historiques soient copiés sur le stockage objet en tant que fichiers de sauvegarde afin de garantir la protection la plus complète possible de vos volumes.
 
 
 . Sélectionnez *Suivant*.
@@ -423,7 +421,7 @@ C'est l'occasion de revoir vos sélections et de faire des ajustements, si néce
 
 .Étapes
 . Dans la page Révision, vérifiez vos sélections.
-. Cochez éventuellement la case pour *Synchroniser automatiquement les étiquettes de politique de snapshot avec les étiquettes de politique de réplication et de sauvegarde*.  Cela crée des instantanés avec une étiquette qui correspond aux étiquettes des politiques de réplication et de sauvegarde.
+. Cochez éventuellement la case pour *corriger automatiquement les étiquettes incorrectes sur les instantanés locaux, la réplication et la sauvegarde*. Cela crée des instantanés avec une étiquette qui correspond aux étiquettes des politiques d'instantané, de réplication et de sauvegarde.
 . Sélectionnez *Activer la sauvegarde*.
 
 

@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: br-use-vmware-guest-file-restore-scenarios-you-might-encounter.html 
+keywords:  
+summary: 'Lorsque vous tentez de restaurer un fichier invité, vous pouvez rencontrer des scénarios dans lesquels la session de restauration du fichier invité est vide, l"opération de connexion du disque de restauration du fichier invité échoue ou les sauvegardes ne sont pas détachées après l"arrêt de la session de restauration du fichier invité.' 
+---
+= Résolution des problèmes de restauration des fichiers invités
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Lorsque vous tentez de restaurer un fichier invité, vous pouvez rencontrer l’un des scénarios suivants.
+
+
+
+== La session de restauration du fichier invité est vide
+
+Ce problème survient si vous créez une session de restauration de fichiers invité et que le système d'exploitation invité redémarre pendant la session. Les fichiers VMDK du système d'exploitation invité peuvent rester hors ligne, la liste des sessions de restauration de fichiers invités est donc vide.
+
+Pour corriger le problème, remettez manuellement les VMDK en ligne dans le système d’exploitation invité. Lorsque les VMDK sont en ligne, la session de restauration des fichiers invités affiche le contenu correct.
+
+
+
+== L'opération de restauration du fichier invité et de connexion au disque échoue
+
+Ce problème se produit lorsque vous démarrez une opération de restauration de fichier invité, mais que l'opération de connexion de disque échoue même si les outils VMware sont en cours d'exécution et que les informations d'identification du système d'exploitation invité sont correctes. Si cela se produit, l’erreur suivante est renvoyée :
+
+`Error while validating guest credentials, failed to access guest system using specified credentials: Verify VMWare tools is running properly on system and account used is Administrator account, Error is SystemError vix error codes = (3016, 0).`
+
+Pour corriger le problème, redémarrez le service Windows VMware Tools sur le système d’exploitation invité, puis réessayez l’opération de restauration du fichier invité.
+
+
+
+== Les sauvegardes ne sont pas détachées après l'arrêt de la session de restauration des fichiers invités
+
+Ce problème se produit lorsque vous effectuez une opération de restauration de fichier invité à partir d’une sauvegarde cohérente avec la machine virtuelle. Pendant que la session de restauration de fichiers invités est active, une autre sauvegarde cohérente avec la machine virtuelle est effectuée pour la même machine virtuelle. Lorsque la session de restauration de fichiers invités est déconnectée, manuellement ou automatiquement après 24 heures, les sauvegardes de la session ne sont pas détachées.
+
+Pour corriger le problème, détachez manuellement les VMDK qui ont été attachés à la session de restauration de fichiers invités active.

@@ -1,0 +1,51 @@
+= Améliorations des charges de travail volumiques ONTAP
+:allow-uri-read: 
+
+
+
+
+=== Améliorations des charges de travail volumiques ONTAP
+
+Cette version des charges de travail de volume ONTAP introduit la fonctionnalité améliorée suivante :
+
+*Prise en charge de plusieurs compartiments* : (Aperçu privé) À partir d’ ONTAP 9.17.1 et versions ultérieures, vous pouvez désormais protéger les volumes d’un système avec jusqu’à 6 compartiments par système sur différents fournisseurs de cloud.
+
+link:prev-ontap-backup-manage.html["Découvrez comment sauvegarder les données de volume ONTAP à l'aide de NetApp Backup and Recovery."].
+
+
+
+=== Améliorations des charges de travail VMware
+
+Cette version des charges de travail VMware introduit les fonctionnalités améliorées suivantes :
+
+* La prise en charge des charges de travail VMware est désormais disponible de manière générale (GA) dans NetApp Backup and Recovery.
+* Vous pouvez désormais restaurer les fichiers et dossiers du système d'exploitation invité.
+
+
+https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-vmware-protect-overview.html["Découvrez comment restaurer des machines virtuelles VMware avec NetApp Backup and Recovery."].
+
+https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-vmware-restore-guest-files-and-folders-overview.html["Apprenez-en davantage sur la restauration des fichiers et dossiers invités."].
+
+
+
+=== Améliorations de la préversion des charges de travail Hyper-V
+
+Cette version des charges de travail Hyper-V introduit les fonctionnalités améliorées suivantes :
+
+* Vous pouvez désormais restaurer les sauvegardes et les instantanés de machines virtuelles Hyper-V vers un autre emplacement. Ceci est utile si vous souhaitez gérer des versions d'une machine virtuelle sur différents hôtes Hyper-V.
+* Les machines virtuelles Hyper-V provisionnées par System Center Virtual Machine Manager (SCVMM) et hébergées sur un partage CIFS sont désormais prises en charge par NetApp Backup and Recovery.
+* Vous pouvez désormais modifier les groupes de protection.
+
+
+
+NOTE: Dans cette version uniquement, vous ne pouvez pas mettre à niveau les plugins NetApp pour Hyper-V ou Windows à l'aide de l'option *Mettre à niveau* du menu Actions. Il faut plutôt supprimer chaque hôte Hyper-V et l'ajouter à nouveau pour mettre à jour les plugins.
+
+https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-hyperv-restore.html["Découvrez comment restaurer des machines virtuelles Hyper-V avec NetApp Backup and Recovery."].
+
+
+
+=== Améliorations de la prévisualisation des charges de travail KVM
+
+La préversion des charges de travail KVM prend désormais en charge l'intégration avec la plateforme de gestion Apache CloudStack, vous permettant de protéger les hôtes KVM et les machines virtuelles gérées par Apache CloudStack.
+
+Pour plus de détails sur la protection des charges de travail KVM, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kvm-protect-overview.html["Présentation de la protection des charges de travail KVM"] .

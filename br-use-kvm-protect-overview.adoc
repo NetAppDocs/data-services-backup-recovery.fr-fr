@@ -14,7 +14,7 @@ summary: Vous pouvez protéger les machines virtuelles KVM des systèmes ONTAP s
 
 
 [role="lead"]
-Protégez vos machines virtuelles KVM et vos pools de stockage avec NetApp Backup and Recovery.  NetApp Backup and Recovery fournit des opérations de sauvegarde et de restauration rapides, peu encombrantes, cohérentes en cas de panne et cohérentes avec les machines virtuelles.
+Protégez vos machines virtuelles KVM gérées et vos pools de stockage avec NetApp Backup and Recovery. NetApp Backup and Recovery offre des opérations de sauvegarde et de restauration rapides, économes en espace, cohérentes en cas de panne et compatibles avec les machines virtuelles. Vos hôtes KVM et vos machines virtuelles doivent être gérés par une plateforme de gestion telle qu'Apache CloudStack avant que vous puissiez les protéger à l'aide de la sauvegarde et de la restauration.
 
 Vous pouvez sauvegarder les charges de travail KVM sur Amazon Web Services S3, Azure NetApp Files ou StorageGRID et restaurer les charges de travail KVM sur un hôte KVM local.
 

@@ -24,6 +24,8 @@ NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Reco
 
 Vous pouvez modifier les options suivantes dans la page Paramètres avancés :
 
+* Modifier les clés de stockage qui autorisent votre système ONTAP à accéder au stockage d'objets
+* Modification de l'espace IP ONTAP connecté au stockage d'objets
 * Modification de la bande passante réseau allouée au chargement des sauvegardes vers le stockage d'objets à l'aide de l'option Taux de transfert maximal
 * Modification de la façon dont les instantanés historiques sont exportés ou non en tant que fichiers de sauvegarde et inclus dans vos fichiers de sauvegarde de référence initiaux pour les volumes futurs
 * Modifier si les instantanés « annuels » sont supprimés du système source
@@ -34,21 +36,18 @@ Vous pouvez modifier les options suivantes dans la page Paramètres avancés :
 
 == Afficher les paramètres de sauvegarde au niveau du cluster
 
-Vous pouvez afficher les paramètres de sauvegarde au niveau du cluster pour chaque système.
+Vous pouvez consulter les paramètres système au niveau du cluster et les paramètres du fournisseur pour chaque système.
 
 .Étapes
 . Dans le menu de la console, sélectionnez *Protection > Sauvegarde et récupération*.
 . Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.
-. Depuis la page _Paramètres de sauvegarde_, cliquez surimage:icon-actions-horizontal.gif["Plus d'icônes"] pour le système et sélectionnez *Paramètres avancés*.
+. Depuis la page _Paramètres de sauvegarde_, sélectionnez image:icon-actions-horizontal.gif["Plus d'icônes"] pour le système et sélectionnez *Configurer les paramètres avancés > Paramètres système* pour afficher les paramètres système et *Configurer les paramètres avancés > Paramètres du fournisseur* pour afficher les paramètres du fournisseur.
 +
-La page _Paramètres avancés_ affiche les paramètres actuels de ce système.
-
-. Développez l’option et effectuez la modification.
+La page qui s'affiche présente les paramètres actuels de ce système. Lorsque vous consultez les paramètres du fournisseur, les paramètres affichés concernent le compartiment que vous sélectionnez en haut de la page.
 
 
-Toutes les opérations de sauvegarde après la modification utiliseront les nouvelles valeurs.
 
-Notez que certaines options ne sont pas disponibles en fonction de la version d' ONTAP sur le cluster source et en fonction de la destination du fournisseur de cloud où résident les sauvegardes.
+Notez que certaines options ne sont pas disponibles en fonction de la version d' ONTAP sur le cluster source et du fournisseur de cloud de destination où se trouvent les sauvegardes.
 
 
 
@@ -58,7 +57,7 @@ Lorsque vous activez NetApp Backup and Recovery pour un système, par défaut, O
 
 .Étapes
 . Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.
-. Depuis la page _Paramètres de sauvegarde_, cliquez surimage:icon-actions-horizontal.gif["Plus d'icônes"] pour le système et sélectionnez *Paramètres avancés*.
+. Depuis la page _Paramètres de sauvegarde_, cliquez sur image:icon-actions-horizontal.gif["Plus d'icônes"] pour le système, sélectionnez *Configurer les paramètres avancés > Paramètres système*.
 . Dans la page Paramètres avancés, développez la section *Taux de transfert maximal*.
 . Choisissez une valeur comprise entre 1 et 1 000 Mbps comme débit de transfert maximal.
 . Sélectionnez le bouton radio *Limité* et entrez la bande passante maximale pouvant être utilisée, ou sélectionnez *Illimité* pour indiquer qu'il n'y a pas de limite.
@@ -77,8 +76,8 @@ Notez que cette option s'applique uniquement aux nouveaux fichiers de sauvegarde
 
 .Étapes
 . Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.
-. Depuis la page _Paramètres de sauvegarde_, cliquez surimage:icon-actions-horizontal.gif["Plus d'icônes"] pour le système et sélectionnez *Paramètres avancés*.
-. Dans la page Paramètres avancés, développez la section *Exporter les instantanés existants*.
+. Depuis la page _Paramètres de sauvegarde_, cliquez sur image:icon-actions-horizontal.gif["Plus d'icônes"] pour le système, sélectionnez *Configurer les paramètres avancés > Paramètres système*.
+. Dans la page Paramètres avancés, développez la section *Exporter les copies d'instantanés existantes*.
 . Indiquez si vous souhaitez exporter les instantanés existants.
 . Sélectionnez *Appliquer*.
 
@@ -91,11 +90,8 @@ Lorsque vous sélectionnez l'étiquette de sauvegarde « annuelle » pour une st
 
 .Étapes
 . Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.
-. Depuis la page _Paramètres de sauvegarde_, cliquez surimage:icon-actions-horizontal.gif["Plus d'icônes"] pour le système et sélectionnez *Paramètres avancés*.
+. Depuis la page _Paramètres de sauvegarde_, cliquez sur image:icon-actions-horizontal.gif["Plus d'icônes"] pour le système, sélectionnez *Configurer les paramètres avancés > Paramètres système*.
 . Dans la page Paramètres avancés, développez la section *Suppression des instantanés annuels*.
-+
-image:screenshot_backup_edit_yearly_snap_delete.png["Une capture d’écran de l’entrée Instantanés annuels dans la page Paramètres avancés."]
-
 . Sélectionnez *Désactivé* pour conserver les instantanés annuels sur le système source.
 . Sélectionnez *Appliquer*.
 
@@ -104,7 +100,7 @@ image:screenshot_backup_edit_yearly_snap_delete.png["Une capture d’écran de l
 
 == Activer ou désactiver les analyses de ransomware
 
-Les analyses de protection contre les ransomwares sont activées par défaut. Le paramètre par défaut pour la fréquence d'analyse est de 7 jours. L'analyse s'effectue uniquement sur le dernier instantané. Vous pouvez activer ou désactiver les analyses de ransomware sur le dernier instantané en utilisant l'option disponible sur la page Paramètres avancés. Si vous l'activez, les analyses sont effectuées tous les 7 jours par défaut.
+Les analyses de protection contre les ransomwares sont activées par défaut. Le paramètre par défaut pour la fréquence d'analyse est de 7 jours. L'analyse s'effectue uniquement sur le dernier instantané.
 
 Pour plus de détails sur les options DataLock et Ransomware Resilience, reportez-vous àlink:prev-ontap-policy-object-options.html["Options de résilience DataLock et Ransomware"] .
 
@@ -113,16 +109,38 @@ Vous pouvez modifier ce calendrier en jours ou en semaines ou le désactiver, ce
 
 TIP: L'activation des analyses de ransomware entraînera des frais supplémentaires en fonction du fournisseur de cloud.
 
-Les analyses planifiées des logiciels de ransomware ne s'exécutent que sur le dernier instantané.
-
 Si les analyses de ransomware planifiées sont désactivées, vous pouvez toujours effectuer des analyses à la demande et l'analyse pendant une opération de restauration se produira toujours.
 
 Se référer àlink:prev-ontap-policy-manage.html["Gérer les politiques"] pour plus de détails sur la gestion des politiques qui mettent en œuvre la détection des ransomwares.
 
+
+
+=== Activer ou désactiver les analyses de ransomware pour un système
+
+Vous pouvez activer ou désactiver les analyses de ransomware pour un cluster.
+
 .Étapes
 . Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.
-. Depuis la page _Paramètres de sauvegarde_, cliquez surimage:icon-actions-horizontal.gif["Plus d'icônes"] pour le système et sélectionnez *Paramètres avancés*.
-. Dans la page Paramètres avancés, développez la section *Analyse des ransomwares*.
+. Depuis la page _Paramètres de sauvegarde_, cliquez sur image:icon-actions-horizontal.gif["Plus d'icônes"] pour le système, sélectionnez *Configurer les paramètres avancés > Paramètres système*.
+. Sur la page qui s'affiche, développez la section *Analyse des logiciels de ransomware*.
+. Activer ou désactiver *l'analyse Ransomware*.
+. Sélectionnez *Analyse de ransomware programmée*.
+. Vous pouvez également modifier l'analyse par défaut hebdomadaire en jours ou en semaines.
+. Définissez la fréquence en jours ou en semaines à laquelle l'analyse doit être exécutée.
+. Sélectionnez *Appliquer*.
+
+
+
+
+=== Activer ou désactiver les analyses de ransomware pour un fournisseur
+
+Vous pouvez activer ou désactiver les analyses de ransomware au niveau du fournisseur via la page des paramètres du fournisseur. Les paramètres affichés sur cette page concernent le compartiment que vous sélectionnez en haut de la page.
+
+.Étapes
+. Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.
+. Depuis la page _Paramètres de sauvegarde_, cliquez sur image:icon-actions-horizontal.gif["Plus d'icônes"] pour le système et sélectionnez *Configurer les paramètres avancés > Paramètres du fournisseur*.
+. En haut de la page qui s'affiche, sélectionnez le compartiment dont vous souhaitez modifier les paramètres.
+. Développez la section *Analyse des logiciels de ransomware*.
 . Activer ou désactiver *l'analyse Ransomware*.
 . Sélectionnez *Analyse de ransomware programmée*.
 . Vous pouvez également modifier l'analyse par défaut hebdomadaire en jours ou en semaines.

@@ -26,6 +26,8 @@ Les actions suivantes ne sont pas prises en charge dans la version d'aperçu pri
 * Restaurer les machines virtuelles vers un autre emplacement
 * Répartition des disques (sur plusieurs partages CIFS)
 * Protéger les machines virtuelles via SAN
-* Modifier les groupes de protection
-* Protégez les hôtes Hyper-V mis en cluster à l'aide de System Center Virtual Machine Manager (SCVMM)
+* Il est impossible de restaurer des machines virtuelles ou leurs données entre des systèmes équipés de processeurs de fournisseurs différents (Intel vers AMD ou inversement), quel que soit le paramètre « Compatibilité du processeur » dans Hyper-V. Ce paramètre ne prend en charge que la compatibilité entre différentes générations d'un même fournisseur (par exemple, Intel vers Intel ou AMD vers AMD).
 
+
+
+NOTE: Dans la version du 19 janvier 2026, il ne sera plus possible de mettre à niveau les plugins NetApp pour Hyper-V ou Windows à l'aide de l'option *Mettre à niveau* du menu Actions. Il faut plutôt supprimer chaque hôte Hyper-V et l'ajouter à nouveau pour mettre à jour les plugins.

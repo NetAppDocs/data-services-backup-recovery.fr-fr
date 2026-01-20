@@ -37,7 +37,7 @@ Pour afficher des colonnes supplémentaires (agrégats, style de sécurité (Win
 
 . Vérifiez l’état des options de protection dans la colonne « Protection existante ». Les 3 icônes représentent « Instantanés locaux », « Volumes répliqués » et « Sauvegardes dans le stockage d'objets ».
 +
-Chaque icône est bleue lorsque ce type de sauvegarde est activé et elle est grise lorsque le type de sauvegarde est inactif.  Vous pouvez passer votre curseur sur chaque icône pour voir la politique de sauvegarde utilisée et d'autres informations pertinentes pour chaque type de sauvegarde.
+Chaque icône s'illumine lorsque le type de sauvegarde correspondant est activé, et elle est grise lorsque le type de sauvegarde est inactif. Vous pouvez survoler chaque icône avec votre curseur pour afficher la politique de sauvegarde utilisée, ainsi que d'autres informations pertinentes pour chaque type de sauvegarde.
 
 
 
@@ -48,7 +48,7 @@ Chaque icône est bleue lorsque ce type de sauvegarde est activé et elle est gr
 Si vous avez activé la sauvegarde uniquement sur certains volumes d'un système lorsque vous avez activé NetApp Backup and Recovery pour la première fois, vous pouvez activer les sauvegardes sur des volumes supplémentaires ultérieurement.
 
 .Étapes
-. Depuis l'onglet *Volumes*, identifiez le volume sur lequel vous souhaitez activer les sauvegardes, sélectionnez le menu Actionsimage:icon-action.png["Icône Actions"] à la fin de la ligne, puis sélectionnez *Activer la sauvegarde*.
+. Dans l'onglet *Volumes*, identifiez le volume sur lequel vous souhaitez activer les sauvegardes, puis sélectionnez le menu Actions. image:icon-action.png["Icône Actions"] à la fin de la ligne, et sélectionnez *Activer la protection 3-2-1*.
 . Sur la page _Définir la stratégie de sauvegarde_, sélectionnez l'architecture de sauvegarde, puis définissez les politiques et autres détails pour les instantanés locaux, les volumes répliqués et les fichiers de sauvegarde. Consultez les détails des options de sauvegarde des volumes initiaux que vous avez activés dans ce système. Sélectionnez ensuite *Suivant*.
 . Vérifiez les paramètres de sauvegarde de ce volume, puis sélectionnez *Activer la sauvegarde*.
 
@@ -64,7 +64,7 @@ Vous pouvez modifier les politiques de sauvegarde attribuées à vos volumes exi
 === Modifier les paramètres de sauvegarde sur un seul volume
 
 .Étapes
-. Dans l'onglet *Volumes*, identifiez le volume pour lequel vous souhaitez modifier la stratégie, sélectionnez le menu Actionsimage:icon-action.png["Icône Actions"] à la fin de la ligne et sélectionnez *Modifier la stratégie de sauvegarde*.
+. Dans le menu *Volumes*, repérez le volume dont vous souhaitez modifier les paramètres de stratégie, puis sélectionnez le menu Actions. image:icon-action.png["Icône Actions"] à la fin de la ligne, et sélectionnez *Modifier la stratégie de sauvegarde*.
 . Sur la page _Modifier la stratégie de sauvegarde_, apportez des modifications aux politiques de sauvegarde existantes pour les instantanés locaux, les volumes répliqués et les fichiers de sauvegarde, puis sélectionnez *Suivant*.
 +
 Si vous avez activé _DataLock et Ransomware Resilience_ pour les sauvegardes cloud dans la stratégie de sauvegarde initiale lors de l'activation de NetApp Backup and Recovery pour ce cluster, vous ne verrez que les autres stratégies qui ont été configurées avec DataLock.  Et si vous n'avez pas activé _DataLock et Ransomware Resilience_ lors de l'activation de NetApp Backup and Recovery, vous ne verrez que d'autres stratégies de sauvegarde cloud pour lesquelles DataLock n'est pas configuré.
@@ -85,7 +85,7 @@ Lorsque vous travaillez avec plusieurs volumes, tous les volumes doivent avoir c
 * même type (volume en lecture-écriture ou de protection des données)
 
 
-Lorsque plus de cinq volumes sont activés pour la sauvegarde, NetApp Backup and Recovery initialise uniquement cinq volumes à la fois.  Une fois ces opérations terminées, il crée le lot suivant de cinq sous-tâches pour démarrer l'ensemble suivant et continue jusqu'à ce que tous les volumes soient initialisés.
+Lorsque plus de cinq volumes sont activés pour la sauvegarde, NetApp Backup and Recovery n'initialise que cinq volumes à la fois. Une fois ces étapes terminées, le processus se poursuit par groupes de 5 jusqu'à ce que tous les volumes soient initialisés.
 
 .Étapes
 . À partir de l’onglet *Volumes*, filtrez par le système sur lequel résident les volumes.
@@ -120,7 +120,7 @@ Si vous avez activé _DataLock et Ransomware Resilience_ pour les sauvegardes cl
 
 Vous pouvez créer une sauvegarde à la demande à tout moment pour capturer l’état actuel du volume.  Cela peut être utile si des modifications très importantes ont été apportées à un volume et que vous ne souhaitez pas attendre la prochaine sauvegarde planifiée pour protéger ces données.  Vous pouvez également utiliser cette fonctionnalité pour créer une sauvegarde pour un volume qui n'est pas actuellement en cours de sauvegarde et dont vous souhaitez capturer l'état actuel.
 
-Vous pouvez créer un instantané ad hoc ou une sauvegarde d'un volume. Vous ne pouvez pas créer un volume répliqué ad hoc.
+Vous pouvez créer un instantané ad hoc ou une sauvegarde sur le stockage d'objets d'un volume. Vous ne pouvez pas créer un volume répliqué ad hoc.
 
 Le nom de la sauvegarde inclut l’horodatage afin que vous puissiez identifier votre sauvegarde à la demande parmi d’autres sauvegardes planifiées.
 

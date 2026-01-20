@@ -14,36 +14,49 @@ summary: NetApp Backup and Recovery doit d’abord découvrir les charges de tra
 
 
 [role="lead"]
-NetApp Backup and Recovery doit découvrir les hôtes KVM et les machines virtuelles avant de les protéger.
+NetApp Backup and Recovery doit détecter les hôtes KVM et les machines virtuelles avant de les protéger. Vos hôtes KVM et vos machines virtuelles doivent être gérés par une plateforme de gestion telle qu'Apache CloudStack avant de pouvoir être ajoutés à la sauvegarde et à la restauration.
 
 *Rôle de console requis* Super administrateur de sauvegarde et de récupération.  En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 
 
-== Ajoutez un hôte KVM et découvrez des ressources
+== Ajoutez une plateforme de gestion, un hôte KVM et découvrez les ressources.
 
-Ajoutez les informations de l’hôte KVM et laissez NetApp Backup and Recovery découvrir les charges de travail. Dans chaque agent de console, sélectionnez les systèmes sur lesquels vous souhaitez découvrir les charges de travail.
+Ajoutez les informations relatives à la plateforme de gestion et à l'hôte KVM, et laissez NetApp Backup and Recovery découvrir les charges de travail.
 
 .Étapes
 . Dans le menu de la NetApp Console , sélectionnez *Protection > Sauvegarde et récupération*.
-. Dans la mosaïque KVM, sélectionnez *Découvrir et gérer*.
+. Sous *Charges de travail*, sélectionnez la vignette *KVM*.
 +
-Si c'est la première fois que vous vous connectez à Backup and Recovery, que vous avez déjà un système dans la console, mais que vous n'avez découvert aucune ressource, la page d'accueil « Bienvenue dans la nouvelle version de NetApp Backup and Recovery» apparaît et affiche une option pour *Découvrir les ressources*.
+Si vous vous connectez à Backup and Recovery pour la première fois et que vous avez un système dans la console mais aucune ressource découverte, la page _Bienvenue sur le nouveau NetApp Backup and Recovery_ apparaît avec une option pour *Découvrir les ressources*.
 
 . Sélectionnez *Découvrir les ressources*.
 . Saisissez les informations suivantes :
 +
 .. *Type de charge de travail* : sélectionnez *KVM*.
-.. Si vous n'avez pas encore enregistré les informations d'identification pour cet hôte KVM, sélectionnez *Ajouter des informations d'identification*.
+.. Si vous n'avez pas encore intégré votre plateforme de gestion à Backup and Recovery, sélectionnez *Ajouter une plateforme de gestion*.
 +
-... Sélectionnez l’agent de console à utiliser avec cet hôte.
-... Saisissez un nom pour ces informations d’identification.
-... Choisissez d'utiliser des informations d'identification root ou non root.
-... Entrez le nom d'utilisateur et le mot de passe du compte.
-... Sélectionnez *Terminé*.
+... Saisissez les informations suivantes :
++
+**** *Adresse IP ou nom de domaine complet de la plateforme de gestion* : Saisissez l’adresse IP ou le nom de domaine complet de la plateforme de gestion.
+**** *Clé API* : Saisissez la clé API à utiliser pour authentifier les requêtes API.
+**** *Clé secrète* : Saisissez la clé secrète à utiliser pour authentifier les requêtes API.
+**** *Port* : Saisissez le port à utiliser pour la communication entre la sauvegarde et la restauration et la plateforme de gestion.
+**** *Agents* : Sélectionnez un agent de console à utiliser pour faciliter la communication entre la sauvegarde et la restauration et la plateforme de gestion.
 
 
-.. *Enregistrement de l'hôte* : ajoutez un nouvel hôte KVM.  Saisissez le nom de domaine complet ou l'adresse IP de l'hôte, les informations d'identification, l'agent de console et le numéro de port.
+... Une fois terminé, sélectionnez *Ajouter*.
+
+
+.. *Paramètres KVM* : Ajoutez un nouvel hôte KVM en saisissant les informations suivantes :
++
+*** *Nom de domaine complet KVM ou adresse IP* : Saisissez le nom de domaine complet ou l’adresse IP de l’hôte.
+*** *Identifiants* : Veuillez saisir le nom d’utilisateur et le mot de passe de l’hôte KVM.
+*** *Agent de console* : Choisissez l’agent de console à utiliser pour la communication entre Backup and Recovery et l’hôte KVM.
+*** *Numéro de port* : Saisissez le port à utiliser pour la communication entre Backup and Recovery et l’hôte KVM.
+*** *Plateforme de gestion* : Si l’hôte KVM est géré et que vous avez ajouté la plateforme de gestion à Backup and Recovery, sélectionnez la plateforme de gestion dans la liste.
+
+
 
 
 . Sélectionnez *Découvrir*.

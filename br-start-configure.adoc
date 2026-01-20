@@ -16,9 +16,10 @@ summary: Suivez quelques étapes pour configurer NetApp Backup and Recovery.
 [role="lead"]
 Après avoir configuré la NetApp Console, configurez les paramètres de sauvegarde et de récupération.  Ajoutez des informations d’identification pour les ressources de l’hôte, importez des ressources SnapCenter , configurez les répertoires de journaux et définissez les paramètres VMware vCenter.  Effectuez ces étapes avant de sauvegarder ou de récupérer des données.
 
-* <<Ajouter des informations d'identification pour les ressources de l'hôte>>pour les hôtes Windows et SQL Server que vous avez importés depuis SnapCenter et ajoutez des informations d'identification.  (charges de travail Microsoft SQL Server uniquement)
+* <<Ajouter des informations d'identification pour les ressources de l'hôte>> pour tous les hôtes Windows, Microsoft SQL Server, Oracle Database ou Linux avec lesquels NetApp Backup and Recovery doit s'authentifier. Cela inclut les informations d'identification du système d'exploitation invité Windows utilisées lors de la restauration des fichiers ou dossiers invités.
 * <<Maintenir les paramètres VMware vCenter>>.
 * <<Importer et gérer les ressources de l'hôte SnapCenter>>.  (charges de travail Microsoft SQL Server uniquement)
+* <<Ajouter une plateforme de gestion KVM>>. (Charges de travail KVM uniquement)
 * <<Configurer les répertoires de journaux dans les instantanés pour les hôtes Windows>>.
 
 
@@ -28,7 +29,7 @@ Après avoir configuré la NetApp Console, configurez les paramètres de sauvega
 
 == Ajouter des informations d'identification pour les ressources de l'hôte
 
-Ajoutez des informations d’identification pour les ressources hôtes à importer depuis SnapCenter.  NetApp Backup and Recovery utilise ces informations d’identification pour découvrir les charges de travail et appliquer des stratégies de sauvegarde.
+Ajouter les informations d'identification pour les ressources hôtes. NetApp Backup and Recovery utilise ces informations d'identification pour découvrir les charges de travail et appliquer les politiques de sauvegarde.
 
 Si vous ne disposez pas d’informations d’identification, créez-les avec des autorisations pour accéder aux charges de travail de l’hôte et les gérer.
 
@@ -36,33 +37,76 @@ Vous devez configurer les types d’informations d’identification suivants :
 
 * Informations d'identification Microsoft SQL Server
 * Informations d'identification de l'hôte Windows SnapCenter
+* Informations d'identification du système d'exploitation invité Windows utilisées lors de la restauration des fichiers ou dossiers invités
+* Identifiants de base de données Oracle
+* Identifiants de l'hôte Linux
 
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Paramètres*.
 . Sélectionnez la flèche vers le bas pour *Informations d'identification*.
 . Sélectionnez *Ajouter de nouvelles informations d'identification*.
-. Saisissez les informations pour les informations d'identification.  Différents champs apparaissent en fonction du mode d’authentification que vous sélectionnez.  Sélectionnez l'option Informations *i* pour plus d'informations sur les champs.
+. Saisissez les informations d'identification. Les champs affichés varient selon le mode d'authentification sélectionné. Passez votre souris sur l'icône d'information *i* pour obtenir plus d'informations sur les champs.
 +
 ** *Nom des informations d'identification* : saisissez un nom pour les informations d'identification.
-** *Mode d'authentification* : sélectionnez *Windows* ou *Microsoft SQL*.
+** *Mode d'authentification* : Sélectionnez *Windows*, *Microsoft SQL*, *Oracle Database* ou *Linux*.
 +
 
-TIP: Vous devez saisir les informations d’identification pour Windows et Microsoft SQL Server. Vous devrez donc ajouter deux ensembles d’informations d’identification.
+TIP: Pour les charges de travail Microsoft SQL Server, vous devez saisir des informations d'identification à la fois pour Windows et pour Microsoft SQL Server ; vous devrez donc ajouter deux ensembles d'informations d'identification.
 
-
-
-. Si vous avez sélectionné *Windows* :
 +
-** *Agent de console* : saisissez l’adresse IP de l’agent de console.
-** *Domaine et nom d'utilisateur* : saisissez le nom de domaine complet NetBIOS ou du domaine et le nom d'utilisateur pour les informations d'identification.
-** *Mot de passe* : Saisissez le mot de passe pour les informations d'identification.
-
-
-. Si vous avez sélectionné *Microsoft SQL* :
+[role="tabbed-block"]
+====
+.Windows
+--
+... Si vous avez sélectionné *Windows* :
 +
-** *Hôte* : sélectionnez une adresse d’hôte SQL Server découverte.
-** *Instance SQL Server* : sélectionnez une instance SQL Server découverte.
+**** *Agents* : Sélectionnez un agent de console dans la liste.
+**** *Domaine et nom d'utilisateur* : saisissez le nom de domaine complet NetBIOS ou du domaine et le nom d'utilisateur pour les informations d'identification.
+**** *Mot de passe* : Saisissez le mot de passe pour les informations d'identification.
+
+
+
+
+--
+.Microsoft SQL Server
+--
+... Si vous avez sélectionné *Microsoft SQL Server* :
++
+**** *Domaine et nom d'utilisateur* : saisissez le nom de domaine complet NetBIOS ou du domaine et le nom d'utilisateur pour les informations d'identification.
+**** *Mot de passe* : Saisissez le mot de passe pour les informations d'identification.
+**** *Hôtes* : Sélectionnez une adresse d’hôte SQL Server détectée.
+**** *Instance SQL Server* : sélectionnez une instance SQL Server découverte.
+
+
+
+
+--
+.Base de données Oracle
+--
+... Si vous avez sélectionné *Oracle Database* :
++
+**** *Agents* : Sélectionnez un agent de console dans la liste.
+**** *Nom d'utilisateur* : Veuillez saisir le nom d'utilisateur pour les identifiants.
+**** *Mot de passe* : Saisissez le mot de passe pour les informations d'identification.
+
+
+
+
+--
+.Linux
+--
+... Si vous avez sélectionné *Linux* :
++
+**** *Agents* : Sélectionnez un agent de console dans la liste.
+**** *Nom d'utilisateur* : Veuillez saisir le nom d'utilisateur pour les identifiants.
+**** *Mot de passe* : Saisissez le mot de passe pour les informations d'identification.
+
+
+
+
+--
+====
 
 
 . Sélectionnez *Ajouter*.
@@ -72,7 +116,7 @@ TIP: Vous devez saisir les informations d’identification pour Windows et Micro
 
 === Modifier les informations d'identification pour les ressources de l'hôte
 
-Vous pouvez ultérieurement modifier le mot de passe des ressources hôtes que vous avez importées depuis SnapCenter.
+Vous pourrez modifier ultérieurement le mot de passe de tous les identifiants que vous avez créés.
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Paramètres*.
@@ -187,6 +231,28 @@ La page Importer depuis SnapCenter affiche toutes les importations précédentes
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Modifier* pour mettre à jour les ressources.
 . Mettez à jour le mot de passe et les détails du port SnapCenter , si nécessaire.
 . Sélectionnez *Importer*.
+
+
+
+
+== Ajouter une plateforme de gestion KVM
+
+Si vous utilisez la plateforme de gestion Apache CloudStack pour gérer les ressources KVM, vous devez l'intégrer à NetApp Backup and Recovery afin que ce dernier puisse détecter et protéger les hôtes et les machines virtuelles KVM gérés.
+
+.Étapes
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Paramètres*.
+. Sélectionnez la flèche vers le bas pour développer la section *Plateforme de gestion*.
+. Sélectionnez *Ajouter les informations d'identification de la plateforme de gestion*.
+. Saisissez les informations suivantes :
++
+** *Adresse IP ou nom de domaine complet de la plateforme de gestion* : Saisissez l’adresse IP ou le nom de domaine complet de la plateforme de gestion.
+** *Clé API* : Saisissez la clé API à utiliser pour authentifier les requêtes API.
+** *Clé secrète* : Saisissez la clé secrète à utiliser pour authentifier les requêtes API.
+** *Port* : Saisissez le port à utiliser pour la communication entre la sauvegarde et la restauration et la plateforme de gestion.
+** *Agents* : Sélectionnez un agent de console à utiliser pour faciliter la communication entre la sauvegarde et la restauration et la plateforme de gestion.
+
+
+. Une fois terminé, sélectionnez *Ajouter*.
 
 
 

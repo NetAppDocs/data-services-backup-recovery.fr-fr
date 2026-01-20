@@ -1,0 +1,102 @@
+---
+sidebar: sidebar 
+permalink: br-use-vmware-restore-guest-files-and-folders-overview.html 
+keywords:  
+summary: 'Vous pouvez restaurer des fichiers ou des dossiers à partir d’un disque de machine virtuelle (VMDK) sur un système d’exploitation invité Windows.' 
+---
+= Exigences et limitations relatives à la restauration des fichiers et dossiers invités
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez restaurer des fichiers ou des dossiers à partir d’un disque de machine virtuelle (VMDK) sur un système d’exploitation invité Windows.
+
+
+
+== Flux de travail de restauration des invités
+
+Les opérations de restauration du système d’exploitation invité incluent les étapes suivantes :
+
+. Attacher
++
+Attachez un disque virtuel à une machine virtuelle invitée ou à une machine virtuelle proxy et démarrez une session de restauration de fichiers invités.
+
+. Attendez
++
+Veuillez patienter jusqu'à la fin de l'opération de rattachement avant de pouvoir parcourir et restaurer les données. Une fois l'opération de connexion terminée, une session de restauration de fichiers invité est automatiquement créée.
+
+. Sélectionner des fichiers ou des dossiers
++
+Parcourez les fichiers VMDK et sélectionnez un ou plusieurs fichiers ou dossiers à restaurer.
+
+. Restaurer
++
+Restaurer les fichiers ou dossiers sélectionnés à un emplacement spécifié.
+
+
+
+
+
+== Conditions préalables à la restauration des fichiers et dossiers invités
+
+Veuillez vérifier toutes les exigences avant de restaurer des fichiers ou des dossiers à partir d'une VMDK sur un système d'exploitation invité Windows.
+
+* Les outils VMware doivent être installés et en cours d’exécution.
++
+NetApp Backup and Recovery utilise les informations des outils VMware pour établir une connexion avec le système d'exploitation invité VMware.
+
+* Le système d’exploitation invité Windows doit exécuter Windows Server 2008 R2 ou une version ultérieure.
++
+Pour obtenir les dernières informations sur les versions prises en charge, reportez-vous à https://imt.netapp.com/imt/imt.jsp?components=180121;&solution=1517&isHWU&src=IMT["Outil de matrice d'interopérabilité NetApp (IMT)"^] .
+
+* Les informations d'identification de la machine virtuelle cible utilisent le compte d'administrateur de domaine ou local intégré avec le nom d'utilisateur « Administrateur ». Avant de lancer l'opération de restauration, configurez les informations d'identification de la machine virtuelle sur laquelle vous souhaitez attacher le disque virtuel. Des informations d'identification sont requises pour les opérations de connexion et de restauration. Les utilisateurs du groupe de travail peuvent utiliser le compte d'administrateur local intégré.
++
+
+IMPORTANT: Si vous devez utiliser un compte qui n’est pas le compte administrateur intégré, mais qui dispose de privilèges administratifs au sein de la machine virtuelle, vous devez désactiver l’UAC sur la machine virtuelle invitée.
+
+* Vous devez connaître l'instantané de sauvegarde et le VMDK à partir desquels effectuer la restauration.
++
+NetApp Backup and Recovery ne prend pas en charge la recherche de fichiers ou de dossiers à restaurer. Avant de commencer, vous devez savoir où se trouvent les fichiers ou dossiers dans l'instantané et le VMDK correspondant.
+
+* Le disque virtuel à connecter doit figurer dans une sauvegarde NetApp Backup and Recovery .
++
+Le disque virtuel contenant le fichier ou le dossier que vous souhaitez restaurer doit se trouver dans une sauvegarde de machine virtuelle effectuée à l'aide de NetApp Backup and Recovery.
+
+
+
+* Pour les fichiers dont les noms ne sont pas en alphabet anglais, vous devez les restaurer dans un répertoire et non sous forme de fichier unique.
++
+Vous pouvez restaurer des fichiers avec des noms non alphabétiques, tels que des kanji japonais, en restaurant le répertoire dans lequel se trouvent les fichiers.
+
+
+
+
+
+== Limitations de la restauration des fichiers invités
+
+Avant de restaurer un fichier ou un dossier à partir d'un système d'exploitation invité, vous devez prendre connaissance des limitations de cette fonctionnalité.
+
+* Vous ne pouvez pas restaurer les types de disques dynamiques dans un système d’exploitation invité.
+* Si vous restaurez un fichier ou un dossier chiffré, l’attribut de chiffrement n’est pas conservé. Vous ne pouvez pas restaurer des fichiers ou des dossiers dans un dossier crypté.
+* La page Parcourir les fichiers invités affiche les fichiers et dossiers cachés, que vous ne pouvez pas filtrer.
+* Vous ne pouvez pas restaurer à partir d’un système d’exploitation invité Linux.
++
+Vous ne pouvez pas restaurer des fichiers et des dossiers à partir d’une machine virtuelle exécutant un système d’exploitation invité Linux. Cependant, vous pouvez attacher un VMDK, puis restaurer manuellement les fichiers et les dossiers. Pour obtenir les dernières informations sur les systèmes d'exploitation invités pris en charge, reportez-vous à la https://imt.netapp.com/imt/imt.jsp?components=180121;&solution=1517&isHWU&src=IMT["Outil de matrice d'interopérabilité NetApp (IMT)"^] .
+
+* Vous ne pouvez pas restaurer d’un système de fichiers NTFS vers un système de fichiers FAT.
++
+Lorsque vous essayez de restaurer du format NTFS au format FAT, le descripteur de sécurité NTFS n'est pas copié car le système de fichiers FAT ne prend pas en charge les attributs de sécurité Windows.
+
+* Vous ne pouvez pas restaurer les fichiers invités à partir d’un VMDK cloné ou d’un VMDK non initialisé.
+* Vous ne pouvez pas restaurer la structure du répertoire d’un fichier.
++
+Lorsque vous restaurez un fichier à partir d'un répertoire imbriqué, le système ne restaure que le fichier, et non sa structure de répertoires. Pour restaurer l'intégralité de l'arborescence de répertoires, copiez le répertoire racine.
+
+* Vous ne pouvez pas restaurer les fichiers invités d’une machine virtuelle vVol vers un autre hôte.
+* Vous ne pouvez pas restaurer les fichiers invités cryptés.
+

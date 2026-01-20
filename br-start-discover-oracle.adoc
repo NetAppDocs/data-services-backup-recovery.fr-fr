@@ -26,9 +26,9 @@ Ajoutez les informations sur l’hôte Oracle et laissez NetApp Backup and Recov
 
 .Étapes
 . Dans le menu de la NetApp Console , sélectionnez *Protection > Sauvegarde et récupération*.
-. Dans la mosaïque Oracle, sélectionnez *Découvrir et gérer*.
+. Sous *Charges de travail*, sélectionnez la vignette *Oracle*.
 +
-Si c'est la première fois que vous vous connectez à Backup and Recovery, que vous avez déjà un système dans la console, mais que vous n'avez découvert aucune ressource, la page d'accueil « Bienvenue dans la nouvelle version de NetApp Backup and Recovery» apparaît et affiche une option pour *Découvrir les ressources*.
+Si vous vous connectez à Backup and Recovery pour la première fois et que vous avez un système dans la console mais aucune ressource découverte, la page _Bienvenue sur le nouveau NetApp Backup and Recovery_ apparaît avec une option pour *Découvrir les ressources*.
 
 . Sélectionnez *Découvrir les ressources*.
 . Saisissez les informations suivantes :

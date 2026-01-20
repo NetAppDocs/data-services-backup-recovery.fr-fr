@@ -34,7 +34,7 @@ Exécutez une sauvegarde à la demande avant d’apporter des modifications au s
 
 .Étapes
 . Dans le menu de la NetApp Console , sélectionnez *Protection > Sauvegarde et récupération*.
-. Dans la mosaïque Oracle, sélectionnez *Découvrir et gérer*.
+. Sous *Charges de travail*, sélectionnez la vignette *Oracle*.
 . Sélectionnez *Inventaire*.
 . Sélectionnez une charge de travail pour afficher les détails de protection.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
@@ -59,7 +59,7 @@ Vous pouvez exécuter une sauvegarde à la demande d’une seule base de donnée
 
 .Étapes
 . Dans le menu de la NetApp Console , sélectionnez *Protection > Sauvegarde et récupération*.
-. Dans la mosaïque Oracle, sélectionnez *Découvrir et gérer*.
+. Sous *Charges de travail*, sélectionnez la vignette *Oracle*.
 . Sélectionnez *Inventaire*.
 . Sélectionnez une charge de travail pour afficher les détails de protection.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.

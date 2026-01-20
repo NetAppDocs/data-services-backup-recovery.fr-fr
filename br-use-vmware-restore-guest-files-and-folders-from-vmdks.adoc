@@ -1,0 +1,75 @@
+---
+sidebar: sidebar 
+permalink: br-use-vmware-restore-guest-files-and-folders-from-vmdks.html 
+keywords:  
+summary: Vous pouvez restaurer un ou plusieurs fichiers ou dossiers à partir d’un VMDK sur un système d’exploitation invité Windows. 
+---
+= Restaurer les fichiers et dossiers invités à partir des VMDK
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez restaurer un ou plusieurs fichiers ou dossiers à partir d’un VMDK sur un système d’exploitation invité Windows.
+
+.Avant de commencer
+
+NOTE: Vous devez créer des informations d'identification pour la machine virtuelle invitée dans NetApp Backup and Recovery avant de pouvoir restaurer des fichiers et des dossiers à partir de celle-ci. NetApp Backup and Recovery utilise ces informations d'identification pour s'authentifier auprès de la machine virtuelle invitée lors de la connexion du disque virtuel.
+
+.À propos de cette tâche
+Par défaut, NetApp Backup and Recovery rend le disque virtuel connecté disponible pendant 24 heures, puis le détache automatiquement. Dans l'assistant, vous pouvez choisir de supprimer automatiquement la session de restauration des fichiers invités après l'opération de restauration ou de supprimer la session manuellement.
+
+Les performances de restauration des fichiers ou dossiers invités dépendent de deux facteurs : la taille des fichiers ou dossiers restaurés ; et le nombre de fichiers ou dossiers restaurés. La restauration d'un grand nombre de fichiers de petite taille peut prendre plus de temps que prévu par rapport à la restauration d'un petit nombre de fichiers de grande taille, si l'ensemble de données à restaurer est de la même taille.
+
+
+IMPORTANT: Une seule opération d'attachement ou de restauration peut être exécutée en même temps sur une machine virtuelle. Vous ne pouvez pas exécuter d’opérations d’attachement ou de restauration parallèles sur la même machine virtuelle.
+
+
+IMPORTANT: Grâce à la fonction de restauration invité, vous pouvez afficher et restaurer les fichiers système et cachés, ainsi que visualiser les fichiers chiffrés. Ne pas écraser un fichier système existant ni restaurer des fichiers chiffrés dans un dossier chiffré. Lors de l'opération de restauration, les attributs cachés, système et chiffrés des fichiers invités ne sont pas conservés dans le fichier restauré. La consultation ou la navigation dans les partitions réservées peut provoquer une erreur.
+
+.Étapes
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
+. Sélectionnez le menu *Machines virtuelles*.
+. Choisissez dans la liste la machine virtuelle contenant les fichiers que vous souhaitez restaurer.
+. Sélectionnez l'icône Actions image:../media/icon-action.png["Option Actions"] pour cette machine virtuelle.
+. Sélectionnez *Restaurer les fichiers et dossiers*.
+. Sélectionnez un instantané à partir duquel effectuer la restauration, puis sélectionnez *Suivant*.
+. Choisissez l'emplacement du snapshot à restaurer. Si vous choisissez un emplacement secondaire, sélectionnez l'instantané secondaire dans la liste.
+. Sélectionnez *Suivant*.
+. Choisissez le disque virtuel dans la liste à attacher à la machine virtuelle, puis sélectionnez *Suivant*.
+. Sur la page _Sélectionner les informations d'identification de la machine virtuelle_, si vous n'avez pas encore enregistré d'informations d'identification pour la machine virtuelle invitée, sélectionnez *Ajouter des informations d'identification* et procédez comme suit :
++
+.. *Nom des informations d'identification* : saisissez un nom pour les informations d'identification.
+.. *Mode d'authentification* : Sélectionnez *Windows*.
+.. *Agents* : Sélectionnez dans la liste un agent de console qui gérera la communication entre NetApp Backup and Recovery et cet hôte.
+.. *Domaine et nom d'utilisateur* : saisissez le nom de domaine complet NetBIOS ou du domaine et le nom d'utilisateur pour les informations d'identification.
+.. *Mot de passe* : Veuillez saisir un mot de passe pour l’identifiant.
+.. Sélectionnez *Ajouter*.
+
+
+. Choisissez des informations d'identification de machine virtuelle à utiliser pour vous authentifier auprès de la machine virtuelle invitée.
++
+NetApp Backup and Recovery attache le disque virtuel à la machine virtuelle et affiche tous les fichiers et dossiers, y compris les fichiers cachés. Il attribue une lettre de lecteur à chaque partition, y compris les partitions réservées au système.
+
++
+Les fichiers et dossiers que vous avez sélectionnés sont listés dans le volet droit de l'écran.
+
+. Sélectionnez *Suivant*.
+. Saisissez le chemin de partage UNC vers l'invité où les fichiers sélectionnés seront restaurés.
++
+** Exemple d'adresse IPv4 : `\\10.60.136.65\c$`
+** Exemple d'adresse IPv6 : `\\fd20-8b1e-b255-832e--61.ipv6-literal.net\C\restore`
+
+
++
+S'il existe déjà des fichiers portant le même nom, vous pouvez choisir de les écraser ou de les ignorer.
+
+. Sélectionnez *Restaurer*.
++
+Vous pouvez consulter la progression de la restauration sur la page de suivi des tâches.
+
+
