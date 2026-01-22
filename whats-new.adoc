@@ -38,11 +38,9 @@ link:prev-ontap-backup-manage.html["Découvrez comment sauvegarder les données 
 
 Cette version des charges de travail VMware introduit les fonctionnalités améliorées suivantes :
 
-* La prise en charge des charges de travail VMware est désormais disponible de manière générale (GA) dans NetApp Backup and Recovery.
+* La prise en charge des charges de travail VMware est désormais disponible en disponibilité générale (GA) dans NetApp Backup and Recovery.
 * Vous pouvez désormais restaurer les fichiers et dossiers du système d'exploitation invité.
 
-
-https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-vmware-protect-overview.html["Découvrez comment restaurer des machines virtuelles VMware avec NetApp Backup and Recovery."].
 
 https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-vmware-restore-guest-files-and-folders-overview.html["Apprenez-en davantage sur la restauration des fichiers et dossiers invités."].
 
@@ -52,8 +50,8 @@ https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-vmware-restor
 
 Cette version des charges de travail Hyper-V introduit les fonctionnalités améliorées suivantes :
 
-* Vous pouvez désormais restaurer les sauvegardes et les instantanés de machines virtuelles Hyper-V vers un autre emplacement. Ceci est utile si vous souhaitez gérer des versions d'une machine virtuelle sur différents hôtes Hyper-V.
-* Les machines virtuelles Hyper-V provisionnées par System Center Virtual Machine Manager (SCVMM) et hébergées sur un partage CIFS sont désormais prises en charge par NetApp Backup and Recovery.
+* Vous pouvez désormais restaurer les sauvegardes et les instantanés de machines virtuelles Hyper-V vers un autre emplacement. Utilisez cette fonctionnalité pour gérer les versions de machines virtuelles sur différents hôtes Hyper-V.
+* NetApp Backup and Recovery prend désormais en charge les machines virtuelles Hyper-V provisionnées par System Center Virtual Machine Manager (SCVMM) et hébergées sur un partage CIFS.
 * Vous pouvez désormais modifier les groupes de protection.
 
 
@@ -66,7 +64,7 @@ https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-hyperv-restor
 
 === Améliorations de la prévisualisation des charges de travail KVM
 
-La préversion des charges de travail KVM prend désormais en charge l'intégration avec la plateforme de gestion Apache CloudStack, vous permettant de protéger les hôtes KVM et les machines virtuelles gérées par Apache CloudStack.
+La préversion des charges de travail KVM protège désormais les hôtes KVM et les machines virtuelles qui sont gérées par Apache CloudStack.
 
 Pour plus de détails sur la protection des charges de travail KVM, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kvm-protect-overview.html["Présentation de la protection des charges de travail KVM"] .
 
