@@ -463,7 +463,6 @@
   <block id="27e92fcddc23071f7a376e1c06fa20d6" category="list-text">Prise en charge de MetroCluster :</block>
   <block id="fa5ec1bbbde705a6b3fbd36d5f35b9f9" category="list-text">Lorsque vous utilisez ONTAP 9.12.1 GA ou une version ultérieure, la sauvegarde est prise en charge lors de la connexion au système principal.  L'ensemble de la configuration de sauvegarde est transféré vers le système secondaire afin que les sauvegardes vers le cloud se poursuivent automatiquement après le basculement.  Vous n’avez pas besoin de configurer une sauvegarde sur le système secondaire (en fait, vous n’êtes pas autorisé à le faire).</block>
   <block id="a1e9108dbd21ffa07a61d3c3e7ecf506" category="list-text">Lorsque vous utilisez ONTAP 9.12.0 et versions antérieures, la sauvegarde est prise en charge uniquement à partir du système secondaire ONTAP .</block>
-  <block id="6413e2887d9fc1bca42a1d8fa137281d" category="list-text">Les sauvegardes des volumes FlexGroup ne sont pas prises en charge pour le moment.</block>
   <block id="ff65f252d2a0aa40e634cf2ad7eaa2d3" category="list-text">La sauvegarde de volume ad hoc à l'aide du bouton *Sauvegarder maintenant* n'est pas prise en charge sur les volumes de protection des données.</block>
   <block id="3dd0180637528cde8671a0c957cf90da" category="list-text">Les configurations SM-BC ne sont pas prises en charge.</block>
   <block id="28014e4f484f0639d9b0151965328912" category="list-text">ONTAP ne prend pas en charge la répartition des relations SnapMirror d'un seul volume vers plusieurs magasins d'objets ; par conséquent, cette configuration n'est pas prise en charge par NetApp Backup and Recovery.</block>
@@ -4974,4 +4973,5 @@
   <block id="f411222cfe4404b6e0b3d9790460b804" category="list-text">Vous pouvez désormais restaurer les sauvegardes et les instantanés de machines virtuelles Hyper-V vers un autre emplacement. Utilisez cette fonctionnalité pour gérer les versions de machines virtuelles sur différents hôtes Hyper-V.</block>
   <block id="83de53928b74eea738d883969ca231fa" category="list-text">NetApp Backup and Recovery prend désormais en charge les machines virtuelles Hyper-V provisionnées par System Center Virtual Machine Manager (SCVMM) et hébergées sur un partage CIFS.</block>
   <block id="fe3a06f4a23ebd296fcaecd751b29ac6" category="paragraph">La préversion des charges de travail KVM protège désormais les hôtes KVM et les machines virtuelles qui sont gérées par Apache CloudStack.</block>
+  <block id="e82f8585939ff44aeed4d4c863058cee" category="list-text">À partir de ONTAP 9.18.1, les sauvegardes de volumes FlexGroup sont prises en charge dans les configurations MetroCluster.</block>
 </blocks>

@@ -83,7 +83,7 @@ Pour une explication sur ces types de cryptage, reportez-vous àhttps://docs.net
 +
 ** Lorsque vous utilisez ONTAP 9.12.1 GA ou une version ultérieure, la sauvegarde est prise en charge lors de la connexion au système principal.  L'ensemble de la configuration de sauvegarde est transféré vers le système secondaire afin que les sauvegardes vers le cloud se poursuivent automatiquement après le basculement.  Vous n’avez pas besoin de configurer une sauvegarde sur le système secondaire (en fait, vous n’êtes pas autorisé à le faire).
 ** Lorsque vous utilisez ONTAP 9.12.0 et versions antérieures, la sauvegarde est prise en charge uniquement à partir du système secondaire ONTAP .
-** Les sauvegardes des volumes FlexGroup ne sont pas prises en charge pour le moment.
+** À partir de ONTAP 9.18.1, les sauvegardes de volumes FlexGroup sont prises en charge dans les configurations MetroCluster.
 
 
 * La sauvegarde de volume ad hoc à l'aide du bouton *Sauvegarder maintenant* n'est pas prise en charge sur les volumes de protection des données.
