@@ -1,0 +1,39 @@
+---
+sidebar: sidebar 
+permalink: br-use-back-up-now-kubernetes-applications-web-ui.html 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery, snapcenter 
+summary: NetApp Backup and Recovery vous permet de gérer les informations de votre hôte de charge de travail, les informations de votre base de données et les informations de vos instances.  Vous pouvez afficher, modifier et supprimer les paramètres de protection de votre inventaire. 
+---
+= Sauvegardez dès maintenant vos applications Kubernetes à l'aide de l'interface web Backup and Recovery.
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Backup and Recovery vous permet de sauvegarder manuellement des applications Kubernetes via l'interface web.
+
+.Rôle de NetApp Console requis
+Administrateur d'organisation ou administrateur SnapCenter . link:reference-roles.html["En savoir plus sur les rôles d'accès à NetApp Backup and Recovery"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
+
+
+
+== Sauvegardez une application Kubernetes dès maintenant à l'aide de l'interface web
+
+Créez manuellement une sauvegarde d'une application Kubernetes pour établir une base de référence pour les futures sauvegardes et instantanés, ou pour garantir la protection des données les plus récentes.
+
+.Étapes
+. Dans NetApp Backup and Recovery, sélectionnez *Inventaire*.
+. Choisissez une instance Kubernetes et sélectionnez *Afficher* pour afficher les ressources associées à cette instance.
+. Sélectionnez l'onglet *Applications*.
+. Dans la liste des applications, choisissez une application que vous souhaitez sauvegarder et sélectionnez le menu Actions associé.
+. Sélectionnez *Sauvegarder maintenant*.
+. Assurez-vous que le nom d’application correct est sélectionné.
+. Sélectionnez *Sauvegarder*.
+
+
+.Résultat
+La console crée une sauvegarde de l'application et affiche la progression dans la zone *Surveillance* de Sauvegarde et récupération. La sauvegarde est créée en fonction de la politique de protection associée à l'application.

@@ -21,6 +21,7 @@ Après avoir configuré la NetApp Console, configurez les paramètres de sauvega
 * <<Importer et gérer les ressources de l'hôte SnapCenter>>.  (charges de travail Microsoft SQL Server uniquement)
 * <<Ajouter une plateforme de gestion KVM>>. (Charges de travail KVM uniquement)
 * <<Configurer les répertoires de journaux dans les instantanés pour les hôtes Windows>>.
+* <<Créer un modèle de hook d'exécution>> pour exécuter des scripts avant et après les tâches de sauvegarde. (Charges de travail Kubernetes uniquement)
 
 
 *Rôle de NetApp Console requis* Super administrateur de sauvegarde et de récupération, administrateur de sauvegarde et de récupération, administrateur de restauration de sauvegarde et de récupération.  En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
@@ -268,4 +269,27 @@ Avant de créer des stratégies pour les hôtes Windows, vous devez configurer l
 . Depuis la page Détails de l'inventaire, sélectionnez un hôte et sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Configurer le répertoire des journaux*.
 . Parcourez ou entrez le chemin d'accès au répertoire du journal.
 . Sélectionnez *Enregistrer*.
+
+
+
+
+== Créer un modèle de hook d'exécution
+
+Vous pouvez créer un modèle de hook d’exécution personnalisé que vous pouvez utiliser pour effectuer des actions avant ou après une opération de protection des données sur une application.
+
+
+NOTE: Les modèles que vous créez ici ne sont utilisables que lors de la protection des charges de travail Kubernetes.
+
+.Étapes
+. Dans la console, accédez à *Protection* > *Sauvegarde et récupération*.
+. Sélectionnez l'onglet *Paramètres*.
+. Développez la section *Modèle de hook d'exécution*.
+. Sélectionnez *Créer un modèle de hook d'exécution*.
+. Entrez un nom pour le hook d’exécution.
+. Vous pouvez également choisir un type de hook. Par exemple, un hook post-restauration est exécuté une fois l'opération de restauration terminée.
+. Dans la zone de texte *Script*, saisissez le script shell exécutable que vous souhaitez exécuter dans le cadre du modèle de hook d'exécution.  Vous pouvez également sélectionner *Télécharger le script* pour télécharger un fichier de script à la place.
+. Sélectionnez *Créer*.
++
+Une fois le modèle créé, il apparaît dans la liste des modèles dans la section *Modèle de hook d'exécution*.
+
 

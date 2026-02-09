@@ -104,7 +104,7 @@ Cette version de NetApp Backup and Recovery introduit la prise en charge de la d
 * Prise en charge du tableau de bord Oracle
 
 
-Pour plus de détails sur la protection des charges de travail de la base de données Oracle, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Présentation de Protect Oracle Workloads"] .
+Pour plus de détails sur la protection des charges de travail Oracle Database, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Présentation de la protection des charges de travail de la base de données Oracle"].
 
 
 

@@ -25,6 +25,9 @@ Administrateur d'organisation ou administrateur SnapCenter . link:reference-role
 
 Vous pouvez déprotéger une application si vous ne souhaitez plus la protéger. Lorsque vous déprotégez une application, NetApp Backup and Recovery cesse de protéger l'application mais conserve toutes les sauvegardes et tous les snapshots associés.
 
+
+NOTE: Vous ne pouvez pas déprotéger une application tant que des opérations de protection sont en cours. Attendez la fin de l'opération ou, à titre de solution de contournement, <<Supprimer un point de restauration pour une application Kubernetes,supprimer le point de restauration>> l'opération de protection en cours utilise. Vous pouvez alors déprotéger l'application.
+
 .Étapes
 . Dans NetApp Backup and Recovery, sélectionnez *Inventaire*.
 . Choisissez une instance Kubernetes et sélectionnez *Afficher* pour afficher les ressources associées à cette instance.
@@ -52,4 +55,19 @@ Supprimez une application dont vous n’avez plus besoin.  NetApp Backup and Rec
 CAUTION: Vous ne pourrez plus restaurer l'application à l'aide de ces instantanés et sauvegardes.
 
 . Confirmez l'action et sélectionnez *Supprimer*.
+
+
+
+
+== Supprimer un point de restauration pour une application Kubernetes
+
+Vous devrez peut-être supprimer un point de restauration pour une application si vous devez la déprotéger et que des opérations de protection sont en cours.
+
+.Étapes
+. Dans le menu NetApp Backup and Recovery, sélectionnez *Restaurer*.
+. Choisissez une application Kubernetes dans la liste, et sélectionnez *Afficher et restaurer* pour cette application.
++
+La liste des points de restauration apparaît.
+
+. Choisissez le point de récupération que vous souhaitez supprimer et sélectionnez l'icône Actions image:../media/icon-action.png["Option Actions"] > *Supprimer le point de récupération* pour le supprimer.
 

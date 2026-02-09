@@ -77,7 +77,7 @@ Utilisez NetApp Backup and Recovery pour atteindre les objectifs suivants :
 ** Se référer àlink:br-use-hyperv-protect-overview.html["Protégez les charges de travail Hyper-V"] .
 
 
-* *Charges de travail Oracle (Aperçu)*:
+* *Charges de travail Oracle Database (Preview)*:
 +
 ** Sauvegarder et restaurer les bases de données et les journaux
 ** Utiliser des groupes de protection pour gérer les tâches de sauvegarde
@@ -85,7 +85,7 @@ Utilisez NetApp Backup and Recovery pour atteindre les objectifs suivants :
 ** Protéger une base de données avec une architecture de sauvegarde 3-2-1
 ** Configurer la conservation des sauvegardes
 ** Monter et démonter les sauvegardes ARCHIVELOG
-** Se référer àlink:br-use-oracle-protect-overview.html["Protégez les charges de travail Oracle"] .
+** Se référer à link:br-use-oracle-protect-overview.html["Protégez les charges de travail Oracle Database"].
 
 
 * *Charges de travail Kubernetes (Aperçu)*:
@@ -148,6 +148,8 @@ Des frais de ressources sont payés au fournisseur de cloud pour la capacité de
 *Frais de service*
 
 Pour les charges de travail de volume ONTAP , vous n'êtes facturé que pour les volumes protégés sur le stockage objet. Les frais sont basés sur la capacité logique utilisée des volumes ONTAP source avant application des gains d'efficacité, également appelée téraoctets frontaux (FETB).
+
+Pour les charges de travail Kubernetes, vous êtes facturé en fonction de la taille combinée de tous les volumes persistants.
 
 Pour toutes les autres charges de travail, la facturation porte sur les ressources protégées sur au moins une cible de stockage secondaire ou objet. Les frais sont calculés en fonction de la taille logique de la charge de travail source. Pour les bases de données, cela correspond à la taille de la base de données ; pour les machines virtuelles, à la taille de la machine virtuelle.
 

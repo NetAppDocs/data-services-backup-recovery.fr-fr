@@ -10,7 +10,7 @@ Cette version des charges de travail de volume ONTAP introduit la fonctionnalit�
 
 *Prise en charge de plusieurs compartiments* : (Aperçu privé) À partir d’ ONTAP 9.17.1 et versions ultérieures, vous pouvez désormais protéger les volumes d’un système avec jusqu’à 6 compartiments par système sur différents fournisseurs de cloud.
 
-link:prev-ontap-backup-manage.html["Découvrez comment sauvegarder les données de volume ONTAP à l'aide de NetApp Backup and Recovery."].
+link:https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-backup-manage.html["Découvrez comment sauvegarder les données de volume ONTAP à l'aide de NetApp Backup and Recovery."].
 
 
 

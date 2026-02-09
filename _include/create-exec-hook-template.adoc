@@ -1,0 +1,26 @@
+= Créer un modèle de hook d'exécution
+:allow-uri-read: 
+
+
+
+
+== Créer un modèle de hook d'exécution
+
+Vous pouvez créer un modèle de hook d’exécution personnalisé que vous pouvez utiliser pour effectuer des actions avant ou après une opération de protection des données sur une application.
+
+
+NOTE: Les modèles que vous créez ici ne sont utilisables que lors de la protection des charges de travail Kubernetes.
+
+.Étapes
+. Dans la console, accédez à *Protection* > *Sauvegarde et récupération*.
+. Sélectionnez l'onglet *Paramètres*.
+. Développez la section *Modèle de hook d'exécution*.
+. Sélectionnez *Créer un modèle de hook d'exécution*.
+. Entrez un nom pour le hook d’exécution.
+. Vous pouvez également choisir un type de hook. Par exemple, un hook post-restauration est exécuté une fois l'opération de restauration terminée.
+. Dans la zone de texte *Script*, saisissez le script shell exécutable que vous souhaitez exécuter dans le cadre du modèle de hook d'exécution.  Vous pouvez également sélectionner *Télécharger le script* pour télécharger un fichier de script à la place.
+. Sélectionnez *Créer*.
++
+Une fois le modèle créé, il apparaît dans la liste des modèles dans la section *Modèle de hook d'exécution*.
+
+

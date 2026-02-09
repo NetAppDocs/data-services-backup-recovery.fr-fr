@@ -24,6 +24,11 @@ NetApp Backup and Recovery doit découvrir les charges de travail Kubernetes ava
 
 Dans l’inventaire de sauvegarde et de récupération, découvrez les charges de travail Kubernetes dans votre environnement.  L'ajout d'une charge de travail ajoute un cluster Kubernetes à NetApp Backup and Recovery.  Vous pouvez ensuite ajouter des applications et protéger les ressources du cluster.
 
+[NOTE]
+====
+Lorsque vous découvrez un cluster actuellement protégé avec Trident Protect, toutes les planifications de sauvegarde utilisées avec Trident Protect sont désactivées pendant le processus de découverte (les planifications de sauvegarde Trident Protect ne sont pas compatibles avec Backup and Recovery). Pour protéger les applications du cluster, link:br-use-policies-create.html["créer une nouvelle stratégie de protection"] ou associez les applications à une stratégie existante. Vous pouvez ensuite supprimer les planifications de sauvegarde Trident Protect si nécessaire.
+
+====
 .Étapes
 . Effectuez l’une des opérations suivantes :
 +
@@ -35,10 +40,10 @@ Dans l’inventaire de sauvegarde et de récupération, découvrez les charges d
 . Saisissez un nom de cluster et choisissez un connecteur à utiliser avec le cluster.
 . Suivez les instructions de la ligne de commande qui s’affichent :
 +
-** Créer un espace de noms de protection Trident
+** Créer un espace de noms Trident Protect
 ** Créer un secret Kubernetes
 ** Ajouter un dépôt Helm
-** Installer Trident Protect et le connecteur Trident Protect
+** Installez ou mettez à niveau Trident Protect et le connecteur Trident Protect
 +
 Ces étapes garantissent que NetApp Backup and Recovery peut interagir avec le cluster.
 

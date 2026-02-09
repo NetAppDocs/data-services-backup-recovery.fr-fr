@@ -4,7 +4,7 @@ permalink: br-start-discover-oracle.html
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, workloads, protect, Oracle 
 summary: NetApp Backup and Recovery doit d’abord découvrir les charges de travail afin que vous puissiez les protéger. 
 ---
-= Découvrez les charges de travail Oracle dans NetApp Backup and Recovery
+= Découvrez les charges de travail Oracle Database dans NetApp Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

@@ -18,7 +18,7 @@ Un hook d’exécution est une action personnalisée qui s’exécute avec une o
 
 [NOTE]
 ====
-NetApp Backup and Recovery gèle et débloque les systèmes de fichiers pour des applications comme KubeVirt pendant la protection des données.  Vous pouvez désactiver ce comportement globalement ou pour des applications spécifiques à l'aide de la documentation Trident Protect :
+NetApp Backup and Recovery gèle et dégèle les systèmes de fichiers pour des applications comme KubeVirt lors de la protection des données. Vous pouvez désactiver ce comportement globalement ou pour des applications spécifiques en utilisant la documentation Trident Protect :
 
 * Pour désactiver ce comportement pour toutes les applications, reportez-vous à https://docs.netapp.com/us-en/trident/trident-protect/trident-protect-requirements.html#protecting-data-with-kubevirt-vms["Protection des données avec les machines virtuelles KubeVirt"] .
 * Pour désactiver ce comportement pour une application spécifique, reportez-vous à https://docs.netapp.com/us-en/trident/trident-protect/trident-protect-manage-applications.html#define-an-application["Définir une application"] .
@@ -105,6 +105,9 @@ Visitez le https://github.com/NetApp/Verda["Projet GitHub NetApp Verda"] pour t�
 == Créer un modèle de hook d'exécution
 
 Vous pouvez créer un modèle de hook d’exécution personnalisé que vous pouvez utiliser pour effectuer des actions avant ou après une opération de protection des données sur une application.
+
+
+NOTE: Les modèles que vous créez ici ne sont utilisables que lors de la protection des charges de travail Kubernetes.
 
 .Étapes
 . Dans la console, accédez à *Protection* > *Sauvegarde et récupération*.

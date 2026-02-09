@@ -1,0 +1,227 @@
+---
+sidebar: sidebar 
+permalink: br-use-back-up-now-kubernetes-applications-cr.html 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery, snapcenter 
+summary: 'NetApp Backup and Recovery vous permet de sauvegarder manuellement des applications Kubernetes à l"aide de ressources personnalisées (CR).' 
+---
+= Sauvegardez dès maintenant vos applications Kubernetes à l'aide de ressources personnalisées dans NetApp Backup and Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Backup and Recovery vous permet de sauvegarder manuellement des applications Kubernetes à l'aide de ressources personnalisées (CR).
+
+
+
+== Sauvegardez une application Kubernetes dès maintenant à l'aide de ressources personnalisées
+
+Créez manuellement une sauvegarde d'une application Kubernetes pour établir une base de référence pour les futures sauvegardes et instantanés, ou pour garantir la protection des données les plus récentes.
+
+
+NOTE: Les ressources à portée de cluster sont incluses dans une sauvegarde, un instantané ou un clone si elles sont explicitement référencées dans la définition de l'application ou si elles ont des références à l'un des espaces de noms de l'application.
+
+.Avant de commencer
+Assurez-vous que la durée de validité du jeton de session AWS est suffisante pour toute opération de sauvegarde s3 de longue durée. Si le jeton expire pendant l'opération de sauvegarde, l'opération peut échouer.
+
+* Consultez la  https://docs.aws.amazon.com/STS/latest/APIReference/API_GetSessionToken.html["Documentation de l'API AWS"^] pour plus d'informations sur la vérification de l'expiration du jeton de session actuel.
+* Consultez la  https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html["Documentation AWS IAM"^] pour plus d'informations sur les identifiants relatifs aux ressources AWS.
+
+
+
+
+=== Créer un instantané local à l'aide d'une ressource personnalisée
+
+Pour créer un instantané de votre application Kubernetes et le stocker localement, utilisez la ressource personnalisée Snapshot avec des attributs spécifiques.
+
+.Étapes
+. Créez le fichier de ressource personnalisée (CR) et nommez-le `local-snapshot-cr.yaml`.
+. Dans le fichier que vous avez créé, configurez les attributs suivants :
++
+** *metadata.name*: (_Obligatoire_) Le nom de cette ressource personnalisée; choisissez un nom unique et pertinent pour votre environnement.
+** *spec.applicationRef* : Le nom Kubernetes de l'application à capturer.
+** *spec.appVaultRef* : (_Obligatoire_) Le nom de l'AppVault où le contenu de l'instantané (métadonnées) doit être stocké.
+** *spec.reclaimPolicy* : (Optionnel) Définit ce qui arrive à l'AppArchive d’un instantané lorsque le CR de l’instantané est supprimé. Cela signifie que même lorsqu’il est défini sur `Retain`, l’instantané sera supprimé. Options valides :
++
+*** `Retain` (défaut)
+*** `Delete`
++
+[source, yaml]
+----
+apiVersion: protect.trident.netapp.io/v1
+kind: Snapshot
+metadata:
+  namespace: my-app-namespace
+  name: local-snapshot-cr
+spec:
+  applicationRef: my-application
+  appVaultRef: appvault-name
+  reclaimPolicy: Retain
+----
+
+
+
+
+. Après avoir rempli le fichier  `local-snapshot-cr.yaml` avec les valeurs correctes, appliquez le CR :
++
+[source, console]
+----
+kubectl apply -f local-snapshot-cr.yaml
+----
+
+
+
+
+=== Sauvegardez une application sur un stockage d'objets à l'aide d'une ressource personnalisée
+
+Créez un CR de sauvegarde avec des attributs spécifiques pour sauvegarder votre application vers un magasin d'objets.
+
+.Étapes
+. Créez le fichier de ressource personnalisée (CR) et nommez-le `object-store-backup-cr.yaml`.
+. Dans le fichier que vous avez créé, configurez les attributs suivants :
++
+** *metadata.name*: (_Obligatoire_) Le nom de cette ressource personnalisée; choisissez un nom unique et pertinent pour votre environnement.
+** *spec.applicationRef*: (_Obligatoire_) Le nom Kubernetes de l'application à sauvegarder.
+** *spec.appVaultRef* : (_Obligatoire, incompatible avec spec.appVaultTargetsRef_) Si vous utilisez le même compartiment pour stocker l’instantané et la sauvegarde, il s’agit du nom du AppVault où le contenu de la sauvegarde doit être stocké.
+** *spec.appVaultTargetsRef* : (_Obligatoire, incompatible avec spec.appVaultRef_) Si vous utilisez des compartiments différents pour stocker l’instantané et la sauvegarde, il s’agit du nom du AppVault où le contenu de la sauvegarde doit être stocké.
+** *spec.dataMover* : (_Facultatif_) Une chaîne indiquant l’outil de sauvegarde à utiliser pour l’opération de sauvegarde. La valeur est sensible à la casse et doit être `CBS`.
+** *spec.reclaimPolicy* : (_Facultatif_) Définit ce qui se passe pour le contenu de la sauvegarde (métadonnées/données du volume) lorsque la Backup CR est supprimée. Valeurs possibles :
++
+*** `Delete`
+*** `Retain` (défaut)
+
+
+** *spec.cleanupSnapshot* : (Obligatoire) Garantit que l’instantané temporaire créé par le Backup CR n’est pas supprimé une fois l’opération de sauvegarde terminée. Valeur recommandée `false`.
++
+Exemple YAML lors de l'utilisation du même compartiment pour stocker l'instantané et la sauvegarde :
+
++
+[source, yaml]
+----
+apiVersion: protect.trident.netapp.io/v1
+kind: Backup
+metadata:
+  namespace: my-app-namespace
+  name: my-cr-name
+spec:
+  applicationRef: my-application
+  appVaultRef: appvault-name
+  dataMover: CBS
+  reclaimPolicy: Retain
+  cleanupSnapshot: false
+----
++
+Exemple YAML lors de l'utilisation de compartiments différents pour stocker l'instantané et la sauvegarde :
+
++
+[source, yaml]
+----
+apiVersion: protect.trident.netapp.io/v1
+kind: Backup
+metadata:
+  namespace: my-app-namespace
+  name: object-store-backup-cr
+spec:
+  applicationRef: my-application
+  appVaultTargetsRef: appvault-targets-name
+  dataMover: CBS
+  reclaimPolicy: Retain
+  cleanupSnapshot: false
+----
+
+
+. Après avoir rempli le  `object-store-backup-cr.yaml` fichier avec les valeurs correctes, appliquez le CR :
++
+[source, console]
+----
+kubectl apply -f object-store-backup-cr.yaml
+----
+
+
+
+
+=== Créez une sauvegarde fanout 3-2-1 à l'aide d'une ressource personnalisée
+
+La sauvegarde utilisant une architecture de distribution 3-2-1 copie une sauvegarde vers un stockage secondaire ainsi que vers un magasin d'objets. Pour créer une sauvegarde de distribution 3-2-1, créez un CR Backup avec des attributs spécifiques.
+
+.Étapes
+. Créez le fichier de ressource personnalisée (CR) et nommez-le `3-2-1-fanout-backup-cr.yaml`.
+. Dans le fichier que vous avez créé, configurez les attributs suivants :
++
+** *metadata.name*: (_Obligatoire_) Le nom de cette ressource personnalisée; choisissez un nom unique et pertinent pour votre environnement.
+** *spec.applicationRef*: (_Obligatoire_) Le nom Kubernetes de l'application à sauvegarder.
+** *spec.appVaultTargetsRef* : (_Obligatoire_) Le nom du AppVault où le contenu de la sauvegarde doit être stocké.
+** *spec.dataMover* : (_Facultatif_) Une chaîne indiquant l’outil de sauvegarde à utiliser pour l’opération de sauvegarde. La valeur est sensible à la casse et doit être `CBS`.
+** *spec.reclaimPolicy* : (_Facultatif_) Définit ce qui se passe pour le contenu de la sauvegarde (métadonnées/données du volume) lorsque la Backup CR est supprimée. Valeurs possibles :
++
+*** `Delete`
+*** `Retain` (défaut)
+
+
+** *spec.cleanupSnapshot* : (Obligatoire) Garantit que l’instantané temporaire créé par le Backup CR n’est pas supprimé une fois l’opération de sauvegarde terminée. Valeur recommandée `false`.
+** *spec.replicateSnapshot* : (_Obligatoire_) Indique à NetApp Backup and Recovery de répliquer l’instantané vers un stockage secondaire. Valeur requise `true`.
+** *spec.replicateSnapshotReclaimPolicy* : (_Optionnel_) Définit ce qui se passe pour l’instantané répliqué lorsqu’il est supprimé. Valeurs possibles :
++
+*** `Delete`
+*** `Retain` (défaut)
++
+Exemple YAML :
+
++
+[source, yaml]
+----
+apiVersion: protect.trident.netapp.io/v1
+kind: Backup
+metadata:
+  namespace: my-app-namespace
+  name: 3-2-1-fanout-backup-cr
+spec:
+  applicationRef: my-application
+  appVaultTargetsRef: appvault-targets-name
+  dataMover: CBS
+  reclaimPolicy: Retain
+  cleanupSnapshot: false
+  replicateSnapshot: true
+  replicateSnapshotReclaimPolicy: Retain
+----
+
+
+
+
+. Après avoir rempli le fichier  `3-2-1-fanout-backup-cr.yaml` avec les valeurs correctes, appliquez le CR :
++
+[source, console]
+----
+kubectl apply -f 3-2-1-fanout-backup-cr.yaml
+----
+
+
+
+
+== Annotations de sauvegarde prises en charge
+
+Le tableau suivant décrit les annotations que vous pouvez utiliser lors de la création d'un CR de sauvegarde.
+
+[cols="2,1,3,1"]
+|===
+| Annotation | Type | Description | valeur par défaut 
+
+
+| protect.trident.netapp.io/full-backup | chaîne | Indique si une sauvegarde doit être non incrémentielle. Définissez sur  `true` pour créer une sauvegarde non incrémentielle. Il est bonne pratique d'effectuer périodiquement une sauvegarde complète, puis des sauvegardes incrémentielles entre les sauvegardes complètes afin de minimiser le risque associé aux restaurations. | "false" 
+
+
+| protect.trident.netapp.io/snapshot-completion-timeout | chaîne | Le temps maximal autorisé pour que l'opération globale de capture d'instantané soit terminée. | "60m" 
+
+
+| protect.trident.netapp.io/volume-snapshots-ready-to-use-timeout | chaîne | Le temps maximal autorisé pour que les instantanés de volume atteignent l'état prêt à l'emploi. | "30m" 
+
+
+| protect.trident.netapp.io/volume-snapshots-created-timeout | chaîne | Durée maximale autorisée pour la création d'instantanés de volume. | "5m" 
+
+
+| protect.trident.netapp.io/pvc-bind-timeout-sec | chaîne | Temps maximal (en secondes) à attendre pour que les nouveaux PersistentVolumeClaims (PVCs) atteignent la  `Bound` phase avant que l'opération échoue. | "1200" (20 minutes) 
+|===

@@ -43,7 +43,7 @@ La page de connexion à la NetApp Console s’affiche.
 ** Pour les charges de travail Microsoft SQL Server, reportez-vous àlink:br-start-discover.html["Découvrez les charges de travail Microsoft SQL Server"] .
 ** Pour les charges de travail VMware, reportez-vous àlink:br-use-vmware-discovery.html["Découvrez les charges de travail VMware"] .
 ** Pour les charges de travail KVM, reportez-vous àlink:br-start-discover-kvm.html["Découvrez les charges de travail KVM"] .
-** Pour les charges de travail Oracle, reportez-vous àlink:br-start-discover-oracle.html["Découvrez les charges de travail Oracle"] .
+** Pour les charges de travail Oracle Database, consultez link:br-start-discover-oracle.html["Découvrez les charges de travail Oracle Database"].
 ** Pour les charges de travail Hyper-V, reportez-vous àlink:br-start-discover-hyperv.html["Découvrez les charges de travail Hyper-V"] .
 ** Pour les charges de travail Kubernetes, reportez-vous àlink:br-start-discover-kubernetes.html["Découvrez les charges de travail Kubernetes"] .
 

@@ -28,7 +28,7 @@ sidebar:
       url: "/br-limitations-hyperv.html"
     - title: Limitations connues pour les charges de travail KVM
       url: "/br-limitations-kvm.html"
-    - title: Limitations connues pour les charges de travail Oracle
+    - title: Limitations connues pour les charges de travail Oracle Database
       url: "/br-limitations-oracle.html"
   - title: Commencer
     entries:
@@ -51,6 +51,9 @@ sidebar:
       url: "/br-start-switch-ui.html"
     - title: Configurer les paramètres généraux de NetApp Backup and Recovery
       url: "/br-start-configure.html"
+    - title: Configurez le contrôle d'accès basé sur les rôles dans NetApp Backup
+        and Recovery
+      url: "/br-rbac-setup.html"
   - title: Utiliser NetApp Backup and Recovery
     entries:
     - title: Afficher l'état de la protection dans le tableau de bord
@@ -201,18 +204,19 @@ sidebar:
         url: "/br-use-hyperv-backup.html"
       - title: Restaurer les charges de travail Hyper-V
         url: "/br-use-hyperv-restore.html"
-    - title: Protéger les charges de travail Oracle (Aperçu)
+    - title: Protéger les charges de travail Oracle Database (Aperçu)
       entries:
-      - title: Présentation de Protect Oracle Workloads
+      - title: Présentation de la protection des charges de travail de la base de
+          données Oracle
         url: "/br-use-oracle-protect-overview.html"
-      - title: Découvrez les charges de travail Oracle
+      - title: Découvrez les charges de travail Oracle Database
         url: "/br-start-discover-oracle.html"
       - title: Créer et gérer des groupes de protection pour les charges de travail
-          Oracle
+          Oracle Database
         url: "/br-use-oracle-protection-groups.html"
-      - title: Sauvegarder les charges de travail Oracle
+      - title: Sauvegardez les charges de travail Oracle Database
         url: "/br-use-oracle-backup.html"
-      - title: Restaurer les charges de travail Oracle
+      - title: Restaurer les charges de travail Oracle Database
         url: "/br-use-oracle-restore.html"
       - title: Monter et démonter des points de récupération
         url: "/br-use-oracle-mount-unmount.html"
@@ -223,9 +227,24 @@ sidebar:
       - title: Découvrez les charges de travail Kubernetes
         url: "/br-start-discover-kubernetes.html"
       - title: Ajouter et protéger les applications Kubernetes
-        url: "/br-use-protect-kubernetes-applications.html"
+        entries:
+        - title: Ajouter et protéger les applications Kubernetes
+          url: "/br-use-protect-kubernetes-applications.html"
+        - title: Sauvegardez une application Kubernetes dès maintenant à l'aide de
+            l'interface web
+          url: "/br-use-back-up-now-kubernetes-applications-web-ui.html"
+        - title: Sauvegardez une application Kubernetes dès maintenant à l'aide de
+            ressources personnalisées
+          url: "/br-use-back-up-now-kubernetes-applications-cr.html"
       - title: Restaurer les applications Kubernetes
-        url: "/br-use-restore-kubernetes-applications.html"
+        entries:
+        - title: Restaurez les applications Kubernetes à l'aide de l'interface utilisateur
+            Web
+          url: "/br-use-restore-kubernetes-applications.html"
+        - title: Restaurez des applications Kubernetes à l'aide de ressources personnalisées
+          url: "/br-use-restore-kubernetes-applications-cr.html"
+        - title: Utilisez les paramètres avancés de restauration des ressources personnalisées
+          url: "/br-use-kubernetes-advanced-restore-settings.html"
       - title: Gérer les clusters Kubernetes
         url: "/br-use-manage-kubernetes-clusters.html"
       - title: Gérer les applications Kubernetes

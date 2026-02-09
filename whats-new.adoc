@@ -18,6 +18,59 @@ Découvrez les nouveautés de NetApp Backup and Recovery.
 
 
 
+== 09 février 2026
+
+Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
+
+
+
+=== Améliorations des charges de travail Kubernetes
+
+Cette version des charges de travail Kubernetes introduit les fonctionnalités améliorées suivantes :
+
+* *Prise en charge du flux de travail CR* : Vous pouvez désormais effectuer des tâches de protection courantes à l’aide des CR ainsi que de l’interface utilisateur Web Backup and Recovery.
+* *Migration de clusters* : Vous pouvez désormais ajouter des clusters Kubernetes existants protégés par Trident Protect à Backup and Recovery.
+* *Prise en charge du framework d'alertes* : Vous pouvez désormais recevoir des alertes par e-mail et via l'interface utilisateur pour certains événements de charge de travail Kubernetes.
+* *Intégration de l'onglet Restauration* : Vous pouvez désormais accéder aux actions de restauration de charge de travail Kubernetes depuis le menu Restauration.
+* *Prise en charge de l'architecture de sauvegarde 3-2-1 fanout* : Vous pouvez désormais utiliser une architecture 3-2-1 fanout dans votre politique de protection lors de la protection des charges de travail Kubernetes.
+
+
+Pour plus de détails sur la protection des charges de travail Kubernetes, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kubernetes-protect-overview.html["Présentation de la protection des charges de travail Kubernetes"] .
+
+
+
+=== Améliorations des charges de travail Oracle Database
+
+Cette version des charges de travail Oracle Database introduit les fonctionnalités améliorées suivantes :
+
+* *Prise en charge des utilisateurs non root* : Les utilisateurs non root peuvent désormais effectuer des opérations de sauvegarde, de restauration et de clonage, améliorant la sécurité et la conformité.
+* *Prise en charge du clonage* : Les fonctionnalités de clonage sont désormais prises en charge dans les environnements NAS, SAN et ASM principaux et secondaires en utilisant ASM library v2, permettant des flux de travail de protection coordonnés.
+* *Prise en charge du fractionnement des clones* : Vous pouvez désormais fractionner les instantanés inscriptibles (clones) de leurs volumes parents, libérer de l’espace de stockage et permettre des opérations indépendantes.
+* *Sauvegarde et restauration pour le stockage d'objets* : Les fonctionnalités natives de sauvegarde et de restauration sont désormais prises en charge pour les cibles de stockage S3 compatibles basées sur des objets.
+* *Gestion du cycle de vie des clones (CLM)*: Les opérations d’actualisation des clones sont prises en charge sur le stockage principal.
+* *Clonage vers un hôte alternatif* : Vous pouvez désormais cloner des bases de données vers un hôte différent (pour des tests ou de l’analytique) à partir du stockage principal et secondaire.
+* *Prise en charge des groupes de cohérence ONTAP* : Les groupes de cohérence ONTAP sont désormais pris en charge, garantissant des instantanés cohérents au niveau des applications sur plusieurs volumes.
+* Backup and Recovery prend désormais en charge les architectures de stratégie de protection suivantes pour les charges de travail Oracle Database :
++
+** Fanout 3-2-1
+** Disque à disque
+** Du disque au stockage objet
+** En cascade
+** Instantané local
+
+
+
+
+Pour plus de détails sur la protection des charges de travail Oracle Database, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Présentation de la protection des charges de travail de la base de données Oracle"].
+
+
+
+=== Autres améliorations
+
+Les charges de travail Hyper-V, les charges de travail KVM et les charges de travail VMware sont désormais généralement disponibles (GA) dans NetApp Backup and Recovery.
+
+
+
 == 19 janvier 2026
 
 Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
@@ -30,7 +83,7 @@ Cette version des charges de travail de volume ONTAP introduit la fonctionnalit�
 
 *Prise en charge de plusieurs compartiments* : (Aperçu privé) À partir d’ ONTAP 9.17.1 et versions ultérieures, vous pouvez désormais protéger les volumes d’un système avec jusqu’à 6 compartiments par système sur différents fournisseurs de cloud.
 
-link:prev-ontap-backup-manage.html["Découvrez comment sauvegarder les données de volume ONTAP à l'aide de NetApp Backup and Recovery."].
+link:https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-backup-manage.html["Découvrez comment sauvegarder les données de volume ONTAP à l'aide de NetApp Backup and Recovery."].
 
 
 
@@ -198,7 +251,7 @@ Cette version de NetApp Backup and Recovery introduit la prise en charge de la d
 * Prise en charge du tableau de bord Oracle
 
 
-Pour plus de détails sur la protection des charges de travail de la base de données Oracle, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Présentation de Protect Oracle Workloads"] .
+Pour plus de détails sur la protection des charges de travail Oracle Database, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Présentation de la protection des charges de travail de la base de données Oracle"].
 
 
 

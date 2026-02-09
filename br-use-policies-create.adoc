@@ -36,7 +36,7 @@ Vous pouvez atteindre les objectifs suivants liés aux politiques :
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Politiques*.
 . Consultez les détails de cette politique.
 +
-** *Charge de travail* : les exemples incluent Microsoft SQL Server, Volumes, VMware, KVM, Hyper-V ou Kubernetes.
+** *Charge de travail* : des exemples incluent Microsoft SQL Server, Volumes, VMware, KVM, Hyper-V, Oracle Database ou Kubernetes.
 ** *Type de sauvegarde* : les exemples incluent la sauvegarde complète et la sauvegarde du journal.
 ** *Architecture* : les exemples incluent l'instantané local, la distribution en éventail, la mise en cascade, le disque à disque et le disque vers le magasin d'objets.
 ** *Ressources protégées* : indique combien de ressources sur le total des ressources de cette charge de travail sont protégées.
@@ -78,7 +78,7 @@ TIP: Pour une liste de caractères à éviter, consultez l'info-bulle.
 
 ** Section *Architecture de sauvegarde* : sélectionnez la flèche vers le bas et choisissez le flux de données pour la sauvegarde, tel que 3-2-1 fan-out, 3-2-1 cascade ou disque à disque.
 +
-*** *3-2-1 fanout* : Stockage principal (disque) vers stockage secondaire (disque) vers cloud (magasin d'objets). Crée plusieurs copies de données sur différents systèmes de stockage, tels que des configurations ONTAP vers ONTAP et ONTAP vers un magasin d'objets. Il peut s'agir d'un magasin d'objets hyperscaler cloud ou d'un magasin d'objets privé - StorageGRID. Ces configurations contribuent à obtenir une protection optimale des données et une reprise après sinistre.
+*** *3-2-1 fanout* : du stockage principal (disque) au stockage secondaire (disque), puis au cloud (stockage objet). Crée plusieurs copies des données sur différents systèmes de stockage, tels que ONTAP vers ONTAP et ONTAP vers des configurations de stockage objet. Cela peut être un stockage objet d’un cloud hyperscaler ou un stockage objet privé. Ces configurations aident à atteindre une protection des données optimale et une reprise après sinistre.
 +
 
 NOTE: Cette option n'est pas disponible pour Amazon FSx for NetApp ONTAP.
