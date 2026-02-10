@@ -51,7 +51,7 @@ indexpage:
       url: br-use-mssql-restore.html
     - title: Cloner les charges de travail Microsoft SQL Server
       url: br-use-mssql-clone.html
-  - title: Protéger les charges de travail VMware (aperçu)
+  - title: Protégez les charges de travail VMware
     links:
     - title: Présentation de la protection des charges de travail VMware
       url: br-use-vmware-protect-overview.html
@@ -64,7 +64,7 @@ indexpage:
       url: br-use-vmware-backup.html
     - title: Restaurer les charges de travail VMware
       url: br-use-vmware-restore.html
-  - title: Protégez les charges de travail KVM (aperçu privé)
+  - title: Protéger les charges de travail KVM (aperçu)
     links:
     - title: Présentation de la protection des charges de travail KVM
       url: "/br-use-kvm-protect-overview.html"
@@ -77,7 +77,7 @@ indexpage:
       url: "/br-use-kvm-backup.html"
     - title: Restaurer les charges de travail KVM
       url: "/br-use-kvm-restore.html"
-  - title: Protéger les charges de travail Hyper-V (aperçu privé)
+  - title: Protégez les charges de travail Hyper-V
     links:
     - title: Présentation de la protection des charges de travail Hyper-V
       url: "/br-use-hyperv-protect-overview.html"
@@ -90,7 +90,7 @@ indexpage:
       url: "/br-use-hyperv-backup.html"
     - title: Restaurer les charges de travail Hyper-V
       url: "/br-use-hyperv-restore.html"
-  - title: Protéger les charges de travail Oracle Database (aperçu privé)
+  - title: Protéger les charges de travail Oracle Database (aperçu)
     links:
     - title: Présentation de la protection des charges de travail de la base de données
         Oracle

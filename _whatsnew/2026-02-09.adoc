@@ -1,6 +1,18 @@
-= Améliorations des charges de travail Kubernetes
+= Charges de travail Microsoft Hyper-V prises en charge en General Availability (GA)
 :allow-uri-read: 
 
+
+
+
+=== Charges de travail Microsoft Hyper-V prises en charge en General Availability (GA)
+
+La prise en charge des charges de travail Microsoft Hyper-V est désormais généralement disponible (GA) dans NetApp Backup and Recovery.
+
+
+
+=== Charges de travail KVM prises en charge en General Availability (GA)
+
+La prise en charge des charges de travail KVM est désormais généralement disponible (GA) dans NetApp Backup and Recovery.
 
 
 
@@ -42,9 +54,3 @@ Cette version des charges de travail Oracle Database introduit les fonctionnalit
 
 
 Pour plus de détails sur la protection des charges de travail Oracle Database, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Présentation de la protection des charges de travail de la base de données Oracle"].
-
-
-
-=== Autres améliorations
-
-Les charges de travail Hyper-V, les charges de travail KVM et les charges de travail VMware sont désormais généralement disponibles (GA) dans NetApp Backup and Recovery.
