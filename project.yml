@@ -153,29 +153,6 @@ sidebar:
             url: "/br-use-vmware-restore-guest-files-and-folders-from-vmdks.html"
           - title: Résolution des problèmes de restauration des fichiers invités
             url: "/br-use-vmware-guest-file-restore-scenarios-you-might-encounter.html"
-    - title: Protégez les charges de travail VMware (avec le plug-in SnapCenter pour
-        VMware)
-      entries:
-      - title: Présentation de la protection des charges de travail des machines virtuelles
-        url: "/prev-vmware-protect-overview.html"
-      - title: Conditions préalables à la protection des charges de travail des machines
-          virtuelles
-        url: "/prev-vmware-prereqs.html"
-      - title: Créer une politique pour sauvegarder les données de la machine virtuelle
-        url: "/prev-vmware-policy-create.html"
-      - title: Sauvegarder les banques de données sur Amazon Web Services
-        url: "/prev-vmware-backup-aws.html"
-      - title: Sauvegarder les banques de données sur Microsoft Azure
-        url: "/prev-vmware-backup-azure.html"
-      - title: Sauvegarder les magasins de données sur Google Cloud Platform
-        url: "/prev-vmware-backup-gcp.html"
-      - title: Sauvegarder les banques de données sur StorageGRID
-        url: "/prev-vmware-backup-storagegrid.html"
-      - title: Gérer la protection des données des banques de données et des machines
-          virtuelles
-        url: "/prev-vmware-manage.html"
-      - title: Restaurer les données et les banques de données des machines virtuelles
-        url: "/prev-vmware-restore.html"
     - title: Protéger les charges de travail KVM (Aperçu)
       entries:
       - title: Présentation de la protection des charges de travail KVM
