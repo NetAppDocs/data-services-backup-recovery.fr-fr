@@ -88,7 +88,7 @@ Vous avez besoin d’exigences spécifiques pour découvrir et protéger vos cha
 
 *Support logiciel*
 
-* Les banques de données NFS et VMFS sont prises en charge. Les vVols ne sont pas pris en charge.
+* Les datastores NFS et VMFS sont pris en charge.
 * Versions NFS prises en charge : NFS 3 et NFS 4.1
 * Versions de VMware ESXi Server prises en charge : 7.0U1 et versions ultérieures
 * Versions VMware vCenter vSphere prises en charge : 7.0U1 et supérieures
@@ -106,11 +106,6 @@ Vous avez besoin d’exigences spécifiques pour découvrir et protéger vos cha
 
 | Port du serveur VMware ESXi  a| 
 443 (HTTPS), bidirectionnel. La fonction de restauration de fichiers invités utilise ce port.
-
-
-
-| Port du serveur VMware vSphere vCenter  a| 
-Si vous protégez des machines virtuelles vVol, vous devez utiliser le port 443.
 
 
 
