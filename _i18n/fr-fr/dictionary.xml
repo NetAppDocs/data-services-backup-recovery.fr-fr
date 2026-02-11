@@ -3822,172 +3822,7 @@
   <block id="f2b162f98b611318ceee106c4b60ae51" category="list-text">Pour connaître les tarifs détaillés de Google Cloud Storage par région, visitez le<block ref="51a97b69fb4ea5748d26915fe19e0057" category="inline-link-rx"></block> .</block>
   <block id="fd161debce2c53100b7c61aa8b2d7c6b" category="list-text">Combien de temps faudra-t-il pour restaurer mes objets archivés dans Google Archive ?</block>
   <block id="efce98c74b9fc5fb1711b2f3d4da8f34" category="list-text">*Temps de récupération* : Le temps nécessaire pour récupérer le fichier de sauvegarde de l'archive et le placer dans le stockage standard.  C'est ce qu'on appelle parfois le temps de « réhydratation ».  Contrairement aux solutions de stockage « les plus froides » fournies par d’autres fournisseurs de cloud, vos données sont accessibles en quelques millisecondes.</block>
-  <block id="ea41fefc75b4937d079e3db8ee84bd6b" category="doc">Sauvegarder les banques de données sur Amazon Web Services dans NetApp Backup and Recovery</block>
-  <block id="88d382e3b7aa9d602ce38d8495a201ac" category="paragraph">Vous pouvez sauvegarder et archiver un ou plusieurs magasins de données avec NetApp Backup and Recovery sur Amazon Web Services pour améliorer l'efficacité du stockage et la transition vers le cloud.</block>
-  <block id="88e6abd4ee4f112ba359e37a218778f6" category="paragraph">Si le magasin de données est associé à une politique d’archivage, vous avez la possibilité de sélectionner le niveau d’archivage.  Les niveaux d'archivage pris en charge sont Glacier et Glacier Deep.</block>
-  <block id="c5697e1933bfd2df9d2052983e1d9241" category="inline-link-macro">exigences de protection des machines virtuelles</block>
-  <block id="a7772e34879d0350763b229c08abb4ce" category="paragraph">Assurez-vous d'avoir respecté toutes les<block ref="b3cdcdb9363cf72cee94211d1cf49d2a" category="inline-link-macro-rx"></block> avant de sauvegarder les banques de données dans le cloud.</block>
-  <block id="ec20419fe9b99a13a7e6a63187f9ad59" category="list-text">Dans l'interface utilisateur de la console, sélectionnez *Protection* &gt; *Sauvegarde et récupération* &gt; *Machines virtuelles*.</block>
-  <block id="418c5509e2171d55b0aee5c2ea4442b5" category="inline-image-macro">action</block>
-  <block id="4d2ca83fc058acd8fd1a2b0e9633319d" category="list-text">Sélectionner<block ref="1d94ccc08c31bc8efbc06bfabc6854b6" category="inline-image-macro-rx" type="image"></block> correspondant à la banque de données que vous souhaitez sauvegarder et cliquez sur *Activer la sauvegarde*.</block>
-  <block id="323d618819396c39de9471cdfb373ee7" category="list-text">Dans la page Attribuer une politique, sélectionnez la politique et sélectionnez *Suivant*.</block>
-  <block id="65c66680701f71dd9f3d5af61f0f6b41" category="list-text">Ajoutez le système.</block>
-  <block id="5acc11cd60ff7e94ad464f395b9bc687" category="paragraph">Configurez le LIF de gestion de cluster que vous souhaitez que la console découvre.  Après avoir ajouté le système pour l’un des magasins de données, il peut être réutilisé pour tous les autres magasins de données résidant sur le même cluster ONTAP .</block>
-  <block id="c4f42debc709f58c735092418fa00fa1" category="list-text">Sélectionnez *Ajouter un système* correspondant au SVM.</block>
-  <block id="30871e9b3db5bb3040245da62e031a45" category="list-text">Dans l’assistant d’ajout de système :</block>
-  <block id="b19fb0dfd78b28bc5415a7f3f4ad6a49" category="list-text">Spécifiez l'adresse IP du LIF de gestion du cluster.</block>
-  <block id="73f07eefb51e62cc902b672233bd4977" category="list-text">Spécifiez les informations d’identification de l’utilisateur du cluster ONTAP .</block>
-  <block id="85f2ee063f5ea4d52167b81f6a73c16a" category="list-text">Sélectionnez *Ajouter un système*.</block>
-  <block id="52405c4e62742959f93902e51bb72d0b" category="list-text">Sélectionnez *Amazon Web Services* pour le configurer comme fournisseur de cloud.</block>
-  <block id="4117af0b4d26b5ba222b63a2b7e1eb27" category="list-text">Spécifiez le compte AWS.</block>
-  <block id="0b6515b0d85be4c32021431c5119a675" category="list-text">Dans le champ Clé d’accès AWS, spécifiez la clé de chiffrement des données.</block>
-  <block id="095a532bc2c4eed2ec2c64b6008b497f" category="list-text">Dans le champ Clé secrète AWS, spécifiez le mot de passe pour le chiffrement des données.</block>
-  <block id="b5d98853353bde168501864a9aa65bfd" category="list-text">Sélectionnez la région dans laquelle vous souhaitez créer les sauvegardes.</block>
-  <block id="386a17271d92cc7a25bf8eec122b0494" category="list-text">Spécifiez les adresses IP du LIF de gestion de cluster qui ont été ajoutées en tant que systèmes.</block>
-  <block id="e1a761122b21c1ecd586765e53dacaf5" category="list-text">Sélectionnez le niveau d’archivage.</block>
-  <block id="e56d2516907f7fa0a6e073e43392e9ff" category="paragraph">Il est recommandé de définir le niveau d'archivage car il s'agit d'une activité ponctuelle et vous ne pouvez pas la configurer ultérieurement.</block>
-  <block id="aa6666c7d701e3d022bd0894584ba6bc" category="list-text">Vérifiez les détails et sélectionnez *Activer la sauvegarde*.</block>
-  <block id="0d41ec9efd8e5ceb127f404e3e8dc747" category="doc">Sauvegardez vos banques de données sur Microsoft Azure avec NetApp Backup and Recovery</block>
-  <block id="edad35da0f3ccd8716a3ecbec6ba4250" category="paragraph">Vous pouvez sauvegarder une ou plusieurs banques de données sur Microsoft Azure en intégrant le SnapCenter Plug-in for VMware vSphere à NetApp Backup and Recovery.  Cela aidera les administrateurs de machines virtuelles à sauvegarder et archiver facilement et rapidement les données pour une efficacité de stockage et une accélération de la transition vers le cloud.</block>
-  <block id="0f375a841aae3358a6339864ccfaa86f" category="paragraph">Si le magasin de données est associé à une politique d'archivage, vous aurez la possibilité de sélectionner le niveau d'archivage.  Le niveau d’archivage pris en charge est Azure Archive Blob Storage.</block>
-  <block id="a5d365a9b7414bdc6e9205c9e8eb585d" category="list-text">Dans l'interface utilisateur de la NetApp Console , sélectionnez *Protection* &gt; *Sauvegarde et récupération* &gt; *Machines virtuelles*.</block>
-  <block id="b621b490b47d0134904539933037722c" category="list-text">Sélectionner<block ref="1d94ccc08c31bc8efbc06bfabc6854b6" category="inline-image-macro-rx" type="image"></block> correspondant à la banque de données que vous souhaitez sauvegarder et sélectionnez *Activer la sauvegarde*.</block>
-  <block id="8a8bca40b3d548c634cd73d37e5a630c" category="list-text">Sélectionnez *Microsoft Azure* pour le configurer comme fournisseur de cloud.</block>
-  <block id="3cc0854835f3b022e6a1537884da217d" category="list-text">Spécifiez l’ID d’abonnement Azure.</block>
-  <block id="db7f740fbee2466830a1f559dba6b17b" category="list-text">Créez un nouveau groupe de ressources ou utilisez un groupe de ressources existant.</block>
-  <block id="9e8ed7b08261a94b9277289757488767" category="paragraph">Il est recommandé de définir le niveau d'archivage car il s'agit d'une activité ponctuelle et vous ne serez pas autorisé à le configurer ultérieurement.</block>
-  <block id="ea30425cb29f7e447fdeace74c26461f" category="doc">Sauvegardez vos banques de données sur Google Cloud Platform avec NetApp Backup and Recovery</block>
-  <block id="476c041ec40c52b29e7eff32f4cb7b32" category="paragraph">Vous pouvez sauvegarder une ou plusieurs banques de données sur Google Cloud Platform en intégrant le SnapCenter Plug-in for VMware vSphere à NetApp Backup and Recovery.  Cela aidera les administrateurs de machines virtuelles à sauvegarder et archiver facilement et rapidement les données pour une efficacité de stockage et une accélération de la transition vers le cloud.</block>
-  <block id="bccdf5c7461a91341c81491a049f7917" category="list-text">Sélectionnez *Google Cloud Platform* pour le configurer comme fournisseur de cloud.</block>
-  <block id="bd1bf42f3eb311ef9f00c80352b4b141" category="list-text">Sélectionnez le projet Google Cloud dans lequel vous souhaitez que le bucket Google Cloud Storage soit créé pour les sauvegardes.</block>
-  <block id="fa0f3e6189a17df2b37f1f89872dbee4" category="list-text">Dans le champ Clé d’accès Google Cloud, spécifiez la clé.</block>
-  <block id="3ee34b7fd8f9ec35694f9ada246e9a7b" category="list-text">Dans le champ Clé secrète Google Cloud, spécifiez le mot de passe.</block>
-  <block id="3ec390de7db5c59f007c717fb9aa2dac" category="list-text">Spécifiez l'espace IP.</block>
-  <block id="71fb704fe6aa28d59f46358c61d5b35a" category="doc">Sauvegardez les banques de données sur StorageGRID avec NetApp Backup and Recovery</block>
-  <block id="5cf880745ad0e6e8d8208ad538957b63" category="paragraph">Vous pouvez sauvegarder une ou plusieurs banques de données sur StorageGRID en intégrant le SnapCenter Plug-in for VMware vSphere avec NetApp Backup and Recovery.  Cela aidera les administrateurs de machines virtuelles à sauvegarder et archiver facilement et rapidement les données pour une efficacité de stockage et une accélération de la transition vers le cloud.</block>
-  <block id="6c5cc1315b69c8256bbc33cf47a5a7ab" category="list-text">Sélectionnez * StorageGRID*.</block>
-  <block id="cf4e6e70123f43cdec5ffd93f792c083" category="list-text">Spécifiez l'adresse IP du serveur de stockage.</block>
-  <block id="10303a499a9e21a77e6dad69618c622b" category="list-text">Sélectionnez la clé d'accès et la clé secrète.</block>
-  <block id="b26e7e8656acba73c7e69f8c75f299d1" category="doc">Gérer la protection des banques de données et des machines virtuelles dans NetApp Backup and Recovery</block>
-  <block id="749f97c0bfe03215ddfcc33e348d0c86" category="paragraph">Vous pouvez afficher les politiques, les banques de données et les machines virtuelles avant de sauvegarder et de restaurer les données avec NetApp Backup and Recovery.  En fonction de la modification apportée à la base de données, aux stratégies ou aux groupes de ressources, vous pouvez afficher les mises à jour à partir de l'interface utilisateur de la NetApp Console .</block>
-  <block id="5bea9354a7049a7e639553b703f18e84" category="paragraph">Vous pouvez afficher toutes les politiques prédéfinies par défaut.  Pour chacune de ces politiques, lorsque vous affichez les détails, toutes les politiques et machines virtuelles associées sont répertoriées.</block>
-  <block id="b69b2eb51081aa4642c6e881faa0bcb8" category="list-text">Dans la liste déroulante *Paramètres*, sélectionnez *Politiques*.</block>
-  <block id="8448a57387950bac4af453a04975933d" category="list-text">Sélectionnez *Afficher les détails* correspondant à la politique dont vous souhaitez afficher les détails.</block>
-  <block id="1c281da53a696408c46b6da9d44b27e7" category="paragraph">Les politiques et machines virtuelles associées sont répertoriées.</block>
-  <block id="8ed12ef54cb1d9b3b955b96ba5173201" category="section-title">Afficher les magasins de données et les machines virtuelles</block>
-  <block id="e3dbc361d0cd589544c61663904eef2c" category="paragraph">Les banques de données et les machines virtuelles protégées à l'aide du SnapCenter Plug-in for VMware vSphere sont affichées.</block>
-  <block id="4e98200f297bd7d5853a285fdfe1191f" category="list-text">Dans l'interface utilisateur de la console, sélectionnez *Protection* &gt; *Sauvegarde et récupération* &gt; *Machines virtuelles* &gt; *Paramètres* &gt; * SnapCenter Plug-in for VMware vSphere*.</block>
-  <block id="18a02c3f300d1165ca70adad83d6a91a" category="list-text">Sélectionnez le SnapCenter Plug-in for VMware vSphere pour lequel vous souhaitez afficher les banques de données et les machines virtuelles.</block>
-  <block id="b1314bfff132a050766ce5d32ac976de" category="section-title">Déprotéger les banques de données</block>
-  <block id="24e973d26bb253c7b5fb8a764db6860a" category="paragraph">Vous pouvez déprotéger une banque de données qui était déjà protégée auparavant.  Vous pouvez déprotéger une banque de données lorsque vous souhaitez supprimer les sauvegardes dans le cloud ou que vous ne souhaitez plus la sauvegarder dans le cloud.  Le magasin de données peut être à nouveau protégé une fois la déprotection réussie.</block>
-  <block id="a4d4871f49f1183bee5e02ea1b2064f9" category="list-text">Sélectionnez l'icône Actions<block ref="1d94ccc08c31bc8efbc06bfabc6854b6" category="inline-image-macro-rx" type="image"></block> correspondant à la banque de données que vous souhaitez déprotéger et sélectionnez *Déprotéger*.</block>
-  <block id="b4aa547260f4fe266f03ec3a845576a5" category="section-title">Modifier le SnapCenter Plug-in for VMware vSphere</block>
-  <block id="7d890413f9b664e2bcf99c30c870de89" category="paragraph">Vous pouvez modifier les détails de l’hôte SnapCenter Plug-in for VMware vSphere dans la console.</block>
-  <block id="73f6eff78e2d5b4c91558c1e0c0e8a24" category="list-text">Sélectionnez l'icône Actions<block ref="1d94ccc08c31bc8efbc06bfabc6854b6" category="inline-image-macro-rx" type="image"></block> et sélectionnez *Modifier*.</block>
-  <block id="05c829c7b617d014c0186656453575ea" category="list-text">Modifiez les détails selon vos besoins.</block>
-  <block id="738c224049615eeb47fe5a57a6ea8f7c" category="section-title">Actualiser les ressources et les sauvegardes</block>
-  <block id="0e9cec251ac8debda34d029f4302d4eb" category="paragraph">Si vous souhaitez afficher les derniers magasins de données et sauvegardes qui ont été ajoutés à l'application, vous devez actualiser les ressources et les sauvegardes.  Cela lancera la découverte des ressources et des sauvegardes et les derniers détails seront affichés.</block>
-  <block id="04fa58f349615d27149f6dda8efe38e2" category="list-text">Sélectionnez *Sauvegarde et récupération* &gt; *Machines virtuelles*.</block>
-  <block id="266f9ff12956ac5692bc7be08bda846f" category="list-text">Dans la liste déroulante *Paramètres*, sélectionnez * SnapCenter Plug-in for VMware vSphere*.</block>
-  <block id="3909de0b2400078920ffd3d72a06f81b" category="list-text">Sélectionnez l'icône Actions<block ref="1d94ccc08c31bc8efbc06bfabc6854b6" category="inline-image-macro-rx" type="image"></block> correspondant au SnapCenter Plug-in for VMware vSphere et sélectionnez *Actualiser les ressources et les sauvegardes*.</block>
-  <block id="aa8a6c50e00adebd857afeb3c163080e" category="section-title">Actualiser la politique ou le groupe de ressources</block>
-  <block id="a663847f6a4dfe84a9e34d968b306aef" category="paragraph">En cas de modification de la politique ou du groupe de ressources, vous devez actualiser la relation de protection.</block>
-  <block id="dfc67c4e882a2d4fffb8d16037fa7dd2" category="list-text">Sélectionnez l'icône Actions<block ref="1d94ccc08c31bc8efbc06bfabc6854b6" category="inline-image-macro-rx" type="image"></block> correspondant au magasin de données et sélectionnez *Actualiser la protection*.</block>
-  <block id="ecb0c28cd21006ad8c86d4be09edf297" category="section-title">Désinscrire le SnapCenter Plug-in for VMware vSphere</block>
-  <block id="3d61f1dcef482f1c526370542b798e50" category="paragraph">Toutes les banques de données et machines virtuelles associées à l'hôte SnapCenter Plug-in for VMware vSphere ne seront pas protégées.</block>
-  <block id="b184ae3f5a4589cacbec55aa0fa973fc" category="list-text">Sélectionnez l'icône Actions<block ref="1d94ccc08c31bc8efbc06bfabc6854b6" category="inline-image-macro-rx" type="image"></block> correspondant au SnapCenter Plug-in for VMware vSphere et sélectionnez *Désinscrire*.</block>
-  <block id="d65dcf19e9eda758238d835f23a69642" category="section-title">Surveiller les emplois</block>
-  <block id="4044636ea8a32c730e3b044adcda1f8c" category="paragraph">Des tâches sont créées pour toutes les opérations de NetApp Backup and Recovery .  Vous pouvez surveiller tous les travaux et toutes les sous-tâches qui sont effectuées dans le cadre de chaque tâche.</block>
-  <block id="942b89acbe370667e9d70389e84f8544" category="list-text">Sélectionnez *Sauvegarde et récupération* &gt; *Surveillance des tâches*.</block>
-  <block id="5f2c87cb3d6dde849915754be64e1690" category="paragraph">Lorsque vous lancez une opération, une fenêtre apparaît indiquant que la tâche est lancée.  Vous pouvez sélectionner le lien pour surveiller le travail.</block>
-  <block id="84d686b7ff9ad225b36fb397dd4cbce7" category="list-text">Sélectionnez la tâche principale pour afficher les sous-tâches et l’état de chacune de ces sous-tâches.</block>
-  <block id="38f579d721675ddff9e2ac5938361837" category="doc">Créer une politique de sauvegarde des banques de données dans NetApp Backup and Recovery</block>
-  <block id="b584330b721e66ff5dabb697badb5ff7" category="paragraph">Vous pouvez créer une politique ou utiliser l'une des politiques prédéfinies suivantes disponibles dans NetApp Backup and Recovery.</block>
-  <block id="43852dc1e0c3229284688eb4c01dfef0" category="list-text">Vous devez créer des politiques si vous ne souhaitez pas modifier les politiques prédéfinies.</block>
-  <block id="38fb3153d6139974d24ba11e28a0718d" category="list-text">Pour déplacer des sauvegardes du magasin d'objets vers le stockage d'archivage, vous devez exécuter ONTAP 9.10.1 ou une version ultérieure et Amazon Web Services ou Microsoft Azure doit être le fournisseur de cloud.</block>
-  <block id="5d0ad01dbdb8717fbebf1cb44a3c10cd" category="list-text">Vous devez configurer le niveau d’accès aux archives pour chaque fournisseur de cloud.</block>
   <block id="bbe48fb854ea022537208eeeff822f91" category="paragraph-title">À propos de cette tâche</block>
-  <block id="25a9fea1bd39d0e24939bbbf1f842b7a" category="paragraph">Les politiques prédéfinies suivantes sont disponibles dans la NetApp Console:</block>
-  <block id="002f7378a5fcfc2f66cfea851a7fd5f4" category="cell">Nom de la politique</block>
-  <block id="b021df6aac4654c454f46c77646e745f" category="cell">Étiquette</block>
-  <block id="dfa56cb0ff8ac0e7087134a3d7e1f39d" category="cell">Valeur de rétention</block>
-  <block id="7250cb0d0c1524aec805084d9f0ffc21" category="paragraph">1 an de rétention quotidienne à long terme (LTR)</block>
-  <block id="c512b685438f41daa7386329a3b8f8d3" category="paragraph">Tous les jours</block>
-  <block id="5ef698cd9fe650923ea331c15af3b160" category="paragraph">366</block>
-  <block id="5ea7bb0579b5fe6d2acf33c0ab584548" category="paragraph">5 ans de LTR quotidien</block>
-  <block id="069654d5ce089c13f642d19f09a3d1c0" category="paragraph">1830</block>
-  <block id="2cd29ea4d4dd80df56178fc41c9bc385" category="paragraph">LTR hebdomadaire sur 7 ans</block>
-  <block id="6c25e6a6da95b3d583c6ec4c3f82ed4d" category="paragraph">Hebdomadaire</block>
-  <block id="d709f38ef758b5066ef31b18039b8ce5" category="paragraph">370</block>
-  <block id="f76a9390149b62241c42efed985a431a" category="paragraph">LTR mensuel sur 10 ans</block>
-  <block id="9030e39f00132d583da4122532e509e9" category="paragraph">Mensuel</block>
-  <block id="da4fb5c6e93e74d3df8527599fa62642" category="paragraph">120</block>
-  <block id="0ef51421739da7017b4d3decc1813f4a" category="list-text">Dans la page Machines virtuelles, dans la liste déroulante Paramètres, sélectionnez *Politiques*.</block>
-  <block id="db92c743d97601150bbdfa11bf3cf66b" category="list-text">Sélectionnez *Créer une politique*.</block>
-  <block id="9f6b1aa82322cc4f853fe0fe7c532ff0" category="list-text">Dans la section Rétention, sélectionnez l’un des types de rétention et spécifiez le nombre de sauvegardes à conserver.</block>
-  <block id="db2205364549e4c4841dc9b5d66f62a3" category="list-text">Sélectionnez Principal ou Secondaire comme source de stockage de sauvegarde.</block>
-  <block id="2a60e5494e07cff54330378780f8e2a4" category="list-text">(Facultatif) Si vous souhaitez déplacer les sauvegardes du magasin d'objets vers le stockage d'archivage après un certain nombre de jours pour optimiser les coûts, cochez la case *Horaires de sauvegarde vers l'archivage* et saisissez le nombre de jours après lesquels la sauvegarde doit être archivée.</block>
-  <block id="44dae527927c9be3aabaf37ba09b9068" category="admonition">Vous ne pouvez pas modifier ou supprimer une politique associée à une banque de données.</block>
-  <block id="ac58e4fdaef529d7061db727c7d95b98" category="doc">Conditions préalables pour les charges de travail des machines virtuelles dans NetApp Backup and Recovery</block>
-  <block id="443b7d29fe382a91202282145dbedf43" category="paragraph">Avant de commencer à protéger les charges de travail de vos machines virtuelles avec NetApp Backup and Recovery, assurez-vous de remplir les conditions préalables suivantes :</block>
-  <block id="d511399444cf864b695600d159b7c93b" category="list-text">SnapCenter Plug-in for VMware vSphere 4.6P1 ou version ultérieure</block>
-  <block id="2a18af02b6c0b7e92a17df9509574f26" category="list-text">Vous devez utiliser SnapCenter Plug-in for VMware vSphere 4.7P1 ou version ultérieure pour sauvegarder les banques de données à partir du stockage secondaire sur site.</block>
-  <block id="c3ce6809be6bdc67ae978395484d0585" category="list-text">ONTAP 9.8 ou version ultérieure</block>
-  <block id="06126ace9559015b34270e5c984cb3c9" category="list-text">Pour la prise en charge de VMFS, le SnapCenter Plug-in for VMware vSphere doit être exécuté sur la version 4.9 ou une version ultérieure.  Assurez-vous d'effectuer une sauvegarde de la banque de données VMFS si l'hôte SnapCenter Plug-in for VMware vSphere a été mis à niveau d'une version antérieure vers la version 4.9.</block>
-  <block id="bff3cdd2fd5f993f3bc3fbbd3c43fb30" category="list-text">Au moins une sauvegarde doit avoir été effectuée dans SnapCenter Plug-in for VMware vSphere 4.6P1.</block>
-  <block id="61607910a1db523098b12865f02faff4" category="list-text">Au moins une politique quotidienne, hebdomadaire ou mensuelle dans SnapCenter Plug-in for VMware vSphere sans étiquette ou avec la même étiquette que celle de la politique des machines virtuelles dans la console.</block>
-  <block id="9c2d7e78a68e18061466c4c12001d828" category="list-text">Pour une stratégie prédéfinie, le niveau de planification doit être le même pour la banque de données dans SnapCenter Plug-in for VMware vSphere et dans le cloud.</block>
-  <block id="ad747f24f06324c9bc58eeaa274f014a" category="list-text">Assurez-vous qu'il n'y a pas de volumes FlexGroup dans la banque de données, car la sauvegarde et la restauration des volumes FlexGroup ne sont pas prises en charge.</block>
-  <block id="f8038513f93eb5ca7b2505674255b67b" category="list-text">Désactivez « *_recent* » sur les groupes de ressources requis.  Si vous avez activé « *_recent* » pour le groupe de ressources, les sauvegardes de ces groupes de ressources ne peuvent pas être utilisées pour la protection des données dans le cloud et ne peuvent donc pas être utilisées pour l'opération de restauration.</block>
-  <block id="391eb750d98c55b72607ff6ec6311db2" category="list-text">Assurez-vous que la banque de données de destination où la machine virtuelle sera restaurée dispose de suffisamment d'espace pour accueillir une copie de tous les fichiers de la machine virtuelle tels que VMDK, VMX, VMSD, etc.</block>
-  <block id="6ee2c41b7a9bfae5bb618327d9499834" category="list-text">Assurez-vous que la banque de données de destination ne contient pas de fichiers de machine virtuelle obsolètes au format restore_xxx_xxxxxx_filename provenant des échecs d'opération de restauration précédents.  Vous devez supprimer les fichiers obsolètes avant de déclencher une opération de restauration.</block>
-  <block id="7148963c1fe9bd20799d84596b688191" category="list-text">Pour déployer un connecteur avec un proxy configuré, assurez-vous que tous les appels de connecteur sortants sont acheminés via le serveur proxy.</block>
-  <block id="e0d0f7f19ee8c764850a895376299f6e" category="list-text">Si un volume sauvegardant une banque de données est déjà protégé depuis l'onglet Volumes (NetApp Backup and Recovery -&gt; Volumes), la même banque de données ne peut pas être protégée à nouveau depuis l'onglet Machines virtuelles (NetApp Backup and Recovery -&gt; Machines virtuelles).</block>
-  <block id="455299fd2e4b438ff8661df0bfd1cace" category="paragraph">L'image suivante montre chaque composant et les connexions que vous devez préparer entre eux :</block>
-  <block id="add26d38486fad5ca461f986832fa6c3" category="inline-image-macro">diagramme d'architecture</block>
-  <block id="955c6f1851b4039bd20ae31d5f14d338" category="paragraph"><block ref="955c6f1851b4039bd20ae31d5f14d338" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="1ad1b9b9f7ac4090b8d287b119a246b7" category="doc">Présentation de la protection des charges de travail des machines virtuelles dans NetApp Backup and Recovery</block>
-  <block id="f2e6828ccbddc013dabb3aca8551e78b" category="paragraph">Protégez les charges de travail de vos machines virtuelles avec NetApp Backup and Recovery.  NetApp Backup and Recovery fournit des opérations de sauvegarde et de restauration rapides, peu encombrantes, cohérentes en cas de panne et cohérentes avec les machines virtuelles pour les machines virtuelles, les banques de données et les VMDK.</block>
-  <block id="40c5998ccd6f421d1eaa29ece0c36b59" category="paragraph">Vous pouvez sauvegarder des banques de données sur Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Platform et StorageGRID et restaurer des machines virtuelles sur l'hôte SnapCenter Plug-in for VMware vSphere sur site.</block>
-  <block id="21b169a7cabe8831cd38ce5fb6f77475" category="paragraph">Pour obtenir des instructions sur la protection des charges de travail des machines virtuelles, consultez les rubriques suivantes :</block>
-  <block id="49ef03573c7748afa14739a88a72a8fe" category="inline-link-macro">Créer une politique pour les charges de travail VMware</block>
-  <block id="f906bca37e956e72a0c25eb84a587aba" category="list-text"><block ref="f906bca37e956e72a0c25eb84a587aba" category="inline-link-macro-rx"></block></block>
-  <block id="533a49682158340fa752f41b001c3ed7" category="inline-link-macro">Sauvegarder les banques de données VMware sur Amazon Web Services</block>
-  <block id="28ed746142d082cc313c957c3916de57" category="list-text"><block ref="28ed746142d082cc313c957c3916de57" category="inline-link-macro-rx"></block></block>
-  <block id="b4d632569ac2a60a95624d732b062c21" category="inline-link-macro">Sauvegarder les banques de données VMware sur Microsoft Azure</block>
-  <block id="8452a00d810c3f304181a9750756e3c3" category="list-text"><block ref="8452a00d810c3f304181a9750756e3c3" category="inline-link-macro-rx"></block></block>
-  <block id="f54c20442d5c079704492d9e9cc632b0" category="inline-link-macro">Sauvegarder les banques de données VMware sur Google Cloud Platform</block>
-  <block id="08261c8a90295d24c0179c89fab872df" category="list-text"><block ref="08261c8a90295d24c0179c89fab872df" category="inline-link-macro-rx"></block></block>
-  <block id="d4e0304413c6571799459b3f2395df3b" category="inline-link-macro">Sauvegarder les banques de données VMware sur StorageGRID</block>
-  <block id="a8fdfae9cbcef9f449ea9eb2143c4f64" category="list-text"><block ref="a8fdfae9cbcef9f449ea9eb2143c4f64" category="inline-link-macro-rx"></block></block>
-  <block id="2f8f18e2be23909e758abe786154b05f" category="list-text"><block ref="2f8f18e2be23909e758abe786154b05f" category="inline-link-macro-rx"></block></block>
-  <block id="1f325f707555c5e4623d4ca3ed92bc14" category="inline-link-macro">Gérer la protection des charges de travail VMware</block>
-  <block id="6b5e78f60de50d17c6c9e6c26f183c04" category="list-text"><block ref="6b5e78f60de50d17c6c9e6c26f183c04" category="inline-link-macro-rx"></block></block>
-  <block id="4f42130e8cfb9f713223107cb029a735" category="doc">Restaurer les données des machines virtuelles avec NetApp Backup and Recovery</block>
-  <block id="b9f7c26581cad3cbd789c6d293692814" category="admonition">Vous ne pouvez pas restaurer des machines virtuelles qui s’étendent sur plusieurs banques de données.</block>
-  <block id="1c79f8653ccf267be1bce47f8ccf3d2f" category="list-text">Si vous effectuez une restauration vers un autre emplacement :</block>
-  <block id="0bd63162a36deb15bb735dfc68ec0b84" category="list-text">Assurez-vous que les vCenters source et de destination sont en mode lié.</block>
-  <block id="ccea797bbf5eba8cc950fa05c806cd76" category="list-text">Assurez-vous que les détails du cluster source et de destination sont ajoutés dans la page *Systèmes* de la NetApp Console et dans les vCenters en mode lié dans les deux hôtes SnapCenter Plug-in for VMware vSphere .</block>
-  <block id="52bda1d8d40e82cef23f0197a5e0c990" category="list-text">Dans l'interface utilisateur de la console, sélectionnez *Protection* &gt; *Sauvegarde et récupération* &gt; *Machines virtuelles* &gt; * SnapCenter Plug-in for VMware vSphere* et sélectionnez l'hôte SnapCenter Plug-in for VMware vSphere .</block>
-  <block id="d180a4da8965c4cd5488cd05903774f0" category="list-text">Vous pouvez restaurer la machine virtuelle à l'emplacement d'origine ou à un autre emplacement à partir du magasin de données ou des machines virtuelles :</block>
-  <block id="db5366d69994d30376d1a970dcebb9ce" category="cell">Si vous souhaitez restaurer la machine virtuelle...</block>
-  <block id="5e2ad6fd9deb412d871137094ee43ef0" category="cell">Fais ceci...</block>
-  <block id="ccc5c5f6926c7affe9ddb8b5fd8e78d0" category="paragraph">vers l'emplacement d'origine à partir du magasin de données</block>
-  <block id="7103002346129eef1e9f38419a6c849d" category="list-text">Sélectionnez l'icône Actions<block ref="1d94ccc08c31bc8efbc06bfabc6854b6" category="inline-image-macro-rx" type="image"></block> correspondant à la banque de données que vous souhaitez restaurer et cliquez sur *Afficher les détails*.</block>
-  <block id="a7b5011dd36cfe0539eff959f97ab523" category="list-text">Sélectionnez *Restaurer* correspondant à la sauvegarde que vous souhaitez restaurer.</block>
-  <block id="ce924f0dcf910e34ec23b7b7ca88af8d" category="list-text">Sélectionnez la machine virtuelle que vous souhaitez restaurer à partir de la sauvegarde et sélectionnez *Suivant*.</block>
-  <block id="8cc375f4ce3601a663a600c7d8e620e5" category="list-text">Assurez-vous que *Original* est sélectionné et sélectionnez *Continuer*.</block>
-  <block id="793f88b02160a70ac96d346b799dd570" category="list-text">Si la machine virtuelle est protégée à l'aide d'une politique dans laquelle les paramètres d'archivage sont configurés, sélectionnez *Priorité de restauration d'archivage* et sélectionnez *Suivant*.</block>
-  <block id="5f6a823289f7bbe90f46815d77f2f0f9" category="list-text">Vérifiez les détails et sélectionnez *Restaurer*.</block>
-  <block id="c0df5d97adcf3825af806d990e658e67" category="paragraph">vers un autre emplacement à partir du magasin de données</block>
-  <block id="1be093b2878514e1a668a6557e0fa48f" category="list-text">Sélectionnez l'icône Actions<block ref="1d94ccc08c31bc8efbc06bfabc6854b6" category="inline-image-macro-rx" type="image"></block> correspondant à la banque de données que vous souhaitez restaurer et sélectionnez *Afficher les détails*.</block>
-  <block id="2f663ab73d99f410b05e9f748fdb9f69" category="list-text">Sélectionnez *Alternatif*.</block>
-  <block id="1825907f18d398bff7d7bf89210651db" category="list-text">Sélectionnez le serveur vCenter, l’hôte ESXi, la banque de données et le réseau alternatifs.</block>
-  <block id="94187c3780ece70dc5689a3db077e744" category="list-text">Donnez un nom à la machine virtuelle après la restauration et sélectionnez *Continuer*.</block>
-  <block id="0236f808af929087f6a9616d379b96a4" category="paragraph">vers l'emplacement d'origine à partir des machines virtuelles</block>
-  <block id="6cd8cc5fdd9e1409bcb46d17177068ee" category="list-text">Sélectionnez l'icône Actions<block ref="1d94ccc08c31bc8efbc06bfabc6854b6" category="inline-image-macro-rx" type="image"></block> correspondant à la machine virtuelle que vous souhaitez restaurer et sélectionnez *Restaurer*.</block>
-  <block id="071df86763e0e93af80e50596aa0710c" category="list-text">Sélectionnez la sauvegarde via laquelle vous souhaitez restaurer la machine virtuelle.</block>
-  <block id="ccb90cb50d99e7cb9712a836810d4fae" category="paragraph">vers un autre emplacement à partir de machines virtuelles</block>
   <block id="b92e6028af16604f3b6fd4eade9dfec6" category="summary">Lorsque vous utilisez NetApp Backup and Recovery sur un site sans accès Internet, appelé « mode privé », les données de configuration de NetApp Backup and Recovery sont sauvegardées dans le compartiment StorageGRID ou ONTAP S3 où vos sauvegardes sont stockées.  Si vous rencontrez un problème avec le système hôte de l'agent de console à l'avenir, vous pouvez déployer un nouvel agent de console et restaurer les données critiques de NetApp Backup and Recovery .</block>
   <block id="a215e32a572a4f73138eb57df3fb494d" category="doc">Restaurer les données de configuration de NetApp Backup and Recovery sur un site sombre</block>
   <block id="e49ea1690cc473e646cdffd861381cbc" category="paragraph">Lorsque vous utilisez NetApp Backup and Recovery sur un site sans accès Internet, appelé _mode privé_, les données de configuration de NetApp Backup and Recovery sont sauvegardées dans le compartiment StorageGRID ou ONTAP S3 où vos sauvegardes sont stockées.  Si vous rencontrez un problème avec le système hôte de l'agent de console, vous pouvez déployer un nouvel agent de console et restaurer les données critiques de NetApp Backup and Recovery .</block>
@@ -4239,16 +4074,6 @@
   <block id="c00b274754a2d13242a61b1534660a37" category="sidebar">Gérer l'inventaire de Microsoft SQL Server</block>
   <block id="41e1a34ea3ba2b687b86e55ec1a7955d" category="sidebar">Gérer les instantanés Microsoft SQL Server</block>
   <block id="c8ffa42e0e508862d020665c979eb5c0" category="sidebar">Créer des rapports Microsoft SQL Server</block>
-  <block id="b1b8c22062b7762d4a3c459e880dee3b" category="sidebar">Protégez les charges de travail VMware (avec le plug-in SnapCenter pour VMware)</block>
-  <block id="7706cc052aa7120ddac8475709793258" category="sidebar">Présentation de la protection des charges de travail des machines virtuelles</block>
-  <block id="9ce88727019b612743000c7bcc2bfd23" category="sidebar">Conditions préalables à la protection des charges de travail des machines virtuelles</block>
-  <block id="776ec5ed6f61de56be98c037c8ca01c9" category="sidebar">Créer une politique pour sauvegarder les données de la machine virtuelle</block>
-  <block id="1d5ad62b9217b4a3f085f517534f40bb" category="sidebar">Sauvegarder les banques de données sur Amazon Web Services</block>
-  <block id="32d2b45dd98e36ad888d7156b4532053" category="sidebar">Sauvegarder les banques de données sur Microsoft Azure</block>
-  <block id="eb1ab874b09a7eab583845e8576be828" category="sidebar">Sauvegarder les magasins de données sur Google Cloud Platform</block>
-  <block id="ba7b66b996d8928df996e4fd4fffa4a4" category="sidebar">Sauvegarder les banques de données sur StorageGRID</block>
-  <block id="9a3f2e7eb30992bb084418711e5093f2" category="sidebar">Gérer la protection des données des banques de données et des machines virtuelles</block>
-  <block id="9234f5bc35aa09673eacbf8fece508db" category="sidebar">Restaurer les données et les banques de données des machines virtuelles</block>
   <block id="a6c93de7c03701dfba222e9072ffe5e7" category="sidebar">Protéger les charges de travail KVM (Aperçu)</block>
   <block id="34caa737a5a671b66cc6fe7531c1f8b9" category="sidebar">Monter et démonter des points de récupération</block>
   <block id="60c0c463b8839d0f2c5e5cea8fa728ad" category="sidebar">Protéger les charges de travail Kubernetes (Aperçu)</block>
@@ -4288,11 +4113,7 @@
   <block id="d4356e3242caba9699bd9bc147a04798" category="paragraph">À partir de la page Restaurer (Rechercher et restaurer), vous pouvez restaurer une ressource en recherchant l'instantané avec des filtres, même si vous ne vous souvenez pas de son nom exact, de son emplacement ou de sa dernière date connue.</block>
   <block id="63751d750873479f94855f0a16fc63d8" category="list-text">Configuration logicielle requise pour l'hôte Windows Server Hyper-V :</block>
   <block id="fd7bb5c3777005321645f38a2d07ea27" category="admonition">Si l'opération de restauration ne se termine pas, attendez que le moniteur de tâches affiche « Échec » avant de réessayer l'opération de restauration.</block>
-  <block id="df3ee99c8171743d8bd35d65cf62b2ed" category="paragraph">Vous pouvez restaurer les données des machines virtuelles depuis le cloud vers le serveur vCenter local avec NetApp Backup and Recovery. Vous pouvez restaurer la machine virtuelle exactement au même emplacement à partir duquel la sauvegarde a été effectuée ou vers un autre emplacement. Si la machine virtuelle a été sauvegardée à l’aide d’une stratégie d’archivage, vous pouvez définir la priorité de restauration d’archivage.</block>
   <block id="51e153ee1aa6cdb4ca7796e926180b53" category="admonition">Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous à<block ref="e56b09183f5489111204017fecace77e" category="inline-link-macro-rx"></block> .</block>
-  <block id="2f3b7eef1cf7df43dea1233ed03f5f42" category="list-text">Assurez-vous que le système est ajouté pour l'autre emplacement dans la page *Systèmes* de la console.</block>
-  <block id="870482577443f708a74b9dbe9b8fe928" category="admonition">Si vous déplacez une machine virtuelle à l'aide de VMware vSphere vMotion et la restaurez à partir de la console, Backup and Recovery la restaure à l'emplacement de sauvegarde d'origine.</block>
-  <block id="6e6630b7443f8dd6eade1b55e3c59141" category="paragraph">Les priorités de restauration d’archives prises en charge sont élevées, standard et faibles pour Amazon Web Services, et élevées et standard pour Microsoft Azure.</block>
   <block id="2f52181b09a7c053aed22699e227b9db" category="paragraph">Lorsque vous utilisez NetApp Backup and Recovery dans un environnement SaaS avec l'agent de console déployé chez votre fournisseur de cloud ou sur votre propre hôte connecté à Internet, le système sauvegarde et protège toutes les données de configuration importantes dans le cloud.  Si vous rencontrez un problème avec l’agent de console, créez un nouvel agent de console et ajoutez vos systèmes.  Les détails de la sauvegarde sont automatiquement restaurés.</block>
   <block id="361cc78877d7de2ea952f510e7626ad4" category="paragraph">Ces données sont sauvegardées une fois par jour à minuit et un maximum de 7 copies de chaque fichier sont conservées. Si l'agent de console gère plusieurs systèmes ONTAP sur site, les fichiers de NetApp Backup and Recovery sont stockés dans le compartiment du système qui a été activé en premier.</block>
   <block id="2be5ff28599e1447ad26486d058560b3" category="paragraph">Si votre agent de console sur site cesse de fonctionner, vous devrez installer un nouvel agent de console, puis restaurer les données de NetApp Backup and Recovery sur le nouvel agent de console.</block>
@@ -5232,4 +5053,5 @@
   <block id="a4af15d338a93411ae3eacbe3e9d1c5e" category="sidebar">Protéger les charges de travail KVM (aperçu)</block>
   <block id="bd7b6aa0517dacb10ee10e479293ef82" category="sidebar">Protéger les charges de travail Oracle Database (aperçu)</block>
   <block id="72f656ffc88a48ec4092d869ae05c4e6" category="sidebar">Protéger les charges de travail VMware (sans le plug-in SnapCenter pour VMware)</block>
+  <block id="2e6a10996a90ae08a445bcd92b94e301" category="list-text">Stockage connecté pris en charge : ONTAP 9.13 ou version ultérieure</block>
 </blocks>

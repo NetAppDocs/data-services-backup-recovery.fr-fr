@@ -94,6 +94,7 @@ Vous avez besoin d’exigences spécifiques pour découvrir et protéger vos cha
 * Versions VMware vCenter vSphere prises en charge : 7.0U1 et supérieures
 * Adresses IP : IPv4 et IPv6
 * VMware TLS : 1.2, 1.3
+* Stockage connecté pris en charge : ONTAP 9.13 ou version ultérieure
 
 
 *Exigences de connexion et de port pour la protection des charges de travail VMware*
