@@ -10,9 +10,9 @@ La prise en charge des charges de travail Microsoft Hyper-V est désormais gén�
 
 
 
-=== Charges de travail KVM prises en charge en General Availability (GA)
+=== Charges de travail VMware prises en charge en General Availability (GA)
 
-La prise en charge des charges de travail KVM est désormais généralement disponible (GA) dans NetApp Backup and Recovery.
+La prise en charge des charges de travail VMware est désormais disponible en disponibilité générale (GA) dans NetApp Backup and Recovery.
 
 
 
