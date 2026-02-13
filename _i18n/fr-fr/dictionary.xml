@@ -5050,4 +5050,6 @@
   <block id="2e6a10996a90ae08a445bcd92b94e301" category="list-text">Stockage connecté pris en charge : ONTAP 9.13 ou version ultérieure</block>
   <block id="a58576b20da9581ef64dc73d9299ba68" category="list-text">Les datastores NFS et VMFS sont pris en charge.</block>
   <block id="dbeedec7ca35d125dd2a7ee8355c41f5" category="section-title">Charges de travail VMware prises en charge en General Availability (GA)</block>
+  <block id="1fe60033089958dd8dab2fc11925056d" category="section-title">Dépassement de la capacité de licence</block>
+  <block id="73b5f5184f0b378b50b42a6e8ceb743c" category="paragraph">Le dépassement de votre capacité autorisée entraîne l'application des tarifs PAYGO ; sans abonnement PAYGO, vous ne pouvez pas créer de nouvelles sauvegardes, mais les sauvegardes existantes restent restaurables sans garantie de service. Veillez à renouveler votre licence avant son expiration ; une licence expirée empêche la création de nouvelles sauvegardes et interrompt le service.</block>
 </blocks>

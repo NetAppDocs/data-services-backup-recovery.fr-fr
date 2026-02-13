@@ -137,3 +137,9 @@ En option, si vous disposez d'une licence basée sur un nœud non attribué pour
 Vous utilisez la NetApp Console pour gérer les licences BYOL.  Vous pouvez ajouter de nouvelles licences, mettre à jour les licences existantes et afficher l'état des licences à partir de la console.
 
 https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-data-services-licenses.html["En savoir plus sur l'ajout de licences"^].
+
+
+
+== Dépassement de la capacité de licence
+
+Le dépassement de votre capacité autorisée entraîne l'application des tarifs PAYGO ; sans abonnement PAYGO, vous ne pouvez pas créer de nouvelles sauvegardes, mais les sauvegardes existantes restent restaurables sans garantie de service. Veillez à renouveler votre licence avant son expiration ; une licence expirée empêche la création de nouvelles sauvegardes et interrompt le service.
