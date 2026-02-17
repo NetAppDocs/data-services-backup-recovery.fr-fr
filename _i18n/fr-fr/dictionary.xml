@@ -2025,8 +2025,6 @@
   <block id="074c2f1dacf9047766e7f8d5dce71060" category="paragraph">5 Go</block>
   <block id="f3f916d11656905ba60e080b6d73ea62" category="paragraph">Allouez suffisamment d’espace disque et surveillez la consommation de stockage par le dossier des journaux.  L'espace journal requis varie en fonction du nombre de sauvegardes effectuées et de la fréquence des opérations de protection des données.  S'il n'y a pas suffisamment d'espace, les journaux ne seront pas créés pour les opérations.</block>
   <block id="c02f07fcd7047bf35e0bb82decca0939" category="cell">Logiciels requis</block>
-  <block id="fddae060f712e7706e9adb56d9a4fb40" category="list-text">Pack d'hébergement ASP.NET Core Runtime 8.0.12 (et tous les correctifs 8.0.x ultérieurs)</block>
-  <block id="f5b6b1603a32d7ce84d327505a80be82" category="list-text">PowerShell 7.4.2</block>
   <block id="fdd736f6cacce38b5102696f59ea433a" category="paragraph">Pour obtenir les dernières informations sur les versions prises en charge, consultez le<block ref="c2340f294ea0edd3eaa143337cddb591" category="inline-link-rx"></block> .</block>
   <block id="573531ec152a1cc1709422d00088088e" category="section-title">Exigences pour la protection des charges de travail VMware</block>
   <block id="4ccfae37bea4d344c283e2a68013c9c1" category="paragraph">Vous avez besoin d’exigences spécifiques pour découvrir et protéger vos charges de travail VMware.</block>
@@ -2075,7 +2073,6 @@
   <block id="e33a9836e18ab4c7f01ac49f666c4e33" category="section-title">Exigences pour la protection des charges de travail Hyper-V</block>
   <block id="7e75f7658d8e69b52e07a066a4510af5" category="paragraph">Assurez-vous que votre instance Hyper-V répond à des exigences spécifiques pour découvrir et protéger les machines virtuelles.</block>
   <block id="99fcf7547e608c33c370f1d5fe54e0a9" category="list-text">Éditions Microsoft Hyper-V 2019, 2022 et 2025</block>
-  <block id="4c6ec01f6ae03e08c146fe6865423a4b" category="list-text">PowerShell 7.4.2 ou version ultérieure</block>
   <block id="4c0e33820cc2625f20df7d75a7db2a90" category="list-text">Assurez-vous que le trafic HTTPS bidirectionnel est autorisé pour les ports suivants dans les paramètres du pare-feu Windows :</block>
   <block id="2f09bec2ba16dad8a4210aafc07d4e36" category="list-text">8144 (plugin NetApp pour Hyper-V)</block>
   <block id="eeb69275da8e2dd563a27a05a24a4ff1" category="list-text">8145 (plugin NetApp pour Windows)</block>
@@ -5052,4 +5049,7 @@
   <block id="dbeedec7ca35d125dd2a7ee8355c41f5" category="section-title">Charges de travail VMware prises en charge en General Availability (GA)</block>
   <block id="1fe60033089958dd8dab2fc11925056d" category="section-title">Dépassement de la capacité de licence</block>
   <block id="73b5f5184f0b378b50b42a6e8ceb743c" category="paragraph">Le dépassement de votre capacité autorisée entraîne l'application des tarifs PAYGO ; sans abonnement PAYGO, vous ne pouvez pas créer de nouvelles sauvegardes, mais les sauvegardes existantes restent restaurables sans garantie de service. Veillez à renouveler votre licence avant son expiration ; une licence expirée empêche la création de nouvelles sauvegardes et interrompt le service.</block>
+  <block id="b9c809d8faa35e3cecf28c39b12a0890" category="list-text">ASP.NET Core Runtime 8.0.23 Hosting Bundle (et tous les correctifs 8.0.x ultérieurs)</block>
+  <block id="d5339ec2460f6dc04a037cc1e0c21e2c" category="list-text">PowerShell 7.4.13</block>
+  <block id="6d379457554ecca51ab298da606eeb2d" category="list-text">PowerShell 7.4.13 ou version ultérieure</block>
 </blocks>
