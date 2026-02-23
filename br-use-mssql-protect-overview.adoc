@@ -78,9 +78,6 @@ Vous pouvez restaurer des instances et des bases de données Microsoft SQL Serve
 
 
 | StorageGRID | Cloud Volumes ONTAP Système ONTAP sur site | Système ONTAP sur site ONTAP S3 
-
-
-| Amazon FSx for NetApp ONTAP | Amazon FSx for NetApp ONTAP | N / A 
 |===
 
 NOTE: Les références aux « systèmes ONTAP sur site » incluent les systèmes FAS et AFF .
