@@ -4,7 +4,7 @@ permalink: br-use-reports.html
 keywords: backing up, back up, backup, backup on-prem ontap, policy, policies, backup policies, cloud backup, aws, aws s3, azure, google cloud 
 summary: 'Dans NetApp Backup and Recovery, créez des rapports pour afficher l"état de vos sauvegardes, y compris le nombre de sauvegardes, le nombre de sauvegardes réussies et le nombre de sauvegardes ayant échoué.  Vous pouvez également afficher les détails de chaque sauvegarde, y compris le type de sauvegarde, le système de stockage utilisé pour la sauvegarde et l"heure de la sauvegarde.' 
 ---
-= Créer des rapports pour les charges de travail Microsoft SQL Server dans NetApp Backup and Recovery
+= Créez des rapports de protection pour les charges de travail Microsoft SQL Server dans NetApp Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -16,10 +16,11 @@ Dans NetApp Backup and Recovery, créez des rapports pour les charges de travail
 
 
 
-== Créer un rapport
+== Créer un rapport de protection
 
 *Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, administrateur de sauvegarde et de récupération, administrateur de restauration de sauvegarde et de récupération, administrateur de clone de sauvegarde et de récupération.  En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
+.Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez l’option *Rapports*.
 . Sélectionnez *Créer un rapport*.
 . Saisissez les détails de la portée du rapport :

@@ -21,6 +21,7 @@ Vous pouvez effectuer les tâches suivantes liées aux groupes de protection :
 * Créer un groupe de protection.
 * Afficher les détails de la protection.
 * Sauvegardez un groupe de protection maintenant. Voirlink:br-use-kvm-backup.html["Sauvegardez les charges de travail KVM maintenant"] .
+* Modifier un groupe de protection.
 * Supprimer un groupe de protection.
 
 
@@ -39,15 +40,39 @@ Regroupez les machines virtuelles et les pools de stockage que vous souhaitez pr
 . Sélectionnez l'onglet *Groupes de protection*.
 . Sélectionnez *Créer un groupe de protection*.
 . Donnez un nom au groupe de protection.
-. Sélectionnez les machines virtuelles ou les pools de stockage que vous souhaitez inclure dans le groupe de protection.
+. Sélectionnez un hôte pour afficher la liste des machines virtuelles disponibles sur cet hôte. Pour inclure les machines virtuelles de tous les hôtes détectés, sélectionnez *All* dans la liste des hôtes.
+. Sélectionnez les machines virtuelles individuelles que vous souhaitez inclure dans le groupe de protection, ou sélectionnez *All* pour inclure toutes les machines virtuelles dans la liste.
++
+Les machines virtuelles que vous sélectionnez apparaissent dans la section *Machines virtuelles ajoutées*. Vous pouvez supprimer des machines virtuelles individuellement de la liste ou vider entièrement la liste. Vous pouvez ajouter des machines virtuelles de plusieurs hôtes KVM à la liste.
+
 . Sélectionnez *Suivant*.
-. Sélectionnez la *politique de sauvegarde* que vous souhaitez appliquer au groupe de protection.
+. Sélectionnez la politique de protection que vous souhaitez appliquer au groupe de protection, ou créez une nouvelle politique en sélectionnant *Create new policy*.
 +
 Pour plus d’informations sur la création d’une politique de sauvegarde, reportez-vous àlink:br-use-policies-create.html["Créer et gérer des politiques"] .
 
 . Sélectionnez *Suivant*.
 . Vérifiez la configuration.
 . Sélectionnez *Créer* pour créer le groupe de protection.
+
+
+
+
+== Modifier un groupe de protection
+
+Modifiez un groupe de protection si vous devez modifier les détails du groupe de protection sans le supprimer et le recréer.
+
+.Étapes
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
+. Sélectionnez une charge de travail pour afficher les détails de protection.
+. Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
+. Sélectionnez l'onglet *Groupes de protection*.
+. Sélectionnez le groupe de protection que vous souhaitez modifier.
+. Sélectionnez l'icône Actions image:../media/icon-action.png["Option Actions"] > *Modifier*.
+. Apportez les modifications nécessaires aux informations générales et aux machines virtuelles du groupe de protection.
+. Sélectionnez *Suivant*.
+. Si nécessaire, modifiez la stratégie associée au groupe de protection.
+. Sélectionnez *Suivant*.
+. Vérifiez la configuration et sélectionnez *Soumettre*.
 
 
 

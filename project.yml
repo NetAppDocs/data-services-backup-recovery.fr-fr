@@ -225,6 +225,8 @@ sidebar:
         url: "/br-use-manage-kubernetes-applications.html"
       - title: Gérer les modèles de hook d'exécution pour les charges de travail Kubernetes
         url: "/br-use-manage-execution-hook-templates.html"
+      - title: Créer et gérer des rapports de protection
+        url: "/br-use-kubernetes-reports.html"
     - title: Surveiller les emplois
       url: "/br-use-monitor-tasks.html"
     - title: Redémarrer NetApp Backup and Recovery
