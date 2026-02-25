@@ -6,13 +6,13 @@
 
 === Charges de travail KVM prises en charge en General Availability (GA)
 
-La prise en charge des charges de travail Microsoft Hyper-V est désormais généralement disponible (GA) dans NetApp Backup and Recovery.
+La prise en charge des charges de travail KVM est désormais généralement disponible (GA) dans NetApp Backup and Recovery.
 
 Pour plus de détails sur la protection des charges de travail KVM, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kvm-protect-overview.html["Présentation de la protection des charges de travail KVM"] .
 
 
 
-=== Kubernetes pris en charge en General Availability (GA)
+=== Charges de travail Kubernetes prises en charge en General Availability (GA)
 
 La prise en charge des charges de travail Kubernetes est désormais disponible (GA) dans NetApp Backup and Recovery. Cette version des charges de travail Kubernetes introduit également les fonctionnalités améliorées suivantes :
 
