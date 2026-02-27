@@ -16,7 +16,7 @@ summary: 'Veuillez prendre connaissance de ces limitations de NetApp Backup and 
 [role="lead"]
 Les plates-formes, appareils ou fonctionnalités qui ne fonctionnent pas ou ne fonctionnent pas bien avec cette version sont répertoriés ici.  Lisez attentivement ces limitations.
 
-L'action suivante n'est pas prise en charge dans la version d'aperçu privée des charges de travail Oracle Database dans NetApp Backup and Recovery :
+L'action suivante n'est pas prise en charge dans la version préliminaire des charges de travail Oracle Database dans NetApp Backup and Recovery :
 
 * Sauvegarde hors ligne
 

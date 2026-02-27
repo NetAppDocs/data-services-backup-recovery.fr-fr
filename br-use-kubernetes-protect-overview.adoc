@@ -27,9 +27,6 @@ NetApp Backup and Recovery offre les avantages suivants pour la gestion des char
 * Sauvegardes incrémentielles permanentes pour les applications Kubernetes, se traduisant par des objectifs de point de récupération (RPO) et des objectifs de temps de récupération (RTO) inférieurs.
 
 
-
-NOTE: Cette documentation est fournie à titre d'aperçu technologique.  Pendant la phase d'aperçu, la fonctionnalité Kubernetes n'est pas recommandée pour les charges de travail de production. Avec cette offre préliminaire, NetApp se réserve le droit de modifier les détails, le contenu et le calendrier de l'offre avant la disponibilité générale.
-
 Vous pouvez effectuer les tâches suivantes liées à la gestion des charges de travail Kubernetes :
 
 * link:br-start-discover-kubernetes.html["Découvrez les charges de travail Kubernetes"].

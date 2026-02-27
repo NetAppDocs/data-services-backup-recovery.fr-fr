@@ -16,13 +16,13 @@ summary: Cette version de NetApp Backup and Recovery présente les limitations c
 [role="lead"]
 Les plates-formes, appareils ou fonctionnalités qui ne fonctionnent pas ou ne fonctionnent pas bien avec cette version sont répertoriés ici.  Lisez attentivement ces limitations.
 
-Les actions et configurations suivantes ne sont pas prises en charge dans la version d'aperçu privée des charges de travail KVM dans NetApp Backup and Recovery:
+Les actions et configurations suivantes ne sont pas prises en charge dans les charges de travail KVM dans NetApp Backup and Recovery :
 
 
 
 == Actions non prises en charge
 
-Les actions suivantes ne sont pas prises en charge dans la version d’aperçu privée :
+Les actions suivantes ne sont pas prises en charge :
 
 * Cloner, monter ou démonter des machines virtuelles
 * Restaurer les machines virtuelles vers un autre emplacement
@@ -48,7 +48,7 @@ Les configurations suivantes ne sont pas prises en charge :
 
 == Notes de dépannage
 
-Veuillez prendre note des points suivants lors de l'utilisation de l'aperçu privé des charges de travail KVM avec NetApp Backup and Recovery.
+Veuillez prendre note des points suivants lors de l'utilisation de charges de travail KVM avec NetApp Backup and Recovery.
 
 * Les sauvegardes peuvent échouer si l'agent invité QEMU n'est pas exécuté sur une machine virtuelle protégée. Pour contourner ce problème, assurez-vous que le  `qemu-guest-agent` daemon est en cours d'exécution sur la machine virtuelle avant de lancer la sauvegarde.
 

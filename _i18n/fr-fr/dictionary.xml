@@ -343,13 +343,10 @@
   <block id="6b8b6ab08d4425ec0e0d9ea989426fec" category="doc">Limitations connues de NetApp Backup and Recovery pour les charges de travail Hyper-V</block>
   <block id="a9ad02ebb13f3d9fa3cb4a1b59be6548" category="paragraph">Les plates-formes, appareils ou fonctionnalités qui ne fonctionnent pas ou ne fonctionnent pas bien avec cette version sont répertoriés ici.  Lisez attentivement ces limitations.</block>
   <block id="0e32e31adc232e70ce479856e16c7f00" category="section-title">Actions non prises en charge</block>
-  <block id="57a114780f98fd4bb0b06506b0ca9577" category="paragraph">Les actions suivantes ne sont pas prises en charge dans la version d'aperçu privée des charges de travail Hyper-V dans NetApp Backup and Recovery:</block>
   <block id="5ae6a8a06c30125d00a57910609856cf" category="list-text">Répartition des disques (sur plusieurs partages CIFS)</block>
   <block id="5cb642b37b3102019402cbd3b93a5693" category="list-text">Protéger les machines virtuelles via SAN</block>
   <block id="4a03732927298c2d8d1492b3d08bb831" category="summary">Cette version de NetApp Backup and Recovery présente les limitations connues suivantes.</block>
   <block id="5050c99de0a6e1bcf02e7ce66edabd97" category="doc">Limitations connues de NetApp Backup and Recovery pour les charges de travail KVM</block>
-  <block id="448a90c8bbb9415c292cb0e585249a04" category="paragraph">Les actions et configurations suivantes ne sont pas prises en charge dans la version d'aperçu privée des charges de travail KVM dans NetApp Backup and Recovery:</block>
-  <block id="990fa22cecb0eccd120f5d5c758168d4" category="paragraph">Les actions suivantes ne sont pas prises en charge dans la version d’aperçu privée :</block>
   <block id="a06f7c3d3eb77822719225d3ee611842" category="list-text">Cloner, monter ou démonter des machines virtuelles</block>
   <block id="e2b26238e3aec34978fbb465dfd6baff" category="list-text">Restaurer les machines virtuelles vers un autre emplacement</block>
   <block id="fe8e9fc813c1e8a639c0cadb6115589f" category="list-text">Protéger les machines virtuelles stockées sur SAN</block>
@@ -364,7 +361,6 @@
   <block id="def5bb1c4fff047ce52153ac1f2ef9b5" category="list-text">Types de pools de stockage autres que NetFS (seul NetFS est pris en charge)</block>
   <block id="203b3a4b594fb28b853f0cb7e5561c26" category="list-text">Sauvegarde hors ligne</block>
   <block id="11750133b5aeccdb05ec0c5b1027ace4" category="doc">Limitations connues avec NetApp Backup and Recovery pour les charges de travail VMware</block>
-  <block id="bd24e6cbfe24fff0710652a52a0736b5" category="paragraph">Les actions suivantes ne sont pas prises en charge dans la version préliminaire des charges de travail VMware dans NetApp Backup and Recovery:</block>
   <block id="eace16d66cdd93ad876c620db7456077" category="list-text">Monter</block>
   <block id="1281764038ea27ade56d7d2b8be22798" category="list-text">Démonter</block>
   <block id="25e66e51214e8342374fa891a42988b3" category="list-text">Restaurer vers un autre emplacement</block>
@@ -994,7 +990,6 @@
   <block id="2f2ca5d33d51345d8cec8b57e1d131d5" category="list-text">Un plan de contrôle unique pour protéger les applications exécutées sur plusieurs clusters Kubernetes. Ces applications peuvent inclure des conteneurs ou des machines virtuelles exécutés sur vos clusters Kubernetes.</block>
   <block id="ed200d27f38aee4afdff8b4619cdf2ae" category="list-text">Intégration native avec NetApp SnapMirror, permettant des capacités de déchargement du stockage pour tous les flux de travail de sauvegarde et de récupération.</block>
   <block id="1a46229aa405bed39558957f4cb25619" category="list-text">Sauvegardes incrémentielles permanentes pour les applications Kubernetes, se traduisant par des objectifs de point de récupération (RPO) et des objectifs de temps de récupération (RTO) inférieurs.</block>
-  <block id="1e016758a8b3495be7c3ee2b6b26aab6" category="admonition">Cette documentation est fournie à titre d'aperçu technologique.  Pendant la phase d'aperçu, la fonctionnalité Kubernetes n'est pas recommandée pour les charges de travail de production. Avec cette offre préliminaire, NetApp se réserve le droit de modifier les détails, le contenu et le calendrier de l'offre avant la disponibilité générale.</block>
   <block id="e94d9102ade906ff7fd5fc370d68c0d8" category="paragraph">Vous pouvez effectuer les tâches suivantes liées à la gestion des charges de travail Kubernetes :</block>
   <block id="d30235bcb420e82027cadb3cffab450f" category="list-text"><block ref="bdf340f843cf54500673f62df22d5070" category="inline-link-macro-rx"></block>.</block>
   <block id="384b71db954a7a463c759208283e47c4" category="inline-link-macro">Gérer les clusters Kubernetes</block>
@@ -1550,7 +1545,6 @@
   <block id="08dde8a49187490703817f0bb0ca2c66" category="list-text">Créer une politique de réplication vers le stockage secondaire</block>
   <block id="79553f51abb935dd34c66050ba8bd085" category="list-text">Créer une politique pour les paramètres de stockage d'objets</block>
   <block id="560d0289c18f590a486568880a11504c" category="list-text">Configurer les paramètres de stratégie avancés</block>
-  <block id="aa4e928106e1470e1f208b45b3dc915b" category="list-text">Modifier les politiques (non disponible pour les charges de travail d'aperçu VMware)</block>
   <block id="af5b784334cc5cfd8f61f1fa34d0aca5" category="list-text">Supprimer les politiques</block>
   <block id="b7e23f2fbc84fffbedf563f644b8df93" category="section-title">Voir les politiques</block>
   <block id="9a23580d7344d92df6d39880be8984ee" category="list-text">Dans le menu NetApp Backup and Recovery , sélectionnez *Politiques*.</block>
@@ -1826,7 +1820,6 @@
   <block id="1ca9578c25474d5cfeaa6c44bdbaa9b2" category="paragraph">*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, rôle d'administrateur de restauration de sauvegarde et de récupération.<block ref="8d054a08e0e901ba9c326f172eb3627b" category="inline-link-rx"></block> .</block>
   <block id="2aceb93307f82c2d88347faa7eaa4e71" category="list-text">Saisissez le nom de la ressource que vous souhaitez restaurer ou filtrez le vCenter, le centre de données ou la banque de données où se trouve la ressource que vous souhaitez restaurer.</block>
   <block id="a5315c2927cf2b05876fdd6713fbd713" category="summary">NetApp Backup and Recovery est un service de données qui fournit une protection des données efficace, sécurisée et rentable pour toutes vos charges de travail ONTAP , y compris les volumes, les bases de données, les machines virtuelles et les charges de travail Kubernetes.</block>
-  <block id="8fa16cd18cf0722e85fe3e62f649f0c8" category="admonition">La documentation sur la protection des charges de travail VMware, KVM, Hyper-V et Kubernetes est fournie sous forme d'aperçu technologique. Avec cette offre préliminaire, NetApp se réserve le droit de modifier les détails, le contenu et le calendrier de l'offre avant la disponibilité générale.</block>
   <block id="1f603af7daec690416eee590da3bda4c" category="section-title">Ce que vous pouvez faire avec NetApp Backup and Recovery</block>
   <block id="fa9b71fd6339baf1b1e8d4ce0528032e" category="paragraph">Utilisez NetApp Backup and Recovery pour atteindre les objectifs suivants :</block>
   <block id="3b9135fa974c68d619894497e2801b13" category="list-text">* Charges de travail de volume ONTAP * :</block>
@@ -1842,31 +1835,21 @@
   <block id="117e9b8129b2417db1e14aec3e2106f7" category="list-text">Utilisez NetApp Backup and Recovery sans SnapCenter.</block>
   <block id="3d5a9cd83b30ec6ec9f0802593907f05" category="inline-link-macro">Protégez les charges de travail Microsoft SQL Server</block>
   <block id="da8c1ac7631a3731bc377387b2ab2a43" category="list-text">Se référer à<block ref="f095463814b2c4a573628d3f753afa9a" category="inline-link-macro-rx"></block> .</block>
-  <block id="34cd7eb5bb582ffae3f30f17c145150f" category="list-text">*Charges de travail VMware (Aperçu avec nouvelle interface utilisateur sans SnapCenter Plug-in for VMware vSphere)*:</block>
   <block id="fc95c9ae522d362cdffab6c2fe22dcf1" category="list-text">Protégez vos machines virtuelles et banques de données VMware avec NetApp Backup and Recovery.</block>
-  <block id="49ce1089a31878d01e3cf0cfff6ec95e" category="list-text">Sauvegardez les charges de travail VMware sur Amazon Web Services S3 ou StorageGRID (pour l'aperçu).</block>
   <block id="f24990c11b82173bf714c5c0ddeb194e" category="list-text">Restaurez les données VMware du cloud vers le vCenter local.</block>
   <block id="475f34904c96f02d357edad59745a41c" category="list-text">Utilisez NetApp Backup and Recovery sans SnapCenter Plug-in for VMware vSphere.</block>
   <block id="5f1f4aaebaf623a5d33c8d6da504aec5" category="inline-link-macro">Protégez les charges de travail VMware</block>
   <block id="e4f723ac59f54885d902bd6a04536b55" category="list-text">Se référer à<block ref="d745d5ccb3cf0872b9a86c3887ddad65" category="inline-link-macro-rx"></block> .</block>
-  <block id="3e6d14001804fbc004cf88b3856a2939" category="list-text">*Charges de travail VMware (avec SnapCenter Plug-in for VMware vSphere)* :</block>
-  <block id="ba09cb4fb9d29df0e0fba819c4f6f57a" category="list-text">Sauvegardez les machines virtuelles et les banques de données sur Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Platform et StorageGRID et restaurez les machines virtuelles sur l'hôte SnapCenter Plug-in for VMware vSphere sur site.</block>
-  <block id="08a55d368e75d6e7e867b0cbf3839cc3" category="list-text">Restaurez les données de la machine virtuelle depuis le cloud vers le vCenter local avec NetApp Backup and Recovery. Vous pouvez restaurer la machine virtuelle exactement au même emplacement à partir duquel la sauvegarde a été effectuée ou vers un autre emplacement.</block>
-  <block id="0b27037d97c0e92bc84accafa1bdfa2d" category="list-text">Utilisez NetApp Backup and Recovery avec le SnapCenter Plug-in for VMware vSphere.</block>
-  <block id="90dea69f07cd41705feda176fee8105f" category="list-text">Se référer à<block ref="4e4c09988a18e486f48f555be9441a4c" category="inline-link-macro-rx"></block> .</block>
-  <block id="5bf7e6e7676361714b90e6151235e895" category="list-text">*Charges de travail KVM (Aperçu)*:</block>
   <block id="64a1f9dc6b08acfdc4b3300cd2614167" category="list-text">Sauvegarder et restaurer des machines virtuelles</block>
   <block id="3ec425e496ee5df005029a2242617ee7" category="list-text">Sauvegarder les pools de stockage KVM</block>
   <block id="bf935bfc55ca04061ab2aa083d9f2757" category="list-text">Utiliser des groupes de protection pour gérer les tâches de sauvegarde</block>
   <block id="0b76d4eeae7343324d102cedb375e5ef" category="inline-link-macro">Protégez les charges de travail KVM</block>
   <block id="6cbc8c6fa341365b6c9f18b15dde4b43" category="list-text">Se référer à<block ref="e223d31e0b77da378054c44c11584c81" category="inline-link-macro-rx"></block> .</block>
-  <block id="492fd59c461c682062524e7444f188c1" category="list-text">*Charges de travail Hyper-V (Aperçu)*:</block>
   <block id="bcd52013d4bab273c97ec6049c73eb19" category="inline-link-macro">Protégez les charges de travail Hyper-V</block>
   <block id="6a88dd8d1df81c216e94864f62adb181" category="list-text">Se référer à<block ref="5ad55f158503485706ea0446a924f3eb" category="inline-link-macro-rx"></block> .</block>
   <block id="9ccb39720e55d973803af308a46b7f9d" category="list-text">Sauvegarder et restaurer les bases de données et les journaux</block>
   <block id="b9f9fe4773f2a73086e819aa78413e31" category="list-text">Créer des politiques pour gérer les sauvegardes de bases de données et de journaux</block>
   <block id="1aced3c59920e62aa237af558421e7bc" category="list-text">Protéger une base de données avec une architecture de sauvegarde 3-2-1</block>
-  <block id="3066f1ebade966cf5d09fd225d9c82df" category="list-text">*Charges de travail Kubernetes (Aperçu)*:</block>
   <block id="1c1c6b4c5003945f6d28242d24286ee6" category="list-text">Gérez et protégez vos applications et ressources Kubernetes en un seul endroit.</block>
   <block id="3f06fb8fe2ecccdacfaa2644488d935d" category="list-text">Utilisez des politiques de protection pour structurer vos sauvegardes incrémentielles.</block>
   <block id="116fc6c4cddb8e42e7260e6817cd901f" category="list-text">Restaurez les applications et les ressources sur les mêmes clusters et espaces de noms ou sur des clusters et espaces de noms différents.</block>
@@ -1910,14 +1893,9 @@
   <block id="9757bd87f9a5ff6758600430092b3955" category="paragraph">Notez qu'un essai gratuit de 30 jours est disponible lorsque vous souscrivez initialement à un abonnement PAYGO.</block>
   <block id="9504b35cbb481ca2332f36aedcf456c8" category="list-text">Volumes ONTAP</block>
   <block id="5c1924f6230f429d87dfb7fd242478ba" category="list-text">Machines virtuelles et banques de données VMware</block>
-  <block id="d696f54a4219f10612b2a92868d7f533" category="list-text">Charges de travail KVM (Aperçu)</block>
-  <block id="ba244ce1386922db2aac58f9ea35cf82" category="list-text">Charges de travail Hyper-V (Aperçu)</block>
-  <block id="339f6d69f0298e3d4bbd943ba3211c6c" category="list-text">Charges de travail Kubernetes (Aperçu)</block>
   <block id="d97ad1eba4f90ab1f835497c1e04b99f" category="list-text">Cloud Volumes ONTAP 9.8 ou supérieur pour AWS (utilisant SAN et NAS)</block>
   <block id="c5446f6574237d9a06e2a847d988c357" category="list-text">Cloud Volumes ONTAP 9.8 ou supérieur pour Microsoft Azure (utilisant SAN et NAS)</block>
   <block id="736ca911d7d143d01bd8cbfe0d4afbca" category="list-text">Amazon Web Services (AWS) S3</block>
-  <block id="fd986c9449acb5abd97bea849d50dc49" category="list-text">Microsoft Azure Blob (non disponible pour les charges de travail VMware en version préliminaire)</block>
-  <block id="2892aac222ad56500a9c836677137630" category="list-text">ONTAP S3 (non disponible pour les charges de travail VMware en version préliminaire)</block>
   <block id="6059115d52bd54fd7eda8348da15bf57" category="section-title">Comment fonctionne la NetApp Backup and Recovery</block>
   <block id="f4bd2e075b247b13852d5afbc79f8e98" category="paragraph">Lorsque vous activez NetApp Backup and Recovery, le service effectue une sauvegarde complète de vos données.  Après la sauvegarde initiale, toutes les sauvegardes supplémentaires sont incrémentielles.  Cela permet de maintenir le trafic réseau à un minimum.</block>
   <block id="504927eafa9845be671b630ab35b5fe6" category="paragraph">L'image suivante montre la relation entre les composants.</block>
@@ -3626,7 +3604,6 @@
   <block id="5a583661a8908e9d0eb4e2adb7e14660" category="paragraph">Lorsque vous utilisez ONTAP 9.13.0 ou une version ultérieure, vous pouvez restaurer un dossier avec tous les fichiers et sous-dossiers qu'il contient.  Lorsque vous utilisez une version d' ONTAP antérieure à 9.13.0, seuls les fichiers de ce dossier sont restaurés - aucun sous-dossier, ni fichier dans les sous-dossiers, n'est restauré.</block>
   <block id="c2d4eb2ee4a0b78ea11dd0bb39d93ab0" category="list-text">Si le fichier de sauvegarde a été configuré avec la protection DataLock et Ransomware, la restauration au niveau du dossier n'est prise en charge que si la version ONTAP est 9.13.1 ou supérieure.  Si vous utilisez une version antérieure d' ONTAP, vous pouvez restaurer l'intégralité du volume à partir du fichier de sauvegarde, puis accéder au dossier et aux fichiers dont vous avez besoin.</block>
   <block id="df253d89e3119a8555e39eb63655c32c" category="list-text">Si le fichier de sauvegarde réside dans un stockage d'archives, la restauration au niveau du dossier n'est prise en charge que si la version ONTAP est 9.13.1 ou supérieure.  Si vous utilisez une version antérieure d' ONTAP, vous pouvez restaurer le dossier à partir d'un fichier de sauvegarde plus récent qui n'a pas été archivé, ou vous pouvez restaurer l'intégralité du volume à partir de la sauvegarde archivée, puis accéder au dossier et aux fichiers dont vous avez besoin.</block>
-  <block id="15f09261e873aa1d63f5dcc04347b79b" category="list-text">Avec ONTAP 9.15.1, vous pouvez restaurer les dossiers FlexGroup à l'aide de l'option « Parcourir et restaurer ».  Cette fonctionnalité est en mode Aperçu technologique.</block>
   <block id="c054500f5cedecfadc47182aa4b27beb" category="inline-link">Blog sur la version de juillet 2024 de NetApp Backup and Recovery</block>
   <block id="ffd82299c0fb8f025a7c16eea2a4cbb6" category="paragraph">Vous pouvez le tester en utilisant un indicateur spécial décrit dans le<block ref="ee15696d5c6d30dc4b29a5712c1eb817" category="inline-link-rx"></block> .</block>
   <block id="ee68e5b99222bbc29a480fcb0d1d6ee2" category="section-title">Prérequis</block>
@@ -4031,7 +4008,6 @@
   <block id="4dba655852206fd33ef2ae210d0f09ea" category="sidebar">Sauvegarder les charges de travail Microsoft SQL Server</block>
   <block id="a86a44463f171d5cbfffdac926d2c5f7" category="sidebar">Restaurer les charges de travail Microsoft SQL Server</block>
   <block id="c82b8b73ed613da47a71b640f8e94c5d" category="sidebar">Cloner les charges de travail Microsoft SQL Server</block>
-  <block id="8f12fe2d1611902de146ad61b89b8295" category="sidebar">Protéger les charges de travail Kubernetes (aperçu)</block>
   <block id="813011e2103649bb71f124adedcc10ea" category="sidebar">Blogs et communauté</block>
   <block id="cc58d3a9b2264c4fd8cb1d3f61b90bdc" category="sidebar">NetApp Data Services</block>
   <block id="dd490b81914dd945601e442a41cb4222" category="sidebar">Communauté NetApp</block>
@@ -4065,9 +4041,7 @@
   <block id="c00b274754a2d13242a61b1534660a37" category="sidebar">Gérer l'inventaire de Microsoft SQL Server</block>
   <block id="41e1a34ea3ba2b687b86e55ec1a7955d" category="sidebar">Gérer les instantanés Microsoft SQL Server</block>
   <block id="c8ffa42e0e508862d020665c979eb5c0" category="sidebar">Créer des rapports Microsoft SQL Server</block>
-  <block id="a6c93de7c03701dfba222e9072ffe5e7" category="sidebar">Protéger les charges de travail KVM (Aperçu)</block>
   <block id="34caa737a5a671b66cc6fe7531c1f8b9" category="sidebar">Monter et démonter des points de récupération</block>
-  <block id="60c0c463b8839d0f2c5e5cea8fa728ad" category="sidebar">Protéger les charges de travail Kubernetes (Aperçu)</block>
   <block id="3186e7c44dc909386a0204716ffc46f6" category="sidebar">Gérer les modèles de hook d'exécution pour les charges de travail Kubernetes</block>
   <block id="4639d0e2e2909a747265c2f704128bca" category="sidebar">Surveiller les emplois</block>
   <block id="68b1e52936c426875b2780e91e195546" category="sidebar">Automatisez avec l'API REST</block>
@@ -4380,7 +4354,6 @@
   <block id="063090df0880212c0ba8eec878096a21" category="doc">Améliorations en avant-première des charges de travail VMware</block>
   <block id="24936fb650df7af8295e75a3667becef" category="list-text">Vous pouvez désormais restaurer les sauvegardes et les instantanés vers un autre emplacement. Ceci est utile si vous souhaitez gérer des versions d'une machine virtuelle sur différents déploiements VMware vCenter, hôtes VMware ESXi ou banques de données VMware.</block>
   <block id="99ee61e75520f174d08caa35e0ad294d" category="list-text">Vous pouvez désormais restaurer des disques virtuels VMware spécifiques (images VMDK) à partir d'un emplacement principal ou secondaire, ce qui permet un contrôle plus précis de la restauration des données de la machine virtuelle.</block>
-  <block id="77f252cb66af8ee7dab8b27bcf3851ca" category="paragraph">Non disponible en préversion pour les charges de travail KVM.</block>
   <block id="516f1f530028d7905b72cd1b035c8a73" category="list-text">*Restauration à l'emplacement d'origine* : La machine virtuelle est restaurée à son emplacement d'origine, sur le même déploiement vCenter, le même hôte ESXi et la même banque de données. La machine virtuelle et toutes ses données ont été écrasées.</block>
   <block id="d2f574e5e69d11881580660614b89ba3" category="list-text">*Restaurer vers un autre emplacement* : Vous pouvez choisir un autre vCenter, hôte ESXi ou datastore comme cible de restauration pour la VM. Ceci est utile pour gérer différentes copies d'une même machine virtuelle situées à différents endroits et dans différents états.</block>
   <block id="fa378eb8651e1bbe815e91c2a4ec5b2b" category="list-text">Dans la liste déroulante située à droite du champ de recherche par nom, sélectionnez *VMware*.</block>
@@ -4806,7 +4779,6 @@
   <block id="9f0dc4af8fb867cc1d90bc96a3df9976" category="paragraph">Lorsque vous créez une politique de protection 3-2-1 où aucune sauvegarde de stockage d'objets n'a lieu en même temps que la réplication vers le stockage secondaire, la politique de protection se bloque lors de la protection de l'application.</block>
   <block id="7a9541e3e0859a3bc7198878ae12b9bd" category="paragraph">*Solution de contournement*: Supprimez puis rajoutez l’application et protégez-la avec une politique de protection différente.</block>
   <block id="3f21300a12c48d2767fb3e5b7f83112b" category="doc">Limitations connues avec NetApp Backup and Recovery pour les charges de travail de base de données Oracle</block>
-  <block id="b295452d4036457162f0388dddf070da" category="paragraph">L'action suivante n'est pas prise en charge dans la version d'aperçu privée des charges de travail Oracle Database dans NetApp Backup and Recovery :</block>
   <block id="bc757dcd5d14a5f50685dfc481e61eb9" category="paragraph">Oracle Database n'est pris en charge que sous forme de déploiement autonome utilisant NFS, SAN ou ASM SAN dans la version d'aperçu privée des charges de travail Oracle Database.</block>
   <block id="92342f1ac80ff519b37da9a3148cbbd9" category="summary">Pour une sécurité renforcée, configurez l'accès pour des rôles spécifiques dans NetApp Backup and Recovery.</block>
   <block id="42481383ace46d9a4716cce3ab760979" category="doc">Configurez le contrôle d'accès basé sur les rôles dans NetApp Backup and Recovery</block>
@@ -5036,7 +5008,6 @@
   <block id="1e6021824e75d382885d2bb2e945f719" category="sidebar">Restaurez des applications Kubernetes à l'aide de ressources personnalisées</block>
   <block id="6108d5ad430f0631e5c6e10714ba980c" category="doc">Charges de travail Microsoft Hyper-V prises en charge en General Availability (GA)</block>
   <block id="c5db154b8366e71dcf87e4624b1a0112" category="paragraph">La prise en charge des charges de travail Microsoft Hyper-V est désormais généralement disponible (GA) dans NetApp Backup and Recovery.</block>
-  <block id="a4af15d338a93411ae3eacbe3e9d1c5e" category="sidebar">Protéger les charges de travail KVM (aperçu)</block>
   <block id="bd7b6aa0517dacb10ee10e479293ef82" category="sidebar">Protéger les charges de travail Oracle Database (aperçu)</block>
   <block id="2e6a10996a90ae08a445bcd92b94e301" category="list-text">Stockage connecté pris en charge : ONTAP 9.13 ou version ultérieure</block>
   <block id="a58576b20da9581ef64dc73d9299ba68" category="list-text">Les datastores NFS et VMFS sont pris en charge.</block>
@@ -5049,7 +5020,6 @@
   <block id="5a9e2fbc6e8b2849a76465cd1a86c575" category="doc">Charges de travail KVM prises en charge en General Availability (GA)</block>
   <block id="2c4d488d266d9d0655ce2e1451e05b2d" category="paragraph">La prise en charge des charges de travail Kubernetes est désormais disponible (GA) dans NetApp Backup and Recovery. Cette version des charges de travail Kubernetes introduit également les fonctionnalités améliorées suivantes :</block>
   <block id="2329c3692bdf2d2f098db291ec4e9427" category="paragraph">*Prise en charge des rapports* : Vous pouvez désormais générer des rapports d’activité de protection pour les clusters Kubernetes et les applications protégées par NetApp Backup and Recovery.</block>
-  <block id="2b9a71c68fa2528dcd54a63d6e7b908d" category="paragraph">Veuillez prendre note des points suivants lors de l'utilisation de l'aperçu privé des charges de travail KVM avec NetApp Backup and Recovery.</block>
   <block id="bc077e67c7216de25b87f90d5ec28ac0" category="list-text">Les sauvegardes peuvent échouer si l'agent invité QEMU n'est pas exécuté sur une machine virtuelle protégée. Pour contourner ce problème, assurez-vous que le <block ref="c17d9742912ea08e0cfecda90a08c954" prefix=" " category="inline-code"></block> daemon est en cours d'exécution sur la machine virtuelle avant de lancer la sauvegarde.</block>
   <block id="66330fd6b5a015d85e0b01e96c040005" category="summary">Créez des rapports de protection pour les charges de travail Kubernetes afin de consulter l'état et les détails de la protection, y compris le nombre de sauvegardes réussies et échouées, les types de sauvegarde, les informations sur l'état du cluster, et plus encore.</block>
   <block id="7e9944e42087b52e398e40511794ab10" category="doc">Créez et gérez des rapports de protection pour les charges de travail Kubernetes dans NetApp Backup and Recovery</block>
@@ -5089,4 +5059,23 @@
   <block id="175ddb68a640ea3daeb84c25a2402e6f" category="sidebar">Créer et gérer des rapports de protection</block>
   <block id="1d30989467a5dda6a77c2158034a190b" category="paragraph">La prise en charge des charges de travail KVM est désormais généralement disponible (GA) dans NetApp Backup and Recovery.</block>
   <block id="403eb7104337d3b7cb0c9cbd6a28b588" category="section-title">Charges de travail Kubernetes prises en charge en General Availability (GA)</block>
+  <block id="71f636f07034b2d1d650aeb1ede6791a" category="paragraph">Les actions suivantes ne sont pas prises en charge dans les charges de travail Hyper-V dans NetApp Backup and Recovery :</block>
+  <block id="673d360a297ae7b77b6f88af0d8b7c82" category="paragraph">Les actions et configurations suivantes ne sont pas prises en charge dans les charges de travail KVM dans NetApp Backup and Recovery :</block>
+  <block id="3103a41775992118299ff5a989897ac4" category="paragraph">Les actions suivantes ne sont pas prises en charge :</block>
+  <block id="98c68c9df24559c3d5cf6d8c6cc85b9f" category="paragraph">Veuillez prendre note des points suivants lors de l'utilisation de charges de travail KVM avec NetApp Backup and Recovery.</block>
+  <block id="5a7772dd6a45520c18defbce09d0dedf" category="paragraph">L'action suivante n'est pas prise en charge dans la version préliminaire des charges de travail Oracle Database dans NetApp Backup and Recovery :</block>
+  <block id="fffe6dab1367a6da9b1ff43e10e3c12a" category="paragraph">Les actions suivantes ne sont pas prises en charge dans les charges de travail VMware dans NetApp Backup and Recovery :</block>
+  <block id="c06eb245245b3fcd57078c80941d50ca" category="paragraph">Non disponible pour les charges de travail KVM.</block>
+  <block id="97c13d527bcfec5ed7f29badd43016d8" category="list-text">Modifier les stratégies (non disponible pour les charges de travail VMware)</block>
+  <block id="332f36926e04f03459b83b7c8da214a6" category="list-text">*Charges de travail VMware (avec nouvelle interface utilisateur sans SnapCenter Plug-in for VMware vSphere)* :</block>
+  <block id="66484fcd4199c3f1b40e50c680ad4e56" category="list-text">Sauvegardez les charges de travail VMware sur Amazon Web Services S3 ou StorageGRID.</block>
+  <block id="6a4470b3ca7a52803928f40d397b0521" category="list-text">*Charges de travail KVM*:</block>
+  <block id="c4d36d8f4f3b72c9d5cac59995049781" category="list-text">*Charges de travail Hyper-V*:</block>
+  <block id="b6178e1ff85723d95932c36399cc61c2" category="list-text">*Charges de travail Kubernetes*:</block>
+  <block id="b46d8ca76f6fb8083d6d1c87abd6ef50" category="list-text">Charges de travail KVM</block>
+  <block id="5c4a8ce913e27612e0af180d6ef12ee6" category="list-text">Charges de travail Hyper-V</block>
+  <block id="49396edcdc3d3d7e4bec42adc037a5ef" category="list-text">Charges de travail Kubernetes</block>
+  <block id="2432a396f38937322a4e606bf0aa7f0a" category="list-text">Microsoft Azure Blob (non disponible pour les charges de travail VMware)</block>
+  <block id="ab95f28db65589c3a2b5f277f324e60b" category="list-text">ONTAP S3 (Non disponible pour les charges de travail VMware)</block>
+  <block id="1d57820923cf47d0bb8ab74db80344ab" category="list-text">Avec ONTAP 9.15.1, vous pouvez restaurer des dossiers FlexGroup à l'aide de l'option « Parcourir et restaurer ».</block>
 </blocks>

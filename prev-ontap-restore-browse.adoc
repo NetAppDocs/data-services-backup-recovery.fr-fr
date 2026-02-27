@@ -153,7 +153,7 @@ Lorsque vous utilisez ONTAP 9.13.0 ou une version ultérieure, vous pouvez resta
 ====
 * Si le fichier de sauvegarde a été configuré avec la protection DataLock et Ransomware, la restauration au niveau du dossier n'est prise en charge que si la version ONTAP est 9.13.1 ou supérieure.  Si vous utilisez une version antérieure d' ONTAP, vous pouvez restaurer l'intégralité du volume à partir du fichier de sauvegarde, puis accéder au dossier et aux fichiers dont vous avez besoin.
 * Si le fichier de sauvegarde réside dans un stockage d'archives, la restauration au niveau du dossier n'est prise en charge que si la version ONTAP est 9.13.1 ou supérieure.  Si vous utilisez une version antérieure d' ONTAP, vous pouvez restaurer le dossier à partir d'un fichier de sauvegarde plus récent qui n'a pas été archivé, ou vous pouvez restaurer l'intégralité du volume à partir de la sauvegarde archivée, puis accéder au dossier et aux fichiers dont vous avez besoin.
-* Avec ONTAP 9.15.1, vous pouvez restaurer les dossiers FlexGroup à l'aide de l'option « Parcourir et restaurer ».  Cette fonctionnalité est en mode Aperçu technologique.
+* Avec ONTAP 9.15.1, vous pouvez restaurer des dossiers FlexGroup à l'aide de l'option « Parcourir et restaurer ».
 +
 Vous pouvez le tester en utilisant un indicateur spécial décrit dans le https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-July-2024-Release/ba-p/453993#toc-hId-1830672444["Blog sur la version de juillet 2024 de NetApp Backup and Recovery"^] .
 

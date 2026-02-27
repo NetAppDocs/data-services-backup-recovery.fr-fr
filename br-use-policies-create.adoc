@@ -25,7 +25,7 @@ Vous pouvez atteindre les objectifs suivants liés aux politiques :
 * Créer une politique de réplication vers le stockage secondaire
 * Créer une politique pour les paramètres de stockage d'objets
 * Configurer les paramètres de stratégie avancés
-* Modifier les politiques (non disponible pour les charges de travail d'aperçu VMware)
+* Modifier les stratégies (non disponible pour les charges de travail VMware)
 * Supprimer les politiques
 
 

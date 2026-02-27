@@ -20,7 +20,7 @@ Les plates-formes, appareils ou fonctionnalités qui ne fonctionnent pas ou ne f
 
 == Actions non prises en charge
 
-Les actions suivantes ne sont pas prises en charge dans la version d'aperçu privée des charges de travail Hyper-V dans NetApp Backup and Recovery:
+Les actions suivantes ne sont pas prises en charge dans les charges de travail Hyper-V dans NetApp Backup and Recovery :
 
 * Créez des groupes de ressources à l'aide de machines virtuelles provenant de plusieurs hôtes Hyper-V.
 * Restaurer les machines virtuelles vers un autre emplacement

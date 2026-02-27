@@ -19,9 +19,6 @@ NetApp Backup and Recovery est un service de données qui fournit une protection
 La prise en charge de la sauvegarde et de la récupération est déjà intégrée à tous les systèmes ONTAP , il n'est donc pas nécessaire de recourir à du matériel supplémentaire, à des licences logicielles ou à des passerelles multimédias. Cela rend les opérations de sauvegarde simples et rentables. La NetApp Console simplifie la mise en œuvre de toute stratégie de sauvegarde, y compris toute la gamme des variantes de sauvegarde 3-2-1, sans nécessiter plusieurs gestionnaires de ressources ou du personnel spécialisé.
 
 
-NOTE: La documentation sur la protection des charges de travail VMware, KVM, Hyper-V et Kubernetes est fournie sous forme d'aperçu technologique. Avec cette offre préliminaire, NetApp se réserve le droit de modifier les détails, le contenu et le calendrier de l'offre avant la disponibilité générale.
-
-
 
 == Ce que vous pouvez faire avec NetApp Backup and Recovery
 
@@ -44,25 +41,17 @@ Utilisez NetApp Backup and Recovery pour atteindre les objectifs suivants :
 ** Se référer àlink:br-use-mssql-protect-overview.html["Protégez les charges de travail Microsoft SQL Server"] .
 
 
-* *Charges de travail VMware (Aperçu avec nouvelle interface utilisateur sans SnapCenter Plug-in for VMware vSphere)*:
+* *Charges de travail VMware (avec nouvelle interface utilisateur sans SnapCenter Plug-in for VMware vSphere)* :
 +
 ** Protégez vos machines virtuelles et banques de données VMware avec NetApp Backup and Recovery.
-** Sauvegardez les charges de travail VMware sur Amazon Web Services S3 ou StorageGRID (pour l'aperçu).
+** Sauvegardez les charges de travail VMware sur Amazon Web Services S3 ou StorageGRID.
 ** Restaurez les données VMware du cloud vers le vCenter local.
 ** Vous pouvez restaurer la machine virtuelle exactement au même emplacement à partir duquel la sauvegarde a été effectuée ou vers un autre emplacement.
 ** Utilisez NetApp Backup and Recovery sans SnapCenter Plug-in for VMware vSphere.
 ** Se référer àlink:br-use-vmware-protect-overview.html["Protégez les charges de travail VMware"] .
 
 
-* *Charges de travail VMware (avec SnapCenter Plug-in for VMware vSphere)* :
-+
-** Sauvegardez les machines virtuelles et les banques de données sur Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Platform et StorageGRID et restaurez les machines virtuelles sur l'hôte SnapCenter Plug-in for VMware vSphere sur site.
-** Restaurez les données de la machine virtuelle depuis le cloud vers le vCenter local avec NetApp Backup and Recovery. Vous pouvez restaurer la machine virtuelle exactement au même emplacement à partir duquel la sauvegarde a été effectuée ou vers un autre emplacement.
-** Utilisez NetApp Backup and Recovery avec le SnapCenter Plug-in for VMware vSphere.
-** Se référer àlink:prev-vmware-protect-overview.html["Protégez les charges de travail VMware"] .
-
-
-* *Charges de travail KVM (Aperçu)*:
+* *Charges de travail KVM*:
 +
 ** Sauvegarder et restaurer des machines virtuelles
 ** Sauvegarder les pools de stockage KVM
@@ -70,7 +59,7 @@ Utilisez NetApp Backup and Recovery pour atteindre les objectifs suivants :
 ** Se référer àlink:br-use-kvm-protect-overview.html["Protégez les charges de travail KVM"] .
 
 
-* *Charges de travail Hyper-V (Aperçu)*:
+* *Charges de travail Hyper-V*:
 +
 ** Sauvegarder et restaurer des machines virtuelles
 ** Utiliser des groupes de protection pour gérer les tâches de sauvegarde
@@ -88,7 +77,7 @@ Utilisez NetApp Backup and Recovery pour atteindre les objectifs suivants :
 ** Se référer à link:br-use-oracle-protect-overview.html["Protégez les charges de travail Oracle Database"].
 
 
-* *Charges de travail Kubernetes (Aperçu)*:
+* *Charges de travail Kubernetes*:
 +
 ** Gérez et protégez vos applications et ressources Kubernetes en un seul endroit.
 ** Utilisez des politiques de protection pour structurer vos sauvegardes incrémentielles.
@@ -203,10 +192,10 @@ NetApp Backup and Recovery protège les types de charges de travail suivants :
 * Volumes ONTAP
 * Instances et bases de données Microsoft SQL Server stockées sur disque physique et sur disque de machine virtuelle VMware (VMDK) via VMFS ou NFS
 * Machines virtuelles et banques de données VMware
-* Charges de travail KVM (Aperçu)
-* Charges de travail Hyper-V (Aperçu)
+* Charges de travail KVM
+* Charges de travail Hyper-V
 * Charges de travail de base de données Oracle (Aperçu)
-* Charges de travail Kubernetes (Aperçu)
+* Charges de travail Kubernetes
 
 
 .Systèmes pris en charge
@@ -220,9 +209,9 @@ NetApp Backup and Recovery protège les types de charges de travail suivants :
 .Cibles de sauvegarde prises en charge
 * Amazon Web Services (AWS) S3
 * Stockage Google Cloud
-* Microsoft Azure Blob (non disponible pour les charges de travail VMware en version préliminaire)
+* Microsoft Azure Blob (non disponible pour les charges de travail VMware)
 * StorageGRID
-* ONTAP S3 (non disponible pour les charges de travail VMware en version préliminaire)
+* ONTAP S3 (Non disponible pour les charges de travail VMware)
 
 
 
