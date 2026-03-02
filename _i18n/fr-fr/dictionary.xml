@@ -670,13 +670,7 @@
   <block id="acaaf9de0e4071fe117da04dbbe9565d" category="list-text">Dans la mosaïque KVM, sélectionnez *Découvrir et gérer*.</block>
   <block id="12d8eeba7e97739f6035cbec50bd2369" category="list-text">*Type de charge de travail* : sélectionnez *KVM*.</block>
   <block id="238fb750ebdea9faf36668536aaa8b42" category="paragraph">La charge de travail KVM s'affiche dans la liste des charges de travail sur la page Inventaire.</block>
-  <block id="945f74309f719db5d0fb0d1bb5a31781" category="paragraph">NetApp Backup and Recovery doit d’abord découvrir vos bases de données Oracle afin que vous puissiez les protéger.</block>
-  <block id="bf36d800e1bbaf0ef44cd361867e4e09" category="section-title">Ajoutez un hôte Oracle et découvrez des ressources</block>
   <block id="8160dc72c9473d18119ea3e52fe65572" category="paragraph">Ajoutez les informations sur l’hôte Oracle et laissez NetApp Backup and Recovery découvrir les charges de travail. Dans chaque agent de console, sélectionnez les systèmes sur lesquels vous souhaitez découvrir les charges de travail.</block>
-  <block id="bdd8003feffb3131de98b744d8d7e952" category="list-text">*Type de charge de travail* : sélectionnez *Oracle*.</block>
-  <block id="c758c27facd2d09f2ccc8fc60719f412" category="list-text">Si vous n'avez pas encore enregistré les informations d'identification pour cet hôte Oracle, sélectionnez *Ajouter des informations d'identification*.</block>
-  <block id="8bd91057b53c6035123596e5f2ba38ab" category="list-text">*Enregistrement de l'hôte* : ajoutez un nouvel hôte Oracle.  Saisissez le nom de domaine complet ou l'adresse IP de l'hôte, les informations d'identification, l'agent de console et le numéro de port.</block>
-  <block id="5ea9a0faddd392a3b490b6e503bc42b2" category="paragraph">La charge de travail Oracle s'affiche dans la liste des charges de travail sur la page Inventaire.</block>
   <block id="5b9d0f0da934c7776ba30ad3c1fe47b2" category="doc">Découvrez les charges de travail Microsoft SQL Server et importez-les éventuellement depuis SnapCenter dans NetApp Backup and Recovery</block>
   <block id="cd6726508604886a0b7b678ad4f6a2b8" category="paragraph">NetApp Backup and Recovery doit d’abord découvrir les charges de travail Microsoft SQL Server pour que vous puissiez utiliser le service.  Vous pouvez éventuellement importer des données de sauvegarde et des politiques à partir de SnapCenter si SnapCenter est déjà installé.</block>
   <block id="da39a7712232603b7b60f32ff70cea25" category="section-title">Découvrez les charges de travail Microsoft SQL Server et importez éventuellement des ressources SnapCenter</block>
@@ -1364,7 +1358,6 @@
   <block id="81397f7503542040ff1aa87c847e281b" category="list-text">Pour continuer, sélectionnez *Ignorer*.</block>
   <block id="67728477667cd78a4cb8ac8a3336c7ef" category="paragraph">Vous pouvez diviser un clone de vos charges de travail Microsoft SQL Server.  La division d’un clone crée une nouvelle sauvegarde à partir du clone.  La nouvelle sauvegarde peut être utilisée pour restaurer les charges de travail.</block>
   <block id="f4ed3104414bb69a5dfac99135ef72f2" category="paragraph">Vous pouvez choisir de diviser un clone en clones indépendants ou à long terme.  Un assistant affiche la liste des agrégats qui font partie du SVM, leurs tailles et l'emplacement où réside le volume cloné.  NetApp Backup and Recovery indique également s'il y a suffisamment d'espace pour diviser le clone.  Une fois le clone divisé, le clone devient une base de données indépendante pour la protection.</block>
-  <block id="fc54fcad59dc4a5ea9c76bbb98303c4a" category="paragraph">Le travail de clonage ne doit pas être supprimé et peut être réutilisé pour d'autres clones.</block>
   <block id="3cc3bf063b3735dfee9852891c6d4ef6" category="list-text">Sélectionnez un clone.</block>
   <block id="42db557ffc18279f75ced7531cb65db0" category="list-text">Sélectionnez l'icône Actions<block ref="2137b8853c2ddb346939b7d46bf562c2" category="inline-image-macro-rx" type="image"></block> &gt; *Clone divisé*.</block>
   <block id="91a9421f27cf61e52bea5d9c90e7f79e" category="list-text">Vérifiez les détails du clone divisé et sélectionnez *Diviser*.</block>
@@ -1478,7 +1471,6 @@
   <block id="d8e3db119b7cf9c31602a2121bfa4365" category="list-text">Sélectionnez la base de données que vous souhaitez sauvegarder.</block>
   <block id="77b7ee08ed330c77cd76797cc7019357" category="doc">Monter et démonter des points de récupération de base de données Oracle avec NetApp Backup and Recovery</block>
   <block id="797c8d8b5a0f5a880bd15fd855682db6" category="paragraph">Vous souhaiterez peut-être monter un point de récupération de base de données Oracle si vous devez accéder à la base de données dans un état contrôlé pour effectuer des opérations de récupération.</block>
-  <block id="079a3f8ec0bb95d8f0ae5d36f04de7c4" category="section-title">Monter un point de restauration de base de données Oracle</block>
   <block id="027d1aa00ef27e7ff911f7a3ecb49c5d" category="list-text">Sélectionnez la tuile Oracle.</block>
   <block id="3fe9c6f0345265378a65d07de3e0456f" category="list-text">Dans le menu Sauvegarde et récupération, sélectionnez *Inventaire*.</block>
   <block id="872dd4524336673d42ecaa46bc8eb4a9" category="list-text">Pour la charge de travail de la base de données Oracle dans la liste, sélectionnez *Afficher*.</block>
@@ -1492,7 +1484,6 @@
   <block id="96a0bc8738e149cc2c970e821cab7d08" category="paragraph">Le chemin de montage que Backup and Recovery doit utiliser s'affiche.</block>
   <block id="da4155d1cceea0707c4abe61465647f3" category="list-text">Sélectionnez *Monter*.</block>
   <block id="87f1df33c9d0ca12a7396f2e8f264291" category="paragraph">Le point de récupération est monté sur l’hôte Oracle.</block>
-  <block id="ce5c6f3695f2913abcf739f0f30f1067" category="section-title">Démonter un point de restauration de base de données Oracle</block>
   <block id="078e01c25936988332a6694f6b3c4157" category="paragraph">Démontez le point de récupération lorsque vous n’avez plus besoin d’afficher les modifications apportées à cette base de données.</block>
   <block id="a8e9d9645fc4e43a4a7ce0324acee062" category="list-text">Pour la charge de travail Oracle dans la liste, sélectionnez *Afficher*.</block>
   <block id="6f951d1c709837901904521a57b0a9f4" category="list-text">Choisissez un point de récupération dans la liste et sélectionnez l’icône Actions<block ref="2137b8853c2ddb346939b7d46bf562c2" category="inline-image-macro-rx" type="image"></block> &gt; *Démonter*.</block>
@@ -4912,7 +4903,6 @@
   <block id="d07e8f6398c66f7d79a80768d3aa858b" category="inline-link-macro">Sauvegardez dès maintenant les charges de travail Oracle Database</block>
   <block id="5361440c8196cc52ba89e8281bc2ef22" category="list-text">Sauvegardez un groupe de protection maintenant. Voir <block ref="0b07e2abdc1829709878f1d54c90a7ab" category="inline-link-macro-rx"></block>.</block>
   <block id="ecd7b1e39a181dfd260b4d2201a85373" category="paragraph">Non disponible pour l'aperçu des charges de travail Oracle Database.</block>
-  <block id="930da9bc61f880bd2f19e2938c5376f6" category="list-text">*Charge de travail* : des exemples incluent Microsoft SQL Server, Volumes, VMware, KVM, Hyper-V, Oracle Database ou Kubernetes.</block>
   <block id="a1b57f3367efea5ba168ebc1b00dfb09" category="list-text">*3-2-1 fanout* : du stockage principal (disque) au stockage secondaire (disque), puis au cloud (stockage objet). Crée plusieurs copies des données sur différents systèmes de stockage, tels que ONTAP vers ONTAP et ONTAP vers des configurations de stockage objet. Cela peut être un stockage objet d’un cloud hyperscaler ou un stockage objet privé. Ces configurations aident à atteindre une protection des données optimale et une reprise après sinistre.</block>
   <block id="7257ebd350ec9dc53fbb407575e942c9" category="open-title">Ajouter une application à l'aide de l'interface utilisateur web</block>
   <block id="7eb786201a1068df31c2a8d7805c50bf" category="open-title">Ajouter une application à l'aide d'un CR</block>
@@ -5078,4 +5068,46 @@
   <block id="2432a396f38937322a4e606bf0aa7f0a" category="list-text">Microsoft Azure Blob (non disponible pour les charges de travail VMware)</block>
   <block id="ab95f28db65589c3a2b5f277f324e60b" category="list-text">ONTAP S3 (Non disponible pour les charges de travail VMware)</block>
   <block id="1d57820923cf47d0bb8ab74db80344ab" category="list-text">Avec ONTAP 9.15.1, vous pouvez restaurer des dossiers FlexGroup à l'aide de l'option « Parcourir et restaurer ».</block>
+  <block id="5bc860fb25e08cbdf4fb6e1eb9fa16c9" category="paragraph">La découverte des bases de données Oracle permet à NetApp Backup and Recovery de les protéger en créant et en restaurant des sauvegardes et des instantanés.</block>
+  <block id="e82e6b5a702d1fc223d9ea698359376e" category="section-title">Ajoutez un hôte de base de données Oracle et découvrez des ressources</block>
+  <block id="b5476a384252538238d37795b3f8f5a1" category="list-text">Sélectionnez *Oracle* pour le champ *Workload type*.</block>
+  <block id="3dcf508963e6fe907e0ca3a4c9693fd9" category="list-text">Si vous n'avez pas encore enregistré les informations d'identification pour cet hôte Oracle Database, sélectionnez *Add credentials*.</block>
+  <block id="19c33f5bda8d2b67e3f14b642d95e9ec" category="list-text">*Enregistrement de l'hôte* : Ajoutez un nouvel hôte Oracle Database. Saisissez le FQDN ou l'adresse IP de l'hôte, les informations d'identification, l'agent Console et le numéro de port.</block>
+  <block id="2e9227201c87c406d2477a129cc51bf0" category="list-text">(Facultatif) Si vous choisissez des informations d'identification pour un utilisateur non root, procédez comme suit :</block>
+  <block id="a70d5c13d6b7f41208490c29f59e3063" category="list-text">Pour savoir comment ajouter l'utilisateur non root que vous avez sélectionné au fichier sudoers sur l'hôte Oracle Database, sélectionnez *Configure sudoers*.</block>
+  <block id="bf8e3c6752e8047e150b1ede213faaf5" category="list-text">Suivez les instructions de la boîte de dialogue, activez la case à cocher une fois terminé, puis sélectionnez *Terminé*.</block>
+  <block id="4388b2b0f034ea64ddb691069cae7e62" category="list-text">*Paramètres avancés* : Procédez comme suit :</block>
+  <block id="c9bc8bea020f64d04a5acca88723ddfd" category="list-text">Saisissez le port et le chemin d'installation à utiliser pour le plug-in NetApp. Le plug-in permet la communication entre l'hôte de la base de données Oracle et NetApp Backup and Recovery.</block>
+  <block id="d24f4a3688f3efcb4c012c56b0cbe72b" category="list-text">Choisissez si vous souhaitez autoriser NetApp Backup and Recovery à installer automatiquement le plug-in ou ignorer l'installation (vous devrez alors installer manuellement le plug-in sur l'hôte).</block>
+  <block id="7ed97ae916d37ed8443606f5c8ac4fbb" category="list-text">Choisissez d'effectuer ou d'ignorer les vérifications préalables à l'installation.</block>
+  <block id="25f9ab167417178f57bb91f475e3b1b1" category="paragraph">La charge de travail Oracle Database est affichée dans la liste des charges de travail sur la page Inventory.</block>
+  <block id="30000add7aaf9253676b4000b4de34d5" category="paragraph">La tâche de clonage n'est pas supprimée et elle peut être réutilisée pour d'autres clones.</block>
+  <block id="cd988024594d1879c00a0562b6e05d11" category="summary">Clonez vos charges de travail de base de données Oracle avec NetApp Backup and Recovery.</block>
+  <block id="0a2540edb55d3589a778219595c0a236" category="doc">Cloner les charges de travail de base de données Oracle à l'aide de NetApp Backup and Recovery</block>
+  <block id="4c35109db8b6bd097c28381279b0921a" category="paragraph">Utilisez NetApp Backup and Recovery pour créer des clones accessibles en écriture des bases de données Oracle à partir des systèmes ONTAP locaux vers un stockage principal ou secondaire. Gérez le cycle de vie des clones afin qu'ils soient actualisés périodiquement selon une planification définie.</block>
+  <block id="6762b8756c91b8a3858e4cd8e6c3fd13" category="section-title">Créer un clone d'une base de données Oracle</block>
+  <block id="45f1217ea429824adb8728761976bdd4" category="paragraph">Créez un clone immédiatement à partir d'un instantané existant. Utilisez cette méthode pour créer un clone ponctuel qui n'est pas actualisé en continu à partir d'un instantané.</block>
+  <block id="9de0e2b17d7e1e2da6c0ce7e9dc6e377" category="list-text">Sélectionnez *Clone*.</block>
+  <block id="217a3032cd4179f2b9c8e8c54e28dc5f" category="list-text">Dans la section *Source de base de données*, choisissez l’hôte source et la base de données dans les listes.</block>
+  <block id="a34f2c4ba7ebd928bc52c6458240ba79" category="list-text">Dans la section *Base de données cible*, sélectionnez l’hôte cible et la base de données dans les listes. L’hôte de destination et la base de données peuvent être différents de la source.</block>
+  <block id="98e04edfb16ae23e37276c1b10bb37f5" category="list-text">Dans la section *Clone from* de la page *Select restore point*, sélectionnez *Existing snapshots*.</block>
+  <block id="624f61dd9e5f153789e0f1474e3af02a" category="list-text">Choisissez un instantané existant (point de restauration) dans la liste à utiliser comme base pour le clone et sélectionnez *Next*.</block>
+  <block id="250bd2e0fd20f197756f90da65d7b032" category="paragraph">Le message *Sélectionner l'emplacement de l'instantané* s'affiche si l'instantané est stocké à plusieurs emplacements.</block>
+  <block id="59b1d9c0faeccb050b2ae82254459fd3" category="list-text">Choisissez l'emplacement de l'instantané à utiliser et sélectionnez *Suivant*.</block>
+  <block id="b2fe9cdb3dfb44588722f86420682e65" category="list-text">Sur la page *Options avancées*, procédez comme suit :</block>
+  <block id="20decfe57e54a87359cea95bba79c274" category="list-text">Si vous avez déjà enregistré un fichier de spécification, vous pouvez l'importer pour personnaliser les paramètres de la base de données clonée. Vous pouvez également télécharger le fichier de spécification par défaut pour le snapshot de la base de données.</block>
+  <block id="3c7b24476512ff19d3887cbbaf0c549e" category="list-text">Dans la section *Étendue de la récupération*, choisissez comment limiter les données à restaurer pour créer le clone et saisissez les informations requises pour l’option que vous choisissez. Choisir *Aucun* restaure toutes les données.</block>
+  <block id="3360c6db4a303d4e7db0bf74d740c00f" category="list-text">Dans la section *Prescripts and postscripts*, activez une ou les deux options *Prescript* et *Postscript* pour exécuter un script avant le début de l'opération de clonage ou après sa fin. Pour chaque option, saisissez le chemin complet du script et tous les arguments requis.</block>
+  <block id="50059824044533f44d3ae954c21388e4" category="section-title">Planifiez le clonage d'une base de données Oracle</block>
+  <block id="15e0124ddc742fcfe98d5dda893c46e7" category="paragraph">Planifiez la création instantanée d'un clone et son actualisation continue. Cela crée le clone le plus à jour possible de la base de données. Utilisez cette méthode si vous souhaitez actualiser en continu le clone à partir du dernier état de la base de données selon une planification que vous choisissez.</block>
+  <block id="beed2b8d7c8943c45007114d3902e342" category="list-text">Dans la section *Clone from* de la page *Select restore point*, sélectionnez *Instant snapshot and clone*.</block>
+  <block id="5eb27b07ac88ccc12c3c2eee2489d1df" category="list-text">Choisissez un emplacement pour stocker l'instantané lors de sa création.</block>
+  <block id="3be58c81d9fd861bc0413b8f72e39d9c" category="list-text">Pour personnaliser les paramètres de la base de données clonée, activez l’option *Personnaliser les paramètres de la base de données cible*. Si vous avez déjà enregistré un fichier de spécification, cette option vous permet de le télécharger pour personnaliser les paramètres de la base de données clonée. Vous pouvez également télécharger le fichier de spécification par défaut de la base de données qui reflète ses paramètres actuels.</block>
+  <block id="12955fb7f90e9645025713968aacbab9" category="list-text">Dans la section *Planification d'actualisation du clone*, choisissez quand et à quelle fréquence actualiser le clone. L'actualisation du clone recrée l'instantané instantané et remplace le clone existant par un nouveau clone.</block>
+  <block id="39705154f7358a24581822dc4f6d05f2" category="paragraph">Vous pouvez scinder un clone de vos charges de travail Oracle Database. La scission d'un clone crée une nouvelle sauvegarde à partir du clone. Vous pouvez utiliser la nouvelle sauvegarde pour restaurer des bases de données.</block>
+  <block id="20794590d8be25afeadb46ebb7aac87d" category="paragraph">Vous pouvez supprimer un clone de vos charges de travail Oracle Database. Lorsque vous supprimez un clone, il est supprimé du magasin d'objets, libérant de l'espace de stockage.</block>
+  <block id="9584ee8db3d24be1a3a6e4d94ece5c2e" category="section-title">Monter un point de récupération de base de données Oracle</block>
+  <block id="8616a450958f68321bde3e8f34b8c9c5" category="section-title">Démonter un point de récupération de base de données Oracle</block>
+  <block id="df197f1a2e9f772f8de9983ed94d9541" category="list-text">*Charge de travail* : Exemples incluent Microsoft SQL Server, ONTAP Volumes, VMware, KVM, Hyper-V, Oracle Database ou Kubernetes.</block>
+  <block id="e1589447f05ccd92a0e9ade876573b81" category="sidebar">Cloner les charges de travail de base de données Oracle</block>
 </blocks>

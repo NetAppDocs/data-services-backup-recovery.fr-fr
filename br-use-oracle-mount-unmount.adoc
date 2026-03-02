@@ -18,7 +18,7 @@ Vous souhaiterez peut-être monter un point de récupération de base de donnée
 
 
 
-== Monter un point de restauration de base de données Oracle
+== Monter un point de récupération de base de données Oracle
 
 Si vous configurez la politique de protection d'une base de données afin de conserver les journaux d'archive, vous pouvez monter des points de récupération pour afficher l'historique des modifications de la base de données.
 
@@ -50,7 +50,7 @@ Le point de récupération est monté sur l’hôte Oracle.
 
 
 
-== Démonter un point de restauration de base de données Oracle
+== Démonter un point de récupération de base de données Oracle
 
 Démontez le point de récupération lorsque vous n’avez plus besoin d’afficher les modifications apportées à cette base de données.
 

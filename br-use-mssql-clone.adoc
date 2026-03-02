@@ -159,7 +159,7 @@ Vous pouvez diviser un clone de vos charges de travail Microsoft SQL Server.  La
 
 Vous pouvez choisir de diviser un clone en clones indépendants ou à long terme.  Un assistant affiche la liste des agrégats qui font partie du SVM, leurs tailles et l'emplacement où réside le volume cloné.  NetApp Backup and Recovery indique également s'il y a suffisamment d'espace pour diviser le clone.  Une fois le clone divisé, le clone devient une base de données indépendante pour la protection.
 
-Le travail de clonage ne doit pas être supprimé et peut être réutilisé pour d'autres clones.
+La tâche de clonage n'est pas supprimée et elle peut être réutilisée pour d'autres clones.
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Cloner*.

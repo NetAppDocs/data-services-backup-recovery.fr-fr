@@ -1,0 +1,115 @@
+---
+sidebar: sidebar 
+permalink: br-use-oracle-clone.html 
+keywords: clone, clone application data, Amazon Web services, AWS, NetApp backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database, protection group 
+summary: Clonez vos charges de travail de base de données Oracle avec NetApp Backup and Recovery. 
+---
+= Cloner les charges de travail de base de données Oracle à l'aide de NetApp Backup and Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Utilisez NetApp Backup and Recovery pour créer des clones accessibles en écriture des bases de données Oracle à partir des systèmes ONTAP locaux vers un stockage principal ou secondaire. Gérez le cycle de vie des clones afin qu'ils soient actualisés périodiquement selon une planification définie.
+
+*Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
+
+
+
+== Créer un clone d'une base de données Oracle
+
+Créez un clone immédiatement à partir d'un instantané existant. Utilisez cette méthode pour créer un clone ponctuel qui n'est pas actualisé en continu à partir d'un instantané.
+
+.Étapes
+. Dans le menu de la NetApp Console , sélectionnez *Protection > Sauvegarde et récupération*.
+. Sous *Charges de travail*, sélectionnez la vignette *Oracle*.
+. Sélectionnez *Clone*.
+. Sélectionnez *Créer un nouveau clone*.
+. Dans la section *Source de base de données*, choisissez l’hôte source et la base de données dans les listes.
+. Dans la section *Base de données cible*, sélectionnez l’hôte cible et la base de données dans les listes. L’hôte de destination et la base de données peuvent être différents de la source.
+. Sélectionnez *Suivant*.
+. Dans la section *Clone from* de la page *Select restore point*, sélectionnez *Existing snapshots*.
+. Choisissez un instantané existant (point de restauration) dans la liste à utiliser comme base pour le clone et sélectionnez *Next*.
++
+Le message *Sélectionner l'emplacement de l'instantané* s'affiche si l'instantané est stocké à plusieurs emplacements.
+
+. Choisissez l'emplacement de l'instantané à utiliser et sélectionnez *Suivant*.
+. Sur la page *Options avancées*, procédez comme suit :
++
+.. Si vous avez déjà enregistré un fichier de spécification, vous pouvez l'importer pour personnaliser les paramètres de la base de données clonée. Vous pouvez également télécharger le fichier de spécification par défaut pour le snapshot de la base de données.
+.. Dans la section *Étendue de la récupération*, choisissez comment limiter les données à restaurer pour créer le clone et saisissez les informations requises pour l’option que vous choisissez. Choisir *Aucun* restaure toutes les données.
+.. Dans la section *Prescripts and postscripts*, activez une ou les deux options *Prescript* et *Postscript* pour exécuter un script avant le début de l'opération de clonage ou après sa fin. Pour chaque option, saisissez le chemin complet du script et tous les arguments requis.
+
+
+. Sélectionnez *Clone*.
+
+
+
+
+== Planifiez le clonage d'une base de données Oracle
+
+Planifiez la création instantanée d'un clone et son actualisation continue. Cela crée le clone le plus à jour possible de la base de données. Utilisez cette méthode si vous souhaitez actualiser en continu le clone à partir du dernier état de la base de données selon une planification que vous choisissez.
+
+.Étapes
+. Dans le menu de la NetApp Console , sélectionnez *Protection > Sauvegarde et récupération*.
+. Sous *Charges de travail*, sélectionnez la vignette *Oracle*.
+. Sélectionnez *Clone*.
+. Sélectionnez *Créer un nouveau clone*.
+. Dans la section *Source de base de données*, choisissez l’hôte source et la base de données dans les listes.
+. Dans la section *Base de données cible*, sélectionnez l’hôte cible et la base de données dans les listes. L’hôte de destination et la base de données peuvent être différents de la source.
+. Sélectionnez *Suivant*.
+. Dans la section *Clone from* de la page *Select restore point*, sélectionnez *Instant snapshot and clone*.
+. Choisissez un emplacement pour stocker l'instantané lors de sa création.
+. Sélectionnez *Suivant*.
+. Sur la page *Options avancées*, procédez comme suit :
++
+.. Pour personnaliser les paramètres de la base de données clonée, activez l’option *Personnaliser les paramètres de la base de données cible*. Si vous avez déjà enregistré un fichier de spécification, cette option vous permet de le télécharger pour personnaliser les paramètres de la base de données clonée. Vous pouvez également télécharger le fichier de spécification par défaut de la base de données qui reflète ses paramètres actuels.
+.. Dans la section *Planification d'actualisation du clone*, choisissez quand et à quelle fréquence actualiser le clone. L'actualisation du clone recrée l'instantané instantané et remplace le clone existant par un nouveau clone.
+.. Dans la section *Prescripts and postscripts*, activez une ou les deux options *Prescript* et *Postscript* pour exécuter un script avant le début de l'opération de clonage ou après sa fin. Pour chaque option, saisissez le chemin complet du script et tous les arguments requis.
+
+
+. Sélectionnez *Clone*.
+
+
+
+
+== Diviser un clone
+
+Vous pouvez scinder un clone de vos charges de travail Oracle Database. La scission d'un clone crée une nouvelle sauvegarde à partir du clone. Vous pouvez utiliser la nouvelle sauvegarde pour restaurer des bases de données.
+
+Vous pouvez choisir de diviser un clone en clones indépendants ou à long terme.  Un assistant affiche la liste des agrégats qui font partie du SVM, leurs tailles et l'emplacement où réside le volume cloné.  NetApp Backup and Recovery indique également s'il y a suffisamment d'espace pour diviser le clone.  Une fois le clone divisé, le clone devient une base de données indépendante pour la protection.
+
+La tâche de clonage n'est pas supprimée et elle peut être réutilisée pour d'autres clones.
+
+.Étapes
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Cloner*.
+. Sélectionnez un clone.
+. Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Clone divisé*.
+. Vérifiez les détails du clone divisé et sélectionnez *Diviser*.
+. Une fois le clone divisé créé, vous pouvez le visualiser dans la page *Inventaire*.
+
+
+
+
+== Supprimer un clone
+
+Vous pouvez supprimer un clone de vos charges de travail Oracle Database. Lorsque vous supprimez un clone, il est supprimé du magasin d'objets, libérant de l'espace de stockage.
+
+Si une politique protège le clone, le clone et son travail sont supprimés.
+
+.Étapes
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Cloner*.
+. Sélectionnez un clone.
+. Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Supprimer le clone*.
+. Dans la boîte de dialogue de confirmation de suppression du clone, vérifiez les détails de la suppression.
++
+.. Pour supprimer les ressources clonées de SnapCenter même si les clones ou leur stockage ne sont pas accessibles, sélectionnez *Forcer la suppression*.
+.. Sélectionnez *Supprimer*.
+
+
+. Lorsque le clone est supprimé, il est supprimé de la page *Inventaire*.
+

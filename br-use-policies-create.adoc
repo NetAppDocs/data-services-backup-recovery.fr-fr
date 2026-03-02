@@ -36,7 +36,7 @@ Vous pouvez atteindre les objectifs suivants liés aux politiques :
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Politiques*.
 . Consultez les détails de cette politique.
 +
-** *Charge de travail* : des exemples incluent Microsoft SQL Server, Volumes, VMware, KVM, Hyper-V, Oracle Database ou Kubernetes.
+** *Charge de travail* : Exemples incluent Microsoft SQL Server, ONTAP Volumes, VMware, KVM, Hyper-V, Oracle Database ou Kubernetes.
 ** *Type de sauvegarde* : les exemples incluent la sauvegarde complète et la sauvegarde du journal.
 ** *Architecture* : les exemples incluent l'instantané local, la distribution en éventail, la mise en cascade, le disque à disque et le disque vers le magasin d'objets.
 ** *Ressources protégées* : indique combien de ressources sur le total des ressources de cette charge de travail sont protégées.
