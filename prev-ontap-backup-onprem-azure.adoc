@@ -444,6 +444,10 @@ TIP: Si vous souhaitez protéger vos fichiers de sauvegarde contre toute modific
 
 TIP: Si vous souhaitez hiérarchiser les fichiers de sauvegarde plus anciens vers Azure Archive Storage pour une optimisation supplémentaire des coûts, assurez-vous que le compte de stockage dispose de la règle de cycle de vie appropriée.
 
++
+
+NOTE: Si vous sélectionnez *Bring your own bucket*, assurez-vous que le conteneur que vous créez comme destination de sauvegarde porte le même nom que le compte de stockage Azure.
+
 ** *Clé de chiffrement* : si vous avez créé un nouveau compte de stockage Azure, saisissez les informations de clé de chiffrement fournies par le fournisseur.  Choisissez si vous utiliserez les clés de chiffrement Azure par défaut ou si vous choisirez vos propres clés gérées par le client à partir de votre compte Azure pour gérer le chiffrement de vos données.
 +
 Si vous choisissez d'utiliser vos propres clés gérées par le client, saisissez le coffre-fort de clés et les informations sur la clé.

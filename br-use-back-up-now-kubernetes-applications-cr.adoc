@@ -88,7 +88,7 @@ Créez un CR de sauvegarde avec des attributs spécifiques pour sauvegarder votr
 ** *spec.applicationRef*: (_Obligatoire_) Le nom Kubernetes de l'application à sauvegarder.
 ** *spec.appVaultRef* : (_Obligatoire, incompatible avec spec.appVaultTargetsRef_) Si vous utilisez le même compartiment pour stocker l’instantané et la sauvegarde, il s’agit du nom du AppVault où le contenu de la sauvegarde doit être stocké.
 ** *spec.appVaultTargetsRef* : (_Obligatoire, incompatible avec spec.appVaultRef_) Si vous utilisez des compartiments différents pour stocker l’instantané et la sauvegarde, il s’agit du nom du AppVault où le contenu de la sauvegarde doit être stocké.
-** *spec.dataMover* : (_Facultatif_) Une chaîne indiquant l’outil de sauvegarde à utiliser pour l’opération de sauvegarde. La valeur est sensible à la casse et doit être `CBS`.
+** *spec.dataMover* : (_Optionnel, requis pour les clusters migrés depuis Trident Protect_) Une chaîne indiquant l’outil de sauvegarde à utiliser pour l’opération de sauvegarde. Si ce cluster a été migré vers Backup and Recovery depuis Trident Protect, la valeur est sensible à la casse et doit être `CBS`.
 ** *spec.reclaimPolicy* : (_Facultatif_) Définit ce qui se passe pour le contenu de la sauvegarde (métadonnées/données du volume) lorsque la Backup CR est supprimée. Valeurs possibles :
 +
 *** `Delete`

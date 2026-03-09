@@ -20,8 +20,6 @@ Les actions suivantes ne sont pas prises en charge dans les charges de travail V
 
 * Monter
 * Démonter
-* Attacher VMDK
-* Détacher VMDK
 * Prise en charge de vVol
 * Prise en charge NVMe
 * Intégration de courrier électronique

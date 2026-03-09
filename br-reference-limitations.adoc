@@ -46,18 +46,13 @@ Il n'y a aucune limitation pour les volumes FlexVol : vous pouvez sélectionner 
 
 
 * Lors de la création de réplications à partir de systèmes ONTAP locaux, si la version ONTAP sur le système Cloud Volumes ONTAP cible est 9.8, 9.9 ou 9.11, seules les stratégies de coffre-fort miroir sont autorisées.
-* NetApp Backup & Recovery ne prend pas en charge la conversion d'un FlexVol volume ayant une relation de sauvegarde cloud active en un volume FlexGroup tout en conservant la fonctionnalité de sauvegarde cloud.
+* Lorsque vous convertissez un volume FlexVol en volume FlexGroup ou inversement, le volume converti est considéré comme un nouveau volume ; vous devez configurer une protection pour le volume converti après la conversion. Vous pouvez restaurer les sauvegardes créées avant la conversion sur un volume différent.
 
 
 
 
 == Limitations de sauvegarde sur objet pour les volumes ONTAP
 
-* Lors de la sauvegarde des données, NetApp Backup and Recovery ne conservera pas le chiffrement de volume NetApp (NVE).  Cela signifie que les données chiffrées sur le volume NVE seront déchiffrées pendant le transfert des données vers la destination et le chiffrement ne sera pas conservé.
-+
-Pour une explication sur ces types de cryptage, reportez-vous àhttps://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-netapp-volume-encryption-concept.html["Présentation de la configuration du chiffrement de volume NetApp"^] .
-
-* Si les snapshots de rétention à long terme sont activés sur un volume de destination SnapMirror à l’aide de la planification de la stratégie SnapMirror , les snapshots sont créés directement sur le volume de destination.  Dans ce cas, vous ne devez pas sauvegarder ces volumes à l’aide de NetApp Backup and Recovery, car ces snapshots ne seront pas déplacés vers le stockage d’objets.
 * Lors de la sauvegarde des données, NetApp Backup and Recovery ne conservera pas le chiffrement de volume NetApp (NVE).  Cela signifie que les données chiffrées sur le volume NVE seront déchiffrées pendant le transfert des données vers la destination et le chiffrement ne sera pas conservé.
 +
 Pour une explication sur ces types de cryptage, reportez-vous àhttps://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-netapp-volume-encryption-concept.html["Présentation de la configuration du chiffrement de volume NetApp"^] .
@@ -89,7 +84,7 @@ Pour une explication sur ces types de cryptage, reportez-vous àhttps://docs.net
 * La sauvegarde de volume ad hoc à l'aide du bouton *Sauvegarder maintenant* n'est pas prise en charge sur les volumes de protection des données.
 * Les configurations SM-BC ne sont pas prises en charge.
 * ONTAP ne prend pas en charge la répartition des relations SnapMirror d'un seul volume vers plusieurs magasins d'objets ; par conséquent, cette configuration n'est pas prise en charge par NetApp Backup and Recovery.
-* Le mode WORM/Compliance sur un magasin d’objets est actuellement pris en charge sur Amazon S3, Azure et StorageGRID .  Il s’agit de la fonctionnalité DataLock et elle doit être gérée à l’aide des paramètres NetApp Backup and Recovery , et non à l’aide de l’interface du fournisseur de cloud.
+* Le mode WORM/Conformité sur un stockage d'objets est pris en charge sur Amazon S3, Google Cloud Platform (GCP), Azure et StorageGRID actuellement. Ceci est connu sous le nom de fonctionnalité DataLock, et elle doit être gérée à l'aide des paramètres NetApp Backup and Recovery, et non via l'interface du fournisseur de cloud.
 
 
 
@@ -109,8 +104,6 @@ Lors de l'utilisation d'une version d' ONTAP antérieure à 9.11.1, la restaurat
 
 * La restauration de répertoire/dossier est prise en charge pour les données qui résident dans le stockage d'archives uniquement lorsque le cluster exécute ONTAP 9.13.1 et versions ultérieures.
 * La restauration de répertoire/dossier est prise en charge pour les données protégées à l'aide de DataLock uniquement lorsque le cluster exécute ONTAP 9.13.1 et versions ultérieures.
-* La restauration de répertoire/dossier n'est actuellement pas prise en charge à partir de réplications et/ou de snapshots locaux.
-* La restauration des volumes FlexGroup vers les volumes FlexVol ou des volumes FlexVol vers les volumes FlexGroup n'est pas prise en charge.
 * Le fichier en cours de restauration doit utiliser la même langue que celle du volume de destination.  Vous recevrez un message d'erreur si les langues ne sont pas les mêmes.
 * La priorité de restauration _Élevée_ n’est pas prise en charge lors de la restauration de données à partir du stockage d’archivage Azure vers les systèmes StorageGRID .
 * Si vous sauvegardez un volume DP, puis décidez de rompre la relation SnapMirror avec ce volume, vous ne pouvez pas restaurer les fichiers sur ce volume, sauf si vous supprimez également la relation SnapMirror ou si vous inversez la direction de SnapMirror .

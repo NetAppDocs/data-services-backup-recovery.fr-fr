@@ -18,6 +18,41 @@ Découvrez les nouveautés de NetApp Backup and Recovery.
 
 
 
+== 09 mars 2026
+
+Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
+
+
+
+=== Améliorations des charges de travail des volumes ONTAP
+
+Dans cette version, les charges de travail ONTAP Volumes introduisent les fonctionnalités améliorées suivantes :
+
+* *Restauration à l'emplacement source* : Vous pouvez désormais restaurer des fichiers à partir d'instantanés locaux et d'instantanés répliqués vers l'emplacement source ainsi que vers un autre emplacement.
+* *Détection horaire des volumes*: Le Dashboard découvre et actualise désormais plus rapidement les nouveaux volumes.
+* *Prise en charge des dark sites* : Vous pouvez désormais télécharger Backup and Recovery pour les dark sites depuis le  https://mysupport.netapp.com/site/products/all/details/netapp-console/downloads-tab/download/61906/4.4.0/downloads["Site de support NetApp"]. Actuellement, NetApp Backup and Recovery pour les dark sites prend uniquement en charge les workloads ONTAP Volumes.
+* *Améliorations de la compatibilité Unicode* : L'indexation du catalogue offre désormais une meilleure gestion des caractères Unicode.
+* *Compatibilité améliorée FlexGroup* : Lorsque vous convertissez un volume ONTAP FlexVol en un volume FlexGroup, vous pouvez désormais restaurer les sauvegardes effectuées avant la conversion.
+* *Prise en charge multi-compartiments* : Vous pouvez désormais protéger les volumes d'un système avec jusqu'à 6 compartiments par système sur différents fournisseurs de cloud.
+
+
+Pour plus de détails sur la protection des charges de travail ONTAP Volume, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-protect-overview.html["Aperçu des charges de travail Protect ONTAP Volume"].
+
+
+
+=== Améliorations des charges de travail VMware
+
+Dans cette version, VMware workloads introduit les fonctionnalités améliorées suivantes :
+
+* *Restaurer les données invitées à partir du stockage d'objets* : Vous pouvez désormais restaurer les fichiers et dossiers invités à partir du stockage d'objets.
+* *Restauration rapide pour VMFS/NFS* : Vous pouvez désormais activer l’option de restauration rapide lors de la restauration vers un emplacement alternatif. Lorsqu’elle est activée, seules les métadonnées des machines virtuelles (fichiers, LUN et espaces de noms) sont récupérées depuis le stockage d’objets, ce qui rend les volumes disponibles plus rapidement qu’avec une restauration complète.
+* *Prise en charge d'Amazon FSx for NetApp ONTAP* : Les charges de travail VMware prennent désormais en charge les systèmes de stockage Amazon FSx for NetApp ONTAP exécutant la version 9.13.1 ou ultérieure.
+
+
+Pour plus de détails sur la protection des charges de travail VMware, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-vmware-protect-overview.html["Présentation de la protection des charges de travail VMware"] .
+
+
+
 == 23 février 2026
 
 Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.

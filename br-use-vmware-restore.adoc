@@ -142,6 +142,7 @@ Lors de la restauration vers un autre emplacement, vous pouvez modifier le vCent
 
 ** Section *Options de pré-restauration* :
 +
+*** *Restauration rapide* : activez cette option pour que NetApp Backup and Recovery restaure uniquement les métadonnées des machines virtuelles (fichiers, LUN et espaces de noms) à partir du magasin d’objets. Cela rend les volumes disponibles plus rapidement qu’une restauration complète.
 *** *Script* : Activez cette option pour automatiser des tâches supplémentaires en exécutant un script personnalisé avant le début de l’opération de restauration. Saisissez le chemin d'accès complet au script à exécuter ainsi que les arguments qu'il accepte.
 
 
