@@ -188,11 +188,7 @@ Assurez-vous que votre environnement répond aux exigences spécifiques pour dé
 | Exigence | Pris en charge 
 
 
-| Topologie de déploiement  a| 
-* Autonome (NFS, SAN, ASM SAN)
-* RAC sur ASM (VMDK sur VMFS)
-
-
+| Topologie de déploiement | Autonome (NFS, SAN, ASM SAN) 
 
 
 | Versions d'Oracle Database  a| 
