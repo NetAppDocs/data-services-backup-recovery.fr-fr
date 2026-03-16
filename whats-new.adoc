@@ -18,6 +18,22 @@ Découvrez les nouveautés de NetApp Backup and Recovery.
 
 
 
+== 16 mars 2026
+
+Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
+
+
+
+=== Améliorations des charges de travail VMware
+
+Dans cette version, VMware workloads introduit les améliorations suivantes :
+
+*Prise en charge de la cohérence des machines virtuelles par niveau de planification* : Vous pouvez désormais activer les sauvegardes cohérentes au niveau des machines virtuelles et des applications pour des niveaux de planification spécifiques lors de la configuration des stratégies de protection pour les charges de travail VMware. Les niveaux annuels, mensuels et hebdomadaires sont pris en charge.
+
+Pour plus de détails sur la protection des charges de travail VMware, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-vmware-protect-overview.html["Présentation de la protection des charges de travail VMware"] .
+
+
+
 == 09 mars 2026
 
 Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.

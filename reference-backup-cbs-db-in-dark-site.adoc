@@ -16,6 +16,8 @@ summary: 'Lorsque vous utilisez NetApp Backup and Recovery sur un site sans acc�
 [role="lead"]
 Lorsque vous utilisez NetApp Backup and Recovery sur un site sans accès Internet, appelé _mode privé_, les données de configuration de NetApp Backup and Recovery sont sauvegardées dans le compartiment StorageGRID ou ONTAP S3 où vos sauvegardes sont stockées.  Si vous rencontrez un problème avec le système hôte de l'agent de console, vous pouvez déployer un nouvel agent de console et restaurer les données critiques de NetApp Backup and Recovery .
 
+Vous pouvez également suivre ces étapes pour remplacer l'agent de la Console et restaurer les données de configuration qui y étaient stockées lors de l'utilisation de Backup and Recovery en  sur site, lorsqu'aucun compte cloud n'est impliqué (par exemple, lors de l'utilisation de NetApp StorageGrid comme destination de sauvegarde).
+
 
 NOTE: Cette procédure s'applique uniquement aux données de volume ONTAP .
 
@@ -133,7 +135,7 @@ mysql> select * from volume;
 ----
 unzip Indexed_Catalog_DB_Backup_catalogdb1_23_05_2023.zip -d catalogdb1
 ----
-. Exécutez la commande *ls* pour vous assurer que le dossier « catalogdb1 » a été créé avec les sous-dossiers « changes » et « snapshots » en dessous.
+. Exécutez la commande *ls* pour vous assurer que le dossier « catalogdb1 » a été créé et qu'il contient les sous-dossiers `files`, `versions` et `snapshots`.
 
 
 

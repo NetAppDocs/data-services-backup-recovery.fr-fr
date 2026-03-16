@@ -20,5 +20,3 @@ L'action suivante n'est pas prise en charge dans la version préliminaire des ch
 
 * Sauvegarde hors ligne
 
-
-Oracle Database n'est pris en charge que sous forme de déploiement autonome utilisant NFS, SAN ou ASM SAN dans la version d'aperçu privée des charges de travail Oracle Database.
