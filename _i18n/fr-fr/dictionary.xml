@@ -5120,7 +5120,6 @@
   <block id="a5f167b540745795bfa82881525658b7" category="paragraph">Assurez-vous que votre environnement répond aux exigences spécifiques pour découvrir et protéger les ressources Oracle Database.</block>
   <block id="be84d19651fadb3105ee4563b1a749a1" category="cell">Topologie de déploiement</block>
   <block id="6573228c28e984dea35ef8e206b9b22e" category="list-text">Autonome (NFS, SAN, ASM SAN)</block>
-  <block id="40462b3520e204c56d496704b2197731" category="list-text">RAC sur ASM (VMDK sur VMFS)</block>
   <block id="23288ce9e4c4065a0c262950a798255a" category="cell">Versions d'Oracle Database</block>
   <block id="0ac3a1f034484f75f44fe8688e650ffe" category="list-text">Oracle Database 19c</block>
   <block id="e78bd68f4ea5809752852eea2f74942d" category="list-text">Oracle Database 21c</block>
@@ -5147,4 +5146,5 @@
   <block id="86a1075e6640849bd364878900fd5412" category="paragraph">Vous pouvez également suivre ces étapes pour remplacer l'agent de la Console et restaurer les données de configuration qui y étaient stockées lors de l'utilisation de Backup and Recovery en  sur site, lorsqu'aucun compte cloud n'est impliqué (par exemple, lors de l'utilisation de NetApp StorageGrid comme destination de sauvegarde).</block>
   <block id="72edcbdd4436f32d101a83a36dd2d1db" category="list-text">Exécutez la commande *ls* pour vous assurer que le dossier « catalogdb1 » a été créé et qu'il contient les sous-dossiers<block ref="45b963397aa40d4a0063e0d85e4fe7a1" prefix=" " category="inline-code"></block>,<block ref="b17be6650251f2e6c7d4e90209beb4e0" prefix=" " category="inline-code"></block> et<block ref="695633290d050f31cec0c9d4bd4a57fe" prefix=" " category="inline-code"></block>.</block>
   <block id="69b1a964078d5301a2aa9822cb2304f2" category="section-title">16 mars 2026</block>
+  <block id="5896522d63454009d1844a27f9e16972" category="cell">7.4.13 ou version ultérieure</block>
 </blocks>
