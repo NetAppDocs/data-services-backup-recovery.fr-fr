@@ -27,9 +27,6 @@ Ajoutez les informations sur l’hôte Oracle et laissez NetApp Backup and Recov
 .Étapes
 . Dans le menu de la NetApp Console , sélectionnez *Protection > Sauvegarde et récupération*.
 . Sous *Charges de travail*, sélectionnez la vignette *Oracle*.
-+
-Si vous vous connectez à Backup and Recovery pour la première fois et que vous avez un système dans la console mais aucune ressource découverte, la page _Bienvenue sur le nouveau NetApp Backup and Recovery_ apparaît avec une option pour *Découvrir les ressources*.
-
 . Sélectionnez *Découvrir les ressources*.
 . Sélectionnez *Oracle* pour le champ *Workload type*.
 . Si vous n'avez pas encore enregistré les informations d'identification pour cet hôte Oracle Database, sélectionnez *Add credentials*.
@@ -40,7 +37,7 @@ Si vous vous connectez à Backup and Recovery pour la première fois et que vous
 .. Sélectionnez *Terminé*.
 
 
-. *Enregistrement de l'hôte* : Ajoutez un nouvel hôte Oracle Database. Saisissez le FQDN ou l'adresse IP de l'hôte, les informations d'identification, l'agent Console et le numéro de port.
+. *Enregistrement de l'hôte* : Ajoutez un nouvel hôte Oracle Database. Dans le champ *Host FQDN or IP address*, saisissez le FQDN ou l'adresse IP de l'hôte ; pour les bases de données en cluster, vous pouvez saisir le FQDN ou l'adresse IP de n'importe quel nœud du cluster. Fournissez ensuite les informations d'identification, l'agent Console et le numéro de port.
 . (Facultatif) Si vous choisissez des informations d'identification pour un utilisateur non root, procédez comme suit :
 +
 .. Pour savoir comment ajouter l'utilisateur non root que vous avez sélectionné au fichier sudoers sur l'hôte Oracle Database, sélectionnez *Configure sudoers*.
@@ -50,8 +47,20 @@ Si vous vous connectez à Backup and Recovery pour la première fois et que vous
 . *Paramètres avancés* : Procédez comme suit :
 +
 .. Saisissez le port et le chemin d'installation à utiliser pour le plug-in NetApp. Le plug-in permet la communication entre l'hôte de la base de données Oracle et NetApp Backup and Recovery.
-.. Choisissez si vous souhaitez autoriser NetApp Backup and Recovery à installer automatiquement le plug-in ou ignorer l'installation automatique du plug-in (si vous activez *Utiliser l'installation manuelle*, vous devrez installer manuellement le plug-in sur l'hôte).
-.. Choisissez d'effectuer ou d'ignorer les vérifications préalables à l'installation.
+.. Choisissez si vous souhaitez autoriser NetApp Backup and Recovery à installer automatiquement le plug-in sur chaque hôte ou ignorer l'installation automatique du plug-in sur tous les hôtes. Sélectionnez *Afficher la procédure* pour obtenir des instructions d'installation manuelle.
++
+[NOTE]
+====
+Backup and Recovery se connecte à chaque hôte via SSH pour installer automatiquement le plug-in. Activez l’option *Utiliser l’installation manuelle* lorsque l’une des conditions suivantes est remplie :
+
+*** Un ou plusieurs hôtes n'exécutent pas le service SSH.
+*** Tout hôte possède déjà le NetApp plug-in (même si seuls certains membres du cluster le possèdent).
+*** Vous préférez installer le plug-in sur chaque hôte manuellement.
+
+
+====
+.. Si l’hôte de la base de données est en cluster, activez l’option *Ajouter tous les hôtes du cluster* pour découvrir tous les hôtes du cluster.
+.. Choisissez si vous souhaitez effectuer des vérifications préalables sur chaque hôte avant l'installation automatique du plug-in. En cas d'échec, l'installation automatique est interrompue. Pour ignorer ces vérifications et procéder à l'installation malgré tout, activez *Ignorer les vérifications préalables facultatives* (activée automatiquement si vous choisissez l'installation manuelle).
 
 
 . Sélectionnez *Découvrir*.

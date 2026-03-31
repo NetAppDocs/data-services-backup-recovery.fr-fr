@@ -1,0 +1,55 @@
+---
+sidebar: sidebar 
+permalink: br-start-configure-oracle-database.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, workloads, protect, Oracle, configure 
+summary: Configurez votre base de données Oracle dans NetApp Backup and Recovery. 
+---
+= Configurer une base de données Oracle dans NetApp Backup and Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez modifier les paramètres d'authentification et de nœud pour une nouvelle base de données Oracle autonome ou en cluster. NetApp Backup and Recovery protège les bases de données sans ces modifications. Si votre environnement change après la découverte, vous devrez peut-être mettre à jour les paramètres de la base de données.
+
+*Rôle de console requis* Super administrateur de sauvegarde et de récupération.  En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
+
+
+
+== Configurer une base de données Oracle
+
+Modifier la configuration d'une base de données Oracle autonome ou en cluster.
+
+.Étapes
+. Dans le menu de la NetApp Console , sélectionnez *Protection > Sauvegarde et récupération*.
+. Sous *Charges de travail*, sélectionnez la vignette *Oracle*.
+. Dans l'inventaire Oracle, sélectionnez le menu *Bases de données*.
+. Dans la liste des bases de données, sélectionnez *Configurer base de données* (base de données autonome) ou *Configurer base de données RAC* (base de données en cluster) pour la base de données que vous souhaitez configurer.
+. *Configurer les paramètres de la base de données* : configurez les paramètres d’authentification pour la base de données autonome ou en cluster.
++
+** Sélectionnez *Authentification du système d'exploitation* pour vous authentifier uniquement auprès du système d'exploitation hôte. Backup and Recovery utilise les informations d'identification de l'hôte que vous avez spécifiées lors de la découverte.
+** Sélectionnez *Authentification de base de données* lorsque la base de données requiert des informations d'identification. Choisissez ensuite des informations d'identification existantes ou ajoutez-en de nouvelles, puis sélectionnez le port à utiliser pour la connexion.
+
+
+. *Configurer le catalogue RMAN* : Choisissez l’emplacement de stockage des métadonnées pour les opérations de sauvegarde et de restauration de cette base de données ou de ce cluster lorsque le catalogage automatique est activé dans la stratégie de protection ou lorsque vous cataloguez manuellement un point de restauration :
++
+** Sélectionnez *fichier de contrôle cible* pour stocker les métadonnées dans le fichier de contrôle cible de la base de données.
+** Sélectionnez *Catalog database* pour stocker les métadonnées dans le catalogue de récupération RMAN. Choisissez les informations d'identification et le nom Transparent Network Substrate (TNS) pour vous connecter au catalogue de récupération.
++
+Le catalogue de récupération RMAN est un schéma de base de données distinct utilisé par l'utilitaire RMAN pour stocker les métadonnées relatives aux sauvegardes et aux opérations de restauration pour les bases de données enregistrées. Il assure la redondance et la conservation à long terme en cas de perte du fichier de contrôle cible ou lorsque des données historiques sont nécessaires. Activez cette option pour enregistrer les fichiers de données et les copies des journaux d'archivage dans le référentiel RMAN afin que RMAN puisse suivre et gérer ces copies pour la génération de rapports et la restauration.
+
+
+
+. *Configurer les nœuds* (bases de données en cluster uniquement) : ajoutez ou supprimez des nœuds de la protection, ou modifiez la priorité des nœuds à l’aide des boutons fléchés.
++
+Les nœuds prioritaires sont protégés en premier. Les nœuds de priorité inférieure ne sont protégés que si les nœuds prioritaires sont inaccessibles ou défaillants.
+
+. Une fois terminé, sélectionnez *Terminé*.
+
+
+.Résultat
+La fonction de sauvegarde et de restauration se connecte à la base de données en utilisant les nouveaux paramètres.

@@ -231,6 +231,13 @@ En option, vous pouvez configurer des paramètres avancés dans la politique.  C
 . Activez les paramètres que vous souhaitez afficher ou modifier, puis sélectionnez *Accepter*.
 . Fournissez les informations suivantes :
 +
+** *Paramètres du catalogue RMAN* : (S'applique uniquement aux charges de travail Oracle Database) Activez l'option *Cataloguer la sauvegarde avec Oracle Recovery Manager (RMAN)* pour cataloguer automatiquement les métadonnées des opérations de sauvegarde et de restauration de bases de données Oracle. Les métadonnées sont stockées conformément aux paramètres de *Configure RMAN catalog* que vous choisissez pour la base de données (dans le fichier de contrôle cible par défaut). Reportez-vous à link:br-start-configure-oracle-database.html["Configurer une base de données Oracle"] pour modifier ces paramètres pour une base de données.
+** *SnapMirror format du volume et de l’instantané* : Choisissez parmi les options suivantes :
++
+*** *Utiliser un format de nom personnalisé pour les copies d'instantané* : Choisissez un schéma de nommage pour les instantanés. Si ce champ est laissé vide, un horodatage est ajouté à la fin de chaque nom d'instantané.
+*** *Indiquez le format du volume SnapMirror* : Spécifiez un préfixe, un suffixe ou les deux pour modifier le nom de volume SnapMirror par défaut. Par défaut, un volume SnapMirror hérite du nom du volume source.
+
+
 ** *Sauvegarde par copie uniquement* : (s’applique uniquement aux charges de travail Microsoft SQL Server) Choisissez la sauvegarde par copie uniquement (un type de sauvegarde Microsoft SQL Server) si vous devez sauvegarder vos ressources à l’aide d’une autre application de sauvegarde.
 ** *Paramètres du groupe de disponibilité* : (s’applique uniquement aux charges de travail Microsoft SQL Server) Sélectionnez les réplicas de sauvegarde préférés ou spécifiez un réplica particulier.  Ce paramètre est utile si vous disposez d’un groupe de disponibilité SQL Server et que vous souhaitez contrôler la réplique utilisée pour les sauvegardes.
 ** *Taux de transfert maximal* : pour ne pas définir de limite d'utilisation de la bande passante, sélectionnez *Illimité*.  Si vous souhaitez limiter le taux de transfert, sélectionnez *Limité* et sélectionnez la bande passante réseau entre 1 et 1 000 Mbps allouée au téléchargement des sauvegardes vers le stockage d'objets.  Par défaut, ONTAP peut utiliser une quantité illimitée de bande passante pour transférer les données de sauvegarde des volumes du système vers le stockage d'objets.  Si vous remarquez que le trafic de sauvegarde affecte les charges de travail normales des utilisateurs, envisagez de réduire la quantité de bande passante réseau utilisée pendant le transfert.

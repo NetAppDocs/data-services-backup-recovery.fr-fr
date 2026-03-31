@@ -101,6 +101,9 @@ Vous avez besoin d’exigences spécifiques pour découvrir et protéger vos cha
 | Versions VMware vCenter vSphere | 7.0U1 et versions ultérieures 
 
 
+| Outils VMware | VMware Tools est requis pour utiliser la fonction de restauration de fichiers et de dossiers ainsi que les sauvegardes cohérentes avec les machines virtuelles. Pour vous assurer que la version de VMware Tools correspond à votre version d'ESXi Server, consultez la  https://packages.vmware.com/tools/versions["Informations de correspondance des versions VMware"]. 
+
+
 | Types d'adresses IP | IPv4, IPv6 
 
 
@@ -121,7 +124,7 @@ Vous avez besoin d’exigences spécifiques pour découvrir et protéger vos cha
 
 
 | Port du serveur VMware ESXi  a| 
-443 (HTTPS), bidirectionnel. La fonction de restauration de fichiers invités utilise ce port.
+443 (HTTPS), bidirectionnel. La fonction de restauration de fichiers et de dossiers utilise ce port.
 
 
 
@@ -133,9 +136,9 @@ Vous avez besoin d’exigences spécifiques pour découvrir et protéger vos cha
 |===
 *Exigences de contrôle d'accès basé sur les rôles (RBAC) pour la protection des charges de travail VMware*
 
-Le compte administrateur vCenter doit disposer des privilèges vCenter requis.
+Votre compte utilisateur Console doit disposer du rôle de super administrateur de Backup and Recovery pour pouvoir travailler avec les charges de travail VMware.
 
-Pour obtenir la liste des privilèges vCenter nécessaires, consultez https://docs.netapp.com/us-en/sc-plugin-vmware-vsphere/scpivs44_deployment_planning_and_requirements.html#rbac-privileges-required["SnapCenter Plug-in for VMware vSphere privilèges vCenter requis"^] .
+Pour plus d'informations sur les rôles de Backup and Recovery, veuillez consulter https://docs.netapp.com/us-en/console-setup-admin/reference-iam-backup-rec-roles.html["Rôles de sauvegarde et de restauration dans la NetApp Console"].
 
 
 
@@ -188,7 +191,11 @@ Assurez-vous que votre environnement répond aux exigences spécifiques pour dé
 | Exigence | Pris en charge 
 
 
-| Topologie de déploiement | Autonome (NFS, SAN, ASM SAN) 
+| Topologie de déploiement  a| 
+* Autonome (NFS, SAN, ASM SAN)
+* RAC sur ASM (VMDK sur VMFS)
+
+
 
 
 | Versions d'Oracle Database  a| 

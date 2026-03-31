@@ -18,6 +18,24 @@ Découvrez les nouveautés de NetApp Backup and Recovery.
 
 
 
+== 31 mars 2026
+
+Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
+
+
+
+=== Améliorations des charges de travail Oracle Database
+
+Cette version introduit l'amélioration suivante pour les charges de travail Oracle Database :
+
+* *Prise en charge des hôtes en cluster* : Vous pouvez désormais détecter et protéger les bases de données Oracle Real Application Clusters (RAC) utilisant Oracle Automatic Storage Management (ASM) et déployées à l’aide de VMDK sur des systèmes de fichiers VMFS. Pour plus d’informations, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-start-discover-oracle.html["Découvrez les charges de travail Oracle Database"].
+* *Prise en charge du catalogue RMAN* : Vous pouvez désormais configurer Backup and Recovery pour stocker les métadonnées de protection dans le catalogue de récupération RMAN, ce qui assure la redondance et la conservation à long terme en cas de perte du fichier de contrôle cible. Pour plus d’informations, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-start-configure-oracle-database.html["Configurer une base de données Oracle"].
+
+
+Pour plus de détails sur la protection des charges de travail Oracle Database, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Aperçu de la protection des charges de travail de la base de données Oracle"].
+
+
+
 == 16 mars 2026
 
 Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.

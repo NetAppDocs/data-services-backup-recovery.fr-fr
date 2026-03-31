@@ -183,6 +183,8 @@ sidebar:
         url: "/br-use-oracle-protect-overview.html"
       - title: Découvrez les charges de travail Oracle Database
         url: "/br-start-discover-oracle.html"
+      - title: Configurer une base de données Oracle
+        url: "/br-start-configure-oracle-database.html"
       - title: Créer et gérer des groupes de protection pour les charges de travail
           Oracle Database
         url: "/br-use-oracle-protection-groups.html"
@@ -192,7 +194,7 @@ sidebar:
         url: "/br-use-oracle-clone.html"
       - title: Restaurer les charges de travail Oracle Database
         url: "/br-use-oracle-restore.html"
-      - title: Monter et démonter des points de récupération
+      - title: Monter, démonter et cataloguer des points de récupération
         url: "/br-use-oracle-mount-unmount.html"
     - title: Protégez les charges de travail Kubernetes
       entries:
