@@ -32,7 +32,7 @@ Cette version introduit l'amélioration suivante pour les charges de travail Ora
 * *Prise en charge du catalogue RMAN* : Vous pouvez désormais configurer Backup and Recovery pour stocker les métadonnées de protection dans le catalogue de récupération RMAN, ce qui assure la redondance et la conservation à long terme en cas de perte du fichier de contrôle cible. Pour plus d’informations, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-start-configure-oracle-database.html["Configurer une base de données Oracle"].
 
 
-Pour plus de détails sur la protection des charges de travail Oracle Database, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Aperçu de la protection des charges de travail de la base de données Oracle"].
+Pour plus de détails sur la protection des charges de travail Oracle Database, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Présentation de la protection des charges de travail de la base de données Oracle"].
 
 
 
