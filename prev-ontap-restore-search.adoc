@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: prev-ontap-restore-search.html 
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
-summary: Vous pouvez utiliser la fonction Rechercher et restaurer pour récupérer des volumes, des dossiers ou des fichiers à partir de fichiers de sauvegarde ONTAP . 
+summary: Vous pouvez utiliser la fonction Rechercher et restaurer pour récupérer des volumes, des dossiers ou des fichiers à partir de fichiers de sauvegarde ONTAP. 
 ---
-= Restaurez les données à partir des sauvegardes ONTAP à l'aide de la fonction Rechercher et restaurer.
+= Restaurer à partir des sauvegardes ONTAP à l'aide de la fonction Rechercher et restaurer
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Vous pouvez utiliser la fonction Rechercher et restaurer pour récupér
 
 
 [role="lead"]
-Vous pouvez utiliser la fonction Rechercher et restaurer pour récupérer des volumes, des dossiers ou des fichiers à partir de fichiers de sauvegarde ONTAP .  La fonction Recherche et restauration vous permet d'effectuer des recherches dans toutes les sauvegardes (y compris les instantanés locaux, les volumes répliqués et le stockage d'objets) sans avoir besoin des noms exacts du système, du volume ou des fichiers.
+Vous pouvez utiliser la fonction Search and Restore pour récupérer des volumes, des dossiers ou des fichiers à partir de fichiers de sauvegarde ONTAP. Search and Restore vous permet d’effectuer des recherches dans toutes les sauvegardes (y compris les instantanés locaux, les volumes répliqués et le stockage objet) sans avoir besoin de connaître précisément le nom du système, du volume ou du fichier.
 
 La restauration à partir d'instantanés locaux ou de volumes répliqués est généralement plus rapide et moins coûteuse que la restauration à partir d'un stockage objet.
 
@@ -121,8 +121,6 @@ Notez que si vous utilisiez déjà NetApp Backup and Recovery avec un agent de c
 
 
 
-
-
 * Exigences Azure :
 +
 ** Vous devez enregistrer le fournisseur de ressources Azure Synapse Analytics (appelé « Microsoft.Synapse ») avec votre abonnement. https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider["Découvrez comment enregistrer ce fournisseur de ressources pour votre abonnement"^] .  Vous devez être le *Propriétaire* ou le *Contributeur* de l'abonnement pour enregistrer le fournisseur de ressources.
@@ -131,8 +129,6 @@ Notez que si vous utilisiez déjà NetApp Backup and Recovery avec un agent de c
 Notez que si vous utilisiez déjà NetApp Backup and Recovery avec un agent de console que vous avez configuré dans le passé, vous devrez désormais ajouter les autorisations du compte Azure Synapse Workspace et Data Lake Storage au rôle d’utilisateur de la console.  Ils sont nécessaires pour la recherche et la restauration.
 
 ** L'agent de console doit être configuré *sans* serveur proxy pour la communication HTTP vers Internet.  Si vous avez configuré un serveur proxy HTTP pour votre agent de console, vous ne pouvez pas utiliser la fonctionnalité de recherche et de restauration.
-
-
 
 
 * Exigences de Google Cloud :
@@ -169,6 +165,10 @@ Même si vous utilisez un agent de console sur site, les exigences du fournisseu
 Le processus se déroule comme suit :
 
 . Avant de pouvoir utiliser la recherche et la restauration, vous devez activer « Indexation » sur chaque système source à partir duquel vous souhaitez restaurer les données du volume.  Cela permet au catalogue indexé de suivre les fichiers de sauvegarde pour chaque volume.
++
+
+NOTE: La fonction de sauvegarde et de récupération n'indexe pas les instantanés dont l'horodatage de création correspond exactement à un autre instantané du même volume.
+
 . Lorsque vous souhaitez restaurer un volume ou des fichiers à partir d'une sauvegarde de volume, sous _Rechercher et restaurer_, sélectionnez *Rechercher et restaurer*.
 . Saisissez les critères de recherche d'un volume, d'un dossier ou d'un fichier par nom de volume partiel ou complet, nom de fichier partiel ou complet, emplacement de sauvegarde, plage de taille, plage de dates de création, autres filtres de recherche, puis sélectionnez *Rechercher*.
 +

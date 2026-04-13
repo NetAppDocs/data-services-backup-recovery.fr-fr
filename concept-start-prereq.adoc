@@ -231,6 +231,9 @@ Vous avez besoin d’exigences spécifiques pour découvrir les ressources Kuber
 
 Pour connaître les exigences de la NetApp Console , reportez-vous à<<Dans la NetApp Console>> .
 
+
+NOTE: NetApp recommande fortement d'attribuer une adresse IP statique à l'agent Console que vous utilisez pour les charges de travail Kubernetes afin d'éviter les problèmes en cas de changement d'adresse IP de l'agent.
+
 * Un système ONTAP principal (ONTAP 9.16.1 ou version ultérieure)
 * Un cluster Kubernetes - Les distributions et versions Kubernetes prises en charge incluent :
 +
@@ -288,6 +291,7 @@ Assurez-vous que votre instance Hyper-V répond à des exigences spécifiques po
 | Stockage connecté  a| 
 * ONTAP 9.13.1 ou version ultérieure
 * Amazon FSx for NetApp ONTAP storage systems exécutant la version 9.13.1 ou ultérieure
+* Stockage SAN (aperçu) (pris en charge pour les sauvegardes et la restauration à l'emplacement d'origine à partir du stockage principal et secondaire)
 
 
 |===

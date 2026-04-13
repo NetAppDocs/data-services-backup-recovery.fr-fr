@@ -16,8 +16,8 @@ summary: Protégez vos charges de travail VMware avec NetApp NetApp Backup and R
 [role="lead"]
 Sauvegardez les machines virtuelles VMware et les banques de données des systèmes ONTAP locaux vers Amazon Web Services, Azure NetApp Files ou StorageGRID pour garantir la protection de vos données. Les sauvegardes sont automatiquement générées et stockées dans un magasin d’objets sur votre compte cloud public ou privé.
 
-* Pour sauvegarder des charges de travail selon une planification, créez des stratégies qui régissent les opérations de sauvegarde et de restauration.  Voirlink:br-use-policies-create.html["Créer des politiques"] pour les instructions.
-* Créez des groupes de protection pour gérer les opérations de sauvegarde et de restauration d’un ensemble de ressources. Voirlink:br-use-vmware-protection-groups.html["Créez et gérez des groupes de protection pour les charges de travail VMware avec NetApp Backup and Recovery"] pour plus d'informations.
+* Pour sauvegarder les charges de travail selon un calendrier, créez des politiques qui régissent les opérations de sauvegarde et de restauration. Voir link:br-use-policies-create.html["Créer des politiques de protection"] pour les instructions.
+* Créez des groupes de protection pour gérer les opérations de sauvegarde et de restauration d'un ensemble de ressources. Voir link:br-use-vmware-protection-groups.html["Créer et gérer des groupes de protection"] pour plus d'informations.
 * Sauvegardez vos charges de travail maintenant (créez une sauvegarde à la demande maintenant).
 
 
@@ -33,12 +33,12 @@ Créez immédiatement une sauvegarde à la demande.  Vous souhaiterez peut-être
 . Dans le menu Sauvegarde et récupération, sélectionnez *Inventaire*.
 . Sélectionnez une charge de travail pour afficher les détails de protection.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
-. Sélectionnez l'onglet *Groupes de protection*, *Magasins de données* ou *Machines virtuelles*.
-. Sélectionnez le groupe de protection, les banques de données ou les machines virtuelles que vous souhaitez sauvegarder.
+. Sélectionnez l’en-tête de menu *Groupes de protection*, *Banques de données*, *Machines virtuelles* ou *Étiquettes*.
+. Sélectionnez le groupe de protection, les banques de données, les machines virtuelles ou les ressources étiquetées que vous souhaitez sauvegarder.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Reculez maintenant*.
 +
 
-NOTE: La politique appliquée à la sauvegarde est la même politique que celle attribuée au groupe de protection, à la banque de données ou à la machine virtuelle.
+NOTE: La politique appliquée à la sauvegarde est la même que celle attribuée au groupe de protection, à la banque de données, à la machine virtuelle ou aux ressources étiquetées.
 
 . Sélectionnez le niveau de planification.
 . Sélectionnez *Sauvegarder maintenant*.

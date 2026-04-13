@@ -47,13 +47,13 @@ Lorsque vous restaurez des charges de travail, les événements suivants se prod
 * Lorsque vous effectuez une restauration à partir d’une charge de travail répliquée, vous pouvez restaurer la charge de travail sur le système d’origine ou sur un système ONTAP local.
 
 
-À partir de la page Restaurer (également appelée Rechercher et restaurer), vous pouvez restaurer une ressource, même si vous ne vous souvenez pas du nom exact, de l'emplacement où elle réside ou de la date à laquelle elle était en bon état pour la dernière fois. Vous pouvez rechercher l'instantané à l'aide de filtres.
+Depuis la page Restaurer, vous pouvez restaurer une ressource, même si vous ne vous souvenez pas de son nom exact, de son emplacement ou de la date à laquelle elle était en bon état. Vous pouvez rechercher l'instantané à l'aide de filtres.
 
 
 
-== Restaurer les données de charge de travail à partir de l'option Restaurer (Rechercher et restaurer)
+== Restaurer les charges de travail Hyper-V
 
-Restaurez les charges de travail Hyper-V à l’aide de l’option Restaurer. Vous pouvez rechercher l'instantané par son nom ou en utilisant des filtres.
+Restaurez les charges de travail Hyper-V à l'aide du menu Restaurer. Vous pouvez rechercher l'instantané par son nom ou à l'aide de filtres.
 
 *Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de restauration de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
@@ -72,48 +72,48 @@ Une liste de points de restauration possibles apparaît.
 . Sélectionnez un emplacement source d’instantané.
 . Sélectionnez *Suivant* pour continuer.
 . Choisissez la destination et les paramètres de restauration :
-
-
++
 [discrete]
 ===== Sélection de la destination
 
++
 [role="tabbed-block"]
 ====
 .Restaurer à l'emplacement d'origine
 --
-Lorsque vous restaurez l'emplacement d'origine, vous pouvez consulter les paramètres de destination en développant la section *Paramètres de destination*, mais vous ne pouvez pas les modifier.
-
-. Dans la section *Options post-restauration*, considérez l'option suivante :
+.. Sélectionnez le volet *Emplacement d'origine*. Lorsque vous restaurez vers l'emplacement d'origine, vous pouvez consulter les paramètres de destination en développant la section *Paramètres de destination*, mais vous ne pouvez pas les modifier.
+.. Dans la section *Options post-restauration*, considérez l'option suivante :
 +
-** *Démarrer la machine virtuelle* : Activez cette option pour démarrer la nouvelle machine virtuelle après sa restauration.
+*** *Démarrer la machine virtuelle* : Activez cette option pour démarrer la nouvelle machine virtuelle après sa restauration.
 
 
-. Sélectionnez *Restaurer*.
 
 
 --
 .Restaurer vers un autre emplacement
 --
-. Dans la section *Paramètres de destination*, saisissez les informations suivantes :
+.. Sélectionnez le volet *Emplacement alternatif*.
+.. Dans la section *Paramètres de destination*, saisissez les informations suivantes :
 +
-** *Nom de domaine complet ou adresse IP Hyper-V* : Saisissez le nom de domaine complet ou l’adresse IP de l’hôte Hyper-V de destination.
-** *Réseau* : Sélectionnez le réseau de destination sur lequel vous souhaitez restaurer l’instantané.
-** *Nom de la machine virtuelle* : Saisissez le nom de la machine virtuelle que vous souhaitez restaurer.
-** *Emplacement de destination* : Saisissez le dossier de destination ou le partage CIFS qui doit contenir les données restaurées.
+*** *Nom de domaine complet ou adresse IP Hyper-V* : Saisissez le nom de domaine complet ou l’adresse IP de l’hôte Hyper-V de destination.
+*** *Réseau* : Sélectionnez le réseau de destination sur lequel vous souhaitez restaurer l’instantané.
+*** *Nom de la machine virtuelle* : Saisissez le nom de la machine virtuelle que vous souhaitez restaurer.
+*** *Emplacement de destination* : Saisissez le dossier de destination ou le partage CIFS qui doit contenir les données restaurées.
 
 
-. Dans la section *Options de pré-restauration*, considérez les options suivantes :
+.. Dans la section *Options de pré-restauration*, considérez les options suivantes :
 +
-** *Restauration rapide* : Activez cette option pour rendre la machine virtuelle restaurée immédiatement disponible. Seuls les fichiers nécessaires au fonctionnement de la machine virtuelle sont restaurés à partir du stockage d'objets, et non la totalité du volume.
+*** *Restauration rapide* : Activez cette option pour rendre la machine virtuelle restaurée immédiatement disponible. Seuls les fichiers nécessaires au fonctionnement de la machine virtuelle sont restaurés à partir du stockage d'objets, et non la totalité du volume.
 
 
-. Dans la section *Options après restauration*, considérez les options suivantes :
+.. Dans la section *Options après restauration*, considérez les options suivantes :
 +
-** *Démarrer la machine virtuelle* : Activez cette option pour démarrer la nouvelle machine virtuelle après sa restauration.
+*** *Démarrer la machine virtuelle* : Activez cette option pour démarrer la nouvelle machine virtuelle après sa restauration.
 
 
-. Sélectionnez *Restaurer*.
 
 
 --
 ====
+. Sélectionnez *Restaurer*.
+

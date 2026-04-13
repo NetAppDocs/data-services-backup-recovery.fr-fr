@@ -10,7 +10,7 @@ summary: 'Vous pouvez personnaliser les opérations de restauration CR à l"aide
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media/
+:imagesdir: ./media/
 
 
 [role="lead"]

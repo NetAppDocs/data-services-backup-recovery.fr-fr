@@ -31,10 +31,11 @@ Vous devez découvrir au moins une charge de travail avant de pouvoir ajouter un
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
-. Sélectionnez l’onglet *Cibles de sauvegarde hors site*.
+. Sélectionnez l'onglet *Cibles de sauvegarde hors site gérées*.
 . Sélectionnez *Découvrir la cible de sauvegarde*.
-. Sélectionnez l'un des types de cibles de sauvegarde : *Amazon Web Services (AWS) S3*, *Microsoft Azure Blob Storage*, * StorageGRID* ou * ONTAP S3*.
-. Dans la section *Choisir l'emplacement des informations d'identification*, choisissez l'emplacement où résident les informations d'identification, puis choisissez comment associer les informations d'identification.
+. Sélectionnez l'un des types de cibles de sauvegarde disponibles : *AWS*, *Azure*, *StorageGRID*, *ONTAP S3* ou *GCP*.
+. Sélectionnez *Suivant*.
+. (Pour les cibles de sauvegarde AWS et Azure uniquement) Dans la section *Choisir l'emplacement des identifiants*, choisissez l'emplacement où se trouvent les identifiants, puis choisissez comment les associer.
 . Sélectionnez *Suivant*.
 . Saisissez les informations d'identification. Elles varient selon le type de cible de sauvegarde sélectionné et l'emplacement des informations d'identification choisi.
 +
@@ -71,6 +72,13 @@ Vous devez découvrir au moins une charge de travail avant de pouvoir ajouter un
 *** *Clé secrète* : Saisissez la clé secrète ONTAP S3.
 
 
+** Pour GCP :
++
+*** *Nom de l'identifiant* : Saisissez le nom de l'identifiant Google Cloud.
+*** *Clé d'accès* : Saisissez la clé d'accès Google Cloud.
+*** *Clé secrète* : Saisissez la clé secrète Google Cloud.
+
+
 
 
 . Sélectionnez *Découvrir*.
@@ -84,7 +92,7 @@ Plutôt que de laisser NetApp Backup and Recovery découvrir automatiquement les
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
-. Sélectionnez *Cibles de sauvegarde hors site*.
+. Sélectionnez *Cibles de sauvegarde hors site gérées*.
 . Sélectionnez la cible et à droite, sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Ajouter un bucket*.
 . Saisissez les informations du bucket.  Les informations diffèrent selon le type de cible de sauvegarde que vous avez sélectionné.
 +
@@ -135,6 +143,14 @@ Plutôt que de laisser NetApp Backup and Recovery découvrir automatiquement les
 *** *Capacité* : saisissez la capacité du bucket ONTAP S3.  Il s’agit de la quantité maximale de données pouvant être stockée dans le bucket.
 *** *Activer le contrôle de version* : sélectionnez cette option pour activer le contrôle de version pour le bucket ONTAP S3.  Le contrôle de version vous permet de conserver plusieurs versions d'objets dans le bucket, ce qui peut être utile à des fins de sauvegarde et de récupération.
 *** *Verrouillage d'objet* : sélectionnez cette option pour activer le verrouillage d'objet pour le compartiment ONTAP S3.  Le verrouillage des objets empêche la suppression ou l'écrasement des objets pendant une période de conservation spécifiée, offrant ainsi une couche supplémentaire de protection des données.  Vous ne pouvez activer cette option que lorsque vous créez un bucket et vous ne pouvez pas la désactiver ultérieurement.
+
+
+** Pour GCP :
++
+*** *Nom du bucket* : Saisissez le nom du bucket Google Cloud.
+*** *Projet GCP* : Sélectionnez le nom du projet Google Cloud.
+*** *Région du bucket* : Sélectionnez une région pour le bucket Google Cloud.
+*** *Verrouillage des objets* : Sélectionnez cette option pour activer les périodes de rétention des objets dans ce bucket. Pendant qu'une période de rétention est en vigueur, les objets ne peuvent pas être modifiés ou supprimés et sont immuables jusqu'à l'expiration de la période. Si vous activez cette option pour un bucket, elle ne peut pas être désactivée.
 
 
 

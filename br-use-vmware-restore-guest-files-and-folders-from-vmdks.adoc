@@ -4,7 +4,7 @@ permalink: br-use-vmware-restore-guest-files-and-folders-from-vmdks.html
 keywords:  
 summary: Vous pouvez restaurer un ou plusieurs fichiers ou dossiers à partir d’un VMDK sur un système d’exploitation invité Windows. 
 ---
-= Restaurer les fichiers et dossiers invités à partir des VMDK
+= Restaurez les fichiers et dossiers à partir des VMDKs
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,59 +14,150 @@ summary: Vous pouvez restaurer un ou plusieurs fichiers ou dossiers à partir d�
 
 
 [role="lead"]
-Vous pouvez restaurer un ou plusieurs fichiers ou dossiers à partir d’un VMDK sur un système d’exploitation invité Windows.
+Vous pouvez restaurer un ou plusieurs fichiers ou dossiers d'un VMDK vers la machine virtuelle d'origine ou vers une autre machine virtuelle sur le même serveur vCenter VMware. Les systèmes d'exploitation invités Windows et Linux sont pris en charge.
 
 .Avant de commencer
-Vous devez créer des informations d'identification pour la machine virtuelle invitée dans NetApp Backup and Recovery avant de pouvoir restaurer des fichiers et des dossiers à partir de celle-ci. NetApp Backup and Recovery utilise ces informations d'identification pour s'authentifier auprès de la machine virtuelle invitée lors de la connexion du disque virtuel.
+* Consultez les prérequis et les limitations dans link:br-use-vmware-restore-guest-files-and-folders-overview.html["Exigences et limitations relatives à la restauration des fichiers et dossiers invités"].
+* Vous devez créer des informations d'identification pour la machine virtuelle invitée dans NetApp Backup and Recovery avant de pouvoir restaurer des fichiers et des dossiers à partir de celle-ci. NetApp Backup and Recovery utilise ces informations d'identification pour s'authentifier auprès de la machine virtuelle invitée lors de la connexion du disque virtuel.
+
 
 .À propos de cette tâche
-Les performances de restauration des fichiers ou dossiers invités dépendent de deux facteurs : la taille des fichiers ou dossiers restaurés ; et le nombre de fichiers ou dossiers restaurés. La restauration d'un grand nombre de fichiers de petite taille peut prendre plus de temps que prévu par rapport à la restauration d'un petit nombre de fichiers de grande taille, si l'ensemble de données à restaurer est de la même taille.
+La performance de la restauration de fichiers ou de dossiers dépend de deux facteurs : la taille des fichiers ou dossiers à restaurer et le nombre de fichiers ou dossiers à restaurer. Restaurer un grand nombre de petits fichiers peut prendre plus de temps que prévu par rapport à la restauration d’un petit nombre de gros fichiers, si l’ensemble des données à restaurer est de même taille.
+
+Vous pouvez effectuer une restauration sur une machine virtuelle distante (ce qu'on appelle une restauration inter-VM), mais les systèmes d'exploitation source et de destination doivent être identiques.
 
 
 IMPORTANT: Une seule opération d'attachement ou de restauration peut être exécutée en même temps sur une machine virtuelle. Vous ne pouvez pas exécuter d’opérations d’attachement ou de restauration parallèles sur la même machine virtuelle.
 
 
-IMPORTANT: Grâce à la fonction de restauration invité, vous pouvez afficher et restaurer les fichiers système et cachés, ainsi que visualiser les fichiers chiffrés. Ne pas écraser un fichier système existant ni restaurer des fichiers chiffrés dans un dossier chiffré. Lors de l'opération de restauration, les attributs cachés, système et chiffrés des fichiers invités ne sont pas conservés dans le fichier restauré. La consultation ou la navigation dans les partitions réservées peut provoquer une erreur.
+IMPORTANT: La fonction de restauration de fichiers et de dossiers permet d'afficher et de restaurer les fichiers système et cachés, ainsi que d'afficher les fichiers chiffrés. N'écrasez pas un fichier système existant et ne restaurez pas de fichiers chiffrés dans un dossier chiffré. Lors de l'opération de restauration, les attributs caché, système et chiffré des fichiers invités ne sont pas conservés dans le fichier restauré. L'affichage ou la navigation dans les partitions réservées peut entraîner une erreur.
+
+[role="tabbed-block"]
+====
+.Restaurez les fichiers et dossiers sur la machine virtuelle d'origine
+--
+Restaurez les fichiers et dossiers invités d'un disque virtuel vers la machine virtuelle d'origine (source).
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez le menu *Machines virtuelles*.
-. Choisissez dans la liste la machine virtuelle contenant les fichiers que vous souhaitez restaurer.
-. Sélectionnez l'icône Actions image:../media/icon-action.png["Option Actions"] pour cette machine virtuelle.
+. Dans la liste des machines virtuelles, sélectionnez l'icône Actions image:../media/icon-action.png["Option Actions"] pour une machine virtuelle contenant des fichiers que vous souhaitez restaurer.
 . Sélectionnez *Restaurer les fichiers et dossiers*.
 . Sélectionnez un instantané à partir duquel effectuer la restauration, puis sélectionnez *Suivant*.
 . Choisissez l'emplacement du snapshot à restaurer. Si vous choisissez un emplacement secondaire, sélectionnez l'instantané secondaire dans la liste.
 . Sélectionnez *Suivant*.
-. Choisissez le disque virtuel dans la liste à attacher à la machine virtuelle, puis sélectionnez *Suivant*.
-. Sur la page _Sélectionner les informations d'identification de la machine virtuelle_, si vous n'avez pas encore enregistré d'informations d'identification pour la machine virtuelle invitée, sélectionnez *Ajouter des informations d'identification* et procédez comme suit :
+. Choisissez un disque virtuel dans la liste à attacher à la machine virtuelle, puis sélectionnez *Suivant*.
+. Sur la page _Détails de la machine virtuelle invitée_, procédez comme suit :
 +
-.. *Nom des informations d'identification* : saisissez un nom pour les informations d'identification.
-.. *Mode d'authentification* : Sélectionnez *Windows*.
-.. *Agents* : Sélectionnez dans la liste un agent de console qui gérera la communication entre NetApp Backup and Recovery et cet hôte.
-.. *Domaine et nom d'utilisateur* : saisissez le nom de domaine complet NetBIOS ou du domaine et le nom d'utilisateur pour les informations d'identification.
-.. *Mot de passe* : Veuillez saisir un mot de passe pour l’identifiant.
-.. Sélectionnez *Ajouter*.
-
-
-. Choisissez des informations d'identification de machine virtuelle à utiliser pour vous authentifier auprès de la machine virtuelle invitée.
+.. Dans la section *Détails de la machine virtuelle invitée*, attachez le disque virtuel à la VM d'origine en sélectionnant *Original virtual machine*.
+.. Dans la section *Informations d'identification de la machine virtuelle invitée*, si vous n'avez pas encore enregistré d'identifiant pour la machine virtuelle invitée, sélectionnez *Ajouter des informations d'identification*, saisissez les informations d'identification de l'hôte Windows ou Linux, puis sélectionnez *Ajouter*.
+.. Choisissez des informations d'identification de machine virtuelle à utiliser pour vous authentifier auprès de la machine virtuelle invitée.
+.. Sélectionnez *Suivant*.
 +
-NetApp Backup and Recovery attache le disque virtuel à la machine virtuelle et affiche tous les fichiers et dossiers, y compris les fichiers cachés. Il attribue une lettre de lecteur à chaque partition, y compris les partitions réservées au système.
+NetApp Backup and Recovery connecte le disque virtuel à la machine virtuelle et affiche tous les fichiers et dossiers, y compris les fichiers et dossiers cachés. Pour les invités Windows, il attribue une lettre de lecteur à chaque partition, y compris les partitions réservées au système.
 
 +
-Les fichiers et dossiers que vous avez sélectionnés sont listés dans le volet droit de l'écran.
+Vous pouvez utiliser l'icône de loupe (recherche) située près du volet de l'explorateur de fichiers pour rechercher des fichiers et des dossiers. La recherche par motif n'est pas prise en charge, mais vous pouvez rechercher des fichiers ou des dossiers en fonction d'une partie du nom ou de l'extension.
+
+
+
+. Sélectionnez les fichiers ou dossiers à restaurer.
++
+Les fichiers et dossiers que vous avez sélectionnés pour la restauration sont listés dans le volet droit de l'écran.
 
 . Sélectionnez *Suivant*.
-. Saisissez le chemin de partage UNC vers l'invité où les fichiers sélectionnés seront restaurés.
+. Dans la section « Restaurer dans le chemin », saisissez le chemin d'accès à l'invité où les fichiers sélectionnés seront restaurés :
 +
-** Exemple d'adresse IPv4 : `\\10.60.136.65\c$`
-** Exemple d'adresse IPv6 : `\\fd20-8b1e-b255-832e--61.ipv6-literal.net\C\restore`
+** Pour les invités Windows, saisissez le chemin de partage UNC :
++
+*** Exemple de chemin IPv4 : `\\10.60.136.65\c$`
+*** Exemple de chemin IPv6 : `\\fd20-8b1e-b255-832e--61.ipv6-literal.net\C\restore`
+
+
+** Pour les machines virtuelles Linux, saisissez le chemin d'accès au système de fichiers local ou l'adresse et le chemin d'accès à la machine virtuelle distante :
++
+*** Exemple de chemin local : `/home/user/documents/file.txt`
+*** Exemple de chemin IPv4 : `10.60.136.65:/home/user/restore/`
+*** Exemple de chemin IPv6 : `fd20-8b1e-b255-832e--61.ipv6-literal.net:/home/user/restore/`
+
+
 
 
 +
 S'il existe déjà des fichiers portant le même nom, vous pouvez choisir de les écraser ou de les ignorer.
 
+. Dans la section « Options post-restauration », vous pouvez, si vous le souhaitez, déconnecter la session invitée une fois la restauration terminée en activant l’option *Déconnecter la session invitée après la restauration*. Cette action détache le VMDK et démonte la banque de données. Vous devrez donc reconnecter la session invitée avant d’effectuer toute autre opération de restauration de fichiers et de dossiers.
 . Sélectionnez *Restaurer*.
 +
 Vous pouvez consulter la progression de la restauration sur la page de suivi des tâches.
 
 
+
+--
+.Restaurez les fichiers et les dossiers sur une autre machine virtuelle
+--
+Utilisez une machine virtuelle proxy (une machine virtuelle différente sur le même vCenter que l'originale) pour restaurer les fichiers et dossiers invités d'un disque virtuel vers une autre machine virtuelle.
+
+.Étapes
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
+. Sélectionnez le menu *Machines virtuelles*.
+. Dans la liste des machines virtuelles, sélectionnez l'icône Actions image:../media/icon-action.png["Option Actions"] pour une machine virtuelle contenant des fichiers que vous souhaitez restaurer.
+. Sélectionnez *Restaurer les fichiers et dossiers*.
+. Sélectionnez un instantané à partir duquel effectuer la restauration, puis sélectionnez *Suivant*.
+. Choisissez l'emplacement du snapshot à restaurer. Si vous choisissez un emplacement secondaire, sélectionnez l'instantané secondaire dans la liste.
+. Sélectionnez *Suivant*.
+. Choisissez un disque virtuel dans la liste à attacher à la machine virtuelle, puis sélectionnez *Suivant*.
+. Sur la page _Détails de la machine virtuelle invitée_, procédez comme suit :
++
+.. Dans la section *Détails de la machine virtuelle invitée* :
++
+... Attachez le disque virtuel à une machine virtuelle proxy en sélectionnant *Proxy virtual machine*.
+... Choisissez la source vCenter, le centre de données et le magasin de données dans les listes.
+... Sélectionnez une machine virtuelle sur laquelle effectuer la restauration. La machine virtuelle sélectionnée apparaît dans le volet de droite.
+
+
+.. Dans la section *Informations d'identification de la machine virtuelle invitée*, si vous n'avez pas encore enregistré d'identifiant pour la machine virtuelle invitée, sélectionnez *Ajouter des informations d'identification*, saisissez les informations d'identification de l'hôte Windows ou Linux, puis sélectionnez *Ajouter*.
+.. Choisissez des informations d'identification de machine virtuelle à utiliser pour vous authentifier auprès de la machine virtuelle invitée.
+.. Sélectionnez *Suivant*.
++
+NetApp Backup and Recovery connecte le disque virtuel à la machine virtuelle et affiche tous les fichiers et dossiers, y compris les fichiers et dossiers cachés. Pour les invités Windows, il attribue une lettre de lecteur à chaque partition, y compris les partitions réservées au système.
+
++
+Vous pouvez utiliser l'icône de loupe (recherche) située près du volet de l'explorateur de fichiers pour rechercher des fichiers et des dossiers. La recherche par motif n'est pas prise en charge, mais vous pouvez rechercher des fichiers ou des dossiers en fonction d'une partie du nom ou de l'extension.
+
+
+
+. Sélectionnez les fichiers ou dossiers à restaurer.
++
+Les fichiers et dossiers que vous avez sélectionnés pour la restauration sont listés dans le volet droit de l'écran.
+
+. Sélectionnez *Suivant*.
+. Dans la section « Restaurer dans le chemin », saisissez le chemin d'accès à l'invité où les fichiers sélectionnés seront restaurés :
++
+** Pour les invités Windows, saisissez le chemin de partage UNC :
++
+*** Exemple de chemin IPv4 : `\\10.60.136.65\c$`
+*** Exemple de chemin IPv6 : `\\fd20-8b1e-b255-832e--61.ipv6-literal.net\C\restore`
+
+
+** Pour les machines virtuelles Linux, saisissez le chemin d'accès au système de fichiers local ou l'adresse et le chemin d'accès à la machine virtuelle distante :
++
+*** Exemple de chemin local : `/home/user/documents/file.txt`
+*** Exemple de chemin IPv4 : `10.60.136.65:/home/user/restore/`
+*** Exemple de chemin IPv6 : `fd20-8b1e-b255-832e--61.ipv6-literal.net:/home/user/restore/`
+
+
+
+
++
+S'il existe déjà des fichiers portant le même nom, vous pouvez choisir de les écraser ou de les ignorer.
+
+. Dans la section « Options post-restauration », vous pouvez, si vous le souhaitez, déconnecter la session invitée une fois la restauration terminée en activant l’option *Déconnecter la session invitée après la restauration*. Cette action détache le VMDK et démonte la banque de données. Vous devrez donc reconnecter la session invitée avant d’effectuer toute autre opération de restauration de fichiers et de dossiers.
+. Sélectionnez *Restaurer*.
++
+Vous pouvez consulter la progression de la restauration sur la page de suivi des tâches.
+
+
+
+--
+====

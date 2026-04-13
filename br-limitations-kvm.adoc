@@ -25,7 +25,6 @@ Les actions et configurations suivantes ne sont pas prises en charge dans les ch
 Les actions suivantes ne sont pas prises en charge :
 
 * Cloner, monter ou démonter des machines virtuelles
-* Restaurer les machines virtuelles vers un autre emplacement
 * Protéger les machines virtuelles stockées sur SAN
 * Protéger les applications
 * Créer des sauvegardes définies par l'utilisateur (seules les sauvegardes lancées à partir de la NetApp Console sont prises en charge)
