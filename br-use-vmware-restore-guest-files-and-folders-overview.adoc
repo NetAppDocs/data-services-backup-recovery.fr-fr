@@ -24,7 +24,7 @@ Les opérations de restauration du système d’exploitation invité incluent le
 
 . Attacher
 +
-Attachez un disque virtuel à une machine virtuelle invitée et démarrez une session de restauration de fichiers invitée.
+Attachez un disque virtuel à une machine virtuelle invitée ou à une machine virtuelle proxy et démarrez une session de restauration de fichiers invitée.
 
 . Attendez
 +
@@ -32,7 +32,7 @@ Veuillez patienter jusqu'à la fin de l'opération de rattachement avant de pouv
 
 . Sélectionner des fichiers ou des dossiers
 +
-Parcourez les fichiers VMDK et sélectionnez un ou plusieurs fichiers ou dossiers à restaurer.
+Parcourez ou recherchez les fichiers du disque virtuel et sélectionnez un ou plusieurs fichiers ou dossiers à restaurer.
 
 . Restaurer
 +
@@ -55,7 +55,9 @@ NetApp Backup and Recovery utilise les informations des outils VMware pour étab
 +
 Le disque virtuel contenant le fichier ou le dossier que vous souhaitez restaurer doit se trouver dans une sauvegarde de machine virtuelle effectuée à l'aide de NetApp Backup and Recovery.
 
-
+* Pour utiliser une machine virtuelle proxy, la machine virtuelle proxy doit être configurée.
++
+Si vous souhaitez attacher un disque virtuel à une machine virtuelle proxy, cette dernière doit être configurée avant le début de l'opération d'attachement et de restauration.
 
 * Pour les fichiers dont les noms ne sont pas en alphabet anglais, vous devez les restaurer dans un répertoire et non sous forme de fichier unique.
 +

@@ -4,7 +4,7 @@ permalink: br-use-vmware-restore-guest-files-and-folders-from-vmdks.html
 keywords:  
 summary: Vous pouvez restaurer un ou plusieurs fichiers ou dossiers à partir d’un VMDK sur un système d’exploitation invité Windows. 
 ---
-= Restaurez les fichiers et dossiers à partir des VMDKs
+= Restaurer des fichiers et des dossiers à partir de disques virtuels
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,11 +14,12 @@ summary: Vous pouvez restaurer un ou plusieurs fichiers ou dossiers à partir d�
 
 
 [role="lead"]
-Vous pouvez restaurer un ou plusieurs fichiers ou dossiers d'un VMDK vers la machine virtuelle d'origine ou vers une autre machine virtuelle sur le même serveur vCenter VMware. Les systèmes d'exploitation invités Windows et Linux sont pris en charge.
+Restaurez des fichiers ou des dossiers d'un disque virtuel vers la machine virtuelle d'origine ou vers une autre machine virtuelle. Si vous préférez ne pas connecter le disque virtuel à la machine virtuelle d'origine, vous pouvez le connecter à une machine virtuelle proxy.
 
 .Avant de commencer
 * Consultez les prérequis et les limitations dans link:br-use-vmware-restore-guest-files-and-folders-overview.html["Exigences et limitations relatives à la restauration des fichiers et dossiers invités"].
-* Vous devez créer des informations d'identification pour la machine virtuelle invitée dans NetApp Backup and Recovery avant de pouvoir restaurer des fichiers et des dossiers à partir de celle-ci. NetApp Backup and Recovery utilise ces informations d'identification pour s'authentifier auprès de la machine virtuelle invitée lors de la connexion du disque virtuel.
+* Pour restaurer des fichiers et des dossiers à l'aide d'une machine virtuelle proxy, assurez-vous que la machine virtuelle proxy est déjà configurée avant de commencer le processus de restauration de fichiers et de dossiers.
+* Vous devez créer des identifiants pour le disque virtuel source et la machine virtuelle de destination dans NetApp Backup and Recovery avant de pouvoir restaurer des fichiers et des dossiers. NetApp Backup and Recovery utilise ces identifiants pour s'authentifier auprès du disque virtuel et de la machine virtuelle de destination lors de la restauration de fichiers et de dossiers.
 
 
 .À propos de cette tâche
@@ -34,27 +35,31 @@ IMPORTANT: La fonction de restauration de fichiers et de dossiers permet d'affic
 
 [role="tabbed-block"]
 ====
-.Restaurez les fichiers et dossiers sur la machine virtuelle d'origine
+.Attachez le fichier VMDK à la machine virtuelle d'origine pour restaurer les fichiers et dossiers
 --
 Restaurez les fichiers et dossiers invités d'un disque virtuel vers la machine virtuelle d'origine (source).
 
 .Étapes
-. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
-. Sélectionnez le menu *Machines virtuelles*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Restaurer*.
+. Sélectionnez *VMware* dans la liste des charges de travail en haut à droite de la page.
 . Dans la liste des machines virtuelles, sélectionnez l'icône Actions image:../media/icon-action.png["Option Actions"] pour une machine virtuelle contenant des fichiers que vous souhaitez restaurer.
 . Sélectionnez *Restaurer les fichiers et dossiers*.
 . Sélectionnez un instantané à partir duquel effectuer la restauration, puis sélectionnez *Suivant*.
 . Choisissez l'emplacement du snapshot à restaurer. Si vous choisissez un emplacement secondaire, sélectionnez l'instantané secondaire dans la liste.
 . Sélectionnez *Suivant*.
-. Choisissez un disque virtuel dans la liste à attacher à la machine virtuelle, puis sélectionnez *Suivant*.
+. Dans la liste, choisissez un disque virtuel contenant les fichiers et dossiers que vous devez restaurer, puis sélectionnez *Suivant*.
 . Sur la page _Détails de la machine virtuelle invitée_, procédez comme suit :
 +
 .. Dans la section *Détails de la machine virtuelle invitée*, attachez le disque virtuel à la VM d'origine en sélectionnant *Original virtual machine*.
-.. Dans la section *Informations d'identification de la machine virtuelle invitée*, si vous n'avez pas encore enregistré d'identifiant pour la machine virtuelle invitée, sélectionnez *Ajouter des informations d'identification*, saisissez les informations d'identification de l'hôte Windows ou Linux, puis sélectionnez *Ajouter*.
-.. Choisissez des informations d'identification de machine virtuelle à utiliser pour vous authentifier auprès de la machine virtuelle invitée.
+.. Dans la section *Informations d'identifiant de la machine virtuelle invitée*, si vous n'avez pas encore enregistré d'identifiant pour le disque virtuel source et la machine virtuelle de destination, sélectionnez *Ajouter des identifiants*, saisissez les informations d'identifiant Windows ou Linux, puis sélectionnez *Ajouter*.
++
+
+NOTE: Les machines virtuelles source et de destination doivent exécuter la même famille de systèmes d'exploitation ; les versions du système d'exploitation peuvent être différentes.
+
+.. Dans la liste, choisissez un identifiant de machine virtuelle à utiliser.
 .. Sélectionnez *Suivant*.
 +
-NetApp Backup and Recovery connecte le disque virtuel à la machine virtuelle et affiche tous les fichiers et dossiers, y compris les fichiers et dossiers cachés. Pour les invités Windows, il attribue une lettre de lecteur à chaque partition, y compris les partitions réservées au système.
+NetApp Backup and Recovery associe le disque virtuel à la machine virtuelle d'origine et affiche tous les fichiers et dossiers, y compris les fichiers et dossiers cachés. Pour les invités Windows, il attribue une lettre de lecteur à chaque partition, y compris les partitions réservées au système.
 
 +
 Vous pouvez utiliser l'icône de loupe (recherche) située près du volet de l'explorateur de fichiers pour rechercher des fichiers et des dossiers. La recherche par motif n'est pas prise en charge, mais vous pouvez rechercher des fichiers ou des dossiers en fonction d'une partie du nom ou de l'extension.
@@ -66,7 +71,7 @@ Vous pouvez utiliser l'icône de loupe (recherche) située près du volet de l'e
 Les fichiers et dossiers que vous avez sélectionnés pour la restauration sont listés dans le volet droit de l'écran.
 
 . Sélectionnez *Suivant*.
-. Dans la section « Restaurer dans le chemin », saisissez le chemin d'accès à l'invité où les fichiers sélectionnés seront restaurés :
+. Dans la section « Restaurer vers le chemin », saisissez le chemin d’accès à la machine virtuelle de destination et l’emplacement du système de fichiers où les fichiers sélectionnés seront restaurés :
 +
 ** Pour les invités Windows, saisissez le chemin de partage UNC :
 +
@@ -86,7 +91,7 @@ Les fichiers et dossiers que vous avez sélectionnés pour la restauration sont 
 +
 S'il existe déjà des fichiers portant le même nom, vous pouvez choisir de les écraser ou de les ignorer.
 
-. Dans la section « Options post-restauration », vous pouvez, si vous le souhaitez, déconnecter la session invitée une fois la restauration terminée en activant l’option *Déconnecter la session invitée après la restauration*. Cette action détache le VMDK et démonte la banque de données. Vous devrez donc reconnecter la session invitée avant d’effectuer toute autre opération de restauration de fichiers et de dossiers.
+. Dans la section « Options post-restauration », vous pouvez, si vous le souhaitez, déconnecter la session invitée une fois la restauration terminée en activant l’option *Déconnecter la session invitée après la restauration terminée*. Cette action détache le disque virtuel et démonte la banque de données. Vous devrez donc reconnecter la session invitée avant d’effectuer toute opération supplémentaire de restauration de fichiers ou de dossiers.
 . Sélectionnez *Restaurer*.
 +
 Vous pouvez consulter la progression de la restauration sur la page de suivi des tâches.
@@ -94,33 +99,37 @@ Vous pouvez consulter la progression de la restauration sur la page de suivi des
 
 
 --
-.Restaurez les fichiers et les dossiers sur une autre machine virtuelle
+.Attachez le VMDK à une machine virtuelle proxy pour restaurer des fichiers et des dossiers
 --
-Utilisez une machine virtuelle proxy (une machine virtuelle différente sur le même vCenter que l'originale) pour restaurer les fichiers et dossiers invités d'un disque virtuel vers une autre machine virtuelle.
+Utilisez une VM proxy (une VM différente sur le même vCenter que l'originale) pour restaurer les fichiers et dossiers invités lorsque vous ne souhaitez pas attacher le disque virtuel à la VM d'origine.
 
 .Étapes
-. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
-. Sélectionnez le menu *Machines virtuelles*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Restaurer*.
+. Sélectionnez *VMware* dans la liste des charges de travail en haut à droite de la page.
 . Dans la liste des machines virtuelles, sélectionnez l'icône Actions image:../media/icon-action.png["Option Actions"] pour une machine virtuelle contenant des fichiers que vous souhaitez restaurer.
 . Sélectionnez *Restaurer les fichiers et dossiers*.
 . Sélectionnez un instantané à partir duquel effectuer la restauration, puis sélectionnez *Suivant*.
 . Choisissez l'emplacement du snapshot à restaurer. Si vous choisissez un emplacement secondaire, sélectionnez l'instantané secondaire dans la liste.
 . Sélectionnez *Suivant*.
-. Choisissez un disque virtuel dans la liste à attacher à la machine virtuelle, puis sélectionnez *Suivant*.
+. Dans la liste, choisissez un disque virtuel contenant les fichiers et dossiers que vous devez restaurer, puis sélectionnez *Suivant*.
 . Sur la page _Détails de la machine virtuelle invitée_, procédez comme suit :
 +
 .. Dans la section *Détails de la machine virtuelle invitée* :
 +
 ... Attachez le disque virtuel à une machine virtuelle proxy en sélectionnant *Proxy virtual machine*.
-... Choisissez la source vCenter, le centre de données et le magasin de données dans les listes.
-... Sélectionnez une machine virtuelle sur laquelle effectuer la restauration. La machine virtuelle sélectionnée apparaît dans le volet de droite.
+... Choisissez un vCenter, un centre de données et un datastore où se trouve la machine virtuelle proxy dans les listes.
+... Sélectionnez une machine virtuelle dans la liste pour l'utiliser comme machine virtuelle proxy. Le disque virtuel sera attaché à cette machine virtuelle. La machine virtuelle proxy sélectionnée apparaît dans le volet de droite.
 
 
-.. Dans la section *Informations d'identification de la machine virtuelle invitée*, si vous n'avez pas encore enregistré d'identifiant pour la machine virtuelle invitée, sélectionnez *Ajouter des informations d'identification*, saisissez les informations d'identification de l'hôte Windows ou Linux, puis sélectionnez *Ajouter*.
-.. Choisissez des informations d'identification de machine virtuelle à utiliser pour vous authentifier auprès de la machine virtuelle invitée.
+.. Dans la section *Informations d'identifiant de la machine virtuelle invitée*, si vous n'avez pas encore enregistré d'identifiant pour le disque virtuel source et la machine virtuelle de destination, sélectionnez *Ajouter des identifiants*, saisissez les informations d'identifiant Windows ou Linux, puis sélectionnez *Ajouter*.
++
+
+NOTE: Les machines virtuelles source et de destination doivent exécuter la même famille de systèmes d'exploitation ; les versions du système d'exploitation peuvent être différentes.
+
+.. Dans la liste, choisissez un identifiant de machine virtuelle à utiliser.
 .. Sélectionnez *Suivant*.
 +
-NetApp Backup and Recovery connecte le disque virtuel à la machine virtuelle et affiche tous les fichiers et dossiers, y compris les fichiers et dossiers cachés. Pour les invités Windows, il attribue une lettre de lecteur à chaque partition, y compris les partitions réservées au système.
+NetApp Backup and Recovery connecte le disque virtuel à la machine virtuelle proxy et affiche tous les fichiers et dossiers, y compris les fichiers cachés. Pour les invités Windows, il attribue une lettre de lecteur à chaque partition, y compris les partitions réservées au système.
 
 +
 Vous pouvez utiliser l'icône de loupe (recherche) située près du volet de l'explorateur de fichiers pour rechercher des fichiers et des dossiers. La recherche par motif n'est pas prise en charge, mais vous pouvez rechercher des fichiers ou des dossiers en fonction d'une partie du nom ou de l'extension.
@@ -132,7 +141,7 @@ Vous pouvez utiliser l'icône de loupe (recherche) située près du volet de l'e
 Les fichiers et dossiers que vous avez sélectionnés pour la restauration sont listés dans le volet droit de l'écran.
 
 . Sélectionnez *Suivant*.
-. Dans la section « Restaurer dans le chemin », saisissez le chemin d'accès à l'invité où les fichiers sélectionnés seront restaurés :
+. Dans la section « Restaurer vers le chemin », saisissez le chemin d’accès à la machine virtuelle de destination et l’emplacement du système de fichiers où les fichiers sélectionnés seront restaurés :
 +
 ** Pour les invités Windows, saisissez le chemin de partage UNC :
 +
@@ -152,7 +161,7 @@ Les fichiers et dossiers que vous avez sélectionnés pour la restauration sont 
 +
 S'il existe déjà des fichiers portant le même nom, vous pouvez choisir de les écraser ou de les ignorer.
 
-. Dans la section « Options post-restauration », vous pouvez, si vous le souhaitez, déconnecter la session invitée une fois la restauration terminée en activant l’option *Déconnecter la session invitée après la restauration*. Cette action détache le VMDK et démonte la banque de données. Vous devrez donc reconnecter la session invitée avant d’effectuer toute autre opération de restauration de fichiers et de dossiers.
+. Dans la section « Options post-restauration », vous pouvez, si vous le souhaitez, déconnecter la session invitée une fois la restauration terminée en activant l’option *Déconnecter la session invitée après la restauration terminée*. Cette action détache le disque virtuel et démonte la banque de données. Vous devrez donc reconnecter la session invitée avant d’effectuer toute opération supplémentaire de restauration de fichiers ou de dossiers.
 . Sélectionnez *Restaurer*.
 +
 Vous pouvez consulter la progression de la restauration sur la page de suivi des tâches.
