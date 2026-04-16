@@ -312,21 +312,24 @@ CAUTION: Utilisez cette option avec précaution et uniquement en cas de besoins 
 
 La suppression de toutes les sauvegardes d’un volume désactive également les sauvegardes futures pour ce volume.
 
+
+NOTE: Vous ne pouvez pas supprimer individuellement les fichiers de sauvegarde d'un volume une fois la relation de sauvegarde supprimée. Supprimez les fichiers de sauvegarde d'un volume avant de supprimer sa relation de sauvegarde.
+
 .Étapes
-. Dans l'onglet *Volumes*, cliquez surimage:icon-actions-horizontal.gif["Plus d'icônes"] pour le volume source et sélectionnez *Détails et liste de sauvegarde*.
+. Dans le menu *Volumes*, cliquez sur image:icon-actions-horizontal.gif["Plus d'icônes"] le volume source et sélectionnez *Gérer les sauvegardes > Afficher la sauvegarde*.
 +
 La liste de tous les fichiers de sauvegarde s'affiche.
 
-. Sélectionnez *Actions* > *Supprimer toutes les sauvegardes*.
-. Entrez le nom du volume.
-. Sélectionnez *Paramètres avancés*.
-. *Forcer la suppression des sauvegardes* : Indiquez si vous souhaitez ou non forcer la suppression de toutes les sauvegardes.
+. Choisissez une sauvegarde dans la liste et sélectionnez *Actions > Supprimer toutes les sauvegardes*.
+. Confirmez la suppression en saisissant le nom du volume.
+. Développez la section *Paramètres avancés*.
+. Sous *Forcer la suppression des sauvegardes*, sélectionnez si vous souhaitez forcer la suppression de toutes les sauvegardes.
 +
-Dans certains cas extrêmes, vous souhaiterez peut-être que NetApp Backup and Recovery n'ait plus accès aux sauvegardes. Cela peut se produire par exemple si le service n'a plus accès au bucket de sauvegarde ou si les sauvegardes sont protégées par DataLock mais que vous n'en voulez plus. Auparavant, vous ne pouviez pas les supprimer vous-même et deviez appeler le support NetApp . Avec cette version, vous pouvez utiliser l'option permettant de forcer la suppression des sauvegardes (au niveau du volume et du système).
+Dans de rares cas, vous pourriez avoir besoin de révoquer l'accès de NetApp Backup and Recovery aux sauvegardes' ; par exemple, si Backup and Recovery perd l'accès au compartiment de sauvegarde ou si les sauvegardes sont DataLock-protégées mais que vous ne souhaitez plus les conserver. Utilisez cette option pour forcer la suppression des sauvegardes au niveau du volume et du système.
 
 +
 
-CAUTION: Utilisez cette option avec précaution et uniquement en cas de besoins de nettoyage extrêmes. NetApp Backup and Recovery n'aura plus accès à ces sauvegardes même si elles ne sont pas supprimées dans le stockage d'objets. Vous devrez vous rendre chez votre fournisseur de cloud et supprimer manuellement les sauvegardes.
+CAUTION: N'utilisez cette option qu'en cas de nettoyage extrême. Une fois activée, NetApp Backup and Recovery n'accédera plus à ces sauvegardes (même si les objets restent dans le stockage cloud). Vous devez les supprimer manuellement auprès de votre fournisseur de cloud.
 
 . Sélectionnez *Supprimer*.
 
@@ -335,9 +338,10 @@ CAUTION: Utilisez cette option avec précaution et uniquement en cas de besoins 
 
 === Supprimer un seul fichier de sauvegarde pour un volume
 
-Vous pouvez supprimer un seul fichier de sauvegarde si vous n'en avez plus besoin. Cela inclut la suppression d'une seule sauvegarde d'un instantané de volume ou d'une sauvegarde dans un stockage d'objets.
+Supprimez une sauvegarde individuelle lorsqu'elle n'est plus nécessaire. Vous ne pouvez pas supprimer les volumes répliqués (volumes de protection des données).
 
-Vous ne pouvez pas supprimer les volumes répliqués (volumes de protection des données).
+
+NOTE: Vous ne pouvez pas supprimer individuellement les fichiers de sauvegarde de volume une fois que la relation de sauvegarde a été supprimée. Vous pouvez cependant <<Supprimer tous les fichiers de sauvegarde d'un volume,supprimer tous les fichiers de sauvegarde du volume>>.
 
 .Étapes
 . Dans l'onglet *Volumes*, sélectionnezimage:icon-actions-horizontal.gif["Plus d'icônes"] pour le volume source et sélectionnez *Afficher les détails du volume*.
@@ -362,7 +366,7 @@ Cette fonctionnalité est disponible uniquement si votre système exécute ONTAP
 Vous ne pouvez pas supprimer le volume source de l'interface utilisateur de NetApp Backup and Recovery .  Cependant, vous pouvez ouvrir la page Détails du volume sur la page *Systèmes* de la console et https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes["supprimer le volume à partir de là"] .
 
 
-NOTE: Vous ne pouvez pas supprimer les fichiers de sauvegarde de volume individuels une fois la relation supprimée.  Vous pouvez cependant supprimer toutes les sauvegardes du volume.
+NOTE: Vous ne pouvez pas supprimer individuellement les fichiers de sauvegarde d'un volume une fois la relation de sauvegarde supprimée. Cependant, vous pouvez <<Supprimer tous les fichiers de sauvegarde d'un volume,supprimer tous les fichiers de sauvegarde du volume>>. Si vous devez supprimer une relation de sauvegarde pour un volume, assurez-vous de supprimer d'abord les sauvegardes du volume, puis de supprimer la relation de sauvegarde.
 
 .Étapes
 . Dans l'onglet *Volumes*, sélectionnezimage:icon-actions-horizontal.gif["Icône Actions"] pour le volume source et sélectionnez *Sauvegarde* > *Supprimer la relation*.
@@ -372,7 +376,7 @@ NOTE: Vous ne pouvez pas supprimer les fichiers de sauvegarde de volume individu
 
 == Désactiver NetApp Backup and Recovery pour un système
 
-La désactivation de NetApp Backup and Recovery pour un système désactive les sauvegardes de chaque volume du système et désactive également la possibilité de restaurer un volume.  Les sauvegardes existantes ne seront pas supprimées.  Cela ne désenregistre pas le service de sauvegarde de ce système. Cela vous permet essentiellement de suspendre toutes les activités de sauvegarde et de restauration pendant un certain temps.
+La désactivation de NetApp Backup and Recovery pour un système suspend les sauvegardes et les restaurations de tous ses volumes sans supprimer les sauvegardes existantes. Cela vous permet de suspendre toute activité de sauvegarde et de restauration pendant une période déterminée sans désinscrire le service de sauvegarde de ce système.
 
 Notez que votre fournisseur de cloud continuera à vous facturer les coûts de stockage d'objets pour la capacité utilisée par vos sauvegardes, sauf si vous<<Supprimer les sauvegardes,supprimer les sauvegardes>> .
 
