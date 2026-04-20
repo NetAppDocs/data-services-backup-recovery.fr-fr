@@ -18,6 +18,23 @@ Découvrez les nouveautés de NetApp Backup and Recovery.
 
 
 
+== 20 avril 2026
+
+Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
+
+
+
+=== Améliorations des charges de travail VMware
+
+Dans cette version, les charges de travail VMware introduisent l'amélioration suivante :
+
+* *ASA r2 prise en charge SAN* : Les charges de travail VMware prennent désormais en charge la protection des machines virtuelles sur des banques de données VMFS hébergées par des environnements NetApp ASA r2 SAN uniquement.
+
+
+Pour plus de détails sur la protection des charges de travail VMware, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-vmware-protect-overview.html["Présentation de la protection des charges de travail VMware"] .
+
+
+
 == 13 avril 2026
 
 Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
