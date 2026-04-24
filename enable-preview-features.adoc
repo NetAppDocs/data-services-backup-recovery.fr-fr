@@ -1,0 +1,181 @@
+---
+sidebar: sidebar 
+permalink: enable-preview-features.html 
+keywords: preview features, preview, Backup and Recovery, configuration, NetApp Backup and Recovery 
+summary: 'Activer l"aperçu et les fonctionnalités cachées pour NetApp Backup and Recovery.' 
+---
+= Activer l'aperçu et les fonctionnalités cachées pour NetApp Backup and Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Activer l'aperçu et les fonctionnalités cachées pour NetApp Backup and Recovery.
+
+*Rôle de NetApp Console requis* Super administrateur de sauvegarde et de récupération.  En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
+
+
+
+== Fonctionnalités en avant-première disponibles
+
+Vous pouvez activer les fonctionnalités en préversion suivantes pour NetApp Backup and Recovery.
+
+[cols="50,50"]
+|===
+| Drapeau de fonctionnalité | Description des fonctionnalités 
+
+
+| `"folder-restore-from-local": true` | Permet la restauration au niveau du dossier à partir d'instantanés de volumes ONTAP locaux. Par défaut, ONTAP ne prend en charge que la restauration de dossiers à partir de sauvegardes de stockage objet. Avec cette option activée, vous pouvez également restaurer des répertoires entiers à partir d'instantanés locaux et répliqués. 
+
+
+| `"prioritize-restore": true` | Permet de sélectionner l’option « Prioriser la restauration par rapport à la file d’attente existante » lors du processus de restauration dans l’interface web de NetApp Backup and Recovery. Lorsque vous sélectionnez cette option lors du processus de restauration, les opérations de restauration sont prioritaires sur les autres tâches en attente et s’exécutent même lorsque la file d’attente est occupée. 
+|===
+
+
+== Activer les fonctionnalités de prévisualisation
+
+Activez les options de prévisualisation pour utiliser des fonctionnalités qui ne sont pas encore généralement disponibles. Utilisez les fonctionnalités en prévisualisation avec précaution dans les environnements de production.
+
+.Étapes
+. Utilisez SSH pour vous connecter à l'agent de Console.
+. Passer en mode utilisateur root :
++
+[source, console]
+----
+sudo su
+----
+. Trouvez le volume NetApp Backup and Recovery dans Docker :
++
+[source, console]
+----
+docker volume ls | grep cbs
+----
++
+Le résultat devrait être similaire à ce qui suit :
+
++
+[listing]
+----
+local service-manager-2_cloudmanager_cbs_volume
+----
+. Trouvez le point de montage pour le volume :
++
+[source, console]
+----
+docker volume inspect service-manager-2_cloudmanager_cbs_volume | grep Mountpoint
+----
++
+Le point de montage diffère entre les déploiements cloud et privés. Cet exemple de sortie illustre un déploiement cloud :
+
++
+[listing]
+----
+/var/lib/docker/volumes/service-manager-2_cloudmanager_cbs_volume/_data
+----
+. Accédez au répertoire de configuration du volume docker, qui se trouve dans le répertoire du point de montage. Par exemple :
++
+[source, console]
+----
+cd /var/lib/docker/volumes/service-manager-2_cloudmanager_cbs_volume/_data/cbs_config
+----
+. Créez un fichier contenant la structure JSON suivante et une paire clé/valeur pour chaque indicateur de fonctionnalité que vous souhaitez activer. Nommez le fichier en fonction de votre type de déploiement :
++
+** Déploiement cloud : `production-customer.json`
+** Déploiement sur site privé/dark site : `darksite-customer.json`
++
+Consultez <<anchor-flags,drapeaux disponibles>> pour obtenir des informations sur les indicateurs de fonctionnalités. Par exemple :
+
++
+[source, json]
+----
+{
+  "feature-flags": {
+    "folder-restore-from-local": true,
+    "prioritize-restore": true
+  }
+}
+----
+
+
+. Redémarrez le conteneur de sauvegarde et de récupération :
++
+[source, console]
+----
+docker restart cloudmanager_cbs
+----
+. Rechargez l'interface utilisateur NetApp Backup and Recovery dans votre navigateur web.
++
+
+NOTE: Pour désactiver une fonctionnalité en préversion, suivez les mêmes étapes, mais définissez la valeur de l'indicateur de fonctionnalité sur `false`.
+
+
+
+
+
+== Désactivez l'indexation pour tous les volumes appartenant à une machine virtuelle de stockage
+
+Suivez ces étapes pour désactiver l'indexation de tous les volumes appartenant à une machine virtuelle de stockage spécifique, au lieu de désactiver l'indexation pour chaque volume individuel.
+
+.Étapes
+. Utilisez SSH pour vous connecter à l'agent de Console.
+. Passer en mode utilisateur root :
++
+[source, console]
+----
+sudo su
+----
+. Trouvez le volume NetApp Backup and Recovery dans Docker :
++
+[source, console]
+----
+docker volume ls | grep cbs
+----
++
+Le résultat devrait être similaire à ce qui suit :
+
++
+[listing]
+----
+local service-manager-2_cloudmanager_cbs_volume
+----
+. Trouvez le point de montage pour le volume :
++
+[source, console]
+----
+docker volume inspect service-manager-2_cloudmanager_cbs_volume | grep Mountpoint
+----
++
+Le point de montage diffère entre les déploiements cloud et privés. Cet exemple de sortie illustre un déploiement cloud :
+
++
+[listing]
+----
+/var/lib/docker/volumes/service-manager-2_cloudmanager_cbs_volume/_data
+----
+. Accédez au répertoire de configuration du volume docker, qui se trouve dans le répertoire du point de montage. Par exemple :
++
+[source, console]
+----
+cd /var/lib/docker/volumes/service-manager-2_cloudmanager_cbs_volume/_data/cbs_catalog_config
+----
+. Créez un fichier nommé  `production-customer.json` avec le contenu suivant. Remplacez les noms des machines virtuelles de stockage de l'exemple par les noms des machines virtuelles de stockage de votre environnement :
++
+[source, json]
+----
+{
+  "indexing": {
+    "svms-not-to-index": "storage_vm_1,storage_vm_2,storage_vm_3"
+  }
+}
+----
+. Redémarrez le conteneur du catalogue d'indexation de NetApp Backup and Recovery :
++
+[source, console]
+----
+docker restart cloudmanager_cbs_catalog
+----
+
