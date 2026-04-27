@@ -476,7 +476,7 @@ Pour créer une politique, sélectionnez *Créer une nouvelle politique* et proc
 +
 *** Entrez le nom de la politique.
 *** Sélectionnez jusqu'à cinq programmes, généralement de fréquences différentes.
-*** Pour les politiques de sauvegarde sur objet, définissez les paramètres DataLock et Ransomware Resilience.  Pour plus de détails sur DataLock et la résilience aux ransomwares, reportez-vous àlink:prev-ontap-policy-object-options.html["Paramètres de la politique de sauvegarde sur objet"] .
+*** Pour les règles de sauvegarde vers objet, configurez les paramètres Datalock et de protection contre les ransomwares. Pour plus d’informations sur Datalock et la protection contre les ransomwares, consultez link:prev-ontap-policy-object-options.html["Paramètres de la politique de sauvegarde sur objet"].
 *** Sélectionnez *Créer*.
 
 

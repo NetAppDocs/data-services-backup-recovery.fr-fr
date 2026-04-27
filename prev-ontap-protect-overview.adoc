@@ -193,7 +193,7 @@ Des frais de ressources sont payés au fournisseur de cloud pour la capacité de
 
 
 * Si vous prévoyez de restaurer des données de volume à partir d'un fichier de sauvegarde qui a été déplacé vers un stockage d'objets d'archivage, des frais de récupération par Gio et des frais par demande supplémentaires sont facturés par le fournisseur de cloud.
-* Si vous prévoyez d'analyser un fichier de sauvegarde à la recherche de ransomwares pendant le processus de restauration des données du volume (si vous avez activé DataLock et Ransomware Resilience pour vos sauvegardes cloud), vous devrez également supporter des frais de sortie supplémentaires auprès de votre fournisseur cloud.
+* Si vous prévoyez d'analyser un fichier de sauvegarde à la recherche de ransomwares lors du processus de restauration des données du volume (si vous avez activé Datalock et la protection contre les ransomwares pour vos sauvegardes cloud), alors vous encourrez également des frais de sortie supplémentaires de la part de votre fournisseur de cloud.
 
 
 *Frais de service*
@@ -311,7 +311,7 @@ TIP: La période de conservation des sauvegardes des volumes de protection des d
 
 === Paramètres de protection des fichiers de sauvegarde
 
-Si votre cluster utilise ONTAP 9.11.1 ou une version ultérieure, vous pouvez protéger vos sauvegardes dans le stockage d’objets contre les attaques de suppression et de ransomware.  Chaque politique de sauvegarde fournit une section pour _DataLock et Ransomware Resilience_ qui peut être appliquée à vos fichiers de sauvegarde pendant une période spécifique - la _période de conservation_.
+Si votre cluster utilise ONTAP 9.11.1 ou une version ultérieure, vous pouvez protéger vos sauvegardes dans le stockage objet contre la suppression et les attaques par rançongiciel. Chaque règle de sauvegarde comprend une section pour _Datalock and Ransomware protection_ qui peut être appliquée à vos fichiers de sauvegarde pendant une période spécifique - la _période de rétention_.
 
 * _DataLock_ protège vos fichiers de sauvegarde contre toute modification ou suppression.
 * _La protection contre les ransomwares_ analyse vos fichiers de sauvegarde pour rechercher des preuves d'une attaque de ransomware lorsqu'un fichier de sauvegarde est créé et lorsque les données d'un fichier de sauvegarde sont en cours de restauration.

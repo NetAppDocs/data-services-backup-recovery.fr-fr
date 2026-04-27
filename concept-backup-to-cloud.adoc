@@ -133,7 +133,7 @@ Des frais de ressources sont payés au fournisseur de cloud pour la capacité de
 
 
 * Si vous prévoyez de restaurer des données de volume à partir d'un fichier de sauvegarde qui a été déplacé vers un stockage d'objets d'archivage, des frais de récupération par Gio et des frais par demande supplémentaires sont facturés par le fournisseur de cloud.
-* Si vous prévoyez d'analyser un fichier de sauvegarde à la recherche de ransomwares pendant le processus de restauration des données du volume (si vous avez activé DataLock et Ransomware Resilience pour vos sauvegardes cloud), vous devrez également supporter des frais de sortie supplémentaires auprès de votre fournisseur cloud.
+* Si vous prévoyez d'analyser un fichier de sauvegarde à la recherche de ransomware lors du processus de restauration des données du volume (si vous avez activé Datalock et la protection Ransomware pour vos sauvegardes cloud), alors vous devrez également payer des frais de sortie supplémentaires auprès de votre fournisseur de cloud.
 
 
 *Frais de service*

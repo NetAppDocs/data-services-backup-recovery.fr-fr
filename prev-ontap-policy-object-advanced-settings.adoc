@@ -102,7 +102,7 @@ Lorsque vous sélectionnez l'étiquette de sauvegarde « annuelle » pour une st
 
 Les analyses de protection contre les ransomwares sont activées par défaut. Le paramètre par défaut pour la fréquence d'analyse est de 7 jours. L'analyse s'effectue uniquement sur le dernier instantané.
 
-Pour plus de détails sur les options DataLock et Ransomware Resilience, reportez-vous àlink:prev-ontap-policy-object-options.html["Options de résilience DataLock et Ransomware"] .
+Pour plus de détails sur les options Datalock et de protection contre les ransomwares, consultez link:prev-ontap-policy-object-options.html["Options de verrouillage des données et de protection contre les ransomwares"].
 
 Vous pouvez modifier ce calendrier en jours ou en semaines ou le désactiver, ce qui permet de réduire les coûts.
 
