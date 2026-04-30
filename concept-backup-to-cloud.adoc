@@ -18,7 +18,7 @@ NetApp Backup and Recovery est un service de données qui fournit une protection
 
 Une charge de travail est un regroupement logique de ressources au sein d'un système, géré comme une unité unique à des fins de protection, de gouvernance, de détection et de restauration. Dans Backup and Recovery, une charge de travail est l'unité que vous protégez. Sa signification dépend de la source de données : pour Kubernetes, une charge de travail est une application ; pour les environnements de machines virtuelles, c'est une machine virtuelle ; et pour les environnements de bases de données, c'est une base de données.
 
-La prise en charge de la sauvegarde et de la récupération est déjà intégrée à tous les systèmes ONTAP , il n'est donc pas nécessaire de recourir à du matériel supplémentaire, à des licences logicielles ou à des passerelles multimédias. Cela rend les opérations de sauvegarde simples et rentables. La NetApp Console simplifie la mise en œuvre de toute stratégie de sauvegarde, y compris toute la gamme des variantes de sauvegarde 3-2-1, sans nécessiter plusieurs gestionnaires de ressources ou du personnel spécialisé.
+La prise en charge de la sauvegarde et de la restauration est déjà intégrée à tous les systèmes ONTAP, il n’est donc pas nécessaire d’ajouter du matériel ou des passerelles de média supplémentaires. Cela rend les opérations de sauvegarde simples et rentables. La NetApp Console simplifie la mise en œuvre de toute stratégie de sauvegarde, y compris l’ensemble des variantes de sauvegarde 3-2-1, sans avoir besoin de plusieurs gestionnaires de ressources ou de personnel spécialisé.
 
 
 
