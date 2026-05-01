@@ -97,8 +97,7 @@ Assurez-vous que votre environnement répond à ces exigences avant d'activer la
 * Exigences du cluster :
 +
 ** La version ONTAP doit être 9.8 ou supérieure.
-** La machine virtuelle de stockage (SVM) sur laquelle réside le volume doit avoir un LIF de données configuré.
-** NFS doit être activé sur le volume (les volumes NFS et SMB/CIFS sont pris en charge).
+** Vous devez configurer une interface logique de données NFS IPv4 sur la machine virtuelle de stockage et une exportation NFS pour le volume. Search & Restore prend en charge les volumes NFS et SMB/CIFS.
 ** Le serveur SnapDiff RPC doit être activé sur le SVM. La console le fait automatiquement lorsque vous activez l’indexation sur le système. (SnapDiff est la technologie qui identifie rapidement les différences entre les fichiers et les répertoires dans les instantanés.)
 
 
