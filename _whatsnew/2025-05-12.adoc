@@ -39,4 +39,4 @@ Bien que cette fonctionnalité soit en version préliminaire, il existe certaine
 
 *Commencer*
 
-Pour commencer à utiliser cette fonctionnalité d’aperçu, vous devez activer un indicateur sur l’agent de la console.  Vous pouvez ensuite saisir les détails de connexion de votre magasin d'objets tiers MinIO dans le flux de travail de protection en choisissant le magasin d'objets *Compatible avec les tiers* dans la section de sauvegarde.
+Pour utiliser cette fonctionnalité en avant-première, vous devez activer une option dans l'agent Console. Vous pouvez ensuite saisir les informations de connexion de votre stockage d'objets tiers MinIO dans le flux de travail de protection en choisissant *Third party Compatible* object store dans la section de sauvegarde.

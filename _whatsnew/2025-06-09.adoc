@@ -31,7 +31,7 @@ Si vous désactivez ce paramètre, vous devez créer manuellement le point de te
 
 === Prise en charge de SnapMirror vers Cloud Resync sur ONTAP S3
 
-La version précédente a introduit la prise en charge de SnapMirror vers Cloud Resync (SM-C Resync). Cette fonctionnalité rationalise la protection des données lors de la migration de volumes dans les environnements NetApp . Cette version ajoute la prise en charge de SM-C Resync sur ONTAP S3 ainsi que d'autres fournisseurs compatibles S3 tels que Wasabi et MinIO.
+La version précédente a introduit la prise en charge de SnapMirror vers Cloud Resync (SM-C Resync). Cette fonctionnalité simplifie la protection des données lors de la migration de volumes dans les environnements NetApp. Cette version ajoute la prise en charge de SM-C Resync sur ONTAP S3 ainsi que sur d'autres fournisseurs compatibles S3 tels que Wasabi et MinIO.
 
 
 

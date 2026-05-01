@@ -18,7 +18,7 @@ Pour plus de détails sur la protection des charges de travail ONTAP Volumes, re
 
 Dans cette version, les charges de travail Kubernetes introduisent les améliorations suivantes en matière de politique de protection :
 
-* *Modifier les politiques de protection* : Vous pouvez désormais modifier les politiques de protection des charges de travail Kubernetes si vous devez modifier
+* *Modifier les politiques de protection* : Vous pouvez désormais modifier les politiques de protection des charges de travail Kubernetes si vous devez les modifier.
 * *Prise en charge des sauvegardes disque à disque* : Vous pouvez désormais configurer les politiques de protection Kubernetes avec une architecture de sauvegarde disque à disque.
 * *Prise en charge des buckets de stockage Google Cloud Platform* : Vous pouvez désormais configurer les politiques de protection Kubernetes pour effectuer des sauvegardes sur des buckets de stockage Google Cloud Platform.
 

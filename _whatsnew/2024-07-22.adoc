@@ -38,4 +38,4 @@ Avec cette version, la prise en charge de la restauration des dossiers FlexGroup
 
 Pour plus de détails, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-restore.html["Restaurer des dossiers et des fichiers à l'aide de Parcourir et restaurer"] .
 
-Pour plus de détails sur la façon de l'activer manuellement, reportez-vous à https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-July-2024-Release/ba-p/453993["Blog sur la version de juillet 2024 de NetApp Backup and Recovery"] .
+Pour plus de détails sur la manière de l'activer manuellement, reportez-vous à https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-July-2024-Release/ba-p/453993["Blog sur la version de juillet 2024 de NetApp Backup and Recovery"].

@@ -47,7 +47,7 @@ Les administrateurs de l'organisation, du dossier ou du projet découvrent les c
 
 . Ajouter des utilisateurs aux projets.
 +
-Les administrateurs d'organisation ou de dossier/projet ajoutent des utilisateurs de Console aux projets avec des workloads. Attribuez aux utilisateurs le rôle de viewer de l'Organization et un rôle de Backup and Recovery en fonction de leurs besoins d'accès. Les utilisateurs disposant du bon rôle de Backup and Recovery auront automatiquement accès aux nouveaux workloads dans ces projets.
+Les administrateurs d'organisation ou de dossier/projet ajoutent des utilisateurs de la NetApp Console aux projets contenant des workloads. Attribuez à ces utilisateurs le rôle de viewer de l'organisation et un rôle NetApp Backup and Recovery en fonction de leurs besoins d'accès. Les utilisateurs disposant du rôle NetApp Backup and Recovery approprié auront automatiquement accès aux nouveaux workloads de ces projets.
 
 
 

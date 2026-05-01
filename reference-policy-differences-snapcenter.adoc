@@ -53,7 +53,7 @@ NetApp Backup and Recovery ajuste les planifications SnapCenter comme suit :
 +
 *Exemple* : Si vous disposez d'une stratégie quotidienne SnapCenter avec un intervalle répétitif tous les 3 jours à partir du lundi, NetApp Backup and Recovery définit la planification sur une base hebdomadaire le lundi, le jeudi et le dimanche.  Certains jours seront sautés car ce n'est pas exactement tous les 3 jours.
 
-* Si la planification SnapCenter est définie sur une durée supérieure à 7 jours, NetApp Backup and Recovery définit la planification sur mensuelle.  Certains instantanés seront ignorés au cours du mois.
+* Si la planification SnapCenter est supérieure à 7 jours, NetApp Backup and Recovery règle la planification sur une base mensuelle. Certaines snapshots seront ignorées durant le mois.
 +
 *Exemple* : Si vous disposez d'une stratégie quotidienne SnapCenter avec un intervalle répétitif tous les 10 jours à partir du 2 du mois, NetApp Backup and Recovery, après la migration, définit la planification sur une base mensuelle les 2, 12 et 22 du mois.  NetApp Backup and Recovery saute quelques jours au cours du mois prochain.
 
@@ -67,7 +67,7 @@ Les politiques horaires SnapCenter avec des intervalles répétitifs supérieurs
 
 Toute politique horaire avec des intervalles répétitifs qui ne sont pas un facteur de 24 (par exemple 5, 7, etc.) ignorera certains instantanés dans une journée.
 
-*Exemple* : Si vous disposez d'une stratégie horaire SnapCenter avec un intervalle répétitif toutes les 5 heures à partir de 1 h 00 du matin, NetApp Backup and Recovery (après la migration) définira la planification sur quotidienne avec des intervalles de 5 heures à 1 h 00, 6 h 00, 11 h 00, 16 h 00 et 21 h 00.  Certaines heures seront ignorées, après 21h00, il devrait être 2h00 du matin pour se répéter toutes les 5 heures, mais ce sera toujours 1h00 du matin.
+*Exemple* : Si vous avez une politique SnapCenter horaire avec un intervalle de répétition toutes les 5 heures à partir de 1 h du matin, NetApp Backup and Recovery (après la migration) configurera la planification sur une base quotidienne avec des intervalles de 5 heures à 1 h, 6 h, 11 h, 16 h et 21 h. Certaines heures seront ignorées : après 21 h, cela devrait être 2 h du matin pour répéter toutes les 5 heures, mais ce sera toujours à 1 h du matin.
 
 
 

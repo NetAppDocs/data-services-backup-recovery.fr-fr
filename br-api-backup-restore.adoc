@@ -48,9 +48,9 @@ Lors des appels d'API, vous ajouterez le jeton utilisateur dans l'en-tête d'aut
 NOTE: Si vous utilisez un compte de service, vous devez utiliser le jeton d’accès au service au lieu d’un jeton utilisateur. La valeur de « client_id » (« Mu0V1ywgYteI6w1MbD15fKfVIUrNXGWC ») est une valeur fixe et ne peut pas être modifiée. Dans ce cas, suivez les instructions ici : https://docs.netapp.com/us-en/console-automation/platform/create_service_token.html["Créer un jeton d'accès au service"^] .
 
 .Étapes
-. Obtenez un jeton utilisateur à partir du site Web NetApp NetApp Console .
+. Obtenez un jeton d'utilisateur sur le site web de la NetApp Console.
 +
-Assurez-vous de générer le jeton d'actualisation à partir du lien suivant : https://services.cloud.netapp.com/refresh-token/.  Le jeton d'actualisation est une chaîne alphanumérique que vous utiliserez pour générer un jeton utilisateur.
+Assurez-vous de générer le jeton d'actualisation à partir du lien suivant : https://services.cloud.netapp.com/refresh-token/. Le jeton d'actualisation est une chaîne alphanumérique que vous utiliserez pour générer un jeton utilisateur.
 
 +
 [source, console]

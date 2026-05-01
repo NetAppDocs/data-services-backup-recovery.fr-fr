@@ -193,7 +193,7 @@ TIP: Une fois les ressources de l'hôte SnapCenter importées, NetApp Backup and
 . Sélectionnez *Importer* pour valider vos entrées et enregistrer le serveur SnapCenter .
 +
 
-NOTE: Si le serveur SnapCenter est déjà enregistré, vous pouvez mettre à jour les détails d'enregistrement existants.
+NOTE: Si le SnapCenter Server est déjà enregistré, vous pouvez mettre à jour les informations d'enregistrement existantes.
 
 
 
@@ -219,7 +219,7 @@ La page Inventaire affiche *Géré* sous le nom d'hôte pour indiquer que les re
 
 === Modifier les ressources SnapCenter importées
 
-Vous pouvez ensuite réimporter les ressources SnapCenter ou modifier les ressources SnapCenter importées pour mettre à jour les détails d'enregistrement.
+Vous pouvez ultérieurement réimporter les ressources SnapCenter ou modifier les ressources SnapCenter importées pour mettre à jour les informations d'enregistrement.
 
 Vous ne pouvez modifier que les détails du port et du mot de passe pour le serveur SnapCenter .
 
