@@ -31,3 +31,9 @@ Lorsque vous modifiez la stratégie de protection associée à une application p
 Lorsque vous créez une politique de protection 3-2-1 où aucune sauvegarde de stockage d'objets n'a lieu en même temps que la réplication vers le stockage secondaire, la politique de protection se bloque lors de la protection de l'application.
 
 *Solution de contournement*: Supprimez puis rajoutez l’application et protégez-la avec une politique de protection différente.
+
+
+
+== La restauration sur place d'applications basées sur des machines virtuelles à partir d'instantanés locaux n'est pas prise en charge
+
+La restauration sur place (restauration dans l'espace de noms et le cluster d'origine) des applications basées sur des machines virtuelles à partir d'instantanés locaux n'est actuellement pas prise en charge.

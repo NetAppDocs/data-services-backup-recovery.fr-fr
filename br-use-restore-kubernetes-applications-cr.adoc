@@ -440,6 +440,9 @@ kubectl apply -f trident-protect-snapshot-restore-cr.yaml
 
 Vous pouvez restaurer un instantané dans l'espace de noms d'origine à tout moment.
 
+
+NOTE: La restauration sur place (restauration dans l'espace de noms et le cluster d'origine) des applications basées sur des machines virtuelles à partir d'instantanés locaux n'est actuellement pas prise en charge.
+
 .Avant de commencer
 Assurez-vous que la durée de validité du jeton de session AWS est suffisante pour toute opération de restauration s3 de longue durée. Si le jeton expire pendant l'opération de restauration, l'opération peut échouer.
 

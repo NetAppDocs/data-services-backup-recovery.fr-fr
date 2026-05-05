@@ -14,7 +14,7 @@ summary: 'Vous pouvez protéger les applications Kubernetes et les données d"ap
 
 
 [role="lead"]
-La gestion des charges de travail Kubernetes dans NetApp Backup and Recovery vous permet de découvrir, de gérer et de protéger vos clusters et applications Kubernetes en un seul endroit. Vous pouvez gérer les ressources et les applications hébergées sur vos clusters Kubernetes. Vous pouvez également créer et associer des politiques de protection à vos charges de travail Kubernetes, le tout depuis une interface unique.
+La gestion des charges de travail Kubernetes dans NetApp Backup and Recovery vous permet de découvrir, gérer et protéger vos clusters et applications Kubernetes depuis une interface unique. Vous pouvez gérer les ressources et les applications hébergées sur vos clusters Kubernetes. Vous pouvez également créer et associer des politiques de protection à vos applications Kubernetes, le tout via une interface unique.
 
 Le diagramme suivant montre les composants et l'architecture de base de la sauvegarde et de la restauration des charges de travail Kubernetes et comment différentes copies de vos données peuvent être stockées à différents emplacements :
 

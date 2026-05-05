@@ -16,12 +16,13 @@ summary: Suivez quelques étapes pour configurer NetApp Backup and Recovery.
 [role="lead"]
 Après avoir configuré la NetApp Console, configurez les paramètres de sauvegarde et de récupération.  Ajoutez des informations d’identification pour les ressources de l’hôte, importez des ressources SnapCenter , configurez les répertoires de journaux et définissez les paramètres VMware vCenter.  Effectuez ces étapes avant de sauvegarder ou de récupérer des données.
 
-* <<Ajouter des informations d'identification pour les ressources de l'hôte>> pour tous les hôtes Windows, Microsoft SQL Server, Oracle Database ou Linux avec lesquels NetApp Backup and Recovery doit s'authentifier. Cela inclut les informations d'identification du système d'exploitation invité Windows utilisées lors de la restauration des fichiers ou dossiers invités.
+* <<Ajouter des informations d'identification pour les ressources de l'hôte>> pour tout hôte Windows, Microsoft SQL Server, Oracle Database ou Linux avec lequel NetApp Backup and Recovery doit s'authentifier. Cela inclut les informations d'identification du système d'exploitation invité utilisées lors de la restauration de fichiers ou de dossiers.
 * <<Maintenir les paramètres VMware vCenter>>.
 * <<Importer et gérer les ressources de l'hôte SnapCenter>>.  (charges de travail Microsoft SQL Server uniquement)
 * <<Ajouter une plateforme de gestion KVM>>. (Charges de travail KVM uniquement)
 * <<Configurer les répertoires de journaux dans les instantanés pour les hôtes Windows>>.
 * <<Créer un modèle de hook d'exécution>> pour exécuter des scripts avant et après les tâches de sauvegarde. (Charges de travail Kubernetes uniquement)
+* <<Créer un modèle de transformation de ressources>>modifier les ressources au fur et à mesure de leur restauration.
 
 
 *Rôle de NetApp Console requis* Super administrateur de sauvegarde et de récupération, administrateur de sauvegarde et de récupération, administrateur de restauration de sauvegarde et de récupération.  En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
@@ -292,4 +293,36 @@ NOTE: Les modèles que vous créez ici ne sont utilisables que lors de la protec
 +
 Une fois le modèle créé, il apparaît dans la liste des modèles dans la section *Modèle de hook d'exécution*.
 
+
+
+
+
+== Créer un modèle de transformation de ressources
+
+Créez des modèles de transformation de ressources pour stocker les transformations courantes que vous effectuez sur les ressources lors de leur restauration.
+
+.Étapes
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Paramètres*.
+. Sélectionnez la flèche vers le bas pour développer la section *Resource modifer template*.
+. Sélectionnez *Créer un modèle*.
+. Saisissez un nom pour le modèle de transformation de ressource.
+. Vous pouvez éventuellement saisir une description du modèle.
+. Décrivez la ressource cible :
++
+.. Saisissez le type de ressource (par exemple, Pod ou Deployment). Ce champ est obligatoire.
+.. Vous pouvez également saisir un groupe de ressources, une version et un nom.
+
+
+. Mettre en place une opération :
++
+.. Choisissez une opération dans la liste *Opération*.
+.. Saisissez le chemin JSON auquel l'opération s'applique.
+.. Le cas échéant, saisissez une valeur à ajouter ou à mettre à jour, ou un chemin JSON à partir duquel effectuer la migration.
++
+Ces champs n'apparaissent que pour les opérations qui les requièrent.
+
+.. Pour ajouter une autre opération à ce modèle, sélectionnez *Ajouter une opération*.
+
+
+. Une fois terminé, sélectionnez *Ajouter*.
 

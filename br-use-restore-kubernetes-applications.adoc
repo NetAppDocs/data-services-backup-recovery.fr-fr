@@ -16,11 +16,36 @@ summary: NetApp Backup and Recovery vous permet de restaurer les applications qu
 [role="lead"]
 NetApp Backup and Recovery vous permet de restaurer les applications que vous avez protégées avec une politique de protection. Pour restaurer une application, celle-ci doit disposer d'au moins un point de restauration. Un point de restauration est constitué soit de l'instantané local, soit de la sauvegarde dans le magasin d'objets (ou des deux). Vous pouvez restaurer une application à partir de l'archive locale, secondaire ou du magasin d'objets.
 
+
+
+== Afficher les ressources protégées pour un point de restauration d'application
+
+Pour chaque application que vous protégez avec Backup and Recovery, vous pouvez consulter les ressources qui ont été sauvegardées pour un point de restauration spécifique.
+
+.Rôle de NetApp Console requis
+Visionneuse de sauvegarde et de restauration. link:reference-roles.html["En savoir plus sur les rôles d'accès à NetApp Backup and Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
+
+.Étapes
+. Dans NetApp Backup and Recovery, sélectionnez *Inventaire* > *Applications*.
+. Dans la liste des applications, choisissez une application et sélectionnez l'icône Actions image:../media/icon-action.png["Option Actions"] > *Afficher et restaurer*.
+. Dans la liste des points de restauration, choisissez un point de restauration et sélectionnez l'icône Actions image:../media/icon-action.png["Option Actions"] > *Afficher les ressources*.
++
+Une liste des ressources et de leurs détails s'affiche. Vous pouvez consulter les ressources par espace de noms ou par cluster, et télécharger la liste au format JSON pour des audits ultérieurs.
+
+. Une fois terminé, sélectionnez *Fermer*.
+
+
+
+
+== Restaurer les applications Kubernetes
+
+Vous pouvez restaurer des applications basées sur un espace de noms ou sur une machine virtuelle à partir d'un point de restauration, soit en restaurant toutes les ressources, soit en sélectionnant un sous-ensemble de ressources à restaurer.
+
 .Avant de commencer
 Si vous restaurez une application qui a été sauvegardée à l'aide de Trident Protect, assurez-vous que Trident Protect est installé sur les clusters source et de destination.
 
 .Rôle de NetApp Console requis
-Administrateur d'organisation ou administrateur SnapCenter . link:reference-roles.html["En savoir plus sur les rôles d'accès à NetApp Backup and Recovery"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
+Super administrateur de sauvegarde et de récupération ou administrateur de restauration de sauvegarde et de récupération. link:reference-roles.html["En savoir plus sur les rôles d'accès à NetApp Backup and Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery, sélectionnez *Restaurer*.
@@ -29,58 +54,88 @@ Administrateur d'organisation ou administrateur SnapCenter . link:reference-role
 La liste des points de restauration apparaît.
 
 . Sélectionnez le bouton *Restore* pour le point de restauration que vous souhaitez utiliser.
-
-
-[discrete]
-===== Paramètres généraux
++
+L'assistant de restauration des données démarre et la page des _Paramètres généraux_ s'affiche.
 
 . Choisissez l'emplacement source à partir duquel effectuer la restauration.
 . Choisissez le cluster de destination dans la liste *Cluster*.
+. Choisissez de restaurer vers les espaces de noms d'origine ou vers de nouveaux espaces de noms.
 +
 
-NOTE: La restauration d'un instantané local créé par Trident Protect vers un cluster différent n'est pas prise en charge pour le moment.
+NOTE: La restauration sur place (restauration dans l'espace de noms et le cluster d'origine) des applications basées sur des machines virtuelles à partir d'instantanés locaux n'est actuellement pas prise en charge.
 
-. Choisissez de restaurer vers les espaces de noms d'origine ou vers de nouveaux espaces de noms.
 . Si vous avez choisi de restaurer dans de nouveaux espaces de noms, saisissez le ou les espaces de noms de destination à utiliser.
 . Sélectionnez *Suivant*.
-
-
-[discrete]
-===== Sélection des ressources
++
+La page _Sélection des ressources_ s'affiche.
 
 . Choisissez si vous souhaitez restaurer toutes les ressources associées à l'application ou utiliser un filtre pour sélectionner des ressources spécifiques à restaurer :
-
-
++
 [role="tabbed-block"]
 ====
-.Restaurer toutes les ressources
+.Toutes les ressources
 --
-. Sélectionnez *Restaurer toutes les ressources*.
-. Sélectionnez *Suivant*.
+.. Sélectionnez *Restaurer toutes les ressources*.
++
+Lors de la restauration d'une application basée sur une machine virtuelle, NetApp Backup and Recovery répertorie toutes les machines virtuelles dans le point de récupération.
+
+.. Sélectionnez *Suivant*.
 
 
 --
-.Restaurer des ressources spécifiques
+.Ressources d'application spécifiques basées sur l'espace de noms
 --
-. Sélectionnez *Ressources sélectives*.
-. Choisissez le comportement du filtre de ressources.  Si vous choisissez *Inclure*, les ressources que vous sélectionnez sont restaurées.  Si vous choisissez *Exclure*, les ressources que vous sélectionnez ne sont pas restaurées.
-. Sélectionnez *Ajouter des règles* pour ajouter des règles qui définissent des filtres pour la sélection des ressources.  Vous avez besoin d’au moins une règle pour filtrer les ressources.
+.. Sélectionnez *Ressources sélectives* et choisissez si vous souhaitez filtrer les ressources que vous sélectionnez en fonction de règles ou en fonction de l'espace de noms.
++
+[cols="1,1"]
+|===
+| méthode de sélection des ressources | Étapes 
+
+
+| Filtrer les ressources à l'aide de règles  a| 
+... Sélectionnez l'onglet *Règles*.
+... Choisissez le comportement du filtre de ressources.  Si vous choisissez *Inclure*, les ressources que vous sélectionnez sont restaurées.  Si vous choisissez *Exclure*, les ressources que vous sélectionnez ne sont pas restaurées.
+... Sélectionnez *Ajouter des règles* pour ajouter des règles qui définissent des filtres pour la sélection des ressources.  Vous avez besoin d’au moins une règle pour filtrer les ressources.
 +
 Chaque règle peut filtrer selon des critères tels que l'espace de noms de la ressource, les étiquettes, le groupe, la version et le type.
 
-. Sélectionnez *Enregistrer* pour enregistrer chaque règle.
-. Lorsque vous avez ajouté toutes les règles dont vous avez besoin, sélectionnez *Rechercher* pour voir les ressources disponibles dans l'archive de sauvegarde qui correspondent à vos critères de filtre.
+... Sélectionnez *Enregistrer* pour enregistrer chaque règle.
+... Une fois que vous avez ajouté toutes les règles nécessaires, sélectionnez *Afficher les ressources* pour voir les ressources disponibles dans l'archivage des sauvegardes qui correspondent à vos critères de filtrage.
+
+
+
+
+| Sélectionner manuellement des ressources dans une liste  a| 
+... Sélectionnez l'onglet *Personnalisé*.
+... Sélectionnez *Namespace-Scoped* ou *Cluster-Scoped* pour afficher les ressources correspondantes.
++
+La fonction de sauvegarde et de récupération répertorie toutes les ressources présentes dans le point de récupération.
+
+... Sélectionnez les ressources à inclure dans l'opération de restauration.
+
+
+|===
 +
 
 NOTE: Les ressources affichées sont les ressources qui existent actuellement sur le cluster.
 
-. Lorsque vous êtes satisfait des résultats, sélectionnez *Suivant*.
+.. Une fois terminé, sélectionnez *Suivant*.
+
+
+--
+.Ressources d'application spécifiques basées sur VM
+--
+.. Sélectionnez *Ressources sélectives*.
++
+La fonction Sauvegarde et restauration répertorie toutes les machines virtuelles présentes dans le point de récupération. Vous pouvez sélectionner les machines virtuelles à inclure dans l'opération de restauration.
+
+.. Une fois terminé, sélectionnez *Suivant*.
 
 
 --
 ====
-[discrete]
-===== Paramètres de destination
++
+La page des paramètres de destination s'affiche.
 
 . Développez la section *Paramètres de destination* et choisissez de restaurer soit vers la classe de stockage par défaut, une autre classe de stockage, ou, si vous restaurez vers un autre cluster, de mapper les classes de stockage au cluster de destination.
 . Si vous avez choisi de restaurer vers une classe de stockage différente, sélectionnez une classe de stockage de destination correspondant à chaque classe de stockage source.
@@ -90,5 +145,24 @@ NOTE: Les ressources affichées sont les ressources qui existent actuellement su
 NOTE: Si vous devez créer un AppVault sur un cluster Kubernetes pour faciliter la restauration d'une sauvegarde ou d'un instantané créé à l'aide de Trident Protect, reportez-vous à  https://docs.netapp.com/us-en/trident/trident-protect/trident-protect-appvault-custom-resources.html["Utilisez les objets Trident Protect AppVault pour gérer les compartiments"].
 
 . Vous pouvez également développer la section *Scripts de restauration* et activer l'option *Postscript* pour choisir un modèle de hook d'exécution qui s'exécutera une fois l'opération de restauration terminée. Si nécessaire, saisissez les arguments requis par le script et ajoutez des sélecteurs d'étiquettes pour filtrer les ressources en fonction des étiquettes de ressource.
-. Sélectionnez *Restaurer*.
+. Vous pouvez également développer la section *Transformations des ressources* pour ajouter, supprimer ou modifier des attributs de ressources pendant le processus de restauration. Ensuite, procédez comme suit :
++
+
+NOTE: La modification de PersistentVolumeClaims et des espaces de noms n'est actuellement pas prise en charge.
+
++
+.. Activez l'option *Transformation des ressources* pour modifier le modificateur.
+.. Sélectionnez un modèle dans la liste *Modèle* pour appliquer rapidement les paramètres de modification que vous utilisez fréquemment. Cette liste comprend des modèles prédéfinis pour les scénarios courants ainsi que des modèles personnalisés que vous avez créés.
++
+
+NOTE: Créer des modèles de transformation des ressources dans la zone link:br-start-configure.html#create-a-resource-modifier-template["Paramètres"^] globale.
+
+.. Spécifiez la ressource que vous souhaitez modifier en saisissant le groupe de ressources, la version, le type et le nom.
+.. Spécifiez l'opération que vous souhaitez effectuer sur la ressource en sélectionnant une opération dans la liste *Operation*.
+.. Saisissez un chemin JSON pour la clé spécifique que vous souhaitez modifier.
+.. Le cas échéant, saisissez une nouvelle valeur à utiliser. Le champ *Valeur* n'apparaît que pour certaines opérations (telles que *Ajouter* ou *Remplacer*).
+.. Vous pouvez ajouter d'autres transformations de ressources si nécessaire.
+
+
+. Une fois terminé, sélectionnez *Restaurer*.
 
