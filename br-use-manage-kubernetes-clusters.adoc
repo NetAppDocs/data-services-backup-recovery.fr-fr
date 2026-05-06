@@ -53,7 +53,7 @@ Pour arrêter la protection d'un cluster Kubernetes, désactivez la protection e
 
 == Mettre à niveau Trident Protect
 
-Pour les clusters Kubernetes exécutant Trident Protect 26.04 ou une version ultérieure, vous pouvez mettre à niveau Trident Protect directement depuis NetApp Backup and Recovery. L'option de mise à niveau n'apparaît que si une version plus récente est disponible.
+Pour les clusters Kubernetes exécutant Trident Protect 26.05 ou une version ultérieure, vous pouvez mettre à niveau Trident Protect directement depuis NetApp Backup and Recovery. L'option de mise à niveau n'apparaît que si une version plus récente est disponible.
 
 .Étapes
 . Dans NetApp Backup and Recovery, sélectionnez *Inventaire* > *Clusters*.
