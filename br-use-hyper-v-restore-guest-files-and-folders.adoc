@@ -1,0 +1,118 @@
+---
+sidebar: sidebar 
+permalink: br-use-hyper-v-restore-guest-files-and-folders.html 
+keywords: restore, guest, files, folders, files and folders, Windows, VM, virtual machine, browse, mount, virtual disk, session, snapshot, backup 
+summary: 'Vous pouvez restaurer un ou plusieurs fichiers ou dossiers à partir d"un instantané de machine virtuelle Hyper-V vers une machine virtuelle invitée Windows.' 
+---
+= Restaurez les fichiers et dossiers à partir des sauvegardes de machines virtuelles Hyper-V
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Restaurez les fichiers et dossiers des sauvegardes de machines virtuelles Hyper-V sur le stockage principal vers une machine virtuelle invitée Windows.
+
+
+
+== Restaurer les fichiers et les dossiers
+
+Montez un disque virtuel à partir d'un instantané et restaurez les fichiers et dossiers de celui-ci sur la machine virtuelle Windows d'origine (source).
+
+.Avant de commencer
+Avant de pouvoir restaurer des fichiers et des dossiers, vous devez créer un identifiant pour la machine virtuelle source dans NetApp Backup and Recovery. Cet identifiant est utilisé pour s'authentifier auprès de la machine virtuelle pendant le processus de restauration.
+
+.À propos de cette tâche
+Lorsque vous ouvrez une session de restauration de fichiers et de dossiers en montant un disque virtuel, la session reste active pendant 48 heures.
+
+Les performances de restauration dépendent à la fois de la taille et du nombre de fichiers ou de dossiers à restaurer. À taille de données égale, la restauration d'un grand nombre de petits fichiers prend généralement plus de temps que la restauration d'un petit nombre de fichiers volumineux.
+
+Veuillez noter les points suivants lors de la restauration de fichiers et de dossiers :
+
+[NOTE]
+====
+* Il n'est pas possible de restaurer des fichiers et des dossiers sur les machines virtuelles invitées Linux pour le moment.
+* La restauration des fichiers et des dossiers à partir de sauvegardes stockées sur un stockage secondaire ou un stockage objet n'est pas prise en charge.
+* Vous ne pouvez pas restaurer de fichiers ou de dossiers sur des machines virtuelles résidant sur un stockage SAN.
+* Une seule opération d'attachement ou de restauration peut être exécutée en même temps sur une machine virtuelle. Vous ne pouvez pas exécuter d’opérations d’attachement ou de restauration parallèles sur la même machine virtuelle.
+* L'affichage ou la navigation dans les partitions réservées peut entraîner une erreur.
+* Lors de l'opération de restauration, les attributs caché, système et chiffré des fichiers invités ne sont pas conservés dans le fichier restauré.
+* Vous pouvez consulter et restaurer les fichiers système et cachés et visualiser les fichiers chiffrés.
+* N'écrasez pas un fichier système existant et ne restaurez pas de fichiers chiffrés dans un dossier chiffré.
+
+
+====
+.Étapes
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Restaurer*.
+. Sélectionnez *Hyper-V* dans la liste des charges de travail en haut à droite de la page.
+. Dans la liste des machines virtuelles, sélectionnez l'action *Restaurer* pour une machine virtuelle contenant des fichiers ou des dossiers que vous souhaitez restaurer.
+. Sélectionnez *Fichiers et dossiers*.
+. Sur la page *Restaurer à partir d'instantanés*, procédez comme suit :
++
+.. Vous pouvez également sélectionner une période pour filtrer la liste des snapshots par date de création.
+.. Sélectionnez un instantané sur le stockage principal à partir duquel effectuer la restauration, puis sélectionnez *Suivant*.
+
+
+. Dans la liste, choisissez un disque virtuel contenant les fichiers et dossiers que vous devez restaurer, puis sélectionnez *Suivant*.
+. Sur la page _Détails de la machine virtuelle invitée_, procédez comme suit :
++
+.. Dans la section *Détails de la machine virtuelle invitée*, attachez le disque virtuel à la VM d'origine en sélectionnant *Original virtual machine*.
+.. Facultativement, dans la section *Informations d'identification de la machine virtuelle invitée*, si vous n'avez pas encore enregistré d'identifiant pour le disque virtuel source et la machine virtuelle de destination, sélectionnez *Ajouter des informations d'identification*, saisissez les informations d'identification Windows, puis sélectionnez *Ajouter*.
+.. Dans la liste, choisissez un identifiant de machine virtuelle à utiliser.
+.. Sélectionnez *Suivant*.
++
+NetApp Backup and Recovery associe le disque virtuel à la machine virtuelle d'origine et affiche tous les fichiers et dossiers, y compris les fichiers et dossiers cachés. Elle attribue une lettre de lecteur à chaque partition, y compris les partitions réservées au système.
+
++
+Vous pouvez utiliser l'icône de loupe (recherche) située près du volet de l'explorateur de fichiers pour rechercher des fichiers et des dossiers. La recherche par motif n'est pas prise en charge, mais vous pouvez rechercher des fichiers ou des dossiers en fonction d'une partie du nom ou de l'extension.
+
+
+
+. Sur la page _Choisir les fichiers ou dossiers à restaurer_, procédez comme suit :
++
+.. Sélectionnez les fichiers ou dossiers à restaurer.
++
+Les fichiers et dossiers que vous avez sélectionnés pour la restauration sont listés dans la zone *Fichiers et dossiers sélectionnés*.
+
+.. Sélectionnez *Suivant*.
+
+
+. Sur la page _Restauration du fichier invité - destination_, procédez comme suit :
++
+.. Dans la section « Restore to path », saisissez le chemin UNC vers la machine virtuelle de destination et l’emplacement du système de fichiers où les fichiers sélectionnés seront restaurés :
++
+*** Exemple de chemin IPv4 : `\\10.60.136.65\c$`
+*** Exemple de chemin IPv6 : `\\fd20-8b1e-b255-832e--61.ipv6-literal.net\C\restore`
+
+
+
+
++
+S'il existe déjà des fichiers portant le même nom, vous pouvez choisir de les écraser ou de les ignorer.
+
+. Dans la section « Options post-restauration », vous pouvez, si vous le souhaitez, déconnecter la session invitée une fois la restauration terminée en activant l’option *Déconnecter la session invitée après la restauration terminée*. Cette action détache le disque virtuel et démonte la banque de données. Vous devrez donc reconnecter la session invitée avant d’effectuer toute opération supplémentaire de restauration de fichiers ou de dossiers.
+. Sélectionnez *Restaurer*.
++
+Vous pouvez consulter la progression de la restauration sur la page de suivi des tâches.
+
+
+
+
+
+== Gérer les sessions de montage de disque actives
+
+Consultez, utilisez et supprimez les sessions de restauration de fichiers et de dossiers Hyper-V actives depuis Backup and Recovery.
+
+.Étapes
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Cloner*.
+. Sélectionnez *Hyper-V* dans la liste des charges de travail en haut à droite de la page.
+. Sélectionnez le menu *Sessions de montage de disque en direct*.
++
+La liste des sessions de montage de disque virtuel ouvertes s'affiche.
+
+. Pour utiliser une session afin de restaurer des fichiers et des dossiers sur une machine virtuelle invitée, ouvrez le menu Actions image:../media/icon-action.png["Option Actions"] pour une session et sélectionnez *Restaurer les fichiers et les dossiers*.
+. Pour supprimer une session, vous pouvez également ouvrir le menu Actions image:../media/icon-action.png["Option Actions"] pour une session et sélectionner *Supprimer*.
+

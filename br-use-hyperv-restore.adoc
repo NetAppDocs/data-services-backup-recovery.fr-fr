@@ -21,14 +21,17 @@ Vous pouvez restaurer des charges de travail à partir de différents emplacemen
 
 * Restaurer à partir d'un emplacement principal (instantané local)
 * Restaurer à partir d'une ressource répliquée sur un stockage secondaire
-* Restaurer à partir d'une sauvegarde de stockage d'objets
+* Restaurer à partir d'une sauvegarde de stockage objet (uniquement vers l'emplacement d'origine)
 
+
+
+NOTE: La restauration à partir d'une sauvegarde d'objet store n'est pas prise en charge pour les machines virtuelles résidant sur un stockage SAN.
 
 .Restaurer ces points
 Vous pouvez restaurer les données à ces points :
 
-* Restaurer à l'emplacement d'origine
-* Restaurer à un autre emplacement
+* Restaurer à l'emplacement d'origine (à partir du stockage principal, secondaire et objet)
+* Restaurer vers un autre emplacement (à partir du stockage principal et secondaire)
 
 
 .Considérations relatives à la restauration à partir du stockage d'objets

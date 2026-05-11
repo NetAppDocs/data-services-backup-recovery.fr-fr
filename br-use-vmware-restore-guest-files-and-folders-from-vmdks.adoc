@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: br-use-vmware-restore-guest-files-and-folders-from-vmdks.html 
-keywords:  
-summary: Vous pouvez restaurer un ou plusieurs fichiers ou dossiers à partir d’un VMDK sur un système d’exploitation invité Windows. 
+keywords: restore, guest, files, folders, files and folders, guest VM, windows, linux, VMDK, attach 
+summary: 'Vous pouvez restaurer un ou plusieurs fichiers ou dossiers d"un VMDK vers une machine virtuelle invitée.' 
 ---
 = Restaurer des fichiers et des dossiers à partir de disques virtuels
 :hardbreaks:
@@ -14,6 +14,12 @@ summary: Vous pouvez restaurer un ou plusieurs fichiers ou dossiers à partir d�
 
 
 [role="lead"]
+Restaurez des fichiers ou des dossiers individuels depuis un disque virtuel vers la machine virtuelle d'origine ou vers une autre machine virtuelle. Cette fonction est utile lorsque vous n'avez pas besoin de restaurer une machine virtuelle entière, mais seulement des fichiers ou des dossiers spécifiques.
+
+
+
+== Restaurer des fichiers et des dossiers à partir de disques virtuels
+
 Restaurez des fichiers ou des dossiers d'un disque virtuel vers la machine virtuelle d'origine ou vers une autre machine virtuelle. Si vous préférez ne pas connecter le disque virtuel à la machine virtuelle d'origine, vous pouvez le connecter à une machine virtuelle proxy.
 
 .Avant de commencer
@@ -170,3 +176,17 @@ Vous pouvez consulter la progression de la restauration sur la page de suivi des
 
 --
 ====
+
+
+== Afficher les sessions de montage VMDK actives
+
+Lors de la restauration de fichiers ou de dossiers, visualisez les sessions invité actives. Vous y verrez les VMDK actuellement attachés à des sessions ouvertes.
+
+.Étapes
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Cloner*.
+. Sélectionnez *VMware* dans la liste des charges de travail en haut à droite de la page.
+. Sélectionnez le menu *Sessions de montage de disque en direct*.
++
+La liste des sessions de montage VMDK ouvertes s'affiche. Vous pouvez consulter la sauvegarde associée, la machine virtuelle source, le chemin de montage et d'autres informations.
+
+

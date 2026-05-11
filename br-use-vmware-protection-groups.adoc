@@ -27,37 +27,13 @@ Vous pouvez effectuer les tâches suivantes liées aux groupes de protection :
 
 
 
-== Créer un groupe de protection
+== Groupes de protection basés sur les étiquettes
 
-Regroupez les charges de travail que vous souhaitez protéger dans un groupe de protection pour les sauvegarder et les restaurer ensemble.
+Lorsque vous sélectionnez les ressources à ajouter à un groupe de protection, vous pouvez les organiser par banques de données, machines virtuelles ou par vSphere tags.
 
-*Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
+La protection par étiquettes (utilisation des étiquettes vSphere) simplifie l'administration des groupes de protection dans NetApp Backup and Recovery.
 
-.Étapes
-. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
-. Sélectionnez une charge de travail pour afficher les détails de protection.
-. Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
-. Sélectionnez l'onglet *Groupes de protection*.
-. Sélectionnez *Créer un groupe de protection*.
-. Donnez un nom au groupe de protection.
-. Sélectionnez les machines virtuelles ou les bases de données que vous souhaitez inclure dans le groupe de protection.
-. Sélectionnez *Suivant*.
-. Sélectionnez la politique de protection que vous souhaitez appliquer au groupe de protection.
-+
-Si vous souhaitez créer une politique, sélectionnez *Créer une nouvelle politique* et suivez les instructions pour créer une politique.  Voirlink:br-use-policies-create.html["Créer des politiques"] pour plus d'informations.
-
-. Sélectionnez *Suivant*.
-. Vérifiez la configuration.
-. Sélectionnez *Créer* pour créer le groupe de protection.
-
-
-
-
-== Créez un groupe de protection à l'aide des balises vSphere
-
-Utilisez la protection par étiquettes pour simplifier l'administration des groupes de protection dans Backup and Recovery.
-
-Voici les avantages de l'utilisation d'une protection basée sur les balises :
+L'utilisation d'une protection basée sur des étiquettes présente certains avantages :
 
 * Lorsque vous ajoutez une étiquette vSphere à une machine virtuelle ou à un datastore dans vCenter, cet objet est automatiquement inclus dans la prochaine sauvegarde pour tout groupe de protection Backup and Recovery qui fait référence à cette étiquette.
 * Lorsque vous supprimez une étiquette vSphere d'une machine virtuelle ou d'une banque de données, cet objet est automatiquement exclu des sauvegardes ultérieures pour ce groupe de protection basé sur les étiquettes.
@@ -65,51 +41,52 @@ Voici les avantages de l'utilisation d'une protection basée sur les balises :
 * Si une machine virtuelle est migrée vers un autre datastore, elle reste protégée tant qu'elle possède toujours l'étiquette faisant partie d'un groupe de protection basé sur les étiquettes.
 
 
+L'appartenance aux tags est déterminée à partir de vCenter lors de la durée de sauvegarde. Toute modification apportée aux tags dans vCenter (ajout/suppression de tags, suppression de tags, ajout/suppression de machines virtuelles) est automatiquement prise en compte lors de la prochaine sauvegarde.
 
-IMPORTANT: Le mélange de types de ressources (par exemple, la combinaison de tags avec des machines virtuelles ou des datastores individuels dans le même groupe de protection) n'est pas pris en charge.
+
+
+== Créer un groupe de protection
+
+Créez un groupe de protection pour organiser les ressources que vous souhaitez sauvegarder et restaurer ensemble.
+
+*Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 .Avant de commencer
 * Assurez-vous que votre environnement utilise des versions prises en charge de VMware vSphere.
-* Dans vCenter, assurez-vous que les machines virtuelles et les banques de données que vous souhaitez protéger sont déjà associées à une ou plusieurs vSphere tags.
+* Lors de la création d'un groupe de protection basé sur des balises, assurez-vous que les machines virtuelles et les banques de données que vous souhaitez protéger sont déjà associées à une ou plusieurs vSphere balises dans vCenter.
 
-
-
-NOTE: L'appartenance aux tags est déterminée à partir de vCenter lors de la durée de sauvegarde. Toute modification apportée aux tags dans vCenter (ajout/suppression de tags, suppression de tags, ajout/suppression de machines virtuelles) est automatiquement prise en compte lors de la prochaine sauvegarde.
 
 .Étapes
-. Sign in à NetApp Backup and Recovery.
-. Accédez à la vue *Groupes de protection*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
+. Sélectionnez une charge de travail pour afficher les détails de protection.
+. Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
+. Sélectionnez l'onglet *Groupes de protection*.
 . Sélectionnez *Créer un groupe de protection*.
-. Sous *Détails généraux > Nom du groupe de protection*, saisissez un nom pour le groupe de protection.
-. Dans la section *Détails généraux > Ressources du groupe de protection*, sélectionnez *Tags*.
-. Si plusieurs vCenters sont configurés, sélectionnez le vCenter approprié dans la liste pour afficher les balises disponibles pour ce vCenter.
-. Dans la section *Sélectionner les balises* :
+. Indiquez un nom pour le groupe de protection et choisissez comment vous souhaitez ajouter des ressources au groupe de protection. Vous pouvez ajouter des ressources organisées par *banques de données*, *machines virtuelles* ou *étiquettes*.
 +
-.. Du côté gauche :
+
+IMPORTANT: Le mélange de types de ressources (par exemple, la combinaison de tags avec des machines virtuelles ou des datastores individuels dans le même groupe de protection) n'est pas pris en charge.
+
+. Dans la liste qui apparaît, sélectionnez les ressources que vous souhaitez inclure dans le groupe de protection.
 +
-... Sélectionnez un vCenter dans la liste.
-... Sélectionnez les cases à cocher pour une ou plusieurs étiquettes dans ce vCenter.
+Vous pouvez filtrer les ressources disponibles dans la liste en sélectionnant un vCenter ou centre de données spécifique. Les ressources sélectionnées apparaissent dans la liste à droite.
 
-
-.. Du côté droit :
+. Une fois terminé, sélectionnez *Suivant*.
+. Choisissez comment le groupe de protection gère les machines virtuelles dont les disques virtuels s'étendent sur plusieurs banques de données :
 +
-... Consultez la liste des étiquettes sélectionnées, regroupées par vCenter.
-... Supprimez toute étiquette que vous ne souhaitez pas dans le groupe de protection.
-
-
+** *Toujours exclure tous les datastores chevauchants* : Le groupe de protection inclura uniquement les datastores qui lui sont ajoutés directement, ainsi que le datastore principal de toutes les machines virtuelles ajoutées directement au groupe de protection.
+** *Toujours inclure tous les datastores couverts* : Le groupe de protection inclura tous les datastores couverts par les machines virtuelles incluses.
+** *Sélectionnez manuellement les datastores étendus à inclure* : Si vous sélectionnez cette option, vous devez sélectionner manuellement les datastores étendus à inclure dans le groupe de protection à partir de la liste qui s’affiche. Cette sélection est statique ; vous devez mettre à jour la liste des datastores étendus chaque fois que de nouvelles machines virtuelles sont ajoutées au groupe.
 
 
 . Sélectionnez *Suivant*.
 . Sélectionnez la politique de protection que vous souhaitez appliquer au groupe de protection.
 +
-Si vous souhaitez créer une politique, sélectionnez *Créer une nouvelle politique* et suivez les instructions pour créer une politique.  Voirlink:br-use-policies-create.html["Créer des politiques"] pour plus d'informations.
+Pour créer une nouvelle politique, sélectionnez *Créer une nouvelle politique* et suivez les instructions. Consultez link:br-use-policies-create.html["Créer des politiques"] pour plus d'informations.
 
 . Sélectionnez *Suivant*.
-. Vérifiez les paramètres des balises à l'étape *Vérification*.
+. Vérifiez la configuration.
 . Sélectionnez *Créer* pour créer le groupe de protection.
-+
-Le nouveau groupe de protection basé sur des balises apparaît dans la liste, indiqué par une icône de balise.
-
 
 
 

@@ -1,0 +1,236 @@
+---
+sidebar: sidebar 
+permalink: br-use-policies-oracle-create.html 
+keywords: backing up, back up, backup, backup on-prem ontap, policy, policies, backup policies, cloud backup, aws, aws s3, azure, google cloud 
+summary: 'Dans NetApp Backup and Recovery, créez vos propres stratégies qui régissent la fréquence de sauvegarde, l"heure à laquelle la sauvegarde est effectuée et le nombre de fichiers de sauvegarde conservés.' 
+---
+= Créez et gérez les stratégies de sauvegarde de la base de données Oracle dans NetApp Backup and Recovery
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dans NetApp Backup and Recovery, créez vos propres politiques de sauvegarde de base de données Oracle qui régissent la fréquence des sauvegardes, l'heure à laquelle la sauvegarde est effectuée et le nombre de fichiers de sauvegarde conservés.
+
+
+NOTE: Certaines de ces options et sections de configuration ne sont pas disponibles pour toutes les charges de travail.
+
+Si vous importez des ressources depuis SnapCenter, vous risquez de rencontrer des différences entre les stratégies utilisées dans SnapCenter et celles utilisées dans NetApp Backup and Recovery.  Voirlink:reference-policy-differences-snapcenter.html["Différences de politique entre SnapCenter et NetApp Backup and Recovery"] .
+
+Vous pouvez atteindre les objectifs suivants liés aux politiques :
+
+* Créer une politique de snapshot local
+* Créer une politique de réplication vers le stockage secondaire
+* Créer une politique pour les paramètres de stockage d'objets
+* Configurer les paramètres de stratégie avancés
+* Modifier les stratégies (non disponible pour les charges de travail VMware)
+* Supprimer les politiques
+
+
+
+
+== Voir les politiques
+
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Politiques*.
+. Examinez les détails de la stratégie. Par exemple :
++
+** *Charge de travail* : Exemples incluent Microsoft SQL Server, ONTAP Volumes, VMware, KVM, Hyper-V, Oracle Database ou Kubernetes.
+** *Type de sauvegarde* : les exemples incluent la sauvegarde complète et la sauvegarde du journal.
+** *Architecture* : les exemples incluent l'instantané local, la distribution en éventail, la mise en cascade, le disque à disque et le disque vers le magasin d'objets.
+** *Ressources protégées* : indique combien de ressources sur le total des ressources de cette charge de travail sont protégées.
+** *Protection contre les ransomwares* : indique si la politique inclut le verrouillage des instantanés sur l'instantané local, le verrouillage des instantanés sur le stockage secondaire ou le verrouillage DataLock sur le stockage d'objets.
+
+
+
+
+
+
+== Créer une politique
+
+Vous pouvez créer des stratégies qui régissent vos snapshots locaux, vos réplications vers un stockage secondaire et vos sauvegardes vers un stockage d'objets. Une partie de votre stratégie 3-2-1 consiste à créer un instantané des instances, bases de données, applications ou machines virtuelles sur le système de stockage *principal*.
+
+*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, administrateur de sauvegarde de sauvegarde et de récupération.  En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
+
+.Avant de commencer
+Si vous prévoyez de répliquer vers un stockage secondaire et que vous souhaitez utiliser le verrouillage des snapshots sur des snapshots locaux ou sur un stockage secondaire ONTAP distant, vous devez d'abord initialiser l'horloge de conformité ONTAP au niveau du cluster.  Il s’agit d’une exigence pour activer le verrouillage des instantanés dans la politique.
+
+Pour obtenir des instructions sur la façon de procéder, reportez-vous à https://docs.netapp.com/us-en/ontap/snaplock/initialize-complianceclock-task.html["Initialiser l'horloge de conformité dans ONTAP"^] .
+
+Pour plus d'informations sur le verrouillage des instantanés en général, reportez-vous à https://docs.netapp.com/us-en/ontap/snaplock/snapshot-lock-concept.html["Verrouillage des instantanés dans ONTAP"^] .
+
+.Étapes
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Politiques*.
+. Depuis la page Politiques, sélectionnez *Créer une nouvelle politique*.
++
+La page « Politiques » s'affiche.
+
+. Saisissez les informations dans la section *Détails* :
++
+** Type de charge de travail : Sélectionnez *Oracle Database*.
+** Entrez un nom de politique.
+** Sélectionnez un agent de console dans la liste *Agent*.
+
+
+. Saisissez les informations dans la section *Architecture de sauvegarde*. Choisissez le flux de données pour la sauvegarde dans la liste :
++
+** *Répartition 3-2-1* : Stockage principal (disque) vers stockage secondaire (disque) vers cloud (stockage objet). Crée plusieurs copies des données sur différents systèmes de stockage, tels que ONTAP vers ONTAP et ONTAP vers des configurations de stockage objet. Il peut s'agir d'un stockage objet d'un hyperscaler cloud ou d'un stockage objet privé. Idéal pour une protection optimale des données et la reprise après sinistre. Cette option n'est pas disponible pour Amazon FSx for NetApp ONTAP.
+** *Cascade 3-2-1* : stockage principal (disque) vers stockage secondaire (disque) et stockage principal (disque) vers stockage cloud (stockage objet). Il peut s'agir d'un stockage objet d'un hyperscaler cloud ou d'un stockage objet privé tel que StorageGRID. Cela crée une chaîne de réplication des données sur plusieurs systèmes afin de garantir la redondance et la fiabilité. Cette option n'est pas disponible pour Amazon FSx for NetApp ONTAP.
+** *Réplication disque à disque* : Stockage principal (disque) vers stockage secondaire (disque). La stratégie de protection des données ONTAP à ONTAP réplique les données entre deux systèmes ONTAP afin de garantir une haute disponibilité et une reprise après sinistre. Cela est généralement réalisé à l'aide de SnapMirror, qui prend en charge la réplication synchrone et la réplication asynchrone. Cette méthode permet de maintenir vos données à jour et disponibles sur plusieurs sites pour une forte protection des données.
+** *Stockage disque vers objet* : Stockage principal (disque) vers cloud (stockage objet). Cela réplique les données d’un système ONTAP vers un système de stockage objet. Il peut s’agir d’un stockage objet d’un hyperscaler cloud ou d’un stockage objet privé tel que StorageGRID. Cette méthode est idéale pour la conservation des données à long terme et l’archivage.
+** *Distribution disque à disque* : stockage principal (disque) vers stockage secondaire (disque) et stockage principal (disque) vers stockage secondaire (disque). Vous pouvez configurer plusieurs paramètres secondaires pour l’option de distribution disque à disque.
+** *Instantanés locaux* : Instantané local du volume sélectionné. Cette opération crée des copies en lecture seule, à un instant précis, des volumes de production sur lesquels vos charges de travail s’exécutent. Vous pouvez utiliser les instantanés locaux pour récupérer d'une perte de données ou de données corrompues, ainsi que pour créer des sauvegardes en vue d’une reprise après sinistre.
+
+
+. Fournissez des informations pour la section *Paramètres de snapshot local* :
++
+** Sélectionnez l'option *Ajouter une planification* pour sélectionner la ou les planifications d'instantanés.  Vous pouvez avoir un maximum de 5 horaires.
+** *Fréquence des instantanés* : sélectionnez la fréquence horaire, quotidienne, hebdomadaire, mensuelle ou annuelle.  La fréquence annuelle n'est pas disponible pour les charges de travail Kubernetes.
+** *Conservation des instantanés* : saisissez le nombre d'instantanés à conserver.
+** *Activer la sauvegarde des journaux* : Activez cette option pour sauvegarder les journaux et définir la fréquence et la durée de conservation des sauvegardes des journaux. Pour ce faire, vous devez avoir préalablement configuré une sauvegarde des journaux. Voir link:br-start-configure.html["Configurer les répertoires de journaux"].
++
+*** *Supprimer les journaux d'archivage après la sauvegarde* : Si les sauvegardes de journaux sont activées, vous pouvez activer cette fonctionnalité pour limiter la durée de conservation des journaux d'archivage Oracle par Backup and Recovery. Vous pouvez choisir la période de conservation ainsi que l'endroit où Backup and Recovery doit supprimer les journaux d'archivage.
+
+
+
+
+. Fournissez des informations pour la section *Paramètres secondaires* (réplication vers un stockage secondaire) :
++
+** *Sauvegarde* : sélectionnez la fréquence horaire, quotidienne, hebdomadaire, mensuelle ou annuelle.
+** *Cible de sauvegarde* : sélectionnez le système cible sur le stockage secondaire pour la sauvegarde.
+** *Rétention* : saisissez le nombre d'instantanés à conserver.
+** *Activer le verrouillage des instantanés* : sélectionnez si vous souhaitez activer les instantanés inviolables.
+** *Période de verrouillage de l'instantané* : saisissez le nombre de jours, de mois ou d'années pendant lesquels vous souhaitez verrouiller l'instantané.
+** *Transfert vers le secondaire* :
++
+*** L'option *Planification de transfert ONTAP - En ligne* est sélectionnée par défaut et indique que les snapshots sont immédiatement transférés vers le système de stockage secondaire.  Vous n'avez pas besoin de planifier la sauvegarde.
+*** Autres options : Si vous choisissez un virement différé, les virements ne sont pas immédiats et vous pouvez définir un calendrier.
+
+
+** * Relation secondaire SnapMirror et SnapVault SMAS* : utilisez les relations secondaires SnapMirror et SnapVault SMAS pour les charges de travail SQL Server.
+
+
+. Fournissez des informations pour la section *Paramètres de stockage d'objets* (sauvegarde sur le stockage d'objets) :
++
+
+NOTE: Les champs qui s'affichent diffèrent selon le fournisseur et l'architecture sélectionnés.
+
++
+** *Fournisseur* : Sélectionnez le fournisseur de votre système de stockage d’objets et saisissez les identifiants dans les champs appropriés (les champs d’identifiants diffèrent selon le fournisseur).
+** *Cible de sauvegarde* : sélectionnez une cible de stockage d’objets enregistrée.  Assurez-vous que la cible est accessible dans votre environnement de sauvegarde.
+** *Espace IP* : sélectionnez l'espace IP à utiliser pour les opérations de sauvegarde.  Ceci est utile si vous avez plusieurs espaces IP et que vous souhaitez contrôler lequel est utilisé pour les sauvegardes.
+** *Paramètres de planification* : sélectionnez la planification qui a été définie pour les instantanés locaux.  Vous pouvez supprimer une planification, mais vous ne pouvez pas en ajouter une, car les planifications sont définies en fonction des planifications d'instantanés locaux.
+** *Copies de conservation* : saisissez le nombre d'instantanés à conserver.
+** *Exécuter à* : choisissez la planification de transfert ONTAP pour sauvegarder les données sur le stockage d’objets.
+** * Hiérarchisez vos sauvegardes du magasin d'objets au stockage d'archivage* : si vous choisissez de hiérarchiser les sauvegardes vers le stockage d'archivage (par exemple, AWS Glacier), sélectionnez l'option de hiérarchisation et le nombre de jours d'archivage.
+** *Activer l'analyse d'intégrité* : Choisissez d'activer ou non les analyses d'intégrité (verrouillage des instantanés) sur le stockage d'objets. Cela garantit que les sauvegardes sont valides et restaurables. La fréquence des analyses d'intégrité est définie à 7 jours par défaut. Pour protéger vos sauvegardes contre toute modification ou suppression, sélectionnez l'option *Analyse d'intégrité*. L'analyse est effectuée uniquement sur le dernier instantané. Vous pouvez activer ou désactiver les analyses d'intégrité sur le dernier instantané.
+
+
+
+
+
+
+=== Configurer les paramètres avancés dans la politique
+
+[%collapsible]
+====
+Vous pouvez configurer des paramètres avancés dans la stratégie. Ces options sont compatibles avec toutes les architectures de sauvegarde et toutes les destinations de stockage. Les options avancées disponibles dépendent de la charge de travail sélectionnée en haut de la page, certaines options décrites ici peuvent donc ne pas s’appliquer à toutes les charges de travail.
+
+.Étapes
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Politiques*.
+. Depuis la page Politiques, sélectionnez *Créer une nouvelle politique*.
+. Dans la section *Politique > Paramètres avancés*, sélectionnez le menu *Sélectionner une action avancée* pour choisir parmi une liste de paramètres avancés.
+. Activez les paramètres que vous souhaitez afficher ou modifier, puis sélectionnez *Accepter*.
+. Fournissez les informations suivantes :
++
+** *Paramètres du catalogue RMAN* : activez l’option *Cataloguer la sauvegarde avec Oracle Recovery Manager (RMAN)* pour cataloguer automatiquement les métadonnées pour les opérations de sauvegarde et de restauration de bases de données Oracle. Les métadonnées sont stockées conformément aux paramètres de *Configure RMAN catalog* que vous choisissez pour la base de données (dans le fichier de contrôle cible par défaut). Reportez-vous à link:br-start-configure-oracle-database.html["Configurer une base de données Oracle"] pour modifier ces paramètres pour une base de données.
+** *Vérification des sauvegardes* : Sélectionnez si vous souhaitez activer la vérification des sauvegardes et si vous la souhaitez immédiatement ou ultérieurement. Cette fonctionnalité garantit que les sauvegardes sont valides et peuvent être restaurées avec succès. Nous vous recommandons d’activer cette option pour garantir l’intégrité de vos sauvegardes. Par défaut, la vérification des sauvegardes s’effectue à partir du stockage secondaire si le stockage secondaire est configuré. Si le stockage secondaire n’est pas configuré, la vérification des sauvegardes s’effectue à partir du stockage principal.
++
+De plus, configurez les options suivantes :
+
++
+*** Choisissez le moment d'exécuter la vérification de sauvegarde :
++
+**** Immédiatement : effectue une vérification en dernière étape de chaque tâche de sauvegarde. Utilisez cette option pour valider chaque sauvegarde dès sa création. Notez que cela ajoute du temps et une utilisation de ressources à la fenêtre de sauvegarde.
+**** *Plus tard* : Exécute la vérification selon une planification distincte que vous définissez, indépendamment de la tâche de sauvegarde. Utilisez cette fonction pour réduire la fenêtre de sauvegarde en exécutant les vérifications en dehors des heures de pointe, ou pour ne vérifier que certains niveaux (par exemple, hebdomadaire et mensuel, mais pas quotidien).
+
+
+*** *Vérification sur le support secondaire* : activez cette option pour vérifier la copie secondaire (répliquée) de la sauvegarde au lieu de la copie principale. Ceci est utile lorsque vous souhaitez confirmer que la copie hors site est restaurable ou réduire la charge d’E/S sur le stockage principal.
++
+
+NOTE: Cette option est automatiquement désactivée si cette stratégie utilise des *instantanés locaux* ou un *stockage disque vers objet*, car aucune de ces architectures de sauvegarde ne possède de niveau secondaire.
+
+*** *Étiquettes de sauvegarde* : Choisissez un niveau de sauvegarde dans votre stratégie dont vous souhaitez vérifier les sauvegardes. Selon votre paramètre *Vérifier sur le serveur secondaire*, la liste des niveaux provient de vos planifications principales ou secondaires. Les sauvegardes horaires et les sauvegardes de journaux ne s'affichent pas car elles ne sont pas éligibles à la vérification.
++
+**** *Planification des vérifications* : Si vous avez choisi *Plus tard* comme vérification de sauvegarde, pour chaque étiquette de sauvegarde (niveau) que vous choisissez, sélectionnez la fréquence de vérification de sauvegarde.
+
+
+*** *Serveur de vérification* : Vous pouvez sélectionner un ou plusieurs hôtes Oracle enregistrés dans la liste pour les utiliser comme serveurs de vérification externes. Si aucun serveur n'est sélectionné, la vérification s'exécute directement sur l'hôte de la base de données source. Sinon, Backup and Recovery monte le clone d'instantané sur l'un des hôtes sélectionnés et y vérifie la sauvegarde, isolant ainsi les E/S de vérification du serveur de base de données de production. Un serveur de vérification doit :
++
+**** Ayez le plug-in NetApp installé
+**** Installez les fichiers binaires de la base de données Oracle
+**** Utilisez la même version d'Oracle Database que la base de données source
+**** Disposer d'un accès réseau au stockage contenant l'instantané (primaire ou secondaire)
+**** Être capable de monter le volume cloné et d'exécuter l'utilitaire DBVERIFY de la base de données Oracle.
+
+
+
+
+** *SnapMirror format du volume et de l’instantané* : Choisissez parmi les options suivantes :
++
+*** *Utiliser un format de nom personnalisé pour les copies d'instantané* : Choisissez un schéma de nommage pour les instantanés. Si ce champ est laissé vide, un horodatage est ajouté à la fin de chaque nom d'instantané.
+*** *Indiquez le format du volume SnapMirror* : Spécifiez un préfixe, un suffixe ou les deux pour modifier le nom de volume SnapMirror par défaut. Par défaut, un volume SnapMirror hérite du nom du volume source.
+
+
+** *Débit de transfert maximal* : Activez l’option *Activer le débit de transfert maximal* pour définir un débit de transfert maximal pour les hôtes sélectionnés. Pour ne pas limiter l’utilisation de la bande passante, sélectionnez *Illimité*. Si vous souhaitez limiter le débit de transfert, sélectionnez *Limité* et indiquez la bande passante réseau entre 1 et 1 000 Mbps allouée au transfert des sauvegardes vers le stockage objet. Par défaut, ONTAP peut utiliser une quantité illimitée de bande passante pour transférer les données de sauvegarde des volumes du système vers le stockage objet. Si le trafic de sauvegarde affecte les charges de travail, réduisez la bande passante réseau pour les transferts.
+** *Tentatives de sauvegarde* : Pour relancer la tâche en cas d’échec ou d’interruption, sélectionnez *Activer les nouvelles tentatives en cas d’échec*. Indiquez le nombre maximal de tentatives pour les tâches de création d’instantanés et de sauvegarde, ainsi que l’intervalle de temps entre les tentatives. Le nombre de tentatives doit être inférieur à 10.
++
+
+TIP: Si la fréquence des instantanés est définie sur 1 heure, le délai maximal ainsi que le nombre de nouvelles tentatives ne doivent pas dépasser 45 minutes.
+
+** *Analyse anti-ransomware* : Choisissez si vous souhaitez activer l’analyse anti-ransomware pour chaque compartiment. Cette opération nécessite le verrouillage DataLock sur le stockage objet. Indiquez la fréquence d’analyse en jours. Cette option s’applique au stockage objet AWS et Microsoft Azure et peut entraîner des frais supplémentaires selon le fournisseur de cloud.
+** *Notification* : Choisissez d’activer ou non les notifications par e-mail pour les opérations de sauvegarde. Vous pouvez sélectionner les événements qui déclenchent une notification — par exemple, lorsqu’une sauvegarde réussit, échoue ou se termine avec des avertissements.
+
+
+
+
+====
+
+
+== Modifier une politique
+
+Vous pouvez modifier l'architecture de sauvegarde, la fréquence de sauvegarde, la politique de rétention et d'autres paramètres d'une politique. Pour les politiques de charge de travail Kubernetes, vous pouvez uniquement modifier les paramètres de planification et de rétention.
+
+Vous pouvez ajouter un autre niveau de protection lorsque vous modifiez une politique, mais vous ne pouvez pas supprimer un niveau de protection.  Par exemple, si la politique protège uniquement les snapshots locaux, vous pouvez ajouter la réplication au stockage secondaire ou les sauvegardes au stockage d'objets.  Si vous disposez de snapshots et de réplications locaux, vous pouvez ajouter un stockage d'objets.  Cependant, si vous disposez de snapshots locaux, de réplication et de stockage d'objets, vous ne pouvez pas supprimer l'un de ces niveaux.
+
+Si vous modifiez une politique qui sauvegarde sur un stockage d’objets, vous pouvez activer l’archivage.
+
+Si vous avez importé des ressources depuis SnapCenter, vous risquez de rencontrer certaines différences entre les stratégies utilisées dans SnapCenter et celles utilisées dans NetApp Backup and Recovery.  Voirlink:reference-policy-differences-snapcenter.html["Différences de politique entre SnapCenter et NetApp Backup and Recovery"] .
+
+.Rôle de NetApp Console requis
+Super administrateur de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
+
+.Étapes
+. Dans la NetApp Console, accédez à *Protection* > *Sauvegarde et récupération*.
+. Sélectionnez l’option *Politiques*.
+. Sélectionnez la politique que vous souhaitez modifier.
+. Sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Modifier*.
+
+
+
+
+== Supprimer une politique
+
+Vous pouvez supprimer une politique si vous n’en avez plus besoin.
+
+
+TIP: Vous ne pouvez pas supprimer une politique associée à une charge de travail.
+
+.Étapes
+. Dans la console, accédez à *Protection* > *Sauvegarde et récupération*.
+. Sélectionnez l’option *Politiques*.
+. Sélectionnez la politique que vous souhaitez supprimer.
+. Sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Supprimer*.
+. Confirmez l'action et sélectionnez *Supprimer*.
+

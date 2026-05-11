@@ -1,0 +1,89 @@
+---
+sidebar: sidebar 
+permalink: br-use-vmware-clone.html 
+keywords: clone, clone application data, NetApp backup and recovery, VMware 
+summary: Clonez vos charges de travail de machines virtuelles VMware avec NetApp Backup and Recovery. 
+---
+= Cloner des charges de travail VMware à l'aide de NetApp Backup and Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Utilisez NetApp Backup and Recovery pour créer des clones modifiables de machines virtuelles VMware à partir d'instantanés primaires ou secondaires. Grâce aux clones de VM, vous pouvez créer et gérer des machines virtuelles pour les tests, l'intégration et la formation sans impacter les données de production.
+
+*Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
+
+.Avant de commencer
+Assurez-vous que toutes les machines virtuelles dont vous souhaitez cloner les instantanés ont été ajoutées à un groupe de protection et sauvegardées.
+
+
+
+== Créer un clone d'une machine virtuelle VMware
+
+Créez un clone immédiatement à partir d'un instantané existant.
+
+
+NOTE: Après avoir créé un clone de machine virtuelle, vous devez mettre à jour l'adresse IP de la machine virtuelle clonée afin d'éviter les conflits d'adresse IP avec la machine virtuelle d'origine.
+
+.Étapes
+. Dans le menu de la NetApp Console , sélectionnez *Protection > Sauvegarde et récupération*.
+. Sous *Charges de travail*, sélectionnez la vignette *VMware*.
+. Sélectionnez *Clone*.
+. Sélectionnez *Créer un nouveau clone*.
+. Dans la section *Sélectionner les machines virtuelles*, choisissez un groupe de protection. Les machines virtuelles du groupe de protection apparaissent dans la liste de sélection.
+. Sélectionnez une ou plusieurs machines virtuelles dans la liste à cloner. Les machines virtuelles que vous avez sélectionnées apparaissent dans la liste des machines virtuelles sélectionnées à droite.
+. Une fois terminé, sélectionnez *Suivant*.
+. Dans la section *Instantanés* de la page *Sélectionner un instantané*, sélectionnez une période pour filtrer les instantanés par date de création.
+. Choisissez un instantané existant dans la liste à utiliser comme base pour le clone et sélectionnez *Suivant*.
++
+Le message *Sélectionner l'emplacement de l'instantané* s'affiche si l'instantané est stocké à plusieurs emplacements.
+
+. Choisissez l'emplacement de l'instantané à utiliser et sélectionnez *Suivant*.
+. Sur la page *Paramètres de destination*, procédez comme suit :
++
+.. Choisissez le nom de domaine complet (FQDN) ou l'adresse IP du serveur vCenter de destination sur lequel le clone de la machine virtuelle doit être créé.
+.. Choisissez l'hôte ESXi qui hébergera le clone.
+.. Choisissez l'environnement réseau pour le clone.
+.. Dans le champ *Nom de la machine virtuelle*, saisissez un suffixe pour la machine virtuelle nouvellement clonée.
+
+
+. Sélectionnez *Clone*.
+
+
+
+
+== Diviser un clone
+
+Vous pouvez scinder un clone d'une machine virtuelle VMware pour le détacher de son volume parent. Une fois séparé, le clone devient un volume indépendant qui ne dépend plus du parent.
+
+Après la séparation, les banques de données associées à la machine virtuelle clonée deviennent une nouvelle banque de données indépendante. La machine virtuelle clonée elle-même est conservée.
+
+.Étapes
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Cloner*.
+. Sélectionnez un clone.
+. Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Clone divisé*.
+. Examinez les détails dans la boîte de dialogue et sélectionnez *Split*.
+. Une fois la nouvelle machine virtuelle indépendante créée, vous pouvez la visualiser sur la page *Inventory*.
+
+
+
+
+== Supprimer un clone
+
+Vous pouvez supprimer un clone de machine virtuelle VMware. Lorsque vous supprimez un clone de machine virtuelle, celui-ci est supprimé de vCenter, et les banques de données associées à la machine virtuelle sont démontées et supprimées du système de stockage.
+
+Si une politique protège le clone, le clone et sa tâche sont supprimés.
+
+.Étapes
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Cloner*.
+. Sélectionnez un clone.
+. Sélectionnez l'icône Actions image:../media/icon-action.png["Option Actions"] > *Supprimer*.
+. Dans la boîte de dialogue de confirmation de suppression, vérifiez les détails de la suppression.
+. Sélectionnez *Remove*.
+. Lorsque le clone est supprimé, il est supprimé de la page *Inventaire*.
+

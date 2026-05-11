@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
-permalink: br-use-policies-create.html 
+permalink: br-use-policies-mssql-create.html 
 keywords: backing up, back up, backup, backup on-prem ontap, policy, policies, backup policies, cloud backup, aws, aws s3, azure, google cloud 
 summary: 'Dans NetApp Backup and Recovery, créez vos propres stratégies qui régissent la fréquence de sauvegarde, l"heure à laquelle la sauvegarde est effectuée et le nombre de fichiers de sauvegarde conservés.' 
 ---
-= Créer et gérer des politiques pour régir les sauvegardes dans NetApp Backup and Recovery
+= Créez et gérez des stratégies de sauvegarde Microsoft SQL Server dans NetApp Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -12,7 +12,7 @@ summary: 'Dans NetApp Backup and Recovery, créez vos propres stratégies qui r�
 
 
 [role="lead"]
-Dans NetApp Backup and Recovery, créez vos propres stratégies qui régissent la fréquence de sauvegarde, l'heure à laquelle la sauvegarde est effectuée et le nombre de fichiers de sauvegarde conservés.
+Dans NetApp Backup and Recovery, créez vos propres stratégies de sauvegarde Microsoft SQL Server qui régissent la fréquence des sauvegardes, l'heure à laquelle la sauvegarde est effectuée et le nombre de fichiers de sauvegarde conservés.
 
 
 NOTE: Certaines de ces options et sections de configuration ne sont pas disponibles pour toutes les charges de travail.
@@ -25,7 +25,7 @@ Vous pouvez atteindre les objectifs suivants liés aux politiques :
 * Créer une politique de réplication vers le stockage secondaire
 * Créer une politique pour les paramètres de stockage d'objets
 * Configurer les paramètres de stratégie avancés
-* Modifier les stratégies (non disponible pour les charges de travail VMware)
+* Modifier les politiques
 * Supprimer les politiques
 
 
@@ -68,7 +68,7 @@ La page « Politiques » s'affiche.
 
 . Saisissez les informations dans la section *Détails* :
 +
-** Type de charge de travail : sélectionnez la charge de travail qui utilisera la politique.
+** Type de charge de travail : sélectionnez *Microsoft SQL Server*.
 ** Entrez un nom de politique.
 ** Sélectionnez un agent de console dans la liste *Agent*.
 
@@ -76,29 +76,11 @@ La page « Politiques » s'affiche.
 . Saisissez les informations dans la section *Architecture de sauvegarde*. Choisissez le flux de données pour la sauvegarde dans la liste :
 +
 ** *Répartition 3-2-1* : Stockage principal (disque) vers stockage secondaire (disque) vers cloud (stockage objet). Crée plusieurs copies des données sur différents systèmes de stockage, tels que ONTAP vers ONTAP et ONTAP vers des configurations de stockage objet. Il peut s'agir d'un stockage objet d'un hyperscaler cloud ou d'un stockage objet privé. Idéal pour une protection optimale des données et la reprise après sinistre. Cette option n'est pas disponible pour Amazon FSx for NetApp ONTAP.
-+
-Pour les charges de travail VMware, cela configure l'instantané local sur les banques de données ou les machines virtuelles sur le disque principal et les réplique du stockage sur disque principal vers le stockage sur disque secondaire, ainsi que les répliques du stockage principal vers le stockage d'objets cloud.
-
-** *Cascade 3-2-1* : (Non disponible pour les charges de travail Kubernetes) Stockage principal (disque) vers stockage secondaire (disque) et stockage principal (disque) vers stockage cloud (stockage objet). Il peut s'agir d'un stockage objet d'un hyperscaler cloud ou d'un stockage objet privé tel que StorageGRID. Cela crée une chaîne de réplication des données sur plusieurs systèmes afin de garantir la redondance et la fiabilité. Cette option n'est pas disponible pour Amazon FSx for NetApp ONTAP.
-+
-Pour les charges de travail VMware, cela configure l'instantané local sur les banques de données ou les machines virtuelles sur le stockage principal et une cascade du stockage sur disque principal vers le stockage sur disque secondaire, puis vers le stockage d'objets cloud.
-
+** *Cascade 3-2-1* : stockage principal (disque) vers stockage secondaire (disque) et stockage principal (disque) vers stockage cloud (stockage objet). Il peut s'agir d'un stockage objet d'un hyperscaler cloud ou d'un stockage objet privé tel que StorageGRID. Cela crée une chaîne de réplication des données sur plusieurs systèmes afin de garantir la redondance et la fiabilité. Cette option n'est pas disponible pour Amazon FSx for NetApp ONTAP.
 ** *Réplication disque à disque* : Stockage principal (disque) vers stockage secondaire (disque). La stratégie de protection des données ONTAP à ONTAP réplique les données entre deux systèmes ONTAP afin de garantir une haute disponibilité et une reprise après sinistre. Cela est généralement réalisé à l'aide de SnapMirror, qui prend en charge la réplication synchrone et la réplication asynchrone. Cette méthode permet de maintenir vos données à jour et disponibles sur plusieurs sites pour une forte protection des données.
-+
-Pour les charges de travail VMware, cela configure l'instantané local sur les banques de données ou les VMware sur le système de stockage principal, puis réplique les données du système de stockage sur disque principal vers le système de stockage sur disque secondaire.
-
 ** *Stockage disque vers objet* : Stockage principal (disque) vers cloud (stockage objet). Cela réplique les données d’un système ONTAP vers un système de stockage objet. Il peut s’agir d’un stockage objet d’un hyperscaler cloud ou d’un stockage objet privé tel que StorageGRID. Cette méthode est idéale pour la conservation des données à long terme et l’archivage.
-+
-Pour les charges de travail VMWare, cela configure l'instantané local sur les banques de données ou les machines virtuelles sur le disque principal et la réplication du stockage sur disque principal vers le stockage d'objets cloud.
-
-** *Distribution disque à disque* : (Non disponible pour les charges de travail Kubernetes) Stockage principal (disque) vers stockage secondaire (disque) et stockage principal (disque) vers stockage secondaire (disque). Vous pouvez configurer plusieurs paramètres secondaires pour l’option de distribution disque à disque.
-+
-Pour les charges de travail VMware, cela configure le stockage sur disque principal sur le stockage sur disque secondaire et réplique le stockage sur disque principal sur le stockage sur disque secondaire.
-
+** *Distribution disque à disque* : stockage principal (disque) vers stockage secondaire (disque) et stockage principal (disque) vers stockage secondaire (disque). Vous pouvez configurer plusieurs paramètres secondaires pour l’option de distribution disque à disque.
 ** *Instantanés locaux* : Instantané local du volume sélectionné. Cette opération crée des copies en lecture seule, à un instant précis, des volumes de production sur lesquels vos charges de travail s’exécutent. Vous pouvez utiliser les instantanés locaux pour récupérer d'une perte de données ou de données corrompues, ainsi que pour créer des sauvegardes en vue d’une reprise après sinistre.
-+
-Pour les charges de travail VMware, cela configure le snapshot local sur les banques de données ou les machines virtuelles sur le système de stockage principal.
-
 
 
 . Fournissez des informations pour la section *Paramètres de snapshot local* :
@@ -106,29 +88,20 @@ Pour les charges de travail VMware, cela configure le snapshot local sur les ban
 ** Sélectionnez l'option *Ajouter une planification* pour sélectionner la ou les planifications d'instantanés.  Vous pouvez avoir un maximum de 5 horaires.
 ** *Fréquence des instantanés* : sélectionnez la fréquence horaire, quotidienne, hebdomadaire, mensuelle ou annuelle.  La fréquence annuelle n'est pas disponible pour les charges de travail Kubernetes.
 ** *Conservation des instantanés* : saisissez le nombre d'instantanés à conserver.
-** *Activer la sauvegarde du journal* : (S'applique uniquement aux charges de travail Microsoft SQL Server et aux charges de travail Oracle Database.)  Activez cette option pour sauvegarder les journaux et définir la fréquence et la conservation des sauvegardes des journaux. Pour ce faire, vous devez déjà avoir configuré une sauvegarde du journal.  Voirlink:br-start-configure.html["Configurer les répertoires de journaux"] .
-+
-*** *Élaguer les journaux d'archive après la sauvegarde* : (charges de travail de base de données Oracle uniquement) Si les sauvegardes de journaux sont activées, vous pouvez éventuellement activer cette fonctionnalité pour limiter la durée pendant laquelle Backup and Recovery conserve les journaux d'archive Oracle.  Vous pouvez choisir la période de conservation ainsi que l'endroit où Backup and Recovery doit supprimer les journaux d'archive.
-
-
-** *Fournisseur* : (charges de travail Kubernetes uniquement) Sélectionnez le fournisseur de stockage qui héberge les ressources de l’application Kubernetes et saisissez les identifiants pour vous authentifier auprès du fournisseur.
+** *Activer la sauvegarde des journaux* : Activez cette option pour sauvegarder les journaux et définir la fréquence et la durée de conservation des sauvegardes des journaux. Pour ce faire, vous devez avoir préalablement configuré une sauvegarde des journaux. Voir link:br-start-configure.html["Configurer les répertoires de journaux"].
 
 
 . Fournissez des informations pour la section *Paramètres secondaires* (réplication vers un stockage secondaire) :
 +
 ** *Sauvegarde* : sélectionnez la fréquence horaire, quotidienne, hebdomadaire, mensuelle ou annuelle.
 ** *Cible de sauvegarde* : sélectionnez le système cible sur le stockage secondaire pour la sauvegarde.
-** *Rétention* : saisissez le nombre d'instantanés à conserver.
-** *Activer le verrouillage des instantanés* : sélectionnez si vous souhaitez activer les instantanés inviolables.
-** *Période de verrouillage de l'instantané* : saisissez le nombre de jours, de mois ou d'années pendant lesquels vous souhaitez verrouiller l'instantané.
-** *Transfert vers le secondaire* :
+** *Durée de verrouillage des instantanés* : Indiquez si vous souhaitez activer la protection contre toute falsification des instantanés. Si cette option est activée, saisissez le nombre de jours, de mois ou d’années pendant lesquels vous souhaitez verrouiller l’instantané.
+** *Transfert vers le stockage secondaire* : Choisissez quand transférer les instantanés vers le stockage secondaire.
 +
 *** L'option *Planification de transfert ONTAP - En ligne* est sélectionnée par défaut et indique que les snapshots sont immédiatement transférés vers le système de stockage secondaire.  Vous n'avez pas besoin de planifier la sauvegarde.
 *** Autres options : Si vous choisissez un virement différé, les virements ne sont pas immédiats et vous pouvez définir un calendrier.
 
 
-** * Relation secondaire SnapMirror et SnapVault SMAS* : utilisez les relations secondaires SnapMirror et SnapVault SMAS pour les charges de travail SQL Server.
-** *Fournisseur* : (charges de travail Kubernetes uniquement) Sélectionnez le fournisseur de stockage qui héberge les ressources de l’application Kubernetes et saisissez les identifiants pour vous authentifier auprès du fournisseur.
 
 
 . Fournissez des informations pour la section *Paramètres de stockage d'objets* (sauvegarde sur le stockage d'objets) :
@@ -138,13 +111,12 @@ NOTE: Les champs qui s'affichent diffèrent selon le fournisseur et l'architectu
 
 +
 ** *Fournisseur* : Sélectionnez le fournisseur de votre système de stockage d’objets et saisissez les identifiants dans les champs appropriés (les champs d’identifiants diffèrent selon le fournisseur).
-** *Cible de sauvegarde* : sélectionnez une cible de stockage d’objets enregistrée.  Assurez-vous que la cible est accessible dans votre environnement de sauvegarde.
+** *Cible de sauvegarde* : Sélectionnez une cible de stockage d’objets enregistrée et vérifiez qu’elle est accessible dans votre environnement de sauvegarde.
 ** *Espace IP* : sélectionnez l'espace IP à utiliser pour les opérations de sauvegarde.  Ceci est utile si vous avez plusieurs espaces IP et que vous souhaitez contrôler lequel est utilisé pour les sauvegardes.
 ** *Paramètres de planification* : sélectionnez la planification qui a été définie pour les instantanés locaux.  Vous pouvez supprimer une planification, mais vous ne pouvez pas en ajouter une, car les planifications sont définies en fonction des planifications d'instantanés locaux.
-** *Copies de conservation* : saisissez le nombre d'instantanés à conserver.
-** *Exécuter à* : choisissez la planification de transfert ONTAP pour sauvegarder les données sur le stockage d’objets.
+** *Copies de conservation* : Saisissez le nombre d’instantanés à conserver pour chaque planification.
+** *Planification des transferts pour le stockage objet* : Choisissez la planification des transferts ONTAP pour sauvegarder les données sur le stockage objet.
 ** * Hiérarchisez vos sauvegardes du magasin d'objets au stockage d'archivage* : si vous choisissez de hiérarchiser les sauvegardes vers le stockage d'archivage (par exemple, AWS Glacier), sélectionnez l'option de hiérarchisation et le nombre de jours d'archivage.
-** *Activer l'analyse d'intégrité* : (Non disponible pour les charges de travail Kubernetes) Choisissez d'activer ou non les analyses d'intégrité (verrouillage des snapshots) sur le stockage d'objets. Cela garantit que les sauvegardes sont valides et restaurables. La fréquence des analyses d'intégrité est définie à 7 jours par défaut. Pour protéger vos sauvegardes contre toute modification ou suppression, sélectionnez l'option *Analyse d'intégrité*. L'analyse est effectuée uniquement sur le dernier snapshot. Vous pouvez activer ou désactiver les analyses d'intégrité sur le dernier snapshot.
 
 
 
@@ -155,7 +127,7 @@ NOTE: Les champs qui s'affichent diffèrent selon le fournisseur et l'architectu
 
 [%collapsible]
 ====
-Vous pouvez configurer des paramètres avancés dans la stratégie. Ces options sont compatibles avec toutes les architectures de sauvegarde et toutes les destinations de stockage. Les options avancées disponibles dépendent de la charge de travail sélectionnée en haut de la page, certaines options décrites ici peuvent donc ne pas s’appliquer à toutes les charges de travail. Il n’est pas possible de configurer des options avancées pour les charges de travail Kubernetes.
+Vous pouvez configurer des paramètres avancés dans la stratégie. Ces options sont compatibles avec toutes les architectures de sauvegarde et toutes les destinations de stockage. Les options avancées disponibles dépendent de la charge de travail sélectionnée en haut de la page, certaines options décrites ici peuvent donc ne pas s’appliquer à toutes les charges de travail.
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Politiques*.
@@ -164,43 +136,35 @@ Vous pouvez configurer des paramètres avancés dans la stratégie. Ces options 
 . Activez les paramètres que vous souhaitez afficher ou modifier, puis sélectionnez *Accepter*.
 . Fournissez les informations suivantes :
 +
-** *Paramètres du catalogue RMAN* : (S'applique uniquement aux charges de travail Oracle Database) Activez l'option *Cataloguer la sauvegarde avec Oracle Recovery Manager (RMAN)* pour cataloguer automatiquement les métadonnées des opérations de sauvegarde et de restauration de bases de données Oracle. Les métadonnées sont stockées conformément aux paramètres de *Configure RMAN catalog* que vous choisissez pour la base de données (dans le fichier de contrôle cible par défaut). Reportez-vous à link:br-start-configure-oracle-database.html["Configurer une base de données Oracle"] pour modifier ces paramètres pour une base de données.
 ** *SnapMirror format du volume et de l’instantané* : Choisissez parmi les options suivantes :
 +
 *** *Utiliser un format de nom personnalisé pour les copies d'instantané* : Choisissez un schéma de nommage pour les instantanés. Si ce champ est laissé vide, un horodatage est ajouté à la fin de chaque nom d'instantané.
 *** *Indiquez le format du volume SnapMirror* : Spécifiez un préfixe, un suffixe ou les deux pour modifier le nom de volume SnapMirror par défaut. Par défaut, un volume SnapMirror hérite du nom du volume source.
 
 
-** *Sauvegarde par copie uniquement* : (s’applique uniquement aux charges de travail Microsoft SQL Server) Choisissez la sauvegarde par copie uniquement (un type de sauvegarde Microsoft SQL Server) si vous devez sauvegarder vos ressources à l’aide d’une autre application de sauvegarde.
-** *Paramètres du groupe de disponibilité* : (s’applique uniquement aux charges de travail Microsoft SQL Server) Sélectionnez les réplicas de sauvegarde préférés ou spécifiez un réplica particulier.  Ce paramètre est utile si vous disposez d’un groupe de disponibilité SQL Server et que vous souhaitez contrôler la réplique utilisée pour les sauvegardes.
-** *Débit de transfert maximal* : Pour ne pas limiter l'utilisation de la bande passante, sélectionnez *Illimité*. Si vous souhaitez limiter le débit de transfert, sélectionnez *Limité* et sélectionnez la bande passante réseau entre 1 et 1 000 Mbps allouée au transfert des sauvegardes vers le stockage objet. Par défaut, ONTAP peut utiliser une quantité illimitée de bande passante pour transférer les données de sauvegarde des volumes du système vers le stockage objet. Si le trafic de sauvegarde affecte les charges de travail, réduisez la bande passante réseau pour les transferts.
-** *Tentatives de sauvegarde* : (Non applicable aux charges de travail VMware) Pour relancer la tâche en cas d’échec ou d’interruption, sélectionnez *Activer les nouvelles tentatives en cas d’échec*. Indiquez le nombre maximal de tentatives pour les tâches de snapshot et de sauvegarde, ainsi que l’intervalle de temps entre les tentatives. Le nombre de tentatives doit être inférieur à 10.
-+
-
-TIP: Si la fréquence des instantanés est définie sur 1 heure, le délai maximal ainsi que le nombre de nouvelles tentatives ne doivent pas dépasser 45 minutes.
-
+** *Sauvegarde par copie uniquement* : Choisissez la sauvegarde par copie uniquement (un type de sauvegarde Microsoft SQL Server) si vous devez sauvegarder vos ressources à l’aide d’une autre application de sauvegarde.
+** *Paramètres du groupe de disponibilité* : sélectionnez les réplicas de sauvegarde préférés ou spécifiez un réplica particulier. Ce paramètre est utile si vous disposez d’un groupe de disponibilité SQL Server et que vous souhaitez contrôler le réplica utilisé pour les sauvegardes.
 ** *Activer les snapshots cohérents avec la machine virtuelle* : Sélectionnez si vous souhaitez activer les snapshots cohérents avec la machine virtuelle. Cela garantit que les snapshots nouvellement créés sont cohérents avec l’état de la machine virtuelle au moment du snapshot. Ceci est utile pour garantir que les sauvegardes peuvent être restaurées avec succès et que les données sont dans un état cohérent. Cela ne s’applique pas aux snapshots existants. Pour les charges de travail VMware, vous pouvez activer cette option pour des fréquences de stratégie spécifiques, sauf pour l’option horaire.
-** *Analyse des ransomwares* : sélectionnez si vous souhaitez activer l'analyse des ransomwares sur chaque bucket. Cela nécessite le verrouillage DataLock sur le stockage d'objets. Entrez la fréquence de l'analyse en jours. Cette option s’applique au stockage d’objets AWS et Microsoft Azure. Notez que cette option peut entraîner des frais supplémentaires, selon le fournisseur de cloud.
-** *Vérification de sauvegarde* : (Non applicable aux charges de travail VMware) Sélectionnez si vous souhaitez activer la vérification de sauvegarde et si vous la souhaitez immédiatement ou ultérieurement. Cette fonctionnalité garantit que les sauvegardes sont valides et peuvent être restaurées avec succès. Nous vous recommandons d'activer cette option pour garantir l'intégrité de vos sauvegardes. Par défaut, la vérification de la sauvegarde s'exécute à partir du stockage secondaire si le stockage secondaire est configuré. Si le stockage secondaire n'est pas configuré, la vérification de la sauvegarde s'exécute à partir du stockage principal.
+** *Vérification des sauvegardes* : Sélectionnez si vous souhaitez activer la vérification des sauvegardes et si vous la souhaitez immédiatement ou ultérieurement. Cette fonctionnalité garantit que les sauvegardes sont valides et peuvent être restaurées avec succès. Nous vous recommandons d’activer cette option pour garantir l’intégrité de vos sauvegardes. Par défaut, la vérification des sauvegardes s’effectue à partir du stockage secondaire si le stockage secondaire est configuré. Si le stockage secondaire n’est pas configuré, la vérification des sauvegardes s’effectue à partir du stockage principal.
 +
 De plus, configurez les options suivantes :
 
 +
 *** Vérification *quotidienne*, *hebdomadaire*, *mensuelle* ou *annuelle* : si vous avez choisi *plus tard* comme vérification de sauvegarde, sélectionnez la fréquence de vérification de sauvegarde.  Cela garantit que les sauvegardes sont régulièrement vérifiées pour leur intégrité et peuvent être restaurées avec succès.
-*** *Étiquettes de sauvegarde* : saisissez une étiquette pour la sauvegarde.  Cette étiquette est utilisée pour identifier la sauvegarde dans le système et peut être utile pour le suivi et la gestion des sauvegardes.
-*** *Vérification de cohérence de la base de données* : (non applicable aux charges de travail VMware) Sélectionnez si vous souhaitez activer les vérifications de cohérence de la base de données. Cette option garantit que les bases de données sont dans un état cohérent avant la sauvegarde, ce qui est essentiel pour garantir l'intégrité des données.
-*** *Vérifier les sauvegardes de journaux* : (Non applicable aux charges de travail VMware) Sélectionnez si vous souhaitez vérifier les sauvegardes de journaux. Sélectionnez le serveur de vérification. Si vous avez choisi disque à disque ou 3-2-1, sélectionnez également l'emplacement de stockage de vérification. Cette option garantit que les sauvegardes de journaux sont valides et peuvent être restaurées avec succès, ce qui est important pour maintenir l'intégrité de vos bases de données.
+*** *Étiquettes de sauvegarde* : Choisissez un niveau de sauvegarde dans votre stratégie dont vous souhaitez vérifier les sauvegardes. Selon votre paramètre *Vérifier sur le serveur secondaire*, la liste des niveaux provient de vos planifications principales ou secondaires. Les sauvegardes horaires et les sauvegardes de journaux ne s'affichent pas car elles ne sont pas éligibles à la vérification.
+*** *Vérification de la cohérence de la base de données* : Vous pouvez, si vous le souhaitez, sélectionner les limites à appliquer aux vérifications de cohérence de la base de données avant la sauvegarde.
+*** *Vérifier les sauvegardes des journaux* : Sélectionnez si vous souhaitez vérifier les sauvegardes des journaux pour vous assurer qu'elles sont valides et peuvent être restaurées. Sélectionnez un ou plusieurs serveurs de vérification. Si vous avez choisi disque à disque ou 3-2-1, sélectionnez également l’emplacement de stockage de la vérification.
 
 
-** *Réseau* : Sélectionnez l'interface réseau à utiliser pour les opérations de sauvegarde.  Ceci est utile si vous disposez de plusieurs interfaces réseau et que vous souhaitez contrôler laquelle est utilisée pour les sauvegardes.
-+
-*** *Espace IP* : sélectionnez l'espace IP à utiliser pour les opérations de sauvegarde.  Ceci est utile si vous avez plusieurs espaces IP et que vous souhaitez contrôler lequel est utilisé pour les sauvegardes.
-*** *Configuration de point de terminaison privé* : si vous utilisez un point de terminaison privé pour votre stockage d’objets, sélectionnez la configuration de point de terminaison privé à utiliser pour les opérations de sauvegarde.  Ceci est utile si vous souhaitez garantir que les sauvegardes sont transférées en toute sécurité via une connexion réseau privée.
-
-
-** *Notification* : sélectionnez si vous souhaitez activer les notifications par e-mail pour les opérations de sauvegarde.  Ceci est utile si vous souhaitez être averti lorsqu'une opération de sauvegarde démarre, se termine ou échoue.
-** *Disques indépendants* : (s'applique uniquement aux charges de travail VMware) Cochez cette case pour inclure dans la sauvegarde tous les magasins de données avec des disques indépendants contenant des données temporaires. Un disque indépendant est un disque VM qui n’est pas inclus dans les snapshots VMware.
 ** * Format de volume et d'instantané SnapMirror * : si vous le souhaitez, entrez votre propre nom d'instantané dans une stratégie qui régit les sauvegardes pour les charges de travail Microsoft SQL Server. Saisissez le format et le texte personnalisé. Si vous choisissez d’effectuer une sauvegarde sur un stockage secondaire, vous pouvez également ajouter un préfixe et un suffixe de volume SnapMirror .
+** *Débit de transfert maximal* : Pour ne pas limiter l'utilisation de la bande passante, sélectionnez *Illimité*. Si vous souhaitez limiter le débit de transfert, sélectionnez *Limité* et sélectionnez la bande passante réseau entre 1 et 1 000 Mbps allouée au transfert des sauvegardes vers le stockage objet. Par défaut, ONTAP peut utiliser une quantité illimitée de bande passante pour transférer les données de sauvegarde des volumes du système vers le stockage objet. Si le trafic de sauvegarde affecte les charges de travail, réduisez la bande passante réseau pour les transferts.
+** *Tentatives de sauvegarde* : Pour relancer la tâche en cas d’échec ou d’interruption, sélectionnez *Activer les nouvelles tentatives en cas d’échec*. Indiquez le nombre maximal de tentatives pour les tâches d’instantané et de sauvegarde, ainsi que l’intervalle de temps entre les tentatives. Le nombre de tentatives doit être inférieur à 10.
++
+
+TIP: Si la fréquence des instantanés est définie sur 1 heure, le délai maximal ainsi que le nombre de nouvelles tentatives ne doivent pas dépasser 45 minutes.
+
+** *Analyse des ransomwares* : sélectionnez si vous souhaitez activer l'analyse des ransomwares sur chaque bucket. Cela nécessite le verrouillage DataLock sur le stockage d'objets. Entrez la fréquence de l'analyse en jours. Cette option s’applique au stockage d’objets AWS et Microsoft Azure. Notez que cette option peut entraîner des frais supplémentaires, selon le fournisseur de cloud.
+** *Notification* : Choisissez d’activer ou non les notifications par e-mail pour les opérations de sauvegarde. Vous pouvez sélectionner les événements qui déclenchent une notification — par exemple, lorsqu’une sauvegarde réussit, échoue ou se termine avec des avertissements.
 
 
 

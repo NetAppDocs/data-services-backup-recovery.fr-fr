@@ -18,6 +18,59 @@ Découvrez les nouveautés de NetApp Backup and Recovery.
 
 
 
+== 11 mai 2026
+
+Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
+
+
+
+=== Améliorations des charges de travail Hyper-V
+
+Dans cette version, les charges de travail Hyper-V introduisent les améliorations suivantes :
+
+* *Protection des machines virtuelles sur stockage SAN* : Vous pouvez désormais protéger les machines virtuelles sur le stockage objet SAN.
+* *Améliorations de la restauration vers un emplacement alternatif* : Vous pouvez désormais restaurer vers un emplacement alternatif à partir des emplacements principal et secondaire pour les machines virtuelles sur un stockage SAN.
+* *Restaurez des fichiers et des dossiers sur une machine virtuelle invitée* : Vous pouvez désormais restaurer des fichiers et des dossiers à partir d’un instantané du stockage principal vers une machine virtuelle Windows invitée. Cette fonctionnalité est prise en charge uniquement pour les machines virtuelles CIFS.
+
+
+Pour plus de détails sur la protection des charges de travail Hyper-V, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-hyperv-protect-overview.html["Présentation de la protection des charges de travail Hyper-V"] .
+
+
+
+=== Améliorations des charges de travail KVM
+
+Cette version introduit l'amélioration suivante pour les charges de travail KVM :
+
+*Restauration vers un autre emplacement* : Vous pouvez désormais restaurer les machines virtuelles KVM vers un autre emplacement (cette fonctionnalité est désormais disponible en disponibilité générale).
+
+Pour plus de détails sur la protection des charges de travail KVM, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kvm-protect-overview.html["Présentation de la protection des charges de travail KVM"] .
+
+
+
+=== Améliorations des charges de travail Oracle Database
+
+Cette version introduit les améliorations suivantes pour les charges de travail de la base de données Oracle :
+
+* *Prise en charge d'Oracle AI Database 26ai* : NetApp Backup and Recovery prend désormais en charge Oracle AI Database 26ai.
+* *Prise en charge de la vérification des sauvegardes* : Vous pouvez désormais configurer des stratégies de sauvegarde pour vérifier automatiquement l’intégrité de vos sauvegardes de base de données Oracle.
+
+
+Pour plus de détails sur la protection des charges de travail Oracle Database, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Présentation de la protection des charges de travail de la base de données Oracle"].
+
+
+
+=== Améliorations des charges de travail VMware
+
+Dans cette version, VMware workloads introduit les améliorations suivantes :
+
+* *Prise en charge des datastores répartis pour les groupes de protection* : Vous pouvez désormais choisir le comportement des groupes de protection lors de la protection de machines virtuelles dont les disques virtuels s’étendent sur plusieurs datastores.
+* *Prise en charge du clonage* : Vous pouvez désormais créer des clones d’instantanés de machines virtuelles à partir du stockage principal et secondaire.
+
+
+Pour plus de détails sur la protection des charges de travail VMware, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-vmware-protect-overview.html["Présentation de la protection des charges de travail VMware"] .
+
+
+
 == 5 mai 2026
 
 Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
