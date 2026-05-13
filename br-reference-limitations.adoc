@@ -57,7 +57,7 @@ Il n'y a aucune limitation pour les volumes FlexVol : vous pouvez sélectionner 
 +
 Pour une explication sur ces types de cryptage, reportez-vous àhttps://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-netapp-volume-encryption-concept.html["Présentation de la configuration du chiffrement de volume NetApp"^] .
 
-* Si les snapshots de rétention à long terme sont activés sur un volume de destination SnapMirror à l’aide de la planification de la stratégie SnapMirror , les snapshots sont créés directement sur le volume de destination.  Dans ce cas, vous ne devez pas sauvegarder ces volumes à l’aide de NetApp Backup and Recovery, car ces snapshots ne seront pas déplacés vers le stockage d’objets.
+* Ne sauvegardez pas les volumes de destination SnapMirror pour lesquels la conservation à long terme des snapshots est activée. Ces snapshots sont créés directement sur la destination et ne seront pas déplacés vers le stockage objet. Cette restriction s'applique même si la politique SnapMirror est ultérieurement modifiée pour désactiver la conservation à long terme.
 * Lorsque vous créez ou modifiez une politique de sauvegarde alors qu’aucun volume n’est attribué à la politique, le nombre de sauvegardes conservées peut être au maximum de 1 018.  Après avoir attribué des volumes à la politique, vous pouvez modifier la politique pour créer jusqu'à 4 000 sauvegardes.
 * Lors de la sauvegarde des volumes de protection des données (DP) :
 +

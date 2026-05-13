@@ -205,6 +205,9 @@ Vous pouvez créer le bucket à partir de la console ou de votre fournisseur de 
 
 Si vous prévoyez d'utiliser un préfixe de bucket différent de « netapp-backup-xxxxxx », vous devrez modifier les autorisations S3 pour le rôle IAM de l'agent de console.
 
+
+NOTE: Lors de la création d'un conteneur à utiliser comme destination de sauvegarde dans Azure, assurez-vous que le conteneur que vous créez porte le même nom que le compte de stockage Azure.
+
 *Paramètres de bucket avancés*
 
 Si vous prévoyez de déplacer des fichiers de sauvegarde plus anciens vers un stockage d'archives, ou si vous prévoyez d'activer la protection DataLock et Ransomware pour verrouiller vos fichiers de sauvegarde et les analyser à la recherche d'éventuels ransomwares, vous devrez créer le conteneur avec certains paramètres de configuration :
