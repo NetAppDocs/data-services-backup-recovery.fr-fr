@@ -86,7 +86,7 @@ Pour les charges de travail VMware, cela configure l'instantané local sur les b
 +
 Pour les charges de travail VMware, cela configure l'instantané local sur les banques de données ou les VMware sur le système de stockage principal, puis réplique les données du système de stockage sur disque principal vers le système de stockage sur disque secondaire.
 
-** *Stockage disque vers objet* : Stockage principal (disque) vers cloud (stockage objet). Cela réplique les données d’un système ONTAP vers un système de stockage objet. Il peut s’agir d’un stockage objet d’un hyperscaler cloud ou d’un stockage objet privé tel que StorageGRID. Cette méthode est idéale pour la conservation des données à long terme et l’archivage.
+** *Stockage disque vers objet* : Stockage principal (disque) vers cloud (stockage objet). Cela réplique les données d’un système ONTAP vers un système de stockage objet. Il peut s'agir d'un stockage objet d'un hyperscaler cloud ou d'un stockage objet privé tel que StorageGRID. Cette méthode est idéale pour la conservation des données à long terme et l’archivage. Cette option n'est pas disponible pour Amazon FSx for NetApp ONTAP.
 +
 Pour les charges de travail VMWare, cela configure l'instantané local sur les banques de données ou les machines virtuelles sur le disque principal et la réplication du stockage sur disque principal vers le stockage d'objets cloud.
 
