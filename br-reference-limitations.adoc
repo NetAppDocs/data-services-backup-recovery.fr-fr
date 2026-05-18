@@ -116,3 +116,11 @@ Lors de l'utilisation d'une version d' ONTAP antérieure à 9.11.1, la restaurat
 
 
 
+
+
+
+== Activation de l'indexation dans une configuration de reprise après sinistre
+
+Lors de l'activation de l'indexation sur un cluster de machines virtuelles de stockage dans une configuration de reprise après sinistre (DR), une erreur s'affiche indiquant que l'opération n'est pas autorisée sur un Vserver configuré comme destination pour le DR de Vserver. Malgré cette erreur, le processus backend définit le statut de l' `snapdiff-rpc-server`à "on" pour les machines virtuelles de stockage source. Après l'exécution de la planification de la stratégie de DR des machines virtuelles de stockage, ce statut est propagé aux machines virtuelles de stockage de destination.
+
+*Solution de contournement* : Attendez que la planification de la stratégie de reprise après sinistre de la machine virtuelle de stockage s’exécute après l’erreur initiale, puis essayez de réactiver l’indexation.
