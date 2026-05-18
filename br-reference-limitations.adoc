@@ -93,6 +93,7 @@ Pour une explication sur ces types de cryptage, reportez-vous àhttps://docs.net
 
 Ces limitations s'appliquent à la fois aux méthodes de recherche et de restauration et de navigation et de restauration de fichiers et de dossiers, sauf indication contraire spécifique.
 
+* La restauration des dossiers à partir d'instantanés locaux n'est pas prise en charge.
 * Parcourir et restaurer peut restaurer jusqu'à 100 fichiers individuels à la fois.
 * Search & Restore peut restaurer 1 fichier à la fois.
 * Lorsque vous utilisez ONTAP 9.13.0 ou une version ultérieure, Parcourir et restaurer et Rechercher et restaurer peuvent restaurer un dossier avec tous les fichiers et sous-dossiers qu'il contient.

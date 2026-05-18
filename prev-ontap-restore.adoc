@@ -20,7 +20,7 @@ Les sauvegardes de vos données de volume ONTAP sont stockées sous forme d'inst
 NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
 
 * Vous pouvez restaurer un *volume* (en tant que nouveau volume) sur le système d'origine, sur un autre système utilisant le même compte cloud ou sur un système ONTAP sur site.
-* Vous pouvez restaurer un *dossier* sur un volume du système d'origine, sur un volume d'un autre système utilisant le même compte cloud ou sur un volume d'un système ONTAP local.
+* Vous pouvez restaurer un *dossier* à partir d'instantanés répliqués ou de stockage objet vers un volume du système d'origine, vers un volume d'un autre système utilisant le même compte cloud, ou vers un volume sur un système ONTAP local. La restauration de dossiers à partir d'instantanés locaux n'est pas prise en charge.
 * Vous pouvez restaurer des *fichiers* sur un volume du système d'origine, sur un volume d'un autre système utilisant le même compte cloud ou sur un volume d'un système ONTAP local.
 
 
