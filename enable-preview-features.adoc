@@ -116,9 +116,13 @@ NOTE: Pour désactiver une fonctionnalité en préversion, suivez les mêmes ét
 
 
 
-== Désactivez l'indexation pour tous les volumes appartenant à une machine virtuelle de stockage
+== Désactiver l'indexation pour les volumes
 
-Suivez ces étapes pour désactiver l'indexation de tous les volumes appartenant à une machine virtuelle de stockage spécifique, au lieu de désactiver l'indexation pour chaque volume individuel.
+Désactivez l'indexation pour des volumes spécifiques ou pour tous les volumes appartenant à une ou plusieurs machines virtuelles de stockage en utilisant les options suivantes :
+
+* `svms-not-to-index`: Liste séparée par des virgules des machines virtuelles de stockage dont les volumes ne doivent pas être indexés
+* `volumes-not-to-index`: Liste séparée par des virgules des volumes individuels qui ne doivent pas être indexés
+
 
 .Étapes
 . Utilisez SSH pour vous connecter à l'agent de Console.
@@ -162,13 +166,14 @@ Le point de montage diffère entre les déploiements cloud et privés. Cet exemp
 ----
 cd /var/lib/docker/volumes/service-manager-2_cloudmanager_cbs_volume/_data/cbs_catalog_config
 ----
-. Créez un fichier nommé  `production-customer.json` avec le contenu suivant. Remplacez les noms des machines virtuelles de stockage de l'exemple par les noms des machines virtuelles de stockage de votre environnement :
+. Créez un fichier nommé `production-customer.json` et personnalisez les noms de la machine virtuelle de stockage et du volume pour qu'ils correspondent à votre environnement :
 +
 [source, json]
 ----
 {
   "indexing": {
-    "svms-not-to-index": "storage_vm_1,storage_vm_2,storage_vm_3"
+    "svms-not-to-index": "storage_vm_1,storage_vm_2,storage_vm_3",
+    "volumes-not-to-index": "volume_1,volume_2,volume_3"
   }
 }
 ----
