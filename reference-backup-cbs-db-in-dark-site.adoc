@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: reference-backup-cbs-db-in-dark-site.html 
 keywords: backup database, recover database, dark site, private mode, restore database, backup and recovery, Console agent 
-summary: 'Lorsque vous utilisez NetApp Backup and Recovery sur un site sans accès Internet, appelé « mode privé », les données de configuration de NetApp Backup and Recovery sont sauvegardées dans le compartiment StorageGRID ou ONTAP S3 où vos sauvegardes sont stockées.  Si vous rencontrez un problème avec le système hôte de l"agent de console à l"avenir, vous pouvez déployer un nouvel agent de console et restaurer les données critiques de NetApp Backup and Recovery .' 
+summary: 'En mode privé (sans accès Internet), NetApp Backup and Recovery stocke ses données de configuration dans le même compartiment StorageGRID ou ONTAP S3 que celui utilisé pour vos sauvegardes. En cas de défaillance du système hôte de l’agent Console, vous pouvez déployer un nouvel agent Console et restaurer ces données.' 
 ---
 = Restaurer les données de configuration de NetApp Backup and Recovery sur un site sombre
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 'Lorsque vous utilisez NetApp Backup and Recovery sur un site sans acc�
 
 
 [role="lead"]
-Lorsque vous utilisez NetApp Backup and Recovery sur un site sans accès Internet, appelé _mode privé_, les données de configuration de NetApp Backup and Recovery sont sauvegardées dans le compartiment StorageGRID ou ONTAP S3 où vos sauvegardes sont stockées.  Si vous rencontrez un problème avec le système hôte de l'agent de console, vous pouvez déployer un nouvel agent de console et restaurer les données critiques de NetApp Backup and Recovery .
+En mode privé (sans accès Internet), NetApp Backup and Recovery stocke ses données de configuration dans le même compartiment StorageGRID ou ONTAP S3 utilisé pour vos sauvegardes. En cas de défaillance du système hôte de l’agent Console, vous pouvez déployer un nouvel agent Console et restaurer ces données.
 
 Vous pouvez également suivre ces étapes pour remplacer l'agent de la Console et restaurer les données de configuration qui y étaient stockées lors de l'utilisation de Backup and Recovery en  sur site, lorsqu'aucun compte cloud n'est impliqué (par exemple, lors de l'utilisation de NetApp StorageGrid comme destination de sauvegarde).
 

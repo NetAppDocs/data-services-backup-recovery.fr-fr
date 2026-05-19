@@ -273,8 +273,6 @@ sidebar:
       url: "/prev-reference-azure-archive-storage-tiers.html"
     - title: Niveaux de stockage d'archives Google Cloud pris en charge
       url: "/prev-reference-gcp-archive-storage-tiers.html"
-    - title: Restaurer les données de configuration dans un site sombre
-      url: "/reference-backup-cbs-db-in-dark-site.html"
   - title: Mentions légales
     url: "/legal-notices.html"
 product-family:
