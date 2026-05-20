@@ -60,10 +60,6 @@ L'assistant de restauration des données démarre et la page des _Paramètres g�
 . Choisissez l'emplacement source à partir duquel effectuer la restauration.
 . Choisissez le cluster de destination dans la liste *Cluster*.
 . Choisissez de restaurer vers les espaces de noms d'origine ou vers de nouveaux espaces de noms.
-+
-
-NOTE: La restauration sur place (restauration dans l'espace de noms et le cluster d'origine) des applications basées sur des machines virtuelles à partir d'instantanés locaux n'est actuellement pas prise en charge.
-
 . Si vous avez choisi de restaurer dans de nouveaux espaces de noms, saisissez le ou les espaces de noms de destination à utiliser.
 . Sélectionnez *Suivant*.
 +

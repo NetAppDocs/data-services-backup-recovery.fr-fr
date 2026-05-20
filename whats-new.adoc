@@ -71,6 +71,18 @@ Pour plus de détails sur la protection des charges de travail VMware, reportez-
 
 
 
+=== Améliorations des charges de travail Kubernetes
+
+Cette version introduit les améliorations suivantes pour les charges de travail Kubernetes :
+
+* *Trident Protect 26.05.1*: Cette version inclut Trident Protect 26.05.1.
+* *Restauration sur place pour les applications basées sur des machines virtuelles* : Vous pouvez désormais restaurer les applications basées sur des machines virtuelles dans l’espace de noms et le cluster d’origine.
+
+
+Pour plus de détails sur la protection des charges de travail Kubernetes, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kubernetes-protect-overview.html["Présentation de la protection des charges de travail Kubernetes"] .
+
+
+
 == 5 mai 2026
 
 Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
@@ -81,9 +93,10 @@ Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
 
 Cette version introduit les améliorations suivantes pour les charges de travail Kubernetes :
 
+* *Trident Protect 26.05* : Cette version inclut Trident Protect 26.05.
+* *Mise à niveau de Trident Protect depuis Backup and Recovery* : Si votre cluster Kubernetes exécute Trident Protect 26.05 ou une version plus récente, vous pouvez désormais mettre à niveau Trident Protect directement depuis Backup and Recovery.
 * *Prise en charge native de la protection des machines virtuelles* : Vous pouvez désormais créer des applications basées sur des machines virtuelles, ce qui vous permet de protéger ces dernières de la même manière que n’importe quelle autre application.
 * *Transformations des ressources* : Vous pouvez désormais utiliser des transformations de ressources et des modèles de transformation de ressources pour ajouter, supprimer et modifier les attributs des ressources pendant le processus de restauration.
-* *Mise à niveau Trident Protect depuis Backup and Recovery* : Vous pouvez désormais mettre à niveau Trident Protect pour un cluster Kubernetes directement depuis Backup and Recovery.
 * *Afficher les ressources protégées* : Vous pouvez désormais consulter les ressources incluses dans chaque point de récupération d’une application et télécharger un rapport JSON détaillé. Vous bénéficiez ainsi d’une visibilité complète sur vos points de récupération et simplifiez la conformité aux audits.
 
 
