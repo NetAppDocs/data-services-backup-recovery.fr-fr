@@ -16,12 +16,6 @@ summary: 'NetApp Backup and Recovery prend en charge une classe de stockage d"ar
 [role="lead"]
 NetApp Backup and Recovery prend en charge une classe de stockage d'archivage Google et la plupart des régions.
 
-[]
-====
-
-NOTE: Pour basculer vers et depuis les versions de l'interface utilisateur NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Passer à l'interface utilisateur précédente de NetApp Backup and Recovery"] .
-
-====
 
 
 == Classes de stockage d'archivage Google prises en charge pour NetApp Backup and Recovery

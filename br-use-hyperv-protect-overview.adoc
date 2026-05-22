@@ -27,9 +27,6 @@ Utilisez NetApp Backup and Recovery pour mettre en œuvre une stratégie de prot
 
 Lorsque vous ajoutez des hôtes Hyper-V et découvrez des ressources, NetApp Backup and Recovery installe le plug-in NetApp Hyper-V et le plug-in NetApp SnapCenter Windows FileSystem sur l'hôte Hyper-V pour faciliter la gestion et la protection des machines virtuelles.
 
-
-NOTE: Pour basculer vers et depuis les versions de l'interface utilisateur NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Passer à l'interface utilisateur précédente de NetApp Backup and Recovery"] .
-
 Vous pouvez utiliser NetApp Backup and Recovery pour effectuer les tâches suivantes liées aux charges de travail Hyper-V :
 
 * link:br-start-discover-hyperv.html["Découvrez les charges de travail Hyper-V"]

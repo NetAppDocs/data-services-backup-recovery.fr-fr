@@ -26,9 +26,6 @@ Utilisez NetApp Backup and Recovery pour mettre en œuvre une stratégie 3-2-1, 
 * Vous pouvez restaurer rapidement à partir de la copie sur site et utiliser les copies hors site si la copie sur site est compromise.
 
 
-
-NOTE: Pour basculer vers et depuis les versions de l'interface utilisateur NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Passer à l'interface utilisateur précédente de NetApp Backup and Recovery"] .
-
 Vous pouvez utiliser NetApp Backup and Recovery pour effectuer les tâches suivantes liées aux charges de travail VMware :
 
 * link:br-use-vmware-discovery.html["Découvrez les charges de travail VMware"]
