@@ -343,14 +343,9 @@
   <block id="def5bb1c4fff047ce52153ac1f2ef9b5" category="list-text">Types de pools de stockage autres que NetFS (seul NetFS est pris en charge)</block>
   <block id="203b3a4b594fb28b853f0cb7e5561c26" category="list-text">Sauvegarde hors ligne</block>
   <block id="11750133b5aeccdb05ec0c5b1027ace4" category="doc">Limitations connues avec NetApp Backup and Recovery pour les charges de travail VMware</block>
-  <block id="eace16d66cdd93ad876c620db7456077" category="list-text">Monter</block>
-  <block id="1281764038ea27ade56d7d2b8be22798" category="list-text">Démonter</block>
   <block id="25e66e51214e8342374fa891a42988b3" category="list-text">Restaurer vers un autre emplacement</block>
   <block id="ef18d76ed6c710e78abb28c0e09b3e30" category="list-text">Prise en charge de vVol</block>
-  <block id="2cc658d562a11cd1528c2219f2d25da7" category="list-text">Prise en charge NVMe</block>
   <block id="98dc7ecfe4c87955d5fb8b98b895eac7" category="list-text">Intégration de courrier électronique</block>
-  <block id="7c007efb4505aa1063c750565e9e0eac" category="list-text">Modifier la politique</block>
-  <block id="2af86af91c3987a4d2353d4ec7912d76" category="list-text">Modifier le groupe de protection</block>
   <block id="eaaed5c467c733cb37141573cd1396cf" category="doc">Limitations connues avec NetApp Backup and Recovery pour les charges de travail Microsoft SQL Server</block>
   <block id="84c88b39fd4f46203da512886dfca56b" category="section-title">Prise en charge du cycle de vie des clones</block>
   <block id="3c068270aa0287f7c64a3c9c3a4f89a7" category="list-text">Le clonage à partir du stockage d'objets n'est pas pris en charge.</block>
@@ -877,8 +872,6 @@
   <block id="9772979b1b90e72fc3981d222d55243a" category="paragraph">Vous pouvez sauvegarder les charges de travail Hyper-V sur Amazon Web Services S3 ou StorageGRID et restaurer les charges de travail Hyper-V sur un hôte Hyper-V local.</block>
   <block id="b7bf580752a61d71227184a60f0fbfd3" category="paragraph">Utilisez NetApp Backup and Recovery pour mettre en œuvre une stratégie de protection 3-2-1, où vous disposez de 3 copies de vos données sources sur 2 systèmes de stockage différents ainsi que d'une copie dans le cloud. Les avantages de l’approche 3-2-1 incluent :</block>
   <block id="79c28420811a3b277df19fdd38cd10e0" category="list-text">Plusieurs types de supports garantissent la viabilité du basculement en cas de défaillance physique ou logique d'un type de support.</block>
-  <block id="532ee325506687dccb969b2e88d92b32" category="inline-link-macro">Passer à l'interface utilisateur précédente de NetApp Backup and Recovery</block>
-  <block id="9847581c7ebe97c62f71ab1d90ed1696" category="admonition">Pour basculer vers et depuis les versions de l'interface utilisateur NetApp Backup and Recovery , reportez-vous à<block ref="3a517a59babeb4a2a4c0dc21bafb9259" category="inline-link-macro-rx"></block> .</block>
   <block id="124a0ee1a6efcb80b27fc999fe308e62" category="paragraph">Vous pouvez utiliser NetApp Backup and Recovery pour effectuer les tâches suivantes liées aux charges de travail Hyper-V :</block>
   <block id="e853aa4eb98908dd4b95a8cc80d9972f" category="list-text"><block ref="e853aa4eb98908dd4b95a8cc80d9972f" category="inline-link-macro-rx"></block></block>
   <block id="17eed7efdf891efe01a3f9078fc5227d" category="inline-link-macro">Créer et gérer des groupes de protection pour les charges de travail Hyper-V</block>
@@ -1573,7 +1566,6 @@
   <block id="812f9cbafb4aa2378e7470b20baa1fef" category="list-text">Vous pouvez également sélectionner *Rechercher* pour trouver les ressources en fonction de vos critères de recherche.</block>
   <block id="aa49cc3a36d2c16ec191533800daa634" category="list-text">Si la liste contient les ressources que vous souhaitez protéger, sélectionnez *Suivant*.</block>
   <block id="4d3ca3588667d04ddbd4f318cdd7677e" category="inline-link-macro">ajouter une politique de protection</block>
-  <block id="2769be0838f5e6f63e01200eeeec1910" category="list-text">Vous pouvez également, dans la zone *Politique*, choisir une politique de protection existante pour protéger l'application ou en créer une nouvelle. Si vous ne sélectionnez pas de politique, l'application est créée sans politique de protection. Tu peux<block ref="99c823f28a98717f81cda4eb0c448db5" category="inline-link-macro-rx"></block> plus tard.</block>
   <block id="4049c9e3b9c424f5991c5f917ad92c40" category="inline-link-macro">modèle de crochet d'exécution</block>
   <block id="5e97a71c79e2f24deabf91daa3d20cd1" category="list-text">Dans la zone *Préscripts et postscripts*, activez et configurez tous les hooks d'exécution de préscripts ou de postscripts que vous souhaitez exécuter avant ou après les opérations de sauvegarde.  Pour activer les prescripts ou les postscripts, vous devez déjà en avoir créé au moins un<block ref="3059f3d40a47ddab4d322199b8601d95" category="inline-link-macro-rx"></block> .</block>
   <block id="9f77aac915c7dddb04d022bff72e881d" category="paragraph">L'application est créée et apparaît dans la liste des applications dans l'onglet *Applications* de l'inventaire Kubernetes.  La NetApp Console active la protection de l'application en fonction de vos paramètres et vous pouvez surveiller la progression dans la zone *Surveillance* de la sauvegarde et de la récupération.</block>
@@ -5354,7 +5346,6 @@
   <block id="4068d5ec1a7b4b267d864b4ad09e26cf" category="list-text">Activez l'option *Transformation des ressources* pour modifier le modificateur.</block>
   <block id="58277b3a38eb38eb305ae4faa19d846d" category="list-text">Sélectionnez un modèle dans la liste *Modèle* pour appliquer rapidement les paramètres de modification que vous utilisez fréquemment. Cette liste comprend des modèles prédéfinis pour les scénarios courants ainsi que des modèles personnalisés que vous avez créés.</block>
   <block id="f4f70727dc34561dfde1a3c529b6205c" category="inline-link-macro">Paramètres</block>
-  <block id="632317b2bb237c1d7d24b46218476569" category="admonition">Créer des modèles de transformation des ressources dans la zone <block ref="676a0eaa3ab155e3d0da7696107f049f" category="inline-link-macro-rx"></block> globale.</block>
   <block id="4f92a8032a0def18d5e7cfbe7fc6b465" category="list-text">Spécifiez la ressource que vous souhaitez modifier en saisissant le groupe de ressources, la version, le type et le nom.</block>
   <block id="0be96bf87a216fa4424d9b22e1624c4c" category="list-text">Spécifiez l'opération que vous souhaitez effectuer sur la ressource en sélectionnant une opération dans la liste *Operation*.</block>
   <block id="526aad7c01abce8bd37b72aea1adf9a2" category="list-text">Saisissez un chemin JSON pour la clé spécifique que vous souhaitez modifier.</block>
@@ -5558,4 +5549,6 @@
   <block id="54f8a7826ae5101b3374158dadb22dbe" category="list-text">*Mise à niveau de Trident Protect depuis Backup and Recovery* : Si votre cluster Kubernetes exécute Trident Protect 26.05 ou une version plus récente, vous pouvez désormais mettre à niveau Trident Protect directement depuis Backup and Recovery.</block>
   <block id="482d8dda04ea30da4fa480c529cb09b0" category="list-text">*Trident Protect 26.05.1*: Cette version inclut Trident Protect 26.05.1.</block>
   <block id="d0426b89e832dc9c7bd7771552d69499" category="list-text">*Restauration sur place pour les applications basées sur des machines virtuelles* : Vous pouvez désormais restaurer les applications basées sur des machines virtuelles dans l’espace de noms et le cluster d’origine.</block>
+  <block id="b53801e3c4b30277c5f2975ffed7720c" category="list-text">Dans la section *Stratégie*, vous pouvez choisir une stratégie de protection existante pour protéger l'application ou en créer une nouvelle. Si vous ne sélectionnez pas de stratégie, l'application est créée sans stratégie de protection. Vous pouvez <block ref="ee6916d2984f9ce63f3c3b8b1b4f14f9" category="inline-link-macro-rx"></block> ultérieurement.</block>
+  <block id="fefcfa5dbc8a28e96b9d098440cd7d4a" category="admonition">Créer des modèles de transformation des ressources dans la zone <block ref="3ce10431a19a41e956e68fb70b49b83e" category="inline-link-macro-rx"></block> globale.</block>
 </blocks>

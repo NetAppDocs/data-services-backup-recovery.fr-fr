@@ -58,7 +58,7 @@ NOTE: Backup and Recovery ne stocke pas les paramètres ni les résultats de la 
 
 . Sauvegarde et restauration affiche une liste de ressources correspondant à vos critères de recherche.
 . Si la liste contient les ressources que vous souhaitez protéger, sélectionnez *Suivant*.
-. Vous pouvez également, dans la zone *Politique*, choisir une politique de protection existante pour protéger l'application ou en créer une nouvelle. Si vous ne sélectionnez pas de politique, l'application est créée sans politique de protection. Tu peuxlink:br-use-policies-create.html#create-a-policy["ajouter une politique de protection"] plus tard.
+. Dans la section *Stratégie*, vous pouvez choisir une stratégie de protection existante pour protéger l'application ou en créer une nouvelle. Si vous ne sélectionnez pas de stratégie, l'application est créée sans stratégie de protection. Vous pouvez link:br-use-policies-kubernetes-create.html#create-a-policy["ajouter une politique de protection"] ultérieurement.
 . Dans la zone *Préscripts et postscripts*, activez et configurez tous les hooks d'exécution de préscripts ou de postscripts que vous souhaitez exécuter avant ou après les opérations de sauvegarde.  Pour activer les prescripts ou les postscripts, vous devez déjà en avoir créé au moins unlink:br-use-manage-execution-hook-templates.html["modèle de crochet d'exécution"] .
 . Sélectionnez *Créer*.
 
@@ -86,7 +86,7 @@ NOTE: Si vous sélectionnez des machines virtuelles dans la liste, la définitio
 Les machines virtuelles sélectionnées apparaissent dans la liste à droite.
 
 . Si la liste contient les machines virtuelles que vous souhaitez protéger, sélectionnez *Suivant*.
-. Vous pouvez également, dans la zone *Politique*, choisir une politique de protection existante pour protéger l'application ou en créer une nouvelle. Si vous ne sélectionnez pas de politique, l'application est créée sans politique de protection. Tu peuxlink:br-use-policies-create.html#create-a-policy["ajouter une politique de protection"] plus tard.
+. Dans la section *Stratégie*, vous pouvez choisir une stratégie de protection existante pour protéger l'application ou en créer une nouvelle. Si vous ne sélectionnez pas de stratégie, l'application est créée sans stratégie de protection. Vous pouvez link:br-use-policies-kubernetes-create.html#create-a-policy["ajouter une politique de protection"] ultérieurement.
 . Dans la zone *Préscripts et postscripts*, activez et configurez tous les hooks d'exécution de préscripts ou de postscripts que vous souhaitez exécuter avant ou après les opérations de sauvegarde.  Pour activer les prescripts ou les postscripts, vous devez déjà en avoir créé au moins unlink:br-use-manage-execution-hook-templates.html["modèle de crochet d'exécution"] .
 . Sélectionnez *Créer*.
 

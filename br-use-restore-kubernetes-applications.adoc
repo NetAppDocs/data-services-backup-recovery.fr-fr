@@ -151,7 +151,7 @@ NOTE: La modification de PersistentVolumeClaims et des espaces de noms n'est act
 .. Sélectionnez un modèle dans la liste *Modèle* pour appliquer rapidement les paramètres de modification que vous utilisez fréquemment. Cette liste comprend des modèles prédéfinis pour les scénarios courants ainsi que des modèles personnalisés que vous avez créés.
 +
 
-NOTE: Créer des modèles de transformation des ressources dans la zone link:br-start-configure.html#create-a-resource-modifier-template["Paramètres"^] globale.
+NOTE: Créer des modèles de transformation des ressources dans la zone link:br-start-configure.html#create-a-resource-transformation-template["Paramètres"^] globale.
 
 .. Spécifiez la ressource que vous souhaitez modifier en saisissant le groupe de ressources, la version, le type et le nom.
 .. Spécifiez l'opération que vous souhaitez effectuer sur la ressource en sélectionnant une opération dans la liste *Operation*.
