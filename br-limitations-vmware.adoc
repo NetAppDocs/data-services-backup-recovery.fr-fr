@@ -18,12 +18,7 @@ Les plates-formes, appareils ou fonctionnalités qui ne fonctionnent pas ou ne f
 
 Les actions suivantes ne sont pas prises en charge dans les charges de travail VMware dans NetApp Backup and Recovery :
 
-* Monter
-* Démonter
 * Prise en charge de vVol
-* Prise en charge NVMe
 * Intégration de courrier électronique
-* Modifier la politique
-* Modifier le groupe de protection
 * Prise en charge du contrôle d'accès basé sur les rôles (RBAC)
 
