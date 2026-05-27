@@ -42,6 +42,7 @@ link:prev-reference-aws-archive-storage-tiers.html["En savoir plus sur la restau
 * Si le fichier de sauvegarde dans le stockage d'objets réside dans le stockage d'archives, la restauration au niveau du dossier est prise en charge uniquement si la version ONTAP est 9.13.1 ou supérieure.  Si vous utilisez une version antérieure d' ONTAP, vous pouvez restaurer le dossier à partir d'un fichier de sauvegarde plus récent qui n'a pas été archivé, ou vous pouvez restaurer l'intégralité du volume à partir de la sauvegarde archivée, puis accéder au dossier et aux fichiers dont vous avez besoin.
 * La priorité de restauration « Élevée » n’est pas prise en charge lors de la restauration des données du stockage d’archivage Azure vers les systèmes StorageGRID .
 * La restauration de dossiers n'est actuellement pas prise en charge à partir de volumes dans le stockage d'objets ONTAP S3.
+* Lorsque vous restaurez un volume activé SnapLock, le volume restauré conserve la protection SnapLock uniquement si le stockage de destination est compatible WORM. Si vous restaurez vers une destination non compatible WORM, le statut SnapLock est supprimé du volume restauré.
 
 
 ====

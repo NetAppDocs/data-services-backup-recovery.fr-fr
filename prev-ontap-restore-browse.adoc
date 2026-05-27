@@ -79,6 +79,9 @@ NOTE: Si la version ONTAP de votre système est inférieure à 9.13.1, vous ne p
 
 Lorsque vous restaurez un volume à partir d'un fichier de sauvegarde, NetApp Backup and Recovery crée un _nouveau_ volume à l'aide des données de la sauvegarde.  Lorsque vous utilisez une sauvegarde à partir du stockage d'objets, vous pouvez restaurer les données sur un volume du système d'origine, sur un autre système situé dans le même compte cloud que le système source ou sur un système ONTAP local.
 
+
+NOTE: Lorsque vous restaurez un volume activé SnapLock, le volume restauré conserve la protection SnapLock uniquement si le stockage de destination est compatible WORM. Si vous restaurez vers une destination non compatible WORM, le statut SnapLock est supprimé du volume restauré.
+
 Lors de la restauration d'une sauvegarde cloud sur un système Cloud Volumes ONTAP utilisant ONTAP 9.13.0 ou une version ultérieure ou sur un système ONTAP local exécutant ONTAP 9.14.1, vous aurez la possibilité d'effectuer une opération de _restauration rapide_. La restauration rapide est idéale pour les situations de reprise après sinistre où vous devez fournir l'accès à un volume dès que possible. Une restauration rapide restaure les métadonnées du fichier de sauvegarde sur un volume au lieu de restaurer l'intégralité du fichier de sauvegarde.  La restauration rapide n'est pas recommandée pour les applications sensibles aux performances ou à la latence, et elle n'est pas prise en charge avec les sauvegardes dans le stockage archivé.
 
 
