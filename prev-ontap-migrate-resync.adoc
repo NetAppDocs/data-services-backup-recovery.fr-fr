@@ -112,6 +112,9 @@ Avant la migration, l'équipe NetApp Tech Refresh vérifie ces prérequis afin d
 
 Après la migration, une équipe NetApp Tech Refresh s'assure que les étapes suivantes sont effectuées pour établir la protection et préparer la resynchronisation.
 
+
+NOTE: N’utilisez pas de stratégie SnapMirror de type « Vault » pour cloner un volume d’un ancien cluster ONTAP vers un nouveau cluster ONTAP ou dans une architecture en cascade. Les stratégies Vault modifient l’UUID de version du snapshot lors du transfert. L’UUID de version du snapshot est utilisé pour déterminer si un snapshot commun existe entre la source et la destination.
+
 . Enregistrez les nouveaux UUID d’instance de volume de tous les volumes migrés dans le cluster ONTAP de destination.
 . Confirmez que toutes les stratégies SnapMirror requises qui étaient disponibles dans l’ancien cluster ONTAP sont correctement configurées dans le nouveau cluster ONTAP .
 . Ajoutez le nouveau cluster ONTAP en tant que système dans la page *Systèmes* de la console.
@@ -156,10 +159,10 @@ NOTE: L'UUID de l'instance de volume doit être utilisé, et non l'ID de volume.
 . Saisissez les informations de configuration du fournisseur et du réseau requises pour l'opération de resynchronisation.
 . Sélectionnez *Soumettre* pour démarrer le processus de validation.
 +
-NetApp Backup and Recovery valide que chaque volume sélectionné pour la resynchronisation est le dernier snapshot et possède au moins un snapshot commun. Cela garantit que les volumes sont prêts pour l'opération de resynchronisation SnapMirror vers Cloud.
+NetApp Backup and Recovery valide que chaque volume sélectionné pour la resynchronisation partage un instantané commun avec le stockage d'objets. Plus précisément, le dernier instantané stocké dans le stockage d'objets doit également exister dans l'instantané local du nouveau volume cloné. Cette vérification garantit que les volumes sont prêts pour l'opération SnapMirror to Cloud Resync.
 
 . Examinez les résultats de la validation, y compris les nouveaux noms de volumes sources et l’état de resynchronisation de chaque volume.
-. Vérifiez l'éligibilité du volume. Le système vérifie si les volumes sont éligibles à la resynchronisation. Si un volume n'est pas éligible, cela signifie qu'il ne s'agit pas du dernier instantané ou qu'aucun instantané commun n'a été trouvé.
+. Vérifiez l'éligibilité des volumes. Le système vérifie si les volumes sont éligibles à la resynchronisation. Si un volume n'est pas éligible, cela signifie que les critères de snapshot commun n'ont pas été établis.
 +
 
 IMPORTANT: Pour garantir que les volumes restent éligibles pour l'opération de resynchronisation SnapMirror vers Cloud, prenez un instantané final de chaque volume avant de supprimer toute relation SnapMirror pendant la phase de pré-migration.  Cela préserve l’état le plus récent des données.
