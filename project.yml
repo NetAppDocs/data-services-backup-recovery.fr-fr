@@ -73,6 +73,8 @@ sidebar:
         url: "/prev-ontap-policy-object-advanced-settings.html"
       - title: Sauvegarder Cloud Volumes ONTAP sur Amazon S3
         url: "/prev-ontap-backup-cvo-aws.html"
+      - title: Sauvegardez Cloud Volumes ONTAP sur un stockage compatible S3
+        url: "/prev-ontap-backup-cvo-s3-compatible.html"
       - title: Sauvegarder Cloud Volumes ONTAP sur Azure Blob
         url: "/prev-ontap-backup-cvo-azure.html"
       - title: Sauvegarder Cloud Volumes ONTAP sur Google Cloud
@@ -261,6 +263,8 @@ sidebar:
     url: "/br-api-backup-restore.html"
   - title: Référence
     entries:
+    - title: Actions de sauvegarde et de restauration auditées
+      url: "/reference-audit-actions.html"
     - title: Stratégies dans SnapCenter comparées à NetApp Backup and Recovery
       url: "/reference-policy-differences-snapcenter.html"
     - title: Rôles et privilèges de NetApp Backup and Recovery

@@ -1147,12 +1147,7 @@
   <block id="f23e3ed54ae928c06add368fe4fe5a66" category="section-title">Supprimer un cluster Kubernetes</block>
   <block id="884dae5f1c15db330f66f8e2866510c1" category="list-text">Sélectionnez *Supprimer le cluster*.</block>
   <block id="19ce5318fcc2968a80a3d2213a7120af" category="list-text">Vérifiez les informations dans la boîte de dialogue de confirmation et sélectionnez *Supprimer*.</block>
-  <block id="6e464deab83d8eb0500f0c27ef47c58b" category="doc">Présentation de la gestion des ressources avec NetApp Backup and Recovery</block>
-  <block id="1391797a0b30576f1f116202d3da3a46" category="paragraph">Vous pouvez accomplir les tâches suivantes liées à la gestion de vos ressources :</block>
-  <block id="ccc9658d0f980f24634bf5ef6aaceb3d" category="inline-link-macro">Gérer l'inventaire</block>
-  <block id="9517c8b5ba697f22d1982a7a6950dbce" category="list-text"><block ref="84e97f55697cdae80cb35f3f0e373346" category="inline-link-macro-rx"></block>.</block>
   <block id="e5787a3a7b79c3cdbeb01e163f0a84de" category="inline-link-macro">Gérer les instantanés</block>
-  <block id="ccfc47004ad0ab207533113156514c4a" category="list-text"><block ref="d66ed6d81bd70c133ddb80e0d8285080" category="inline-link-macro-rx"></block>.</block>
   <block id="5cb859488fba0d173df5045c81e5ee2f" category="doc">Gérez les instantanés Microsoft SQL Server avec NetApp Backup and Recovery</block>
   <block id="56baceb052a5efa89c30115707384440" category="paragraph">Vous pouvez gérer les instantanés Microsoft SQL Server en les supprimant de NetApp Backup and Recovery.</block>
   <block id="efb44cfe1d5b8d9954ea045385675c66" category="section-title">Supprimer un instantané</block>
@@ -1587,31 +1582,16 @@
   <block id="fb197ee87a0f850dc3b7bb98fe408518" category="inline-link-macro">Configurer les paramètres</block>
   <block id="e1fb45ea82cb12d1d1dbdee887e2850a" category="summary">NetApp Backup and Recovery vous permet de restaurer les applications que vous avez protégées avec une politique de protection.</block>
   <block id="c75d148fe813178c4a53664110efe289" category="paragraph">NetApp Backup and Recovery vous permet de restaurer les applications que vous avez protégées avec une politique de protection. Pour restaurer une application, celle-ci doit disposer d'au moins un point de restauration. Un point de restauration est constitué soit de l'instantané local, soit de la sauvegarde dans le magasin d'objets (ou des deux). Vous pouvez restaurer une application à partir de l'archive locale, secondaire ou du magasin d'objets.</block>
-  <block id="b2c71ce0eb7f82adff3580d86f20d76d" category="list-text">Dans la liste des applications, choisissez une application que vous souhaitez restaurer et sélectionnez le menu Actions associé.</block>
-  <block id="553b5cd5dac97c088cf126dd86d0a9fb" category="list-text">Sélectionnez *Afficher et restaurer*.</block>
   <block id="5a870c22146ba310e89eaf52f510bdc8" category="paragraph">La liste des points de restauration apparaît.</block>
-  <block id="c42e645eedd858c3f07be6b12b14117e" category="list-text">Ouvrez le menu Actions pour le point de restauration que vous souhaitez utiliser et sélectionnez *Restaurer*.</block>
-  <block id="de62775a71fc2bf7a13d7530ae24a7ed" category="floating-title">Paramètres généraux</block>
-  <block id="0b829a26d220bb63e030d1042081a086" category="list-text">Choisissez la source à partir de laquelle restaurer (local ou magasin d'objets).</block>
   <block id="d7560bb34437cec51e7e4319ee098f83" category="list-text">Choisissez le cluster de destination dans la liste *Cluster*.</block>
-  <block id="f01f0a18d4bc038c4ed2929f4450ed7d" category="list-text">Choisissez l’espace de noms de destination de restauration.</block>
-  <block id="75e31fe436b541e95871c54827070e6e" category="paragraph">Vous pouvez restaurer l’espace de noms d’origine ou restaurer un nouvel espace de noms.</block>
-  <block id="0ea90fe06c37ce54f4695cefd1980f66" category="floating-title">Sélection des ressources</block>
   <block id="74f41c06ce4ca2bd3dc7e2b83148072b" category="list-text">Choisissez si vous souhaitez restaurer toutes les ressources associées à l'application ou utiliser un filtre pour sélectionner des ressources spécifiques à restaurer :</block>
-  <block id="6ead82e0fb87f1d2639b05d1f514c487" category="open-title">Restaurer toutes les ressources</block>
   <block id="7247b0618202329b2ab0af353626c9ab" category="list-text">Sélectionnez *Restaurer toutes les ressources*.</block>
-  <block id="a4929640d434e06c32c659a99d0b8163" category="open-title">Restaurer des ressources spécifiques</block>
   <block id="d236d20849d5bad669774260f1bf4c47" category="list-text">Sélectionnez *Ressources sélectives*.</block>
   <block id="f6fab4c7c8e2fbb724cb732a6f96f2c2" category="list-text">Choisissez le comportement du filtre de ressources.  Si vous choisissez *Inclure*, les ressources que vous sélectionnez sont restaurées.  Si vous choisissez *Exclure*, les ressources que vous sélectionnez ne sont pas restaurées.</block>
   <block id="edd2fb2dbd2bec448d4fb4f7596eb159" category="list-text">Sélectionnez *Ajouter des règles* pour ajouter des règles qui définissent des filtres pour la sélection des ressources.  Vous avez besoin d’au moins une règle pour filtrer les ressources.</block>
   <block id="97eef9e67660a5a91cc028dff60a130f" category="paragraph">Chaque règle peut filtrer selon des critères tels que l'espace de noms de la ressource, les étiquettes, le groupe, la version et le type.</block>
   <block id="7d2b12877c8289521dfc37e1a4ce6681" category="list-text">Sélectionnez *Enregistrer* pour enregistrer chaque règle.</block>
-  <block id="f5c8e073cfadb44db550fdd37a2fcc8e" category="list-text">Lorsque vous avez ajouté toutes les règles dont vous avez besoin, sélectionnez *Rechercher* pour voir les ressources disponibles dans l'archive de sauvegarde qui correspondent à vos critères de filtre.</block>
   <block id="a9f292136fbf924f6d8d675318db6235" category="admonition">Les ressources affichées sont les ressources qui existent actuellement sur le cluster.</block>
-  <block id="b5c9051aafb85384e02d47693c3be179" category="list-text">Lorsque vous êtes satisfait des résultats, sélectionnez *Suivant*.</block>
-  <block id="8d7c9cf5b15032c441cad2d538d90368" category="floating-title">Paramètres de destination</block>
-  <block id="5d49eb458c546b4f70a99f4b37bbcc20" category="list-text">Choisissez de restaurer soit la classe de stockage par défaut, soit une classe de stockage différente.</block>
-  <block id="12c3c958b266fff57134abb1c9649419" category="list-text">Si vous choisissez de restaurer vers une classe de stockage différente, sélectionnez une classe de stockage de destination correspondant à chaque classe de stockage source.</block>
   <block id="de00c1e27be1485dd099e4cd2aaa554d" category="section-title">Supprimer les sauvegardes</block>
   <block id="d1980609675dd3ea40abaebd4a0989d8" category="doc">Sauvegardez les charges de travail VMware avec NetApp Backup and Recovery</block>
   <block id="30a409f022898dd26f006e04486b81e0" category="paragraph">Sauvegardez les machines virtuelles VMware et les banques de données des systèmes ONTAP locaux vers Amazon Web Services, Azure NetApp Files ou StorageGRID pour garantir la protection de vos données. Les sauvegardes sont automatiquement générées et stockées dans un magasin d’objets sur votre compte cloud public ou privé.</block>
@@ -1852,13 +1832,7 @@
   <block id="4c62e57751652d4b577a25756cfdab04" category="list-text">Pour appliquer les modifications, redémarrez votre ordinateur.</block>
   <block id="3a3942a17def38d9bd0471e0ef50fc54" category="paragraph-title">Exemples de commandes PowerShell 7 pour désactiver les restrictions à distance UAC :</block>
   <block id="5af774cd9735f1047d099584c2782535" category="paragraph">Cet exemple avec la valeur définie sur « 1 » indique que les restrictions à distance UAC sont désactivées.</block>
-  <block id="22167e870f6d93e553b43fc2deb69861" category="paragraph">Commencez à utiliser NetApp Backup and Recovery en vérifiant l’état de préparation de votre environnement opérationnel, de l’agent NetApp Console et du compte NetApp Console .  Pour utiliser NetApp Backup and Recovery, vous aurez besoin de ces prérequis.</block>
-  <block id="a46da293e3099636eab1ab8a656acc6a" category="section-title">Prérequis pour ONTAP 9.8 et versions ultérieures</block>
-  <block id="e3f0159851c2ac10a4f0d46840e5a66e" category="paragraph">Une licence ONTAP One doit être activée sur l’instance ONTAP locale.</block>
-  <block id="05e7a5201131047cf35d26a62e1a0a4d" category="section-title">Conditions préalables pour les sauvegardes sur le stockage d'objets</block>
-  <block id="439fbbae0adc9211b89c4a70f01d1a33" category="paragraph">Pour utiliser le stockage d'objets comme cibles de sauvegarde, vous avez besoin d'un compte avec AWS S3, Microsoft Azure Blob, StorageGRID ou ONTAP et des autorisations d'accès appropriées configurées.</block>
   <block id="7126662a353f79c46a7ccefe46dc4c0a" category="inline-link-macro">Protégez vos données de volume ONTAP</block>
-  <block id="1d638e05920fe33426fac4dc6285a639" category="list-text"><block ref="1d638e05920fe33426fac4dc6285a639" category="inline-link-macro-rx"></block></block>
   <block id="ef53d2e08e79af10a2e451632255842d" category="section-title">Exigences pour la protection des charges de travail Microsoft SQL Server</block>
   <block id="0acd3a555d2cc1f83c65dc743cf15408" category="paragraph">Pour utiliser NetApp Backup and Recovery pour les charges de travail Microsoft SQL Server, vous avez besoin des prérequis suivants en matière de système hôte, d’espace et de dimensionnement.</block>
   <block id="7d74f3b92b19da5e606d737d339a9679" category="cell">Article</block>
@@ -1880,13 +1854,10 @@
   <block id="fdd736f6cacce38b5102696f59ea433a" category="paragraph">Pour obtenir les dernières informations sur les versions prises en charge, consultez le<block ref="c2340f294ea0edd3eaa143337cddb591" category="inline-link-rx"></block> .</block>
   <block id="573531ec152a1cc1709422d00088088e" category="section-title">Exigences pour la protection des charges de travail VMware</block>
   <block id="4ccfae37bea4d344c283e2a68013c9c1" category="paragraph">Vous avez besoin d’exigences spécifiques pour découvrir et protéger vos charges de travail VMware.</block>
-  <block id="1269e07e6a9265be5844ea32a0494a7f" category="paragraph">*Support logiciel*</block>
-  <block id="dc735211c86b33a749d2c86bb8b39e80" category="paragraph">*Exigences de connexion et de port pour la protection des charges de travail VMware*</block>
   <block id="3672cca688eb0474cd3fee2add1a2067" category="cell">Type de port</block>
   <block id="99ddf0e823c1be51589f68696f62cf56" category="cell">Port préconfiguré</block>
   <block id="2cb2843b629d315325aac076907ec4b9" category="cell">Port du serveur VMware ESXi</block>
   <block id="131b9f1c14d26ba7a0cce7389e7679a9" category="cell">Cluster de stockage ou port de VM de stockage</block>
-  <block id="6def2be93b1fef441b3ca8a2641cc837" category="paragraph">*Exigences de contrôle d'accès basé sur les rôles (RBAC) pour la protection des charges de travail VMware*</block>
   <block id="82ede2f1cf5c1f154c5f0ccbd08838b2" category="section-title">Exigences pour la protection des charges de travail KVM</block>
   <block id="64bef292bab71a21d8b1fdfdc5e220aa" category="paragraph">Vous avez besoin d’exigences spécifiques pour découvrir et protéger les machines virtuelles KVM.</block>
   <block id="0e41245837200bd6043f82d33b20190c" category="list-text">Une distribution Linux moderne exécutant la version du noyau 5.14.0-503.22.1.el9_5.x86_64 (long terme) ou ultérieure</block>
@@ -1908,31 +1879,7 @@
   <block id="1498907a7069094c1a1b679e2a53087a" category="list-text">Un système ONTAP principal (ONTAP 9.14.1 ou version ultérieure)</block>
   <block id="eb75aeb3b4b2b9734ba3e52f5483f0b2" category="inline-link">Documentation ONTAP</block>
   <block id="0a2b6c395fc07f332dac7e7046c239c4" category="list-text">Pour les déploiements Hyper-V utilisant des partages CIFS pour stocker les données de la machine virtuelle, assurez-vous que la propriété de partage de disponibilité continue est activée sur le système ONTAP .  Reportez-vous à la<block ref="5c340db4eb0fc64db199962e418ffbd0" category="inline-link-rx"></block> pour les instructions.</block>
-  <block id="0811b88847f846fb265d219dc4238de2" category="section-title">Dans la NetApp Console</block>
-  <block id="155fcb205d15e054986b2632ea1cd854" category="paragraph">Assurez-vous que la NetApp Console répond aux exigences suivantes.</block>
-  <block id="5cc1bd5a248543034a550e50bf5aa001" category="inline-link-macro">Accès aux fonctionnalités de NetApp Backup and Recovery basé sur les rôles</block>
-  <block id="c850782e660a82e43396b6f00fc156a9" category="list-text">Un utilisateur de la console doit disposer du rôle et des privilèges requis pour effectuer des opérations sur les charges de travail Microsoft SQL Server et Kubernetes.  Pour découvrir les ressources, vous devez disposer du rôle NetApp Backup and Recovery de Super administrateur.  Voir<block ref="3ea538d610f9c38c4e9027f82ccc13f0" category="inline-link-macro-rx"></block> pour plus de détails sur les rôles et les autorisations requis pour effectuer des opérations dans NetApp Backup and Recovery.</block>
-  <block id="6119abf359d82ff3e20728a6c3d8f6ca" category="list-text">Une organisation de console avec au moins un agent de console actif qui se connecte aux clusters ONTAP locaux ou à Cloud Volumes ONTAP.</block>
-  <block id="f3ac1f83c98111c361c8cb45aee2f272" category="list-text">Au moins un système de console avec un cluster NetApp sur site ONTAP ou Cloud Volumes ONTAP .</block>
-  <block id="e73e7287ad2b8e179dae88b6eebada6c" category="list-text">Un agent de console</block>
-  <block id="04f679e072129c7e87e077dc95e5e73e" category="inline-link">Apprenez à configurer un agent de console</block>
-  <block id="67a50452f70d09a4796d712935acce40" category="inline-link">exigences standard de la NetApp Console</block>
-  <block id="9cf0324010f5d39596c98416e19929c6" category="paragraph">Se référer à<block ref="f26f3bdec25207bfa60c6d1f2da2fd25" category="inline-link-rx"></block> et<block ref="0f2cc189841820bbf400fd90cf6cb8ee" category="inline-link-rx"></block> .</block>
-  <block id="3b554f93911a798d0765c792e57bafca" category="list-text">La version d'aperçu nécessite le système d'exploitation Ubuntu 22.04 LTS pour l'agent de console.</block>
-  <block id="3398d1a4d0a2aea999eac34931a1d998" category="section-title">Configurer la NetApp Console</block>
-  <block id="16d9ecdb498025063dae8f97b5c73400" category="paragraph">L’étape suivante consiste à configurer la console et la NetApp Backup and Recovery.</block>
-  <block id="10d5c90fc807b2c9968a61c35be570c9" category="paragraph">Revoir<block ref="0f2cc189841820bbf400fd90cf6cb8ee" category="inline-link-rx"></block> .</block>
-  <block id="f3aee30a3a487c746572616e3f53dc9d" category="section-title">Créer un agent de console</block>
-  <block id="62cc32537e8fdfb6d3282291f4042bb4" category="paragraph">Vous devez contacter votre équipe produit NetApp pour essayer la sauvegarde et la récupération.  Ensuite, lorsque vous utilisez l’agent de console, il inclura les fonctionnalités appropriées pour le service.</block>
-  <block id="039a0f51fabaf695c33b745ebbd147bf" category="inline-link">comment créer un agent de console</block>
-  <block id="80cb602f4ec24fce408434bc7c65f694" category="paragraph">Pour créer un agent de console dans la NetApp Console avant d’utiliser le service, reportez-vous à la documentation de la console qui décrit<block ref="a747c66fa3a9e5a767b0d1460e988f0c" category="inline-link-rx"></block> .</block>
-  <block id="92f0c45157f4a06638de9514d90f06ae" category="paragraph-title">Où installer l'agent de console</block>
-  <block id="4ad96aae78a2caccba56b457927512be" category="paragraph">Pour terminer une opération de restauration, l'agent de console peut être installé aux emplacements suivants :</block>
-  <block id="4a1a570f7927f6e76005a28d1f766677" category="list-text">Pour Amazon S3, l’agent de console peut être déployé sur vos locaux.</block>
-  <block id="a10afc87a656ad40aea2fd4081fa15dd" category="list-text">Pour Azure Blob, l’agent de console peut être déployé sur vos locaux.</block>
-  <block id="299fc3aa5fad549c858e325b2098ebfc" category="list-text">Pour StorageGRID, l'agent de console doit être déployé dans vos locaux ; avec ou sans accès Internet.</block>
   <block id="f6e9a28cc6109da66451b7ed0caaea35" category="list-text">Pour ONTAP S3, l'agent de console peut être déployé dans vos locaux (avec ou sans accès Internet) ou dans un environnement de fournisseur de cloud</block>
-  <block id="f11d659b2497c3836db933d95773f939" category="admonition">Les références aux « systèmes ONTAP sur site » incluent les systèmes FAS et AFF .</block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">Mentions légales</block>
   <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="paragraph">Les mentions légales donnent accès aux déclarations de droits d'auteur, aux marques déposées, aux brevets et bien plus encore.</block>
   <block id="6016a2b341113bf496b719905398ecd2" category="section-title">Copyright</block>
@@ -3894,8 +3841,6 @@
   <block id="e7a5ac87e73475a462d4dc0b02fe041a" category="paragraph">NetApp Backup and Recovery vous aide à gérer vos hôtes, bases de données et instances Microsoft SQL Server.  Vous pouvez afficher, modifier ou supprimer les paramètres de protection de votre inventaire.</block>
   <block id="cfdfd7a1b72e8e723d4b5a0b7e6afbf5" category="paragraph">Supprimez une application dont vous n’avez plus besoin.  NetApp Backup and Recovery arrête la protection et supprime toutes les sauvegardes et tous les instantanés des applications supprimées.</block>
   <block id="f211d824587f775c16c5bded7ee65614" category="paragraph">Pour arrêter la protection d'un cluster Kubernetes, désactivez la protection et supprimez les applications associées, puis supprimez le cluster de NetApp Backup and Recovery.  NetApp Backup and Recovery ne supprime pas le cluster ni ses ressources ; il supprime uniquement le cluster de l'inventaire de la NetApp Console .</block>
-  <block id="2bba4a20b069f20b81f5d7e00bb55ee1" category="summary">Gérez les ressources dans NetApp Backup and Recovery pour protéger vos données.</block>
-  <block id="5a32edb5240e680dd91847bce7538e99" category="paragraph">Gérez les ressources dans NetApp Backup and Recovery pour protéger vos données.  Contrôlez les sauvegardes, les bases de données, les instances, les hôtes d'applications et les systèmes.  Afficher, modifier ou supprimer les paramètres de protection des ressources.</block>
   <block id="76be0aa5e848bc95ef63cb71a62a4a8c" category="admonition">Vérifiez que l’icône d’instantané local dans la colonne *Emplacement* de cette ligne apparaît en bleu.</block>
   <block id="c9ba59160e2a933914b5eb21420c64e0" category="summary">Avec NetApp Backup and Recovery, surveillez les snapshots locaux, les réplications et les tâches de sauvegarde que vous démarrez.</block>
   <block id="e10e8c5d47314e650f29f8a9e66e579f" category="paragraph">Avec NetApp Backup and Recovery, surveillez les snapshots locaux, les réplications et les tâches de sauvegarde que vous démarrez.  Suivez les tâches de restauration que vous lancez.  Affichez les tâches terminées, en cours ou ayant échoué pour aider à diagnostiquer les problèmes.  Activez les notifications par e-mail dans le centre de notifications de la NetApp Console pour rester informé de l'activité du système lorsque vous n'êtes pas connecté. Utilisez la chronologie de la console pour voir les détails de toutes les actions démarrées à partir de l'interface utilisateur ou de l'API.</block>
@@ -4246,7 +4191,6 @@
   <block id="31c25778a66dd9ff2087fb25f9f003e3" category="list-text">Pour AWS, vous pouvez hiérarchiser les sauvegardes vers le stockage AWS _S3 Glacier_ ou _S3 Glacier Deep Archive_. <block ref="da672f43205b0c90027c7dfb66aec892" category="inline-link-macro-rx"></block>.</block>
   <block id="cf79bdcd3a75ca2aaf153bfbee77f91f" category="list-text">Pour Azure, vous pouvez hiérarchiser les anciennes sauvegardes vers le stockage _Azure Archive_. <block ref="378f4ee26769b0f22cf8e5c4c18a63bc" category="inline-link-macro-rx"></block>.</block>
   <block id="55746a30fb9b4c5182484dec9b3600d3" category="list-text">Vous pouvez sauvegarder des données à partir de systèmes ONTAP locaux sur site vers des systèmes ONTAP locaux sur site ou des systèmes Cloud Volumes ONTAP configurés pour le stockage d'objets S3. <block ref="61d8249673309599fa2a7a8b0c67a195" category="inline-link-macro-rx"></block>.</block>
-  <block id="a99979a95e2c9dcb0b5768f80898dd11" category="cell">Amazon S3, Azure Blob, Google Cloud Storage, NetApp StorageGRID , ONTAP S3</block>
   <block id="5cbc97866d11e9b3160156a597fbd5bf" category="list-text">Dans AWS, la console permet<block ref="b38667957fcdf9b9da65b213e7fb2492" category="inline-link-rx"></block> sur le compartiment S3.</block>
   <block id="108d25df82fe933520bf967ad1d14b85" category="list-text">Dans Azure, la console utilise un groupe de ressources nouveau ou existant avec un compte de stockage pour le conteneur Blob. La console<block ref="a7068b8d2b60241ce77a1051f3a66ed5" category="inline-link-rx"></block> par défaut.</block>
   <block id="fc2c90af4df4de3a15611b7cf431a683" category="list-text">Dans GCP, la console utilise un projet nouveau ou existant avec un compte de stockage pour le bucket Google Cloud Storage.</block>
@@ -4890,7 +4834,6 @@
   <block id="5508505cbdbe4c572010783025a1150d" category="list-text">Red Hat Enterprise Linux 8</block>
   <block id="79a35fb717e5fb1f7054fc94c597e2d2" category="list-text">Red Hat Enterprise Linux 9</block>
   <block id="014ba561f219ba053a41bf54f3ce33b4" category="cell">Stockage d'objets (cibles de sauvegarde)</block>
-  <block id="3e0bb972fc7b38e6cd0262fb76265e80" category="paragraph">*Configuration logicielle requise pour l’hôte Windows Server Hyper-V*</block>
   <block id="bbc2d665b02dc421c5c756db4b973610" category="cell">Microsoft Hyper-V</block>
   <block id="49c1cfb8defeea7149e31b4d5c722668" category="cell">2019, 2022 et 2025 editions</block>
   <block id="d5fda164bdd74f6422bd307aaf09a590" category="cell">ASP.NET Core Runtime</block>
@@ -4901,8 +4844,6 @@
   <block id="4698b69bed4ee276f187d88f25644b08" category="cell">Assurez-vous que le trafic HTTPS bidirectionnel est autorisé pour les ports suivants dans les paramètres du pare-feu Windows</block>
   <block id="d213948679817ac06e8c20f73a6d5e50" category="list-text">TCP 8144 (NetApp Plugin pour Hyper-V)</block>
   <block id="eb24ddd0422049219f581858a9ae2714" category="list-text">TCP 8145 (NetApp Plugin pour Windows)</block>
-  <block id="1fb4fe8a0be6159013de38bbdffbcab3" category="paragraph">*Configuration matérielle requise pour l'hôte Hyper-V*</block>
-  <block id="7f32d94ab622f0820b5ea4312baa0d74" category="paragraph">*NetApp ONTAP exigences de configuration*</block>
   <block id="86a1075e6640849bd364878900fd5412" category="paragraph">Vous pouvez également suivre ces étapes pour remplacer l'agent de la Console et restaurer les données de configuration qui y étaient stockées lors de l'utilisation de Backup and Recovery en  sur site, lorsqu'aucun compte cloud n'est impliqué (par exemple, lors de l'utilisation de NetApp StorageGrid comme destination de sauvegarde).</block>
   <block id="72edcbdd4436f32d101a83a36dd2d1db" category="list-text">Exécutez la commande *ls* pour vous assurer que le dossier « catalogdb1 » a été créé et qu'il contient les sous-dossiers<block ref="45b963397aa40d4a0063e0d85e4fe7a1" prefix=" " category="inline-code"></block>,<block ref="b17be6650251f2e6c7d4e90209beb4e0" prefix=" " category="inline-code"></block> et<block ref="695633290d050f31cec0c9d4bd4a57fe" prefix=" " category="inline-code"></block>.</block>
   <block id="69b1a964078d5301a2aa9822cb2304f2" category="section-title">16 mars 2026</block>
@@ -5370,15 +5311,12 @@
   <block id="ab186862b28de3aad826b26d80e3eb96" category="list-text">*Prise en charge du clonage* : Vous pouvez désormais créer des clones d’instantanés de machines virtuelles à partir du stockage principal et secondaire.</block>
   <block id="87e187714ad3406b822e2c0bf109240b" category="summary">Vous pouvez restaurer un ou plusieurs fichiers ou dossiers à partir d'un instantané de machine virtuelle Hyper-V vers une machine virtuelle invitée Windows.</block>
   <block id="cd21aa174cd18a8828140ba323628bfb" category="doc">Restaurez les fichiers et dossiers à partir des sauvegardes de machines virtuelles Hyper-V</block>
-  <block id="640c4dc490a389b9c6997266e8a71a44" category="paragraph">Restaurez les fichiers et dossiers des sauvegardes de machines virtuelles Hyper-V sur le stockage principal vers une machine virtuelle invitée Windows.</block>
   <block id="d822ec23856d26a5af79fad29ce2f55e" category="paragraph">Montez un disque virtuel à partir d'un instantané et restaurez les fichiers et dossiers de celui-ci sur la machine virtuelle Windows d'origine (source).</block>
   <block id="d4bb35603ef1e4c4f849336d35413c6f" category="paragraph">Avant de pouvoir restaurer des fichiers et des dossiers, vous devez créer un identifiant pour la machine virtuelle source dans NetApp Backup and Recovery. Cet identifiant est utilisé pour s'authentifier auprès de la machine virtuelle pendant le processus de restauration.</block>
   <block id="17a458fd7a6b6ae191ac9219e3b46deb" category="paragraph">Lorsque vous ouvrez une session de restauration de fichiers et de dossiers en montant un disque virtuel, la session reste active pendant 48 heures.</block>
   <block id="392177f0b4a0bc4b5bc23ef82eee9fff" category="paragraph">Les performances de restauration dépendent à la fois de la taille et du nombre de fichiers ou de dossiers à restaurer. À taille de données égale, la restauration d'un grand nombre de petits fichiers prend généralement plus de temps que la restauration d'un petit nombre de fichiers volumineux.</block>
   <block id="0c1d8f103b8f05dc9e681f213a4140ed" category="paragraph">Veuillez noter les points suivants lors de la restauration de fichiers et de dossiers :</block>
   <block id="a705938172beea0cbb274379316dd157" category="list-text">Il n'est pas possible de restaurer des fichiers et des dossiers sur les machines virtuelles invitées Linux pour le moment.</block>
-  <block id="93ef85ccd89fa47a0fcea649f6297cef" category="list-text">La restauration des fichiers et des dossiers à partir de sauvegardes stockées sur un stockage secondaire ou un stockage objet n'est pas prise en charge.</block>
-  <block id="1c4499f1d98b1704724086469c122c63" category="list-text">Vous ne pouvez pas restaurer de fichiers ou de dossiers sur des machines virtuelles résidant sur un stockage SAN.</block>
   <block id="dcf405acd6661cbfd046dd011bf0a242" category="list-text">L'affichage ou la navigation dans les partitions réservées peut entraîner une erreur.</block>
   <block id="d2c522c65144e52bf2492965958bd437" category="list-text">Lors de l'opération de restauration, les attributs caché, système et chiffré des fichiers invités ne sont pas conservés dans le fichier restauré.</block>
   <block id="c1eecde3ab58a34da7f6aa03449b4f8c" category="list-text">Vous pouvez consulter et restaurer les fichiers système et cachés et visualiser les fichiers chiffrés.</block>
@@ -5388,7 +5326,6 @@
   <block id="d50199c3c85a7557227fb519ea120c77" category="list-text">Sélectionnez *Fichiers et dossiers*.</block>
   <block id="87ac0b57021ca53dfe6ba31ad849c862" category="list-text">Sur la page *Restaurer à partir d'instantanés*, procédez comme suit :</block>
   <block id="10ea713b9cd4dda55a5d80fdf7a9f540" category="list-text">Vous pouvez également sélectionner une période pour filtrer la liste des snapshots par date de création.</block>
-  <block id="438a6c1066c8a98f8894daf9e98f7ab5" category="list-text">Sélectionnez un instantané sur le stockage principal à partir duquel effectuer la restauration, puis sélectionnez *Suivant*.</block>
   <block id="3edc266f3a91667d89f538f69793db00" category="list-text">Facultativement, dans la section *Informations d'identification de la machine virtuelle invitée*, si vous n'avez pas encore enregistré d'identifiant pour le disque virtuel source et la machine virtuelle de destination, sélectionnez *Ajouter des informations d'identification*, saisissez les informations d'identification Windows, puis sélectionnez *Ajouter*.</block>
   <block id="25e60e91201040d5c93090ccf9df68c8" category="paragraph">NetApp Backup and Recovery associe le disque virtuel à la machine virtuelle d'origine et affiche tous les fichiers et dossiers, y compris les fichiers et dossiers cachés. Elle attribue une lettre de lecteur à chaque partition, y compris les partitions réservées au système.</block>
   <block id="bc3ab34e28906290dc143fb28934f931" category="list-text">Sur la page _Choisir les fichiers ou dossiers à restaurer_, procédez comme suit :</block>
@@ -5402,7 +5339,6 @@
   <block id="da51d3c21777acf76b87932de6839d64" category="list-text">Pour utiliser une session afin de restaurer des fichiers et des dossiers sur une machine virtuelle invitée, ouvrez le menu Actions <block ref="2137b8853c2ddb346939b7d46bf562c2" category="inline-image-macro-rx" type="image"></block> pour une session et sélectionnez *Restaurer les fichiers et les dossiers*.</block>
   <block id="57c9526981addf2ea70c6ad409673cb5" category="list-text">Pour supprimer une session, vous pouvez également ouvrir le menu Actions <block ref="2137b8853c2ddb346939b7d46bf562c2" category="inline-image-macro-rx" type="image"></block> pour une session et sélectionner *Supprimer*.</block>
   <block id="970e7dbe358429eacf37bb0e37943138" category="list-text">Restaurer à partir d'une sauvegarde de stockage objet (uniquement vers l'emplacement d'origine)</block>
-  <block id="6d1557ca399dc5f147a2d09028ab2c97" category="admonition">La restauration à partir d'une sauvegarde d'objet store n'est pas prise en charge pour les machines virtuelles résidant sur un stockage SAN.</block>
   <block id="4b59b9c80f0f0e40294e53eb75b4e004" category="list-text">Restaurer à l'emplacement d'origine (à partir du stockage principal, secondaire et objet)</block>
   <block id="a6f964fecafa0484fc07f1b47496f82c" category="list-text">Restaurer vers un autre emplacement (à partir du stockage principal et secondaire)</block>
   <block id="bff6f5877ada2718589866425ae83e38" category="doc">Créez et gérez des stratégies de sauvegarde Hyper-V dans NetApp Backup and Recovery</block>
@@ -5553,4 +5489,130 @@
   <block id="ae560942cdf67d205fbeeda3a63a14a3" category="admonition">N’utilisez pas de stratégie SnapMirror de type « Vault » pour cloner un volume d’un ancien cluster ONTAP vers un nouveau cluster ONTAP ou dans une architecture en cascade. Les stratégies Vault modifient l’UUID de version du snapshot lors du transfert. L’UUID de version du snapshot est utilisé pour déterminer si un snapshot commun existe entre la source et la destination.</block>
   <block id="eccb056c811f6da5d84262d7dd856d5c" category="paragraph">NetApp Backup and Recovery valide que chaque volume sélectionné pour la resynchronisation partage un instantané commun avec le stockage d'objets. Plus précisément, le dernier instantané stocké dans le stockage d'objets doit également exister dans l'instantané local du nouveau volume cloné. Cette vérification garantit que les volumes sont prêts pour l'opération SnapMirror to Cloud Resync.</block>
   <block id="4869420875f3291b832867e066be6b05" category="list-text">Vérifiez l'éligibilité des volumes. Le système vérifie si les volumes sont éligibles à la resynchronisation. Si un volume n'est pas éligible, cela signifie que les critères de snapshot commun n'ont pas été établis.</block>
+  <block id="6a46064fa3e0cc88fd5d8f1799eb5b66" category="paragraph">*Prise en charge du stockage cloud compatible S3* : NetApp Backup and Recovery pour les charges de travail Volumes prend désormais en charge la sauvegarde vers un stockage cloud compatible S3.</block>
+  <block id="860b17c21dae4758109cd6109bb92be4" category="list-text">*Améliorations concernant la restauration de fichiers et de dossiers sur une machine virtuelle invitée* : Vous pouvez désormais restaurer des fichiers et des dossiers à partir d’un instantané sur un stockage principal ou secondaire vers une machine virtuelle Windows invitée. Cette fonctionnalité est désormais prise en charge pour les VM CIFS et SAN.</block>
+  <block id="3e96e50a62c2cc112989ccd5d4d264aa" category="list-text">Restauration de fichiers et de dossiers dans une configuration de reprise après sinistre (PRA) : après un basculement, les volumes d’une machine virtuelle de stockage configurée pour la PRA conservent des relations SnapMirror préexistantes dans un état dissocié. Les tentatives de restauration de fichiers ou de dossiers qui créent des relations SnapMirror RST temporaires sont bloquées par ONTAP car le volume de destination possède déjà une relation.</block>
+  <block id="d98b87c41bd7151a94b3271b45bd340f" category="paragraph">Restaurez les fichiers et dossiers à partir des sauvegardes de machines virtuelles Hyper-V sur un stockage principal ou secondaire vers une machine virtuelle invitée Windows.</block>
+  <block id="7438f70a76f855b704ba892f9c003542" category="list-text">La restauration de fichiers et de dossiers à partir de sauvegardes stockées sur un stockage objet n'est pas prise en charge.</block>
+  <block id="7d3d3c20273081b66e3ecec1f0d07f51" category="list-text">Sélectionnez un instantané sur le stockage principal ou secondaire à partir duquel effectuer la restauration, puis sélectionnez *Suivant*.</block>
+  <block id="3808991f408e2ffd90ae953886ec1e79" category="doc">NetApp Backup and Recovery exigences</block>
+  <block id="44b68849dd3e2689fb41242f736a140f" category="paragraph">Avant de commencer à utiliser NetApp Backup and Recovery, assurez-vous que votre NetApp Console et votre environnement opérationnel répondent aux exigences suivantes.</block>
+  <block id="b4d91981598471b84bcf3da4e96f7970" category="section-title">Préparer la NetApp Console</block>
+  <block id="64450efd5ca18cf6cebe654b9c7c05f3" category="paragraph">Vous accédez à NetApp Backup and Recovery via NetApp Console. Pour préparer la Console pour Backup and Recovery, vous devez :</block>
+  <block id="37326d6fc2dae8eb70c8e5c6290c961a" category="list-text">Ajouter un agent de console</block>
+  <block id="f7738f6711f0ef1fb3f5a4464e7fcfb4" category="list-text">Ajoutez au moins un système de stockage</block>
+  <block id="5fc19bba732118fb6de20131945d3a1f" category="list-text">Configurer une organisation Console et des rôles d'utilisateur</block>
+  <block id="be07c7874107215b35f4cb23114fdba4" category="paragraph">Vous devez disposer du rôle d'administrateur de l'organisation ou de super administrateur dans la NetApp Console pour effectuer cette préparation.</block>
+  <block id="166d58641d71e8f7701618924f6e0230" category="inline-link">NetApp Console pour la gestion unifiée du stockage</block>
+  <block id="4422b0b5b9637937564bf621f2610c7a" category="paragraph">Pour en savoir plus sur NetApp Console, consultez<block ref="26a35b83e5712f1703b96c54f1ac11b8" category="inline-link-rx"></block>.</block>
+  <block id="a859e03fa525c25dee858dad62f9aec0" category="section-title">Effectuez la configuration initiale complète de la NetApp Console</block>
+  <block id="d1a0bf528dab9557b3add986fac96df8" category="paragraph">Terminez la configuration initiale de la NetApp Console si vous ne l'avez pas déjà fait.</block>
+  <block id="91edb8869565e8b84d0bb89e65038d3a" category="inline-link">Processus de démarrage pour NetApp Console (application SaaS)</block>
+  <block id="19de064230f9802ad2a46adc704c00c1" category="paragraph"><block ref="19de064230f9802ad2a46adc704c00c1" category="inline-link-rx"></block></block>
+  <block id="4cdcdd6cc684e8847f57a8c461306706" category="section-title">Déployer un agent de console</block>
+  <block id="41f59680b33ea7227eb6c7e09010d262" category="paragraph">Un agent Console est un composant logiciel léger que vous installez sur votre réseau pour connecter votre infrastructure de stockage à NetApp Console. Il permet une orchestration avancée du stockage, des services de données et une intégration au cloud sécurisée.</block>
+  <block id="413f5c2acfdfdb1a561ffc22afe211b9" category="paragraph"><block ref="4818e913b60896a6e56bad9a383343fa" category="inline-link-rx"></block> <block ref="e0b8910c1bc5f58f6e1bc7ed243fa39c" category="inline-link-rx"></block></block>
+  <block id="737a87ab95be88819eceb25188f58963" category="section-title">Ajouter un système de stockage</block>
+  <block id="12e59e4e00969f08c2cb1af893e9ba7a" category="paragraph">Avant de pouvoir protéger les charges de travail dans NetApp Backup and Recovery, vous devez ajouter un système de stockage ONTAP à la NetApp Console.</block>
+  <block id="d1b29fc7b35be872f620d5d931e8766c" category="inline-link">Découvrez les clusters ONTAP locaux dans la NetApp Console</block>
+  <block id="7a9a5755110e2914f0ad288a141356cb" category="paragraph"><block ref="7a9a5755110e2914f0ad288a141356cb" category="inline-link-rx"></block></block>
+  <block id="e17c2185b4352c73f48a1a8e84f1a8ed" category="section-title">Configurer une organisation et des rôles d'utilisateur</block>
+  <block id="9104b82e5e7be42a60370d0e13b27403" category="paragraph">Découvrez les organisations, les projets et les rôles des utilisateurs, puis configurez les utilisateurs avec les autorisations appropriées nécessaires à l'exécution de leurs tâches.</block>
+  <block id="692fa8c1472b3f5b389ae8b229a03338" category="inline-link">Ajouter des utilisateurs à une organisation NetApp Console</block>
+  <block id="6a66c8d307ddd017849b5680e53c609c" category="paragraph">Reportez-vous à <block ref="04f37aa952e829e9448a7d043a30911e" category="inline-link-rx"></block> pour obtenir des informations sur l'utilisation d'une organisation et de projets pour contrôler l'accès aux ressources.</block>
+  <block id="1ce75b5926383de539d27e838bd74b8a" category="paragraph">Reportez-vous à <block ref="04b01782baab49091268802b7f1423cb" category="inline-link-rx"></block> pour obtenir des détails sur les rôles et les autorisations nécessaires pour effectuer des opérations dans NetApp Backup and Recovery.</block>
+  <block id="6bb058e639cecc8051a99e8892400bd8" category="section-title">Exigences relatives aux sauvegardes sur stockage objet</block>
+  <block id="fbb5639a46ec6a30ce9e9021778a91a2" category="paragraph">Pour utiliser le stockage d'objets comme cibles de sauvegarde, vous avez besoin d'un compte AWS S3, Google Cloud Storage, Microsoft Azure Blob, StorageGRID ou ONTAP et des autorisations d'accès appropriées configurées.</block>
+  <block id="fc0cba16e06b834a59ea2732ce15d74a" category="section-title">Exigences relatives à la protection des charges de travail de volume ONTAP</block>
+  <block id="0b0bee32bf0c7158fbba14e4b17f1e23" category="paragraph">Pour utiliser NetApp Backup and Recovery pour les charges de travail de volume ONTAP, vous devez respecter les prérequis suivants en matière de système hôte, d'espace et de dimensionnement.</block>
+  <block id="f17da14a026a5974537cf1303ac53974" category="list-text">ONTAP 9.8 ou une version ultérieure est requise.</block>
+  <block id="45b096193f4470968c1063df19d1c253" category="list-text">Une licence ONTAP One doit être activée sur l'instance ONTAP locale.</block>
+  <block id="9cf387a6f708f4467810768eb8e4d31f" category="list-text">La sauvegarde ou la restauration sur un stockage d'objets compatible S3 nécessite ONTAP 9.17.1 ou une version ultérieure.</block>
+  <block id="ddaa1c8bd07bda0816a8b44d87c10997" category="paragraph">Pour plus d'informations sur les fonctionnalités prises en charge, les types de volumes, les destinations de sauvegarde et de restauration, et plus encore, consultez <block ref="1d638e05920fe33426fac4dc6285a639" category="inline-link-macro-rx"></block>.</block>
+  <block id="ba0f269b2bdb85161db3fe51338e6a7b" category="cell">Hôte de base de données</block>
+  <block id="bff50f1947dbec1e11bc66d60ca0b1d9" category="cell">Stockage pris en charge</block>
+  <block id="e042e676706d93b3b14ce12e4d00a002" category="cell">Serveur physique</block>
+  <block id="0bff41cfbe96737aa6b09f610961f5c9" category="list-text">LUNs présentés via Fibre Channel</block>
+  <block id="e490b6a60f5d5f84da2872552117d35a" category="list-text">LUNs présentés via iSCSI</block>
+  <block id="86cbd38e0939fb9a14eea3387d05d7b4" category="cell">VMware VM</block>
+  <block id="681eb44a9cbd6da8f7c3f918a64f2c6c" category="list-text">LUN iSCSI connectés directement au système invité par l’initiateur iSCSI</block>
+  <block id="6199cc7348edc37d513caecf899a6870" category="list-text">Systèmes de fichiers de machines virtuelles (VMFS)</block>
+  <block id="1f25f9cc2f9e277c0318faa6969f3552" category="list-text">datastores NFS</block>
+  <block id="8389b191652a37792de566d96af881d9" category="cell">Machine virtuelle Hyper-V</block>
+  <block id="76a076e542cbd2e8238bb0e9b956194e" category="admonition">La protection des bases de données stockées sur des disques pass-through ou des fichiers VHD/VHDX provisionnés sur NetApp storage n'est pas prise en charge.</block>
+  <block id="59f5ce8a3e5f9160e855499a4f229823" category="paragraph-title">Exigences de contrôle d'accès basé sur les rôles (RBAC) pour la protection des charges de travail VMware</block>
+  <block id="1f3be67622d50eb9ea62feda9571af13" category="list-title">Configuration matérielle requise pour l'hôte Hyper-V</block>
+  <block id="b263d5ca79e3126d53a51eb3fd03ecac" category="list-title">NetApp exigences de configuration ONTAP</block>
+  <block id="5d5680a7be3d76408ed6363c1640e7fc" category="doc">Sauvegardez les données Cloud Volumes ONTAP sur un stockage compatible S3 avec NetApp Backup and Recovery</block>
+  <block id="2e7a981f8c415a4fe96294fd71792a0b" category="paragraph">Suivez quelques étapes dans NetApp Backup and Recovery pour commencer à sauvegarder les données de volume de vos systèmes Cloud Volumes ONTAP vers S3.</block>
+  <block id="9336086de56f2232c24135493cbf6bda" category="paragraph">Lisez les exigences suivantes pour vous assurer que vous disposez d'une configuration prise en charge avant de commencer à sauvegarder des volumes sur un stockage compatible S3.</block>
+  <block id="b7d0815f0ec0cd041cfc786c3cfad8b3" category="list-text">Une version minimale d'ONTAP 9.17.1 est requise.</block>
+  <block id="75f4d0076c7eca9a1d297d2060c6cb45" category="list-text">Vous pouvez choisir vos propres clés gérées par le client pour le chiffrement des données dans l'assistant d'activation au lieu d'utiliser les clés de chiffrement S3 par défaut. Dans ce cas, vous devrez avoir déjà configuré les clés de chiffrement gérées.<block ref="bfab1fe336406f519c233add80b595e0" category="inline-link-rx"></block></block>
+  <block id="9e3bfb50997093a7d84dc23aa0af7c64" category="section-title">Actions prises en charge</block>
+  <block id="9a6bb04c2b277b55faab469f2d04692b" category="paragraph">Voici les actions prises en charge lors de la sauvegarde sur un stockage compatible S3 :</block>
+  <block id="1588002f4465aee8a1e35fc95dbebabd" category="list-text">Sauvegarde des instantanés cohérents en cas de panne et au niveau de l'application depuis ONTAP sur site vers des espaces de stockage d'objets tiers compatibles S3</block>
+  <block id="00de0e91b8bfb37d4831f3333b8df9fa" category="list-text">Flux de travail essentiels en matière de protection des données : sauvegarde, restauration et suppression des sauvegardes</block>
+  <block id="0a7a61be3bd51e21631c884f7d8de9ef" category="list-text">Validé auprès de fournisseurs compatibles S3, notamment Wasabi, MinIO, IBM Object Store et Apple Object Store</block>
+  <block id="21e1cea657da329388848ff59f3eea5d" category="list-text">NetApp Support accepte et traite toutes les demandes d'assistance concernant les espaces de stockage d'objets compatibles S3 tiers</block>
+  <block id="a368c9277e64abd2f91bd6fdc8cafbda" category="section-title">Fonctionnalités et configurations non prises en charge</block>
+  <block id="ad8f08e5de0a588e08fde1c710915292" category="paragraph">Les fonctionnalités et configurations suivantes ne sont pas prises en charge lors de la sauvegarde sur un stockage compatible S3 :</block>
+  <block id="14c4b12c16f639eb6666730b4697ce83" category="list-text">Bring Your Own Bucket (BYOB) n'est pas pris en charge</block>
+  <block id="8aece3bac78e537459c41a699e7accbf" category="list-text">L'activation de DataLock dans les politiques de sauvegarde n'est pas prise en charge</block>
+  <block id="ad5d6d9517bd22f4e85d3889ae15dfbc" category="list-text">L'activation du mode d'archivage dans les stratégies de sauvegarde n'est pas prise en charge</block>
+  <block id="f979e7b6fe15329deb889203ed84ef53" category="list-text">Les options de chiffrement au niveau du compartiment ne sont pas prises en charge</block>
+  <block id="f24ed73a450b9830eed5bd72f8f99e5d" category="list-text">MetroCluster configurations ne sont pas prises en charge</block>
+  <block id="9190a06f227ac08e35f52b77ca071df6" category="list-text">Les environnements ONTAP basés sur le cloud ne sont pas pris en charge ; seul ONTAP sur site est pris en charge</block>
+  <block id="b22e25eb401508f6e5d8658dc96e1743" category="section-title">Mises en garde</block>
+  <block id="fa7023792107a645d43e3fe6b861b948" category="paragraph">Lors de la sauvegarde sur un stockage compatible S3, tenez compte des points suivants :</block>
+  <block id="0d73a47a2cdaa77e5fe1479284fcc8ba" category="list-text">*Les performances ne sont pas garanties* : les produits NetApp sont sensibles à la latence et aux IOPS de l’API S3. Les solutions de stockage d’objets tierces doivent offrir une latence et des IOPS équivalentes à celles d’AWS S3 pour garantir des performances comparables. NetApp ne prend pas en charge le dépannage des performances des solutions de stockage d’objets.</block>
+  <block id="4ac196401fdad84265362b1b0e047ea0" category="list-text">*Aucune responsabilité en cas de corruption des données ou de perte de données* : NetApp n’est pas responsable de la perte de données ou de l’interruption causées par des problèmes liés aux stockages d’objets S3 tiers.</block>
+  <block id="f8e460b636103f574efa0d2b39500fdc" category="list-text">*Prise en charge limitée des fonctionnalités* : L’ensemble des fonctionnalités prises en charge pour les cibles compatibles S3 tierces est un sous-ensemble de celles disponibles pour les cibles natives (AWS S3, Azure Blob, GCP, ONTAP S3, StorageGRID).</block>
+  <block id="9c8180fab30cdf8105c99bb565100576" category="list-text">Lorsque votre système Cloud Volumes ONTAP exécute le logiciel ONTAP 9.12.1 ou une version supérieure, le rôle IAM qui fournit à ce système les autorisations doit inclure un nouvel ensemble d'autorisations compatibles S3 spécifiquement pour NetApp Backup and Recovery à partir de la dernière<block ref="7599ab7904564916c5665aaaf7f92943" category="inline-link-rx"></block>.</block>
+  <block id="13ca93dfb9b89bc63ebd2a7dcdb6b677" category="paragraph">Si la destination compatible S3 pour vos sauvegardes existe sous forme de cluster sur la page *Systèmes*, vous pouvez faire glisser le cluster sur le système compatible S3 pour lancer l'assistant d'installation.</block>
+  <block id="47d7a1c349dd710c7b70de2cc5f8bef1" category="admonition">Wasabi est actuellement le seul fournisseur de stockage objet compatible S3 qualifié. Les autres fournisseurs compatibles S3 n'ont pas été validés.</block>
+  <block id="117bdbda976fe8b3212bc3b6327a0a1b" category="list-text">Cloud Volumes ONTAP</block>
+  <block id="811a794fc3af22bb5e0566f56adc0406" category="list-text">Stockage compatible S3</block>
+  <block id="d0a6d4081b2093e4e5a535bdce1e44c0" category="cell">Cloud Volumes ONTAP dans un stockage d'objets compatible S3</block>
+  <block id="29fc78ad7b30ceab82a6fad5327f5e05" category="cell">Stockage d'objets compatible S3</block>
+  <block id="d0eb32456912dd737e495d1233503746" category="summary">Référence des actions de sauvegarde et de restauration prises en charge par l'audit de la NetApp Console.</block>
+  <block id="a29588ca393407a53992df452b4d7451" category="doc">Actions de sauvegarde et de restauration auditées</block>
+  <block id="da8be55f3871d0a372174a9f477823f0" category="inline-link">Audit de l'activité des utilisateurs depuis la page d'audit</block>
+  <block id="d122b9f2dec13890c9d50cc911e6ced4" category="paragraph">La page d'audit de la NetApp Console enregistre les actions suivantes effectuées par les utilisateurs dans NetApp Backup and Recovery dans le cadre de sa fonction d'audit. Pour plus d'informations sur la consultation et le filtrage des événements d'audit, reportez-vous à <block ref="778a97bb392d8d7bffbb44bcc5f130f5" category="inline-link-rx"></block>la documentation de la Console.</block>
+  <block id="efce8f189df834368b2d049d5a7c64af" category="paragraph">Pour chaque action auditée, la Console enregistre le nom du service, l'agent, la ressource, l'utilisateur et l'état de l'action.</block>
+  <block id="199370791c099a5f1bca782c3d1d470c" category="list-text">Restaurez le volume ou les fichiers à partir de la sauvegarde</block>
+  <block id="732e9096426149869bf78ef0e9e94714" category="list-text">Restaurer le volume à partir d'un instantané</block>
+  <block id="197e6976a273829f09fdce7c55317492" category="list-text">Lancer l'exploration de fichiers</block>
+  <block id="61e4e908c7741cbd71a41c6aae9e6e0b" category="list-text">Restaurer les fichiers à partir d'un instantané</block>
+  <block id="42ce1f85d31d3dfe79ed524689b0f9d3" category="list-text">Enregistrez des identifiants cloud</block>
+  <block id="320df6f9283ca2b818a461d2e1f6e7d4" category="list-text">Mettre à jour les identifiants cloud</block>
+  <block id="8a663d18b4fa22a73e1e8f7df3df725e" category="list-text">Supprimer les identifiants cloud</block>
+  <block id="6fdec704e98ca0f3864c8ccd6ea73703" category="list-text">Créer un compartiment de stockage d'objets</block>
+  <block id="b3d7067b3bb19bac9f09d0230727dc76" category="list-text">Modifier le compartiment de stockage d'objets</block>
+  <block id="e827a8086cf17a1365d856e1cb32423d" category="list-text">Valider la migration de sauvegarde</block>
+  <block id="bbd999bf19db9750ffac6db4ed4b9b76" category="list-text">Migrer les sauvegardes entre les systèmes ONTAP</block>
+  <block id="9855b90f9781e228ca2fc1b38dfbe068" category="list-text">Initialiser la protection de la source</block>
+  <block id="8f5300563e036a0e0dd4466fcf2d4d14" category="list-text">Groupes de pairs pour la protection</block>
+  <block id="3516904f26cb1d151f9f00fd268af5bb" category="list-text">Initialiser la protection de la cible</block>
+  <block id="70329a173c2df4fc2e113b7d732fee8a" category="list-text">Démarrez la réplication du volume</block>
+  <block id="e7604539ca2bc0f8a25657b1c4d49403" category="list-text">Créer un système Cyber Vault</block>
+  <block id="33d25341884ae4ede29885448acf07d3" category="list-text">Supprimer le système Cyber Vault</block>
+  <block id="fbbce4affcaff35c8cb69b1b21b7fcf9" category="list-text">Activer l'accès à Cyber Vault</block>
+  <block id="dff58383e88f614806e0546be77f57cf" category="list-text">Désactiver l'accès à Cyber Vault</block>
+  <block id="a8a02fb6103bbf5f6b59d547875601d4" category="list-text">Créer un instantané ad hoc</block>
+  <block id="09e08263ee4fee96bf89af82dadb038e" category="list-text">Découvrez les volumes et les relations</block>
+  <block id="a6d76416e9366d5acf874ba181b85e8d" category="list-text">Mettre à jour la configuration de l'application</block>
+  <block id="643d173783cc450c90cddb496ad47f46" category="list-text">Activer la protection panoramique pour les volumes</block>
+  <block id="95a9f5676628d7064eb4ced4825b0462" category="list-text">Modifier la protection panoramique pour les volumes</block>
+  <block id="578537c537d4e1e20a8451ca31f907db" category="list-text">Modifier le stockage d'objets pour le système</block>
+  <block id="d4c6bb4fa3bc21a894bd3ecb1727be38" category="list-text">Créer une sauvegarde cloud ad hoc</block>
+  <block id="67ddca6cd047644d2e1c3f3346bf654b" category="list-text">Initialiser la protection du système</block>
+  <block id="2f7e188563796edaa051f5c504c41194" category="list-text">Actualiser les métadonnées de sauvegarde du volume (planifié)</block>
+  <block id="1bba399ba8ca257955b82abe9b77a1c8" category="list-text">Activer la sauvegarde dans un volume</block>
+  <block id="6b379ae81008ca1fdc4a1bee622b4b94" category="list-text">Supprimer la stratégie d'instantané ANF</block>
+  <block id="ceb742da8b5f49c43e25068bf4ebfec4" category="list-text">Activer la protection panoramique dans un système</block>
+  <block id="796522f5baf9f759608770ab7ad25640" category="list-text">Modifier la protection panoramique dans un système</block>
+  <block id="ab066b3292d8ab61ef3b5c77169cdd19" category="section-title">Plus d'informations</block>
+  <block id="0714572f5e60fbb935fc53015369f585" category="list-text"><block ref="0714572f5e60fbb935fc53015369f585" category="inline-link-rx"></block></block>
+  <block id="3e323562bd488e4cbd90a025b9424181" category="section-title">08 juin 2026</block>
+  <block id="83600b516c30dfc55e0311442c5d9002" category="sidebar">Sauvegardez Cloud Volumes ONTAP sur un stockage compatible S3</block>
 </blocks>

@@ -18,6 +18,33 @@ Découvrez les nouveautés de NetApp Backup and Recovery.
 
 
 
+== 08 juin 2026
+
+Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
+
+
+
+=== Améliorations des charges de travail des volumes ONTAP
+
+Dans cette version, les charges de travail ONTAP Volumes introduisent l'amélioration suivante :
+
+*Prise en charge du stockage cloud compatible S3* : NetApp Backup and Recovery pour les charges de travail Volumes prend désormais en charge la sauvegarde vers un stockage cloud compatible S3.
+
+Pour plus de détails sur la protection des charges de travail ONTAP Volumes, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-protect-overview.html["Présentation de la protection des charges de travail ONTAP Volumes"].
+
+
+
+=== Améliorations des charges de travail Hyper-V
+
+Dans cette version, les charges de travail Hyper-V introduisent les améliorations suivantes :
+
+* *Améliorations concernant la restauration de fichiers et de dossiers sur une machine virtuelle invitée* : Vous pouvez désormais restaurer des fichiers et des dossiers à partir d’un instantané sur un stockage principal ou secondaire vers une machine virtuelle Windows invitée. Cette fonctionnalité est désormais prise en charge pour les VM CIFS et SAN.
+
+
+Pour plus de détails sur la protection des charges de travail Hyper-V, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-hyperv-protect-overview.html["Présentation de la protection des charges de travail Hyper-V"] .
+
+
+
 == 11 mai 2026
 
 Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.

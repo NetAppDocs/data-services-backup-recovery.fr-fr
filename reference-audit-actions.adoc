@@ -1,0 +1,64 @@
+---
+sidebar: sidebar 
+permalink: reference-audit-actions.html 
+keywords: audit, audit actions, NetApp Console, Backup and Recovery, audit log 
+summary: 'Référence des actions de sauvegarde et de restauration prises en charge par l"audit de la NetApp Console.' 
+---
+= Actions de sauvegarde et de restauration auditées
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+La page d'audit de la NetApp Console enregistre les actions suivantes effectuées par les utilisateurs dans NetApp Backup and Recovery dans le cadre de sa fonction d'audit. Pour plus d'informations sur la consultation et le filtrage des événements d'audit, reportez-vous à  https://docs.netapp.com/us-en/console-setup-admin/task-monitor-cm-operations.html#audit-user-activity-from-the-audit-page["Audit de l'activité des utilisateurs depuis la page d'audit"^]la documentation de la Console.
+
+Pour chaque action auditée, la Console enregistre le nom du service, l'agent, la ressource, l'utilisateur et l'état de l'action.
+
+.Actions de sauvegarde et de restauration auditées
+* Restaurez le volume ou les fichiers à partir de la sauvegarde
+* Restaurer le volume à partir d'un instantané
+* Lancer l'exploration de fichiers
+* Restaurer les fichiers à partir d'un instantané
+* Enregistrez des identifiants cloud
+* Mettre à jour les identifiants cloud
+* Supprimer les identifiants cloud
+* Créer un compartiment de stockage d'objets
+* Modifier le compartiment de stockage d'objets
+* Valider la migration de sauvegarde
+* Migrer les sauvegardes entre les systèmes ONTAP
+* Initialiser la protection de la source
+* Groupes de pairs pour la protection
+* Initialiser la protection de la cible
+* Démarrez la réplication du volume
+* Créer un système Cyber Vault
+* Supprimer le système Cyber Vault
+* Activer l'accès à Cyber Vault
+* Désactiver l'accès à Cyber Vault
+* Créer un instantané ad hoc
+* Découvrez les volumes et les relations
+* Mettre à jour la configuration de l'application
+* Activer la protection panoramique pour les volumes
+* Modifier la protection panoramique pour les volumes
+* Modifier le stockage d'objets pour le système
+* Créer une sauvegarde cloud ad hoc
+* Initialiser la protection du système
+* Activer la protection panoramique pour les volumes
+* Modifier la protection panoramique pour les volumes
+* Actualiser les métadonnées de sauvegarde du volume (planifié)
+* Activer la sauvegarde dans un volume
+* Modifier la protection panoramique pour les volumes
+* Supprimer la stratégie d'instantané ANF
+* Activer la protection panoramique dans un système
+* Modifier la protection panoramique dans un système
+
+
+
+
+== Plus d'informations
+
+* https://docs.netapp.com/us-en/console-setup-admin/task-monitor-cm-operations.html#audit-user-activity-from-the-audit-page["Audit de l'activité des utilisateurs depuis la page d'audit"^]
+

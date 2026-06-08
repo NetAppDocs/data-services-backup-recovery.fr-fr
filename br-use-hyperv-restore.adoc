@@ -24,9 +24,6 @@ Vous pouvez restaurer des charges de travail à partir de différents emplacemen
 * Restaurer à partir d'une sauvegarde de stockage objet (uniquement vers l'emplacement d'origine)
 
 
-
-NOTE: La restauration à partir d'une sauvegarde d'objet store n'est pas prise en charge pour les machines virtuelles résidant sur un stockage SAN.
-
 .Restaurer ces points
 Vous pouvez restaurer les données à ces points :
 

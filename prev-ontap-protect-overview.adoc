@@ -105,27 +105,64 @@ https://bluexp.netapp.com/cloud-volumes-global-regions["En savoir plus en utilis
 
 NetApp Backup and Recovery vous permet de sauvegarder des volumes ONTAP à partir des systèmes sources suivants vers les systèmes secondaires et le stockage objet suivants, chez les fournisseurs de cloud public et privé. Les snapshots résident sur le système source.
 
+
+NOTE: Wasabi est actuellement le seul fournisseur de stockage objet compatible S3 qualifié. Les autres fournisseurs compatibles S3 n'ont pas été validés.
+
 [cols="33,33,33"]
 |===
 | Système source | Système secondaire (réplication) | Magasin d'objets de destination (sauvegarde) 
 
 
-| Cloud Volumes ONTAP dans AWS | Cloud Volumes ONTAP dans le système ONTAP sur site AWS | Amazon S3 
+| Cloud Volumes ONTAP dans AWS  a| 
+* Cloud Volumes ONTAP dans AWS
+* Système ONTAP sur site
+
+| Amazon S3 
 
 
-| Cloud Volumes ONTAP dans Azure | Cloud Volumes ONTAP dans le système ONTAP sur site Azure | Azure Blob 
+| Cloud Volumes ONTAP dans Azure  a| 
+* Cloud Volumes ONTAP dans Azure
+* Système ONTAP sur site
+
+| Azure Blob 
 
 
-| Cloud Volumes ONTAP dans Google | Cloud Volumes ONTAP dans le système ONTAP sur site de Google | Stockage Google Cloud 
+| Cloud Volumes ONTAP dans Google  a| 
+* Cloud Volumes ONTAP dans Google
+* Système ONTAP sur site
+
+| Stockage Google Cloud 
 
 
-| Système ONTAP sur site | Cloud Volumes ONTAP Système ONTAP sur site | Amazon S3, Azure Blob, Google Cloud Storage, NetApp StorageGRID , ONTAP S3 
+| Système ONTAP sur site  a| 
+* Cloud Volumes ONTAP
+* Système ONTAP sur site
+
+ a| 
+* Amazon S3
+* Stockage compatible S3
+* Azure Blob
+* Stockage Google Cloud
+* NetApp StorageGRID
+* ONTAP S3
+
+
+
+
+| Cloud Volumes ONTAP dans un stockage d'objets compatible S3  a| 
+* Cloud Volumes ONTAP dans un stockage d'objets compatible S3
+* Système ONTAP sur site
+
+| Stockage d'objets compatible S3 
 |===
 
 
 === Destinations de restauration prises en charge
 
 Vous pouvez restaurer les données ONTAP à partir d'un fichier de sauvegarde situé sur un système secondaire (volume répliqué) ou dans un stockage objet (fichier de sauvegarde) vers les systèmes suivants. Les instantanés résident sur le système source et ne peuvent être restaurés que sur ce même système.
+
+
+NOTE: Wasabi est actuellement le seul fournisseur de stockage objet compatible S3 qualifié. Les autres fournisseurs compatibles S3 n'ont pas été validés.
 
 [cols="33,33,33"]
 |===
@@ -135,19 +172,62 @@ Vous pouvez restaurer les données ONTAP à partir d'un fichier de sauvegarde si
 | *Magasin d'objets (sauvegarde)* | *Système secondaire (réplication)* |  
 
 
-| Amazon S3 | Cloud Volumes ONTAP dans le système ONTAP sur site AWS | Cloud Volumes ONTAP dans le système ONTAP sur site AWS 
+| Amazon S3  a| 
+* Cloud Volumes ONTAP dans AWS
+* Système ONTAP sur site
+
+ a| 
+* Cloud Volumes ONTAP dans AWS
+* Système ONTAP sur site
 
 
-| Azure Blob | Cloud Volumes ONTAP dans le système ONTAP sur site Azure | Cloud Volumes ONTAP dans le système ONTAP sur site Azure 
 
 
-| Stockage Google Cloud | Cloud Volumes ONTAP dans le système ONTAP sur site de Google | Cloud Volumes ONTAP dans le système ONTAP sur site de Google 
+| Azure Blob  a| 
+* Cloud Volumes ONTAP dans Azure
+* Système ONTAP sur site
+
+ a| 
+* Cloud Volumes ONTAP dans Azure
+* Système ONTAP sur site
 
 
-| NetApp StorageGRID | Système ONTAP sur site Cloud Volumes ONTAP | Système ONTAP sur site 
 
 
-| ONTAP S3 | Système ONTAP sur site Cloud Volumes ONTAP | Système ONTAP sur site 
+| Stockage Google Cloud  a| 
+* Cloud Volumes ONTAP dans Google
+* Système ONTAP sur site
+
+ a| 
+* Cloud Volumes ONTAP dans Google
+* Système ONTAP sur site
+
+
+
+
+| NetApp StorageGRID  a| 
+* Système ONTAP sur site
+* Cloud Volumes ONTAP
+
+| Système ONTAP sur site 
+
+
+| ONTAP S3  a| 
+* Système ONTAP sur site
+* Cloud Volumes ONTAP
+
+| Système ONTAP sur site 
+
+
+| Stockage d'objets compatible S3  a| 
+* Cloud Volumes ONTAP dans un stockage d'objets compatible S3
+* Système ONTAP sur site
+
+ a| 
+* Cloud Volumes ONTAP dans un stockage d'objets compatible S3
+* Système ONTAP sur site
+
+
 |===
 Notez que les références aux « systèmes ONTAP sur site » incluent les systèmes FAS, AFF et ONTAP Select .
 

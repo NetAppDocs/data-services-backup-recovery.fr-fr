@@ -14,7 +14,7 @@ summary: 'Vous pouvez restaurer un ou plusieurs fichiers ou dossiers à partir d
 
 
 [role="lead"]
-Restaurez les fichiers et dossiers des sauvegardes de machines virtuelles Hyper-V sur le stockage principal vers une machine virtuelle invitée Windows.
+Restaurez les fichiers et dossiers à partir des sauvegardes de machines virtuelles Hyper-V sur un stockage principal ou secondaire vers une machine virtuelle invitée Windows.
 
 
 
@@ -35,8 +35,7 @@ Veuillez noter les points suivants lors de la restauration de fichiers et de dos
 [NOTE]
 ====
 * Il n'est pas possible de restaurer des fichiers et des dossiers sur les machines virtuelles invitées Linux pour le moment.
-* La restauration des fichiers et des dossiers à partir de sauvegardes stockées sur un stockage secondaire ou un stockage objet n'est pas prise en charge.
-* Vous ne pouvez pas restaurer de fichiers ou de dossiers sur des machines virtuelles résidant sur un stockage SAN.
+* La restauration de fichiers et de dossiers à partir de sauvegardes stockées sur un stockage objet n'est pas prise en charge.
 * Une seule opération d'attachement ou de restauration peut être exécutée en même temps sur une machine virtuelle. Vous ne pouvez pas exécuter d’opérations d’attachement ou de restauration parallèles sur la même machine virtuelle.
 * L'affichage ou la navigation dans les partitions réservées peut entraîner une erreur.
 * Lors de l'opération de restauration, les attributs caché, système et chiffré des fichiers invités ne sont pas conservés dans le fichier restauré.
@@ -53,7 +52,7 @@ Veuillez noter les points suivants lors de la restauration de fichiers et de dos
 . Sur la page *Restaurer à partir d'instantanés*, procédez comme suit :
 +
 .. Vous pouvez également sélectionner une période pour filtrer la liste des snapshots par date de création.
-.. Sélectionnez un instantané sur le stockage principal à partir duquel effectuer la restauration, puis sélectionnez *Suivant*.
+.. Sélectionnez un instantané sur le stockage principal ou secondaire à partir duquel effectuer la restauration, puis sélectionnez *Suivant*.
 
 
 . Dans la liste, choisissez un disque virtuel contenant les fichiers et dossiers que vous devez restaurer, puis sélectionnez *Suivant*.
