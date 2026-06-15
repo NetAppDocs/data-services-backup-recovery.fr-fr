@@ -54,6 +54,7 @@ Créez un groupe de protection pour organiser les ressources que vous souhaitez 
 .Avant de commencer
 * Assurez-vous que votre environnement utilise des versions prises en charge de VMware vSphere.
 * Lors de la création d'un groupe de protection basé sur des balises, assurez-vous que les machines virtuelles et les banques de données que vous souhaitez protéger sont déjà associées à une ou plusieurs vSphere balises dans vCenter.
+* Notez que pour les charges de travail VMware, la durée de sauvegarde planifiée est interprétée selon le fuseau horaire de l'hôte de gestion. Consultez link:br-use-policies-vmware-create.html["Créez et gérez des stratégies de sauvegarde VMware dans NetApp Backup and Recovery"] pour plus d'informations.
 
 
 .Étapes
@@ -125,6 +126,40 @@ L'état de protection passe de « En maintenance » lorsque vous suspendez un gr
 
 .Résultat
 Le système valide les plannings et change le statut de protection en « Protégé » si les plannings sont valides. Si les planifications ne sont pas valides, le système affiche un message d'erreur et ne reprend pas le groupe de protection.
+
+
+
+== Modifier un groupe de protection
+
+Modifiez un groupe de protection pour en changer le nom ou les paramètres. Vous pourriez souhaiter modifier un groupe de protection si les ressources qui le composent ont changé.
+
+.Étapes
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
+. Sélectionnez une charge de travail pour afficher les détails de protection.
+. Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
+. Sélectionnez l'onglet *Groupes de protection*.
+. Sélectionnez le groupe de protection que vous souhaitez modifier.
+. Sélectionnez l'icône Actions image:../media/icon-action.png["Option Actions"] > *Modifier*.
++
+L'assistant de modification du groupe de protection vous guide à travers les paramètres du groupe de protection.
+
+. Apportez les modifications nécessaires sur chaque écran de l'assistant.
+. Une fois terminé, sélectionnez *Soumettre*.
+
+
+
+
+=== Appliquer un fuseau horaire vCenter mis à jour à un groupe de protection existant
+
+Les sauvegardes planifiées utilisent le fuseau horaire du serveur vCenter qui est enregistré lors de la création de la planification du groupe de protection. Si vous modifiez le fuseau horaire du serveur vCenter, les groupes de protection existants continueront de fonctionner dans leur fuseau horaire d'origine (généralement UTC) jusqu'à ce que vous mettiez à jour leurs planifications.
+
+
+NOTE: Les planifications ne sont recréées que lorsque vous modifiez le nom du groupe de protection, ajoutez ou supprimez une machine virtuelle, changez la stratégie attribuée ou mettez à jour les scripts de pré/post-exécution. L'enregistrement sans modification ne met pas à jour les planifications. Cette mise à jour de planification est une action ponctuelle par groupe de protection et ne déclenche pas de sauvegarde immédiate.
+
+.Étapes
+. Actualisez le serveur vCenter afin que son fuseau horaire actuel soit récupéré.
+. Modifiez le groupe de protection et changez son nom par une autre valeur, puis enregistrez.
+
 
 
 

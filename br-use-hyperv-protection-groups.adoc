@@ -32,6 +32,10 @@ Regroupez les charges de travail que vous souhaitez protéger dans un groupe de 
 
 *Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
+.Avant de commencer
+* Notez que pour les charges de travail Hyper-V, la durée de sauvegarde planifiée est interprétée selon le fuseau horaire de l'hôte de gestion. Reportez-vous à link:br-use-policies-hyper-v-create.html["Créez et gérez des stratégies de sauvegarde Hyper-V dans NetApp Backup and Recovery"] pour plus d'informations.
+
+
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez une charge de travail pour afficher les détails de protection.
@@ -60,10 +64,25 @@ Modifiez un groupe de protection pour en changer le nom ou les paramètres. Vous
 . Sélectionnez l'onglet *Groupes de protection*.
 . Sélectionnez le groupe de protection que vous souhaitez modifier.
 . Sélectionnez l'icône Actions image:../media/icon-action.png["Option Actions"] > *Modifier*.
-. Modifiez les paramètres du groupe de protection, tels que son nom ou les machines virtuelles qui le composent.
-. Sélectionnez *Suivant*.
-. Modifiez la politique de protection si nécessaire. Une fois terminé, sélectionnez *Suivant*.
-. Vérifiez la configuration et sélectionnez *Soumettre*.
++
+L'assistant de modification du groupe de protection vous guide à travers les paramètres du groupe de protection.
+
+. Apportez les modifications nécessaires sur chaque écran de l'assistant.
+. Une fois terminé, sélectionnez *Soumettre*.
+
+
+
+
+=== Appliquez un fuseau horaire hôte mis à jour à un groupe de protection existant
+
+Les sauvegardes planifiées utilisent le fuseau horaire de l'hôte Hyper-V enregistré lors de la création de la planification du groupe de protection. Si vous modifiez le fuseau horaire de l'hôte, les groupes de protection existants continuent de fonctionner dans leur fuseau horaire d'origine (généralement UTC) jusqu'à ce que vous mettiez à jour leurs plannings.
+
+
+NOTE: Les planifications ne sont recréées que lorsque vous modifiez le nom du groupe de protection, ajoutez ou supprimez une machine virtuelle, changez la stratégie attribuée ou mettez à jour les scripts de pré/post-exécution. L'enregistrement sans modification ne met pas à jour les planifications. Cette mise à jour de planification est une action ponctuelle par groupe de protection et ne déclenche pas de sauvegarde immédiate.
+
+.Étapes
+. Actualisez l'hôte Hyper-V afin que son fuseau horaire actuel soit récupéré.
+. Modifiez le groupe de protection et changez son nom par une autre valeur, puis enregistrez.
 
 
 

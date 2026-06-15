@@ -59,9 +59,21 @@ Pour plus de détails sur la protection des charges de travail ONTAP Volumes, re
 Dans cette version, les charges de travail Hyper-V introduisent les améliorations suivantes :
 
 * *Améliorations concernant la restauration de fichiers et de dossiers sur une machine virtuelle invitée* : Vous pouvez désormais restaurer des fichiers et des dossiers à partir d’un instantané sur un stockage principal ou secondaire vers une machine virtuelle Windows invitée. Cette fonctionnalité est désormais prise en charge pour les VM CIFS et SAN.
+* *Les groupes de protection utilisent désormais la planification du fuseau horaire de l'hôte* : Les groupes de protection utilisent désormais le fuseau horaire de l'hôte Hyper-V. Les groupes de protection créés avant l'introduction de la planification basée sur le fuseau horaire de l'hôte continuent d'utiliser leur heure précédemment configurée (généralement UTC). Pour mettre à jour ces groupes de protection afin qu'ils utilisent le fuseau horaire de l'hôte Hyper-V, vous devez recréer les planifications. Consultez  https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-hyperv-protection-groups.html["Créer et gérer des groupes de protection pour les charges de travail Hyper-V"] pour plus d'informations.
 
 
 Pour plus de détails sur la protection des charges de travail Hyper-V, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-hyperv-protect-overview.html["Présentation de la protection des charges de travail Hyper-V"] .
+
+
+
+=== Améliorations des charges de travail VMware
+
+Dans cette version, les charges de travail VMware introduisent l'amélioration suivante :
+
+* *Les groupes de protection utilisent désormais la planification selon le fuseau horaire de l’hôte* : les groupes de protection utilisent désormais le fuseau horaire du serveur VMware vCenter hôte. Les groupes de protection créés avant l’introduction de la planification selon le fuseau horaire de l’hôte continuent de fonctionner selon leur fuseau horaire précédemment configuré (généralement UTC). Pour utiliser le fuseau horaire de vCenter, vous devez recréer les planifications. Consultez  https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-vmware-protection-groups.html["Créer et gérer des groupes de protection pour les charges de travail VMware"] pour plus d’informations.
+
+
+Pour plus de détails sur la protection des charges de travail VMware, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-vmware-protect-overview.html["Présentation de la protection des charges de travail VMware"] .
 
 
 

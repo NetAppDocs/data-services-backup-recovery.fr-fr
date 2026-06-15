@@ -27,6 +27,9 @@ Vous pouvez atteindre les objectifs suivants liés aux politiques :
 
 
 
+NOTE: Pour les charges de travail Hyper-V, les planifications de sauvegarde utilisent le fuseau horaire de l'hôte Hyper-V, et non l'UTC ou l'heure locale de votre navigateur. Ce fuseau horaire est défini lors de la création de la planification. Si le fuseau horaire de l'hôte change, vous devez actualiser l'hôte et recréer la planification pour que le nouveau fuseau horaire prenne effet. Consultez link:br-use-hyperv-protection-groups.html["Créer et gérer des groupes de protection pour les charges de travail Hyper-V"] pour plus d'informations.
+
+
 
 == Voir les politiques
 
