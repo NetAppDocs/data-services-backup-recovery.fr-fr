@@ -45,7 +45,7 @@ Voici les actions prises en charge lors de la sauvegarde sur un stockage compati
 
 * Sauvegarde des instantanés cohérents en cas de panne et au niveau de l'application depuis ONTAP sur site vers des espaces de stockage d'objets tiers compatibles S3
 * Flux de travail essentiels en matière de protection des données : sauvegarde, restauration et suppression des sauvegardes
-* Testé et validé avec le stockage d'objets Wasabi ; des clients ont également signalé des déploiements réussis avec MinIO, IBM Cloud Object Storage et Apple Object Store
+* Testé et validé avec le stockage objet Wasabi ; des clients ont également signalé des déploiements réussis avec MinIO et IBM Cloud Object Storage
 * NetApp Support accepte et traite toutes les demandes d'assistance concernant les espaces de stockage d'objets compatibles S3 tiers
 
 
