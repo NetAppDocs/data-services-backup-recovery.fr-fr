@@ -60,7 +60,13 @@ L'assistant de restauration des données démarre et la page des _Paramètres g�
 . Choisissez l'emplacement source à partir duquel effectuer la restauration.
 . Choisissez le cluster de destination dans la liste *Cluster*.
 . Choisissez de restaurer vers les espaces de noms d'origine ou vers de nouveaux espaces de noms.
-. Si vous avez choisi de restaurer dans de nouveaux espaces de noms, saisissez le ou les espaces de noms de destination à utiliser.
+. Si vous avez choisi de restaurer dans de nouveaux espaces de noms, procédez comme suit :
++
+.. Saisissez le ou les espaces de noms de destination à utiliser.
+.. Saisissez le nom de l'application de destination.
+.. Vous pouvez également sélectionner l’option *Ne pas créer d’application pour les ressources restaurées* afin de restaurer les ressources sans créer d’objet de ressource personnalisé pour l’application. Cela réduit les entrées inutiles dans l’inventaire des applications.
+
+
 . Sélectionnez *Suivant*.
 +
 La page _Sélection des ressources_ s'affiche.
@@ -122,8 +128,17 @@ NOTE: Les ressources affichées sont les ressources qui existent actuellement su
 .Ressources d'application spécifiques basées sur VM
 --
 .. Sélectionnez *Ressources sélectives*.
+.. Effectuez l’une des opérations suivantes :
++
+*** Pour restaurer des machines virtuelles entières, sélectionnez l’onglet *Machines virtuelles*.
 +
 La fonction Sauvegarde et restauration répertorie toutes les machines virtuelles présentes dans le point de récupération. Vous pouvez sélectionner les machines virtuelles à inclure dans l'opération de restauration.
+
+*** Pour restaurer des revendications de volume persistant individuelles, sélectionnez l’onglet *Persistent volume claims*.
++
+La fonction Sauvegarde et restauration répertorie toutes les demandes de volume persistant dans le point de récupération. Vous pouvez sélectionner les demandes de volume persistant à inclure dans l'opération de restauration.
+
+
 
 .. Une fois terminé, sélectionnez *Suivant*.
 
