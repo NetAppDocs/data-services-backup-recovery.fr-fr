@@ -101,6 +101,9 @@ NOTE: Si vous ajoutez un filtre d'espace de noms à un hook d'exécution qui s'e
 Visitez le https://github.com/NetApp/Verda["Projet GitHub NetApp Verda"] pour télécharger de véritables hooks d'exécution pour des applications populaires telles qu'Apache Cassandra et Elasticsearch.  Vous pouvez également voir des exemples et obtenir des idées pour structurer vos propres hooks d'exécution personnalisés.
 
 
+NOTE: Les scripts du dépôt Verda GitHub sont fournis tels quels et ne sont pas officiellement pris en charge par NetApp. Seul le framework d'exécution des hooks dans Trident Protect et Backup and Recovery est officiellement pris en charge par NetApp.
+
+
 
 == Créer un modèle de hook d'exécution
 
