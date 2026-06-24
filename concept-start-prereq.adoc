@@ -78,8 +78,9 @@ Pour utiliser le stockage d'objets comme cibles de sauvegarde, vous avez besoin 
 Pour utiliser NetApp Backup and Recovery pour les charges de travail de volume ONTAP, vous devez respecter les prérequis suivants en matière de système hôte, d'espace et de dimensionnement.
 
 * ONTAP 9.8 ou une version ultérieure est requise.
+* ONTAP 9.12.1 ou une version ultérieure est requise pour la protection des volumes FlexGroup. Consultez link:br-reference-limitations.html["Limitations connues avec NetApp Backup and Recovery pour les volumes ONTAP"] pour plus d'informations.
+* ONTAP 9.17.1 ou une version ultérieure est requise pour la sauvegarde ou la restauration sur un stockage d'objets compatible S3.
 * Une licence ONTAP One doit être activée sur l'instance ONTAP locale.
-* La sauvegarde ou la restauration sur un stockage d'objets compatible S3 nécessite ONTAP 9.17.1 ou une version ultérieure.
 
 
 Pour plus d'informations sur les fonctionnalités prises en charge, les types de volumes, les destinations de sauvegarde et de restauration, et plus encore, consultez link:prev-ontap-protect-overview.html["Protégez vos données de volume ONTAP"].

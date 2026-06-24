@@ -1990,7 +1990,6 @@
   <block id="bade104de773419f0c559bd71478cc40" category="inline-link-macro">activer la sauvegarde pour des volumes supplémentaires dans le système</block>
   <block id="7b58ae9806fd4e9bf78fdc8568395ab6" category="paragraph">Vous pouvez choisir de protéger les volumes FlexVol ou FlexGroup ; cependant, vous ne pouvez pas sélectionner une combinaison de ces volumes lors de l'activation de la sauvegarde pour un système.  Découvrez comment<block ref="7239f8ae1ce8c5a40d4003de7480554a" category="inline-link-macro-rx"></block> (FlexVol ou FlexGroup) après avoir configuré la sauvegarde pour les volumes initiaux.</block>
   <block id="e9dfd7a5bc1d9c55d3cafeb50c863440" category="list-text">Vous ne pouvez activer une sauvegarde que sur un seul volume FlexGroup à la fois.</block>
-  <block id="8678ec2b63284b1fce3f9da35c37df05" category="list-text">Les volumes que vous sélectionnez doivent avoir le même paramètre SnapLock .  SnapLock Enterprise doit être activé sur tous les volumes ou SnapLock doit être désactivé.</block>
   <block id="8a6e28d635ac6cca84e8efc5d0dd4b54" category="paragraph">Si les volumes que vous choisissez ont déjà des stratégies de snapshot ou de réplication appliquées, les stratégies que vous sélectionnez ultérieurement remplaceront ces stratégies existantes.</block>
   <block id="60956fee8c3d9f3ef0f2f7652f27143f" category="list-text">Dans la page Sélectionner les volumes, sélectionnez le ou les volumes que vous souhaitez protéger.</block>
   <block id="faf9e3428a892363316a8c1e34a4551b" category="list-text">Vous pouvez également filtrer les lignes pour afficher uniquement les volumes avec certains types de volumes, styles et plus encore pour faciliter la sélection.</block>
@@ -5518,7 +5517,6 @@
   <block id="0b0bee32bf0c7158fbba14e4b17f1e23" category="paragraph">Pour utiliser NetApp Backup and Recovery pour les charges de travail de volume ONTAP, vous devez respecter les prérequis suivants en matière de système hôte, d'espace et de dimensionnement.</block>
   <block id="f17da14a026a5974537cf1303ac53974" category="list-text">ONTAP 9.8 ou une version ultérieure est requise.</block>
   <block id="45b096193f4470968c1063df19d1c253" category="list-text">Une licence ONTAP One doit être activée sur l'instance ONTAP locale.</block>
-  <block id="9cf387a6f708f4467810768eb8e4d31f" category="list-text">La sauvegarde ou la restauration sur un stockage d'objets compatible S3 nécessite ONTAP 9.17.1 ou une version ultérieure.</block>
   <block id="ddaa1c8bd07bda0816a8b44d87c10997" category="paragraph">Pour plus d'informations sur les fonctionnalités prises en charge, les types de volumes, les destinations de sauvegarde et de restauration, et plus encore, consultez <block ref="1d638e05920fe33426fac4dc6285a639" category="inline-link-macro-rx"></block>.</block>
   <block id="ba0f269b2bdb85161db3fe51338e6a7b" category="cell">Hôte de base de données</block>
   <block id="bff50f1947dbec1e11bc66d60ca0b1d9" category="cell">Stockage pris en charge</block>
@@ -5642,4 +5640,7 @@
   <block id="9a6733678bfc1a6a630c61271f174949" category="paragraph">Protégez vos machines virtuelles VMware et vos datastores avec NetApp Backup and Recovery. NetApp Backup and Recovery offre des opérations de sauvegarde et de restauration rapides, économes en espace, cohérentes en cas de panne et cohérentes au niveau des machines virtuelles. Vous pouvez sauvegarder les charges de travail VMware vers des cibles de sauvegarde prises en charge et restaurer les charges de travail VMware vers un hôte VMware sur site.</block>
   <block id="a7ffc4809e4a33a20f30769fc3e62703" category="list-text">Stockage compatible S3 (charges de travail ONTAP Volumes uniquement)</block>
   <block id="7229e78ecf33d07a5618d54695f22e2b" category="list-text">Stockage Blob Microsoft Azure</block>
+  <block id="df9ce829d97bcaaccefd13ad9443c5fe" category="list-text">ONTAP 9.12.1 ou une version ultérieure est requise pour la protection des volumes FlexGroup. Consultez <block ref="a1845bf1ef98236015caabc5bbd8f351" category="inline-link-macro-rx"></block> pour plus d'informations.</block>
+  <block id="bc75b0ab08d9eba6d835f75a9dc3780f" category="list-text">ONTAP 9.17.1 ou une version ultérieure est requise pour la sauvegarde ou la restauration sur un stockage d'objets compatible S3.</block>
+  <block id="6e61da6259c2e5766003325feb7a477a" category="list-text">Lors de la sélection des volumes sources que vous souhaitez protéger, vous ne pouvez sélectionner que les volumes ayant des paramètres SnapLock identiques. Les volumes que vous sélectionnez doivent soit tous avoir la fonctionnalité SnapLock activée, soit tous avoir la fonctionnalité SnapLock désactivée.</block>
 </blocks>

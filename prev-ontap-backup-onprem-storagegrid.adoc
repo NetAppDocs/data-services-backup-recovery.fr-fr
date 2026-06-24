@@ -323,7 +323,7 @@ Vous pouvez choisir de protéger les volumes FlexVol ou FlexGroup ; cependant, 
 [NOTE]
 ====
 * Vous ne pouvez activer une sauvegarde que sur un seul volume FlexGroup à la fois.
-* Les volumes que vous sélectionnez doivent avoir le même paramètre SnapLock .  SnapLock Enterprise doit être activé sur tous les volumes ou SnapLock doit être désactivé.
+* Lors de la sélection des volumes sources que vous souhaitez protéger, vous ne pouvez sélectionner que les volumes ayant des paramètres SnapLock identiques. Les volumes que vous sélectionnez doivent soit tous avoir la fonctionnalité SnapLock activée, soit tous avoir la fonctionnalité SnapLock désactivée.
 
 
 ====
