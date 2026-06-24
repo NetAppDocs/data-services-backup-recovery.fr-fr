@@ -384,8 +384,6 @@
   <block id="b76fe15e5efb181107a884a8a169710c" category="section-title">Horaires non à intervalles de 15 minutes</block>
   <block id="150bc9b32553d2cdbf1033715f83d268" category="paragraph">Si vous disposez d'une planification de stratégie SnapCenter qui démarre à une certaine heure et se répète à des intervalles autres que ceux de 15 minutes, NetApp Backup and Recovery n'importera pas la planification.</block>
   <block id="da5c7a32fb1f34042f2d0d433f50328c" category="paragraph">*Solution de contournement* : utilisez SnapCenter pour ajuster la stratégie afin qu’elle se répète à des intervalles de 15 minutes.</block>
-  <block id="2d9cb3f69beb79a3c5b8d0153c88c2db" category="section-title">Prise en charge limitée des logiciels de gestion de la virtualisation</block>
-  <block id="cb6fc7dd7b45612ba1f18392811f988b" category="paragraph">Lorsque vous protégez les charges de travail KVM, NetApp Backup and Recovery ne prend pas en charge la découverte des charges de travail KVM lorsque le logiciel de gestion de virtualisation tel qu'Apache CloudStack ou Red Hat OpenShift Virtualization est utilisé.</block>
   <block id="5d8aef9555e5438ddeff623786db2956" category="summary">Les limitations connues identifient les fonctions qui ne sont pas prises en charge par cette version du produit ou qui n'interagissent pas correctement avec elle. Examinez attentivement ces limitations.</block>
   <block id="23eb49de2f5ba6e24c6af10a73585797" category="doc">Limitations connues avec NetApp Backup and Recovery pour les volumes ONTAP</block>
   <block id="32c27a5a3b9d3ca4a4a83c91adb6b781" category="list-text">NetApp Backup and Recovery peut sauvegarder Cloud Volumes ONTAP dans un magasin d'objets dans les régions AWS Chine (y compris Pékin et Ningxia) ; cependant, vous devrez peut-être d'abord modifier manuellement les stratégies d'identité et d'accès.</block>
@@ -1648,7 +1646,6 @@
   <block id="4513150785c046bfbcd37a0b9dcb7a35" category="list-text">Cochez la case « Voulez-vous continuer la migration ? » et sélectionnez *Migrer*.</block>
   <block id="13be03aaa1d065e4e2a3d1cb64d9f254" category="paragraph">La page Inventaire affiche les ressources vCenter nouvellement gérées.</block>
   <block id="9f292a76282f4f6731d03460bcd3b924" category="doc">Présentation de la protection des charges de travail VMware avec NetApp Backup and Recovery</block>
-  <block id="c59e55a8f797ea977bb075c0da4e3733" category="paragraph">Protégez vos machines virtuelles et banques de données VMware avec NetApp Backup and Recovery.  NetApp Backup and Recovery fournit des opérations de sauvegarde et de restauration rapides, peu encombrantes, cohérentes en cas de panne et cohérentes avec les machines virtuelles. Vous pouvez sauvegarder les charges de travail VMware sur Amazon Web Services S3 ou StorageGRID et restaurer les charges de travail VMware sur un hôte VMware local.</block>
   <block id="13a7ab00fe9ae146021f5c5ab40ca443" category="paragraph">Utilisez NetApp Backup and Recovery pour mettre en œuvre une stratégie 3-2-1, où vous disposez de 3 copies de vos données sources sur 2 systèmes de stockage différents ainsi que d'une copie dans le cloud. Les avantages de l’approche 3-2-1 incluent :</block>
   <block id="eb2d112b017e683992cc9b9b338c90a1" category="paragraph">Vous pouvez utiliser NetApp Backup and Recovery pour effectuer les tâches suivantes liées aux charges de travail VMware :</block>
   <block id="4c90ef6c5dc037251bf65afdeeb1ee6c" category="list-text"><block ref="4c90ef6c5dc037251bf65afdeeb1ee6c" category="inline-link-macro-rx"></block></block>
@@ -4736,7 +4733,6 @@
   <block id="b46d8ca76f6fb8083d6d1c87abd6ef50" category="list-text">Charges de travail KVM</block>
   <block id="5c4a8ce913e27612e0af180d6ef12ee6" category="list-text">Charges de travail Hyper-V</block>
   <block id="49396edcdc3d3d7e4bec42adc037a5ef" category="list-text">Charges de travail Kubernetes</block>
-  <block id="2432a396f38937322a4e606bf0aa7f0a" category="list-text">Microsoft Azure Blob (non disponible pour les charges de travail VMware)</block>
   <block id="1d57820923cf47d0bb8ab74db80344ab" category="list-text">Avec ONTAP 9.15.1, vous pouvez restaurer des dossiers FlexGroup à l'aide de l'option « Parcourir et restaurer ».</block>
   <block id="5bc860fb25e08cbdf4fb6e1eb9fa16c9" category="paragraph">La découverte des bases de données Oracle permet à NetApp Backup and Recovery de les protéger en créant et en restaurant des sauvegardes et des instantanés.</block>
   <block id="e82e6b5a702d1fc223d9ea698359376e" category="section-title">Ajoutez un hôte de base de données Oracle et découvrez des ressources</block>
@@ -5068,7 +5064,6 @@
   <block id="238d7a2bebc2cf898422ec1dbda4a73b" category="paragraph">Une charge de travail est un regroupement logique de ressources au sein d'un système, géré comme une unité unique à des fins de protection, de gouvernance, de détection et de restauration. Dans Backup and Recovery, une charge de travail est l'unité que vous protégez. Sa signification dépend de la source de données : pour Kubernetes, une charge de travail est une application ; pour les environnements de machines virtuelles, c'est une machine virtuelle ; et pour les environnements de bases de données, c'est une base de données.</block>
   <block id="eb0aff97ddec7b6894c0ea9cc7a6b66c" category="list-text">Dans Google Cloud, un nouveau bucket est déployé, et les <block ref="7c8e47e4f5e61b3b1d7f7769baa8100f" category="inline-link-rx"></block> sont provisionnées au niveau du compte/projet.</block>
   <block id="3addfc338787d5dc6d9709962161e00d" category="list-text">La troisième option consiste à acheter des licences directement auprès de NetApp. Consultez la section <block ref="ba0ccbd18ea5b5cc8b06635e1ea19aa1" category="inline-xref-macro-rx"></block> pour plus de détails.</block>
-  <block id="09e249805f01ac51656bbbc88c3f5e37" category="list-text">ONTAP S3 (non disponible pour les charges de travail VMware)</block>
   <block id="e9ebab79f1c4e6f0b2fa9bfe92e9381d" category="summary">Activer l'aperçu et les fonctionnalités cachées pour NetApp Backup and Recovery.</block>
   <block id="145966dcf8392a62159a1226e54e749e" category="doc">Activer l'aperçu et les fonctionnalités cachées pour NetApp Backup and Recovery</block>
   <block id="5737194cdc99152eb3d54bca68703776" category="section-title">Fonctionnalités en avant-première disponibles</block>
@@ -5642,4 +5637,9 @@
   <block id="2b33678c8eba4dacaa294cad350a79f8" category="list-text">Actualisez le serveur vCenter afin que son fuseau horaire actuel soit récupéré.</block>
   <block id="746c4e9758e4e986d2c5f289c1d7e4ed" category="list-text">Testé et validé avec le stockage objet Wasabi ; des clients ont également signalé des déploiements réussis avec MinIO et IBM Cloud Object Storage</block>
   <block id="9044dfb75ff38841e5c3112d327e52cf" category="admonition">Les scripts du dépôt Verda GitHub sont fournis tels quels et ne sont pas officiellement pris en charge par NetApp. Seul le framework d'exécution des hooks dans Trident Protect et Backup and Recovery est officiellement pris en charge par NetApp.</block>
+  <block id="0ea4d3ea6dde327be7585dd707c798c5" category="list-text">En haut à droite de la page, assurez-vous que *Kubernetes* est sélectionné dans la liste des charges de travail.</block>
+  <block id="ea5b48c7d3f8b0a9e0a12672ffc2b29a" category="list-text">Sélectionnez *Afficher* pour la ligne de charge de travail afin de voir les ressources Kubernetes.</block>
+  <block id="9a6733678bfc1a6a630c61271f174949" category="paragraph">Protégez vos machines virtuelles VMware et vos datastores avec NetApp Backup and Recovery. NetApp Backup and Recovery offre des opérations de sauvegarde et de restauration rapides, économes en espace, cohérentes en cas de panne et cohérentes au niveau des machines virtuelles. Vous pouvez sauvegarder les charges de travail VMware vers des cibles de sauvegarde prises en charge et restaurer les charges de travail VMware vers un hôte VMware sur site.</block>
+  <block id="a7ffc4809e4a33a20f30769fc3e62703" category="list-text">Stockage compatible S3 (charges de travail ONTAP Volumes uniquement)</block>
+  <block id="7229e78ecf33d07a5618d54695f22e2b" category="list-text">Stockage Blob Microsoft Azure</block>
 </blocks>

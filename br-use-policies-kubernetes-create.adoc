@@ -94,15 +94,6 @@ La page « Politiques » s'affiche.
 ** *Sauvegarde* : sélectionnez la fréquence horaire, quotidienne, hebdomadaire, mensuelle ou annuelle.
 ** *Cible de sauvegarde* : sélectionnez le système cible sur le stockage secondaire pour la sauvegarde.
 ** *Rétention* : saisissez le nombre d'instantanés à conserver.
-** *Activer le verrouillage des instantanés* : sélectionnez si vous souhaitez activer les instantanés inviolables.
-** *Période de verrouillage de l'instantané* : saisissez le nombre de jours, de mois ou d'années pendant lesquels vous souhaitez verrouiller l'instantané.
-** *Transfert vers le secondaire* :
-+
-*** L'option *Planification de transfert ONTAP - En ligne* est sélectionnée par défaut et indique que les snapshots sont immédiatement transférés vers le système de stockage secondaire.  Vous n'avez pas besoin de planifier la sauvegarde.
-*** Autres options : Si vous choisissez un virement différé, les virements ne sont pas immédiats et vous pouvez définir un calendrier.
-
-
-** * Relation secondaire SnapMirror et SnapVault SMAS* : utilisez les relations secondaires SnapMirror et SnapVault SMAS pour les charges de travail SQL Server.
 ** *Fournisseur* : Sélectionnez le fournisseur de stockage qui héberge les ressources de l’application Kubernetes et saisissez les identifiants pour vous authentifier auprès de ce fournisseur.
 
 

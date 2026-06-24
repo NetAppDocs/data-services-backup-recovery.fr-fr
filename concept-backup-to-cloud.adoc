@@ -210,10 +210,11 @@ NetApp Backup and Recovery protège les types de charges de travail suivants :
 
 .Cibles de sauvegarde prises en charge
 * Amazon Web Services (AWS) S3
+* Stockage compatible S3 (charges de travail ONTAP Volumes uniquement)
 * Stockage Google Cloud
-* Microsoft Azure Blob (non disponible pour les charges de travail VMware)
+* Stockage Blob Microsoft Azure
 * StorageGRID
-* ONTAP S3 (non disponible pour les charges de travail VMware)
+* ONTAP S3
 
 
 

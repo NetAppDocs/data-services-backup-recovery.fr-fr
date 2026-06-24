@@ -109,9 +109,3 @@ SnapCenter ne dispose pas de clusters de stockage de cartes ou de SVM pour les r
 Si vous disposez d'une planification de stratégie SnapCenter qui démarre à une certaine heure et se répète à des intervalles autres que ceux de 15 minutes, NetApp Backup and Recovery n'importera pas la planification.
 
 *Solution de contournement* : utilisez SnapCenter pour ajuster la stratégie afin qu’elle se répète à des intervalles de 15 minutes.
-
-
-
-== Prise en charge limitée des logiciels de gestion de la virtualisation
-
-Lorsque vous protégez les charges de travail KVM, NetApp Backup and Recovery ne prend pas en charge la découverte des charges de travail KVM lorsque le logiciel de gestion de virtualisation tel qu'Apache CloudStack ou Red Hat OpenShift Virtualization est utilisé.
