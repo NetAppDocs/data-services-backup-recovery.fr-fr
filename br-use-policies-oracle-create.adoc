@@ -170,7 +170,7 @@ NOTE: Cette option est automatiquement désactivée si cette stratégie utilise 
 +
 **** Ayez le plug-in NetApp installé
 **** Installez les fichiers binaires de la base de données Oracle
-**** Utilisez la même version d'Oracle Database que la base de données source
+**** Ayez la même version d'Oracle Database que la base de données source
 **** Disposer d'un accès réseau au stockage contenant l'instantané (primaire ou secondaire)
 **** Être capable de monter le volume cloné et d'exécuter l'utilitaire DBVERIFY de la base de données Oracle.
 
