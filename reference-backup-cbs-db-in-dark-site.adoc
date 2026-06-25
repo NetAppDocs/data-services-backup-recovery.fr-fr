@@ -16,7 +16,7 @@ summary: 'En mode privé (sans accès Internet), NetApp Backup and Recovery stoc
 [role="lead"]
 En mode privé (sans accès Internet), NetApp Backup and Recovery stocke ses données de configuration dans le même compartiment StorageGRID ou ONTAP S3 utilisé pour vos sauvegardes. En cas de défaillance du système hôte de l’agent Console, vous pouvez déployer un nouvel agent Console et restaurer ces données.
 
-Vous pouvez également suivre ces étapes pour remplacer l'agent de la Console et restaurer les données de configuration qui y étaient stockées lors de l'utilisation de Backup and Recovery en  sur site, lorsqu'aucun compte cloud n'est impliqué (par exemple, lors de l'utilisation de NetApp StorageGrid comme destination de sauvegarde).
+Vous pouvez également suivre ces étapes pour remplacer l’agent de la Console et restaurer les données de configuration qui y étaient stockées lors de l’utilisation de la sauvegarde et de la restauration en mode standard sur site, lorsqu’aucun compte cloud n’est impliqué (par exemple, lors de l’utilisation de NetApp StorageGRID comme destination de sauvegarde).
 
 
 NOTE: Cette procédure s'applique uniquement aux données de volume ONTAP .

@@ -108,7 +108,7 @@ La page « Politiques » s'affiche.
 *** Autres options : Si vous choisissez un virement différé, les virements ne sont pas immédiats et vous pouvez définir un calendrier.
 
 
-** * Relation secondaire SnapMirror et SnapVault SMAS* : utilisez les relations secondaires SnapMirror et SnapVault SMAS pour les charges de travail SQL Server.
+** *Utiliser la relation secondaire existante SnapMirror et SyncMirror* : activez cette option pour utiliser la relation existante SnapMirror ou SyncMirror afin de transférer les instantanés vers le cluster de destination.
 
 
 . Fournissez des informations pour la section *Paramètres de stockage d'objets* (sauvegarde sur le stockage d'objets) :
