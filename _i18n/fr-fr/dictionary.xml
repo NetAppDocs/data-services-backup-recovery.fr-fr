@@ -1209,13 +1209,8 @@
   <block id="32316833f8e2552223d79fb99979ff7f" category="cell">Échec de la tâche de création d'instantanés ad hoc de NetApp Backup and Recovery</block>
   <block id="8c340dc334134096f68b880b42a8692c" category="cell">Réplication</block>
   <block id="def1939e9c93c839079171f6dd5e3291" category="cell">Échec de la tâche de réplication ad hoc de NetApp Backup and Recovery</block>
-  <block id="08a671649ac55e1aa9d353651e865c93" category="cell">Échec de la tâche de pause de réplication de NetApp Backup and Recovery</block>
   <block id="bafd7322c6e97d25b6299b5d6fe8920b" category="cell">Non</block>
-  <block id="de07da0681d640a8e5bfdf21bac49e81" category="cell">Échec de la tâche d'interruption de la réplication de NetApp Backup and Recovery</block>
-  <block id="d275c1564b9f2a250f9bf30d6e8bab26" category="cell">Échec de la tâche de resynchronisation de la réplication NetApp Backup and Recovery</block>
   <block id="9f6cd0f0a12191a75f16414b3b601822" category="cell">Échec de la tâche d'arrêt de la réplication de NetApp Backup and Recovery</block>
-  <block id="93d1a6c01d156e393187858c16c5c626" category="cell">Échec de la tâche de resynchronisation inverse de la réplication NetApp Backup and Recovery</block>
-  <block id="594e604651fd901124d237d8caf5c86f" category="cell">Échec de la tâche de suppression de réplication de NetApp Backup and Recovery</block>
   <block id="910e8697aa5e0e59e920af3a4cf26b12" category="admonition">À partir d' ONTAP 9.13.0, toutes les alertes apparaissent pour Cloud Volumes ONTAP et les systèmes ONTAP sur site.  Pour les systèmes avec Cloud Volumes ONTAP 9.13.0 et ONTAP sur site, seule l'alerte relative à « Tâche de restauration terminée, mais avec des avertissements » s'affiche.</block>
   <block id="4e1654b110548c12172bd1f4aa2a9b85" category="paragraph">Pour recevoir les alertes par e-mail de NetApp Backup and Recovery , vous devez sélectionner les types de gravité de notification « Critique », « Avertissement » et « Erreur » dans la page des paramètres de notifications.</block>
   <block id="ac92ec63bcc51fd7fbdc332411a1c313" category="inline-link">Découvrez comment envoyer des e-mails d'alerte pour les tâches de sauvegarde et de restauration</block>
@@ -4138,8 +4133,6 @@
   <block id="80fd95bd893f8df76c2fa9dd4bad6849" category="cell">Sauvegarde de volume ad hoc réussie</block>
   <block id="5ed835b77018cbf32fbdfb39bcc25527" category="cell">La sauvegarde multivolume a échoué</block>
   <block id="0298583ff5a55aeec25dc314bbd47357" category="cell">Opérations Cron</block>
-  <block id="f771739629c02b8a1545a40985444450" category="cell">Vérification des étiquettes d'instantané manquantes</block>
-  <block id="39e7a35fbe3bf187f05710b99a1abab5" category="cell">Échec de l'envoi du jeton de sécurité à ONTAP pour ce système</block>
   <block id="1da6059b2e40a5d5dcd0f29c0344d522" category="cell">Événements Pub/Sub</block>
   <block id="75c3b3bb89bde01f9166a94cbfa98588" category="cell">Échec de la connexion</block>
   <block id="4d40cebef25fff7de69b66a1fd2b91ac" category="cell">Échec de la suppression d'un instantané planifié</block>
@@ -5642,4 +5635,12 @@
   <block id="6b181f9b8f3365a62a308265f446f30b" category="admonition">Le chiffrement avec clé gérée par le client est pris en charge uniquement pour Amazon FSx for NetApp ONTAP. Il n'est pas pris en charge pour Cloud Volumes ONTAP for AWS.</block>
   <block id="e46ce594d7f94f0d680627c5f9150ad6" category="inline-link">Configurer le chiffrement géré par le client dans AWS</block>
   <block id="fe921914a3a58bce833cfd4d4785fb2b" category="paragraph">Consultez <block ref="445e5997f02f6fbbedcd2ff2bda158c4" category="inline-link-rx"></block>.</block>
+  <block id="a5f837afad6e28e74cc2bc1ddf30b10c" category="cell">Incohérence entre l'étiquette de la règle d'instantané et celle de la règle de sauvegarde</block>
+  <block id="0c1df2a13aa2696a312b568815c83f15" category="cell">Échec de la mise à jour des informations d'identification du magasin d'objets dans ONTAP pour ce système</block>
+  <block id="14714a38e65ddb4109cc93b0e6a171b9" category="cell">NetApp Échec de la tâche de pause de la relation de réplication Backup and Recovery</block>
+  <block id="6532e5d724a28a601ca7648d508d625b" category="cell">NetApp Échec de la tâche de rupture de la relation de réplication NetApp Backup and Recovery</block>
+  <block id="cb807b65bdf438c727793dce019ff942" category="cell">NetApp Échec de la tâche de resynchronisation des relations de réplication NetApp Backup and Recovery</block>
+  <block id="633255f387c732126e8cdceb4ac9fceb" category="cell">NetApp Échec de la tâche de resynchronisation inverse de la relation de réplication NetApp Backup and Recovery</block>
+  <block id="d59074181d2dab51d18ca27cb4fc47d8" category="cell">NetApp échec de la tâche de suppression de la relation de réplication Backup and Recovery</block>
+  <block id="5df069a4ec3b3f8731b57ed05f942930" category="cell">L'indexation de la sauvegarde du volume a échoué</block>
 </blocks>

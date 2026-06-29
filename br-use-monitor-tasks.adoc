@@ -146,6 +146,9 @@ Le Centre de notifications affiche de nombreux événements de capture instantan
 | Activation | L'activation de la sauvegarde et de la récupération a échoué pour le système | Oui | Oui 
 
 
+| Activation | Activation de la sauvegarde et de la restauration réussie pour le système | Oui | Oui 
+
+
 | Activation | Échec de la modification de la sauvegarde et de la récupération pour le système | Oui | Oui 
 
 
@@ -153,9 +156,6 @@ Le Centre de notifications affiche de nombreux événements de capture instantan
 
 
 | Activation | Sauvegarde de volume ou état modifié | Oui | Oui 
-
-
-| Activation | Activation de la sauvegarde et de la restauration réussie pour le système | Oui | Oui 
 
 
 | Activation | La sauvegarde ad hoc du volume a échoué | Oui | Oui 
@@ -167,10 +167,10 @@ Le Centre de notifications affiche de nombreux événements de capture instantan
 | Activation | La sauvegarde multivolume a échoué | Oui | Oui 
 
 
-| Opérations Cron | Vérification des étiquettes d'instantané manquantes | Oui | Oui 
+| Opérations Cron | Incohérence entre l'étiquette de la règle d'instantané et celle de la règle de sauvegarde | Oui | Oui 
 
 
-| Opérations Cron | Échec de l'envoi du jeton de sécurité à ONTAP pour ce système | Oui | Oui 
+| Opérations Cron | Échec de la mise à jour des informations d'identification du magasin d'objets dans ONTAP pour ce système | Oui | Oui 
 
 
 | Événements Pub/Sub | Échec de la connexion | Oui | Non 
@@ -203,22 +203,22 @@ Le Centre de notifications affiche de nombreux événements de capture instantan
 | Réplication | Échec de la tâche de réplication ad hoc de NetApp Backup and Recovery | Oui | Oui 
 
 
-| Réplication | Échec de la tâche de pause de réplication de NetApp Backup and Recovery | Oui | Non 
+| Réplication | NetApp Échec de la tâche de pause de la relation de réplication Backup and Recovery | Oui | Non 
 
 
-| Réplication | Échec de la tâche d'interruption de la réplication de NetApp Backup and Recovery | Oui | Non 
+| Réplication | NetApp Échec de la tâche de rupture de la relation de réplication NetApp Backup and Recovery | Oui | Non 
 
 
-| Réplication | Échec de la tâche de resynchronisation de la réplication NetApp Backup and Recovery | Oui | Non 
+| Réplication | NetApp Échec de la tâche de resynchronisation des relations de réplication NetApp Backup and Recovery | Oui | Non 
 
 
 | Réplication | Échec de la tâche d'arrêt de la réplication de NetApp Backup and Recovery | Oui | Non 
 
 
-| Réplication | Échec de la tâche de resynchronisation inverse de la réplication NetApp Backup and Recovery | Oui | Oui 
+| Réplication | NetApp Échec de la tâche de resynchronisation inverse de la relation de réplication NetApp Backup and Recovery | Oui | Oui 
 
 
-| Réplication | Échec de la tâche de suppression de réplication de NetApp Backup and Recovery | Oui | Oui 
+| Réplication | NetApp échec de la tâche de suppression de la relation de réplication Backup and Recovery | Oui | Oui 
 
 
 | Opérations ciblées | Échec de la restauration vers une destination locale ou cloud | Oui | Oui 
@@ -228,6 +228,9 @@ Le Centre de notifications affiche de nombreux événements de capture instantan
 
 
 | Opérations système | Échec de la création d'un instantané de volume ad hoc | Oui | Oui 
+
+
+| Opérations système | L'indexation de la sauvegarde du volume a échoué | Oui | Oui 
 |===
 
 NOTE: À partir d' ONTAP 9.13.0, toutes les alertes apparaissent pour Cloud Volumes ONTAP et les systèmes ONTAP sur site.  Pour les systèmes avec Cloud Volumes ONTAP 9.13.0 et ONTAP sur site, seule l'alerte relative à « Tâche de restauration terminée, mais avec des avertissements » s'affiche.
