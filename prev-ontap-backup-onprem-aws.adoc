@@ -336,9 +336,10 @@ Si vous souhaitez utiliser les clés de chiffrement Amazon S3 par défaut pour c
 
 Si, au lieu de cela, vous souhaitez utiliser vos propres clés gérées par le client pour le chiffrement des données plutôt que d'utiliser les clés par défaut, vous devrez alors avoir les clés gérées par le chiffrement déjà configurées avant de démarrer l'assistant de NetApp Backup and Recovery .
 
-https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-setting-up-kms.html["Découvrez comment utiliser vos propres clés de chiffrement Amazon avec Cloud Volumes ONTAP"^].
 
-https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-aws-bluexp.html#configure-encryption-settings["Découvrez comment utiliser vos propres clés de chiffrement Amazon avec NetApp Backup and Recovery"^].
+NOTE: Le chiffrement avec clé gérée par le client est pris en charge uniquement pour Amazon FSx for NetApp ONTAP. Il n'est pas pris en charge pour Cloud Volumes ONTAP for AWS.
+
+Consultez  https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-setting-up-kms.html["Configurer le chiffrement géré par le client dans AWS"^].
 
 
 
