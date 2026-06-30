@@ -357,8 +357,8 @@ Assurez-vous que votre instance Hyper-V répond à des exigences spécifiques po
 
 | Stockage connecté  a| 
 * ONTAP 9.13.1 ou version ultérieure
-* Amazon FSx for NetApp ONTAP storage systems exécutant la version 9.13.1 ou ultérieure
-* Stockage SAN (pris en charge pour les sauvegardes et la restauration à l'emplacement d'origine à partir du stockage principal ou secondaire)
+* Partages SMB
+* Stockage SAN connecté via iSCSI ou Fibre Channel
 
 
 |===
@@ -374,5 +374,5 @@ NOTE: Assurez-vous d’allouer suffisamment d’espace disque sur l’hôte Hype
 
 .NetApp exigences de configuration ONTAP
 * Un système ONTAP principal (ONTAP 9.14.1 ou version ultérieure)
-* Pour les déploiements Hyper-V utilisant des partages CIFS pour stocker les données de la machine virtuelle, assurez-vous que la propriété de partage de disponibilité continue est activée sur le système ONTAP .  Reportez-vous à la https://docs.netapp.com/us-en/ontap/smb-hyper-v-sql/configure-shares-continuous-availability-task.html["Documentation ONTAP"^] pour les instructions.
+* Pour les déploiements Hyper-V utilisant des partages SMB pour stocker les données des machines virtuelles, assurez-vous que la propriété de partage à disponibilité continue est activée sur le système ONTAP. Consultez la  https://docs.netapp.com/us-en/ontap/smb-hyper-v-sql/configure-shares-continuous-availability-task.html["Documentation ONTAP"^] pour obtenir des instructions.
 

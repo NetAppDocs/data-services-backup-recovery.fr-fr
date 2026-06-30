@@ -1867,7 +1867,6 @@
   <block id="523f5e6af5276c06e274c9d76b2d4467" category="admonition">Assurez-vous d’allouer suffisamment d’espace disque sur l’hôte Hyper-V pour le dossier des journaux et surveillez régulièrement son utilisation.  L'espace requis dépend de la fréquence des sauvegardes et des opérations de protection des données.  S'il n'y a pas assez d'espace, les journaux ne seront pas générés.</block>
   <block id="1498907a7069094c1a1b679e2a53087a" category="list-text">Un système ONTAP principal (ONTAP 9.14.1 ou version ultérieure)</block>
   <block id="eb75aeb3b4b2b9734ba3e52f5483f0b2" category="inline-link">Documentation ONTAP</block>
-  <block id="0a2b6c395fc07f332dac7e7046c239c4" category="list-text">Pour les déploiements Hyper-V utilisant des partages CIFS pour stocker les données de la machine virtuelle, assurez-vous que la propriété de partage de disponibilité continue est activée sur le système ONTAP .  Reportez-vous à la<block ref="5c340db4eb0fc64db199962e418ffbd0" category="inline-link-rx"></block> pour les instructions.</block>
   <block id="f6e9a28cc6109da66451b7ed0caaea35" category="list-text">Pour ONTAP S3, l'agent de console peut être déployé dans vos locaux (avec ou sans accès Internet) ou dans un environnement de fournisseur de cloud</block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">Mentions légales</block>
   <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="paragraph">Les mentions légales donnent accès aux déclarations de droits d'auteur, aux marques déposées, aux brevets et bien plus encore.</block>
@@ -5423,7 +5422,6 @@
   <block id="e77e2a03d88f40058869e1cc3d680930" category="list-text">ASP.NET Core Runtime 8.0.24 Hosting Bundle (et tous les correctifs 8.0.x ultérieurs)</block>
   <block id="9e75b63d575b523917aa9e47b41b52fb" category="list-text">Base de données Oracle AI 26ai</block>
   <block id="f9fe5abdb3368e0236fd36a21bb8f840" category="cell">8.0.24 Hosting Bundle (et tous les correctifs 8.0.x ultérieurs)</block>
-  <block id="55c7dc18349be92e97f9965c696cb850" category="list-text">Stockage SAN (pris en charge pour les sauvegardes et la restauration à l'emplacement d'origine à partir du stockage principal ou secondaire)</block>
   <block id="9b70df306d1f1719fd9d70e02911394c" category="section-title">11 mai 2026</block>
   <block id="a37ef823bf93d8b834512d7ddfdf36cd" category="sidebar">Créer et gérer des stratégies de sauvegarde de la charge de travail Microsoft SQL Server</block>
   <block id="2287427b367a426395bab449f1e777dc" category="sidebar">Créer et gérer des stratégies de sauvegarde de charges de travail VMware</block>
@@ -5643,4 +5641,7 @@
   <block id="633255f387c732126e8cdceb4ac9fceb" category="cell">NetApp Échec de la tâche de resynchronisation inverse de la relation de réplication NetApp Backup and Recovery</block>
   <block id="d59074181d2dab51d18ca27cb4fc47d8" category="cell">NetApp échec de la tâche de suppression de la relation de réplication Backup and Recovery</block>
   <block id="5df069a4ec3b3f8731b57ed05f942930" category="cell">L'indexation de la sauvegarde du volume a échoué</block>
+  <block id="9823593ea29f31b6d988e92cd15483f6" category="list-text">Partages SMB</block>
+  <block id="e3438f0f5d63a3c8de989b98d3095c8d" category="list-text">Stockage SAN connecté via iSCSI ou Fibre Channel</block>
+  <block id="81bdc0623ea533b24d0e11cb1d26ba25" category="list-text">Pour les déploiements Hyper-V utilisant des partages SMB pour stocker les données des machines virtuelles, assurez-vous que la propriété de partage à disponibilité continue est activée sur le système ONTAP. Consultez la <block ref="5c340db4eb0fc64db199962e418ffbd0" category="inline-link-rx"></block> pour obtenir des instructions.</block>
 </blocks>
