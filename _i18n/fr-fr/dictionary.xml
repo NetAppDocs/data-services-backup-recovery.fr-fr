@@ -617,7 +617,6 @@
   <block id="365d382b2d9ecca9b0d40171c69b38ff" category="list-text">Effectuez l’une des opérations suivantes :</block>
   <block id="6226950d1b144f972ce9b5d3caea9b42" category="list-text">Si vous avez déjà découvert des charges de travail Kubernetes, dans NetApp Backup and Recovery, sélectionnez *Inventaire* &gt; *Charges de travail*, puis sélectionnez *Découvrir les ressources*.</block>
   <block id="e7c444e4a1d2f156d71a907145c8a598" category="list-text">Sélectionnez le type de charge de travail *Kubernetes*.</block>
-  <block id="96c35fcba67cbf6710845bcca4668cc2" category="list-text">Saisissez un nom de cluster et choisissez un connecteur à utiliser avec le cluster.</block>
   <block id="39b0136210d9abd099b81781cc0a17db" category="list-text">Suivez les instructions de la ligne de commande qui s’affichent :</block>
   <block id="ed6eabebedff09350cdabab556887c62" category="list-text">Créer un secret Kubernetes</block>
   <block id="6c27e11d1144953d7877449d5adc966d" category="list-text">Ajouter un dépôt Helm</block>
@@ -5644,4 +5643,5 @@
   <block id="e3438f0f5d63a3c8de989b98d3095c8d" category="list-text">Stockage SAN connecté via iSCSI ou Fibre Channel</block>
   <block id="81bdc0623ea533b24d0e11cb1d26ba25" category="list-text">Pour les déploiements Hyper-V utilisant des partages SMB pour stocker les données des machines virtuelles, assurez-vous que la propriété de partage à disponibilité continue est activée sur le système ONTAP. Consultez la <block ref="5c340db4eb0fc64db199962e418ffbd0" category="inline-link-rx"></block> pour obtenir des instructions.</block>
   <block id="09e4a6980ec8e49e9c338d71a078b029" category="paragraph">Si vous avez un contrat annuel auprès d'une marketplace, toute la consommation de NetApp Backup and Recovery est imputée à ce contrat.</block>
+  <block id="fe336167ccf46f9fb348006254d0f3ee" category="list-text">Saisissez un nom de cluster et choisissez un agent de console à utiliser avec le cluster.</block>
 </blocks>
