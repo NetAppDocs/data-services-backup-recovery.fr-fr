@@ -18,6 +18,7 @@ Vous pouvez restaurer des fichiers ou des dossiers à partir d'un disque de mach
 
 
 
+[[guest-restore-workflow]]
 == Flux de travail de restauration des invités
 
 Les opérations de restauration du système d’exploitation invité incluent les étapes suivantes :
@@ -42,6 +43,7 @@ Restaurer les fichiers ou dossiers sélectionnés à un emplacement spécifié.
 
 
 
+[[prerequisites-for-restoring-guest-files-and-folders]]
 == Conditions préalables à la restauration des fichiers et dossiers invités
 
 Examinez toutes les exigences avant de restaurer des fichiers ou des dossiers à partir d'un VMDK.
@@ -69,6 +71,7 @@ Pour obtenir les informations les plus récentes sur la prise en charge des syst
 
 
 
+[[windows-guests]]
 === Invités Windows
 
 * Le système d'exploitation invité Windows doit exécuter Windows Server 2008 R2 ou une version ultérieure.
@@ -84,6 +87,7 @@ IMPORTANT: Si vous devez utiliser un compte qui n’est pas le compte administra
 
 
 
+[[linux-guests]]
 === invités Linux
 
 * Les distributions de systèmes d'exploitation invités suivantes sont prises en charge :
@@ -99,6 +103,7 @@ IMPORTANT: Si vous devez utiliser un compte qui n’est pas le compte administra
 
 
 
+[[guest-file-restore-limitations]]
 == Limitations de la restauration des fichiers invités
 
 Avant de restaurer un fichier ou un dossier à partir d'un système d'exploitation invité, vous devez prendre connaissance des limitations de cette fonctionnalité.

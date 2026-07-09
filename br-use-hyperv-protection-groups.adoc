@@ -26,6 +26,7 @@ Vous pouvez effectuer les tâches suivantes liées aux groupes de protection :
 
 
 
+[[create-a-protection-group]]
 == Créer un groupe de protection
 
 Regroupez les charges de travail que vous souhaitez protéger dans un groupe de protection. Créez un groupe de protection pour sauvegarder et restaurer les charges de travail ensemble.
@@ -53,6 +54,7 @@ Regroupez les charges de travail que vous souhaitez protéger dans un groupe de 
 
 
 
+[[edit-a-protection-group]]
 == Modifier un groupe de protection
 
 Modifiez un groupe de protection pour en changer le nom ou les paramètres. Vous pourriez souhaiter modifier un groupe de protection si les ressources qui le composent ont changé.
@@ -73,6 +75,7 @@ L'assistant de modification du groupe de protection vous guide à travers les pa
 
 
 
+[[apply-an-updated-host-time-zone-to-an-existing-protection-group]]
 === Appliquez un fuseau horaire hôte mis à jour à un groupe de protection existant
 
 Les sauvegardes planifiées utilisent le fuseau horaire de l'hôte Hyper-V enregistré lors de la création de la planification du groupe de protection. Si vous modifiez le fuseau horaire de l'hôte, les groupes de protection existants continuent de fonctionner dans leur fuseau horaire d'origine (généralement UTC) jusqu'à ce que vous mettiez à jour leurs plannings.
@@ -87,6 +90,7 @@ NOTE: Les planifications ne sont recréées que lorsque vous modifiez le nom du 
 
 
 
+[[delete-a-protection-group]]
 == Supprimer un groupe de protection
 
 La suppression d’un groupe de protection le supprime ainsi que toutes les planifications de sauvegarde associées. Vous souhaiterez peut-être supprimer un groupe de protection s’il n’est plus nécessaire.

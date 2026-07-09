@@ -4,6 +4,7 @@
 
 
 
+[[data-mover-timeout-annotation]]
 == Annotation de délai d'expiration du data mover
 
 Utilisez l’annotation  `protect.trident.netapp.io/data-mover-timeout-sec` pour définir un délai d’expiration par opération du data mover (en secondes) lors de la sauvegarde et de la restauration. Elle spécifie la durée pendant laquelle un data mover attend qu’une opération progresse avant d’expirer. Ceci est utile pour détecter et gérer les transferts bloqués (par exemple, lorsque des problèmes réseau empêchent la progression de la restauration des données d’un volume).

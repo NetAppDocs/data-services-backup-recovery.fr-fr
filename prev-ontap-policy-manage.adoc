@@ -47,6 +47,7 @@ TIP: Lorsque vous utilisez le Gestionnaire système, sélectionnez *Asynchrone* 
 
 
 
+[[view-policies-for-a-system]]
 == Afficher les politiques d'un système
 
 . Dans l'interface utilisateur de la console, sélectionnez *Volumes* > *Paramètres de sauvegarde*.
@@ -59,6 +60,7 @@ La page de gestion des politiques apparaît.  Les stratégies de capture instant
 
 
 
+[[create-policies]]
 == Créer des politiques
 
 Vous pouvez créer des politiques qui régissent vos instantanés, vos réplications et vos sauvegardes sur le stockage objet :
@@ -70,6 +72,7 @@ Vous pouvez créer des politiques qui régissent vos instantanés, vos réplicat
 
 
 
+[[create-a-snapshot-policy-before-initiating-the-snapshot]]
 === Créer une politique de snapshot avant de lancer le snapshot
 
 Une partie de votre stratégie 3-2-1 consiste à créer un instantané du volume sur le système de stockage *principal*.
@@ -118,6 +121,7 @@ Cet exemple crée une politique de snapshot avec deux clusters :
 
 
 
+[[create-a-replication-policy-before-initiating-the-replication]]
 === Créer une politique de réplication avant de lancer la réplication
 
 Votre stratégie 3-2-1 peut inclure la réplication d’un volume sur un système de stockage différent.  La politique de réplication réside sur le système de stockage *secondaire*.
@@ -132,6 +136,7 @@ Votre stratégie 3-2-1 peut inclure la réplication d’un volume sur un systèm
 
 
 
+[[create-a-backup-to-object-storage-policy-before-initiating-the-backup]]
 === Créez une politique de sauvegarde sur stockage d'objets avant de lancer la sauvegarde
 
 Votre stratégie 3-2-1 peut inclure la sauvegarde d’un volume sur un stockage d’objets.
@@ -163,6 +168,7 @@ link:prev-ontap-policy-object-options.html["En savoir plus sur les paramètres D
 
 
 
+[[edit-a-policy]]
 == Modifier une politique
 
 Vous pouvez modifier une stratégie de snapshot, de réplication ou de sauvegarde personnalisée.
@@ -181,6 +187,7 @@ NOTE: Le processus est le même pour les politiques de réplication et de sauveg
 
 
 
+[[delete-a-policy]]
 == Supprimer une politique
 
 Vous pouvez supprimer des stratégies qui ne sont associées à aucun volume.
@@ -194,6 +201,7 @@ Si une politique est associée à un volume et que vous souhaitez supprimer la p
 
 
 
+[[find-more-information]]
 == Trouver plus d'informations
 
 Pour obtenir des instructions sur la création de stratégies à l'aide de System Manager ou de l'interface de ligne de commande ONTAP , consultez les éléments suivants :

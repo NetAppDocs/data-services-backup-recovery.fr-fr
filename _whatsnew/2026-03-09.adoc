@@ -4,6 +4,7 @@
 
 
 
+[[ontap-volumes-workloads-enhancements]]
 === Améliorations des charges de travail des volumes ONTAP
 
 Dans cette version, les charges de travail ONTAP Volumes introduisent les fonctionnalités améliorées suivantes :
@@ -20,6 +21,7 @@ Pour plus de détails sur la protection des charges de travail ONTAP Volume, rep
 
 
 
+[[vmware-workloads-enhancements]]
 === Améliorations des charges de travail VMware
 
 Dans cette version, VMware workloads introduit les fonctionnalités améliorées suivantes :

@@ -4,6 +4,7 @@
 
 
 
+[[indexed-catalog-support-updates]]
 === Mises à jour du support du catalogue indexé
 
 En février 2025, nous avons introduit la fonctionnalité d'indexation mise à jour (Catalogue indexé v2) que vous utilisez pendant la méthode de recherche et de restauration des données. La version précédente a considérablement amélioré les performances d’indexation des données dans les environnements sur site. Avec cette version, le catalogue d'indexation est désormais disponible avec les environnements Amazon Web Services, Microsoft Azure et Google Cloud Platform (GCP).
@@ -19,6 +20,7 @@ Pour plus d'informations, reportez-vous à https://docs.netapp.com/us-en/data-se
 
 
 
+[[azure-private-link-endpoints-and-service-endpoints]]
 === Points de terminaison de liaison privée Azure et points de terminaison de service
 
 En règle générale, NetApp Backup and Recovery établit un point de terminaison privé avec le fournisseur de cloud pour gérer les tâches de protection. Cette version introduit un paramètre facultatif qui vous permet d'activer ou de désactiver la création automatique d'un point de terminaison privé par NetApp Backup and Recovery . Cela peut vous être utile si vous souhaitez davantage de contrôle sur le processus de création de points de terminaison privés.
@@ -29,12 +31,14 @@ Si vous désactivez ce paramètre, vous devez créer manuellement le point de te
 
 
 
+[[support-for-snapmirror-to-cloud-resync-on-ontap-s3]]
 === Prise en charge de SnapMirror vers Cloud Resync sur ONTAP S3
 
 La version précédente a introduit la prise en charge de SnapMirror vers Cloud Resync (SM-C Resync). Cette fonctionnalité simplifie la protection des données lors de la migration de volumes dans les environnements NetApp. Cette version ajoute la prise en charge de SM-C Resync sur ONTAP S3 ainsi que sur d'autres fournisseurs compatibles S3 tels que Wasabi et MinIO.
 
 
 
+[[bring-your-own-bucket-for-storagegrid]]
 === Apportez votre propre bucket pour StorageGRID
 
 Lorsque vous créez des fichiers de sauvegarde dans le stockage d'objets pour un environnement de travail, par défaut, NetApp Backup and Recovery crée le conteneur (bucket ou compte de stockage) pour les fichiers de sauvegarde dans le compte de stockage d'objets que vous avez configuré. Auparavant, vous pouviez remplacer cela et spécifier votre propre conteneur pour Amazon S3, Azure Blob Storage et Google Cloud Storage. Avec cette version, vous pouvez désormais apporter votre propre conteneur de stockage d'objets StorageGRID .

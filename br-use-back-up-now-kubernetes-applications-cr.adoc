@@ -18,6 +18,7 @@ NetApp Backup and Recovery vous permet de sauvegarder manuellement des applicati
 
 
 
+[[back-up-a-kubernetes-application-now-using-custom-resources]]
 == Sauvegardez une application Kubernetes dès maintenant à l'aide de ressources personnalisées
 
 Créez manuellement une sauvegarde d'une application Kubernetes pour établir une base de référence pour les futures sauvegardes et instantanés, ou pour garantir la protection des données les plus récentes.
@@ -34,6 +35,7 @@ Assurez-vous que la durée de validité du jeton de session AWS est suffisante p
 
 
 
+[[create-a-local-snapshot-using-a-custom-resource]]
 === Créer un instantané local à l'aide d'une ressource personnalisée
 
 Pour créer un instantané de votre application Kubernetes et le stocker localement, utilisez la ressource personnalisée Snapshot avec des attributs spécifiques.
@@ -76,6 +78,7 @@ kubectl apply -f local-snapshot-cr.yaml
 
 
 
+[[back-up-an-application-to-an-object-store-using-a-custom-resource]]
 === Sauvegardez une application sur un stockage d'objets à l'aide d'une ressource personnalisée
 
 Créez un CR de sauvegarde avec des attributs spécifiques pour sauvegarder votre application vers un magasin d'objets.
@@ -144,6 +147,7 @@ kubectl apply -f object-store-backup-cr.yaml
 
 
 
+[[create-a-3-2-1-fanout-backup-using-a-custom-resource]]
 === Créez une sauvegarde fanout 3-2-1 à l'aide d'une ressource personnalisée
 
 La sauvegarde utilisant une architecture de distribution 3-2-1 copie une sauvegarde vers un stockage secondaire ainsi que vers un magasin d'objets. Pour créer une sauvegarde de distribution 3-2-1, créez un CR Backup avec des attributs spécifiques.
@@ -202,6 +206,7 @@ kubectl apply -f 3-2-1-fanout-backup-cr.yaml
 
 
 
+[[supported-backup-annotations]]
 == Annotations de sauvegarde prises en charge
 
 Le tableau suivant décrit les annotations que vous pouvez utiliser lors de la création d'un CR de sauvegarde.

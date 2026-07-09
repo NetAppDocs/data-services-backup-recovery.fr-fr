@@ -18,6 +18,7 @@ Suivez quelques étapes pour découvrir ou ajouter manuellement des cibles de sa
 
 
 
+[[discover-a-backup-target]]
 == Découvrir une cible de sauvegarde
 
 Configurez vos cibles de sauvegarde (Amazon Web Services (AWS) S3, Microsoft Azure Blob Storage, Google Cloud Storage ou StorageGRID) avant d'utiliser NetApp Backup and Recovery.
@@ -86,6 +87,7 @@ Vous devez découvrir au moins une charge de travail avant de pouvoir ajouter un
 
 
 
+[[add-a-bucket-for-a-backup-target]]
 == Ajouter un bucket pour une cible de sauvegarde
 
 Plutôt que de laisser NetApp Backup and Recovery découvrir automatiquement les buckets, vous pouvez ajouter manuellement un bucket à une cible de sauvegarde hors site.
@@ -160,6 +162,7 @@ Plutôt que de laisser NetApp Backup and Recovery découvrir automatiquement les
 
 
 
+[[change-credentials-for-a-backup-target]]
 == Modifier les informations d'identification pour une cible de sauvegarde
 
 Saisissez les informations d’identification nécessaires pour accéder à la cible de sauvegarde.

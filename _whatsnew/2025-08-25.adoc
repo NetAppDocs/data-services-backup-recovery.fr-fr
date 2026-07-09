@@ -4,6 +4,7 @@
 
 
 
+[[support-for-protecting-vmware-workloads-in-preview]]
 === Prise en charge de la protection des charges de travail VMware dans l'aperçu
 
 Cette version ajoute une prise en charge préliminaire pour la protection des charges de travail VMware. Sauvegardez les machines virtuelles VMware et les banques de données des systèmes ONTAP sur site vers Amazon Web Services et StorageGRID.
@@ -15,6 +16,7 @@ link:br-use-vmware-protect-overview.html["En savoir plus sur la protection des c
 
 
 
+[[high-performance-indexing-for-aws-azure-and-gcp-is-generally-available]]
 === L'indexation haute performance pour AWS, Azure et GCP est généralement disponible
 
 En février 2025, nous avons annoncé l’aperçu de l’indexation haute performance (Indexed Catalog v2) pour AWS, Azure et GCP. Cette fonctionnalité est désormais généralement disponible (GA). En juin 2025, nous l'avons fourni à tous les _nouveaux_ clients par défaut. Avec cette version, le support est disponible pour _tous_ les clients. L’indexation hautes performances améliore les performances des opérations de sauvegarde et de restauration pour les charges de travail protégées par le stockage d’objets.

@@ -4,6 +4,7 @@
 
 
 
+[[enhanced-ontap-volume-dashboard]]
 === Tableau de bord de volume ONTAP amélioré
 
 En avril 2025, nous avons lancé un aperçu d'un tableau de bord de volume ONTAP amélioré, beaucoup plus rapide et plus efficace.
@@ -16,6 +17,7 @@ Pour plus de détails, voirlink:br-use-dashboard.html["Afficher l'état de la pr
 
 
 
+[[microsoft-sql-server-workload-support-as-a-public-technology-preview]]
 === Prise en charge de la charge de travail Microsoft SQL Server en tant qu'aperçu technologique public
 
 Cette version de NetApp Backup and Recovery fournit une interface utilisateur mise à jour qui vous permet de gérer les charges de travail Microsoft SQL Server à l'aide d'une stratégie de protection 3-2-1, familière dans NetApp Backup and Recovery. Avec cette nouvelle version, vous pouvez sauvegarder ces charges de travail sur le stockage principal, les répliquer sur le stockage secondaire et les sauvegarder sur le stockage d'objets cloud.

@@ -18,6 +18,7 @@ Restaurez des fichiers ou des dossiers individuels depuis un disque virtuel vers
 
 
 
+[[restore-files-and-folders-from-virtual-disks]]
 == Restaurer des fichiers et des dossiers à partir de disques virtuels
 
 Restaurez des fichiers ou des dossiers d'un disque virtuel vers la machine virtuelle d'origine ou vers une autre machine virtuelle. Si vous préférez ne pas connecter le disque virtuel à la machine virtuelle d'origine, vous pouvez le connecter à une machine virtuelle proxy.
@@ -178,6 +179,7 @@ Vous pouvez consulter la progression de la restauration sur la page de suivi des
 ====
 
 
+[[view-active-vmdk-mount-sessions]]
 == Afficher les sessions de montage VMDK actives
 
 Lors de la restauration de fichiers ou de dossiers, visualisez les sessions invité actives. Vous y verrez les VMDK actuellement attachés à des sessions ouvertes.

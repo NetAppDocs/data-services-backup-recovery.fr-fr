@@ -18,12 +18,14 @@ Si vous souhaitez importer des ressources du service de plug-in SnapCenter pour 
 
 
 
+[[create-systems-in-netapp-console-first]]
 == Créez d'abord des systèmes dans la NetApp Console
 
 Si vous souhaitez importer des ressources depuis SnapCenter, vous devez d'abord ajouter tout le stockage de cluster SnapCenter local à la page *Systèmes* de la console avant de procéder à l'importation depuis SnapCenter.  Cela garantit que les ressources de l’hôte peuvent être découvertes et importées correctement.
 
 
 
+[[ensure-host-requirements-to-install-the-snapcenter-plug-in]]
 == Assurez-vous que les exigences de l'hôte sont respectées pour installer le plug-in SnapCenter
 
 Pour importer des ressources à partir du plug-in SnapCenter pour Microsoft SQL Server, assurez-vous que les exigences de l'hôte pour installer le plug-in SnapCenter pour Microsoft SQL Server sont respectées.
@@ -32,6 +34,7 @@ Vérifiez spécifiquement les exigences de SnapCenter danslink:concept-start-pre
 
 
 
+[[disable-user-account-control-remote-restrictions]]
 == Désactiver les restrictions à distance du contrôle de compte d'utilisateur
 
 Avant d'importer des ressources depuis SnapCenter, désactivez les restrictions à distance du contrôle de compte d'utilisateur (UAC) sur l'hôte Windows SnapCenter .  Désactivez l'UAC si vous utilisez un compte d'administration local pour vous connecter à distance à l'hôte SnapCenter Server ou à l'hôte SQL.
@@ -69,6 +72,7 @@ Faites-le en utilisant l’un des éléments suivants, avec les instructions ci-
 
 
 
+[[method-1-disable-user-account-control-by-using-the-registry-editor]]
 === Méthode 1 : désactiver le contrôle de compte d'utilisateur à l'aide de l'éditeur de registre
 
 C’est l’une des méthodes que vous pouvez utiliser pour désactiver le contrôle de compte d’utilisateur.
@@ -112,6 +116,7 @@ Cet exemple définit LocalAccountTokenFilterPolicy sur « 1 », désactivant a
 ----
 
 
+[[method-2-disable-user-account-control-by-using-a-powershell-script]]
 === Méthode 2 : désactiver le contrôle de compte d'utilisateur à l'aide d'un script PowerShell
 
 Il s’agit d’une autre méthode que vous pouvez utiliser pour désactiver le contrôle de compte d’utilisateur.

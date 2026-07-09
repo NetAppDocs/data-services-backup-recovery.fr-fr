@@ -18,6 +18,7 @@ NetApp Backup and Recovery prend en charge un niveau d’accès aux archives Azu
 
 
 
+[[supported-azure-blob-access-tiers-for-netapp-backup-and-recovery]]
 == Niveaux d'accès Azure Blob pris en charge pour NetApp Backup and Recovery
 
 Lorsque les fichiers de sauvegarde sont initialement créés, ils sont stockés dans le niveau d'accès _Cool_.  Ce niveau est optimisé pour stocker des données rarement consultées, mais auxquelles il est possible d'accéder immédiatement en cas de besoin.
@@ -30,6 +31,7 @@ https://docs.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview["En s
 
 
 
+[[restore-data-from-archival-storage]]
 == Restaurer les données à partir du stockage d'archives
 
 Bien que le stockage d’anciens fichiers de sauvegarde dans un stockage d’archives soit beaucoup moins coûteux que le stockage Cool, l’accès aux données d’un fichier de sauvegarde dans Azure Archive pour les opérations de restauration prendra plus de temps et coûtera plus cher.

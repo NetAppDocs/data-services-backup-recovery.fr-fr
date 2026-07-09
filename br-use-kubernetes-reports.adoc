@@ -18,6 +18,7 @@ Dans NetApp Backup and Recovery, créez des rapports de protection pour les char
 
 
 
+[[create-a-protection-report]]
 == Créer un rapport de protection
 
 Créez un rapport de protection pour afficher l'état de protection de vos clusters.
@@ -46,6 +47,7 @@ Configurez les notifications par e-mail dans la page Paramètres. Pour plus de d
 
 
 
+[[download-a-protection-report]]
 == Télécharger un rapport de protection
 
 Téléchargez un rapport de protection généré soit en tant que fichier JSON, soit en tant que document PDF afin de pouvoir le consulter et le partager.
@@ -63,6 +65,7 @@ Téléchargez un rapport de protection généré soit en tant que fichier JSON, 
 
 
 
+[[view-a-protection-report]]
 == Consulter un rapport de protection
 
 Consultez rapidement les détails interactifs d'un rapport de protection dans NetApp Backup and Recovery. Vous pouvez voir le résumé de la tâche, l'état de la protection des données, les détails de configuration et bien plus encore.
@@ -78,6 +81,7 @@ Les détails du rapport apparaissent.
 
 
 
+[[delete-a-protection-report]]
 == Supprimer un rapport de protection
 
 Supprimez un rapport de protection lorsque vous n'en avez plus besoin.

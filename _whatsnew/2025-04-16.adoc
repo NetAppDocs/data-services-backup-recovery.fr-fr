@@ -4,6 +4,7 @@
 
 
 
+[[ui-improvements]]
 === Améliorations de l'interface utilisateur
 
 Cette version améliore votre expérience en simplifiant l'interface :
@@ -17,12 +18,14 @@ Cette version améliore votre expérience en simplifiant l'interface :
 
 
 
+[[enhanced-volume-dashboard-preview]]
 === Tableau de bord de volume amélioré (aperçu)
 
 Le tableau de bord des volumes se charge désormais en moins de 10 secondes, offrant une interface beaucoup plus rapide et plus efficace.  Cette version préliminaire est disponible pour certains clients, leur offrant un aperçu préliminaire de ces améliorations.
 
 
 
+[[support-for-third-party-wasabi-object-store-preview]]
 === Prise en charge du magasin d'objets Wasabi tiers (aperçu)
 
 NetApp Backup and Recovery étend désormais son support aux magasins d'objets tiers, en mettant l'accent principalement sur Wasabi.  Cette nouvelle fonctionnalité d'aperçu vous permet d'exploiter n'importe quel magasin d'objets compatible S3 pour vos besoins de sauvegarde et de récupération.

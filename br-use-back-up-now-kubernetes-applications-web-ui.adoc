@@ -21,6 +21,7 @@ Administrateur d'organisation ou administrateur SnapCenter . link:reference-role
 
 
 
+[[back-up-a-kubernetes-application-now-using-the-web-ui]]
 == Sauvegardez une application Kubernetes dès maintenant à l'aide de l'interface web
 
 Créez manuellement une sauvegarde d'une application Kubernetes pour établir une base de référence pour les futures sauvegardes et instantanés, ou pour garantir la protection des données les plus récentes.

@@ -40,6 +40,7 @@ TIP: Vous payez des frais supplémentaires à votre fournisseur de cloud pour ac
 
 
 
+[[how-restoring-workloads-works]]
 == Comment fonctionne la restauration des charges de travail
 
 Lorsque vous restaurez des charges de travail, les événements suivants se produisent :
@@ -54,6 +55,7 @@ image:diagram_browse_restore_volume-unified.png["Un diagramme qui montre le flux
 
 
 
+[[restore-methods]]
 == Méthodes de restauration
 
 Restaurez les charges de travail à l’aide de l’une de ces méthodes :
@@ -66,6 +68,7 @@ Restaurez les charges de travail à l’aide de l’une de ces méthodes :
 
 
 
+[[restore-workload-data-from-the-restore-option]]
 == Restaurer les données de charge de travail à partir de l'option Restaurer
 
 Restaurez les charges de travail de la base de données à l’aide de l’option Restaurer.
@@ -84,6 +87,7 @@ Restaurez les charges de travail de la base de données à l’aide de l’optio
 
 
 
+[[restore-workloads-from-snapshots]]
 === Restaurer les charges de travail à partir de snapshots
 
 . En continuant à partir de la page Options de restauration, sélectionnez *Restaurer à partir d'instantanés*.
@@ -121,6 +125,7 @@ Vous verrez ensuite les options de destination.
 
 
 
+[[restore-to-specific-point-in-time]]
 === Restaurer à un moment précis
 
 NetApp Backup and Recovery utilise les journaux et les instantanés les plus récents pour créer une restauration ponctuelle de vos données.
@@ -160,6 +165,7 @@ NetApp Backup and Recovery utilise les journaux et les instantanés les plus ré
 
 
 
+[[restore-to-the-latest-backup]]
 === Restaurer la dernière sauvegarde
 
 Cette option utilise les dernières sauvegardes complètes et journaux pour restaurer vos données au dernier état correct.  Le système analyse les journaux depuis le dernier instantané jusqu'à présent.  Le processus suit les modifications et les activités pour restaurer la version la plus récente et la plus précise de vos données.
@@ -197,6 +203,7 @@ NetApp Backup and Recovery vous montre les snapshots disponibles pour l'opérati
 
 
 
+[[restore-workload-data-from-the-inventory-option]]
 == Restaurer les données de charge de travail à partir de l'option Inventaire
 
 Restaurer les charges de travail de la base de données à partir de la page Inventaire.  En utilisant l’option Inventaire, vous pouvez restaurer uniquement les bases de données, pas les instances.

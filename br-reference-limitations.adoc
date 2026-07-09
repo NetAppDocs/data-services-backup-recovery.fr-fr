@@ -32,6 +32,7 @@ Pour plus de détails sur la création d’un agent de console dans Azure, repor
 
 
 
+[[replication-limitations-for-ontap-volumes]]
 == Limitations de réplication pour les volumes ONTAP
 
 * Vous ne pouvez sélectionner qu'un seul volume FlexGroup à la fois pour la réplication.  Vous devrez activer les sauvegardes séparément pour chaque volume FlexGroup .
@@ -51,6 +52,7 @@ Il n'y a aucune limitation pour les volumes FlexVol : vous pouvez sélectionner 
 
 
 
+[[backup-to-object-limitations-for-ontap-volumes]]
 == Limitations de sauvegarde sur objet pour les volumes ONTAP
 
 * Lors de la sauvegarde des données, NetApp Backup and Recovery ne conservera pas le chiffrement de volume NetApp (NVE).  Cela signifie que les données chiffrées sur le volume NVE seront déchiffrées pendant le transfert des données vers la destination et le chiffrement ne sera pas conservé.
@@ -89,6 +91,7 @@ Pour une explication sur ces types de cryptage, reportez-vous àhttps://docs.net
 
 
 
+[[restore-limitations-for-ontap-volumes]]
 == Restaurer les limitations pour les volumes ONTAP
 
 Ces limitations s'appliquent à la fois aux méthodes de recherche et de restauration et de navigation et de restauration de fichiers et de dossiers, sauf indication contraire spécifique.
@@ -121,6 +124,7 @@ Lors de l'utilisation d'une version d' ONTAP antérieure à 9.11.1, la restaurat
 
 
 
+[[enabling-indexing-in-a-disaster-recovery-configuration]]
 == Activation de l'indexation dans une configuration de reprise après sinistre
 
 Lors de l'activation de l'indexation sur un cluster de machines virtuelles de stockage dans une configuration de reprise après sinistre (DR), une erreur s'affiche indiquant que l'opération n'est pas autorisée sur un Vserver configuré comme destination pour le DR de Vserver. Malgré cette erreur, le processus backend définit le statut de l' `snapdiff-rpc-server`à "on" pour les machines virtuelles de stockage source. Après l'exécution de la planification de la stratégie de DR des machines virtuelles de stockage, ce statut est propagé aux machines virtuelles de stockage de destination.

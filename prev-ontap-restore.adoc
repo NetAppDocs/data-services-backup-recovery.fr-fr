@@ -41,6 +41,7 @@ NOTE: Pour connaître les limitations liées à la restauration des données ONT
 
 
 
+[[the-restore-dashboard]]
 == Le tableau de bord de restauration
 
 Vous utilisez le tableau de bord de restauration pour effectuer des opérations de restauration de volumes, de dossiers et de fichiers. Pour accéder au tableau de bord de restauration, sélectionnez *Sauvegarde et récupération* dans le menu Console, puis sélectionnez l'onglet *Restaurer*.  Vous pouvez également sélectionnerimage:icon-options-vertical.gif["Bouton Plus"] > *Afficher le tableau de bord de restauration* à partir du service de sauvegarde et de récupération du panneau Services.
@@ -52,6 +53,7 @@ Le tableau de bord de restauration propose deux manières différentes de restau
 
 
 
+[[comparing-browse-restore-and-search-restore]]
 == Comparaison de Parcourir et restaurer et de Rechercher et restaurer
 
 En termes généraux, _Parcourir et restaurer_ est généralement préférable lorsque vous devez restaurer un volume, un dossier ou un fichier spécifique de la semaine ou du mois dernier - et que vous connaissez le nom et l'emplacement du fichier, ainsi que la date à laquelle il était en bon état pour la dernière fois.  _Rechercher et restaurer_ est généralement plus efficace lorsque vous devez restaurer un volume, un dossier ou un fichier, mais que vous ne vous souvenez pas du nom exact, du volume dans lequel il réside ou de la date à laquelle il était en bon état pour la dernière fois.

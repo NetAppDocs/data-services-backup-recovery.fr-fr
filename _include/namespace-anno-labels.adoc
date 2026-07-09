@@ -4,6 +4,7 @@
 
 
 
+[[namespace-annotations-and-labels-during-restore-and-failover-operations]]
 == Annotations et étiquettes d'espace de noms lors des opérations de restauration et de basculement
 
 Lors de la restauration et du basculement, les étiquettes et annotations de l'espace de noms de destination sont mises à jour pour correspondre à la source : les clés de la source sont ajoutées ou remplacent les clés de destination, tandis que les clés qui existent uniquement dans la destination restent inchangées.
@@ -32,6 +33,7 @@ Si vous avez utilisé Helm avec le  `--create-namespace` paramètre pour install
 
 
 
+[[example]]
 === Exemple
 
 L'exemple suivant montre les espaces de noms source et de destination avec des étiquettes et des annotations différentes, et affiche l'espace de noms de destination avant et après l'opération pour illustrer comment les clés sont ajoutées, fusionnées ou écrasées.

@@ -20,6 +20,7 @@ Les actions et configurations suivantes ne sont pas prises en charge dans les ch
 
 
 
+[[unsupported-actions]]
 == Actions non prises en charge
 
 Les actions suivantes ne sont pas prises en charge :
@@ -32,6 +33,7 @@ Les actions suivantes ne sont pas prises en charge :
 
 
 
+[[unsupported-configurations]]
 == Configurations non prises en charge
 
 Les configurations suivantes ne sont pas prises en charge :
@@ -45,6 +47,7 @@ Les configurations suivantes ne sont pas prises en charge :
 
 
 
+[[troubleshooting-notes]]
 == Notes de dépannage
 
 Veuillez prendre note des points suivants lors de l'utilisation de charges de travail KVM avec NetApp Backup and Recovery.

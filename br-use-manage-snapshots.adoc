@@ -18,6 +18,7 @@ Vous pouvez gérer les instantanés Microsoft SQL Server en les supprimant de Ne
 
 
 
+[[delete-a-snapshot]]
 == Supprimer un instantané
 
 Vous ne pouvez supprimer que les instantanés locaux.

@@ -18,6 +18,7 @@ Avant de commencer, révisezlink:concept-start-prereq.html["prérequis"] pour ga
 
 
 
+[[prepare-the-backup-destination]]
 == Préparer la destination de sauvegarde
 
 Préparez une ou plusieurs des destinations de sauvegarde suivantes :
@@ -53,6 +54,7 @@ Après avoir configuré les options dans la destination de sauvegarde elle-même
 
 
 
+[[set-up-s3-permissions]]
 == Configurer les autorisations S3
 
 Vous devrez configurer deux ensembles d’autorisations AWS S3 :

@@ -27,6 +27,7 @@ Vous pouvez effectuer les tâches suivantes liées aux groupes de protection :
 
 
 
+[[create-a-protection-group]]
 == Créer un groupe de protection
 
 Regroupez les machines virtuelles et les pools de stockage que vous souhaitez protéger dans un groupe de protection.
@@ -57,6 +58,7 @@ Pour plus d’informations sur la création d’une politique de sauvegarde, rep
 
 
 
+[[edit-a-protection-group]]
 == Modifier un groupe de protection
 
 Modifiez un groupe de protection si vous devez modifier les détails du groupe de protection sans le supprimer et le recréer.
@@ -77,6 +79,7 @@ Modifiez un groupe de protection si vous devez modifier les détails du groupe d
 
 
 
+[[delete-a-protection-group]]
 == Supprimer un groupe de protection
 
 La suppression d’un groupe de protection le supprime ainsi que toutes les planifications de sauvegarde associées. Vous souhaiterez peut-être supprimer un groupe de protection s’il n’est plus nécessaire.

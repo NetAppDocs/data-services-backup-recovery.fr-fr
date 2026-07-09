@@ -39,6 +39,7 @@ TIP: Des frais de sortie supplémentaires seront facturés par votre fournisseur
 
 
 
+[[how-restoring-workloads-works]]
 == Comment fonctionne la restauration des charges de travail
 
 Lorsque vous restaurez des charges de travail, les événements suivants se produisent :
@@ -51,6 +52,7 @@ Depuis la page Restaurer, vous pouvez restaurer une ressource, même si vous ne 
 
 
 
+[[restore-hyper-v-workloads]]
 == Restaurer les charges de travail Hyper-V
 
 Restaurez les charges de travail Hyper-V à l'aide du menu Restaurer. Vous pouvez rechercher l'instantané par son nom ou à l'aide de filtres.

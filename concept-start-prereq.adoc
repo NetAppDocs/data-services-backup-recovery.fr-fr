@@ -18,6 +18,7 @@ Avant de commencer à utiliser NetApp Backup and Recovery, assurez-vous que votr
 
 
 
+[[prepare-netapp-console]]
 == Préparer la NetApp Console
 
 Vous accédez à NetApp Backup and Recovery via NetApp Console. Pour préparer la Console pour Backup and Recovery, vous devez :
@@ -33,6 +34,7 @@ Pour en savoir plus sur NetApp Console, consultez https://docs.netapp.com/us-en/
 
 
 
+[[complete-initial-netapp-console-setup]]
 === Effectuez la configuration initiale complète de la NetApp Console
 
 Terminez la configuration initiale de la NetApp Console si vous ne l'avez pas déjà fait.
@@ -41,6 +43,7 @@ https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-standard-mode
 
 
 
+[[deploy-a-console-agent]]
 === Déployer un agent de console
 
 Un agent Console est un composant logiciel léger que vous installez sur votre réseau pour connecter votre infrastructure de stockage à NetApp Console. Il permet une orchestration avancée du stockage, des services de données et une intégration au cloud sécurisée.
@@ -49,6 +52,7 @@ https://docs.netapp.com/us-en/console-setup-admin/concept-agents.html["En savoir
 
 
 
+[[add-a-storage-system]]
 === Ajouter un système de stockage
 
 Avant de pouvoir protéger les charges de travail dans NetApp Backup and Recovery, vous devez ajouter un système de stockage ONTAP à la NetApp Console.
@@ -57,6 +61,7 @@ https://docs.netapp.com/us-en/storage-management-ontap-onprem/task-discovering-o
 
 
 
+[[configure-an-organization-and-user-roles]]
 === Configurer une organisation et des rôles d'utilisateur
 
 Découvrez les organisations, les projets et les rôles des utilisateurs, puis configurez les utilisateurs avec les autorisations appropriées nécessaires à l'exécution de leurs tâches.
@@ -67,12 +72,14 @@ Reportez-vous à  https://docs.netapp.com/us-en/console-setup-admin/reference-ia
 
 
 
+[[requirements-for-backups-to-object-storage]]
 == Exigences relatives aux sauvegardes sur stockage objet
 
 Pour utiliser le stockage d'objets comme cibles de sauvegarde, vous avez besoin d'un compte AWS S3, Google Cloud Storage, Microsoft Azure Blob, StorageGRID ou ONTAP et des autorisations d'accès appropriées configurées.
 
 
 
+[[requirements-for-protecting-ontap-volume-workloads]]
 == Exigences relatives à la protection des charges de travail de volume ONTAP
 
 Pour utiliser NetApp Backup and Recovery pour les charges de travail de volume ONTAP, vous devez respecter les prérequis suivants en matière de système hôte, d'espace et de dimensionnement.
@@ -87,6 +94,7 @@ Pour plus d'informations sur les fonctionnalités prises en charge, les types de
 
 
 
+[[requirements-for-protecting-microsoft-sql-server-workloads]]
 == Exigences pour la protection des charges de travail Microsoft SQL Server
 
 Pour utiliser NetApp Backup and Recovery pour les charges de travail Microsoft SQL Server, vous avez besoin des prérequis suivants en matière de système hôte, d’espace et de dimensionnement.
@@ -163,6 +171,7 @@ NOTE: La protection des bases de données stockées sur des disques pass-through
 |===
 
 
+[[requirements-for-protecting-vmware-workloads]]
 == Exigences pour la protection des charges de travail VMware
 
 Vous avez besoin d’exigences spécifiques pour découvrir et protéger vos charges de travail VMware.
@@ -219,6 +228,7 @@ Pour plus d'informations sur les rôles de Backup and Recovery, veuillez consult
 
 
 
+[[requirements-for-protecting-kvm-workloads]]
 == Exigences pour la protection des charges de travail KVM
 
 Vous avez besoin d’exigences spécifiques pour découvrir et protéger les machines virtuelles KVM.
@@ -260,6 +270,7 @@ chown -R qemu:qemu <kvm_vm_mount_path> & chmod 771 <kvm_vm_mount_path>
 ====
 
 
+[[requirements-for-protecting-oracle-database-workloads]]
 == Exigences relatives à la protection des charges de travail Oracle Database
 
 Assurez-vous que votre environnement répond aux exigences spécifiques pour découvrir et protéger les ressources Oracle Database.
@@ -303,6 +314,7 @@ Assurez-vous que votre environnement répond aux exigences spécifiques pour dé
 |===
 
 
+[[requirements-for-protecting-kubernetes-applications]]
 == Exigences pour la protection des applications Kubernetes
 
 Vous avez besoin d’exigences spécifiques pour découvrir les ressources Kubernetes et protéger vos applications Kubernetes.
@@ -324,6 +336,7 @@ NOTE: NetApp recommande fortement d'attribuer une adresse IP statique à l'agent
 
 
 
+[[requirements-for-protecting-hyper-v-workloads]]
 == Exigences pour la protection des charges de travail Hyper-V
 
 Assurez-vous que votre instance Hyper-V répond à des exigences spécifiques pour découvrir et protéger les machines virtuelles.

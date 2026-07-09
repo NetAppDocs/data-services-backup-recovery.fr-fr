@@ -53,6 +53,7 @@ Les administrateurs d'organisation ou de dossier/projet ajoutent des utilisateur
 
 
 
+[[related-information]]
 == Informations connexes
 
 * link:https://docs.netapp.com/us-en/console-setup-admin/concept-identity-and-access-management.html["Découvrez la gestion des identités et des accès de la NetApp Console"^].

@@ -14,6 +14,7 @@ La préparation de vos clusters ONTAP implique les étapes suivantes :
 
 
 
+[[discover-your-ontap-systems-in-netapp-console]]
 === Découvrez vos systèmes ONTAP dans la NetApp Console
 
 Votre système ONTAP source sur site et tous les systèmes ONTAP ou Cloud Volumes ONTAP secondaires sur site doivent être disponibles sur la page *Systèmes* de la NetApp Console .
@@ -22,6 +23,7 @@ Vous devrez connaître l’adresse IP de gestion du cluster et le mot de passe d
 
 
 
+[[verify-ontap-system-requirements]]
 === Vérifier la configuration système requise ONTAP
 
 Assurez-vous que votre système ONTAP répond aux exigences suivantes :

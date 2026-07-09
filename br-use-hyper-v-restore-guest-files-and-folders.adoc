@@ -18,6 +18,7 @@ Restaurez les fichiers et dossiers à partir des sauvegardes de machines virtuel
 
 
 
+[[restore-files-and-folders]]
 == Restaurer les fichiers et les dossiers
 
 Montez un disque virtuel à partir d'un instantané et restaurez les fichiers et dossiers de celui-ci sur la machine virtuelle Windows d'origine (source).
@@ -101,6 +102,7 @@ Vous pouvez consulter la progression de la restauration sur la page de suivi des
 
 
 
+[[manage-active-live-disk-mount-sessions]]
 == Gérer les sessions de montage de disque actives
 
 Consultez, utilisez et supprimez les sessions de restauration de fichiers et de dossiers Hyper-V actives depuis Backup and Recovery.

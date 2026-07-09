@@ -29,6 +29,7 @@ Après avoir configuré la NetApp Console, configurez les paramètres de sauvega
 
 
 
+[[add-credentials-for-host-resources]]
 == Ajouter des informations d'identification pour les ressources de l'hôte
 
 Ajouter les informations d'identification pour les ressources hôtes. NetApp Backup and Recovery utilise ces informations d'identification pour découvrir les charges de travail et appliquer les politiques de sauvegarde.
@@ -116,6 +117,7 @@ TIP: Pour les charges de travail Microsoft SQL Server, vous devez saisir des inf
 
 
 
+[[edit-credentials-for-host-resources]]
 === Modifier les informations d'identification pour les ressources de l'hôte
 
 Vous pourrez modifier ultérieurement le mot de passe de tous les identifiants que vous avez créés.
@@ -133,6 +135,7 @@ Vous pourrez modifier ultérieurement le mot de passe de tous les identifiants q
 
 
 
+[[maintain-vmware-vcenter-settings]]
 == Maintenir les paramètres VMware vCenter
 
 Fournissez les informations d’identification VMware vCenter pour découvrir les charges de travail à sauvegarder.  Si vous ne disposez pas d’informations d’identification, créez-les avec des autorisations pour accéder et gérer les charges de travail VMware vCenter Server.
@@ -154,6 +157,7 @@ Fournissez les informations d’identification VMware vCenter pour découvrir le
 
 
 
+[[import-and-manage-snapcenter-host-resources]]
 == Importer et gérer les ressources de l'hôte SnapCenter
 
 Si vous avez déjà utilisé SnapCenter pour sauvegarder vos ressources, vous pouvez importer et gérer ces ressources dans NetApp Backup and Recovery. Cette option vous permet d'importer les informations du serveur SnapCenter pour enregistrer plusieurs serveurs SnapCenter et découvrir les charges de travail de la base de données.
@@ -166,6 +170,7 @@ Il s’agit d’un processus en deux parties :
 
 
 
+[[import-snapcenter-server-application-and-host-resources]]
 === Importer l'application SnapCenter Server et les ressources de l'hôte
 
 Cette première étape importe les ressources de l’hôte depuis SnapCenter et affiche ces ressources dans la page Inventaire de NetApp Backup and Recovery .  À ce stade, les ressources ne sont pas encore gérées par NetApp Backup and Recovery.
@@ -203,6 +208,7 @@ La page Inventaire affiche les ressources SnapCenter importées.
 
 
 
+[[manage-snapcenter-host-resources]]
 === Gérer les ressources de l'hôte SnapCenter
 
 Après avoir importé les ressources SnapCenter , gérez ces ressources hôtes dans NetApp Backup and Recovery.  Une fois que vous avez choisi de gérer ces ressources importées, NetApp Backup and Recovery peut sauvegarder et récupérer les ressources que vous importez depuis SnapCenter.  Vous n’avez plus besoin de gérer ces ressources dans SnapCenter Server.
@@ -218,6 +224,7 @@ La page Inventaire affiche *Géré* sous le nom d'hôte pour indiquer que les re
 
 
 
+[[edit-imported-snapcenter-resources]]
 === Modifier les ressources SnapCenter importées
 
 Vous pouvez ultérieurement réimporter les ressources SnapCenter ou modifier les ressources SnapCenter importées pour mettre à jour les informations d'enregistrement.
@@ -237,6 +244,7 @@ La page Importer depuis SnapCenter affiche toutes les importations précédentes
 
 
 
+[[add-a-kvm-management-platform]]
 == Ajouter une plateforme de gestion KVM
 
 Si vous utilisez la plateforme de gestion Apache CloudStack pour gérer les ressources KVM, vous devez l'intégrer à NetApp Backup and Recovery afin que ce dernier puisse détecter et protéger les hôtes et les machines virtuelles KVM gérés.
@@ -259,6 +267,7 @@ Si vous utilisez la plateforme de gestion Apache CloudStack pour gérer les ress
 
 
 
+[[configure-log-directories-in-snapshots-for-windows-hosts]]
 == Configurer les répertoires de journaux dans les instantanés pour les hôtes Windows
 
 Avant de créer des stratégies pour les hôtes Windows, vous devez configurer les répertoires de journaux dans les instantanés pour les hôtes Windows.  Les répertoires de journaux sont utilisés pour stocker les journaux générés pendant le processus de sauvegarde.
@@ -274,6 +283,7 @@ Avant de créer des stratégies pour les hôtes Windows, vous devez configurer l
 
 
 
+[[create-an-execution-hook-template]]
 == Créer un modèle de hook d'exécution
 
 Vous pouvez créer un modèle de hook d’exécution personnalisé que vous pouvez utiliser pour effectuer des actions avant ou après une opération de protection des données sur une application.
@@ -297,6 +307,7 @@ Une fois le modèle créé, il apparaît dans la liste des modèles dans la sect
 
 
 
+[[create-a-resource-transformation-template]]
 == Créer un modèle de transformation de ressources
 
 Créez des modèles de transformation de ressources pour stocker les transformations courantes que vous effectuez sur les ressources lors de leur restauration.

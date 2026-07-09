@@ -31,6 +31,7 @@ Vous pouvez atteindre les objectifs suivants liés aux politiques :
 
 
 
+[[view-policies]]
 == Voir les politiques
 
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Politiques*.
@@ -47,6 +48,7 @@ Vous pouvez atteindre les objectifs suivants liés aux politiques :
 
 
 
+[[create-a-policy]]
 == Créer une politique
 
 Vous pouvez créer des stratégies qui régissent vos snapshots locaux, vos réplications vers un stockage secondaire et vos sauvegardes vers un stockage d'objets. Une partie de votre stratégie 3-2-1 consiste à créer un instantané des instances, bases de données, applications ou machines virtuelles sur le système de stockage *principal*.
@@ -131,6 +133,7 @@ NOTE: Les champs qui s'affichent diffèrent selon le fournisseur et l'architectu
 
 
 
+[[configure-advanced-settings-in-the-policy]]
 === Configurer les paramètres avancés dans la politique
 
 [%collapsible]
@@ -198,6 +201,7 @@ TIP: Si la fréquence des instantanés est définie sur 1 heure, le délai maxim
 ====
 
 
+[[edit-a-policy]]
 == Modifier une politique
 
 Vous pouvez modifier l'architecture de sauvegarde, la fréquence de sauvegarde, la politique de rétention et d'autres paramètres d'une politique. Pour les politiques de charge de travail Kubernetes, vous pouvez uniquement modifier les paramètres de planification et de rétention.
@@ -220,6 +224,7 @@ Super administrateur de sauvegarde et de récupération. https://docs.netapp.com
 
 
 
+[[delete-a-policy]]
 == Supprimer une politique
 
 Vous pouvez supprimer une politique si vous n’en avez plus besoin.

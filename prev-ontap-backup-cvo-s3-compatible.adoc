@@ -21,6 +21,7 @@ NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Reco
 
 
 
+[[verify-support-for-your-configuration]]
 == Vérifiez la prise en charge de votre configuration
 
 Lisez les exigences suivantes pour vous assurer que vous disposez d'une configuration prise en charge avant de commencer à sauvegarder des volumes sur un stockage compatible S3.
@@ -39,6 +40,7 @@ Informations requises pour l'utilisation de clés gérées par le client pour le
 
 
 
+[[supported-actions]]
 === Actions prises en charge
 
 Voici les actions prises en charge lors de la sauvegarde sur un stockage compatible S3 :
@@ -51,6 +53,7 @@ Voici les actions prises en charge lors de la sauvegarde sur un stockage compati
 
 
 
+[[unsupported-features-and-configurations]]
 === Fonctionnalités et configurations non prises en charge
 
 Les fonctionnalités et configurations suivantes ne sont pas prises en charge lors de la sauvegarde sur un stockage compatible S3 :
@@ -65,6 +68,7 @@ Les fonctionnalités et configurations suivantes ne sont pas prises en charge lo
 
 
 
+[[caveats]]
 === Mises en garde
 
 Lors de la sauvegarde sur un stockage compatible S3, tenez compte des points suivants :
@@ -76,6 +80,7 @@ Lors de la sauvegarde sur un stockage compatible S3, tenez compte des points sui
 
 
 
+[[verify-license-requirements]]
 == Vérifier les exigences de licence
 
 Pour les licences NetApp Backup and Recovery PAYGO, un abonnement Console est disponible sur AWS Marketplace qui permet les déploiements de Cloud Volumes ONTAP et NetApp Backup and Recovery.  Vous devez https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["abonnez-vous à cet abonnement NetApp Console"^] avant d'activer NetApp Backup and Recovery.  La facturation de NetApp Backup and Recovery s'effectue via cet abonnement.
@@ -90,6 +95,7 @@ Et vous devez disposer d’un compte AWS pour l’espace de stockage où seront 
 
 
 
+[[prepare-your-console-agent]]
 == Préparez votre agent de console
 
 L'agent de console doit être installé dans une région AWS avec un accès Internet complet ou limité (mode « standard » ou « restreint »). https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["Consultez les modes de déploiement de la NetApp Console pour plus de détails."^] .
@@ -101,6 +107,7 @@ L'agent de console doit être installé dans une région AWS avec un accès Inte
 
 
 
+[[verify-or-add-permissions-to-the-console-agent]]
 === Vérifier ou ajouter des autorisations à l'agent de la console
 
 Le rôle IAM qui fournit des autorisations à la console doit inclure les autorisations S3 de la dernière version. https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-aws.html["Politique de la console"^] .  Si la politique ne contient pas toutes ces autorisations, consultez le https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html["Documentation AWS : Modification des politiques IAM"^] .
@@ -210,6 +217,7 @@ link:prev-ontap-protect-journey.html["En savoir plus sur la création de vos pro
 
 
 
+[[verify-ontap-networking-requirements-for-replicating-volumes]]
 == Vérifier les exigences réseau ONTAP pour la réplication des volumes
 
 Si vous prévoyez de créer des volumes répliqués sur un système ONTAP secondaire à l'aide de NetApp Backup and Recovery, assurez-vous que les systèmes source et de destination répondent aux exigences réseau suivantes.
@@ -237,6 +245,7 @@ Si vous prévoyez de créer des volumes répliqués sur un système ONTAP second
 
 
 
+[[enable-netapp-backup-and-recovery-on-cloud-volumes-ontap]]
 == Activer la NetApp Backup and Recovery sur Cloud Volumes ONTAP
 
 L'activation de la NetApp Backup and Recovery est simple.  Les étapes diffèrent légèrement selon que vous disposez d’un système Cloud Volumes ONTAP existant ou d’un nouveau.
@@ -271,6 +280,7 @@ Si la destination compatible S3 pour vos sauvegardes existe sous forme de cluste
 
 
 
+[[activate-backups-on-your-ontap-volumes]]
 == Activer les sauvegardes sur vos volumes ONTAP
 
 Activez les sauvegardes à tout moment directement depuis votre système sur site.
@@ -286,6 +296,7 @@ Vous pouvez également<<Afficher les commandes de l'API>> à l'étape de révisi
 
 
 
+[[start-the-wizard]]
 === Démarrer l'assistant
 
 .Étapes
@@ -311,6 +322,7 @@ La page d'introduction de l'assistant affiche les options de protection, notamme
 
 
 
+[[select-the-volumes-that-you-want-to-back-up]]
 === Sélectionnez les volumes que vous souhaitez sauvegarder
 
 Choisissez les volumes que vous souhaitez protéger.  Un volume protégé est un volume qui possède un ou plusieurs des éléments suivants : politique de snapshot, politique de réplication, politique de sauvegarde vers objet.
@@ -339,6 +351,7 @@ Si les volumes que vous choisissez ont déjà des stratégies de snapshot ou de 
 
 
 
+[[define-the-backup-strategy]]
 === Définir la stratégie de sauvegarde
 
 La définition de la stratégie de sauvegarde implique de définir les options suivantes :
@@ -452,6 +465,7 @@ Pour créer une politique, sélectionnez *Créer une nouvelle politique* et proc
 
 
 
+[[review-your-selections]]
 === Revoyez vos sélections
 
 C'est l'occasion de revoir vos sélections et de faire des ajustements, si nécessaire.
@@ -475,6 +489,7 @@ Vous pouvez également surveiller l’état des tâches de sauvegarde et de rest
 
 
 
+[[show-the-api-commands]]
 === Afficher les commandes de l'API
 
 Vous souhaiterez peut-être afficher et éventuellement copier les commandes API utilisées dans l’assistant d’activation de la sauvegarde et de la récupération.  Vous souhaiterez peut-être faire cela pour automatiser l’activation de la sauvegarde dans les futurs systèmes.

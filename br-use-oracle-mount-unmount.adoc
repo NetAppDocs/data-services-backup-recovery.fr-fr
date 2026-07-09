@@ -18,6 +18,7 @@ Il peut être judicieux de monter un point de récupération Oracle Database si 
 
 
 
+[[mount-an-oracle-database-recovery-point]]
 == Monter un point de récupération de base de données Oracle
 
 Si vous configurez la politique de protection d'une base de données afin de conserver les journaux d'archive, vous pouvez monter des points de récupération pour afficher l'historique des modifications de la base de données.
@@ -50,6 +51,7 @@ Le point de récupération est monté sur l’hôte Oracle.
 
 
 
+[[unmount-an-oracle-database-recovery-point]]
 == Démonter un point de récupération de base de données Oracle
 
 Démontez le point de récupération lorsque vous n’avez plus besoin d’afficher les modifications apportées à cette base de données.
@@ -70,6 +72,7 @@ Une liste de points de récupération pour cette base de données s’affiche.
 
 
 
+[[catalog-an-oracle-database-recovery-point]]
 == Cataloguez un point de récupération de la base de données Oracle
 
 Cataloguez manuellement un point de récupération lorsque vous devez préserver les métadonnées de ses opérations de sauvegarde et de restauration. Les métadonnées sont stockées conformément aux paramètres de *Configure RMAN catalog* que vous choisissez pour la base de données (dans le fichier de contrôle cible par défaut). Vous n'avez besoin de cataloguer manuellement que si le catalogage automatique est désactivé dans la stratégie de protection associée.

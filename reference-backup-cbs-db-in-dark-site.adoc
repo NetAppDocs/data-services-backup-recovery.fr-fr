@@ -36,6 +36,7 @@ TIP: Aucune donnée de volume n'est jamais incluse dans la base de données NetA
 
 
 
+[[restore-netapp-backup-and-recovery-data-to-a-new-console-agent]]
 == Restaurer les données de NetApp Backup and Recovery vers un nouvel agent de console
 
 Si votre agent de console sur site cesse de fonctionner, vous devrez installer un nouvel agent de console, puis restaurer les données de NetApp Backup and Recovery sur le nouvel agent de console.
@@ -65,6 +66,7 @@ Ce fichier se trouve à l'emplacement suivant dans le bucket `netapp-backup-<GUI
 
 
 
+[[install-a-new-console-agent-on-a-new-on-premises-linux-host]]
 === Installer un nouvel agent de console sur un nouvel hôte Linux local
 
 Lors de l'installation d'un nouvel agent Console, téléchargez la même version logicielle que l'agent d'origine. Les modifications apportées à la base de données NetApp Backup and Recovery peuvent empêcher les nouvelles versions logicielles de fonctionner avec les anciennes sauvegardes de la base de données. Vous pouvez https://docs.netapp.com/us-en/console-setup-admin/task-upgrade-connector.html["mettre à niveau le logiciel de l'agent de la console vers la version la plus récente après la restauration de la base de données de sauvegarde"^].
@@ -75,6 +77,7 @@ Lors de l'installation d'un nouvel agent Console, téléchargez la même version
 
 
 
+[[restore-the-netapp-backup-and-recovery-database]]
 === Restaurer la base de données de NetApp Backup and Recovery
 
 . Copiez la sauvegarde MySQL de l’emplacement de sauvegarde vers le nouvel hôte de l’agent de console. Nous utiliserons le nom de fichier d'exemple « CBS_DB_Backup_23_05_2023.sql » ci-dessous.
@@ -126,6 +129,7 @@ mysql> select * from volume;
 
 
 
+[[restore-the-indexed-catalog-files]]
 === Restaurer les fichiers du catalogue indexé
 
 . Copiez le fichier zip de sauvegarde du catalogue indexé (nous utiliserons le nom de fichier d'exemple « Indexed_Catalog_DB_Backup_catalogdb1_23_05_2023.zip ») de l'emplacement de sauvegarde vers le nouvel hôte de l'agent de console dans le dossier « /opt/application/netapp/cbs ».
@@ -140,6 +144,7 @@ unzip Indexed_Catalog_DB_Backup_catalogdb1_23_05_2023.zip -d catalogdb1
 
 
 
+[[discover-your-ontap-clusters-and-storagegrid-systems]]
 === Découvrez vos clusters ONTAP et vos systèmes StorageGRID
 
 . https://docs.netapp.com/us-en/storage-management-ontap-onprem/task-discovering-ontap.html#discover-clusters-using-a-connector["Découvrez tous les systèmes ONTAP sur site"^]qui étaient disponibles dans votre environnement précédent. Cela inclut le système ONTAP que vous avez utilisé comme serveur S3.
@@ -148,6 +153,7 @@ unzip Indexed_Catalog_DB_Backup_catalogdb1_23_05_2023.zip -d catalogdb1
 
 
 
+[[set-up-the-storagegrid-environment-details]]
 === Configurer les détails de l'environnement StorageGRID
 
 Ajoutez les détails du système StorageGRID associé à vos systèmes ONTAP tels qu'ils ont été configurés lors de la configuration de l'agent de console d'origine à l'aide de l' https://docs.netapp.com/us-en/console-automation/index.html["API de la NetApp Console"^] .
@@ -202,6 +208,7 @@ curl -X POST 'http://10.193.192.202/account/account-DARKSITE1/providers/cloudman
 
 
 
+[[verify-netapp-backup-and-recovery-settings]]
 === Vérifier les paramètres de NetApp Backup and Recovery
 
 . Sélectionnez chaque système ONTAP et cliquez sur *Afficher les sauvegardes* à côté du service de sauvegarde et de récupération dans le panneau de droite.

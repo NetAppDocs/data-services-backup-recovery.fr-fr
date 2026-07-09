@@ -50,6 +50,7 @@ Avant de commencer, vous devez avoir une idée du nom ou de l’emplacement du v
 
 
 
+[[search-restore-supported-systems-and-object-storage-providers]]
 == Systèmes pris en charge par la recherche et la restauration et fournisseurs de stockage d'objets
 
 Vous pouvez restaurer les données ONTAP à partir d'un fichier de sauvegarde résidant dans un système secondaire (un volume répliqué) ou dans un stockage d'objets (un fichier de sauvegarde) sur les systèmes suivants. Les instantanés résident sur le système source et ne peuvent être restaurés que sur ce même système.
@@ -91,6 +92,7 @@ Notez que les références aux « systèmes ONTAP sur site » incluent les sys
 
 
 
+[[search-restore-prerequisites]]
 == Prérequis de recherche et de restauration
 
 Assurez-vous que votre environnement répond à ces exigences avant d'activer la fonction Rechercher et restaurer :
@@ -107,6 +109,7 @@ Assurez-vous que votre environnement répond à ces exigences avant d'activer la
 
 
 
+[[legacy-search-restore-prerequisites-using-indexed-catalog-v1]]
 === Prérequis pour la recherche et la restauration héritées (avec Indexed Catalog v1)
 
 Voici les exigences relatives à la recherche et à la restauration lors de l'utilisation de l'indexation héritée :
@@ -160,6 +163,7 @@ Même si vous utilisez un agent de console sur site, les exigences du fournisseu
 ====
 
 
+[[search-restore-process]]
 == Processus de recherche et de restauration
 
 Le processus se déroule comme suit :
@@ -185,6 +189,7 @@ Il vous suffit de connaître une partie du nom, et NetApp Backup and Recovery ef
 
 
 
+[[enable-the-indexed-catalog-for-each-system]]
 == Activer le catalogue indexé pour chaque système
 
 Avant de pouvoir utiliser la recherche et la restauration, vous devez activer « Indexation » sur chaque système source à partir duquel vous prévoyez de restaurer des volumes ou des fichiers.  Cela permet au catalogue indexé de suivre chaque volume et chaque fichier de sauvegarde, ce qui rend vos recherches très rapides et efficaces.
@@ -257,6 +262,7 @@ Selon la taille des volumes du système et le nombre de fichiers de sauvegarde d
 
 
 
+[[restore-volumes-folders-and-files-using-search-restore]]
 == Restaurer des volumes, des dossiers et des fichiers à l'aide de la recherche et de la restauration
 
 Après avoir<<enable-the-indexed-catalog-for-each-system,Activation de l'indexation pour votre système>> , vous pouvez restaurer des volumes, des dossiers et des fichiers à l'aide de la recherche et de la restauration. Cela vous permet d'utiliser une large gamme de filtres pour trouver le fichier ou le volume exact que vous souhaitez restaurer à partir de tous les fichiers de sauvegarde.

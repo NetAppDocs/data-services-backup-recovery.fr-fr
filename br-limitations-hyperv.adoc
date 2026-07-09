@@ -18,6 +18,7 @@ Les plates-formes, appareils ou fonctionnalités qui ne fonctionnent pas ou ne f
 
 
 
+[[unsupported-actions]]
 == Actions non prises en charge
 
 Les actions suivantes ne sont pas prises en charge dans les charges de travail Hyper-V dans NetApp Backup and Recovery :

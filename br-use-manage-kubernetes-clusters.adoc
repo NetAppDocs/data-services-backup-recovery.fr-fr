@@ -24,6 +24,7 @@ NOTE: Pour découvrir les clusters Kubernetes, reportez-vous àlink:br-start-dis
 
 
 
+[[edit-kubernetes-cluster-information]]
 == Modifier les informations du cluster Kubernetes
 
 Vous pouvez modifier un cluster si vous devez changer son nom.
@@ -38,6 +39,7 @@ Vous pouvez modifier un cluster si vous devez changer son nom.
 
 
 
+[[remove-a-kubernetes-cluster]]
 == Supprimer un cluster Kubernetes
 
 Pour arrêter la protection d'un cluster Kubernetes, désactivez la protection et supprimez les applications associées, puis supprimez le cluster de NetApp Backup and Recovery.  NetApp Backup and Recovery ne supprime pas le cluster ni ses ressources ; il supprime uniquement le cluster de l'inventaire de la NetApp Console .
@@ -51,6 +53,7 @@ Pour arrêter la protection d'un cluster Kubernetes, désactivez la protection e
 
 
 
+[[upgrade-trident-protect]]
 == Mettre à niveau Trident Protect
 
 Pour les clusters Kubernetes exécutant Trident Protect 26.05 ou une version ultérieure, vous pouvez mettre à niveau Trident Protect directement depuis NetApp Backup and Recovery. L'option de mise à niveau n'apparaît que si une version plus récente est disponible.

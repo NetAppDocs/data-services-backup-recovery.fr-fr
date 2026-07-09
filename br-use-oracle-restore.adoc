@@ -32,6 +32,7 @@ Vous pouvez restaurer les données à l'emplacement d'origine ; la restauration
 
 
 
+[[how-restoring-oracle-databases-works]]
 == Comment fonctionne la restauration des bases de données Oracle
 
 Lorsque vous restaurez des bases de données Oracle, les événements suivants se produisent :
@@ -45,6 +46,7 @@ Lorsque vous restaurez des bases de données Oracle, les événements suivants s
 
 
 
+[[restore-an-oracle-database]]
 == Restaurer une base de données Oracle
 
 Selon vos besoins, restaurez une base de données Oracle à un moment précis, à un numéro de modification système (SCN) spécifique ou au dernier état correct.  Vous pouvez également simplement restaurer la base de données à partir d'instantanés et ignorer le processus de récupération automatique.  Vous souhaiterez peut-être ignorer le processus de récupération automatique si vous souhaitez effectuer la récupération manuellement.  Vous pouvez rechercher la base de données en utilisant son nom ou avec des filtres spécifiques.

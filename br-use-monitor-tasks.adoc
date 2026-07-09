@@ -22,6 +22,7 @@ NetApp Backup and Recovery conserve les informations sur les tâches pendant 15 
 
 
 
+[[view-job-status-on-the-job-monitor]]
 == Afficher l'état du travail sur le moniteur de travail
 
 Vous pouvez afficher une liste de toutes les opérations de snapshot, de réplication, de sauvegarde sur stockage d'objets et de restauration ainsi que leur état actuel dans l'onglet *Surveillance des tâches*.  Cela inclut les opérations de vos Cloud Volumes ONTAP, ONTAP sur site, applications et machines virtuelles.  Chaque opération, ou tâche, possède un identifiant et un statut uniques.
@@ -47,6 +48,7 @@ NOTE: Si vous avez mis à niveau vos systèmes ONTAP vers la version 9.13.x et q
 
 
 
+[[search-and-filter-the-list-of-jobs]]
 === Rechercher et filtrer la liste des emplois
 
 Vous pouvez filtrer les opérations sur la page de surveillance des tâches à l'aide de plusieurs filtres, tels que la politique, l'étiquette de l'instantané, le type d'opération (protection, restauration, conservation ou autre) et le type de protection (instantané local, réplication ou sauvegarde dans le cloud).
@@ -83,6 +85,7 @@ La plupart des filtres sont explicites. Le filtre « Charge de travail » vous p
 
 
 
+[[view-job-details]]
 === Voir les détails du poste
 
 Vous pouvez afficher les détails correspondant à un travail terminé spécifique.  Vous pouvez exporter les détails d'un travail particulier au format JSON.
@@ -100,6 +103,7 @@ Les tâches de restauration affichent des détails tels que le fournisseur cible
 
 
 
+[[download-job-monitoring-results-as-a-report]]
 === Télécharger les résultats de la surveillance des tâches sous forme de rapport
 
 Vous pouvez télécharger le contenu de la page principale de surveillance des tâches sous forme de rapport après avoir filtré ou trié les résultats. NetApp Backup and Recovery génère et télécharge un fichier .CSV que vous pouvez consulter et envoyer à d'autres groupes selon vos besoins. Le fichier .CSV comprend jusqu'à 10 000 lignes de données.
@@ -114,6 +118,7 @@ Vous pouvez télécharger le contenu de la page principale de surveillance des t
 
 
 
+[[review-retention-backup-lifecycle-jobs]]
 == Examiner les tâches de rétention (cycle de vie des sauvegardes)
 
 Surveillez les flux de rétention (_cycle de vie des sauvegardes_) pour vérifier les sauvegardes, les protéger et prendre en charge les audits.  Identifiez quand les copies de sauvegarde expirent pour suivre le cycle de vie.
@@ -130,6 +135,7 @@ Le type de tâche « Rétention » capture toutes les tâches de suppression d
 
 
 
+[[review-backup-and-restore-alerts-in-the-netapp-console-notification-center]]
 == Consultez les alertes de sauvegarde et de restauration dans le centre de notifications de la NetApp Console
 
 Le centre de notifications de la NetApp Console suit la progression des tâches de sauvegarde et de restauration que vous avez lancées afin que vous puissiez vérifier si l'opération a réussi ou non.
@@ -248,6 +254,7 @@ https://docs.netapp.com/us-en/console-setup-admin/task-monitor-cm-operations.htm
 
 
 
+[[review-operation-activity-in-console-timeline]]
 == Examiner l'activité opérationnelle dans la chronologie de la console
 
 Vous pouvez afficher les détails des opérations de sauvegarde et de restauration pour une enquête plus approfondie dans la chronologie de la console.  La chronologie de la console fournit des détails sur chaque événement, qu'il soit initié par l'utilisateur ou par le système, et affiche les actions initiées dans l'interface utilisateur ou via l'API.

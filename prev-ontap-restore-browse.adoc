@@ -37,6 +37,7 @@ NOTE: La priorité élevée n’est pas prise en charge lors de la restauration 
 
 
 
+[[browse-restore-supported-systems-and-object-storage-providers]]
 == Parcourir et restaurer les systèmes pris en charge et les fournisseurs de stockage d'objets
 
 Vous pouvez restaurer les données ONTAP à partir d'un fichier de sauvegarde résidant dans un système secondaire (un volume répliqué) ou dans un stockage d'objets (un fichier de sauvegarde) sur les systèmes suivants. Les instantanés résident sur le système source et ne peuvent être restaurés que sur ce même système.
@@ -75,6 +76,7 @@ NOTE: Si la version ONTAP de votre système est inférieure à 9.13.1, vous ne p
 
 
 
+[[restore-volumes-using-browse-restore]]
 == Restaurer les volumes à l'aide de Parcourir et restaurer
 
 Lorsque vous restaurez un volume à partir d'un fichier de sauvegarde, NetApp Backup and Recovery crée un _nouveau_ volume à l'aide des données de la sauvegarde.  Lorsque vous utilisez une sauvegarde à partir du stockage d'objets, vous pouvez restaurer les données sur un volume du système d'origine, sur un autre système situé dans le même compte cloud que le système source ou sur un système ONTAP local.
@@ -141,6 +143,7 @@ Notez que la restauration d’un volume à partir d’un fichier de sauvegarde r
 
 
 
+[[restore-folders-and-files-using-browse-restore]]
 == Restaurer des dossiers et des fichiers à l'aide de Parcourir et restaurer
 
 Si vous devez restaurer uniquement quelques fichiers à partir d'une sauvegarde de volume ONTAP , vous pouvez choisir de restaurer un dossier ou des fichiers individuels au lieu de restaurer l'intégralité du volume.  Vous pouvez restaurer des dossiers et des fichiers sur un volume existant dans le système d'origine ou sur un autre système utilisant le même compte cloud.  Vous pouvez également restaurer des dossiers et des fichiers sur un volume sur un système ONTAP local.
@@ -165,6 +168,7 @@ Vous pouvez le tester en utilisant un indicateur spécial décrit dans le https:
 ====
 
 
+[[restore-folders-and-files]]
 === Restaurer des dossiers et des fichiers
 
 Suivez ces étapes pour restaurer des dossiers ou des fichiers sur un volume à partir d’une sauvegarde de volume ONTAP .  Vous devez connaître le nom du volume et la date du fichier de sauvegarde que vous souhaitez utiliser pour restaurer le dossier ou le(s) fichier(s).  Cette fonctionnalité utilise la navigation en direct pour que vous puissiez afficher la liste des répertoires et des fichiers dans chaque fichier de sauvegarde.

@@ -4,6 +4,7 @@
 
 
 
+[[high-performance-indexing]]
 === Indexation haute performance
 
 NetApp Backup and Recovery introduit une fonctionnalité d’indexation mise à jour qui rend l’indexation des données sur le système source plus efficace.  La nouvelle fonctionnalité d'indexation inclut des mises à jour de l'interface utilisateur, des performances améliorées de la méthode de recherche et de restauration des données, des mises à niveau des capacités de recherche globale et une meilleure évolutivité.
@@ -40,6 +41,7 @@ La nouvelle fonctionnalité d’indexation prend en charge les éléments suivan
 
 
 
+[[global-search-performance-improvements]]
 === Améliorations des performances de recherche globale
 
 Cette version inclut également des améliorations des performances de recherche globale.  Vous verrez désormais des indicateurs de progression et des résultats de recherche plus détaillés, notamment le nombre de fichiers et le temps nécessaire à la recherche.  Des conteneurs dédiés à la recherche et à l'indexation garantissent que les recherches globales sont effectuées en moins de cinq minutes.

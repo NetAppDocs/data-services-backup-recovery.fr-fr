@@ -24,6 +24,7 @@ NOTE: Pour sauvegarder des groupes de protection selon une planification, créez
 
 
 
+[[back-up-protection-groups-now-with-an-on-demand-backup]]
 == Sauvegardez maintenant les groupes de protection avec une sauvegarde à la demande
 
 Vous pouvez exécuter une sauvegarde à la demande immédiatement.  Cela est utile si vous êtes sur le point d'apporter des modifications à votre système et que vous souhaitez vous assurer que vous disposez d'une sauvegarde avant de commencer.

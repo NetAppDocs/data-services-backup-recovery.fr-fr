@@ -4,6 +4,7 @@
 
 
 
+[[podman-support-on-rhel-8-or-9-with-browse-and-restore]]
 === Prise en charge de Podman sur RHEL 8 ou 9 avec navigation et restauration
 
 NetApp Backup and Recovery prend désormais en charge les restaurations de fichiers et de dossiers sur les versions 8 et 9 de Red Hat Enterprise Linux (RHEL) à l'aide du moteur Podman.  Ceci s'applique à la méthode de NetApp Backup and Recovery .
@@ -14,6 +15,7 @@ https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-restore.h
 
 
 
+[[faster-catalog-indexing-improves-search-and-restore]]
 === L'indexation plus rapide du catalogue améliore la recherche et la restauration
 
 Cette version inclut un index de catalogue amélioré qui termine l'indexation de base beaucoup plus rapidement.  Une indexation plus rapide vous permet d’utiliser la fonction Rechercher et restaurer plus rapidement.

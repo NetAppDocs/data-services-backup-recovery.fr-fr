@@ -24,6 +24,7 @@ NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Reco
 
 
 
+[[identify-the-connection-method]]
 == Identifier la méthode de connexion
 
 L'image suivante montre chaque composant lors de la sauvegarde d'un système ONTAP sur site sur StorageGRID et les connexions que vous devez préparer entre eux.
@@ -36,12 +37,14 @@ Lorsque l'agent de console et le système ONTAP sur site sont installés dans un
 
 
 
+[[prepare-your-console-agent]]
 == Préparez votre agent de console
 
 L'agent Console est le logiciel principal pour les fonctionnalités de la console.  Un agent de console est requis pour sauvegarder et restaurer vos données ONTAP .
 
 
 
+[[create-or-switch-console-agents]]
 === Créer ou changer d'agents de console
 
 Lorsque vous sauvegardez des données sur StorageGRID, un agent de console doit être disponible dans vos locaux.  Vous devrez soit installer un nouvel agent de console, soit vous assurer que l'agent de console actuellement sélectionné réside sur site.  L'agent Console peut être installé sur un site avec ou sans accès Internet.
@@ -54,6 +57,7 @@ Lorsque vous sauvegardez des données sur StorageGRID, un agent de console doit 
 
 
 
+[[prepare-console-agent-networking-requirements]]
 === Préparer les exigences réseau de l'agent de console
 
 Assurez-vous que le réseau sur lequel l’agent de console est installé permet les connexions suivantes :
@@ -76,6 +80,7 @@ La nouvelle version de NetApp Backup and Recovery , qui inclut la possibilité d
 
 
 
+[[verify-license-requirements]]
 == Vérifier les exigences de licence
 
 Avant de pouvoir activer NetApp Backup and Recovery pour votre cluster, vous devez acheter et activer une licence BYOL NetApp Backup and Recovery auprès de NetApp.  Cette licence est destinée au compte et peut être utilisée sur plusieurs systèmes.
@@ -87,6 +92,7 @@ TIP: La licence PAYGO n'est pas prise en charge lors de la sauvegarde de fichier
 
 
 
+[[prepare-your-ontap-clusters]]
 == Préparez vos clusters ONTAP
 
 Préparez votre système ONTAP source sur site et tous les systèmes ONTAP ou Cloud Volumes ONTAP secondaires sur site.
@@ -101,6 +107,7 @@ La préparation de vos clusters ONTAP implique les étapes suivantes :
 
 
 
+[[discover-your-ontap-systems-in-netapp-console]]
 === Découvrez vos systèmes ONTAP dans la NetApp Console
 
 Votre système ONTAP source sur site et tous les systèmes ONTAP ou Cloud Volumes ONTAP secondaires sur site doivent être disponibles sur la page *Systèmes* de la NetApp Console .
@@ -109,6 +116,7 @@ Vous devrez connaître l’adresse IP de gestion du cluster et le mot de passe d
 
 
 
+[[verify-ontap-system-requirements]]
 === Vérifier la configuration système requise ONTAP
 
 Assurez-vous que votre système ONTAP répond aux exigences suivantes :
@@ -130,6 +138,7 @@ https://docs.netapp.com/us-en/ontap/data-protection/compatible-ontap-versions-sn
 
 
 
+[[verify-ontap-networking-requirements-for-backing-up-data-to-object-storage]]
 === Vérifier les exigences réseau ONTAP pour la sauvegarde des données sur le stockage d'objets
 
 Vous devez configurer les exigences suivantes sur le système qui se connecte au stockage d’objets.
@@ -157,6 +166,7 @@ Lorsque vous configurez NetApp Backup and Recovery, vous êtes invité à indiqu
 
 
 
+[[verify-ontap-networking-requirements-for-replicating-volumes]]
 === Vérifier les exigences réseau ONTAP pour la réplication des volumes
 
 Si vous prévoyez de créer des volumes répliqués sur un système ONTAP secondaire à l'aide de NetApp Backup and Recovery, assurez-vous que les systèmes source et de destination répondent aux exigences réseau suivantes.
@@ -181,6 +191,7 @@ Si vous prévoyez de créer des volumes répliqués sur un système ONTAP second
 
 
 
+[[prepare-storagegrid-as-your-backup-target]]
 == Préparez StorageGRID comme cible de sauvegarde
 
 StorageGRID doit répondre aux exigences suivantes.  Voir le https://docs.netapp.com/us-en/storagegrid-117/["Documentation de StorageGRID"^] pour plus d'informations.
@@ -221,6 +232,7 @@ Versionnage d'objet:: Vous ne devez pas activer manuellement le contrôle de ver
 
 
 
+[[prepare-to-archive-older-backup-files-to-public-cloud-storage]]
 === Préparez-vous à archiver les anciens fichiers de sauvegarde sur un stockage cloud public
 
 La hiérarchisation des fichiers de sauvegarde plus anciens vers un stockage d'archives permet d'économiser de l'argent en utilisant une classe de stockage moins coûteuse pour les sauvegardes dont vous n'avez peut-être pas besoin.  StorageGRID est une solution sur site (cloud privé) qui ne fournit pas de stockage d'archives, mais vous pouvez déplacer des fichiers de sauvegarde plus anciens vers un stockage d'archives dans le cloud public.  Lorsqu'elles sont utilisées de cette manière, les données hiérarchisées vers le stockage cloud ou restaurées à partir du stockage cloud transitent entre StorageGRID et le stockage cloud - la console n'est pas impliquée dans ce transfert de données.
@@ -274,6 +286,7 @@ Les paramètres de politique d'archivage que vous sélectionnez généreront une
 
 
 
+[[activate-backups-on-your-ontap-volumes]]
 == Activer les sauvegardes sur vos volumes ONTAP
 
 Activez les sauvegardes à tout moment directement depuis votre système sur site.
@@ -289,6 +302,7 @@ Vous pouvez également<<Afficher les commandes de l'API>> à l'étape de révisi
 
 
 
+[[start-the-wizard]]
 === Démarrer l'assistant
 
 .Étapes
@@ -314,6 +328,7 @@ La page d'introduction de l'assistant affiche les options de protection, notamme
 
 
 
+[[select-the-volumes-that-you-want-to-back-up]]
 === Sélectionnez les volumes que vous souhaitez sauvegarder
 
 Choisissez les volumes que vous souhaitez protéger.  Un volume protégé est un volume qui possède un ou plusieurs des éléments suivants : politique de snapshot, politique de réplication, politique de sauvegarde vers objet.
@@ -342,6 +357,7 @@ Si les volumes que vous choisissez ont déjà des stratégies de snapshot ou de 
 
 
 
+[[define-the-backup-strategy]]
 === Définir la stratégie de sauvegarde
 
 La définition de la stratégie de sauvegarde implique de définir les options suivantes :
@@ -455,6 +471,7 @@ Sélectionnez ou créez un nouveau cluster StorageGRID .  Pour plus de détails 
 
 
 
+[[review-your-selections]]
 === Revoyez vos sélections
 
 C'est l'occasion de revoir vos sélections et de faire des ajustements, si nécessaire.
@@ -478,6 +495,7 @@ Vous pouvez également surveiller l’état des tâches de sauvegarde et de rest
 
 
 
+[[show-the-api-commands]]
 === Afficher les commandes de l'API
 
 Vous souhaiterez peut-être afficher et éventuellement copier les commandes API utilisées dans l’assistant d’activation de la sauvegarde et de la récupération.  Vous souhaiterez peut-être faire cela pour automatiser l’activation de la sauvegarde dans les futurs systèmes.

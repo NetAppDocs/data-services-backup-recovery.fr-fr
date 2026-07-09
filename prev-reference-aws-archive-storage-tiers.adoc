@@ -18,6 +18,7 @@ NetApp Backup and Recovery prend en charge deux classes de stockage d'archivage 
 
 
 
+[[supported-s3-archival-storage-classes-for-netapp-backup-and-recovery]]
 == Classes de stockage d'archivage S3 prises en charge pour NetApp Backup and Recovery
 
 Lorsque les fichiers de sauvegarde sont initialement créés, ils sont stockés dans le stockage S3 _Standard_.  Ce niveau est optimisé pour stocker des données rarement consultées, mais qui vous permet également d'y accéder immédiatement.  Après 30 jours, les sauvegardes passent à la classe de stockage S3 _Standard-Infrequent Access_ pour réduire les coûts.
@@ -37,6 +38,7 @@ https://aws.amazon.com/s3/storage-classes/["En savoir plus sur les classes de st
 
 
 
+[[restore-data-from-archival-storage]]
 == Restaurer les données à partir du stockage d'archives
 
 Bien que le stockage des fichiers de sauvegarde plus anciens dans un stockage d'archives soit beaucoup moins coûteux que le stockage Standard ou Standard-IA, l'accès aux données d'un fichier de sauvegarde dans un stockage d'archives pour les opérations de restauration prendra plus de temps et coûtera plus cher.

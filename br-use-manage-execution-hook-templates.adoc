@@ -30,6 +30,7 @@ Administrateur d'organisation ou administrateur SnapCenter . link:reference-role
 
 
 
+[[types-of-execution-hooks]]
 == Types de hooks d'exécution
 
 NetApp Backup and Recovery prend en charge les types de hooks d'exécution suivants, en fonction du moment où ils peuvent être exécutés :
@@ -43,6 +44,7 @@ NetApp Backup and Recovery prend en charge les types de hooks d'exécution suiva
 
 
 
+[[order-of-execution]]
 === Ordre d'exécution
 
 Lorsqu'une opération de protection des données est exécutée, les événements de hook d'exécution se produisent dans l'ordre suivant :
@@ -70,6 +72,7 @@ NOTE: Si un hook d’exécution pré-snapshot ajoute, modifie ou supprime des re
 
 
 
+[[important-notes-about-custom-execution-hooks]]
 == Remarques importantes sur les hooks d'exécution personnalisés
 
 Tenez compte des éléments suivants lors de la planification des hooks d’exécution pour vos applications.
@@ -85,6 +88,7 @@ NOTE: Les hooks d’exécution peuvent réduire ou désactiver les fonctionnalit
 
 
 
+[[execution-hook-filters]]
 == Filtres de crochet d'exécution
 
 Lorsque vous ajoutez ou modifiez un hook d'exécution pour une application, vous pouvez ajouter des filtres au hook d'exécution pour gérer les conteneurs auxquels le hook correspondra.  Les filtres sont utiles pour les applications qui utilisent la même image de conteneur sur tous les conteneurs, mais peuvent utiliser chaque image à des fins différentes (comme Elasticsearch).  Les filtres vous permettent de créer des scénarios dans lesquels les hooks d'exécution s'exécutent sur certains conteneurs identiques, mais pas nécessairement sur tous.  Si vous créez plusieurs filtres pour un seul hook d'exécution, ils sont combinés avec un opérateur AND logique.  Vous pouvez avoir jusqu'à 10 filtres actifs par hook d'exécution.
@@ -96,6 +100,7 @@ NOTE: Si vous ajoutez un filtre d'espace de noms à un hook d'exécution qui s'e
 
 
 
+[[execution-hook-examples]]
 == Exemples de crochets d'exécution
 
 Visitez le https://github.com/NetApp/Verda["Projet GitHub NetApp Verda"] pour télécharger de véritables hooks d'exécution pour des applications populaires telles qu'Apache Cassandra et Elasticsearch.  Vous pouvez également voir des exemples et obtenir des idées pour structurer vos propres hooks d'exécution personnalisés.
@@ -105,6 +110,7 @@ NOTE: Les scripts du dépôt Verda GitHub sont fournis tels quels et ne sont pas
 
 
 
+[[create-an-execution-hook-template]]
 == Créer un modèle de hook d'exécution
 
 Vous pouvez créer un modèle de hook d’exécution personnalisé que vous pouvez utiliser pour effectuer des actions avant ou après une opération de protection des données sur une application.

@@ -4,6 +4,7 @@
 
 
 
+[[kvm-workloads-supported-in-general-availability-ga]]
 === Charges de travail KVM prises en charge en General Availability (GA)
 
 La prise en charge des charges de travail KVM est désormais généralement disponible (GA) dans NetApp Backup and Recovery.
@@ -12,6 +13,7 @@ Pour plus de détails sur la protection des charges de travail KVM, reportez-vou
 
 
 
+[[kubernetes-workloads-supported-in-general-availability-ga]]
 === Charges de travail Kubernetes prises en charge en General Availability (GA)
 
 La prise en charge des charges de travail Kubernetes est désormais disponible (GA) dans NetApp Backup and Recovery. Cette version des charges de travail Kubernetes introduit également les fonctionnalités améliorées suivantes :

@@ -18,6 +18,7 @@ Vous pouvez basculer entre les différentes charges de travail de NetApp Backup 
 
 
 
+[[switch-to-a-different-workload]]
 == Passer à une charge de travail différente
 
 Vous pouvez basculer vers une charge de travail différente dans l'interface utilisateur de NetApp Backup and Recovery .

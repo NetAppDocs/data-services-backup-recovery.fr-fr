@@ -18,6 +18,7 @@ NetApp Backup and Recovery prend en charge une classe de stockage d'archivage Go
 
 
 
+[[supported-google-archival-storage-classes-for-netapp-backup-and-recovery]]
 == Classes de stockage d'archivage Google prises en charge pour NetApp Backup and Recovery
 
 Lorsque les fichiers de sauvegarde sont initialement créés, ils sont stockés dans le stockage _Standard_.  Ce niveau est optimisé pour stocker des données rarement consultées, mais qui vous permet également d'y accéder immédiatement.
@@ -30,6 +31,7 @@ https://cloud.google.com/storage/docs/storage-classes["En savoir plus sur les cl
 
 
 
+[[restore-data-from-archival-storage]]
 == Restaurer les données à partir du stockage d'archives
 
 Bien que le stockage d'anciens fichiers de sauvegarde dans le stockage d'archives soit beaucoup moins coûteux que le stockage standard, l'accès aux données d'un fichier de sauvegarde dans le stockage d'archives pour les opérations de restauration prendra un peu plus de temps et coûtera plus cher.

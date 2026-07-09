@@ -23,6 +23,7 @@ Assurez-vous que toutes les machines virtuelles dont vous souhaitez cloner les i
 
 
 
+[[create-a-clone-of-a-vmware-vm]]
 == Créer un clone d'une machine virtuelle VMware
 
 Créez un clone immédiatement à partir d'un instantané existant.
@@ -57,6 +58,7 @@ Le message *Sélectionner l'emplacement de l'instantané* s'affiche si l'instant
 
 
 
+[[split-a-clone]]
 == Diviser un clone
 
 Vous pouvez scinder un clone d'une machine virtuelle VMware pour le détacher de son volume parent. Une fois séparé, le clone devient un volume indépendant qui ne dépend plus du parent.
@@ -73,6 +75,7 @@ Après la séparation, les banques de données associées à la machine virtuell
 
 
 
+[[remove-a-clone]]
 == Supprimer un clone
 
 Vous pouvez supprimer un clone de machine virtuelle VMware. Lorsque vous supprimez un clone de machine virtuelle, celui-ci est supprimé de vCenter, et les banques de données associées à la machine virtuelle sont démontées et supprimées du système de stockage.

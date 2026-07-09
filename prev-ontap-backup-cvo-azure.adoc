@@ -21,6 +21,7 @@ NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Reco
 
 
 
+[[verify-support-for-your-configuration]]
 == Vérifiez la prise en charge de votre configuration
 
 Lisez les exigences suivantes pour vous assurer que vous disposez d’une configuration prise en charge avant de commencer à sauvegarder des volumes sur le stockage Blob Azure.
@@ -43,6 +44,7 @@ Configuration requise pour la création de sauvegardes dans un autre abonnement 
 
 
 
+[[verify-license-requirements]]
 == Vérifier les exigences de licence
 
 Pour les licences NetApp Backup and Recovery PAYGO, un abonnement via Azure Marketplace est requis avant d’activer NetApp Backup and Recovery.  La facturation de NetApp Backup and Recovery s'effectue via cet abonnement. https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-deploying-otc-azure.html["Vous pouvez vous abonner à partir de la page Détails et informations d'identification de l'assistant système"^] .
@@ -53,6 +55,7 @@ Et vous devez disposer d’un abonnement Microsoft Azure pour l’espace de stoc
 
 
 
+[[prepare-your-console-agent]]
 == Préparez votre agent de console
 
 L'agent de console peut être installé dans une région Azure avec un accès Internet complet ou limité (mode « standard » ou « restreint »). https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["Consultez les modes de déploiement de la NetApp Console pour plus de détails."^] .
@@ -64,6 +67,7 @@ L'agent de console peut être installé dans une région Azure avec un accès In
 
 
 
+[[verify-or-add-permissions-to-the-console-agent]]
 === Vérifier ou ajouter des autorisations à l'agent de la console
 
 Pour utiliser la fonctionnalité de recherche et de restauration de NetApp Backup and Recovery , vous devez disposer d’autorisations spécifiques dans le rôle de l’agent de console afin qu’il puisse accéder au compte Azure Synapse Workspace et Data Lake Storage.  Consultez les autorisations ci-dessous et suivez les étapes si vous devez modifier la politique.
@@ -142,6 +146,7 @@ https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-azure.ht
 
 
 
+[[required-information-for-using-customer-managed-keys-for-data-encryption]]
 === Informations requises pour l'utilisation de clés gérées par le client pour le chiffrement des données
 
 Vous pouvez utiliser vos propres clés gérées par le client pour le chiffrement des données dans l’assistant d’activation au lieu d’utiliser les clés de chiffrement par défaut gérées par Microsoft.  Dans ce cas, vous aurez besoin de l’abonnement Azure, du nom du coffre de clés et de la clé. https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["Découvrez comment utiliser vos propres clés"^] .
@@ -150,6 +155,7 @@ NetApp Backup and Recovery prend en charge les _stratégies d'accès Azure_, le 
 
 
 
+[[create-your-azure-blob-storage-account]]
 === Créez votre compte de stockage Azure Blob
 
 Par défaut, le service crée des comptes de stockage pour vous.  Si vous souhaitez utiliser vos propres comptes de stockage, vous pouvez les créer avant de démarrer l'assistant d'activation de sauvegarde, puis sélectionner ces comptes de stockage dans l'assistant.
@@ -158,6 +164,7 @@ link:prev-ontap-protect-journey.html["En savoir plus sur la création de vos pro
 
 
 
+[[verify-ontap-networking-requirements-for-replicating-volumes]]
 == Vérifier les exigences réseau ONTAP pour la réplication des volumes
 
 Si vous prévoyez de créer des volumes répliqués sur un système ONTAP secondaire à l'aide de NetApp Backup and Recovery, assurez-vous que les systèmes source et de destination répondent aux exigences réseau suivantes.
@@ -185,6 +192,7 @@ Si vous prévoyez de créer des volumes répliqués sur un système ONTAP second
 
 
 
+[[enable-netapp-backup-and-recovery-on-cloud-volumes-ontap]]
 == Activer la NetApp Backup and Recovery sur Cloud Volumes ONTAP
 
 L'activation de la NetApp Backup and Recovery est simple.  Les étapes diffèrent légèrement selon que vous disposez d’un système Cloud Volumes ONTAP existant ou d’un nouveau.
@@ -225,6 +233,7 @@ Si la destination Azure Blob pour vos sauvegardes existe en tant que système su
 
 
 
+[[activate-backups-on-your-ontap-volumes]]
 == Activer les sauvegardes sur vos volumes ONTAP
 
 Activez les sauvegardes à tout moment directement depuis votre système sur site.
@@ -240,6 +249,7 @@ Vous pouvez également<<Afficher les commandes de l'API>> à l'étape de révisi
 
 
 
+[[start-the-wizard]]
 === Démarrer l'assistant
 
 .Étapes
@@ -265,6 +275,7 @@ La page d'introduction de l'assistant affiche les options de protection, notamme
 
 
 
+[[select-the-volumes-that-you-want-to-back-up]]
 === Sélectionnez les volumes que vous souhaitez sauvegarder
 
 Choisissez les volumes que vous souhaitez protéger.  Un volume protégé est un volume qui possède un ou plusieurs des éléments suivants : politique de snapshot, politique de réplication, politique de sauvegarde sur objet.
@@ -293,6 +304,7 @@ Si les volumes que vous choisissez ont déjà des stratégies de snapshot ou de 
 
 
 
+[[define-the-backup-strategy]]
 === Définir la stratégie de sauvegarde
 
 La définition de la stratégie de sauvegarde implique de définir les options suivantes :
@@ -418,6 +430,7 @@ Pour créer une politique, sélectionnez *Créer une nouvelle politique* et proc
 
 
 
+[[review-your-selections]]
 === Revoyez vos sélections
 
 C'est l'occasion de revoir vos sélections et de faire des ajustements, si nécessaire.
@@ -443,6 +456,7 @@ Vous pouvez également surveiller l’état des tâches de sauvegarde et de rest
 
 
 
+[[show-the-api-commands]]
 === Afficher les commandes de l'API
 
 Vous souhaiterez peut-être afficher et éventuellement copier les commandes API utilisées dans l’assistant d’activation de la sauvegarde et de la récupération.  Vous souhaiterez peut-être faire cela pour automatiser l’activation de la sauvegarde dans les futurs systèmes.
@@ -454,6 +468,7 @@ Vous souhaiterez peut-être afficher et éventuellement copier les commandes API
 
 
 
+[[whats-next]]
 == Quelle est la prochaine étape ?
 
 * Tu peuxlink:prev-ontap-backup-manage.html["gérez vos fichiers de sauvegarde et vos politiques de sauvegarde"] .  Cela inclut le démarrage et l'arrêt des sauvegardes, la suppression des sauvegardes, l'ajout et la modification de la planification de sauvegarde, et bien plus encore.

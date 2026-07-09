@@ -34,6 +34,7 @@ Vous pouvez modifier les options suivantes dans la page Paramètres avancés :
 
 
 
+[[view-cluster-level-backup-settings]]
 == Afficher les paramètres de sauvegarde au niveau du cluster
 
 Vous pouvez consulter les paramètres système au niveau du cluster et les paramètres du fournisseur pour chaque système.
@@ -51,6 +52,7 @@ Notez que certaines options ne sont pas disponibles en fonction de la version d'
 
 
 
+[[change-the-network-bandwidth-available-to-upload-backups-to-object-storage]]
 == Modifier la bande passante réseau disponible pour télécharger des sauvegardes vers le stockage d'objets
 
 Lorsque vous activez NetApp Backup and Recovery pour un système, par défaut, ONTAP peut utiliser une quantité illimitée de bande passante pour transférer les données de sauvegarde des volumes du système vers le stockage d'objets.  Si vous remarquez que le trafic de sauvegarde affecte les charges de travail normales des utilisateurs, vous pouvez limiter la quantité de bande passante réseau utilisée pendant le transfert à l'aide de l'option Taux de transfert maximal dans la page Paramètres avancés.
@@ -68,6 +70,7 @@ Ce paramètre n’affecte pas la bande passante allouée à d’autres relations
 
 
 
+[[change-whether-historical-snapshots-are-exported-as-backup-files]]
 == Modifiez si les instantanés historiques sont exportés en tant que fichiers de sauvegarde
 
 S'il existe des instantanés locaux pour les volumes qui correspondent à l'étiquette de planification de sauvegarde que vous utilisez dans ce système (par exemple, quotidien, hebdomadaire, etc.), vous pouvez exporter ces instantanés historiques vers le stockage d'objets en tant que fichiers de sauvegarde.  Cela vous permet d'initialiser vos sauvegardes dans le cloud en déplaçant les anciens instantanés dans la copie de sauvegarde de base.
@@ -84,6 +87,7 @@ Notez que cette option s'applique uniquement aux nouveaux fichiers de sauvegarde
 
 
 
+[[change-whether-yearly-snapshots-are-removed-from-the-source-system]]
 == Modifier si les instantanés « annuels » sont supprimés du système source
 
 Lorsque vous sélectionnez l'étiquette de sauvegarde « annuelle » pour une stratégie de sauvegarde de l'un de vos volumes, l'instantané créé est très volumineux. Par défaut, ces instantanés annuels sont supprimés automatiquement du système source après avoir été transférés vers le stockage d'objets. Vous pouvez modifier ce comportement par défaut à partir de la section Suppression des instantanés annuels.
@@ -98,6 +102,7 @@ Lorsque vous sélectionnez l'étiquette de sauvegarde « annuelle » pour une st
 
 
 
+[[enable-or-disable-ransomware-scans]]
 == Activer ou désactiver les analyses de ransomware
 
 Les analyses de protection contre les ransomwares sont activées par défaut. Le paramètre par défaut pour la fréquence d'analyse est de 7 jours. L'analyse s'effectue uniquement sur le dernier instantané.
@@ -115,6 +120,7 @@ Se référer àlink:prev-ontap-policy-manage.html["Gérer les politiques"] pour 
 
 
 
+[[enable-or-disable-ransomware-scans-for-a-system]]
 === Activer ou désactiver les analyses de ransomware pour un système
 
 Vous pouvez activer ou désactiver les analyses de ransomware pour un cluster.
@@ -132,6 +138,7 @@ Vous pouvez activer ou désactiver les analyses de ransomware pour un cluster.
 
 
 
+[[enable-or-disable-ransomware-scans-for-a-provider]]
 === Activer ou désactiver les analyses de ransomware pour un fournisseur
 
 Vous pouvez activer ou désactiver les analyses de ransomware au niveau du fournisseur via la page des paramètres du fournisseur. Les paramètres affichés sur cette page concernent le compartiment que vous sélectionnez en haut de la page.

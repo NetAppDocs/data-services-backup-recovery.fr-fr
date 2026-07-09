@@ -26,6 +26,7 @@ Vous pouvez utiliser des ressources personnalisées pour restaurer vos applicati
 ====
 
 
+[[restore-a-backup-to-a-different-namespace]]
 == Restaurer une sauvegarde dans un espace de noms différent
 
 Lorsque vous restaurez une sauvegarde dans un espace de noms différent à l'aide d'un BackupRestore CR, Backup and Recovery restaure l'application dans un nouvel espace de noms et crée un CR d'application pour l'application restaurée. Pour protéger l'application restaurée, créez des sauvegardes ou des instantanés à la demande, ou établissez une planification de protection.
@@ -130,6 +131,7 @@ kubectl apply -f trident-protect-backup-restore-cr.yaml
 
 
 
+[[restore-a-backup-to-the-original-namespace]]
 == Restaurer une sauvegarde dans l'espace de noms d'origine
 
 Vous pouvez restaurer une sauvegarde dans l'espace de noms d'origine à tout moment.
@@ -228,6 +230,7 @@ kubectl apply -f trident-protect-backup-ipr-cr.yaml
 
 
 
+[[restore-a-backup-to-a-different-cluster]]
 == Restaurer une sauvegarde sur un cluster différent
 
 Vous pouvez restaurer une sauvegarde sur un cluster différent en cas de problème avec le cluster d'origine.
@@ -335,6 +338,7 @@ kubectl apply -f trident-protect-backup-restore-cr.yaml
 
 
 
+[[restore-a-snapshot-to-a-different-namespace]]
 == Restaurer un instantané dans un espace de noms différent
 
 Vous pouvez restaurer des données à partir d'un instantané à l'aide d'un fichier de ressource personnalisé (CR) soit vers un autre espace de noms, soit vers l'espace de noms source d'origine. Lorsque vous restaurez un instantané vers un autre espace de noms à l'aide d'un SnapshotRestore CR, Backup and Recovery restaure l'application dans un nouvel espace de noms et crée un CR d'application pour l'application restaurée. Pour protéger l'application restaurée, créez des sauvegardes ou des instantanés à la demande, ou définissez une planification de protection.
@@ -436,6 +440,7 @@ kubectl apply -f trident-protect-snapshot-restore-cr.yaml
 
 
 
+[[restore-a-snapshot-to-the-original-namespace]]
 == Restaurez un instantané dans l'espace de noms d'origine
 
 Vous pouvez restaurer un instantané dans l'espace de noms d'origine à tout moment.

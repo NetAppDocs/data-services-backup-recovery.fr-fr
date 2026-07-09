@@ -4,6 +4,7 @@
 
 
 
+[[vmware-workloads-preview-enhancements]]
 === Améliorations en avant-première des charges de travail VMware
 
 La version préliminaire des charges de travail VMware introduit les fonctionnalités améliorées suivantes :

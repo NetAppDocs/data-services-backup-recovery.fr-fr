@@ -22,6 +22,7 @@ La prise en charge de la sauvegarde et de la restauration est déjà intégrée 
 
 
 
+[[what-you-can-do-with-netapp-backup-and-recovery]]
 == Ce que vous pouvez faire avec NetApp Backup and Recovery
 
 Utilisez NetApp Backup and Recovery pour atteindre les objectifs suivants :
@@ -92,6 +93,7 @@ Utilisez NetApp Backup and Recovery pour atteindre les objectifs suivants :
 
 
 
+[[benefits-of-using-netapp-backup-and-recovery]]
 == Avantages de l'utilisation de NetApp Backup and Recovery
 
 NetApp Backup and Recovery offre les avantages suivants :
@@ -105,6 +107,7 @@ NetApp Backup and Recovery offre les avantages suivants :
 
 
 
+[[cost]]
 == Coût
 
 NetApp ne vous facture pas l'utilisation de la version d'essai.  Cependant, vous êtes responsable des coûts associés aux ressources cloud que vous utilisez, tels que les coûts de stockage et de transfert de données.
@@ -153,6 +156,7 @@ Il existe trois façons de payer pour la sauvegarde et la restauration :
 
 
 
+[[licensing]]
 == Licences
 
 NetApp Backup and Recovery propose un essai gratuit, vous permettant de l'utiliser sans clé de licence pendant une durée limitée.
@@ -186,6 +190,7 @@ link:br-start-licensing.html["Apprenez à configurer des licences"].
 
 
 
+[[supported-workloads-systems-and-backup-targets]]
 == Charges de travail, systèmes et cibles de sauvegarde pris en charge
 
 .Charges de travail prises en charge
@@ -219,6 +224,7 @@ NetApp Backup and Recovery protège les types de charges de travail suivants :
 
 
 
+[[how-netapp-backup-and-recovery-works]]
 == Comment fonctionne la NetApp Backup and Recovery
 
 Lorsque vous activez NetApp Backup and Recovery, le service effectue une sauvegarde complète de vos données.  Après la sauvegarde initiale, toutes les sauvegardes supplémentaires sont incrémentielles.  Cela permet de maintenir le trafic réseau à un minimum.
@@ -232,6 +238,7 @@ NOTE: Le stockage primaire vers le stockage d'objets est également pris en char
 
 
 
+[[where-backups-reside-in-object-store-locations]]
 === Où résident les sauvegardes dans les emplacements de stockage d'objets
 
 Les copies de sauvegarde sont stockées dans un magasin d’objets que la NetApp Console crée dans votre compte cloud.  Il existe un magasin d'objets par cluster ou système, et la console nomme le magasin d'objets comme suit : `netapp-backup-clusteruuid` .  Assurez-vous de ne pas supprimer ce magasin d’objets.
@@ -244,6 +251,7 @@ Les copies de sauvegarde sont stockées dans un magasin d’objets que la NetApp
 
 
 
+[[backup-copies-are-associated-with-your-netapp-console-organization]]
 === Les copies de sauvegarde sont associées à votre organisation NetApp Console
 
 Les copies de sauvegarde sont associées à l’organisation de la NetApp Console dans laquelle réside l’agent de la console. https://docs.netapp.com/us-en/console-setup-admin/concept-identity-and-access-management.html["En savoir plus sur l'identité et l'accès à la NetApp Console"^] .
@@ -252,6 +260,7 @@ Si vous disposez de plusieurs agents de console dans la même organisation de Ne
 
 
 
+[[terms-that-might-help-you-with-netapp-backup-and-recovery]]
 == Termes qui pourraient vous aider avec NetApp Backup and Recovery
 
 Il pourrait être utile de comprendre certains termes liés à la protection.

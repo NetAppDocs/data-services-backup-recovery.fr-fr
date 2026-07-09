@@ -23,6 +23,7 @@ Sauvegardez les données d’application Microsoft SQL Server à partir de syst�
 
 
 
+[[view-workload-protection-status]]
 == Afficher l'état de protection de la charge de travail
 
 Avant de démarrer une sauvegarde, affichez l’état de protection de vos charges de travail.
@@ -38,6 +39,7 @@ Avant de démarrer une sauvegarde, affichez l’état de protection de vos charg
 
 
 
+[[configure-the-log-directory-for-discovered-hosts]]
 == Configurer le répertoire de journaux pour les hôtes découverts
 
 Définissez le chemin du journal d’activité pour les hôtes découverts afin de suivre l’état de l’opération avant de sauvegarder les charges de travail.
@@ -61,6 +63,7 @@ NOTE: Les champs qui s'affichent diffèrent selon le modèle de déploiement sé
 
 
 
+[[create-a-protection-group]]
 == Créer un groupe de protection
 
 Créez un groupe de protection pour gérer les opérations de sauvegarde et de restauration de plusieurs charges de travail.  Un groupe de protection est un regroupement logique de charges de travail.
@@ -87,6 +90,7 @@ Si vous souhaitez créer une politique, sélectionnez *Créer une nouvelle polit
 
 
 
+[[back-up-workloads-now-with-an-on-demand-backup]]
 == Sauvegardez vos charges de travail maintenant avec une sauvegarde à la demande
 
 Exécutez une sauvegarde à la demande avant d’apporter des modifications à votre système pour garantir la protection de vos données.
@@ -107,6 +111,7 @@ Exécutez une sauvegarde à la demande avant d’apporter des modifications à v
 
 
 
+[[suspend-the-backup-schedule]]
 == Suspendre la planification de sauvegarde
 
 Suspendez la planification pour arrêter temporairement les sauvegardes pendant la maintenance ou le dépannage.
@@ -124,6 +129,7 @@ Suspendez la planification pour arrêter temporairement les sauvegardes pendant 
 
 
 
+[[delete-a-protection-group]]
 == Supprimer un groupe de protection
 
 La suppression d’un groupe de protection le supprime ainsi que toutes les planifications de sauvegarde associées. Vous souhaiterez peut-être supprimer un groupe de protection s’il n’est plus nécessaire.
@@ -140,6 +146,7 @@ La suppression d’un groupe de protection le supprime ainsi que toutes les plan
 
 
 
+[[remove-protection-from-a-workload]]
 == Supprimer la protection d'une charge de travail
 
 Vous pouvez supprimer la protection d'une charge de travail si vous ne souhaitez plus la sauvegarder ou si vous souhaitez arrêter de la gérer dans NetApp Backup and Recovery.

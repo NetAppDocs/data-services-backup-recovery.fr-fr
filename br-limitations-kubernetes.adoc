@@ -18,6 +18,7 @@ Les plates-formes, appareils ou fonctionnalités qui ne fonctionnent pas ou ne f
 
 
 
+[[changing-the-protection-policy-for-an-application]]
 == Modification de la politique de protection d'une application
 
 Lorsque vous modifiez la stratégie de protection associée à une application pour utiliser un compartiment ou une cible de réplication secondaire différente, la stratégie de protection peut échouer.
@@ -26,6 +27,7 @@ Lorsque vous modifiez la stratégie de protection associée à une application p
 
 
 
+[[3-2-1-protection-policy-configuration-limitation]]
 == Limitation de la configuration de la politique de protection 3-2-1
 
 Lorsque vous créez une politique de protection 3-2-1 où aucune sauvegarde de stockage d'objets n'a lieu en même temps que la réplication vers le stockage secondaire, la politique de protection se bloque lors de la protection de l'application.

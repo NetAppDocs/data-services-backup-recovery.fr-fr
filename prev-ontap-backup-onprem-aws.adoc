@@ -24,6 +24,7 @@ NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Reco
 
 
 
+[[identify-the-connection-method]]
 == Identifier la méthode de connexion
 
 Choisissez laquelle des deux méthodes de connexion vous utiliserez lors de la configuration des sauvegardes des systèmes ONTAP locaux vers AWS S3.
@@ -44,12 +45,14 @@ image:diagram_cloud_backup_onprem_aws_private.png["Un diagramme montrant comment
 
 
 
+[[prepare-your-console-agent]]
 == Préparez votre agent de console
 
 L'agent de console est le logiciel principal pour la fonctionnalité de la NetApp Console .  Un agent de console est requis pour sauvegarder et restaurer vos données ONTAP .
 
 
 
+[[create-or-switch-console-agents]]
 === Créer ou changer d'agents de console
 
 Si vous disposez déjà d'un agent de console déployé dans votre AWS VPC ou sur vos locaux, vous êtes prêt.
@@ -67,6 +70,7 @@ NetApp Backup and Recovery est pris en charge dans les régions GovCloud lorsque
 
 
 
+[[prepare-console-agent-networking-requirements]]
 === Préparer les exigences réseau de l'agent de console
 
 Assurez-vous que les exigences réseau suivantes sont respectées :
@@ -83,6 +87,7 @@ Assurez-vous que les exigences réseau suivantes sont respectées :
 
 
 
+[[verify-license-requirements]]
 == Vérifier les exigences de licence
 
 Vous devrez vérifier les exigences de licence pour AWS et la NetApp Console:
@@ -102,6 +107,7 @@ Vous pouvez créer des sauvegardes à partir de systèmes locaux vers Amazon S3 
 
 
 
+[[prepare-your-ontap-clusters]]
 == Préparez vos clusters ONTAP
 
 Préparez votre système ONTAP source sur site et tous les systèmes ONTAP ou Cloud Volumes ONTAP secondaires sur site.
@@ -116,6 +122,7 @@ La préparation de vos clusters ONTAP implique les étapes suivantes :
 
 
 
+[[discover-your-ontap-systems-in-netapp-console]]
 === Découvrez vos systèmes ONTAP dans la NetApp Console
 
 Votre système ONTAP source sur site et tous les systèmes ONTAP ou Cloud Volumes ONTAP secondaires sur site doivent être disponibles sur la page *Systèmes* de la NetApp Console .
@@ -124,6 +131,7 @@ Vous devrez connaître l’adresse IP de gestion du cluster et le mot de passe d
 
 
 
+[[verify-ontap-system-requirements]]
 === Vérifier la configuration système requise ONTAP
 
 Assurez-vous que votre système ONTAP répond aux exigences suivantes :
@@ -145,6 +153,7 @@ https://docs.netapp.com/us-en/ontap/data-protection/compatible-ontap-versions-sn
 
 
 
+[[verify-ontap-networking-requirements-for-backing-up-data-to-object-storage]]
 === Vérifier les exigences réseau ONTAP pour la sauvegarde des données sur le stockage d'objets
 
 Vous devez configurer les exigences suivantes sur le système qui se connecte au stockage d’objets.
@@ -178,6 +187,7 @@ Tous les LIF interclusters au sein de l'espace IP doivent avoir accès au magasi
 
 
 
+[[verify-ontap-networking-requirements-for-replicating-volumes]]
 === Vérifier les exigences réseau ONTAP pour la réplication des volumes
 
 Si vous prévoyez de créer des volumes répliqués sur un système ONTAP secondaire à l'aide de NetApp Backup and Recovery, assurez-vous que les systèmes source et de destination répondent aux exigences réseau suivantes.
@@ -202,6 +212,7 @@ Si vous prévoyez de créer des volumes répliqués sur un système ONTAP second
 
 
 
+[[prepare-amazon-s3-as-your-backup-target]]
 == Préparez Amazon S3 comme cible de sauvegarde
 
 La préparation d’Amazon S3 comme cible de sauvegarde implique les étapes suivantes :
@@ -214,6 +225,7 @@ La préparation d’Amazon S3 comme cible de sauvegarde implique les étapes sui
 
 
 
+[[set-up-s3-permissions]]
 === Configurer les autorisations S3
 
 Vous devrez configurer deux ensembles d’autorisations :
@@ -287,6 +299,7 @@ Reportez-vous à la https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_cr
 
 
 
+[[create-your-own-buckets]]
 === Créez vos propres seaux
 
 Par défaut, le service crée des buckets pour vous.  Ou, si vous souhaitez utiliser vos propres buckets, vous pouvez les créer avant de démarrer l'assistant d'activation de sauvegarde, puis sélectionner ces buckets dans l'assistant.
@@ -330,6 +343,7 @@ Si vous créez vos propres buckets, vous devez utiliser un nom de bucket « neta
 ====
 
 
+[[set-up-customer-managed-aws-keys-for-data-encryption]]
 === Configurer des clés AWS gérées par le client pour le chiffrement des données
 
 Si vous souhaitez utiliser les clés de chiffrement Amazon S3 par défaut pour chiffrer les données transmises entre votre cluster sur site et le compartiment S3, vous êtes prêt car l'installation par défaut utilise ce type de chiffrement.
@@ -343,6 +357,7 @@ Consultez  https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/
 
 
 
+[[configure-your-system-for-a-private-connection-using-a-vpc-endpoint-interface]]
 === Configurez votre système pour une connexion privée à l'aide d'une interface de point de terminaison VPC
 
 Si vous souhaitez utiliser une connexion Internet publique standard, toutes les autorisations sont définies par l'agent de la console et vous n'avez rien d'autre à faire.
@@ -390,6 +405,7 @@ Please enter Certificate: Press <Enter> when done
 
 
 
+[[activate-backups-on-your-ontap-volumes]]
 == Activer les sauvegardes sur vos volumes ONTAP
 
 Activez les sauvegardes à tout moment directement depuis votre système sur site.
@@ -405,6 +421,7 @@ Vous pouvez également<<Afficher les commandes de l'API>> à l'étape de révisi
 
 
 
+[[start-the-wizard]]
 === Démarrer l'assistant
 
 .Étapes
@@ -430,6 +447,7 @@ La page d'introduction de l'assistant affiche les options de protection, notamme
 
 
 
+[[select-the-volumes-that-you-want-to-back-up]]
 === Sélectionnez les volumes que vous souhaitez sauvegarder
 
 Choisissez les volumes que vous souhaitez protéger.  Un volume protégé est un volume qui possède un ou plusieurs des éléments suivants : politique de snapshot, politique de réplication, politique de sauvegarde vers objet.
@@ -458,6 +476,7 @@ Si les volumes que vous choisissez ont déjà des stratégies de snapshot ou de 
 
 
 
+[[define-the-backup-strategy]]
 === Définir la stratégie de sauvegarde
 
 La définition de la stratégie de sauvegarde implique de définir les options suivantes :
@@ -569,6 +588,7 @@ Pour créer une politique, sélectionnez *Créer une nouvelle politique* et proc
 
 
 
+[[review-your-selections]]
 === Revoyez vos sélections
 
 C'est l'occasion de revoir vos sélections et de faire des ajustements, si nécessaire.
@@ -590,6 +610,7 @@ Vous pouvez également surveiller l’état des tâches de sauvegarde et de rest
 
 
 
+[[show-the-api-commands]]
 === Afficher les commandes de l'API
 
 Vous souhaiterez peut-être afficher et éventuellement copier les commandes API utilisées dans l’assistant d’activation de la sauvegarde et de la récupération.  Vous souhaiterez peut-être faire cela pour automatiser l’activation de la sauvegarde dans les futurs systèmes.

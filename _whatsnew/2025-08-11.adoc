@@ -4,6 +4,7 @@
 
 
 
+[[microsoft-sql-server-workload-supported-in-general-availability-ga]]
 === Charge de travail Microsoft SQL Server prise en charge en disponibilité générale (GA)
 
 La prise en charge des charges de travail Microsoft SQL Server est désormais généralement disponible (GA) dans NetApp Backup and Recovery. Les organisations utilisant un environnement MSSQL sur ONTAP, Cloud Volumes ONTAP et Amazon FSx for NetApp ONTAP peuvent désormais profiter de ce nouveau service de sauvegarde et de récupération pour protéger leurs données.
@@ -44,6 +45,7 @@ image:../media/screen-br-dashboard3.png["Tableau de bord de NetApp Backup and Re
 
 
 
+[[ontap-volume-workload-enhancements]]
 === Améliorations de la charge de travail du volume ONTAP
 
 * *Restauration multi-dossiers pour les volumes ONTAP * : Jusqu'à présent, vous pouviez restaurer un dossier ou plusieurs fichiers à la fois à partir de la fonction Parcourir et restaurer. NetApp Backup and Recovery offre désormais la possibilité de sélectionner plusieurs dossiers à la fois à l'aide de la fonction Parcourir et restaurer.

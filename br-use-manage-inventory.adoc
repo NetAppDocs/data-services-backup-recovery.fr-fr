@@ -44,6 +44,7 @@ Vous pouvez accomplir les tâches suivantes liées à la gestion de votre invent
 
 
 
+[[manage-host-information]]
 == Gérer les informations de l'hôte
 
 Vous pouvez gérer les informations de l'hôte pour garantir que les bons hôtes sont protégés.  Vous pouvez afficher, modifier et supprimer les informations de l'hôte.
@@ -58,6 +59,7 @@ Vous pouvez gérer les informations de l'hôte pour garantir que les bons hôtes
 
 
 
+[[manage-hosts]]
 === Gérer les hôtes
 
 Vous pouvez gérer les hôtes découverts dans votre système.  Vous pouvez les gérer séparément ou en groupe.
@@ -88,6 +90,7 @@ Une fois que vous avez géré les hôtes dans NetApp Backup and Recovery, SnapCe
 
 
 
+[[suspend-schedules]]
 === Suspendre les horaires
 
 Suspendez les planifications pour arrêter les opérations de sauvegarde et de restauration pendant la maintenance de l'hôte.
@@ -101,6 +104,7 @@ Suspendez les planifications pour arrêter les opérations de sauvegarde et de r
 
 
 
+[[edit-a-host]]
 === Modifier un hôte
 
 Vous pouvez modifier les informations du serveur vCenter, les informations d’identification d’enregistrement de l’hôte et les options de paramètres avancés.
@@ -115,6 +119,7 @@ Vous pouvez modifier les informations du serveur vCenter, les informations d’i
 
 
 
+[[delete-a-host]]
 === Supprimer un hôte
 
 Vous pouvez supprimer les informations de l'hôte pour arrêter les frais de service.
@@ -128,6 +133,7 @@ Vous pouvez supprimer les informations de l'hôte pour arrêter les frais de ser
 
 
 
+[[manage-instances-information]]
 == Gérer les informations des instances
 
 Vous pouvez gérer les informations des instances pour attribuer les informations d'identification appropriées pour la protection des ressources et sauvegarder les ressources des manières suivantes :
@@ -143,6 +149,7 @@ Vous pouvez gérer les informations des instances pour attribuer les information
 
 
 
+[[protect-database-instances]]
 === Protéger les instances de base de données
 
 Vous pouvez attribuer une politique à une instance de base de données à l'aide de politiques qui régissent les planifications et la conservation de la protection des ressources.
@@ -174,6 +181,7 @@ Pour plus de détails sur la création d'une politique, reportez-vous àlink:br-
 
 
 
+[[associate-credentials-with-a-resource]]
 === Associer les informations d'identification à une ressource
 
 Vous pouvez associer des informations d’identification à une ressource afin que la protection puisse se produire.
@@ -191,6 +199,7 @@ Pour plus de détails, voirlink:br-start-configure.html["Configurer les paramèt
 
 
 
+[[edit-protection-settings]]
 === Modifier les paramètres de protection
 
 Vous pouvez modifier la politique, créer une nouvelle politique, définir une planification et définir les paramètres de conservation.
@@ -208,6 +217,7 @@ Pour plus de détails sur la création d'une politique, reportez-vous àlink:br-
 
 
 
+[[back-up-now]]
 === Sauvegardez maintenant
 
 Sauvegardez vos données maintenant pour les protéger immédiatement.
@@ -226,6 +236,7 @@ Pour plus de détails sur la création d'une sauvegarde ad hoc, reportez-vous à
 
 
 
+[[manage-database-information]]
 == Gérer les informations de la base de données
 
 Vous pouvez gérer les informations de la base de données des manières suivantes :
@@ -239,6 +250,7 @@ Vous pouvez gérer les informations de la base de données des manières suivant
 
 
 
+[[protect-databases]]
 === Protéger les bases de données
 
 Vous pouvez modifier la politique, créer une nouvelle politique, définir une planification et définir les paramètres de conservation.
@@ -258,6 +270,7 @@ Pour plus de détails sur la création d'une politique, reportez-vous àlink:br-
 
 
 
+[[restore-databases]]
 === Restaurer les bases de données
 
 Restaurez une base de données pour protéger vos données.
@@ -274,6 +287,7 @@ Pour plus d'informations sur la restauration des charges de travail, reportez-vo
 
 
 
+[[edit-protection-settings]]
 === Modifier les paramètres de protection
 
 Vous pouvez modifier la politique, créer une nouvelle politique, définir une planification et définir les paramètres de conservation.
@@ -293,6 +307,7 @@ Pour plus de détails sur la création d'une politique, reportez-vous àlink:br-
 
 
 
+[[back-up-now]]
 === Sauvegardez maintenant
 
 Vous pouvez désormais sauvegarder vos instances et bases de données Microsoft SQL Server pour protéger vos données immédiatement.

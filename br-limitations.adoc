@@ -18,6 +18,7 @@ Les plates-formes, appareils ou fonctionnalités qui ne fonctionnent pas ou ne f
 
 
 
+[[clone-lifecycle-support]]
 == Prise en charge du cycle de vie des clones
 
 * Le clonage à partir du stockage d'objets n'est pas pris en charge.
@@ -28,18 +29,21 @@ Les plates-formes, appareils ou fonctionnalités qui ne fonctionnent pas ou ne f
 
 
 
+[[standard-deployment-mode-only]]
 == Mode de déploiement standard uniquement
 
 Cette version de NetApp Backup and Recovery fonctionne uniquement en mode de déploiement standard, et non en mode restreint ou privé.
 
 
 
+[[windows-cluster-name-restriction]]
 == Restriction du nom du cluster Windows
 
 Le nom du cluster Windows ne peut pas contenir de caractère de soulignement (_).
 
 
 
+[[snapcenter-migration-issues]]
 == Problèmes de migration de SnapCenter
 
 La migration des ressources de SnapCenter vers NetApp Backup and Recovery présente les limitations suivantes.
@@ -48,6 +52,7 @@ Pour plus de détails sur la façon dont les politiques SnapCenter migrent vers 
 
 
 
+[[resource-group-limitations]]
 === Limitations du groupe de ressources
 
 Si toutes les ressources d’un groupe de ressources sont protégées et que l’une de ces ressources est également protégée en dehors du groupe de ressources, la migration depuis SnapCenter est bloquée.
@@ -56,6 +61,7 @@ Si toutes les ressources d’un groupe de ressources sont protégées et que l�
 
 
 
+[[resources-with-multiple-policies-using-the-same-schedule-tier-not-supported]]
 === Les ressources avec plusieurs politiques utilisant le même niveau de planification ne sont pas prises en charge
 
 Vous ne pouvez pas attribuer plusieurs stratégies utilisant le même niveau de planification (par exemple, horaire, quotidien, hebdomadaire, etc.) à une ressource.  NetApp Backup and Recovery n'importera pas ces ressources depuis SnapCenter.
@@ -64,6 +70,7 @@ Vous ne pouvez pas attribuer plusieurs stratégies utilisant le même niveau de 
 
 
 
+[[hourly-policies-must-begin-at-the-start-of-the-hour]]
 === Les politiques horaires doivent commencer au début de l'heure
 
 Si vous disposez d'une stratégie SnapCenter qui se répète toutes les heures mais n'utilise pas d'intervalles au début de l'heure, NetApp Backup and Recovery n'importera pas la ressource.  Par exemple, les politiques avec des horaires de 1 h 30, 2 h 30, 3 h 30, etc. ne sont pas prises en charge, tandis que les politiques avec des horaires de 1 h 00, 2 h 00, 3 h 00, etc. sont prises en charge.
@@ -72,6 +79,7 @@ Si vous disposez d'une stratégie SnapCenter qui se répète toutes les heures m
 
 
 
+[[both-daily-and-monthly-policies-attached-to-one-resource-not-supported]]
 === Les politiques quotidiennes et mensuelles attachées à une ressource ne sont pas prises en charge
 
 Si une politique SnapCenter se répète à la fois à des intervalles de jour et de mois, NetApp Backup and Recovery n'importera pas la politique.
@@ -82,12 +90,14 @@ Par exemple, vous ne pouvez pas attacher une politique quotidienne (avec une dur
 
 
 
+[[on-demand-backup-policies-not-migrated]]
 === Politiques de sauvegarde à la demande non migrées
 
 NetApp Backup and Recovery n'importe pas les politiques de sauvegarde à la demande depuis SnapCenter.
 
 
 
+[[log-only-backup-policies-not-migrated]]
 === Les politiques de sauvegarde des journaux uniquement n'ont pas été migrées
 
 NetApp Backup and Recovery n'importe pas les stratégies de sauvegarde de journaux uniquement à partir de SnapCenter.  Si une politique SnapCenter inclut des sauvegardes de journaux uniquement, NetApp Backup and Recovery n'importera pas la ressource.
@@ -96,6 +106,7 @@ NetApp Backup and Recovery n'importe pas les stratégies de sauvegarde de journa
 
 
 
+[[host-mapping]]
 === Cartographie de l'hôte
 
 SnapCenter ne dispose pas de clusters de stockage de cartes ou de SVM pour les ressources vers les hôtes, mais NetApp Backup and Recovery en dispose.  Le cluster ONTAP ou SVM sur site ne sera pas mappé à un hôte dans les versions d'aperçu de NetApp Backup and Recovery .  De plus, la NetApp Console ne prend pas en charge les SVM.
@@ -104,6 +115,7 @@ SnapCenter ne dispose pas de clusters de stockage de cartes ou de SVM pour les r
 
 
 
+[[schedules-not-in-15-minute-intervals]]
 === Horaires non à intervalles de 15 minutes
 
 Si vous disposez d'une planification de stratégie SnapCenter qui démarre à une certaine heure et se répète à des intervalles autres que ceux de 15 minutes, NetApp Backup and Recovery n'importera pas la planification.

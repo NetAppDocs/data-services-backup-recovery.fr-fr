@@ -20,10 +20,12 @@ Activer l'aperçu et les fonctionnalités cachées pour NetApp Backup and Recove
 
 
 
+[[available-preview-features]]
 == Fonctionnalités en avant-première disponibles
 
 Vous pouvez activer les fonctionnalités en préversion suivantes pour NetApp Backup and Recovery.
 
+[[anchor-flags]]
 [cols="50,50"]
 |===
 | Drapeau de fonctionnalité | Description des fonctionnalités 
@@ -36,6 +38,7 @@ Vous pouvez activer les fonctionnalités en préversion suivantes pour NetApp Ba
 |===
 
 
+[[enable-preview-features]]
 == Activer les fonctionnalités de prévisualisation
 
 Activez les options de prévisualisation pour utiliser des fonctionnalités qui ne sont pas encore généralement disponibles. Utilisez les fonctionnalités en prévisualisation avec précaution dans les environnements de production.
@@ -116,6 +119,7 @@ NOTE: Pour désactiver une fonctionnalité en préversion, suivez les mêmes ét
 
 
 
+[[disable-indexing-for-volumes]]
 == Désactiver l'indexation pour les volumes
 
 Désactivez l'indexation pour des volumes spécifiques ou pour tous les volumes appartenant à une ou plusieurs machines virtuelles de stockage en utilisant les options suivantes :

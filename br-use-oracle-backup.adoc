@@ -26,6 +26,7 @@ NOTE: Pour sauvegarder des groupes de protection ou des bases de données unique
 
 
 
+[[back-up-protection-groups-now-with-an-on-demand-backup]]
 == Sauvegardez maintenant les groupes de protection avec une sauvegarde à la demande
 
 Exécutez une sauvegarde à la demande avant d’apporter des modifications au système pour garantir la protection de vos données.
@@ -51,6 +52,7 @@ NOTE: NetApp Backup and Recovery utilise la même politique pour la sauvegarde e
 
 
 
+[[back-up-a-database-now-with-an-on-demand-backup]]
 == Sauvegardez une base de données maintenant avec une sauvegarde à la demande
 
 Vous pouvez exécuter une sauvegarde à la demande d’une seule base de données.

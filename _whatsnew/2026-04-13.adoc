@@ -4,6 +4,7 @@
 
 
 
+[[ontap-volumes-workloads-enhancements]]
 === Améliorations des charges de travail des volumes ONTAP
 
 Dans cette version, les charges de travail ONTAP Volumes introduisent l'amélioration suivante :
@@ -14,6 +15,7 @@ Pour plus de détails sur la protection des charges de travail ONTAP Volumes, re
 
 
 
+[[kubernetes-workloads-enhancements]]
 === Améliorations des charges de travail Kubernetes
 
 Dans cette version, les charges de travail Kubernetes introduisent les améliorations suivantes en matière de politique de protection :
@@ -29,6 +31,7 @@ Pour plus de détails sur la protection des charges de travail Kubernetes, repor
 
 
 
+[[hyper-v-workloads-enhancements]]
 === Améliorations des charges de travail Hyper-V
 
 Dans cette version, les charges de travail Hyper-V introduisent les améliorations suivantes :
@@ -41,6 +44,7 @@ Pour plus de détails sur la protection des charges de travail Hyper-V, reportez
 
 
 
+[[kvm-workloads-enhancements]]
 === Améliorations des charges de travail KVM
 
 Dans cette version, les charges de travail KVM introduisent les améliorations suivantes :
@@ -53,6 +57,7 @@ Pour plus de détails sur la protection des charges de travail KVM, reportez-vou
 
 
 
+[[vmware-workloads-enhancements]]
 === Améliorations des charges de travail VMware
 
 Dans cette version, VMware workloads introduit les améliorations suivantes :

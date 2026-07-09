@@ -39,6 +39,7 @@ TIP: Des frais de sortie supplémentaires seront facturés par votre fournisseur
 
 
 
+[[how-restoring-virtual-machines-works]]
 == Comment fonctionne la restauration des machines virtuelles
 
 Lorsque vous restaurez des machines virtuelles, les événements suivants se produisent :
@@ -52,6 +53,7 @@ Depuis la page Restaurer, vous pouvez restaurer une machine virtuelle, même si 
 
 
 
+[[restore-kvm-virtual-machines]]
 == Restaurez les machines virtuelles KVM
 
 Restaurez les machines virtuelles KVM à l'aide du menu Restaurer. Vous pouvez rechercher l'instantané par son nom ou à l'aide de filtres.
