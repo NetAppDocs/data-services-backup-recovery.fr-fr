@@ -64,7 +64,7 @@ Restaurez les charges de travail à l’aide de l’une de ces méthodes :
 * *Depuis la page Inventaire* : utilisez cette option pour restaurer une ressource spécifique lorsque vous connaissez son nom, son emplacement et sa dernière date de disponibilité.  Parcourez la liste pour trouver la ressource.
 
 
-*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération ou rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
+*Rôle Console NetApp requis* : visionneur de stockage, super administrateur de sauvegarde et de restauration, ou administrateur de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^]
 
 
 

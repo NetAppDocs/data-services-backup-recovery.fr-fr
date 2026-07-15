@@ -19,7 +19,7 @@ Dans NetApp Backup and Recovery, créez des rapports pour les charges de travail
 [[create-a-protection-report]]
 == Créer un rapport de protection
 
-*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, administrateur de sauvegarde et de récupération, administrateur de restauration de sauvegarde et de récupération, administrateur de clone de sauvegarde et de récupération.  En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
+*Rôle requis dans la NetApp Console* visionneuse de stockage, super administrateur de sauvegarde et de restauration, administrateur de sauvegarde et de restauration, administrateur de restauration, administrateur de clonage. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. En savoir plus link:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez l’option *Rapports*.

@@ -14,7 +14,7 @@ summary: 'Créez des rapports de protection pour les charges de travail Kubernet
 [role="lead"]
 Dans NetApp Backup and Recovery, créez des rapports de protection pour les charges de travail Kubernetes afin de consulter l'état et les détails de la protection, notamment le nombre de sauvegardes réussies et échouées, les types de sauvegarde, les informations sur l'état du cluster, et plus encore.
 
-*Rôle requis dans la NetApp Console* Super administrateur de Backup and Recovery, administrateur de sauvegarde de Backup and Recovery, ou administrateur de restauration de Backup and Recovery. En savoir plus sur link:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
+*Rôle requis de la console NetApp* : super administrateur de sauvegarde et de restauration, administrateur de sauvegarde et de restauration, ou administrateur de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. En savoir plus link:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
 
 

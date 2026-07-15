@@ -25,7 +25,7 @@ Après avoir configuré la NetApp Console, configurez les paramètres de sauvega
 * <<Créer un modèle de transformation de ressources>>modifier les ressources au fur et à mesure de leur restauration.
 
 
-*Rôle de NetApp Console requis* Super administrateur de sauvegarde et de récupération, administrateur de sauvegarde et de récupération, administrateur de restauration de sauvegarde et de récupération.  En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
+*Rôle requis de la console NetApp* Backup and Recovery super admin, Backup and Recovery backup admin, Backup and Recovery restore admin. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle Cloud Volumes ONTAP Admin est également requis. En savoir plus link:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
 
 

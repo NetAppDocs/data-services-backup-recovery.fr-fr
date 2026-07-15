@@ -22,7 +22,7 @@ Pour plus de détails sur les actions que chaque rôle peut effectuer, voirlink:
 
 Pour vous connecter à la NetApp Console, vous pouvez utiliser vos informations d'identification du site de support NetApp ou vous inscrire pour une connexion à la NetApp Console à l'aide de votre adresse e-mail et d'un mot de passe. https://docs.netapp.com/us-en/console-setup-admin/task-logging-in.html["En savoir plus sur la connexion"^] .
 
-*Rôle de NetApp Console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de restauration de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
+*Rôle requis de la console NetApp* : super administrateur de sauvegarde et de restauration ou administrateur de restauration de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^]
 
 Pour ajouter un agent de console, vous devez disposer du rôle de super administrateur de sauvegarde et de récupération.
 

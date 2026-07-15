@@ -30,7 +30,7 @@ Vous pouvez atteindre les objectifs de protection suivants :
 * Supprimer un clone
 
 
-*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération ou rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
+*Rôle Console NetApp requis* : visionneur de stockage, super administrateur de sauvegarde et de restauration, ou administrateur de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^]
 
 
 

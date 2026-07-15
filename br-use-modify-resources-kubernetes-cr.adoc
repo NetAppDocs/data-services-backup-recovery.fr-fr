@@ -16,7 +16,7 @@ summary: Modifier les ressources pendant les opérations de restauration dans Ne
 [role="lead"]
 Les transformations de ressources vous permettent de modifier une ressource pendant sa restauration. Ceci est utile lorsque la version restaurée doit différer de l'original, par exemple, modifier l'adresse IP d'une machine virtuelle lors de sa restauration sur un réseau différent. Vous pouvez également link:br-use-restore-kubernetes-applications.html#restore-kubernetes-applications["Modifiez les ressources au fur et à mesure de leur restauration à l'aide de l'interface utilisateur Web"^].
 
-*Rôle requis dans la NetApp Console* Super administrateur de Backup and Recovery ou administrateur de restauration de Backup and Recovery. link:reference-roles.html["En savoir plus sur les rôles d'accès à NetApp Backup and Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
+*Rôle requis de la console NetApp* Super administrateur de sauvegarde et de restauration ou administrateur de restauration de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. link:reference-roles.html["En savoir plus sur les rôles d'accès à NetApp Backup and Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
 
 

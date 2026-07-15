@@ -28,7 +28,7 @@ Sauvegardez les machines virtuelles VMware et les banques de données des systè
 
 Créez immédiatement une sauvegarde à la demande.  Vous souhaiterez peut-être exécuter une sauvegarde à la demande si vous êtes sur le point d'apporter des modifications à votre système et que vous souhaitez vous assurer que vous disposez d'une sauvegarde avant de commencer.
 
-*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération ou rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
+*Rôle requis de la NetApp Console* : visionneur de stockage, super administrateur de sauvegarde et de restauration, administrateur de sauvegarde et de restauration, administrateur de restauration de sauvegarde et de restauration, administrateur de clonage de sauvegarde et de restauration ou visionneur de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^]
 
 .Étapes
 . Dans le menu Sauvegarde et récupération, sélectionnez *Inventaire*.

@@ -61,7 +61,7 @@ image:diagram_browse_restore_volume-unified.png["Un diagramme qui montre le flux
 
 Restaurez les charges de travail VMware à l’aide de l’option Restaurer. Vous pouvez rechercher l'instantané par son nom ou en utilisant des filtres.
 
-*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération, rôle d'administrateur de restauration de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
+*Rôle Console NetApp requis* Visionneuse de stockage, super administrateur de sauvegarde et de restauration, administrateur de restauration de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^]
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Restaurer*.
