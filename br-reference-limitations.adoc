@@ -73,7 +73,7 @@ Pour une explication sur ces types de cryptage, reportez-vous àhttps://docs.net
 +
 ** Les sauvegardes sont prises en charge uniquement à partir du serveur secondaire ONTAP .
 ** La politique de snapshot appliquée au volume doit être l'une des politiques reconnues par NetApp Backup and Recovery, notamment quotidienne, hebdomadaire, mensuelle, etc. La politique par défaut « sm_created » (utilisée pour *Mettre en miroir tous les snapshots*) n'est pas reconnue et le volume DP ne sera pas affiché dans la liste des volumes pouvant être sauvegardés.
-** SVM-DR et la sauvegarde et la récupération de volume fonctionnent de manière totalement indépendante lorsque la sauvegarde est effectuée à partir de la source ou de la destination.  La seule restriction est que SVM-DR ne réplique pas la relation cloud SnapMirror .  Dans le scénario DR, lorsque le SVM est mis en ligne dans l’emplacement secondaire, vous devez mettre à jour manuellement la relation cloud SnapMirror .
+** La sauvegarde et la restauration de volumes (SVM-DR) fonctionnent de manière totalement indépendante, que la sauvegarde provienne de la source ou de la destination. La seule restriction est que SVM-DR ne réplique pas la relation SnapMirror cloud. Dans le scénario de reprise après sinistre, lorsque la machine virtuelle de stockage est remise en ligne sur le site secondaire, vous devez mettre à jour manuellement la relation SnapMirror cloud.
 
 
 * Prise en charge de MetroCluster :

@@ -43,7 +43,7 @@ NOTE: Si vous avez mis à niveau vos systèmes ONTAP vers la version 9.13.x et q
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Surveillance*.
-. Pour afficher des colonnes supplémentaires (Système, SVM, Nom d'utilisateur, Charge de travail, Nom de la politique, Étiquette d'instantané), sélectionnez le signe plus.
+. Pour afficher des colonnes supplémentaires (Système, VM de stockage, Nom d'utilisateur, Charge de travail, Nom de la stratégie, Étiquette de l'instantané), sélectionnez le signe plus.
 
 
 
@@ -75,7 +75,7 @@ La plupart des filtres sont explicites. Le filtre « Charge de travail » vous p
 +
 [TIP]
 ====
-** Vous ne pouvez rechercher des données dans un « SVM » spécifique que si vous avez d'abord sélectionné un système.
+** Vous pouvez rechercher des données dans une machine virtuelle de stockage spécifique uniquement si vous avez préalablement sélectionné un système.
 ** Vous pouvez effectuer une recherche en utilisant le filtre « Type de protection » uniquement lorsque vous avez sélectionné le « Type » de « Protection ».
 
 
@@ -92,7 +92,7 @@ Vous pouvez afficher les détails correspondant à un travail terminé spécifiq
 
 Vous pouvez afficher des détails tels que le type de tâche (planifiée ou à la demande), le type de sauvegarde SnapMirror (initiale ou périodique), les heures de début et de fin, la durée, la quantité de données transférées du système vers le stockage d'objets, le taux de transfert moyen, le nom de la politique, le verrouillage de rétention activé, l'analyse des ransomwares effectuée, les détails de la source de protection et les détails de la cible de protection.
 
-Les tâches de restauration affichent des détails tels que le fournisseur cible de sauvegarde (Amazon Web Services, Microsoft Azure, Google Cloud, sur site), le nom du bucket S3, le nom de la SVM, le nom du volume source, le volume de destination, l'étiquette de l'instantané, le nombre d'objets récupérés, les noms de fichiers, les tailles de fichiers, la date de dernière modification et le chemin d'accès complet au fichier.
+Les tâches de restauration affichent des détails tels que le fournisseur cible de sauvegarde (Amazon Web Services, Microsoft Azure, Google Cloud, sur site), le nom du compartiment S3, le nom de la machine virtuelle de stockage, le nom du volume source, le volume de destination, l'étiquette de l'instantané, le nombre d'objets récupérés, les noms de fichiers, les tailles de fichiers, la date de dernière modification et le chemin d'accès complet au fichier.
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Surveillance*.

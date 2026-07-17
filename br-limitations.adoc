@@ -109,7 +109,7 @@ NetApp Backup and Recovery n'importe pas les stratégies de sauvegarde de journa
 [[host-mapping]]
 === Cartographie de l'hôte
 
-SnapCenter ne dispose pas de clusters de stockage de cartes ou de SVM pour les ressources vers les hôtes, mais NetApp Backup and Recovery en dispose.  Le cluster ONTAP ou SVM sur site ne sera pas mappé à un hôte dans les versions d'aperçu de NetApp Backup and Recovery .  De plus, la NetApp Console ne prend pas en charge les SVM.
+SnapCenter ne permet pas d’associer des clusters de stockage ni des machines virtuelles de stockage aux hôtes, mais NetApp Backup and Recovery le permet. Le cluster ONTAP local ou la machine virtuelle de stockage ne sera pas associé à un hôte dans les versions préliminaires de NetApp Backup and Recovery. De plus, NetApp Console ne prend pas en charge les machines virtuelles de stockage.
 
 *Solution de contournement* : avant d’importer des ressources depuis SnapCenter, créez un système dans NetApp Backup and Recovery pour tous les systèmes de stockage ONTAP locaux enregistrés dans SnapCenter local.  Ensuite, importez les ressources de ce cluster depuis SnapCenter dans NetApp Backup and Recovery.
 

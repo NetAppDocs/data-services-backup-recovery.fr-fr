@@ -87,6 +87,7 @@ Pour utiliser NetApp Backup and Recovery pour les charges de travail de volume O
 * ONTAP 9.8 ou une version ultérieure est requise.
 * ONTAP 9.12.1 ou une version ultérieure est requise pour la protection des volumes FlexGroup. Consultez link:br-reference-limitations.html["Limitations connues avec NetApp Backup and Recovery pour les volumes ONTAP"] pour plus d'informations.
 * ONTAP 9.17.1 ou une version ultérieure est requise pour la sauvegarde ou la restauration sur un stockage d'objets compatible S3.
+* ONTAP 9.19.1 ou une version ultérieure est requis pour utiliser plus de 6 compartiments par système sur différents fournisseurs de cloud (jusqu'à 100 compartiments sont pris en charge).
 * Une licence ONTAP One doit être activée sur l'instance ONTAP locale.
 
 

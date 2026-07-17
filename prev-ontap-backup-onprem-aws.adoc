@@ -527,7 +527,7 @@ TIP: Pour créer une politique personnalisée avant d'activer l'instantané, rep
 
 . *Réplication* : définissez les options suivantes :
 +
-** *Cible de réplication* : sélectionnez le système de destination et le SVM.  Vous pouvez également sélectionner l'agrégat ou les agrégats de destination et le préfixe ou le suffixe qui seront ajoutés au nom du volume répliqué.
+** *Cible de réplication* : Sélectionnez le système de destination et la machine virtuelle de stockage. Vous pouvez également sélectionner le ou les agrégats de destination ainsi que le préfixe ou le suffixe qui sera ajouté au nom du volume répliqué.
 ** *Politique de réplication* : Choisissez une politique de réplication existante ou créez une politique.
 +
 
