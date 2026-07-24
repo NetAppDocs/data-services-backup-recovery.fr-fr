@@ -87,7 +87,7 @@ Pour utiliser NetApp Backup and Recovery pour les charges de travail de volume O
 * ONTAP 9.8 ou une version ultérieure est requise.
 * ONTAP 9.12.1 ou une version ultérieure est requise pour la protection des volumes FlexGroup. Consultez link:br-reference-limitations.html["Limitations connues avec NetApp Backup and Recovery pour les volumes ONTAP"] pour plus d'informations.
 * ONTAP 9.17.1 ou une version ultérieure est requise pour la sauvegarde ou la restauration sur un stockage d'objets compatible S3.
-* ONTAP 9.19.1 ou une version ultérieure est requis pour utiliser plus de 6 compartiments par système sur différents fournisseurs de cloud (jusqu'à 100 compartiments sont pris en charge).
+* ONTAP 9.19.1 ou une version ultérieure est nécessaire pour prendre en charge plus de 6 compartiments par système sur différents fournisseurs de cloud (jusqu'à 100 compartiments maximum).
 * Une licence ONTAP One doit être activée sur l'instance ONTAP locale.
 
 
@@ -99,6 +99,9 @@ Pour plus d'informations sur les fonctionnalités prises en charge, les types de
 == Exigences pour la protection des charges de travail Microsoft SQL Server
 
 Pour utiliser NetApp Backup and Recovery pour les charges de travail Microsoft SQL Server, vous avez besoin des prérequis suivants en matière de système hôte, d’espace et de dimensionnement.
+
+
+NOTE: ONTAP 9.19.1 ou une version ultérieure est nécessaire pour prendre en charge plus de 6 compartiments par système sur différents fournisseurs de cloud (jusqu'à 100 compartiments maximum).
 
 [cols="33,66a"]
 |===
@@ -200,7 +203,7 @@ Vous avez besoin d’exigences spécifiques pour découvrir et protéger vos cha
 
 
 | Stockage connecté  a| 
-* ONTAP 9.13.1 ou version ultérieure
+* ONTAP 9.13.1 ou version ultérieure (ONTAP 9.19.1 ou version ultérieure est requis pour prendre en charge plus de 6 compartiments par système sur différents fournisseurs de cloud ; jusqu’à 100 compartiments maximum)
 * Amazon FSx for NetApp ONTAP storage systems exécutant la version 9.13.1 ou ultérieure
 * ASA r2 SAN uniquement (ONTAP 9.17.1 ou version ultérieure requis)
 
@@ -233,6 +236,9 @@ Pour plus d'informations sur les rôles de Backup and Recovery, veuillez consult
 == Exigences pour la protection des charges de travail KVM
 
 Vous avez besoin d’exigences spécifiques pour découvrir et protéger les machines virtuelles KVM.
+
+
+NOTE: ONTAP 9.19.1 ou une version ultérieure est nécessaire pour prendre en charge plus de 6 compartiments par système sur différents fournisseurs de cloud (jusqu'à 100 compartiments maximum).
 
 * Une distribution Linux moderne exécutant la version du noyau 5.14.0-503.22.1.el9_5.x86_64 (long terme) ou ultérieure
 * Vos hôtes KVM et vos machines virtuelles doivent être gérés par une plateforme de gestion. NetApp Backup and Recovery prend en charge les plateformes de gestion suivantes :
@@ -275,6 +281,9 @@ chown -R qemu:qemu <kvm_vm_mount_path> & chmod 771 <kvm_vm_mount_path>
 == Exigences relatives à la protection des charges de travail Oracle Database
 
 Assurez-vous que votre environnement répond aux exigences spécifiques pour découvrir et protéger les ressources Oracle Database.
+
+
+NOTE: ONTAP 9.19.1 ou une version ultérieure est nécessaire pour prendre en charge plus de 6 compartiments par système sur différents fournisseurs de cloud (jusqu'à 100 compartiments maximum).
 
 |===
 | Exigence | Pris en charge 
@@ -321,6 +330,9 @@ Assurez-vous que votre environnement répond aux exigences spécifiques pour dé
 Vous avez besoin d’exigences spécifiques pour découvrir les ressources Kubernetes et protéger vos applications Kubernetes.
 
 Pour connaître les exigences de NetApp Console, veuillez consulter <<Préparer la NetApp Console>>.
+
+
+NOTE: ONTAP 9.19.1 ou une version ultérieure est nécessaire pour prendre en charge plus de 6 compartiments par système sur différents fournisseurs de cloud (jusqu'à 100 compartiments maximum).
 
 
 NOTE: NetApp recommande fortement d'attribuer une adresse IP statique à l'agent Console que vous utilisez pour les charges de travail Kubernetes afin d'éviter les problèmes en cas de changement d'adresse IP de l'agent.
@@ -387,6 +399,6 @@ NOTE: Assurez-vous d’allouer suffisamment d’espace disque sur l’hôte Hype
 
 
 .NetApp exigences de configuration ONTAP
-* Un système ONTAP principal (ONTAP 9.14.1 ou version ultérieure)
+* Un système ONTAP principal (ONTAP 9.14.1 ou version ultérieure - ONTAP 9.19.1 ou version ultérieure est requis pour prendre en charge plus de 6 compartiments par système auprès de différents fournisseurs de cloud ; jusqu'à 100 compartiments maximum)
 * Pour les déploiements Hyper-V utilisant des partages SMB pour stocker les données des machines virtuelles, assurez-vous que la propriété de partage à disponibilité continue est activée sur le système ONTAP. Consultez la  https://docs.netapp.com/us-en/ontap/smb-hyper-v-sql/configure-shares-continuous-availability-task.html["Documentation ONTAP"^] pour obtenir des instructions.
 
