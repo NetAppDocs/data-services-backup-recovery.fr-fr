@@ -28,7 +28,7 @@ Vous pouvez restaurer des charges de travail à partir de différents emplacemen
 Vous pouvez restaurer les données à ces points :
 
 * Restaurer à l'emplacement d'origine (à partir du stockage principal, secondaire et objet)
-* Restaurer vers un autre emplacement (à partir du stockage principal et secondaire)
+* Restaurer vers un autre emplacement (à partir du stockage principal, secondaire et objet)
 
 
 .Considérations relatives à la restauration à partir du stockage d'objets
