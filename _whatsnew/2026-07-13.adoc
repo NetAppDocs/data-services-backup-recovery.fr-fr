@@ -7,6 +7,6 @@
 [[enhanced-multi-bucket-support-for-all-workloads]]
 === Prise en charge améliorée de plusieurs compartiments pour toutes les charges de travail
 
-Dans cette version de Backup and Recovery, vous pouvez désormais protéger les charges de travail d'un système avec jusqu'à 100 compartiments par système répartis sur différents fournisseurs de cloud.
+NetApp Backup and Recovery prend désormais en charge la protection des charges de travail au sein d’un système comportant jusqu’à 100 compartiments répartis entre différents fournisseurs de cloud. ONTAP 9.19.1 ou une version ultérieure est requise pour prendre en charge plus de 6 compartiments par système.
 
 Pour plus de détails sur NetApp Backup and Recovery, veuillez consulter https://docs.netapp.com/us-en/data-services-backup-recovery/concept-backup-to-cloud.html["En savoir plus sur NetApp Backup and Recovery"].
