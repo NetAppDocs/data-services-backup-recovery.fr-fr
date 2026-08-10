@@ -18,6 +18,72 @@ Découvrez les nouveautés de NetApp Backup and Recovery.
 
 
 
+[[10-august-2026]]
+== 10 août 2026
+
+Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
+
+
+
+[[general-netapp-backup-and-recovery-enhancements]]
+=== Améliorations générales de NetApp Backup and Recovery
+
+* *Prise en charge du déploiement local de NetApp Console* : Cette version de NetApp Backup and Recovery prend en charge le déploiement local de NetApp Console en version préliminaire.
+* *Conservation des tâches pendant 90 jours* : NetApp Backup and Recovery conserve désormais les informations des tâches dans le Moniteur de tâches pendant 90 jours.
+
+
+
+
+[[vmware-workloads-enhancements]]
+=== Améliorations des charges de travail VMware
+
+Dans cette version, VMware workloads introduit les améliorations suivantes :
+
+* *Prise en charge de la restauration vers un emplacement alternatif pour les machines virtuelles SAN* : Vous pouvez désormais restaurer les sauvegardes de machines virtuelles SAN vers un emplacement alternatif.
+* *Prise en charge de la suppression de plusieurs sauvegardes* : Vous pouvez désormais supprimer plusieurs sauvegardes à la fois.
+
+
+Pour plus de détails sur la protection des charges de travail VMware, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-vmware-protect-overview.html["Présentation de la protection des charges de travail VMware"] .
+
+
+
+[[oracle-database-workloads-enhancements]]
+=== Améliorations des charges de travail Oracle Database
+
+Cette version introduit les améliorations suivantes pour les charges de travail de la base de données Oracle :
+
+* *Restauration et clonage de Pluggable Database (PDB)* : le service Backup and Recovery for NetApp Console prend désormais en charge la restauration et le clonage de bases de données enfichables (PDB).
+
+
+Pour plus de détails sur la protection des charges de travail Oracle Database, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Présentation de la protection des charges de travail de la base de données Oracle"].
+
+
+
+[[kubernetes-workloads-enhancements]]
+=== Améliorations des charges de travail Kubernetes
+
+Cette version introduit les améliorations suivantes pour les charges de travail Kubernetes :
+
+* *Prise en charge préliminaire des ressources isolées* : Si vous exécutez NetApp Backup and Recovery dans un déploiement local de NetApp Console, vous pouvez découvrir, protéger et restaurer des ressources Kubernetes isolées. Cette fonctionnalité est en préversion pour cette version.
+
+
+Pour plus de détails sur la protection des charges de travail Kubernetes, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kubernetes-protect-overview.html["Présentation de la protection des charges de travail Kubernetes"] .
+
+
+
+[[ontap-volumes-workloads-enhancements]]
+=== Améliorations des charges de travail des volumes ONTAP
+
+Dans cette version, les charges de travail ONTAP Volumes introduisent les améliorations suivantes :
+
+* *Prioriser les tâches de restauration par rapport aux sauvegardes* : Vous pouvez désormais donner la priorité aux tâches de restauration par rapport aux tâches de sauvegarde lors de la restauration de machines virtuelles ou de fichiers.
+* *Découvrez les systèmes et volumes ONTAP sans activer Backup and Recovery* : Vous pouvez désormais découvrir les systèmes et volumes sans activer Backup and Recovery.
+
+
+Pour plus de détails sur la protection des charges de travail ONTAP Volumes, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-protect-overview.html["Présentation de la protection des charges de travail ONTAP Volumes"].
+
+
+
 [[13-july-2026]]
 == 13 juillet 2026
 

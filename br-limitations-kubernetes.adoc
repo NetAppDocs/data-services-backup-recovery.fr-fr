@@ -18,6 +18,13 @@ Les plates-formes, appareils ou fonctionnalités qui ne fonctionnent pas ou ne f
 
 
 
+[[backup-and-recovery-preview-for-netapp-console-local-deployment-limitation]]
+=== Aperçu de la sauvegarde et de la restauration pour NetApp Console : limitation du déploiement local
+
+Dans la version préliminaire de Backup and Recovery pour le déploiement local de NetApp Console, les sauvegardes vers le stockage objet sont prises en charge uniquement pour les destinations ONTAP S3 et StorageGRID. L'archivage des sauvegardes n'est pas pris en charge dans cette version préliminaire.
+
+
+
 [[changing-the-protection-policy-for-an-application]]
 == Modification de la politique de protection d'une application
 

@@ -12,7 +12,10 @@ summary: 'Pour une sécurité renforcée, configurez l"accès pour des rôles sp
 
 
 [role="lead"]
-Pour renforcer la sécurité et contrôler l'accès aux ressources, configurez le contrôle d'accès basé sur les rôles pour NetApp Backup and Recovery. La NetApp Console prend en charge le contrôle d'accès basé sur les rôles (RBAC) pour certaines charges de travail de Backup and Recovery. Vous pouvez attribuer des rôles d'administrateur ou de visionneur spécifiques à ces charges de travail. Les autres charges de travail qui ne prennent pas encore en charge le contrôle d'accès basé sur les rôles restent accessibles à tous les utilisateurs disposant de rôles Backup and Recovery jusqu'à ce que l'association au niveau du projet soit prise en charge.
+Pour renforcer la sécurité et contrôler l'accès aux ressources, configurez le contrôle d'accès basé sur les rôles pour NetApp Backup and Recovery. La NetApp Console prend en charge le contrôle d'accès basé sur les rôles (RBAC) pour certaines charges de travail de Backup and Recovery. Vous pouvez attribuer des rôles d'administrateur ou de lecteur spécifiques à ces charges de travail. Les autres charges de travail qui ne prennent pas encore en charge le contrôle d'accès basé sur les rôles restent accessibles à tous les utilisateurs disposant de rôles de Backup and Recovery jusqu'à ce que l'association au niveau du projet ou du parc soit prise en charge.
+
+
+NOTE: NetApp Console utilise des projets pour organiser les ressources dans des dossiers, tandis que le déploiement local de NetApp Console désigne les projets comme des flottes.
 
 Suivez ces étapes pour contrôler l'accès aux ressources de votre organisation. Apportez les modifications nécessaires dans la page *Administration > Identité et accès* du menu NetApp Console.
 

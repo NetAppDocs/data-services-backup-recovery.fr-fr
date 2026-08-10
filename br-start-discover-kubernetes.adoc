@@ -23,7 +23,7 @@ NetApp Backup and Recovery doit découvrir les charges de travail Kubernetes ava
 [[discover-kubernetes-workloads]]
 == Découvrez les charges de travail Kubernetes
 
-Dans l’inventaire de sauvegarde et de récupération, découvrez les charges de travail Kubernetes dans votre environnement.  L'ajout d'une charge de travail ajoute un cluster Kubernetes à NetApp Backup and Recovery.  Vous pouvez ensuite ajouter des applications et protéger les ressources du cluster.
+Dans l'inventaire de Backup and Recovery, découvrez les charges de travail Kubernetes de votre environnement. L'ajout d'une charge de travail ajoute un cluster Kubernetes à NetApp Backup and Recovery. Vous pouvez ensuite ajouter des applications et protéger les ressources du cluster. Vous pouvez également découvrir les ressources Kubernetes locales isolées à l'aide du déploiement local de NetApp Console.
 
 [NOTE]
 ====
@@ -39,18 +39,45 @@ Lorsque vous découvrez un cluster actuellement protégé avec Trident Protect, 
 
 . Sélectionnez le type de charge de travail *Kubernetes*.
 . Saisissez un nom de cluster et choisissez un agent de console à utiliser avec le cluster.
-. Suivez les instructions de la ligne de commande qui s’affichent :
 +
-** Créer un espace de noms Trident Protect
-** Créer un secret Kubernetes
-** Ajouter un dépôt Helm
-** Installez ou mettez à niveau Trident Protect et le connecteur Trident Protect
+La fonction de sauvegarde et de restauration fournit des instructions qui varient selon le type d'installation que vous sélectionnez. Si vous utilisez le déploiement local de NetApp Console, vous pouvez choisir des instructions qui vous permettent de découvrir des ressources isolées du réseau, c'est-à-dire sans connectivité réseau externe.
+
+. Choisissez un type d'installation pour afficher les instructions d'installation de Trident Protect sur votre cluster Kubernetes :
 +
-Ces étapes garantissent que NetApp Backup and Recovery peut interagir avec le cluster.
+** Sélectionnez *Connecté* pour découvrir les clusters disposant d'une connectivité réseau externe.
+** Sélectionnez *Air-gapped* pour découvrir les clusters qui n'ont aucune connectivité réseau externe.
++
+[role="tabbed-block"]
+====
+.Découverte connectée
+--
+... Suivez les instructions de ligne de commande qui s'affichent dans Backup and Recovery. Ces étapes garantissent que Backup and Recovery peut interagir avec le cluster.
 
 
+--
+.Découverte en environnement isolé (air-gapped)
+--
+... Saisissez l'URL de votre registre de conteneurs Docker privé. Ce registre est utilisé pour télécharger les images de Trident Protect et de Trident Protect Connector lors de l'installation.
+... Si votre registre de conteneurs privé nécessite une authentification, utilisez l'une des méthodes suivantes pour configurer les informations d'identification du registre :
++
+**** Authentification au niveau du nœud : configurez les informations d’identification du registre dans l’environnement d’exécution du conteneur sur chaque nœud. Une fois configuré, tous les pods peuvent extraire des images sans nécessiter de paramètres Helm supplémentaires.
+**** *Secret d'extraction d'image Kubernetes* : Créez un secret d'extraction d'image Kubernetes dans l' `trident-protect`espace de noms, puis référencez-le lors de l'étape de mise à niveau Helm dans les instructions d'installation de Trident Protect :
++
+[source, console]
+----
+--set trident-protect.imagePullSecrets[0].name=<pull-secret-name>
+--set connector.imagePullSecrets[0].name=<pull-secret-name>
+----
 
-. Une fois les étapes terminées, sélectionnez *Découvrir*.
+
+... Suivez les instructions de ligne de commandes qui apparaissent dans Backup and Recovery, en ajoutant les informations du secret d'extraction d'image lors de l'étape Helm (si nécessaire). Ces étapes garantissent que Backup and Recovery peut interagir avec le cluster.
+
+
+--
+====
+
+
+. Après avoir terminé les étapes d'installation de Trident Protect, sélectionnez *Découvrir*.
 +
 Le cluster est ajouté à l'inventaire.
 
@@ -65,7 +92,7 @@ Le cluster est ajouté à l'inventaire.
 Suivez ces étapes pour afficher le tableau de bord de NetApp Backup and Recovery .
 
 . Dans le menu de la NetApp Console , sélectionnez *Protection* > *Sauvegarde et récupération*.
-. Sélectionnez une mosaïque de charge de travail (par exemple, Microsoft SQL Server).
+. Sélectionnez la tuile de charge de travail Kubernetes.
 . Dans le menu Sauvegarde et récupération, sélectionnez *Tableau de bord*.
 . Examiner l’état de santé de la protection des données.  Le nombre de charges de travail à risque ou protégées augmente en fonction des charges de travail nouvellement découvertes, protégées et sauvegardées.
 +

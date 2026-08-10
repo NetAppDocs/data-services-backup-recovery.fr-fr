@@ -32,7 +32,7 @@ Créez immédiatement une sauvegarde à la demande.  Vous souhaiterez peut-être
 
 .Étapes
 . Dans le menu Sauvegarde et récupération, sélectionnez *Inventaire*.
-. Sélectionnez une charge de travail pour afficher les détails de protection.
+. Sélectionnez la charge de travail VMware.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
 . Sélectionnez l’en-tête de menu *Groupes de protection*, *Banques de données*, *Machines virtuelles* ou *Étiquettes*.
 . Sélectionnez le groupe de protection, les banques de données, les machines virtuelles ou les ressources étiquetées que vous souhaitez sauvegarder.
@@ -43,4 +43,39 @@ NOTE: La politique appliquée à la sauvegarde est la même que celle attribuée
 
 . Sélectionnez le niveau de planification.
 . Sélectionnez *Sauvegarder maintenant*.
+
+
+
+
+[[delete-backups]]
+== Supprimer les sauvegardes
+
+Vous pouvez supprimer les sauvegardes locales devenues inutiles afin de libérer de l'espace de stockage ou de respecter les exigences de conservation des données.
+
+.Étapes
+. Connectez-vous à NetApp Backup and Recovery, puis, depuis l'écran d'accueil, sélectionnez la vignette de la charge de travail VMware.
++
+La page Inventaire VMware s'affiche.
+
+. Sélectionnez la rubrique *Machines virtuelles*.
+. Dans la liste des machines virtuelles, choisissez une machine virtuelle et sélectionnez l'icône Actions image:../media/icon-action.png["Option Actions"] > *Afficher les détails de protection*.
+. Sélectionnez une période pour afficher les instantanés pertinents.
+. Supprimez un ou plusieurs instantanés :
++
+[role="tabbed-block"]
+====
+.Supprimer un seul instantané
+--
+.. Choisissez un instantané dans la liste que vous souhaitez supprimer, puis sélectionnez l’icône Actions image:../media/icon-action.png["Option Actions"] > *Supprimer l’instantané local*.
+
+
+--
+.Supprimer plusieurs instantanés
+--
+.. Sélectionnez la case à cocher à gauche de chaque instantané que vous souhaitez supprimer.
+.. Sélectionnez *Supprimer la sélection*.
+
+
+--
+====
 

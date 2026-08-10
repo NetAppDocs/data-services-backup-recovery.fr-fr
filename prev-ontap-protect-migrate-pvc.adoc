@@ -1,0 +1,209 @@
+---
+sidebar: sidebar 
+permalink: prev-ontap-protect-migrate-pvc.html 
+keywords: migrate, pvc, nfs, storage, performance, persistence 
+summary: Améliorez les performances de l’index du catalogue dans les environnements de déploiement local de la NetApp Console. 
+---
+= Améliorez les performances de la recherche et de la restauration de volumes lors de l’utilisation de la NetApp Console en déploiement local
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Migrez le stockage de l'index du catalogue depuis la classe de stockage par défaut du cluster vers un partage NFS basé sur ONTAP afin d'améliorer significativement les performances du catalogue pour le déploiement local de NetApp Console. Le catalogue d'index est utilisé pour la fonctionnalité de recherche et de restauration. Bien que le catalogue fonctionne avec le stockage par défaut, l'utilisation d'un partage NFS basé sur ONTAP apporte des gains de performances mesurables pour la fonctionnalité de recherche et de restauration.
+
+.Avant de commencer
+Assurez-vous d'avoir les éléments suivants avant de commencer :
+
+* Un StorageClass NFS ONTAP configuré dans le cluster et une capacité suffisante sur le système ONTAP.
+* Identifiants d'administrateur de cluster avec les autorisations nécessaires pour obtenir, créer, appliquer, exécuter, corriger, mettre à l'échelle et supprimer des ressources.
+* Une sauvegarde validée des données du PVC source (prenez un instantané ou copiez-les ailleurs avant la migration).
+
+
+[discrete]
+===== Réduisez le nombre de nœuds de travail
+
+Répertoriez les déploiements de workers et mettez chacun à l'échelle à zéro réplica.
+
+. Répertoriez tous les déploiements de workers de catalogue :
++
+[source, shell]
+----
+kubectl get deploy -n cbs -o name | grep '/cloudmanager-cbs-catalog-worker-'
+----
+. Réduisez chaque déploiement de worker à zéro réplique :
++
+[source, shell]
+----
+for d in $(kubectl get deploy -n cbs -o name | grep '/cloudmanager-cbs-catalog-worker-'); do
+  kubectl scale "$d" --replicas=0 -n cbs
+done
+----
+. Confirmez qu'il ne reste plus aucun pod de travail :
++
+[source, shell]
+----
+kubectl get pods -n cbs | grep cloudmanager-cbs-catalog-worker- || echo "no worker pods running"
+----
+
+
+[discrete]
+===== Montez le volume ONTAP sur le déploiement local de NetApp Console et copiez-le depuis le pod
+
+. Montez l’exportation NFS ONTAP sur un point de montage local dans la VM créée lors du déploiement de l’OVA de déploiement local de la NetApp Console.
+. Copiez les données du pod coordinateur en cours d'exécution dans le point de montage ONTAP, sans répertoire intermédiaire. Le coordinateur doit toujours être en cours d'exécution.
++
+
+NOTE: Copiez le contenu à la racine du volume, pas dans un sous-répertoire. Le volume ONTAP est le nouveau `/opt/netapp/cbs/catalog/shared` répertoire. Les données doivent se trouver à la racine du volume afin que l’application les trouve aux mêmes chemins (par exemple, /opt/netapp/cbs/catalog/shared/cbs/<DATASET_NAME>...). Le format de la commande tar dans les commandes suivantes diffuse le contenu du répertoire (y compris les fichiers cachés) vers la racine du point de montage, évitant ainsi un dossier imbriqué `shared`.
+
+. Montez l’export NFS ONTAP sur un point de montage local dans le déploiement local de NetApp Console. Utilisez le même serveur et le même chemin que ceux que vous utiliserez ultérieurement dans pv.yaml :
++
+[source, shell]
+----
+sudo mkdir -p /mnt/ontap_nfs_vol
+sudo mount -t nfs 10.x.x.x:/my_nfs_vol /mnt/ontap_nfs_vol   # ONTAP SVM data LIF IP : junction path
+----
+. Copiez le volume partagé du pod vers l'emplacement de montage ONTAP :
++
+[source, shell]
+----
+POD=$(kubectl get pod -n cbs -l app=cloudmanager-cbs-catalog -o jsonpath='{.items[0].metadata.name}')
+kubectl exec -n cbs "$POD" -- tar cf - -C /opt/netapp/cbs/catalog/shared . \
+  | sudo tar xf - -C /mnt/ontap_nfs_vol
+----
+. Définissez la propriété pour qu'elle corresponde à l'identité du pod :
++
+[source, shell]
+----
+sudo chown -R 10001:10001 /mnt/ontap_nfs_vol
+----
+. Vérifiez que les données ont bien été copiées à la racine du volume (vous devriez voir le dossier « cbs » directement sous le point de montage, et non un dossier « shared/ » imbriqué) :
++
+[source, shell]
+----
+ls -la /mnt/ontap_nfs_vol
+----
+. Vérifiez la copie, puis démontez-la (le pod la montera ultérieurement via le PVC) :
++
+[source, shell]
+----
+sudo umount /mnt/ontap_nfs_vol
+----
+. Réduisez le coordinateur. Par exemple :
++
+[source, shell]
+----
+kubectl scale deployment cloudmanager-cbs-catalog --replicas=0 -n cbs
+kubectl rollout status deployment/cloudmanager-cbs-catalog -n cbs
+----
+
+
+[discrete]
+===== Supprimez l'ancien PVC et PV
+
+. Capturez les informations relatives au PV lié, puis supprimez l'ancien PVC et le PV :
++
+[source, shell]
+----
+PV=$(kubectl get pvc cloudmanager-cbs-catalog-shared-pvc -n cbs -o jsonpath='{.spec.volumeName}')
+kubectl delete pvc cloudmanager-cbs-catalog-shared-pvc -n cbs
+kubectl delete pv "$PV"
+----
+
+
+[discrete]
+===== Créez les volumes persistants (PV) et les revendications de volume persistant (PVC) statiques ONTAP
+
+. Créez les objets yaml PV et PVC suivants :
++
+**`pv.yaml`**
+
++
+[source, yaml]
+----
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: ontap-manual-pv
+  labels:
+    volume: ontap-nfs-share # Used by the PVC selector to find this exact volume
+spec:
+  capacity:
+    storage: 50Gi # Match or remain under the actual ONTAP volume size
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany # Allows multiple Pods to share the NFS mount
+  persistentVolumeReclaimPolicy: Retain # Retains ONTAP data if the PVC is deleted
+  storageClassName: "" # Leave blank for manual/static provisioning
+  nfs:
+    server: 10.x.x.x # Replace with your ONTAP SVM data LIF IP address
+    path: /my_nfs_vol # Replace with your ONTAP junction path
+----
++
+**`pvc.yaml`**
+
++
+[source, yaml]
+----
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: cloudmanager-cbs-catalog-shared-pvc
+  annotations:
+    "helm.sh/resource-policy": keep
+spec:
+  accessModes:
+    - ReadWriteMany # Must match the PV's access mode
+  resources:
+    requests:
+      storage: 50Gi # Must be <= the PV capacity (50Gi)
+  storageClassName: "" # Explicitly matches the empty StorageClass on the PV
+  selector:
+    matchLabels:
+      volume: ontap-nfs-share # Forces binding to the specific PV above
+----
+. Appliquez les objets YAML, en commençant par le PV, puis le PVC (le PV doit exister pour que le sélecteur d'étiquette du PVC puisse s'y lier). Vérifiez ensuite que la revendication PVC est liée.
++
+[source, shell]
+----
+kubectl apply -f pv.yaml
+kubectl apply -f pvc.yaml -n cbs
+kubectl get pvc cloudmanager-cbs-catalog-shared-pvc -n cbs   # expect STATUS: Bound
+----
+. Augmentez le coordinateur à 1 réplique :
++
+[source, shell]
+----
+kubectl scale deployment cloudmanager-cbs-catalog --replicas=1 -n cbs
+kubectl rollout status deployment/cloudmanager-cbs-catalog -n cbs
+----
+. Si vous avez réduit manuellement le nombre de workers et qu'ils n'ont pas été automatiquement supprimés, augmentez-les manuellement (cela peut ne pas être nécessaire, car les workers sont normalement provisionnés automatiquement) :
++
+[source, shell]
+----
+for d in $(kubectl get deploy -n cbs -o name | grep '/cloudmanager-cbs-catalog-worker-'); do
+  kubectl scale "$d" --replicas=1 -n cbs
+done
+----
+. Vérifiez le montage et l'état des données. Assurez-vous que les données sont présentes et appartiennent à l'utilisateur et au groupe 10001:10001:
++
+[source, shell]
+----
+POD=$(kubectl get pod -n cbs -l app=cloudmanager-cbs-catalog -o jsonpath='{.items[0].metadata.name}')
+kubectl exec -n cbs "$POD" -- mount | grep /opt/netapp/cbs/catalog/shared
+kubectl exec -n cbs "$POD" -- ls -la /opt/netapp/cbs/catalog/shared
+----
+
+
+[NOTE]
+====
+* *Politique de récupération `Retain` :* la suppression du PVC n’effacera pas les données ONTAP ; le PV libéré doit être nettoyé manuellement si vous le réapprovisionnez.
+* *Maintenez la synchronisation Helm :* étant donné que le PVC est généralement généré par le graphique, une future `helm upgrade` pourrait tenter de le recréer ou de le modifier. Pour conserver ce PVC ONTAP manuel, configurez le graphique avec les mêmes valeurs (`storageClass: ""` (taille et mode d'accès identiques) ou excluez le PVC partagé de la distribution.
+* Si vous exécutez manuellement  `helm uninstall` puis tentez de réinstaller, le PV sera installé avec le même nom et cela entraînera un conflit de noms.
+
+
+====

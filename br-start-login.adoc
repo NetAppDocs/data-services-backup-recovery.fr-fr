@@ -27,9 +27,14 @@ Pour vous connecter à la NetApp Console, vous pouvez utiliser vos informations 
 Pour ajouter un agent de console, vous devez disposer du rôle de super administrateur de sauvegarde et de récupération.
 
 .Étapes
-. Ouvrez un navigateur Web et accédez à la https://console.netapp.com/["NetApp Console"^] .
+. Effectuez l’une des opérations suivantes :
++
+** Si vous utilisez la NetApp Console, ouvrez un navigateur Web et accédez à  https://console.netapp.com/["NetApp Console"^].
+** Si vous utilisez le déploiement local de NetApp Console, ouvrez un navigateur web et accédez à l'adresse IP de l'interface utilisateur web de votre déploiement local Console.
 +
 La page de connexion à la NetApp Console s’affiche.
+
+
 
 . Connectez-vous à la console.
 . Dans la navigation de gauche de la console, sélectionnez *Protection* > *Sauvegarde et récupération*.

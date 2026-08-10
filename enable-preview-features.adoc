@@ -47,13 +47,13 @@ Activez les options de prévisualisation pour utiliser des fonctionnalités qui 
 . Utilisez SSH pour vous connecter à l'agent de Console.
 . Passer en mode utilisateur root :
 +
-[source, console]
+[source, shell]
 ----
 sudo su
 ----
 . Trouvez le volume NetApp Backup and Recovery dans Docker :
 +
-[source, console]
+[source, shell]
 ----
 docker volume ls | grep cbs
 ----
@@ -67,7 +67,7 @@ local service-manager-2_cloudmanager_cbs_volume
 ----
 . Trouvez le point de montage pour le volume :
 +
-[source, console]
+[source, shell]
 ----
 docker volume inspect service-manager-2_cloudmanager_cbs_volume | grep Mountpoint
 ----
@@ -81,7 +81,7 @@ Le point de montage diffère entre les déploiements cloud et privés. Cet exemp
 ----
 . Accédez au répertoire de configuration du volume docker, qui se trouve dans le répertoire du point de montage. Par exemple :
 +
-[source, console]
+[source, shell]
 ----
 cd /var/lib/docker/volumes/service-manager-2_cloudmanager_cbs_volume/_data/cbs_config
 ----
@@ -106,7 +106,7 @@ Consultez <<anchor-flags,drapeaux disponibles>> pour obtenir des informations su
 
 . Redémarrez le conteneur de sauvegarde et de récupération :
 +
-[source, console]
+[source, shell]
 ----
 docker restart cloudmanager_cbs
 ----
@@ -132,13 +132,13 @@ Désactivez l'indexation pour des volumes spécifiques ou pour tous les volumes 
 . Utilisez SSH pour vous connecter à l'agent de Console.
 . Passer en mode utilisateur root :
 +
-[source, console]
+[source, shell]
 ----
 sudo su
 ----
 . Trouvez le volume NetApp Backup and Recovery dans Docker :
 +
-[source, console]
+[source, shell]
 ----
 docker volume ls | grep cbs
 ----
@@ -152,7 +152,7 @@ local service-manager-2_cloudmanager_cbs_volume
 ----
 . Trouvez le point de montage pour le volume :
 +
-[source, console]
+[source, shell]
 ----
 docker volume inspect service-manager-2_cloudmanager_cbs_volume | grep Mountpoint
 ----
@@ -166,7 +166,7 @@ Le point de montage diffère entre les déploiements cloud et privés. Cet exemp
 ----
 . Accédez au répertoire de configuration du volume docker, qui se trouve dans le répertoire du point de montage. Par exemple :
 +
-[source, console]
+[source, shell]
 ----
 cd /var/lib/docker/volumes/service-manager-2_cloudmanager_cbs_volume/_data/cbs_catalog_config
 ----
@@ -183,7 +183,7 @@ cd /var/lib/docker/volumes/service-manager-2_cloudmanager_cbs_volume/_data/cbs_c
 ----
 . Redémarrez le conteneur du catalogue d'indexation de NetApp Backup and Recovery :
 +
-[source, console]
+[source, shell]
 ----
 docker restart cloudmanager_cbs_catalog
 ----

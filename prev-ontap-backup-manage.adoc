@@ -49,11 +49,7 @@ Chaque icône s'illumine lorsque le type de sauvegarde correspondant est activé
 
 Si vous avez activé la sauvegarde uniquement sur certains volumes d'un système lorsque vous avez activé NetApp Backup and Recovery pour la première fois, vous pouvez activer les sauvegardes sur des volumes supplémentaires ultérieurement.
 
-.Étapes
-. Dans l'onglet *Volumes*, identifiez le volume sur lequel vous souhaitez activer les sauvegardes, puis sélectionnez le menu Actions. image:icon-action.png["Icône Actions"] à la fin de la ligne, et sélectionnez *Activer la protection 3-2-1*.
-. Sur la page _Définir la stratégie de sauvegarde_, sélectionnez l'architecture de sauvegarde, puis définissez les politiques et autres détails pour les instantanés locaux, les volumes répliqués et les fichiers de sauvegarde. Consultez les détails des options de sauvegarde des volumes initiaux que vous avez activés dans ce système. Sélectionnez ensuite *Suivant*.
-. Vérifiez les paramètres de sauvegarde de ce volume, puis sélectionnez *Activer la sauvegarde*.
-
+Consultez link:br-start-enable.html["Activez la sauvegarde et la restauration pour protéger les volumes"^] pour obtenir des instructions.
 
 
 

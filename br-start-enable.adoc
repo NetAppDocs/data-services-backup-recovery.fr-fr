@@ -1,0 +1,63 @@
+---
+sidebar: sidebar 
+permalink: br-start-enable.html 
+keywords: backup, Backup and Recovery, enable backup, Console, service, local deployment 
+summary: Activez la sauvegarde et la restauration sur un système dans NetApp Console ou NetApp Console en déploiement local. 
+---
+= Activez la sauvegarde et la restauration pour protéger les volumes
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous devez activer NetApp Backup and Recovery pour un système de stockage dans NetApp Console ou NetApp Console local deployment avant de pouvoir protéger les charges de travail ONTAP Volumes. Vous pouvez activer Backup and Recovery sur un système lors de son ajout ou ultérieurement.
+
+
+
+[[enable-backup-and-recovery-in-netapp-console]]
+== Activez la sauvegarde et la restauration dans la NetApp Console
+
+Activez le service de sauvegarde et de restauration dans la NetApp Console.
+
+.Étapes
+. Sélectionnez le menu *Volumes*.
+. Sur la page d'aperçu de la protection des volumes, sélectionnez *Paramètres de sauvegarde*.
+. Identifiez le système sur lequel vous souhaitez activer les sauvegardes et sélectionnez le bouton *Activer la sauvegarde*.
+. Sélectionnez *Suivant*.
+. Sélectionnez les volumes sources à protéger et sélectionnez *Suivant*.
+. Sur la page Définir la stratégie de sauvegarde, sélectionnez l'architecture de sauvegarde, puis définissez les stratégies et autres détails pour les instantanés locaux, les volumes répliqués et les fichiers de sauvegarde. Consultez les détails des options de sauvegarde des volumes initiaux que vous avez activés dans ce système. Sélectionnez ensuite *Suivant*.
+. Vous pouvez également choisir de laisser NetApp Backup and Recovery corriger automatiquement les étiquettes de sauvegarde, d'instantané et de réplication qui ne correspondent pas.
+. Vérifiez les paramètres de sauvegarde de ce volume, puis sélectionnez *Activer la sauvegarde*.
+. Les volumes que vous avez protégés apparaissent sur la page de présentation des volumes.
+
+
+
+
+[[enable-backup-and-recovery-in-netapp-console-local-deployment]]
+== Activer la sauvegarde et la restauration dans le déploiement local de la NetApp Console
+
+Activez le service de sauvegarde et de restauration dans le déploiement local de la NetApp Console.
+
+.Avant de commencer
+Assurez-vous d'avoir obtenu une licence pour NetApp Backup and Recovery. Consultez  https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-data-services-licenses.html#obtain-a-license-file["Obtenir une licence"^] pour plus d'informations.
+
+.Étapes
+. Dans le menu NetApp Console, sélectionnez *Stockage > Flottes*.
+. Si nécessaire, ajoutez les détails de votre flotte en sélectionnant *Add fleet*.
+. Sélectionnez *Administration > Licenses*.
+. Sélectionnez *Ajouter une licence* pour ajouter une licence pour Backup and Recovery. Pour plus d'informations sur l'ajout d'une licence, consultez  https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-data-services-licenses.html#add-a-license["Ajouter une licence"^].
+. Sélectionnez *Stockage* > *Flottes* puis ouvrez le menu *Systèmes*.
+. Sélectionnez *Ajouter* pour ajouter un système, saisissez les détails du système et enregistrez le nouveau système en sélectionnant *Ajouter*.
+. Choisissez un système et sélectionnez un cluster. Dans le panneau d'informations situé à droite de la page, sélectionnez le bouton *Activer* pour le service NetApp Backup and Recovery.
+. Sélectionnez *Volumes de sauvegarde*.
+. Sélectionnez *Suivant*.
+. Sélectionnez les volumes sources à protéger et sélectionnez *Suivant*.
+. Sur la page Définir la stratégie de sauvegarde, sélectionnez l'architecture de sauvegarde, puis définissez les stratégies et autres détails pour les instantanés locaux, les volumes répliqués et les fichiers de sauvegarde. Consultez les détails des options de sauvegarde des volumes initiaux que vous avez activés dans ce système. Sélectionnez ensuite *Suivant*.
+. Vous pouvez également choisir de laisser NetApp Backup and Recovery corriger automatiquement les étiquettes de sauvegarde, d'instantané et de réplication qui ne correspondent pas.
+. Vérifiez les paramètres de sauvegarde de ce volume, puis sélectionnez *Activer la sauvegarde*.
+. Les volumes que vous avez protégés apparaissent sur la page de présentation des volumes.
+

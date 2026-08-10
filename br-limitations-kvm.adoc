@@ -25,6 +25,7 @@ Les actions et configurations suivantes ne sont pas prises en charge dans les ch
 
 Les actions suivantes ne sont pas prises en charge :
 
+* Dans la version préliminaire de Backup and Recovery pour le déploiement local de NetApp Console, les sauvegardes vers le stockage objet sont prises en charge uniquement pour les destinations ONTAP S3 et StorageGRID. L'archivage des sauvegardes n'est pas pris en charge dans cette version préliminaire.
 * Cloner, monter ou démonter des machines virtuelles
 * Protéger les machines virtuelles stockées sur SAN
 * Protéger les applications

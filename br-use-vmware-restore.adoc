@@ -52,8 +52,6 @@ image:diagram_browse_restore_volume-unified.png["Un diagramme qui montre le flux
 * Lorsque vous restaurez une sauvegarde à partir du stockage d’objets, vous pouvez restaurer les données sur le système d’origine ou sur un système ONTAP local.
 
 
-À partir de la page Restaurer (Rechercher et restaurer), vous pouvez restaurer une ressource en recherchant l'instantané avec des filtres, même si vous ne vous souvenez pas de son nom exact, de son emplacement ou de sa dernière date connue.
-
 
 
 [[restore-workload-data-from-the-restore-option-search-restore]]
