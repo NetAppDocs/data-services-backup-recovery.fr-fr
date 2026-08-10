@@ -95,7 +95,7 @@ Assurez-vous que l’agent de console dispose des connexions réseau requises.
 Pour utiliser la fonctionnalité de recherche et de restauration de NetApp Backup and Recovery , vous devez disposer d’autorisations spécifiques dans le rôle de l’agent de console afin qu’il puisse accéder au compte Azure Synapse Workspace et Data Lake Storage.  Consultez les autorisations ci-dessous et suivez les étapes si vous devez modifier la politique.
 
 .Avant de commencer
-Vous devez enregistrer le fournisseur de ressources Azure Synapse Analytics (appelé « Microsoft.Synapse ») avec votre abonnement. https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider["Découvrez comment enregistrer ce fournisseur de ressources pour votre abonnement"^] .  Vous devez être le *Propriétaire* ou le *Contributeur* de l'abonnement pour enregistrer le fournisseur de ressources.
+Vous devez enregistrer le fournisseur de ressources Azure Synapse Analytics (nommé « Microsoft.Synapse ») auprès de votre abonnement. https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider["Découvrez comment enregistrer ce fournisseur de ressources pour votre abonnement"^]. Vous devez être le *propriétaire* ou le *contributeur* de l’abonnement pour enregistrer le fournisseur de ressources.
 
 .Étapes
 . Identifiez le rôle attribué à la machine virtuelle de l’agent de console :

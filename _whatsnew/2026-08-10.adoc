@@ -26,18 +26,6 @@ Pour plus de détails sur la protection des charges de travail VMware, reportez-
 
 
 
-[[oracle-database-workloads-enhancements]]
-=== Améliorations des charges de travail Oracle Database
-
-Cette version introduit les améliorations suivantes pour les charges de travail de la base de données Oracle :
-
-* *Restauration et clonage de Pluggable Database (PDB)* : le service Backup and Recovery for NetApp Console prend désormais en charge la restauration et le clonage de bases de données enfichables (PDB).
-
-
-Pour plus de détails sur la protection des charges de travail Oracle Database, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Présentation de la protection des charges de travail de la base de données Oracle"].
-
-
-
 [[kubernetes-workloads-enhancements]]
 === Améliorations des charges de travail Kubernetes
 

@@ -126,7 +126,7 @@ Notez que si vous utilisiez déjà NetApp Backup and Recovery avec un agent de c
 
 * Exigences Azure :
 +
-** Vous devez enregistrer le fournisseur de ressources Azure Synapse Analytics (appelé « Microsoft.Synapse ») avec votre abonnement. https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider["Découvrez comment enregistrer ce fournisseur de ressources pour votre abonnement"^] .  Vous devez être le *Propriétaire* ou le *Contributeur* de l'abonnement pour enregistrer le fournisseur de ressources.
+** Vous devez enregistrer le fournisseur de ressources Azure Synapse Analytics (nommé « Microsoft.Synapse ») auprès de votre abonnement. https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider["Découvrez comment enregistrer ce fournisseur de ressources pour votre abonnement"^]. Vous devez être le *propriétaire* ou le *contributeur* de l’abonnement pour enregistrer le fournisseur de ressources.
 ** Des autorisations spécifiques au compte Azure Synapse Workspace et Data Lake Storage doivent être ajoutées au rôle d’utilisateur qui fournit des autorisations à la console. link:prev-ontap-backup-onprem-azure.html["Assurez-vous que toutes les autorisations sont correctement configurées"] .
 +
 Notez que si vous utilisiez déjà NetApp Backup and Recovery avec un agent de console que vous avez configuré dans le passé, vous devrez désormais ajouter les autorisations du compte Azure Synapse Workspace et Data Lake Storage au rôle d’utilisateur de la console.  Ils sont nécessaires pour la recherche et la restauration.
