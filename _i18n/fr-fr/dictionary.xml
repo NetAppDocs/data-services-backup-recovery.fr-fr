@@ -3267,11 +3267,9 @@
   <block id="e57e5c06a7f562addb87315f013677ab" category="inline-link-macro">En savoir plus sur la restauration à partir du stockage d'archives Google</block>
   <block id="e429a3dcdf9ca5d36834b72490aae784" category="admonition">La priorité élevée n’est pas prise en charge lors de la restauration des données du stockage d’archivage Azure vers les systèmes StorageGRID .</block>
   <block id="598e51a2b37024d5f553af642c739db8" category="section-title">Parcourir et restaurer les systèmes pris en charge et les fournisseurs de stockage d'objets</block>
-  <block id="bc6bfb0b14fd7cced8ee62c645d8aa17" category="paragraph">*Remarque :* vous pouvez restaurer un volume à partir de n’importe quel type de fichier de sauvegarde, mais vous ne pouvez restaurer un dossier ou des fichiers individuels qu’à partir d’un fichier de sauvegarde dans le stockage d’objets pour le moment.</block>
   <block id="4392d15c8884c7cc66b17ff794eb41d2" category="cell">*Depuis le magasin d'objets (sauvegarde)*</block>
   <block id="a4e7ccecf7c1ff2d3e2de88d9f7559d4" category="cell">*Depuis le primaire (instantané)*</block>
   <block id="c1ad4111606308626e152e2bc5089a8b" category="cell">*Depuis le système secondaire (réplication)*</block>
-  <block id="f6bc09197fbc5599ccf48032f3ead672" category="cell">Vers le système ONTAP sur site</block>
   <block id="56a66e1fc15e989f40186eb5d1841f59" category="paragraph">Pour la navigation et la restauration, l'agent de console peut être installé aux emplacements suivants :</block>
   <block id="26b66b8e6541c0f2e46ee638955dab17" category="list-text">Pour Amazon S3, l'agent de console peut être déployé dans AWS ou dans vos locaux</block>
   <block id="ead25fef0ccdffb4daf4bbf7bcb1dfb5" category="list-text">Pour Azure Blob, l'agent de console peut être déployé dans Azure ou dans vos locaux</block>
@@ -5804,4 +5802,6 @@
   <block id="6ffc226d668d783acc3c710ae22bd61d" category="section-title">10 août 2026</block>
   <block id="874b4474de89858c50d77a501e5764e2" category="sidebar">Augmentez les performances de la recherche et de la restauration de volumes pour le déploiement local de NetApp Console</block>
   <block id="4d92224f9798401488621039f9e4cfa9" category="list-text">Vous devez enregistrer le fournisseur de ressources Azure Synapse Analytics (nommé « Microsoft.Synapse ») auprès de votre abonnement.<block ref="c0f87c4b35b6d93246175aae02f70afd" category="inline-link-rx"></block>. Vous devez être le *propriétaire* ou le *contributeur* de l’abonnement pour enregistrer le fournisseur de ressources.</block>
+  <block id="309ab91ccf975daed364d3636f21792a" category="paragraph">Vous pouvez restaurer les données ONTAP à partir d'un fichier de sauvegarde situé dans un système secondaire (un volume répliqué) ou dans un stockage objet (un fichier de sauvegarde) vers les systèmes suivants.</block>
+  <block id="e9a171dcb6f5a1441f086b12be8cbc6b" category="cell">Magasins d'objets compatibles S3</block>
 </blocks>

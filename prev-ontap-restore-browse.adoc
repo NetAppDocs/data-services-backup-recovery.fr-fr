@@ -40,25 +40,77 @@ NOTE: La priorité élevée n’est pas prise en charge lors de la restauration 
 [[browse-restore-supported-systems-and-object-storage-providers]]
 == Parcourir et restaurer les systèmes pris en charge et les fournisseurs de stockage d'objets
 
-Vous pouvez restaurer les données ONTAP à partir d'un fichier de sauvegarde résidant dans un système secondaire (un volume répliqué) ou dans un stockage d'objets (un fichier de sauvegarde) sur les systèmes suivants. Les instantanés résident sur le système source et ne peuvent être restaurés que sur ce même système.
-
-*Remarque :* vous pouvez restaurer un volume à partir de n’importe quel type de fichier de sauvegarde, mais vous ne pouvez restaurer un dossier ou des fichiers individuels qu’à partir d’un fichier de sauvegarde dans le stockage d’objets pour le moment.
+Vous pouvez restaurer les données ONTAP à partir d'un fichier de sauvegarde situé dans un système secondaire (un volume répliqué) ou dans un stockage objet (un fichier de sauvegarde) vers les systèmes suivants.
 
 [cols="25,25,25,25"]
 |===
 | *Depuis le magasin d'objets (sauvegarde)* | *Depuis le primaire (instantané)* | *Depuis le système secondaire (réplication)* | Vers le système de destination 
 
 
-| Amazon S3 | Cloud Volumes ONTAP dans le système ONTAP sur site AWS | Cloud Volumes ONTAP dans le système ONTAP sur site AWS | Azure Blob 
+| Amazon S3  a| 
+* Cloud Volumes ONTAP dans AWS
+* Système ONTAP sur site
+
+ a| 
+* Cloud Volumes ONTAP dans AWS
+* Système ONTAP sur site
+
+ a| 
+* Système ONTAP sur site
+* Cloud Volumes ONTAP
 
 
-| Cloud Volumes ONTAP dans le système ONTAP sur site Azure | Cloud Volumes ONTAP dans le système ONTAP sur site Azure | Stockage Google Cloud | Cloud Volumes ONTAP dans le système ONTAP sur site de Google 
 
 
-| Cloud Volumes ONTAP dans le système ONTAP sur site de Google | NetApp StorageGRID | Système ONTAP sur site | Système ONTAP sur site Cloud Volumes ONTAP 
+| Azure Blob  a| 
+* Cloud Volumes ONTAP dans Azure
+* Système ONTAP sur site
+
+ a| 
+* Cloud Volumes ONTAP dans Azure
+* Système ONTAP sur site
+
+ a| 
+* Système ONTAP sur site
+* Cloud Volumes ONTAP
 
 
-| Vers le système ONTAP sur site | ONTAP S3 | Système ONTAP sur site | Système ONTAP sur site Cloud Volumes ONTAP 
+
+
+| Stockage Google Cloud  a| 
+* Cloud Volumes ONTAP dans Google
+* Système ONTAP sur site
+
+ a| 
+* Cloud Volumes ONTAP dans Google
+* Système ONTAP sur site
+
+ a| 
+* Système ONTAP sur site
+* Cloud Volumes ONTAP
+
+
+
+
+| NetApp StorageGRID | Système ONTAP sur site  a| 
+* Système ONTAP sur site
+* Cloud Volumes ONTAP
+
+| Système ONTAP sur site 
+
+
+| ONTAP S3 | Système ONTAP sur site  a| 
+* Système ONTAP sur site
+* Cloud Volumes ONTAP
+
+| Système ONTAP sur site 
+
+
+| Magasins d'objets compatibles S3 | Système ONTAP sur site  a| 
+* Système ONTAP sur site
+* Cloud Volumes ONTAP
+
+| Système ONTAP sur site 
 |===
 Pour la navigation et la restauration, l'agent de console peut être installé aux emplacements suivants :
 
