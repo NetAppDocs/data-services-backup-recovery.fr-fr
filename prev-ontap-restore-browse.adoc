@@ -4,7 +4,7 @@ permalink: prev-ontap-restore-browse.html
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
 summary: 'Avec NetApp Backup and Recovery, restaurez les données ONTAP à l"aide de Browse and Restore.' 
 ---
-= Restaurer les données ONTAP à l'aide de Parcourir et restaurer
+= Restaurez les données ONTAP à l'aide de l'option Parcourir et restaurer dans NetApp Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

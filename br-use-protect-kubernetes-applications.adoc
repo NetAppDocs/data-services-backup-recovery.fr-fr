@@ -4,7 +4,7 @@ permalink: br-use-protect-kubernetes-applications.html
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery, snapcenter 
 summary: NetApp Backup and Recovery vous permet de gérer les informations de votre hôte de charge de travail, les informations de votre base de données et les informations de vos instances.  Vous pouvez afficher, modifier et supprimer les paramètres de protection de votre inventaire. 
 ---
-= Ajouter et protéger les applications Kubernetes
+= Ajoutez et protégez les applications Kubernetes dans NetApp Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

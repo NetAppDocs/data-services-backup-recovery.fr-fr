@@ -57,4 +57,4 @@ Cette version des charges de travail Oracle Database introduit les fonctionnalit
 
 
 
-Pour plus de détails sur la protection des charges de travail Oracle Database, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Présentation de la protection des charges de travail de la base de données Oracle"].
+Pour plus de détails sur la protection des charges de travail Oracle Database, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Découvrez comment protéger les charges de travail Oracle Database avec NetApp Backup and Recovery"].

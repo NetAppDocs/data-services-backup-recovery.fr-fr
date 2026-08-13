@@ -19,7 +19,7 @@ Sauvegardez les groupes de protection KVM des systèmes ONTAP locaux vers Amazon
 
 NOTE: Pour sauvegarder des groupes de protection selon une planification, créez des stratégies qui régissent les opérations de sauvegarde et de restauration.  Voirlink:br-use-policies-create.html["Créer des politiques"] pour les instructions.
 
-* Créez des groupes de protection pour gérer les opérations de sauvegarde et de restauration d’un ensemble de ressources. Voirlink:br-use-kvm-protection-groups.html["Créez et gérez des groupes de protection pour les charges de travail KVM avec NetApp Backup and Recovery"] pour plus d'informations.
+* Créez des groupes de protection pour gérer les opérations de sauvegarde et de restauration d'un ensemble de ressources. Voir link:br-use-kvm-protection-groups.html["Gérer les groupes de protection KVM dans NetApp Backup and Recovery"] pour plus d'informations.
 
 
 

@@ -4,7 +4,7 @@ permalink: prev-ontap-restore-search.html
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
 summary: Vous pouvez utiliser la fonction Rechercher et restaurer pour récupérer des volumes, des dossiers ou des fichiers à partir de fichiers de sauvegarde ONTAP. 
 ---
-= Restaurer à partir des sauvegardes ONTAP à l'aide de la fonction Rechercher et restaurer
+= Restaurez les données ONTAP à l'aide de la fonction Rechercher et restaurer dans NetApp Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

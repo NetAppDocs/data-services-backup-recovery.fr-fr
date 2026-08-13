@@ -4,7 +4,7 @@ permalink: br-use-vmware-restore-guest-files-and-folders-overview.html
 keywords:  
 summary: 'Vous pouvez restaurer des fichiers ou des dossiers à partir d’un disque de machine virtuelle (VMDK) sur un système d’exploitation invité Windows.' 
 ---
-= Exigences et limitations relatives à la restauration des fichiers et dossiers invités
+= Exigences de restauration des fichiers invités VMware dans NetApp Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

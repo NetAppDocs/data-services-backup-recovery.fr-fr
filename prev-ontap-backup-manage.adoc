@@ -49,7 +49,7 @@ Chaque icône s'illumine lorsque le type de sauvegarde correspondant est activé
 
 Si vous avez activé la sauvegarde uniquement sur certains volumes d'un système lorsque vous avez activé NetApp Backup and Recovery pour la première fois, vous pouvez activer les sauvegardes sur des volumes supplémentaires ultérieurement.
 
-Consultez link:br-start-enable.html["Activez la sauvegarde et la restauration pour protéger les volumes"^] pour obtenir des instructions.
+Consultez link:br-start-enable.html["Activez NetApp Backup and Recovery pour protéger les volumes"^] pour obtenir des instructions.
 
 
 

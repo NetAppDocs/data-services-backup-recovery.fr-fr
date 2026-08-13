@@ -4,7 +4,7 @@ permalink: br-use-vmware-restore-guest-files-and-folders-from-vmdks.html
 keywords: restore, guest, files, folders, files and folders, guest VM, windows, linux, VMDK, attach 
 summary: 'Vous pouvez restaurer un ou plusieurs fichiers ou dossiers d"un VMDK vers une machine virtuelle invitée.' 
 ---
-= Restaurer des fichiers et des dossiers à partir de disques virtuels
+= Restaurez les fichiers et dossiers invités VMware dans NetApp Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -24,7 +24,7 @@ Restaurez des fichiers ou des dossiers individuels depuis un disque virtuel vers
 Restaurez des fichiers ou des dossiers d'un disque virtuel vers la machine virtuelle d'origine ou vers une autre machine virtuelle. Si vous préférez ne pas connecter le disque virtuel à la machine virtuelle d'origine, vous pouvez le connecter à une machine virtuelle proxy.
 
 .Avant de commencer
-* Consultez les prérequis et les limitations dans link:br-use-vmware-restore-guest-files-and-folders-overview.html["Exigences et limitations relatives à la restauration des fichiers et dossiers invités"].
+* Consultez les prérequis et les limitations dans link:br-use-vmware-restore-guest-files-and-folders-overview.html["Exigences de restauration des fichiers invités VMware dans NetApp Backup and Recovery"].
 * Pour restaurer des fichiers et des dossiers à l'aide d'une machine virtuelle proxy, assurez-vous que la machine virtuelle proxy est déjà configurée avant de commencer le processus de restauration de fichiers et de dossiers.
 * Vous devez créer des identifiants pour le disque virtuel source et la machine virtuelle de destination dans NetApp Backup and Recovery avant de pouvoir restaurer des fichiers et des dossiers. NetApp Backup and Recovery utilise ces identifiants pour s'authentifier auprès du disque virtuel et de la machine virtuelle de destination lors de la restauration de fichiers et de dossiers.
 

@@ -24,7 +24,7 @@ Dans cette version, les charges de travail Hyper-V introduisent les amélioratio
 * *Les groupes de protection utilisent désormais la planification du fuseau horaire de l'hôte* : Les groupes de protection utilisent désormais le fuseau horaire de l'hôte Hyper-V. Les groupes de protection créés avant l'introduction de la planification basée sur le fuseau horaire de l'hôte continuent d'utiliser leur heure précédemment configurée (généralement UTC). Pour mettre à jour ces groupes de protection afin qu'ils utilisent le fuseau horaire de l'hôte Hyper-V, vous devez recréer les planifications. Consultez  https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-hyperv-protection-groups.html["Créer et gérer des groupes de protection pour les charges de travail Hyper-V"] pour plus d'informations.
 
 
-Pour plus de détails sur la protection des charges de travail Hyper-V, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-hyperv-protect-overview.html["Présentation de la protection des charges de travail Hyper-V"] .
+Pour plus de détails sur la protection des charges de travail Hyper-V, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-hyperv-protect-overview.html["Flux de travail de protection Hyper-V avec NetApp Backup and Recovery"].
 
 
 

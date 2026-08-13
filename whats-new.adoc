@@ -137,7 +137,7 @@ Dans cette version, les charges de travail Hyper-V introduisent les amélioratio
 * *Les groupes de protection utilisent désormais la planification du fuseau horaire de l'hôte* : Les groupes de protection utilisent désormais le fuseau horaire de l'hôte Hyper-V. Les groupes de protection créés avant l'introduction de la planification basée sur le fuseau horaire de l'hôte continuent d'utiliser leur heure précédemment configurée (généralement UTC). Pour mettre à jour ces groupes de protection afin qu'ils utilisent le fuseau horaire de l'hôte Hyper-V, vous devez recréer les planifications. Consultez  https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-hyperv-protection-groups.html["Créer et gérer des groupes de protection pour les charges de travail Hyper-V"] pour plus d'informations.
 
 
-Pour plus de détails sur la protection des charges de travail Hyper-V, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-hyperv-protect-overview.html["Présentation de la protection des charges de travail Hyper-V"] .
+Pour plus de détails sur la protection des charges de travail Hyper-V, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-hyperv-protect-overview.html["Flux de travail de protection Hyper-V avec NetApp Backup and Recovery"].
 
 
 
@@ -170,7 +170,7 @@ Dans cette version, les charges de travail Hyper-V introduisent les amélioratio
 * *Restaurez des fichiers et des dossiers sur une machine virtuelle invitée* : Vous pouvez désormais restaurer des fichiers et des dossiers à partir d’un instantané du stockage principal vers une machine virtuelle Windows invitée. Cette fonctionnalité est prise en charge uniquement pour les machines virtuelles CIFS.
 
 
-Pour plus de détails sur la protection des charges de travail Hyper-V, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-hyperv-protect-overview.html["Présentation de la protection des charges de travail Hyper-V"] .
+Pour plus de détails sur la protection des charges de travail Hyper-V, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-hyperv-protect-overview.html["Flux de travail de protection Hyper-V avec NetApp Backup and Recovery"].
 
 
 
@@ -181,7 +181,7 @@ Cette version introduit l'amélioration suivante pour les charges de travail KVM
 
 *Restauration vers un autre emplacement* : Vous pouvez désormais restaurer les machines virtuelles KVM vers un autre emplacement (cette fonctionnalité est désormais disponible en disponibilité générale).
 
-Pour plus de détails sur la protection des charges de travail KVM, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kvm-protect-overview.html["Présentation de la protection des charges de travail KVM"] .
+Pour plus de détails sur la protection des charges de travail KVM, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kvm-protect-overview.html["Découvrez comment protéger les charges de travail KVM avec NetApp Backup and Recovery"].
 
 
 
@@ -194,7 +194,7 @@ Cette version introduit les améliorations suivantes pour les charges de travail
 * *Prise en charge de la vérification des sauvegardes* : Vous pouvez désormais configurer des stratégies de sauvegarde pour vérifier automatiquement l’intégrité de vos sauvegardes de base de données Oracle.
 
 
-Pour plus de détails sur la protection des charges de travail Oracle Database, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Présentation de la protection des charges de travail de la base de données Oracle"].
+Pour plus de détails sur la protection des charges de travail Oracle Database, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Découvrez comment protéger les charges de travail Oracle Database avec NetApp Backup and Recovery"].
 
 
 
@@ -308,7 +308,7 @@ Dans cette version, les charges de travail Hyper-V introduisent les amélioratio
 * *Prise en charge SAN (aperçu)* : NetApp Backup and Recovery prend désormais en charge la protection des machines virtuelles Hyper-V stockées sur un stockage SAN.
 
 
-Pour plus de détails sur la protection des charges de travail Hyper-V, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-hyperv-protect-overview.html["Présentation de la protection des charges de travail Hyper-V"] .
+Pour plus de détails sur la protection des charges de travail Hyper-V, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-hyperv-protect-overview.html["Flux de travail de protection Hyper-V avec NetApp Backup and Recovery"].
 
 
 
@@ -321,7 +321,7 @@ Dans cette version, les charges de travail KVM introduisent les améliorations s
 * *Restauration vers un autre emplacement (aperçu)* : Vous pouvez désormais restaurer les machines virtuelles KVM vers un autre emplacement. Pour plus d’informations, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kvm-restore.html["Restaurer les machines virtuelles KVM avec NetApp Backup and Recovery"].
 
 
-Pour plus de détails sur la protection des charges de travail KVM, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kvm-protect-overview.html["Présentation de la protection des charges de travail KVM"] .
+Pour plus de détails sur la protection des charges de travail KVM, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kvm-protect-overview.html["Découvrez comment protéger les charges de travail KVM avec NetApp Backup and Recovery"].
 
 
 
@@ -358,7 +358,7 @@ Cette version introduit l'amélioration suivante pour les charges de travail Ora
 * *Prise en charge du catalogue RMAN* : Vous pouvez désormais configurer Backup and Recovery pour stocker les métadonnées de protection dans le catalogue de récupération RMAN, ce qui assure la redondance et la conservation à long terme en cas de perte du fichier de contrôle cible. Pour plus d’informations, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-start-configure-oracle-database.html["Configurer une base de données Oracle"].
 
 
-Pour plus de détails sur la protection des charges de travail Oracle Database, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Présentation de la protection des charges de travail de la base de données Oracle"].
+Pour plus de détails sur la protection des charges de travail Oracle Database, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Découvrez comment protéger les charges de travail Oracle Database avec NetApp Backup and Recovery"].
 
 
 
@@ -430,7 +430,7 @@ Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
 
 La prise en charge des charges de travail KVM est désormais généralement disponible (GA) dans NetApp Backup and Recovery.
 
-Pour plus de détails sur la protection des charges de travail KVM, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kvm-protect-overview.html["Présentation de la protection des charges de travail KVM"] .
+Pour plus de détails sur la protection des charges de travail KVM, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kvm-protect-overview.html["Découvrez comment protéger les charges de travail KVM avec NetApp Backup and Recovery"].
 
 
 
@@ -505,7 +505,7 @@ Cette version des charges de travail Oracle Database introduit les fonctionnalit
 
 
 
-Pour plus de détails sur la protection des charges de travail Oracle Database, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Présentation de la protection des charges de travail de la base de données Oracle"].
+Pour plus de détails sur la protection des charges de travail Oracle Database, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Découvrez comment protéger les charges de travail Oracle Database avec NetApp Backup and Recovery"].
 
 
 
@@ -562,7 +562,7 @@ https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-hyperv-restor
 
 La préversion des charges de travail KVM protège désormais les hôtes KVM et les machines virtuelles qui sont gérées par Apache CloudStack.
 
-Pour plus de détails sur la protection des charges de travail KVM, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kvm-protect-overview.html["Présentation de la protection des charges de travail KVM"] .
+Pour plus de détails sur la protection des charges de travail KVM, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kvm-protect-overview.html["Découvrez comment protéger les charges de travail KVM avec NetApp Backup and Recovery"].
 
 
 
@@ -626,7 +626,7 @@ Cette version de NetApp Backup and Recovery introduit la prise en charge de la d
 * Rechercher et restaurer les sauvegardes de machines virtuelles
 
 
-Pour plus de détails sur la protection des charges de travail Hyper-V, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-hyperv-protect-overview.html["Présentation de la protection des charges de travail Hyper-V"] .
+Pour plus de détails sur la protection des charges de travail Hyper-V, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-hyperv-protect-overview.html["Flux de travail de protection Hyper-V avec NetApp Backup and Recovery"].
 
 
 
@@ -643,7 +643,7 @@ Cette version de NetApp Backup and Recovery introduit la prise en charge de la d
 * Processus guidé pour sauvegarder et restaurer les machines virtuelles et les données de machines virtuelles basées sur KVM
 
 
-Pour plus de détails sur la protection des charges de travail KVM, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kvm-protect-overview.html["Présentation de la protection des charges de travail KVM"] .
+Pour plus de détails sur la protection des charges de travail KVM, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kvm-protect-overview.html["Découvrez comment protéger les charges de travail KVM avec NetApp Backup and Recovery"].
 
 
 
@@ -704,7 +704,7 @@ Cette version de NetApp Backup and Recovery introduit la prise en charge de la d
 * Prise en charge du tableau de bord Oracle
 
 
-Pour plus de détails sur la protection des charges de travail Oracle Database, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Présentation de la protection des charges de travail de la base de données Oracle"].
+Pour plus de détails sur la protection des charges de travail Oracle Database, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Découvrez comment protéger les charges de travail Oracle Database avec NetApp Backup and Recovery"].
 
 
 

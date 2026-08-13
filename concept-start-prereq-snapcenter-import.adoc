@@ -4,7 +4,7 @@ permalink: concept-start-prereq-snapcenter-import.html
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, backup and recovery, snapcenter, import, migration, migrate 
 summary: Commencez à utiliser NetApp Backup and Recovery en vérifiant l’état de préparation de votre environnement opérationnel, de l’agent de console et du compte de console.  Pour utiliser NetApp Backup and Recovery, vous aurez besoin de ces prérequis. 
 ---
-= Conditions préalables à l'importation depuis le service Plug-in vers NetApp Backup and Recovery
+= Prérequis d'importation de SnapCenter pour NetApp Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

@@ -9,7 +9,7 @@
 
 La prise en charge des charges de travail KVM est désormais généralement disponible (GA) dans NetApp Backup and Recovery.
 
-Pour plus de détails sur la protection des charges de travail KVM, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kvm-protect-overview.html["Présentation de la protection des charges de travail KVM"] .
+Pour plus de détails sur la protection des charges de travail KVM, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kvm-protect-overview.html["Découvrez comment protéger les charges de travail KVM avec NetApp Backup and Recovery"].
 
 
 

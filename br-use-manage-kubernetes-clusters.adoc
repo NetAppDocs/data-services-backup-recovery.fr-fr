@@ -4,7 +4,7 @@ permalink: br-use-manage-kubernetes-clusters.html
 keywords: discover, backup and recovery, snapcenter, kubernetes, k8s, clusters, applications, inventory 
 summary: NetApp Backup and Recovery vous permet de découvrir et de gérer vos clusters Kubernetes afin de protéger les ressources hébergées par les clusters. 
 ---
-= Gérer les clusters Kubernetes
+= Gérez les clusters Kubernetes dans NetApp Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

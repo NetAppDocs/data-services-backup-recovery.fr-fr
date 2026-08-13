@@ -40,7 +40,7 @@ Dans cette version, les charges de travail Hyper-V introduisent les amélioratio
 * *Prise en charge SAN (aperçu)* : NetApp Backup and Recovery prend désormais en charge la protection des machines virtuelles Hyper-V stockées sur un stockage SAN.
 
 
-Pour plus de détails sur la protection des charges de travail Hyper-V, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-hyperv-protect-overview.html["Présentation de la protection des charges de travail Hyper-V"] .
+Pour plus de détails sur la protection des charges de travail Hyper-V, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-hyperv-protect-overview.html["Flux de travail de protection Hyper-V avec NetApp Backup and Recovery"].
 
 
 
@@ -53,7 +53,7 @@ Dans cette version, les charges de travail KVM introduisent les améliorations s
 * *Restauration vers un autre emplacement (aperçu)* : Vous pouvez désormais restaurer les machines virtuelles KVM vers un autre emplacement. Pour plus d’informations, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kvm-restore.html["Restaurer les machines virtuelles KVM avec NetApp Backup and Recovery"].
 
 
-Pour plus de détails sur la protection des charges de travail KVM, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kvm-protect-overview.html["Présentation de la protection des charges de travail KVM"] .
+Pour plus de détails sur la protection des charges de travail KVM, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kvm-protect-overview.html["Découvrez comment protéger les charges de travail KVM avec NetApp Backup and Recovery"].
 
 
 

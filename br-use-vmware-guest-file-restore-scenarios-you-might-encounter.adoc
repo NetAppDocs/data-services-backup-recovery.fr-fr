@@ -4,7 +4,7 @@ permalink: br-use-vmware-guest-file-restore-scenarios-you-might-encounter.html
 keywords:  
 summary: 'Lorsque vous tentez de restaurer un fichier invité, vous pouvez rencontrer des scénarios dans lesquels la session de restauration du fichier invité est vide, l"opération de connexion du disque de restauration du fichier invité échoue ou les sauvegardes ne sont pas détachées après l"arrêt de la session de restauration du fichier invité.' 
 ---
-= Résolution des problèmes de restauration des fichiers invités
+= Dépannage de la restauration des fichiers invités dans NetApp Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

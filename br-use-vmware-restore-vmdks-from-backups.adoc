@@ -4,7 +4,7 @@ permalink: br-use-vmware-restore-vmdks-from-backups.html
 keywords:  
 summary: 'Vous pouvez restaurer des VMDK existants, ou des VMDK supprimés ou détachés, à partir d"une sauvegarde principale ou secondaire de machines virtuelles traditionnelles ou de machines virtuelles vVol.' 
 ---
-= Restaurer des disques virtuels spécifiques à partir de sauvegardes
+= Restaurez les disques virtuels VMware à partir de sauvegardes dans NetApp Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
