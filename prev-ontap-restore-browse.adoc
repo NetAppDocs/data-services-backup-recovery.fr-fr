@@ -57,7 +57,7 @@ Vous pouvez restaurer les données ONTAP à partir d'un fichier de sauvegarde si
 
  a| 
 * Système ONTAP sur site
-* Cloud Volumes ONTAP
+* Cloud Volumes ONTAP dans AWS
 
 
 
@@ -72,7 +72,7 @@ Vous pouvez restaurer les données ONTAP à partir d'un fichier de sauvegarde si
 
  a| 
 * Système ONTAP sur site
-* Cloud Volumes ONTAP
+* Cloud Volumes ONTAP dans Azure
 
 
 
@@ -87,7 +87,7 @@ Vous pouvez restaurer les données ONTAP à partir d'un fichier de sauvegarde si
 
  a| 
 * Système ONTAP sur site
-* Cloud Volumes ONTAP
+* Cloud Volumes ONTAP dans Google
 
 
 
