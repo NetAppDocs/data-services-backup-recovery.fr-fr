@@ -114,6 +114,27 @@ NOTE: Les champs qui s'affichent diffèrent selon le fournisseur et l'architectu
 ** * Hiérarchisez vos sauvegardes du magasin d'objets au stockage d'archivage* : si vous choisissez de hiérarchiser les sauvegardes vers le stockage d'archivage (par exemple, AWS Glacier), sélectionnez l'option de hiérarchisation et le nombre de jours d'archivage.
 
 
+. Vous pouvez également configurer les paramètres avancés dans la stratégie.
++
+[%collapsible]
+====
+** *Tentatives de sauvegarde* : Pour réessayer la tâche un certain nombre de fois en cas d’échec ou d’interruption, développez la section *Tentatives de sauvegarde* et saisissez le nombre maximal de tentatives de tâche d’instantané et de sauvegarde ainsi que l’intervalle de temps entre les tentatives.
+
+
+
+TIP: Si la fréquence des instantanés est définie sur 1 heure, le délai maximal ainsi que le nombre de nouvelles tentatives ne doivent pas dépasser 45 minutes.
+
+** *Succès partiel* : activez cette option pour permettre à une opération de sauvegarde de se terminer avec succès même si Backup and Recovery ne parvient pas à sauvegarder toutes les ressources.
+** *Configuration de la machine virtuelle* : Sélectionnez le type de cohérence de sauvegarde dont vous avez besoin :
++
+*** *Sauvegarde cohérente en cas de plantage* : Sélectionnez cette option pour éviter le gel de la machine virtuelle avant la prise d’un instantané ou d’une sauvegarde. L’instantané ou la sauvegarde sera cohérent(e) en cas de plantage, c’est-à-dire que la mémoire système au moment de la prise de l’instantané ou de la sauvegarde n’est pas capturée.
+*** *Sauvegarde cohérente des VM* : Sélectionnez cette option pour figer les VM avant de prendre un instantané ou une sauvegarde. Cela capture l’état complet de la VM (y compris la mémoire) afin d’assurer une protection cohérente de la VM. Vous pouvez également, dans *Nombre maximal de VM simultanées*, spécifier combien de VM Backup and Recovery peut figer et sauvegarder en même temps. Si vous activez l’option *Figer toutes les VM*, Backup and Recovery fige toutes les VM simultanément, lance les sauvegardes, puis dégèle toutes les VM une fois toutes les opérations de sauvegarde terminées.
+
+
+
+
+====
+. Une fois terminé, sélectionnez *Terminé*.
 
 
 
@@ -137,6 +158,12 @@ Super administrateur de sauvegarde et de restauration. Si vous protégez des don
 . Sélectionnez l’option *Politiques*.
 . Sélectionnez la politique que vous souhaitez modifier.
 . Sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Modifier*.
+. Une fois la modification terminée, sélectionnez *Terminé*.
+. Dans la boîte de dialogue de confirmation, saisissez le nom de la policy pour confirmer les modifications.
++
+L'enregistrement des modifications affecte toutes les applications protégées par cette politique.
+
+. Sélectionnez *Terminé* pour confirmer.
 
 
 

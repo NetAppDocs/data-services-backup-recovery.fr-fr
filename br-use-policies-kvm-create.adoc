@@ -124,24 +124,10 @@ NOTE: Les champs qui s'affichent diffèrent selon le fournisseur et l'architectu
 ** *Activer l'analyse d'intégrité* : Choisissez d'activer ou non les analyses d'intégrité (verrouillage des instantanés) sur le stockage d'objets. Cela garantit que les sauvegardes sont valides et restaurables. La fréquence des analyses d'intégrité est définie à 7 jours par défaut. Pour protéger vos sauvegardes contre toute modification ou suppression, sélectionnez l'option *Analyse d'intégrité*. L'analyse est effectuée uniquement sur le dernier instantané. Vous pouvez activer ou désactiver les analyses d'intégrité sur le dernier instantané.
 
 
-
-
-
-
-[[configure-advanced-settings-in-the-policy]]
-=== Configurer les paramètres avancés dans la politique
-
+. Vous pouvez également configurer les paramètres avancés dans la stratégie.
++
 [%collapsible]
 ====
-Vous pouvez configurer des paramètres avancés dans la stratégie. Ces options sont compatibles avec toutes les architectures de sauvegarde et toutes les destinations de stockage. Les options avancées disponibles dépendent de la charge de travail sélectionnée en haut de la page, certaines options décrites ici peuvent donc ne pas s’appliquer à toutes les charges de travail.
-
-.Étapes
-. Dans le menu NetApp Backup and Recovery , sélectionnez *Politiques*.
-. Depuis la page Politiques, sélectionnez *Créer une nouvelle politique*.
-. Dans la section *Politique > Paramètres avancés*, sélectionnez le menu *Sélectionner une action avancée* pour choisir parmi une liste de paramètres avancés.
-. Activez les paramètres que vous souhaitez afficher ou modifier, puis sélectionnez *Accepter*.
-. Fournissez les informations suivantes :
-+
 ** *Paramètres de la machine virtuelle* :
 +
 *** *Activer les snapshots cohérents au niveau de la VM et cohérent au niveau des applications* : Activez cette option pour créer des snapshots cohérents au niveau de la VM et cohérent au niveau des applications. L'agent invité KVM QEMU doit être en cours d'exécution sur la VM. Si l'agent invité n'est pas en cours d'exécution, les snapshots seront cohérents après panne. Notez que l'activation de cette option peut augmenter la durée de sauvegarde et utiliser plus de stockage. De plus, la RAM active de la VM n'est pas incluse dans les snapshots cohérents.
@@ -163,9 +149,10 @@ TIP: Si la fréquence des instantanés est définie sur 1 heure, le délai maxim
 ** *Notification* : Choisissez d’activer ou non les notifications par e-mail pour les opérations de sauvegarde. Vous pouvez sélectionner les événements qui déclenchent une notification — par exemple, lorsqu’une sauvegarde réussit, échoue ou se termine avec des avertissements.
 
 
-
-
 ====
+. Une fois terminé, sélectionnez *Créer*.
+
+
 
 
 [[edit-a-policy]]
@@ -187,6 +174,12 @@ Super administrateur de sauvegarde et de récupération. https://docs.netapp.com
 . Sélectionnez l’option *Politiques*.
 . Sélectionnez la politique que vous souhaitez modifier.
 . Sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Modifier*.
+. Une fois la modification terminée, sélectionnez *Terminé*.
+. Dans la boîte de dialogue de confirmation, saisissez le nom de la policy pour confirmer les modifications.
++
+L'enregistrement des modifications affecte toutes les applications protégées par cette politique.
+
+. Sélectionnez *Terminé* pour confirmer.
 
 
 
