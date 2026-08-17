@@ -18,6 +18,54 @@ Découvrez les nouveautés de NetApp Backup and Recovery.
 
 
 
+[[17-august-2026]]
+== 17 août 2026
+
+Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
+
+
+
+[[hyper-v-workloads-enhancements]]
+=== Améliorations des charges de travail Hyper-V
+
+Dans cette version, les charges de travail Hyper-V introduisent l'amélioration suivante :
+
+*Restaurer la sauvegarde du stockage objet vers un emplacement alternatif* : Vous pouvez désormais restaurer les machines virtuelles Hyper-V, les fichiers et les dossiers du stockage objet vers un emplacement de stockage alternatif.
+
+Pour plus de détails sur la protection des charges de travail Hyper-V, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-hyperv-protect-overview.html["Découvrez comment protéger les charges de travail Hyper-V avec NetApp Backup and Recovery"].
+
+
+
+[[kubernetes-workloads-enhancements]]
+=== Améliorations des charges de travail Kubernetes
+
+Cette version introduit les améliorations suivantes pour les charges de travail Kubernetes :
+
+* *Trident Protect 26.08* : Cette version inclut Trident Protect 26.08.
+* *Tentatives de sauvegarde* : Vous pouvez désormais activer les tentatives de sauvegarde et configurer le nombre de tentatives et les intervalles entre les tentatives en tant que paramètres avancés dans les politiques de protection Kubernetes.
+* *Succès partiel de la sauvegarde* : Vous pouvez désormais configurer les paramètres avancés des politiques de protection Kubernetes pour poursuivre la sauvegarde en cas de défaillance de certaines ressources, ce qui permet aux tâches de sauvegarde de se terminer comme partiellement réussies. Cela vous permet de restaurer les ressources sauvegardées même si certaines ressources échouent pendant l’opération de sauvegarde.
+* *Sauvegardes cohérentes avec le crash et cohérentes avec la VM* : le service Backup and Recovery for NetApp Console prend désormais en charge la configuration de politiques de protection qui créent des sauvegardes ou des snapshots cohérents avec le crash ou cohérents avec la VM. Vous pouvez également personnaliser la manière dont s'effectuent les gels de VM pendant l'opération de protection.
+* *Reconnexion du cluster Kubernetes suite à un changement d'adresse IP de l'agent Console* : Le service Backup and Recovery for NetApp Console vous permet désormais de reconnecter un cluster à son agent Console si l'adresse IP de l'agent change.
+* *Migration du cluster vers un nouvel agent Console* : Le service de sauvegarde et de récupération pour NetApp Console vous permet désormais de migrer un cluster vers un nouvel agent Console si l’agent d’origine tombe en panne ou est supprimé, garantissant ainsi une protection ininterrompue des applications.
+
+
+Pour plus de détails sur la protection des charges de travail Kubernetes, consultez  https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kubernetes-protect-overview.html["Découvrez comment protéger les charges de travail Kubernetes avec NetApp Backup and Recovery"].
+
+
+
+[[oracle-database-workloads-enhancement]]
+=== Amélioration des charges de travail Oracle Database
+
+Cette version introduit les améliorations suivantes pour les charges de travail de la base de données Oracle :
+
+* *Restauration de pluggable databases (PDB)* : Vous pouvez désormais restaurer des pluggable databases (PDB) individuelles et des espaces de tables PDB, y compris la récupération à un point précis dans le temps.
+* *Clonage de base de données enfichable (PDB)* : Vous pouvez désormais cloner une seule PDB dans une base de données conteneur (CDB) existante, et éventuellement exclure des PDB lorsque vous clonez une base de données conteneur complète.
+
+
+Pour plus de détails sur la protection des charges de travail Oracle Database, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Découvrez comment protéger les charges de travail Oracle Database avec NetApp Backup and Recovery"].
+
+
+
 [[10-august-2026]]
 == 10 août 2026
 

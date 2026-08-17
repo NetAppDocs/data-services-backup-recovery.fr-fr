@@ -142,7 +142,7 @@ Lors de la restauration vers un autre emplacement, vous pouvez modifier le vCent
 
 ** Section *Stockage de destination* (visible uniquement lors de la restauration à partir du stockage d'objets) :
 +
-*** *Modifier l'emplacement de stockage par défaut* : activez cette option pour restaurer une sauvegarde d'object store sur une autre machine virtuelle de stockage si l'emplacement de stockage source est inaccessible ou saturé. Choisissez un autre cluster, une autre machine virtuelle de stockage ou un autre agrégat à utiliser.
+*** *Modifier l'emplacement de stockage par défaut* : activez cette option pour restaurer une sauvegarde d'objets vers un autre emplacement si l'emplacement de stockage source est inaccessible ou saturé. Choisissez un autre cluster, une autre machine virtuelle de stockage ou un autre agrégat à utiliser.
 
 
 ** Section *Options de pré-restauration* :

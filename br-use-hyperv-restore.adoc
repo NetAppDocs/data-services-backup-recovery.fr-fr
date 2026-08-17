@@ -21,7 +21,7 @@ Vous pouvez restaurer des charges de travail à partir de différents emplacemen
 
 * Restaurer à partir d'un emplacement principal (instantané local)
 * Restaurer à partir d'une ressource répliquée sur un stockage secondaire
-* Restaurer à partir d'une sauvegarde de stockage objet (uniquement vers l'emplacement d'origine)
+* Restaurer à partir d'une sauvegarde de stockage d'objets
 
 
 .Restaurer ces points
@@ -101,6 +101,11 @@ Une liste de points de restauration possibles apparaît.
 *** *Réseau* : Sélectionnez le réseau de destination sur lequel vous souhaitez restaurer l’instantané.
 *** *Nom de la machine virtuelle* : Saisissez le nom de la machine virtuelle que vous souhaitez restaurer.
 *** *Emplacement de destination* : Saisissez le dossier de destination ou le partage CIFS qui doit contenir les données restaurées.
+
+
+.. Dans la section *Stockage de destination* (visible uniquement lors de la restauration à partir du stockage d'objets) :
++
+*** *Modifier l'emplacement de stockage par défaut* : activez cette option pour restaurer une sauvegarde d'objets vers un autre emplacement si l'emplacement de stockage source est inaccessible ou saturé. Choisissez un autre cluster, une autre machine virtuelle de stockage ou un autre agrégat à utiliser.
 
 
 .. Dans la section *Options de pré-restauration*, considérez les options suivantes :
