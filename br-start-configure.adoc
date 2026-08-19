@@ -14,9 +14,9 @@ summary: Suivez quelques étapes pour configurer NetApp Backup and Recovery.
 
 
 [role="lead"]
-Après avoir configuré la NetApp Console, configurez les paramètres de sauvegarde et de récupération.  Ajoutez des informations d’identification pour les ressources de l’hôte, importez des ressources SnapCenter , configurez les répertoires de journaux et définissez les paramètres VMware vCenter.  Effectuez ces étapes avant de sauvegarder ou de récupérer des données.
+Configurez les paramètres de sauvegarde et de récupération pour ajouter les informations d'identification des charges de travail, intégrer l'infrastructure existante et préparer les opérations de sauvegarde et de restauration.
 
-* <<Ajouter des informations d'identification pour les ressources de l'hôte>> pour tout hôte Windows, Microsoft SQL Server, Oracle Database ou Linux avec lequel NetApp Backup and Recovery doit s'authentifier. Cela inclut les informations d'identification du système d'exploitation invité utilisées lors de la restauration de fichiers ou de dossiers.
+* <<Ajouter des informations d'identification pour les ressources de l'hôte>> pour les hôtes Windows, Microsoft SQL Server, Oracle Database et Linux avec lesquels NetApp Backup and Recovery doit s'authentifier. Cela inclut les informations d'identification du système d'exploitation invité utilisées lors de la restauration de fichiers ou de dossiers.
 * <<Maintenir les paramètres VMware vCenter>>.
 * <<Importer et gérer les ressources de l'hôte SnapCenter>>.  (charges de travail Microsoft SQL Server uniquement)
 * <<Ajouter une plateforme de gestion KVM>>. (Charges de travail KVM uniquement)
@@ -49,13 +49,13 @@ Vous devez configurer les types d’informations d’identification suivants :
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Paramètres*.
 . Sélectionnez la flèche vers le bas pour *Informations d'identification*.
 . Sélectionnez *Ajouter de nouvelles informations d'identification*.
-. Saisissez les informations d'identification. Les champs affichés varient selon le mode d'authentification sélectionné. Passez votre souris sur l'icône d'information *i* pour obtenir plus d'informations sur les champs.
+. Saisissez les informations d'identification. Différents champs apparaissent selon le mode d'authentification que vous sélectionnez. Placez le pointeur sur l'icône d'information *i* pour obtenir plus d'informations sur les champs.
 +
 ** *Nom des informations d'identification* : saisissez un nom pour les informations d'identification.
 ** *Mode d'authentification* : Sélectionnez *Windows*, *Microsoft SQL*, *Oracle Database* ou *Linux*.
 +
 
-TIP: Pour les charges de travail Microsoft SQL Server, vous devez saisir des informations d'identification à la fois pour Windows et pour Microsoft SQL Server ; vous devrez donc ajouter deux ensembles d'informations d'identification.
+TIP: Pour les charges de travail Microsoft SQL Server, vous devez saisir les informations d'identification pour Windows et Microsoft SQL Server, ce qui nécessite deux ensembles d'informations d'identification.
 
 +
 [role="tabbed-block"]
@@ -138,7 +138,7 @@ Vous pourrez modifier ultérieurement le mot de passe de tous les identifiants q
 [[maintain-vmware-vcenter-settings]]
 == Maintenir les paramètres VMware vCenter
 
-Fournissez les informations d’identification VMware vCenter pour découvrir les charges de travail à sauvegarder.  Si vous ne disposez pas d’informations d’identification, créez-les avec des autorisations pour accéder et gérer les charges de travail VMware vCenter Server.
+Fournissez les informations d'identification du serveur VMware vCenter pour découvrir les charges de travail à sauvegarder. Si vous ne disposez pas d'informations d'identification, créez-en avec les autorisations nécessaires pour accéder aux charges de travail du serveur VMware vCenter et les gérer.
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Paramètres*.
@@ -146,7 +146,7 @@ Fournissez les informations d’identification VMware vCenter pour découvrir le
 . Sélectionnez *Ajouter vCenter*.
 . Saisissez les informations du serveur VMware vCenter.
 +
-** *VCenter FQDN ou adresse IP* : saisissez un nom de domaine complet ou l’adresse IP du serveur VMware vCenter.
+** *vCenter FQDN ou adresse IP* : Saisissez un FQDN ou l’adresse IP pour le serveur VMware vCenter.
 ** *Nom d'utilisateur* et *Mot de passe* : saisissez le nom d'utilisateur et le mot de passe du serveur VMware vCenter.
 ** *Port* : saisissez le numéro de port du serveur VMware vCenter.
 ** *Protocole* : Sélectionnez *HTTP* ou *HTTPS*.
@@ -247,7 +247,7 @@ La page Importer depuis SnapCenter affiche toutes les importations précédentes
 [[add-a-kvm-management-platform]]
 == Ajouter une plateforme de gestion KVM
 
-Si vous utilisez la plateforme de gestion Apache CloudStack pour gérer les ressources KVM, vous devez l'intégrer à NetApp Backup and Recovery afin que ce dernier puisse détecter et protéger les hôtes et les machines virtuelles KVM gérés.
+Si vous utilisez la plateforme de gestion Apache CloudStack pour gérer les ressources KVM, intégrez-la à NetApp Backup and Recovery afin que Backup and Recovery puisse découvrir et protéger les hôtes et les machines virtuelles KVM gérés.
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Paramètres*.
@@ -255,7 +255,7 @@ Si vous utilisez la plateforme de gestion Apache CloudStack pour gérer les ress
 . Sélectionnez *Ajouter les informations d'identification de la plateforme de gestion*.
 . Saisissez les informations suivantes :
 +
-** *Adresse IP ou nom de domaine complet de la plateforme de gestion* : Saisissez l’adresse IP ou le nom de domaine complet de la plateforme de gestion.
+** *Adresse IP ou nom de domaine complet (FQDN) de la plateforme de gestion* : Saisissez l’adresse IP ou un nom de domaine complet (FQDN) de la plateforme de gestion.
 ** *Clé API* : Saisissez la clé API à utiliser pour authentifier les requêtes API.
 ** *Clé secrète* : Saisissez la clé secrète à utiliser pour authentifier les requêtes API.
 ** *Port* : Saisissez le port à utiliser pour la communication entre la sauvegarde et la restauration et la plateforme de gestion.
@@ -270,7 +270,7 @@ Si vous utilisez la plateforme de gestion Apache CloudStack pour gérer les ress
 [[configure-log-directories-in-snapshots-for-windows-hosts]]
 == Configurer les répertoires de journaux dans les instantanés pour les hôtes Windows
 
-Avant de créer des stratégies pour les hôtes Windows, vous devez configurer les répertoires de journaux dans les instantanés pour les hôtes Windows.  Les répertoires de journaux sont utilisés pour stocker les journaux générés pendant le processus de sauvegarde.
+Avant de créer des stratégies pour les hôtes Windows, configurez les répertoires de journaux dans les instantanés pour stocker les journaux générés pendant le processus de sauvegarde.
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
@@ -310,11 +310,11 @@ Une fois le modèle créé, il apparaît dans la liste des modèles dans la sect
 [[create-a-resource-transformation-template]]
 == Créer un modèle de transformation de ressources
 
-Créez des modèles de transformation de ressources pour stocker les transformations courantes que vous effectuez sur les ressources lors de leur restauration.
+Créez des modèles de transformation de ressources pour stocker les transformations courantes que vous appliquez aux ressources lors des opérations de restauration.
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Paramètres*.
-. Sélectionnez la flèche vers le bas pour développer la section *Resource modifer template*.
+. Sélectionnez la flèche vers le bas pour développer la section *Modèle de transformation des ressources*.
 . Sélectionnez *Créer un modèle*.
 . Saisissez un nom pour le modèle de transformation de ressource.
 . Vous pouvez éventuellement saisir une description du modèle.

@@ -4,7 +4,7 @@ permalink: reference-policy-differences-snapcenter.html
 keywords: backup policy, backup policies, snapcenter, migration 
 summary: Il existe certaines différences entre les stratégies utilisées dans NetApp Backup and Recovery et celles utilisées dans SnapCenter. 
 ---
-= Stratégies dans SnapCenter comparées à celles de NetApp Backup and Recovery
+= Différences de politique entre SnapCenter et NetApp Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -12,7 +12,7 @@ summary: Il existe certaines différences entre les stratégies utilisées dans 
 
 
 [role="lead"]
-Il existe certaines différences entre les stratégies utilisées dans SnapCenter et celles utilisées dans NetApp Backup and Recovery qui peuvent avoir un impact sur ce que vous voyez après l'importation de ressources et de stratégies depuis SnapCenter.
+Utilisez ce document de référence pour comprendre les différences de règles entre SnapCenter et NetApp Backup and Recovery qui peuvent affecter les ressources et les règles importées.
 
 
 
@@ -27,7 +27,7 @@ SnapCenter utilise les niveaux de planification suivants :
 * *Mensuel* : de janvier à décembre, avec la possibilité de jouer un ou plusieurs jours spécifiques chaque mois, par exemple le 7.
 
 
-NetApp Backup and Recovery utilise les niveaux de planification suivants, qui sont légèrement différents :
+NetApp Backup and Recovery utilise les niveaux de planification suivants, qui diffèrent légèrement :
 
 * *Toutes les heures* : effectue des instantanés uniquement à des intervalles de 15 minutes, par exemple, des intervalles d'une heure ou de 15 minutes inférieurs à 60.
 * *Quotidien* : Heures de la journée (0-23) avec heure de début par exemple à 10h00 avec une option pour effectuer toutes les heures.
@@ -50,7 +50,7 @@ Vous pouvez attribuer plusieurs politiques avec le même niveau de planification
 [[imported-snapcenter-daily-schedules]]
 == Horaires quotidiens SnapCenter importés
 
-NetApp Backup and Recovery ajuste les planifications SnapCenter comme suit :
+NetApp Backup and Recovery ajuste les calendriers SnapCenter comme suit :
 
 * Si la planification SnapCenter est définie sur une durée inférieure ou égale à 7 jours, NetApp Backup and Recovery définit la planification sur une durée hebdomadaire. Certains instantanés sont ignorés au cours de la semaine.
 +

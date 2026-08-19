@@ -4,7 +4,7 @@ permalink: br-use-vmware-guest-file-restore-scenarios-you-might-encounter.html
 keywords:  
 summary: 'Lorsque vous tentez de restaurer un fichier invité, vous pouvez rencontrer des scénarios dans lesquels la session de restauration du fichier invité est vide, l"opération de connexion du disque de restauration du fichier invité échoue ou les sauvegardes ne sont pas détachées après l"arrêt de la session de restauration du fichier invité.' 
 ---
-= Dépannage de la restauration des fichiers invités dans NetApp Backup and Recovery
+= Dépannez la restauration de fichiers invités VMware dans NetApp Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 'Lorsque vous tentez de restaurer un fichier invité, vous pouvez renco
 
 
 [role="lead"]
-Lorsque vous tentez de restaurer un fichier invité, vous pouvez rencontrer l’un des scénarios suivants.
+Si vous rencontrez des problèmes lors de la restauration d'un fichier invité, utilisez ces scénarios pour identifier et corriger le problème.
 
 
 
@@ -30,11 +30,11 @@ Pour corriger le problème, remettez manuellement les VMDK en ligne dans le syst
 [[guest-file-restore-attach-disk-operation-fails]]
 == L'opération de restauration du fichier invité et de connexion au disque échoue
 
-Ce problème se produit lorsque vous démarrez une opération de restauration de fichier invité, mais que l'opération de connexion de disque échoue même si les outils VMware sont en cours d'exécution et que les informations d'identification du système d'exploitation invité sont correctes. Si cela se produit, l’erreur suivante est renvoyée :
+Ce problème survient lorsque vous lancez une opération de restauration de fichiers invités, mais que l'opération de connexion au disque échoue, même si VMware Tools est en cours d'exécution et que les informations d'identification du système d'exploitation invité sont correctes. Si cela se produit, l'erreur suivante est renvoyée :
 
 `Error while validating guest credentials, failed to access guest system using specified credentials: Verify VMware Tools is running properly on the system and that the account used is an Administrator account. Error is SystemError vix error codes = (3016, 0).`
 
-Pour corriger le problème, redémarrez le service Windows VMware Tools sur le système d’exploitation invité, puis réessayez l’opération de restauration du fichier invité.
+Pour corriger le problème, redémarrez le service Windows VMware Tools sur le système d'exploitation invité, puis réessayez l'opération de restauration des fichiers invités.
 
 
 

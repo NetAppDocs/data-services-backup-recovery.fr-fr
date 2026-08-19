@@ -14,7 +14,7 @@ summary: 'Vous pouvez restaurer un ou plusieurs fichiers ou dossiers d"un VMDK v
 
 
 [role="lead"]
-Restaurez des fichiers ou des dossiers individuels depuis un disque virtuel vers la machine virtuelle d'origine ou vers une autre machine virtuelle. Cette fonction est utile lorsque vous n'avez pas besoin de restaurer une machine virtuelle entière, mais seulement des fichiers ou des dossiers spécifiques.
+Restaurez des fichiers ou des dossiers individuels d'une image VMDK vers la machine virtuelle d'origine ou vers une autre machine virtuelle. Utilisez cette option lorsque vous avez besoin de fichiers ou de dossiers spécifiques plutôt que de la machine virtuelle entière.
 
 
 
@@ -25,12 +25,12 @@ Restaurez des fichiers ou des dossiers d'un disque virtuel vers la machine virtu
 
 .Avant de commencer
 * Consultez les prérequis et les limitations dans link:br-use-vmware-restore-guest-files-and-folders-overview.html["Exigences de restauration des fichiers invités VMware dans NetApp Backup and Recovery"].
-* Pour restaurer des fichiers et des dossiers à l'aide d'une machine virtuelle proxy, assurez-vous que la machine virtuelle proxy est déjà configurée avant de commencer le processus de restauration de fichiers et de dossiers.
+* Pour restaurer des fichiers et des dossiers à l'aide d'une machine virtuelle proxy, assurez-vous que cette dernière est déjà configurée avant de démarrer le processus de restauration.
 * Vous devez créer des identifiants pour le disque virtuel source et la machine virtuelle de destination dans NetApp Backup and Recovery avant de pouvoir restaurer des fichiers et des dossiers. NetApp Backup and Recovery utilise ces identifiants pour s'authentifier auprès du disque virtuel et de la machine virtuelle de destination lors de la restauration de fichiers et de dossiers.
 
 
 .À propos de cette tâche
-La performance de la restauration de fichiers ou de dossiers dépend de deux facteurs : la taille des fichiers ou dossiers à restaurer et le nombre de fichiers ou dossiers à restaurer. Restaurer un grand nombre de petits fichiers peut prendre plus de temps que prévu par rapport à la restauration d’un petit nombre de gros fichiers, si l’ensemble des données à restaurer est de même taille.
+Les performances de restauration des fichiers ou dossiers dépendent de la taille et du nombre d’éléments que vous restaurez. La restauration de nombreux petits fichiers peut prendre plus de temps que la restauration de quelques gros fichiers de même taille totale.
 
 Vous pouvez effectuer une restauration sur une machine virtuelle distante (ce qu'on appelle une restauration inter-VM), mais les systèmes d'exploitation source et de destination doivent être identiques.
 
@@ -75,7 +75,7 @@ Vous pouvez utiliser l'icône de loupe (recherche) située près du volet de l'e
 
 . Sélectionnez les fichiers ou dossiers à restaurer.
 +
-Les fichiers et dossiers que vous avez sélectionnés pour la restauration sont listés dans le volet droit de l'écran.
+Les fichiers et dossiers que vous sélectionnez pour la restauration apparaissent dans le volet de droite.
 
 . Sélectionnez *Suivant*.
 . Dans la section « Restaurer vers le chemin », saisissez le chemin d’accès à la machine virtuelle de destination et l’emplacement du système de fichiers où les fichiers sélectionnés seront restaurés :
@@ -108,7 +108,7 @@ Vous pouvez consulter la progression de la restauration sur la page de suivi des
 --
 .Attachez le VMDK à une machine virtuelle proxy pour restaurer des fichiers et des dossiers
 --
-Utilisez une VM proxy (une VM différente sur le même vCenter que l'originale) pour restaurer les fichiers et dossiers invités lorsque vous ne souhaitez pas attacher le disque virtuel à la VM d'origine.
+Utilisez une machine virtuelle proxy, c'est-à-dire une machine virtuelle différente sur le même vCenter que la machine virtuelle d'origine, pour restaurer les fichiers et dossiers invités lorsque vous ne souhaitez pas attacher le disque virtuel à la machine virtuelle d'origine.
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Restaurer*.
@@ -145,7 +145,7 @@ Vous pouvez utiliser l'icône de loupe (recherche) située près du volet de l'e
 
 . Sélectionnez les fichiers ou dossiers à restaurer.
 +
-Les fichiers et dossiers que vous avez sélectionnés pour la restauration sont listés dans le volet droit de l'écran.
+Les fichiers et dossiers que vous sélectionnez pour la restauration apparaissent dans le volet de droite.
 
 . Sélectionnez *Suivant*.
 . Dans la section « Restaurer vers le chemin », saisissez le chemin d’accès à la machine virtuelle de destination et l’emplacement du système de fichiers où les fichiers sélectionnés seront restaurés :
@@ -182,7 +182,7 @@ Vous pouvez consulter la progression de la restauration sur la page de suivi des
 [[view-active-vmdk-mount-sessions]]
 == Afficher les sessions de montage VMDK actives
 
-Lors de la restauration de fichiers ou de dossiers, visualisez les sessions invité actives. Vous y verrez les VMDK actuellement attachés à des sessions ouvertes.
+Consultez les sessions invitées actives lors de la restauration de fichiers ou de dossiers. Cette vue affiche les VMDK actuellement connectés à des sessions ouvertes.
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Cloner*.

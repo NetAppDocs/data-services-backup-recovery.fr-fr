@@ -4,7 +4,7 @@ permalink: br-use-restore-kubernetes-applications-cr.html
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery 
 summary: NetApp Backup and Recovery vous permet de restaurer les applications que vous avez protégées avec une politique de protection. 
 ---
-= Restaurez des applications Kubernetes avec NetApp Backup and Recovery à l'aide d'une ressource personnalisée
+= Restaurez des applications Kubernetes avec des ressources personnalisées
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: NetApp Backup and Recovery vous permet de restaurer les applications qu
 
 
 [role="lead"]
-Vous pouvez utiliser des ressources personnalisées pour restaurer vos applications à partir d'un instantané ou d'une sauvegarde. La restauration à partir d'un instantané existant sera plus rapide lors de la restauration de l'application sur le même cluster.
+Utilisez des ressources personnalisées pour restaurer vos applications à partir d'un instantané ou d'une sauvegarde. La restauration à partir d'un instantané existant est généralement plus rapide si vous restaurez l'application sur le même cluster.
 
 [NOTE]
 ====
@@ -34,7 +34,7 @@ Lorsque vous restaurez une sauvegarde dans un espace de noms différent à l'aid
 [NOTE]
 ====
 * La restauration d'une sauvegarde dans un espace de noms différent contenant des ressources existantes ne modifiera pas les ressources portant le même nom que celles de la sauvegarde. Pour restaurer toutes les ressources de la sauvegarde, supprimez et recréez l'espace de noms cible ou restaurez la sauvegarde dans un nouvel espace de noms.
-* Lors de l'utilisation d'une CR pour restaurer dans un nouvel espace de noms, vous devez créer manuellement l'espace de noms de destination avant d'appliquer la CR. NetApp Backup and Recovery crée automatiquement les espaces de noms uniquement lors de l'utilisation de la CLI.
+* Lorsque vous utilisez un CR pour restaurer dans un nouvel espace de noms, vous devez créer manuellement l'espace de noms de destination avant d'appliquer le CR. Backup and Recovery crée automatiquement les espaces de noms uniquement lorsque vous utilisez la CLI.
 
 
 ====
@@ -307,7 +307,7 @@ kubectl get backups <BACKUP_NAME> -n my-app-namespace -o jsonpath='{.status.appA
 ----
 +
 
-NOTE: Si le BackupRestore CR n'est pas disponible, vous pouvez utiliser la commande mentionnée à l'étape 2 pour afficher le contenu de la sauvegarde.
+NOTE: Si le BackupRestore CR n'est pas disponible, vous pouvez utiliser la commande de l'étape 2 pour afficher le contenu de la sauvegarde.
 
 ** *spec.namespaceMapping* : La correspondance de l’espace de noms source de l’opération de restauration avec l’espace de noms de destination. Remplacez  `my-source-namespace` et  `my-destination-namespace` par les informations de votre environnement.
 +

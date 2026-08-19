@@ -14,12 +14,12 @@ summary: 'Veuillez prendre connaissance de ces limitations de NetApp Backup and 
 
 
 [role="lead"]
-Les plates-formes, appareils ou fonctionnalités qui ne fonctionnent pas ou ne fonctionnent pas bien avec cette version sont répertoriés ici.  Lisez attentivement ces limitations.
+Examinez les limitations actuelles et les solutions de contournement pour les charges de travail Kubernetes dans NetApp Backup and Recovery.
 
 
 
-[[backup-and-recovery-preview-for-netapp-console-local-deployment-limitation]]
-== Aperçu de la sauvegarde et de la restauration pour NetApp Console : limitation du déploiement local
+[[limitation-in-the-backup-and-recovery-preview-for-netapp-console-local-deployment]]
+== Limitation dans l'aperçu de NetApp Backup and Recovery pour le déploiement local de la NetApp Console
 
 Dans la version préliminaire de Backup and Recovery pour le déploiement local de NetApp Console, les sauvegardes vers le stockage objet sont prises en charge uniquement pour les destinations ONTAP S3 et StorageGRID. L'archivage des sauvegardes n'est pas pris en charge dans cette version préliminaire.
 
@@ -28,15 +28,15 @@ Dans la version préliminaire de Backup and Recovery pour le déploiement local 
 [[changing-the-protection-policy-for-an-application]]
 == Modification de la politique de protection d'une application
 
-Lorsque vous modifiez la stratégie de protection associée à une application pour utiliser un compartiment ou une cible de réplication secondaire différente, la stratégie de protection peut échouer.
+Si vous modifiez la politique de protection d'une application pour utiliser un compartiment différent ou une cible de réplication secondaire, la protection peut échouer.
 
-*Solution de contournement* : Supprimez puis réinstallez l’application.
+*Solution de contournement* : Supprimez l’application et ajoutez-la à nouveau.
 
 
 
 [[3-2-1-protection-policy-configuration-limitation]]
 == Limitation de la configuration de la politique de protection 3-2-1
 
-Lorsque vous créez une politique de protection 3-2-1 où aucune sauvegarde de stockage d'objets n'a lieu en même temps que la réplication vers le stockage secondaire, la politique de protection se bloque lors de la protection de l'application.
+Si vous créez une politique de protection 3-2-1 qui planifie les sauvegardes du stockage d'objets séparément de la réplication vers le stockage secondaire, la protection peut se bloquer.
 
-*Solution de contournement*: Supprimez puis rajoutez l’application et protégez-la avec une politique de protection différente.
+*Solution de contournement* : Supprimez l’application, ajoutez-la à nouveau, puis protégez-la avec une politique de protection différente.

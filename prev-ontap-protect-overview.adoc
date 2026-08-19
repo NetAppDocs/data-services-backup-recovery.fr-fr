@@ -4,7 +4,7 @@ permalink: prev-ontap-protect-overview.html
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
 summary: Protégez vos charges de travail VMware avec NetApp Backup and Recovery. 
 ---
-= Découvrez NetApp Backup and Recovery pour les volumes ONTAP
+= Découvrez la protection des volumes ONTAP avec NetApp Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,12 +14,12 @@ summary: Protégez vos charges de travail VMware avec NetApp Backup and Recovery
 
 
 [role="lead"]
-NetApp Backup and Recovery fournit des fonctionnalités de sauvegarde et de restauration pour la protection et l'archivage à long terme de vos données de volume ONTAP .  Vous pouvez mettre en œuvre une stratégie 3-2-1 dans laquelle vous disposez de 3 copies de vos données sources sur 2 systèmes de stockage différents ainsi que d'une copie dans le cloud.
+Utilisez NetApp Backup and Recovery pour protéger et restaurer les données de votre volume ONTAP et pour archiver les sauvegardes à long terme. Vous pouvez mettre en œuvre une stratégie 3-2-1 avec trois copies de vos données sources sur deux systèmes de stockage différents et une copie dans le cloud.
 
 
 NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
 
-Après l'activation, la sauvegarde et la récupération créent des sauvegardes incrémentielles permanentes au niveau des blocs qui sont stockées sur un autre cluster ONTAP et dans le stockage d'objets dans le cloud.  En plus de votre volume source, vous disposerez de :
+Après activation, NetApp Backup and Recovery crée des sauvegardes incrémentales permanentes au niveau bloc, stockées sur un autre cluster ONTAP et dans un stockage objet dans le cloud. Outre votre volume source, vous disposerez de :
 
 * Instantané du volume sur le système source
 * Volume répliqué sur un autre système de stockage
@@ -28,7 +28,7 @@ Après l'activation, la sauvegarde et la récupération créent des sauvegardes 
 
 image:diagram-321-overview-unified.png["Un diagramme montrant comment les fichiers de sauvegarde existent sur le système source sous forme d'instantanés, sous forme de volumes répliqués sur le système de stockage secondaire et sous forme de fichiers de sauvegarde dans le stockage objet."]
 
-NetApp Backup and Recovery exploite la technologie de réplication de données SnapMirror de NetApp pour garantir que toutes les sauvegardes sont entièrement synchronisées en créant des instantanés et en les transférant vers les emplacements de sauvegarde.
+NetApp Backup and Recovery utilise la technologie de réplication des données SnapMirror de NetApp pour maintenir vos sauvegardes synchronisées en créant des snapshots et en les transférant vers les emplacements de sauvegarde.
 
 Les avantages de l’approche 3-2-1 incluent :
 
@@ -48,10 +48,10 @@ Si nécessaire, vous pouvez restaurer un _volume_ entier, un _dossier_ ou un ou 
 
 * Répliquez les données entre les systèmes de stockage ONTAP pour prendre en charge la sauvegarde et la reprise après sinistre.
 * Assurez la fiabilité de votre environnement DR avec une haute disponibilité.
-* Cryptage en vol ONTAP natif configuré via une clé pré-partagée (PSK) entre les deux systèmes.
+* Configurez le chiffrement natif en transit d'ONTAP en utilisant une clé pré-partagée (PSK) entre les deux systèmes.
 * Les données copiées sont immuables jusqu'à ce que vous les rendiez accessibles en écriture et prêtes à être utilisées.
 * La réplication est auto-réparatrice en cas d’échec de transfert.
-* Par rapport à https://docs.netapp.com/us-en/data-services-replication/index.html["NetApp Replication"^] , la réplication dans NetApp Backup and Recovery inclut les fonctionnalités suivantes :
+* Comparée à  https://docs.netapp.com/us-en/data-services-replication/index.html["NetApp Replication"^], la réplication dans NetApp Backup and Recovery inclut les fonctionnalités suivantes :
 +
 ** Répliquez plusieurs volumes FlexVol à la fois sur un système secondaire.
 ** Restaurez un volume répliqué sur le système source ou sur un autre système à l'aide de l'interface utilisateur.
@@ -67,7 +67,7 @@ Voirlink:br-reference-limitations.html["Limitations de réplication pour les vol
 * Appliquez une politique de sauvegarde unique à tous les volumes d’un cluster ou attribuez différentes politiques de sauvegarde aux volumes ayant des objectifs de point de récupération uniques.
 * Créez une politique de sauvegarde à appliquer à tous les futurs volumes créés dans le cluster.
 * Créez des fichiers de sauvegarde immuables afin qu'ils soient verrouillés et protégés pendant la période de conservation.
-* Analysez les fichiers de sauvegarde à la recherche d'une éventuelle attaque de ransomware et supprimez/remplacez automatiquement les sauvegardes infectées.
+* Analysez les fichiers de sauvegarde pour détecter d'éventuelles attaques de ransomware et supprimez ou remplacez automatiquement les sauvegardes infectées.
 * Classez les fichiers de sauvegarde plus anciens dans un stockage d'archives pour réduire les coûts.
 * Supprimez la relation de sauvegarde afin de pouvoir archiver les volumes sources inutiles tout en conservant les sauvegardes de volume.
 * Sauvegardez d'un cloud à l'autre et des systèmes sur site vers un cloud public ou privé.
@@ -107,7 +107,7 @@ https://bluexp.netapp.com/cloud-volumes-global-regions["En savoir plus en utilis
 [[supported-backup-destinations]]
 === Destinations de sauvegarde prises en charge
 
-NetApp Backup and Recovery vous permet de sauvegarder des volumes ONTAP à partir des systèmes sources suivants vers les systèmes secondaires et le stockage objet suivants, chez les fournisseurs de cloud public et privé. Les snapshots résident sur le système source.
+NetApp Backup and Recovery vous permet de sauvegarder des volumes ONTAP à partir des systèmes sources suivants vers les systèmes secondaires et le stockage d'objets suivants, chez des fournisseurs de cloud public et privé. Les snapshots résident sur le système source.
 
 
 NOTE: Wasabi est actuellement le seul fournisseur de stockage objet compatible S3 qualifié. Les autres fournisseurs compatibles S3 n'ont pas été validés.
@@ -147,7 +147,7 @@ NOTE: Wasabi est actuellement le seul fournisseur de stockage objet compatible S
 * Stockage compatible S3
 * Azure Blob
 * Stockage Google Cloud
-* NetApp StorageGRID
+* StorageGRID
 * ONTAP S3
 
 
@@ -157,7 +157,7 @@ NOTE: Wasabi est actuellement le seul fournisseur de stockage objet compatible S
 [[supported-restore-destinations]]
 === Destinations de restauration prises en charge
 
-Vous pouvez restaurer les données ONTAP à partir d'un fichier de sauvegarde situé sur un système secondaire (volume répliqué) ou dans un stockage objet (fichier de sauvegarde) vers les systèmes suivants. Les instantanés résident sur le système source et ne peuvent être restaurés que sur ce même système.
+Vous pouvez restaurer les données ONTAP à partir d'un fichier de sauvegarde résidant dans un système secondaire (un volume répliqué) ou dans un stockage d'objets (un fichier de sauvegarde) sur les systèmes suivants. Les instantanés résident sur le système source et ne peuvent être restaurés que sur ce même système.
 
 
 NOTE: Wasabi est actuellement le seul fournisseur de stockage objet compatible S3 qualifié. Les autres fournisseurs compatibles S3 n'ont pas été validés.
@@ -203,7 +203,7 @@ NOTE: Wasabi est actuellement le seul fournisseur de stockage objet compatible S
 
 
 
-| NetApp StorageGRID  a| 
+| StorageGRID  a| 
 * Système ONTAP sur site
 * Cloud Volumes ONTAP
 
@@ -266,7 +266,7 @@ Des frais de ressources sont payés au fournisseur de cloud pour la capacité de
 
 
 * Si vous prévoyez de restaurer des données de volume à partir d'un fichier de sauvegarde qui a été déplacé vers un stockage d'objets d'archivage, des frais de récupération par Gio et des frais par demande supplémentaires sont facturés par le fournisseur de cloud.
-* Si vous prévoyez d'analyser un fichier de sauvegarde à la recherche de ransomwares lors du processus de restauration des données du volume (si vous avez activé Datalock et la protection contre les ransomwares pour vos sauvegardes cloud), alors vous encourrez également des frais de sortie supplémentaires de la part de votre fournisseur de cloud.
+* Si vous prévoyez d'analyser un fichier de sauvegarde à la recherche de ransomware lors du processus de restauration des données du volume (si vous avez activé DataLock et la protection contre les ransomwares pour vos sauvegardes cloud), alors vous devrez également payer des frais de sortie supplémentaires à votre fournisseur de cloud.
 
 
 *Frais de service*
@@ -392,7 +392,7 @@ TIP: La période de conservation des sauvegardes des volumes de protection des d
 [[backup-file-protection-settings]]
 === Paramètres de protection des fichiers de sauvegarde
 
-Si votre cluster utilise ONTAP 9.11.1 ou une version ultérieure, vous pouvez protéger vos sauvegardes dans le stockage objet contre la suppression et les attaques par rançongiciel. Chaque règle de sauvegarde comprend une section pour _Datalock and Ransomware protection_ qui peut être appliquée à vos fichiers de sauvegarde pendant une période spécifique - la _période de rétention_.
+Si votre cluster utilise ONTAP 9.11.1 ou une version ultérieure, vous pouvez protéger vos sauvegardes dans le stockage objet contre la suppression et les attaques par rançongiciel. Chaque règle de sauvegarde comprend une section pour _DataLock and Ransomware protection_ qui peut être appliquée à vos fichiers de sauvegarde pendant une période spécifique : la _période de rétention_.
 
 * _DataLock_ protège vos fichiers de sauvegarde contre toute modification ou suppression.
 * _La protection contre les ransomwares_ analyse vos fichiers de sauvegarde pour rechercher des preuves d'une attaque de ransomware lorsqu'un fichier de sauvegarde est créé et lorsque les données d'un fichier de sauvegarde sont en cours de restauration.
@@ -402,7 +402,7 @@ Les analyses de protection contre les ransomwares planifiées sont activées par
 
 La période de conservation des sauvegardes est la même que la période de conservation de la planification des sauvegardes, plus une mémoire tampon maximale de 31 jours.  Par exemple, des sauvegardes hebdomadaires avec 5 copies conservées verrouillent chaque fichier de sauvegarde pendant 5 semaines.  Les sauvegardes _mensuelles_ avec _6_ copies conservées verrouillent chaque fichier de sauvegarde pendant 6 mois.
 
-L'assistance est actuellement disponible lorsque votre destination de sauvegarde est Amazon S3, Azure Blob ou NetApp StorageGRID.  D'autres destinations de fournisseurs de stockage seront ajoutées dans les prochaines versions.
+La prise en charge est actuellement disponible lorsque votre destination de sauvegarde est Amazon S3, Azure Blob ou StorageGRID. D'autres destinations de fournisseur de stockage seront ajoutées dans les prochaines versions.
 
 Pour plus de détails, reportez-vous à ces informations :
 
@@ -438,11 +438,11 @@ Si votre cluster utilise ONTAP 9.12.1 ou une version ultérieure, vous pouvez ch
 
 * Dans StorageGRID, les sauvegardes sont associées à la classe de stockage _Standard_.
 +
-Si votre cluster sur site utilise ONTAP 9.12.1 ou une version ultérieure et que votre système StorageGRID utilise 11.4 ou une version ultérieure, vous pouvez archiver les anciens fichiers de sauvegarde sur un stockage d'archivage cloud public après un certain nombre de jours.  La prise en charge actuelle concerne les niveaux de stockage AWS S3 Glacier/S3 Glacier Deep Archive ou Azure Archive. link:prev-ontap-backup-onprem-storagegrid.html["En savoir plus sur l'archivage des fichiers de sauvegarde depuis StorageGRID"] .
+Si votre cluster local utilise ONTAP 9.12.1 ou une version ultérieure, et que votre système StorageGRID utilise la version 11.4 ou une version ultérieure, vous pouvez archiver les fichiers de sauvegarde plus anciens vers un stockage d’archivage cloud public après un certain nombre de jours. La prise en charge actuelle concerne les niveaux de stockage AWS S3 Glacier/S3 Glacier Deep Archive ou Azure Archive. link:prev-ontap-backup-onprem-storagegrid.html["En savoir plus sur l'archivage des fichiers de sauvegarde depuis StorageGRID"].
 
 
 
-Voir le lien : prev-ontap-policy-object-options.html] pour plus de détails sur l'archivage des anciens fichiers de sauvegarde.
+Voir link:prev-ontap-policy-object-options.html["Comment fonctionne l'archivage des anciens fichiers de sauvegarde"].
 
 
 

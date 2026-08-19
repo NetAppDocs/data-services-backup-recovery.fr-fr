@@ -14,9 +14,9 @@ summary: NetApp Backup and Recovery doit d’abord découvrir les charges de tra
 
 
 [role="lead"]
-NetApp Backup and Recovery doit d’abord découvrir les charges de travail Microsoft SQL Server pour que vous puissiez utiliser le service.  Vous pouvez éventuellement importer des données de sauvegarde et des politiques à partir de SnapCenter si SnapCenter est déjà installé.
+Découvrez les charges de travail Microsoft SQL Server dans NetApp Backup and Recovery afin de pouvoir les protéger et les restaurer. Si vous utilisez déjà SnapCenter, vous pouvez également importer des données de sauvegarde et des stratégies existantes.
 
-*Rôle Console NetApp requis* Super administrateur de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d'administrateur Cloud Volumes ONTAP est également requis. En savoir plus link:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
+*Rôle Console NetApp requis* Super administrateur de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. En savoir plus link:reference-roles.html["Rôles et privilèges de sauvegarde et de restauration"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
 
 
@@ -130,18 +130,18 @@ kubectl -n kube-system rollout restart deploy/rke2-coredns-rke2-coredns
 [[discover-microsoft-sql-server-workloads-and-optionally-import-snapcenter-resources]]
 == Découvrez les charges de travail Microsoft SQL Server et importez éventuellement des ressources SnapCenter
 
-Lors de la découverte, NetApp Backup and Recovery analyse les instances et les bases de données Microsoft SQL Server dans les systèmes de votre organisation.
+Lors de la phase de découverte, NetApp Backup and Recovery analyse les instances et les bases de données Microsoft SQL Server sur l'ensemble des systèmes de votre organisation.
 
-NetApp Backup and Recovery évalue les applications Microsoft SQL Server. Ce service évalue le niveau de protection existant, y compris les politiques de protection des sauvegardes, les instantanés et les options de sauvegarde et de restauration en vigueur.
+Ce service évalue les niveaux de protection existants, notamment les politiques de sauvegarde actuelles, les instantanés et les options de sauvegarde et de restauration.
 
 La découverte se déroule de la manière suivante :
 
 * Si vous disposez déjà de SnapCenter, importez les ressources SnapCenter dans NetApp Backup and Recovery à l'aide de l'interface utilisateur de NetApp Backup and Recovery .
 +
 
-NOTE: Si vous disposez déjà de SnapCenter, vérifiez d'abord que vous avez rempli les conditions préalables avant d'importer depuis SnapCenter.  Par exemple, vous devez d’abord ajouter des systèmes de stockage en cluster SnapCenter sur site à la NetApp Console avant de procéder à l’importation depuis SnapCenter.  Voirlink:concept-start-prereq-snapcenter-import.html["Conditions préalables à l'importation de ressources depuis SnapCenter"] .
+NOTE: Si vous disposez déjà de SnapCenter, vérifiez d'abord que vous avez rempli les conditions préalables avant d'importer depuis SnapCenter. Par exemple, vous devez ajouter les systèmes de stockage de cluster SnapCenter sur site à la NetApp Console avant d'importer depuis SnapCenter. Voir link:concept-start-prereq-snapcenter-import.html["Conditions préalables à l'importation de ressources depuis SnapCenter"].
 
-* Si vous ne disposez pas déjà de SnapCenter, vous pouvez toujours découvrir des charges de travail en ajoutant un vCenter manuellement et en effectuant la découverte.
+* Si vous n'avez pas déjà SnapCenter, vous pouvez toujours découvrir des charges de travail en ajoutant un vCenter manuellement et effectuer une découverte.
 
 
 
@@ -200,7 +200,7 @@ NOTE: Si le SnapCenter Server est déjà enregistré, vous pouvez mettre à jour
 
 
 .Résultat
-La page Inventaire affiche les ressources SnapCenter importées qui incluent les hôtes, les instances et les bases de données MS SQL.
+La page Inventaire affiche les ressources SnapCenter importées, notamment les hôtes, les instances et les bases de données Microsoft SQL Server.
 
 Pour voir les détails des ressources SnapCenter importées, sélectionnez l'option *Afficher les détails* dans le menu Actions.
 
@@ -208,11 +208,11 @@ Pour voir les détails des ressources SnapCenter importées, sélectionnez l'opt
 
 ==== Gérer les ressources de l'hôte SnapCenter
 
-Après avoir importé les ressources SnapCenter , gérez ces ressources hôtes dans NetApp Backup and Recovery.  Une fois que vous avez choisi de gérer ces ressources, NetApp Backup and Recovery est en mesure de sauvegarder et de récupérer les ressources que vous avez importées depuis SnapCenter.  Vous ne gérez plus ces ressources dans SnapCenter Server.
+Après avoir importé les ressources SnapCenter, gérez les ressources hôtes dans NetApp Backup and Recovery. Après avoir choisi de les gérer, NetApp Backup and Recovery peut sauvegarder et restaurer les ressources importées. Vous ne gérez plus ces ressources dans le serveur SnapCenter.
 
 .Étapes
 . Après avoir importé les ressources SnapCenter , dans le menu Sauvegarde et récupération, sélectionnez *Inventaire*.
-. À partir de la page Inventaire, sélectionnez l’hôte SnapCenter importé que vous souhaitez confier à NetApp Backup and Recovery pour la gestion à partir de maintenant.
+. Sur la page Inventaire, sélectionnez l’hôte SnapCenter importé que vous souhaitez que NetApp Backup and Recovery gère.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Afficher les détails* pour afficher les détails de la charge de travail.
 . Depuis la page Inventaire > Charge de travail, sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Gérer* pour afficher la page Gérer l'hôte.
 . Sélectionnez *Gérer*.
@@ -243,9 +243,9 @@ Si vous avez déjà découvert des ressources, vous pouvez importer des ressourc
 [[if-you-dont-have-snapcenter-installed-add-a-vcenter-and-discover-resources]]
 === Si vous n'avez pas installé SnapCenter , ajoutez un vCenter et découvrez les ressources
 
-Si SnapCenter n'est pas déjà installé, vous pouvez ajouter des informations vCenter et demander à NetApp de détecter les charges de travail de sauvegarde et de récupération. Dans chaque agent de console, sélectionnez les systèmes sur lesquels vous souhaitez découvrir les charges de travail.
+Si vous n'avez pas encore installé SnapCenter, vous pouvez ajouter les informations vCenter et permettre à NetApp Backup and Recovery de découvrir les charges de travail. Dans chaque agent de la Console, sélectionnez les systèmes où vous souhaitez découvrir les charges de travail.
 
-Ceci est facultatif si vous disposez d'un environnement VMware.
+Cette étape est facultative si vous disposez d'un environnement VMware.
 
 .Étapes
 . Dans la navigation de gauche de la console, sélectionnez *Protection* > *Sauvegarde et récupération*.
@@ -259,7 +259,7 @@ Si vous vous connectez à Backup and Recovery pour la première fois et que vous
 .. *Paramètres vCenter* : sélectionnez un vCenter existant ou ajoutez-en un nouveau. Pour ajouter un nouveau vCenter, saisissez le nom de domaine complet ou l’adresse IP du vCenter, le nom d’utilisateur, le mot de passe, le port et le protocole.
 +
 
-TIP: Si vous saisissez des informations vCenter, saisissez les informations relatives aux paramètres vCenter et à l’enregistrement de l’hôte.  Si vous avez ajouté ou saisi des informations sur vCenter ici, vous devez également ajouter des informations sur le plug-in dans les paramètres avancés.
+TIP: Si vous saisissez des informations vCenter, veuillez renseigner à la fois les paramètres vCenter et l'enregistrement de l'hôte. Si vous avez ajouté ou saisi des informations vCenter ici, vous devez également ajouter les informations du plug-in dans les paramètres avancés.
 
 .. *Enregistrement de l'hôte* : sélectionnez *Ajouter des informations d'identification* et saisissez des informations sur les hôtes contenant les charges de travail que vous souhaitez découvrir.
 +
@@ -278,23 +278,23 @@ TIP: Ce processus peut prendre quelques minutes.
 
 
 
-==== Définissez les options des paramètres avancés lors de la découverte et installez le plugin
+==== Définissez les options des paramètres avancés lors de la découverte et installez le plug-in
 
-Avec les paramètres avancés, vous pouvez installer manuellement l'agent du plug-in sur tous les serveurs enregistrés.  Cela vous permet d'importer toutes les charges de travail SnapCenter dans NetApp Backup and Recovery afin de pouvoir y gérer les sauvegardes et les restaurations.  NetApp Backup and Recovery montre les étapes nécessaires à l'installation du plug-in.
+Grâce aux paramètres avancés, vous pouvez installer manuellement l'agent du plug-in sur tous les serveurs enregistrés. Cela vous permet d'importer toutes les charges de travail SnapCenter dans NetApp Backup and Recovery afin que vous puissiez gérer les sauvegardes et les restaurations à cet endroit. NetApp Backup and Recovery affiche les étapes nécessaires à l'installation du plug-in.
 
 .Étapes
-. Depuis la page Découvrir les ressources, passez aux Paramètres avancés en cliquant sur la flèche vers le bas à droite.
+. Depuis la page Discover resources, accédez aux Paramètres avancés en sélectionnant la flèche vers le bas à droite.
 . Dans la page Découvrir les ressources de charge de travail, saisissez les informations suivantes.
 +
-** *Entrez le numéro de port du plug-in* : saisissez le numéro de port utilisé par le plug-in.
-** *Chemin d'installation* : Saisissez le chemin où le plugin sera installé.
+** *Saisir le numéro de port du plug-in* : Saisissez le numéro de port utilisé par le plug-in.
+** *Chemin d'installation* : Saisissez le chemin où le plug-in sera installé.
 
 
-. Si vous souhaitez installer l'agent SnapCenter manuellement, cochez les cases des options suivantes :
+. Si vous souhaitez installer l’agent SnapCenter manuellement, sélectionnez les options suivantes :
 +
-** *Utiliser l'installation manuelle* : Cochez cette case pour installer le plugin manuellement.
-** *Ajouter tous les hôtes du cluster* : cochez cette case pour ajouter tous les hôtes du cluster à NetApp Backup and Recovery pendant la découverte.
-** *Ignorer les vérifications de préinstallation facultatives* : cochez cette case pour ignorer les vérifications de préinstallation facultatives.  Vous souhaiterez peut-être le faire par exemple si vous savez que les considérations de mémoire ou d'espace seront modifiées dans un avenir proche et que vous souhaitez installer le plugin maintenant.
+** *Utiliser l'installation manuelle* : sélectionnez cette option pour installer le plug-in manuellement.
+** *Ajouter tous les hôtes du cluster* : Sélectionnez cette option pour ajouter tous les hôtes du cluster à NetApp Backup and Recovery lors de la découverte.
+** *Ignorer les vérifications préalables facultatives* : sélectionnez cette option pour ignorer les vérifications préalables facultatives. Vous pourriez vouloir le faire, par exemple, si vous savez que la mémoire ou l’espace disque seront modifiés prochainement et que vous souhaitez installer le plug-in maintenant.
 
 
 . Sélectionnez *Découvrir*.
@@ -304,10 +304,10 @@ Avec les paramètres avancés, vous pouvez installer manuellement l'agent du plu
 
 ==== Accéder au tableau de bord de NetApp Backup and Recovery
 
-. Dans le menu de la NetApp Console , sélectionnez *Protection* > *Sauvegarde et récupération*.
+. Dans le menu NetApp Console, sélectionnez *Protection* > *Backup and Recovery*.
 . Sélectionnez une mosaïque de charge de travail (par exemple, Microsoft SQL Server).
 . Dans le menu Sauvegarde et récupération, sélectionnez *Tableau de bord*.
-. Examiner l’état de santé de la protection des données.  Le nombre de charges de travail à risque ou protégées augmente en fonction des charges de travail nouvellement découvertes, protégées et sauvegardées.
+. Évaluez l'état de la protection des données. Le nombre de charges de travail à risque ou protégées augmente en fonction des charges de travail nouvellement découvertes, protégées et sauvegardées.
 +
 link:br-use-dashboard.html["Découvrez ce que le tableau de bord vous montre"].
 

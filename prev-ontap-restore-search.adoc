@@ -14,7 +14,7 @@ summary: Vous pouvez utiliser la fonction Rechercher et restaurer pour récupér
 
 
 [role="lead"]
-Vous pouvez utiliser la fonction Search and Restore pour récupérer des volumes, des dossiers ou des fichiers à partir de fichiers de sauvegarde ONTAP. Search and Restore vous permet d’effectuer des recherches dans toutes les sauvegardes (y compris les instantanés locaux, les volumes répliqués et le stockage objet) sans avoir besoin de connaître précisément le nom du système, du volume ou du fichier.
+Utilisez la fonction Search and Restore pour récupérer des volumes, des dossiers ou des fichiers à partir de sauvegardes ONTAP lorsque vous ne connaissez pas le nom exact du système, du volume ou du fichier. Vous pouvez effectuer une recherche dans les instantanés locaux, les volumes répliqués et les sauvegardes de stockage objet.
 
 La restauration à partir d'instantanés locaux ou de volumes répliqués est généralement plus rapide et moins coûteuse que la restauration à partir d'un stockage objet.
 
@@ -46,7 +46,7 @@ link:prev-reference-aws-archive-storage-tiers.html["En savoir plus sur la restau
 
 
 ====
-Avant de commencer, vous devez avoir une idée du nom ou de l’emplacement du volume ou du fichier que vous souhaitez restaurer.
+Avant de commencer, vous devriez avoir une idée du nom ou de l'emplacement du volume ou du fichier que vous souhaitez restaurer.
 
 
 
@@ -74,21 +74,21 @@ Vous pouvez restaurer les données ONTAP à partir d'un fichier de sauvegarde r�
 | Stockage Google Cloud | Cloud Volumes ONTAP dans le système ONTAP sur site de Google | Cloud Volumes ONTAP dans le système ONTAP sur site de Google 
 
 
-| NetApp StorageGRID | Système ONTAP sur site Cloud Volumes ONTAP | Système ONTAP sur site 
+| StorageGRID | Système ONTAP sur site Cloud Volumes ONTAP | Système ONTAP sur site 
 
 
 | ONTAP S3 | Système ONTAP sur site Cloud Volumes ONTAP | Système ONTAP sur site 
 |===
 Pour la recherche et la restauration, l'agent de console peut être installé aux emplacements suivants :
 
-* Pour Amazon S3, l'agent de console peut être déployé dans AWS ou dans vos locaux
-* Pour Azure Blob, l'agent de console peut être déployé dans Azure ou dans vos locaux
+* Pour Amazon S3, l'agent Console peut être déployé dans AWS ou sur site
+* Pour Azure Blob, l'agent de la Console peut être déployé dans Azure ou sur site
 * Pour Google Cloud Storage, l'agent de la console doit être déployé dans votre VPC Google Cloud Platform
-* Pour StorageGRID, l'agent de console doit être déployé dans vos locaux ; avec ou sans accès Internet
-* Pour ONTAP S3, l'agent de console peut être déployé dans vos locaux (avec ou sans accès Internet) ou dans un environnement de fournisseur de cloud
+* Pour StorageGRID, l'agent Console doit être déployé sur site, avec ou sans accès Internet
+* Pour ONTAP S3, l'agent de Console peut être déployé sur site (avec ou sans accès Internet) ou dans un environnement de fournisseur de cloud
 
 
-Notez que les références aux « systèmes ONTAP sur site » incluent les systèmes FAS, AFF et ONTAP Select .
+Notez que les références aux « systèmes ONTAP sur site » incluent les systèmes FAS, AFF et ONTAP Select.
 
 
 
@@ -166,7 +166,7 @@ Même si vous utilisez un agent de console sur site, les exigences du fournisseu
 [[search-restore-process]]
 == Processus de recherche et de restauration
 
-Le processus se déroule comme suit :
+Le processus fonctionne comme suit :
 
 . Avant de pouvoir utiliser la recherche et la restauration, vous devez activer « Indexation » sur chaque système source à partir duquel vous souhaitez restaurer les données du volume.  Cela permet au catalogue indexé de suivre les fichiers de sauvegarde pour chaque volume.
 +
@@ -208,10 +208,10 @@ Le catalogue indexé prend en charge les éléments suivants :
 * Le délai maximal pour l’indexation de base est inférieur à 7 jours.  Le temps réel varie en fonction de votre environnement.
 
 
-.Étapes pour activer l'indexation pour un système :
+.Étapes pour activer l'indexation d'un système :
 Si l’indexation a déjà été activée pour votre système, passez à la section suivante pour restaurer vos données.
 
-Vous devrez d'abord monter un volume séparé pour stocker les fichiers de catalogue. Cela évite la perte de données si la taille des fichiers contenant les instantanés devient trop importante. Cela n'est pas nécessaire sur tous les clusters ; vous pouvez monter n'importe quel volume provenant de n'importe quel cluster de votre environnement. Si vous ne le faites pas, l'indexation risque de ne pas fonctionner correctement.
+Commencez par monter un volume distinct pour stocker les fichiers de catalogue. Cela permet d'éviter une perte de données si les fichiers de catalogue des instantanés deviennent trop volumineux. Cette étape n'est pas nécessaire sur chaque cluster ; vous pouvez monter n'importe quel volume provenant de l'un des clusters de votre environnement. Si vous ne le faites pas, l'indexation pourrait ne pas fonctionner correctement.
 
 Pour le volume monté, utilisez les indications de dimensionnement suivantes :
 
@@ -223,7 +223,7 @@ Pour le volume monté, utilisez les indications de dimensionnement suivantes :
 
 
 [[mount-volume-steps]]
-.Étape pour monter le volume afin de réindexer le catalogue
+.Étape pour monter le volume en vue de la réindexation du catalogue
 . Montez le volume sur `/opt/application/netapp/cbs` en saisissant la commande suivante, où :
 +
 ** `volume name` est le volume du cluster où seront stockés les fichiers de catalogue
@@ -269,21 +269,20 @@ Après avoir<<enable-the-indexed-catalog-for-each-system,Activation de l'indexat
 
 .Étapes
 . Dans le menu de la console, sélectionnez *Protection > Sauvegarde et récupération*.
-. Sélectionnez l’onglet *Restaurer* et le tableau de bord de restauration s’affiche.
-. Dans la section _Rechercher et restaurer_, sélectionnez *Rechercher et restaurer*.
+. Sélectionnez l'onglet *Restaurer* pour afficher le tableau de bord de restauration.
 . Dans la section _Rechercher et restaurer_, sélectionnez *Rechercher et restaurer*.
 . Depuis la page Rechercher et restaurer :
 +
 .. Dans la _barre de recherche_, saisissez un nom de volume, un nom de dossier ou un nom de fichier complet ou partiel.
 .. Sélectionnez le type de ressource : *Volumes*, *Fichiers*, *Dossiers* ou *Tous*.
-.. Dans la zone _Filtrer par_, sélectionnez les critères de filtre. Par exemple, vous pouvez sélectionner le système sur lequel résident les données et le type de fichier, par exemple un fichier .JPEG. Vous pouvez également sélectionner le type d'emplacement de sauvegarde si vous souhaitez effectuer la recherche uniquement parmi les instantanés ou les fichiers de sauvegarde disponibles dans le stockage d'objets.
+.. Dans la section « Filtrer par », sélectionnez les critères de filtrage. Par exemple, vous pouvez sélectionner le système où résident les données et le type de fichier, tel qu’un fichier .JPEG. Vous pouvez également sélectionner le type d’emplacement de sauvegarde si vous souhaitez rechercher uniquement parmi les instantanés ou les fichiers de sauvegarde disponibles dans le stockage objet.
 
 
 . Sélectionnez *Rechercher* et la zone Résultats de la recherche affiche toutes les ressources qui ont un fichier, un dossier ou un volume correspondant à votre recherche.
 . Recherchez la ressource contenant les données que vous souhaitez restaurer et sélectionnez *Afficher toutes les sauvegardes* pour afficher tous les fichiers de sauvegarde contenant le volume, le dossier ou le fichier correspondant.
 . Localisez le fichier de sauvegarde que vous souhaitez utiliser pour restaurer les données et sélectionnez *Restaurer*.
 +
-Notez que les résultats identifient les instantanés de volumes locaux et les volumes répliqués distants qui contiennent le fichier recherché.  Vous pouvez choisir de restaurer à partir du fichier de sauvegarde cloud, à partir de l'instantané ou à partir du volume répliqué.
+Notez que les résultats identifient les instantanés de volumes locaux et les volumes répliqués distants contenant le fichier dans votre recherche. Vous pouvez choisir de restaurer à partir du fichier de sauvegarde cloud, de l'instantané ou du volume répliqué.
 
 . Sélectionnez l'emplacement de destination où vous souhaitez que le volume, le dossier ou les fichiers soient restaurés et sélectionnez *Restaurer*.
 +

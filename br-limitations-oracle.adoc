@@ -14,10 +14,10 @@ summary: 'Veuillez prendre connaissance de ces limitations de NetApp Backup and 
 
 
 [role="lead"]
-Les plates-formes, appareils ou fonctionnalités qui ne fonctionnent pas ou ne fonctionnent pas bien avec cette version sont répertoriés ici.  Lisez attentivement ces limitations.
+Veuillez consulter les limitations actuelles et les actions non prises en charge pour les charges de travail de base de données Oracle dans NetApp Backup and Recovery.
 
-L'action suivante n'est pas prise en charge dans la version préliminaire des charges de travail Oracle Database dans NetApp Backup and Recovery :
+Les actions suivantes ne sont pas prises en charge pour les charges de travail Oracle Database dans la version préliminaire de NetApp Backup and Recovery :
 
 * Dans la version préliminaire de Backup and Recovery pour le déploiement local de NetApp Console, les sauvegardes vers le stockage objet sont prises en charge uniquement pour les destinations ONTAP S3 et StorageGRID. L'archivage des sauvegardes n'est pas pris en charge dans cette version préliminaire.
-* Sauvegarde hors ligne
+* Sauvegardes hors ligne
 

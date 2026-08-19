@@ -14,12 +14,12 @@ summary: Protégez vos charges de travail VMware avec NetApp Backup and Recovery
 
 
 [role="lead"]
-Avec NetApp Backup and Recovery, utilisez les stratégies de sauvegarde par défaut fournies par NetApp pour créer vos sauvegardes ou créez des stratégies personnalisées.  Les politiques régissent la fréquence de sauvegarde, l’heure à laquelle la sauvegarde est effectuée et le nombre de fichiers de sauvegarde conservés.
+Dans NetApp Backup and Recovery, vous pouvez utiliser les règles de sauvegarde par défaut ou créer des règles personnalisées pour vos volumes ONTAP. Les règles contrôlent la fréquence des sauvegardes, leur planification et leur durée de conservation.
 
 
 NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
 
-Lorsque vous utilisez l'assistant d'activation pour activer le service de sauvegarde et de récupération pour vos volumes, vous pouvez sélectionner parmi les stratégies par défaut et toutes les autres stratégies déjà existantes dans le système (Cloud Volumes ONTAP ou système ONTAP sur site).  Si vous souhaitez utiliser une politique différente de celles existantes, vous pouvez créer la politique avant ou pendant que vous utilisez l'assistant d'activation.
+Lorsque vous utilisez l'assistant d'activation pour activer le service NetApp Backup and Recovery pour vos volumes, vous pouvez sélectionner parmi les règles de sauvegarde par défaut et toutes les autres règles de sauvegarde déjà présentes dans le système (Cloud Volumes ONTAP ou système ONTAP sur site). Si vous souhaitez utiliser une règle de sauvegarde différente de celles existantes, vous pouvez créer la règle avant ou pendant l'utilisation de l'assistant d'activation.
 
 Pour en savoir plus sur les politiques de sauvegarde par défaut fournies, reportez-vous àlink:prev-ontap-protect-journey.html["Planifiez votre voyage de protection"] .
 
@@ -85,7 +85,7 @@ Une partie du processus de création de politique implique l’identification de
 +
 La page de gestion des politiques apparaît.
 
-. Dans la page Politiques, sélectionnez *Créer une politique* > *Créer une politique d'instantané*.
+. Dans la page de gestion des règles, sélectionnez *Créer une règle* > *Créer une règle d'instantané*.
 . Spécifiez le nom de la politique.
 . Sélectionnez le ou les programmes d'instantanés.  Vous pouvez avoir un maximum de 5 étiquettes.  Ou créez un planning.
 . Si vous choisissez de créer un planning :
@@ -127,7 +127,7 @@ Cet exemple crée une politique de snapshot avec deux clusters :
 Votre stratégie 3-2-1 peut inclure la réplication d’un volume sur un système de stockage différent.  La politique de réplication réside sur le système de stockage *secondaire*.
 
 .Étapes
-. Dans la page Politiques, sélectionnez *Créer une politique* > *Créer une politique de réplication*.
+. Dans la page Gestion des règles, sélectionnez *Créer une règle* > *Créer une règle de réplication*.
 . Dans la section Détails de la politique, spécifiez le nom de la politique.
 . Spécifiez les étiquettes SnapMirror (maximum 5) indiquant la rétention pour chaque étiquette.
 . Spécifiez le calendrier de transfert.
@@ -148,7 +148,7 @@ Cette politique de stockage réside dans différents emplacements du système de
 
 
 .Étapes
-. Dans la page Gestion des politiques, sélectionnez *Créer une politique* > *Créer une politique de sauvegarde*.
+. Dans la page Gestion des politiques, sélectionnez *Créer une politique* > *Créer une règle de sauvegarde*.
 . Dans la section Détails de la politique, spécifiez le nom de la politique.
 . Spécifiez les étiquettes SnapMirror (maximum 5) indiquant la rétention pour chaque étiquette.
 . Spécifiez les paramètres, y compris la planification du transfert et le moment d'archivage des sauvegardes.

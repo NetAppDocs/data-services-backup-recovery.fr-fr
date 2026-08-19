@@ -14,16 +14,16 @@ summary: 'NetApp Backup and Recovery prend en charge une classe de stockage d"ar
 
 
 [role="lead"]
-NetApp Backup and Recovery prend en charge une classe de stockage d'archivage Google et la plupart des régions.
+Utilisez ces informations pour comprendre le niveau d'archivage de Google Cloud Storage que NetApp Backup and Recovery prend en charge. Vous pouvez également consulter les coûts de restauration et les délais de récupération des sauvegardes archivées.
 
 
 
 [[supported-google-archival-storage-classes-for-netapp-backup-and-recovery]]
 == Classes de stockage d'archivage Google prises en charge pour NetApp Backup and Recovery
 
-Lorsque les fichiers de sauvegarde sont initialement créés, ils sont stockés dans le stockage _Standard_.  Ce niveau est optimisé pour stocker des données rarement consultées, mais qui vous permet également d'y accéder immédiatement.
+Lors de leur création, les fichiers de sauvegarde sont initialement stockés dans un stockage _Standard_. Ce niveau est optimisé pour le stockage de données rarement consultées, tout en permettant un accès immédiat.
 
-Si votre cluster sur site utilise ONTAP 9.12.1 ou une version ultérieure, vous pouvez choisir de hiérarchiser les sauvegardes plus anciennes vers le stockage _Archive_ dans l'interface utilisateur NetApp Backup and Recovery après un certain nombre de jours (généralement plus de 30 jours) pour une optimisation supplémentaire des coûts.  Les données de ce niveau nécessiteront un coût de récupération plus élevé. Vous devez donc tenir compte de la fréquence à laquelle vous devrez peut-être restaurer les données à partir de ces fichiers de sauvegarde archivés.  Consultez la section sur cette page concernant la restauration des données à partir du stockage d'archives.
+Si votre cluster local utilise ONTAP 9.12.1 ou une version ultérieure, vous pouvez choisir de transférer les anciennes sauvegardes vers le stockage _Archive_ dans l’interface utilisateur NetApp Backup and Recovery après un certain nombre de jours (généralement plus de 30 jours) afin d’optimiser davantage les coûts. Les données dans ce niveau entraîneront un coût de récupération plus élevé, il est donc important de prendre en compte la fréquence à laquelle vous pourriez avoir besoin de restaurer des données à partir de ces fichiers de sauvegarde archivés. Consultez la section de cette page concernant la restauration des données à partir du stockage d’archivage.
 
 Notez que lorsque vous configurez NetApp Backup and Recovery avec ce type de règle de cycle de vie, vous ne devez configurer aucune règle de cycle de vie lors de la configuration du bucket dans votre compte Google.
 

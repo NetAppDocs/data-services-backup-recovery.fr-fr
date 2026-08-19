@@ -12,7 +12,7 @@ summary: 'Créez des rapports de protection pour les charges de travail Kubernet
 
 
 [role="lead"]
-Dans NetApp Backup and Recovery, créez des rapports de protection pour les charges de travail Kubernetes afin de consulter l'état et les détails de la protection, notamment le nombre de sauvegardes réussies et échouées, les types de sauvegarde, les informations sur l'état du cluster, et plus encore.
+Créez des rapports de protection Kubernetes dans NetApp Backup and Recovery pour surveiller l'état des sauvegardes, les types de sauvegardes et l'intégrité du cluster.
 
 *Rôle requis de la console NetApp* : super administrateur de sauvegarde et de restauration, administrateur de sauvegarde et de restauration, ou administrateur de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. En savoir plus link:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
@@ -21,10 +21,10 @@ Dans NetApp Backup and Recovery, créez des rapports de protection pour les char
 [[create-a-protection-report]]
 == Créer un rapport de protection
 
-Créez un rapport de protection pour afficher l'état de protection de vos clusters.
+Créez un rapport de protection pour consulter l'état de protection de vos clusters.
 
 .Étapes
-. Dans le menu NetApp Backup and Recovery , sélectionnez l’option *Rapports*.
+. Dans le menu NetApp Backup and Recovery, sélectionnez *Rapports*.
 . Sélectionnez *Créer un rapport*.
 . Saisissez les détails de la portée du rapport :
 +
@@ -34,13 +34,13 @@ Créez un rapport de protection pour afficher l'état de protection de vos clust
 
 
 . Saisissez la période de référence : choisissez si vous souhaitez que le rapport inclue les données du dernier jour, des 7 derniers jours, des 30 derniers jours, du dernier trimestre ou de la dernière année.
-. Saisissez les détails de configuration du rapport : choisissez si le rapport doit être exécuté une seule fois ou si vous souhaitez planifier une génération récurrente du rapport. Pour les rapports planifiés, choisissez la fréquence de récurrence et sélectionnez une date de début.
+. Saisissez les détails de configuration du rapport : choisissez si le rapport doit être exécuté ponctuellement ou selon un calendrier récurrent. Pour les rapports planifiés, choisissez la fréquence de récurrence et sélectionnez une date de début.
 +
-.. Saisissez les informations de livraison par e-mail : (Pour les rapports programmés uniquement) Si vous souhaitez que le rapport soit livré par e-mail, saisissez une ou plusieurs adresses e-mail qui doivent recevoir le rapport programmé.
+.. Saisissez les informations de livraison par courriel : pour les rapports programmés uniquement, saisissez une ou plusieurs adresses courriel pour recevoir le rapport.
 
 
 +
-Configurez les notifications par e-mail dans la page Paramètres. Pour plus de détails sur la configuration des notifications par e-mail, voirlink:br-start-configure.html["Configurer les paramètres"] .
+Configurez les notifications par e-mail sur la page *Paramètres*. Pour plus d'informations sur la configuration des notifications par e-mail, consultez link:br-start-configure.html["Configurer les paramètres"].
 
 . Sélectionnez *Créer*.
 
@@ -53,7 +53,7 @@ Configurez les notifications par e-mail dans la page Paramètres. Pour plus de d
 Téléchargez un rapport de protection généré soit en tant que fichier JSON, soit en tant que document PDF afin de pouvoir le consulter et le partager.
 
 .Étapes
-. Dans le menu NetApp Backup and Recovery , sélectionnez l’option *Rapports*.
+. Dans le menu NetApp Backup and Recovery, sélectionnez *Rapports*.
 . Sur la page *Rapports*, sélectionnez le menu *Rapports* pour voir la liste des rapports de protection générés.
 . Pour le rapport que vous souhaitez télécharger, sélectionnez l'icône Actions image:../media/icon-action.png["Option Actions"] > *Télécharger*.
 +
@@ -68,10 +68,10 @@ Téléchargez un rapport de protection généré soit en tant que fichier JSON, 
 [[view-a-protection-report]]
 == Consulter un rapport de protection
 
-Consultez rapidement les détails interactifs d'un rapport de protection dans NetApp Backup and Recovery. Vous pouvez voir le résumé de la tâche, l'état de la protection des données, les détails de configuration et bien plus encore.
+Consultez les détails interactifs d'un rapport de protection dans NetApp Backup and Recovery. Vous pouvez consulter le résumé de la tâche, l'état de la protection des données, les détails de configuration, et plus encore.
 
 .Étapes
-. Dans le menu NetApp Backup and Recovery , sélectionnez l’option *Rapports*.
+. Dans le menu NetApp Backup and Recovery, sélectionnez *Rapports*.
 . Sur la page *Rapports*, sélectionnez le menu *Rapports* pour voir la liste des rapports de protection générés.
 . Pour le rapport que vous souhaitez afficher, sélectionnez l'icône Actions image:../media/icon-action.png["Option Actions"] > *Afficher le rapport*.
 +
@@ -87,7 +87,7 @@ Les détails du rapport apparaissent.
 Supprimez un rapport de protection lorsque vous n'en avez plus besoin.
 
 .Étapes
-. Dans le menu NetApp Backup and Recovery , sélectionnez l’option *Rapports*.
+. Dans le menu NetApp Backup and Recovery, sélectionnez *Rapports*.
 . Sur la page *Rapports*, sélectionnez le menu *Rapports* pour voir la liste des rapports de protection générés.
 . Pour le rapport que vous souhaitez supprimer, sélectionnez l'icône Actions image:../media/icon-action.png["Option Actions"] > *Supprimer*.
 . Confirmez l'action en sélectionnant *Supprimer*.

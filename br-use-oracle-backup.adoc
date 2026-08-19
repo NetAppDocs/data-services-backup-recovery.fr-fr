@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: br-use-oracle-backup.html 
-keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database, protection group 
-summary: Protégez vos charges de travail Oracle Database avec la protection des données NetApp. 
+keywords: backing up, back up, backup, backup application data, Amazon Web Services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database, protection group 
+summary: Protégez vos charges de travail Oracle Database avec NetApp Backup and Recovery. 
 ---
 = Sauvegardez les charges de travail Oracle Database à l'aide de NetApp Backup and Recovery
 :hardbreaks:
@@ -14,22 +14,22 @@ summary: Protégez vos charges de travail Oracle Database avec la protection des
 
 
 [role="lead"]
-Utilisez NetApp Backup and Recovery pour sauvegarder les groupes de protection ou les bases de données Oracle Database à partir de systèmes ONTAP locaux vers un stockage cloud, notamment Amazon S3, NetApp StorageGRID, Microsoft Azure Blob Storage ou ONTAP S3.  NetApp Backup and Recovery sauvegarde les bases de données et les données de journal dans chaque groupe de protection.
+Sauvegardez les groupes de protection Oracle Database ou les bases de données individuelles à partir des systèmes ONTAP locaux en utilisant NetApp Backup and Recovery. Envoyez les sauvegardes vers le stockage cloud, y compris Amazon S3, NetApp StorageGRID, Microsoft Azure Blob Storage ou ONTAP S3.
 
 
 NOTE: Pour sauvegarder des groupes de protection ou des bases de données uniques selon une planification, créez des stratégies qui gèrent les opérations de sauvegarde et de restauration. Voirlink:br-use-policies-create.html["Créer des politiques"] pour les instructions.
 
 * Créez des groupes de protection pour gérer les opérations de sauvegarde et de restauration d'un ensemble de ressources. Voir link:br-use-kvm-protection-groups.html["Créez et gérez des groupes de protection pour les charges de travail Oracle Database avec NetApp Backup and Recovery"] pour plus d'informations.
-* Sauvegardez un groupe de protection maintenant (créez une sauvegarde à la demande maintenant).
-* Sauvegardez une base de données maintenant.
+* Créez une sauvegarde à la demande d'un groupe de protection.
+* Créer une sauvegarde à la demande d'une base de données.
 
 
 
 
-[[back-up-protection-groups-now-with-an-on-demand-backup]]
-== Sauvegardez maintenant les groupes de protection avec une sauvegarde à la demande
+[[create-an-on-demand-backup-of-a-protection-group]]
+== Créer une sauvegarde à la demande d'un groupe de protection
 
-Exécutez une sauvegarde à la demande avant d’apporter des modifications au système pour garantir la protection de vos données.
+Créez une sauvegarde à la demande avant d'apporter des modifications au système afin de protéger vos données.
 
 *Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
@@ -39,7 +39,7 @@ Exécutez une sauvegarde à la demande avant d’apporter des modifications au s
 . Sélectionnez *Inventaire*.
 . Sélectionnez une charge de travail pour afficher les détails de protection.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
-. Sélectionnez l'onglet *Groupes de protection*, *Magasins de données* ou *Machines virtuelles*.
+. Sélectionnez l’onglet *Groupes de protection*.
 . Sélectionnez le groupe de protection que vous souhaitez sauvegarder.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Reculez maintenant*.
 +
@@ -52,10 +52,10 @@ NOTE: NetApp Backup and Recovery utilise la même politique pour la sauvegarde e
 
 
 
-[[back-up-a-database-now-with-an-on-demand-backup]]
-== Sauvegardez une base de données maintenant avec une sauvegarde à la demande
+[[create-an-on-demand-backup-of-a-database]]
+== Créer une sauvegarde à la demande d'une base de données
 
-Vous pouvez exécuter une sauvegarde à la demande d’une seule base de données.
+Créez une sauvegarde à la demande avant d'apporter des modifications au système afin de protéger vos données.
 
 *Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 

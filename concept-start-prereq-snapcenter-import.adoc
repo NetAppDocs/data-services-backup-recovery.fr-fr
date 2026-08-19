@@ -14,7 +14,7 @@ summary: Commencez à utiliser NetApp Backup and Recovery en vérifiant l’éta
 
 
 [role="lead"]
-Si vous souhaitez importer des ressources du service de plug-in SnapCenter pour Microsoft SQL Server dans NetApp Backup and Recovery, vous devrez configurer quelques éléments supplémentaires.
+Avant d’importer des ressources du SnapCenter Plug-in pour Microsoft SQL Server dans NetApp Backup and Recovery, assurez-vous que votre environnement répond à ces exigences supplémentaires.
 
 
 
@@ -25,10 +25,10 @@ Si vous souhaitez importer des ressources depuis SnapCenter, vous devez d'abord 
 
 
 
-[[ensure-host-requirements-to-install-the-snapcenter-plug-in]]
-== Assurez-vous que les exigences de l'hôte sont respectées pour installer le plug-in SnapCenter
+[[ensure-host-requirements-for-the-snapcenter-plug-in]]
+== Vérifiez que l’hôte respecte les exigences du SnapCenter Plug-in
 
-Pour importer des ressources à partir du plug-in SnapCenter pour Microsoft SQL Server, assurez-vous que les exigences de l'hôte pour installer le plug-in SnapCenter pour Microsoft SQL Server sont respectées.
+Pour importer des ressources à partir du SnapCenter Plug-in for Microsoft SQL Server, assurez-vous que les exigences de l’hôte pour l’installation du SnapCenter Plug-in for Microsoft SQL Server sont respectées.
 
 Vérifiez spécifiquement les exigences de SnapCenter danslink:concept-start-prereq.html["Conditions préalables à la NetApp Backup and Recovery"] .
 
@@ -97,10 +97,10 @@ C’est l’une des méthodes que vous pouvez utiliser pour désactiver le contr
 . Les valeurs suivantes sont prises en charge.  Pour ce scénario, définissez la valeur sur `1` :
 +
 ** `0`(Par défaut) : les restrictions à distance UAC sont activées.  Les comptes locaux ont des jetons filtrés lors de l'accès à distance.
-** `1`:Les restrictions à distance UAC sont désactivées.  Les comptes locaux contournent le filtrage des jetons et disposent de privilèges administratifs complets lors de l'accès à distance.
+** `1` : Les restrictions d'accès à distance de l'UAC sont désactivées. Les comptes locaux contournent le filtrage des jetons et disposent de privilèges d'administrateur complets lors d'un accès à distance.
 
 
-. Cliquez sur *OK*.
+. Sélectionnez *OK*.
 . Fermez l'éditeur du registre.
 . Redémarrez l’hôte Windows SnapCenter .
 
@@ -127,7 +127,7 @@ CAUTION: L’exécution de commandes PowerShell avec des privilèges élevés pe
 .Étapes
 . Ouvrez une fenêtre PowerShell avec des privilèges administratifs sur l’hôte Windows SnapCenter :
 +
-.. Cliquez sur le menu *Démarrer*.
+.. Sélectionnez le menu *Démarrer*.
 .. Recherchez *PowerShell 7* ou *Windows Powershell*.
 .. Faites un clic droit sur cette option et sélectionnez *Exécuter en tant qu'administrateur*.
 
@@ -143,7 +143,7 @@ TIP: PowerShell est inclus par défaut dans Windows 7 et les versions ultérieur
 ----
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "LocalAccountTokenFilterPolicy" -Value 1 -Type DWord
 ----
-. Vérifiez que la valeur actuelle est définie sur « 1 » dans `LocalAccountTokenFilterPolicy`` en exécutant :
+. Vérifiez que la valeur actuelle est bien définie sur « 1 » dans  `LocalAccountTokenFilterPolicy` en exécutant :
 +
 [listing]
 ----

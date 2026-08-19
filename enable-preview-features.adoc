@@ -14,7 +14,7 @@ summary: 'Activer l"aperçu et les fonctionnalités cachées pour NetApp Backup 
 
 
 [role="lead"]
-Activer l'aperçu et les fonctionnalités cachées pour NetApp Backup and Recovery.
+Suivez ces étapes pour activer les fonctionnalités en préversion et les fonctionnalités cachées de NetApp Backup and Recovery. Utilisez les fonctionnalités en préversion avec précaution dans les environnements de production.
 
 *Rôle Console NetApp requis* Super administrateur de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d'administrateur Cloud Volumes ONTAP est également requis. En savoir plus link:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
@@ -44,7 +44,7 @@ Vous pouvez activer les fonctionnalités en préversion suivantes pour NetApp Ba
 Activez les options de prévisualisation pour utiliser des fonctionnalités qui ne sont pas encore généralement disponibles. Utilisez les fonctionnalités en prévisualisation avec précaution dans les environnements de production.
 
 .Étapes
-. Utilisez SSH pour vous connecter à l'agent de Console.
+. Utilisez SSH pour vous connecter à l’agent de Console.
 . Passer en mode utilisateur root :
 +
 [source, shell]
@@ -129,7 +129,7 @@ Désactivez l'indexation pour des volumes spécifiques ou pour tous les volumes 
 
 
 .Étapes
-. Utilisez SSH pour vous connecter à l'agent de Console.
+. Utilisez SSH pour vous connecter à l’agent de Console.
 . Passer en mode utilisateur root :
 +
 [source, shell]

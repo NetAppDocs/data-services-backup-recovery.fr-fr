@@ -4,7 +4,7 @@ permalink: br-api-backup-restore.html
 keywords: api, apis, rest, restful, authorization, getting started, body, header, token, reference, expired token, expires, expired, token expired, list apis 
 summary: Les fonctionnalités de NetApp Backup and Recovery disponibles via l’interface utilisateur Web sont également disponibles via les API RESTful. 
 ---
-= Automatisez avec les API REST de NetApp Backup and Recovery
+= Automatisez la sauvegarde et la restauration NetApp avec les API REST
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,20 +14,20 @@ summary: Les fonctionnalités de NetApp Backup and Recovery disponibles via l’
 
 
 [role="lead"]
-Les fonctionnalités de NetApp Backup and Recovery disponibles via l'interface utilisateur Web sont également disponibles via l'API REST de sauvegarde et de récupération.
+Utilisez l’API REST NetApp Backup and Recovery pour automatiser les tâches de sauvegarde et de restauration disponibles dans l’interface utilisateur Web.
 
-Il existe dix catégories de points de terminaison définis dans NetApp Backup and Recovery:
+NetApp Backup and Recovery définit dix catégories de points de terminaison :
 
-* `backup`- gère les opérations de sauvegarde des ressources cloud et sur site et récupère les détails des données de sauvegarde
-* `catalog`- gère la recherche de catalogue indexée de fichiers en fonction d'une requête (Recherche et restauration)
+* `backup` - Gère les opérations de sauvegarde pour les ressources cloud et sur site et récupère les détails des données de sauvegarde
+* `catalog` - Gère les recherches de fichiers dans le catalogue indexé en fonction d'une requête (Search & Restore)
 * `cloud`- récupère des informations sur diverses ressources de fournisseurs de cloud à partir de la NetApp Console
-* `job`- gère les entrées de détails des tâches dans la base de données de la NetApp Console
-* `license`- récupère la validité de la licence des systèmes à partir de la NetApp Console
+* `job` - Gère les entrées de détails des tâches dans la base de données NetApp Console
+* `license` - récupère l'état de la licence système depuis la NetApp Console
 * `ransomware scan`- lance une analyse de ransomware sur un fichier de sauvegarde spécifique
 * `restore`- vous permet d'effectuer des opérations de restauration au niveau du volume, du fichier et du dossier
 * `sfr`- récupère les fichiers à partir d'un fichier de sauvegarde pour les opérations de restauration au niveau d'un seul fichier (Parcourir et restaurer)
-* `storagegrid`- récupère les détails d'un serveur StorageGRID et vous permet de découvrir un serveur StorageGRID
-* `system`- gère les politiques de sauvegarde et configure le magasin d'objets de destination associé à un système
+* `storagegrid` - récupère les détails d'un serveur StorageGRID et vous permet de découvrir un serveur StorageGRID
+* `system` - gère les politiques de sauvegarde et configure le magasin d'objets de destination associé à un système
 
 
 
@@ -42,17 +42,17 @@ La documentation de chaque API de NetApp Backup and Recovery est disponible à p
 [[getting-started]]
 == Commencer
 
-Pour commencer à utiliser les API de NetApp Backup and Recovery , vous devez obtenir un jeton utilisateur, votre ID de compte de NetApp Console et l'ID de l'agent de console.
+Pour commencer à utiliser les API NetApp Backup and Recovery, obtenez un jeton utilisateur, l’ID de votre compte NetApp Console et l’ID de l’agent Console.
 
-Lors des appels d'API, vous ajouterez le jeton utilisateur dans l'en-tête d'autorisation et l'ID de l'agent de la console dans l'en-tête x-agent-id.  Vous devez utiliser l’ID de compte de la NetApp Console dans les API.
+Lorsque vous effectuez des appels API, incluez le jeton utilisateur dans l' `Authorization`en-tête et l'ID de l'agent Console dans l' `x-agent-id`en-tête. Incluez l'ID du compte NetApp Console dans les requêtes API.
 
 
-NOTE: Si vous utilisez un compte de service, vous devez utiliser le jeton d’accès au service au lieu d’un jeton utilisateur. La valeur de « client_id » (« Mu0V1ywgYteI6w1MbD15fKfVIUrNXGWC ») est une valeur fixe et ne peut pas être modifiée. Dans ce cas, suivez les instructions ici : https://docs.netapp.com/us-en/console-automation/platform/create_service_token.html["Créer un jeton d'accès au service"^] .
+NOTE: Si vous utilisez un compte de service, utilisez le jeton d'accès au service au lieu d'un jeton utilisateur. La valeur pour `client_id` (`Mu0V1ywgYteI6w1MbD15fKfVIUrNXGWC`) est fixe et ne peut pas être modifiée. Dans ce cas, suivez les instructions ici : https://docs.netapp.com/us-en/console-automation/platform/create_service_token.html["Créer un jeton d'accès au service"^].
 
 .Étapes
-. Obtenez un jeton d'utilisateur sur le site web de la NetApp Console.
+. Obtenez un jeton d'utilisateur depuis le site web NetApp Console.
 +
-Assurez-vous de générer le jeton d'actualisation à partir du lien suivant : https://services.cloud.netapp.com/refresh-token/. Le jeton d'actualisation est une chaîne alphanumérique que vous utiliserez pour générer un jeton utilisateur.
+Générez le jeton d'actualisation à partir du lien suivant : https://services.cloud.netapp.com/refresh-token/. Le jeton d'actualisation est une chaîne alphanumérique que vous utilisez pour générer un jeton utilisateur.
 
 +
 [source, shell]
@@ -67,7 +67,7 @@ curl --location --request POST 'https://netapp-cloud-account.auth0.com/oauth/tok
 ----
 +
 
-NOTE: Le jeton utilisateur du site Web de la NetApp Console a une date d’expiration. La réponse de l'API inclut un champ « expires_in » qui indique quand le jeton expire.  Pour actualiser le jeton, vous devrez appeler à nouveau cette API.
+NOTE: Le jeton d'utilisateur du site web NetApp Console expire. La réponse de l'API inclut un champ  `expires_in` qui indique la date d'expiration du jeton. Pour actualiser le jeton, appelez à nouveau cette API.
 
 . Obtenez votre ID de compte NetApp Console .
 +
@@ -80,7 +80,7 @@ Header:
 -H 'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR
 ----
 +
-Cette API renverra une réponse comme celle-ci. Vous pouvez récupérer l'ID de compte en analysant la sortie de *[0].[ accountPublicId]*.
+Cette API renvoie une réponse comme la suivante. Récupérez l'ID du compte à partir de *[0].[accountPublicId]*.
 
 +
 [source, json]
@@ -96,7 +96,7 @@ Cette API renverra une réponse comme celle-ci. Vous pouvez récupérer l'ID de 
   "userRole": "Role-1"
 }
 ----
-. Obtenez le x-agent-id qui contient l'ID de l'agent de la console.
+. Obtenez la  `x-agent-id`valeur de l'en-tête, qui contient l'ID de l'agent de la Console.
 +
 [source, console]
 ----
@@ -108,7 +108,7 @@ Header:
   -H 'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5…………
 ----
 +
-Vous pouvez récupérer l'ID de l'agent à partir de la réponse en analysant la sortie de *occm.[0].[agent].[agentId]*.
+Récupérez l'identifiant de l'agent à partir de la réponse en analysant *occm.[0].[agent].[agentId]*.
 
 
 
@@ -117,7 +117,7 @@ Vous pouvez récupérer l'ID de l'agent à partir de la réponse en analysant la
 [[example-using-the-apis]]
 == Exemple utilisant les API
 
-L'exemple suivant montre un appel d'API pour activer NetApp Backup and Recovery sur un système avec une nouvelle stratégie qui a des étiquettes quotidiennes, horaires et hebdomadaires définies, l'archivage après les jours étant défini sur 180 jours, dans la région East-US-2 dans le cloud Azure.  Notez que cela active uniquement la sauvegarde sur le système, mais aucun volume n'est sauvegardé.
+L'exemple suivant illustre un appel d'API qui active NetApp Backup and Recovery sur un système doté d'une nouvelle stratégie. La stratégie comporte des étiquettes quotidiennes, horaires et hebdomadaires, et archive après 180 jours dans la région Azure East US 2. Cette requête active la sauvegarde sur le système, mais elle ne sauvegarde aucun volume.
 
 .Demande d'API
 Vous verrez que nous utilisons l'ID de compte de la NetApp Console `account-DpTFcxN3` , ID de l'agent de la console `iZwFFeVCZjWnzGlw8RgD0QQNANZvpP7Iclients` , et le jeton utilisateur `Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5rSXlPVFUzUWpZek1E…y6nyhBjwkeMwHc4ValobjUmju2x0xUH48g` dans cette commande.
@@ -156,14 +156,14 @@ curl --location --request POST 'https://api.bluexp.netapp.com/account/account-Dp
     }
   }
 ----
-.La réponse est un identifiant de tâche que vous pouvez ensuite surveiller :
+.La réponse comprend un identifiant de tâche que vous pouvez surveiller :
 [source, json]
 ----
 {
  "job-id": "1b34b6f6-8f43-40fb-9a52-485b0dfe893a"
 }
 ----
-.Surveiller la réponse :
+.Surveillez l'état du travail :
 [source, shell]
 ----
 curl --location --request GET 'https://api.bluexp.netapp.com/account/account-DpTFcxN3/providers/cloudmanager_cbs/api/v1/job/1b34b6f6-8f43-40fb-9a52-485b0dfe893a' \
@@ -187,7 +187,7 @@ curl --location --request GET 'https://api.bluexp.netapp.com/account/account-DpT
   ]
 }
 ----
-.Surveiller jusqu'à ce que le « statut » soit « TERMINÉ » :
+.Surveillez jusqu'à ce que <code>le statut</code> soit <code>COMPLETED</code> :
 [source, json]
 ----
 {

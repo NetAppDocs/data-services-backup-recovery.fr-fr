@@ -12,7 +12,7 @@ summary: 'Dans NetApp Backup and Recovery, créez des rapports pour afficher l"�
 
 
 [role="lead"]
-Dans NetApp Backup and Recovery, créez des rapports pour les charges de travail Microsoft SQL Server afin de consulter l'état et les détails des sauvegardes, notamment le nombre de sauvegardes réussies et échouées, les types de sauvegarde, les systèmes de stockage et les horodatages.
+Créez des rapports pour les charges de travail Microsoft SQL Server dans NetApp Backup and Recovery afin d’examiner l’état et les détails des sauvegardes, notamment le nombre de sauvegardes réussies et échouées, les types de sauvegarde, les systèmes de stockage et les horodatages.
 
 
 
@@ -22,7 +22,7 @@ Dans NetApp Backup and Recovery, créez des rapports pour les charges de travail
 *Rôle requis dans la NetApp Console* visionneuse de stockage, super administrateur de sauvegarde et de restauration, administrateur de sauvegarde et de restauration, administrateur de restauration, administrateur de clonage. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. En savoir plus link:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
 .Étapes
-. Dans le menu NetApp Backup and Recovery , sélectionnez l’option *Rapports*.
+. Dans le menu NetApp Backup and Recovery, sélectionnez *Rapports*.
 . Sélectionnez *Créer un rapport*.
 . Saisissez les détails de la portée du rapport :
 +
@@ -32,9 +32,9 @@ Dans NetApp Backup and Recovery, créez des rapports pour les charges de travail
 ** *Sélectionner le contenu* : Choisissez si vous souhaitez que le rapport inclue un résumé de toutes les sauvegardes ou les détails de chaque sauvegarde.  (Si vous avez choisi « Par compte »)
 
 
-. Entrez la plage de rapport : choisissez si vous souhaitez que le rapport inclue les données du dernier jour, des 7 derniers jours, des 30 derniers jours, du dernier trimestre ou de l'année dernière.
-. Saisissez les détails de livraison du rapport : si vous souhaitez que le rapport soit envoyé par e-mail, cochez *Envoyer le rapport par e-mail*. Saisissez l’adresse e-mail à laquelle vous souhaitez que le rapport soit envoyé.
+. Saisissez la période concernée : choisissez si vous souhaitez que le rapport inclue les données du dernier jour, des 7 derniers jours, des 30 derniers jours, du dernier trimestre ou de la dernière année.
+. Saisissez les informations de livraison du rapport : si vous souhaitez que le rapport soit envoyé par e-mail, sélectionnez *Envoyer le rapport par e-mail*. Saisissez l’adresse e-mail à laquelle vous souhaitez que le rapport soit envoyé.
 +
-Configurez les notifications par e-mail dans la page Paramètres. Pour plus de détails sur la configuration des notifications par e-mail, voirlink:br-start-configure.html["Configurer les paramètres"] .
+Configurez les notifications par e-mail sur la page Paramètres. Pour plus d'informations sur la configuration des notifications par e-mail, consultez link:br-start-configure.html["Configurer les paramètres"].
 
 

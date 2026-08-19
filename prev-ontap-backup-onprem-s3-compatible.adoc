@@ -14,7 +14,7 @@ summary: Protégez vos charges de travail VMware avec NetApp Backup and Recovery
 
 
 [role="lead"]
-Effectuez quelques étapes dans NetApp Backup and Recovery pour commencer à sauvegarder les données de volume de vos systèmes ONTAP principaux sur site. Vous pouvez envoyer les sauvegardes vers un système de stockage ONTAP secondaire (un volume répliqué) ou vers un compartiment sur un système de stockage compatible S3, ou les deux.
+Utilisez cette page pour vérifier que votre configuration est prise en charge et pour configurer les sauvegardes de vos systèmes ONTAP principaux sur site vers un stockage d'objets compatible S3 dans NetApp Backup and Recovery.
 
 
 
@@ -71,7 +71,7 @@ Lors de la sauvegarde sur un stockage compatible S3, tenez compte des points sui
 [[prepare-your-console-agent]]
 == Préparez votre agent de console
 
-L'agent Console est le logiciel principal pour les fonctionnalités de la console.  Un agent de console est requis pour sauvegarder et restaurer vos données ONTAP .
+L'agent de console est le logiciel principal pour la fonctionnalité de la NetApp Console .  Un agent de console est requis pour sauvegarder et restaurer vos données ONTAP .
 
 
 
@@ -232,9 +232,9 @@ Vous pouvez également<<Afficher les commandes de l'API>> à l'étape de révisi
 === Démarrer l'assistant
 
 .Étapes
-. Accédez à l’assistant d’activation de sauvegarde et de récupération en utilisant l’une des méthodes suivantes :
+. Accédez à l'assistant d'activation de la sauvegarde et de la restauration en utilisant l'une des méthodes suivantes :
 +
-** Depuis la page *Systèmes* de la console, sélectionnez le système et sélectionnez *Activer > Volumes de sauvegarde* à côté de Sauvegarde et récupération dans le panneau de droite.
+** Dans la page *Systems* de la NetApp Console, sélectionnez le système et sélectionnez *Enable > Backup Volumes* à côté de Backup and Recovery dans le panneau de droite.
 ** Sélectionnez *Volumes* dans la barre de sauvegarde et de récupération.  Dans l'onglet Volumes, sélectionnez l'option *Actions (...)* et sélectionnez *Activer la sauvegarde* pour un seul volume (qui n'a pas déjà la réplication ou la sauvegarde vers le stockage d'objets activée).
 
 
@@ -369,7 +369,7 @@ Pour créer une politique, sélectionnez *Créer une nouvelle politique* et proc
 +
 *** Entrez le nom de la politique.
 *** Sélectionnez jusqu'à cinq programmes, généralement de fréquences différentes.
-*** Pour les règles de sauvegarde vers objet, configurez les paramètres Datalock et de protection contre les ransomwares. Pour plus d’informations sur Datalock et la protection contre les ransomwares, consultez link:prev-ontap-policy-object-options.html["Paramètres de la politique de sauvegarde sur objet"].
+*** Pour les règles de sauvegarde vers objet, configurez les paramètres DataLock et de protection contre les ransomwares. Pour plus d’informations sur DataLock et la protection contre les ransomwares, consultez link:prev-ontap-policy-object-options.html["Paramètres de la politique de sauvegarde sur objet"].
 *** Sélectionnez *Créer*.
 
 
@@ -408,9 +408,9 @@ Vous pouvez également surveiller l’état des tâches de sauvegarde et de rest
 [[show-the-api-commands]]
 === Afficher les commandes de l'API
 
-Vous souhaiterez peut-être afficher et éventuellement copier les commandes API utilisées dans l’assistant d’activation de la sauvegarde et de la récupération.  Vous souhaiterez peut-être faire cela pour automatiser l’activation de la sauvegarde dans les futurs systèmes.
+Vous pouvez afficher et, éventuellement, copier les commandes API utilisées dans l'assistant d'activation de NetApp Backup and Recovery. Vous pouvez faire cela pour automatiser l'activation de la sauvegarde dans les systèmes futurs.
 
 .Étapes
-. Dans l’assistant d’activation de la sauvegarde et de la récupération, sélectionnez *Afficher la demande d’API*.
+. Dans l'assistant Activer la sauvegarde et la restauration, sélectionnez *Afficher la requête API*.
 . Pour copier les commandes dans le presse-papiers, sélectionnez l'icône *Copier*.
 

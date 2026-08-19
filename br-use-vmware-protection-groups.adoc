@@ -14,7 +14,7 @@ summary: Créez et gérez des groupes de protection pour les charges de travail 
 
 
 [role="lead"]
-Créez des groupes de protection pour gérer les opérations de sauvegarde et de restauration d’un ensemble de charges de travail. Un groupe de protection est un regroupement logique de ressources telles que des machines virtuelles et des banques de données que vous souhaitez protéger ensemble.
+Créez des groupes de protection pour gérer les opérations de sauvegarde et de restauration d'un ensemble de charges de travail. Un groupe de protection est un regroupement logique de ressources, telles que des machines virtuelles et des banques de données, que vous souhaitez protéger ensemble.
 
 Vous pouvez effectuer les tâches suivantes liées aux groupes de protection :
 
@@ -32,7 +32,7 @@ Vous pouvez effectuer les tâches suivantes liées aux groupes de protection :
 
 Lorsque vous sélectionnez les ressources à ajouter à un groupe de protection, vous pouvez les organiser par banques de données, machines virtuelles ou par vSphere tags.
 
-La protection par étiquettes (utilisation des étiquettes vSphere) simplifie l'administration des groupes de protection dans NetApp Backup and Recovery.
+La protection basée sur des balises vSphere simplifie l'administration des groupes de protection dans NetApp Backup and Recovery.
 
 L'utilisation d'une protection basée sur des étiquettes présente certains avantages :
 
@@ -56,7 +56,7 @@ Créez un groupe de protection pour organiser les ressources que vous souhaitez 
 .Avant de commencer
 * Assurez-vous que votre environnement utilise des versions prises en charge de VMware vSphere.
 * Lors de la création d'un groupe de protection basé sur des balises, assurez-vous que les machines virtuelles et les banques de données que vous souhaitez protéger sont déjà associées à une ou plusieurs vSphere balises dans vCenter.
-* Notez que pour les charges de travail VMware, la durée de sauvegarde planifiée est interprétée selon le fuseau horaire de l'hôte de gestion. Consultez link:br-use-policies-vmware-create.html["Créez et gérez des stratégies de sauvegarde VMware dans NetApp Backup and Recovery"] pour plus d'informations.
+* Pour les charges de travail VMware, la durée de sauvegarde planifiée utilise le fuseau horaire de l’hôte de gestion. Consultez link:br-use-policies-vmware-create.html["Créez et gérez des stratégies de sauvegarde VMware dans NetApp Backup and Recovery"] pour plus d’informations.
 
 
 .Étapes
@@ -172,7 +172,7 @@ NOTE: Les planifications ne sont recréées que lorsque vous modifiez le nom du 
 [[delete-a-protection-group]]
 == Supprimer un groupe de protection
 
-Lorsque vous supprimez un groupe de protection, vous le supprimez ainsi que toutes les planifications de sauvegarde du groupe.  Supprimez un groupe de protection si vous n’en avez plus besoin.
+Lorsque vous supprimez un groupe de protection, vous le supprimez ainsi que toutes les planifications de sauvegarde du groupe. Supprimez un groupe de protection si vous n'en avez plus besoin.
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.

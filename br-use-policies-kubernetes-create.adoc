@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: br-use-policies-kubernetes-create.html 
-keywords: backing up, back up, backup, backup on-prem ontap, policy, policies, backup policies, cloud backup, aws, aws s3, azure, google cloud 
+keywords: backing up, back up, backup, backup on-premises ontap, policy, policies, backup policies, cloud backup, aws, aws s3, azure, google cloud 
 summary: 'Dans NetApp Backup and Recovery, créez vos propres stratégies qui régissent la fréquence de sauvegarde, l"heure à laquelle la sauvegarde est effectuée et le nombre de fichiers de sauvegarde conservés.' 
 ---
 = Créez et gérez des politiques de sauvegarde Kubernetes dans NetApp Backup and Recovery
@@ -12,7 +12,7 @@ summary: 'Dans NetApp Backup and Recovery, créez vos propres stratégies qui r�
 
 
 [role="lead"]
-Dans NetApp Backup and Recovery, créez vos propres politiques de sauvegarde Kubernetes qui régissent la fréquence des sauvegardes, l'heure à laquelle la sauvegarde est effectuée et le nombre de fichiers de sauvegarde conservés.
+Utilisez NetApp Backup and Recovery pour créer des règles de sauvegarde Kubernetes qui contrôlent la fréquence, la planification et la conservation des sauvegardes.
 
 
 NOTE: Certaines de ces options et sections de configuration ne sont pas disponibles pour toutes les charges de travail.
@@ -56,7 +56,7 @@ Vous pouvez créer des stratégies qui régissent vos snapshots locaux, vos rép
 *Rôle Console NetApp requis* : Visualiseur de stockage, super administrateur de sauvegarde et de restauration, administrateur de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d'administrateur Cloud Volumes ONTAP est également requis. En savoir plus link:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
 .Avant de commencer
-Si vous prévoyez de répliquer vers un stockage secondaire et que vous souhaitez utiliser le verrouillage des snapshots sur des snapshots locaux ou sur un stockage secondaire ONTAP distant, vous devez d'abord initialiser l'horloge de conformité ONTAP au niveau du cluster.  Il s’agit d’une exigence pour activer le verrouillage des instantanés dans la politique.
+Si vous prévoyez de répliquer vers un stockage secondaire et souhaitez utiliser le verrouillage des instantanés sur des instantanés locaux ou sur un stockage secondaire ONTAP distant, vous devez d'abord initialiser l'horloge de conformité ONTAP au niveau du cluster. Ceci est une exigence pour activer le verrouillage des instantanés dans la règle.
 
 Pour obtenir des instructions sur la façon de procéder, reportez-vous à https://docs.netapp.com/us-en/ontap/snaplock/initialize-complianceclock-task.html["Initialiser l'horloge de conformité dans ONTAP"^] .
 
@@ -77,15 +77,15 @@ La page « Politiques » s'affiche.
 
 . Saisissez les informations dans la section *Architecture de sauvegarde*. Choisissez le flux de données pour la sauvegarde dans la liste :
 +
-** *Répartition 3-2-1* : Stockage principal (disque) vers stockage secondaire (disque) vers cloud (stockage objet). Crée plusieurs copies des données sur différents systèmes de stockage, tels que ONTAP vers ONTAP et ONTAP vers des configurations de stockage objet. Il peut s'agir d'un stockage objet d'un hyperscaler cloud ou d'un stockage objet privé. Idéal pour une protection optimale des données et la reprise après sinistre. Cette option n'est pas disponible pour Amazon FSx for NetApp ONTAP.
+** *Répartition 3-2-1* : stockage principal (disque) vers stockage secondaire (disque) vers cloud (stockage objet). Crée plusieurs copies des données sur différents systèmes de stockage, tels que ONTAP vers ONTAP et ONTAP vers des configurations de stockage objet. Il peut s’agir d’un stockage objet chez un fournisseur de cloud ou d’un stockage objet privé. Idéal pour une protection des données optimale et la reprise après sinistre. Cette option n’est pas disponible pour Amazon FSx for NetApp ONTAP.
 ** *Réplication disque à disque* : Stockage principal (disque) vers stockage secondaire (disque). La stratégie de protection des données ONTAP à ONTAP réplique les données entre deux systèmes ONTAP afin de garantir une haute disponibilité et une reprise après sinistre. Cela est généralement réalisé à l'aide de SnapMirror, qui prend en charge la réplication synchrone et la réplication asynchrone. Cette méthode permet de maintenir vos données à jour et disponibles sur plusieurs sites pour une forte protection des données.
-** *Stockage disque vers objet* : Stockage principal (disque) vers cloud (stockage objet). Cela réplique les données d’un système ONTAP vers un système de stockage objet. Il peut s'agir d'un stockage objet d'un hyperscaler cloud ou d'un stockage objet privé tel que StorageGRID. Cette méthode est idéale pour la conservation des données à long terme et l’archivage. Cette option n'est pas disponible pour Amazon FSx for NetApp ONTAP.
+** *Stockage disque vers objet* : Stockage principal (disque) vers le cloud (stockage objet). Cela réplique les données d’un système ONTAP vers un système de stockage objet. Il peut s’agir d’un stockage objet d’un fournisseur de cloud ou d’un stockage objet privé tel que StorageGRID. Cette méthode est idéale pour la conservation des données à long terme et l’archivage. Cette option n’est pas disponible pour Amazon FSx for NetApp ONTAP.
 ** *Instantanés locaux* : Instantané local du volume sélectionné. Cette opération crée des copies en lecture seule, à un instant précis, des volumes de production sur lesquels vos charges de travail s’exécutent. Vous pouvez utiliser les instantanés locaux pour récupérer d'une perte de données ou de données corrompues, ainsi que pour créer des sauvegardes en vue d’une reprise après sinistre.
 
 
 . Fournissez des informations pour la section *Paramètres de snapshot local* :
 +
-** Sélectionnez l'option *Ajouter une planification* pour sélectionner la ou les planifications d'instantanés.  Vous pouvez avoir un maximum de 5 horaires.
+** Sélectionnez l'option *Ajouter une planification* pour choisir la ou les planifications d'instantanés. Vous pouvez avoir un maximum de cinq planifications.
 ** *Fréquence des instantanés* : sélectionnez la fréquence horaire, quotidienne, hebdomadaire, mensuelle ou annuelle.  La fréquence annuelle n'est pas disponible pour les charges de travail Kubernetes.
 ** *Conservation des instantanés* : saisissez le nombre d'instantanés à conserver.
 ** *Fournisseur* : Sélectionnez le fournisseur de stockage qui héberge les ressources de l’application Kubernetes et saisissez les identifiants pour vous authentifier auprès de ce fournisseur.
@@ -106,7 +106,7 @@ NOTE: Les champs qui s'affichent diffèrent selon le fournisseur et l'architectu
 
 +
 ** *Fournisseur* : Sélectionnez le fournisseur de votre système de stockage d’objets et saisissez les identifiants dans les champs appropriés (les champs d’identifiants diffèrent selon le fournisseur).
-** *Cible de sauvegarde* : sélectionnez une cible de stockage d’objets enregistrée.  Assurez-vous que la cible est accessible dans votre environnement de sauvegarde.
+** *Cible de sauvegarde* : Sélectionnez une cible de stockage d’objets enregistrée. Vérifiez que la cible est accessible dans votre environnement de sauvegarde.
 ** *Espace IP* : sélectionnez l'espace IP à utiliser pour les opérations de sauvegarde.  Ceci est utile si vous avez plusieurs espaces IP et que vous souhaitez contrôler lequel est utilisé pour les sauvegardes.
 ** *Paramètres de planification* : sélectionnez la planification qui a été définie pour les instantanés locaux.  Vous pouvez supprimer une planification, mais vous ne pouvez pas en ajouter une, car les planifications sont définies en fonction des planifications d'instantanés locaux.
 ** *Copies de conservation* : saisissez le nombre d'instantanés à conserver.
@@ -122,15 +122,15 @@ NOTE: Les champs qui s'affichent diffèrent selon le fournisseur et l'architectu
 
 
 
-TIP: Si la fréquence des instantanés est définie sur 1 heure, le délai maximal ainsi que le nombre de nouvelles tentatives ne doivent pas dépasser 45 minutes.
+TIP: Si la fréquence de snapshot est fixée à une heure, le délai maximal, additionné au nombre de tentatives, ne doit pas dépasser 45 minutes.
 
-** *Succès partiel* : activez cette option pour permettre à une opération de sauvegarde de se terminer avec succès même si Backup and Recovery ne parvient pas à sauvegarder toutes les ressources.
 ** *Configuration de la machine virtuelle* : Sélectionnez le type de cohérence de sauvegarde dont vous avez besoin :
 +
 *** *Sauvegarde cohérente en cas de plantage* : Sélectionnez cette option pour éviter le gel de la machine virtuelle avant la prise d’un instantané ou d’une sauvegarde. L’instantané ou la sauvegarde sera cohérent(e) en cas de plantage, c’est-à-dire que la mémoire système au moment de la prise de l’instantané ou de la sauvegarde n’est pas capturée.
 *** *Sauvegarde cohérente des VM* : Sélectionnez cette option pour figer les VM avant de prendre un instantané ou une sauvegarde. Cela capture l’état complet de la VM (y compris la mémoire) afin d’assurer une protection cohérente de la VM. Vous pouvez également, dans *Nombre maximal de VM simultanées*, spécifier combien de VM Backup and Recovery peut figer et sauvegarder en même temps. Si vous activez l’option *Figer toutes les VM*, Backup and Recovery fige toutes les VM simultanément, lance les sauvegardes, puis dégèle toutes les VM une fois toutes les opérations de sauvegarde terminées.
 
 
+** *Succès partiel* : activez cette option pour permettre à une opération de sauvegarde de se terminer avec succès même si Backup and Recovery ne parvient pas à sauvegarder toutes les ressources.
 
 
 ====
@@ -148,13 +148,13 @@ Vous pouvez ajouter un autre niveau de protection lorsque vous modifiez une poli
 
 Si vous modifiez une politique qui sauvegarde sur un stockage d’objets, vous pouvez activer l’archivage.
 
-Si vous avez importé des ressources depuis SnapCenter, vous risquez de rencontrer certaines différences entre les stratégies utilisées dans SnapCenter et celles utilisées dans NetApp Backup and Recovery.  Voirlink:reference-policy-differences-snapcenter.html["Différences de politique entre SnapCenter et NetApp Backup and Recovery"] .
+Si vous avez importé des ressources depuis SnapCenter, vous pourriez constater des différences entre les règles utilisées dans SnapCenter et celles utilisées dans NetApp Backup and Recovery. Voir link:reference-policy-differences-snapcenter.html["Différences de politique entre SnapCenter et NetApp Backup and Recovery"].
 
 .Rôle de NetApp Console requis
 Super administrateur de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d'administrateur Cloud Volumes ONTAP est également requis. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^]
 
 .Étapes
-. Dans la NetApp Console, accédez à *Protection* > *Sauvegarde et récupération*.
+. Dans la NetApp Console, accédez à *Protection* > *Backup and Recovery*.
 . Sélectionnez l’option *Politiques*.
 . Sélectionnez la politique que vous souhaitez modifier.
 . Sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Modifier*.
@@ -177,7 +177,7 @@ Vous pouvez supprimer une politique si vous n’en avez plus besoin.
 TIP: Vous ne pouvez pas supprimer une politique associée à une charge de travail.
 
 .Étapes
-. Dans la console, accédez à *Protection* > *Sauvegarde et récupération*.
+. Dans la NetApp Console, accédez à *Protection* > *Backup and Recovery*.
 . Sélectionnez l’option *Politiques*.
 . Sélectionnez la politique que vous souhaitez supprimer.
 . Sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Supprimer*.

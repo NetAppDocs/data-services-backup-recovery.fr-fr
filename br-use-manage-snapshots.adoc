@@ -14,7 +14,7 @@ summary: Vous pouvez gérer les instantanés Microsoft SQL Server en les supprim
 
 
 [role="lead"]
-Vous pouvez gérer les instantanés Microsoft SQL Server en les supprimant de NetApp Backup and Recovery.
+Supprimez les instantanés locaux de Microsoft SQL Server à partir de NetApp Backup and Recovery.
 
 
 
@@ -23,15 +23,15 @@ Vous pouvez gérer les instantanés Microsoft SQL Server en les supprimant de Ne
 
 Vous ne pouvez supprimer que les instantanés locaux.
 
-*Rôle Console NetApp requis* : Visionneuse de stockage, super administrateur de sauvegarde et de restauration, administrateur de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^]
+*Rôle Console NetApp requis* : visionneur de stockage, super administrateur de sauvegarde et de restauration, ou administrateur de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^]
 
 .Étapes
 . Dans NetApp Backup and Recovery, sélectionnez *Inventaire*.
 . Sélectionnez la charge de travail et sélectionnez *Afficher*.
 . Sélectionnez l'onglet *Bases de données*.
-. Sélectionnez la base de données pour laquelle vous souhaitez supprimer un instantané.
+. Sélectionnez la base de données dont vous souhaitez supprimer l’instantané.
 . Dans le menu Actions, sélectionnez *Afficher les détails de la protection*.
-. Sélectionnez l’instantané local que vous souhaitez supprimer.
+. Sélectionnez l'instantané local à supprimer.
 +
 
 TIP: Vérifiez que l’icône d’instantané local dans la colonne *Emplacement* de cette ligne apparaît en bleu.

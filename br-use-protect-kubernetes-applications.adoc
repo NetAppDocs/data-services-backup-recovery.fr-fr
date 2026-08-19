@@ -14,7 +14,7 @@ summary: NetApp Backup and Recovery vous permet de gérer les informations de vo
 
 
 [role="lead"]
-NetApp Backup and Recovery vous permet d'ajouter des applications Kubernetes via l'interface web ou en appliquant des fichiers de ressources personnalisés. Les applications peuvent être basées sur un espace de noms, composées de ressources Kubernetes standard, ou basées sur des machines virtuelles, composées d'une ou plusieurs machines virtuelles.
+Utilisez l’interface web NetApp Backup and Recovery ou des fichiers de ressources personnalisés pour ajouter des applications Kubernetes à protéger. Vous pouvez ajouter des applications basées sur un espace de noms utilisant des ressources Kubernetes standard ou des applications basées sur une ou plusieurs machines virtuelles.
 
 .Rôle de NetApp Console requis
 Administrateur d'organisation ou administrateur SnapCenter . link:reference-roles.html["En savoir plus sur les rôles d'accès à NetApp Backup and Recovery"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
@@ -24,7 +24,7 @@ Administrateur d'organisation ou administrateur SnapCenter . link:reference-role
 [[add-and-protect-a-new-kubernetes-application]]
 == Ajouter et protéger une nouvelle application Kubernetes
 
-La première étape pour protéger les applications Kubernetes consiste à créer une application dans NetApp Backup and Recovery. La création d'une application permet à Backup and Recovery de reconnaître l'application en cours d'exécution sur le cluster Kubernetes.
+Pour protéger une application Kubernetes, commencez par la créer dans NetApp Backup and Recovery. Lorsque vous créez l'application, NetApp Backup and Recovery prend connaissance de l'application en cours d'exécution sur le cluster Kubernetes.
 
 .Avant de commencer
 Avant de pouvoir ajouter et protéger une application Kubernetes, vous devezlink:br-start-discover.html["découvrir les charges de travail Kubernetes"] .
@@ -83,7 +83,7 @@ L'application est créée et apparaît dans la liste des applications de l'ongle
 . Recherchez les machines virtuelles à ajouter à l'application en choisissant un espace de noms et en incluant éventuellement des sélecteurs d'étiquettes.
 +
 
-NOTE: Si vous sélectionnez des machines virtuelles dans la liste, la définition de l'application est statique : aucune nouvelle machine virtuelle n'est ajoutée à l'application ultérieurement (vous devez modifier l'application pour les ajouter et les protéger). Si vous utilisez des sélecteurs par étiquette, vous ne pouvez pas sélectionner de machines virtuelles individuellement ni modifier la liste générée, mais toute machine virtuelle correspondant ultérieurement au sélecteur est automatiquement incluse et protégée.
+NOTE: Si vous sélectionnez des machines virtuelles dans la liste, la définition de l'application est statique : aucune nouvelle machine virtuelle n'est ajoutée à l'application par la suite (vous devez modifier l'application pour les ajouter et les protéger). Si vous utilisez des sélecteurs par étiquette, vous ne pouvez pas sélectionner de machines virtuelles individuellement ni modifier la liste générée, mais toute machine virtuelle correspondant ultérieurement au sélecteur est automatiquement incluse et protégée.
 
 +
 Les machines virtuelles sélectionnées apparaissent dans la liste à droite.
@@ -95,7 +95,7 @@ Les machines virtuelles sélectionnées apparaissent dans la liste à droite.
 
 
 .Résultat
-L'application est créée et apparaît dans la liste des applications dans l'onglet *Applications* de l'inventaire Kubernetes.  La NetApp Console active la protection de l'application en fonction de vos paramètres et vous pouvez surveiller la progression dans la zone *Surveillance* de la sauvegarde et de la récupération.
+L'application est créée et apparaît dans la liste des applications de l'onglet *Applications* de l'inventaire Kubernetes. NetApp Backup and Recovery permet de protéger l'application selon vos paramètres, et vous pouvez suivre la progression dans la section *Surveillance*.
 
 --
 .Ajouter une application basée sur un espace de noms (CR)

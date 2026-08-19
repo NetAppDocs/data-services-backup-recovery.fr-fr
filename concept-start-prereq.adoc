@@ -21,7 +21,7 @@ Avant de commencer à utiliser NetApp Backup and Recovery, assurez-vous que votr
 [[prepare-to-use-netapp-backup-and-recovery]]
 == Préparez-vous à utiliser NetApp Backup and Recovery
 
-Vous accédez à NetApp Backup and Recovery via NetApp Console. Effectuez ces tâches pour préparer la Console à Backup and Recovery, selon que vous utilisez NetApp Console ou NetApp Console en déploiement local.
+Vous accédez à NetApp Backup and Recovery via NetApp Console. Effectuez ces tâches pour préparer la Console pour Backup and Recovery, selon que vous utilisez NetApp Console ou NetApp Console en déploiement local.
 
 
 
@@ -148,7 +148,7 @@ Reportez-vous à  https://docs.netapp.com/us-en/console-setup-admin/reference-ia
 [[requirements-for-backups-to-object-storage]]
 == Exigences relatives aux sauvegardes sur stockage objet
 
-Pour utiliser le stockage d'objets comme cibles de sauvegarde, vous avez besoin d'un compte AWS S3, Google Cloud Storage, Microsoft Azure Blob, StorageGRID ou ONTAP et des autorisations d'accès appropriées configurées.
+Pour utiliser le stockage d'objets comme cibles de sauvegarde, vous avez besoin d'un compte AWS S3, Google Cloud Storage, Azure Blob storage, StorageGRID ou ONTAP et des autorisations d'accès appropriées configurées.
 
 
 
@@ -187,7 +187,7 @@ Microsoft Windows Pour obtenir les dernières informations sur les versions pris
 
 
 | Versions de Microsoft SQL Server  a| 
-Les versions 2012 et ultérieures sont prises en charge pour VMware Virtual Machine File System (VMFS) et VMware Virtual Machine Disk (VMDK) NFS.
+Les versions 2012 et ultérieures sont prises en charge pour VMware Virtual Machine File System (VMFS) et VMware Virtual Machine Disk (VMDK) sur NFS.
 
 
 
@@ -266,7 +266,7 @@ Vous avez besoin d’exigences spécifiques pour découvrir et protéger vos cha
 | Versions VMware vCenter vSphere | 7.0U1 et versions ultérieures 
 
 
-| Outils VMware | VMware Tools est requis pour utiliser la fonction de restauration de fichiers et de dossiers ainsi que les sauvegardes cohérentes avec les machines virtuelles. Pour vous assurer que la version de VMware Tools correspond à votre version d'ESXi Server, consultez la  https://packages.vmware.com/tools/versions["Informations de correspondance des versions VMware"]. 
+| Outils VMware | VMware Tools est requis pour utiliser la fonction de restauration de fichiers et de dossiers ainsi que les sauvegardes cohérentes avec les machines virtuelles. Pour vous assurer que la version de VMware Tools correspond à votre version d'ESXi Server, consultez la https://packages.vmware.com/tools/versions["Informations de correspondance des versions VMware"]. 
 
 
 | Types d'adresses IP | IPv4, IPv6 
@@ -332,7 +332,7 @@ NOTE: Pour garantir la réussite des restaurations de charges de travail KVM, as
 Pour activer la protection des machines virtuelles KVM administrées par des utilisateurs non root, procédez comme suit :
 
 . Montez le volume en tant que type NFS3 pour éviter l'utilisation de `nobody` utilisateur et groupe.
-. Utilisez la commande suivante pour ajouter un utilisateur non root à la liste `qemu` groupe tout en préservant leurs groupes existants :
+. Utilisez la commande suivante pour ajouter un utilisateur non root au groupe  `qemu` tout en préservant ses groupes existants :
 +
 [source, shell]
 ----
@@ -388,8 +388,8 @@ NOTE: ONTAP 9.19.1 ou une version ultérieure est nécessaire pour prendre en ch
 
 
 | Stockage d'objets (cibles de sauvegarde)  a| 
-* Stockage d'objets Azure
-* Amazon AWS
+* Stockage Blob Azure
+* AWS S3
 * NetApp StorageGRID
 * ONTAP S3
 

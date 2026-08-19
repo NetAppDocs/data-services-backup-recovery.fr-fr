@@ -72,7 +72,7 @@ Ce fichier se trouve à l'emplacement suivant dans le bucket `netapp-backup-<GUI
 Lors de l'installation d'un nouvel agent Console, téléchargez la même version logicielle que l'agent d'origine. Les modifications apportées à la base de données NetApp Backup and Recovery peuvent empêcher les nouvelles versions logicielles de fonctionner avec les anciennes sauvegardes de la base de données. Vous pouvez https://docs.netapp.com/us-en/console-setup-admin/task-upgrade-connector.html["mettre à niveau le logiciel de l'agent de la console vers la version la plus récente après la restauration de la base de données de sauvegarde"^].
 
 . https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-private-mode.html["Installer l'agent de console sur un nouvel hôte Linux local"^]
-. Connectez-vous à la console à l’aide des informations d’identification de l’utilisateur administrateur que vous venez de créer.
+. Connectez-vous à la NetApp Console en utilisant les identifiants de l’utilisateur administrateur que vous venez de créer.
 
 
 
@@ -80,7 +80,7 @@ Lors de l'installation d'un nouvel agent Console, téléchargez la même version
 [[restore-the-netapp-backup-and-recovery-database]]
 === Restaurer la base de données de NetApp Backup and Recovery
 
-. Copiez la sauvegarde MySQL de l’emplacement de sauvegarde vers le nouvel hôte de l’agent de console. Nous utiliserons le nom de fichier d'exemple « CBS_DB_Backup_23_05_2023.sql » ci-dessous.
+. Copiez la sauvegarde MySQL depuis son emplacement de sauvegarde vers le nouvel hôte de l'agent Console. L'exemple suivant utilise le nom de fichier `CBS_DB_Backup_23_05_2023.sql`.
 . Copiez la sauvegarde dans le conteneur Docker MySQL à l'aide de l'une des commandes suivantes, selon que vous utilisez un conteneur Docker ou Podman :
 +
 [source, cli]
@@ -132,7 +132,7 @@ mysql> select * from volume;
 [[restore-the-indexed-catalog-files]]
 === Restaurer les fichiers du catalogue indexé
 
-. Copiez le fichier zip de sauvegarde du catalogue indexé (nous utiliserons le nom de fichier d'exemple « Indexed_Catalog_DB_Backup_catalogdb1_23_05_2023.zip ») de l'emplacement de sauvegarde vers le nouvel hôte de l'agent de console dans le dossier « /opt/application/netapp/cbs ».
+. Copiez le fichier ZIP de sauvegarde du catalogue indexé depuis l'emplacement de sauvegarde vers le dossier  `/opt/application/netapp/cbs` sur le nouvel hôte de l'agent Console. L'exemple suivant utilise le nom de fichier  `Indexed_Catalog_DB_Backup_catalogdb1_23_05_2023.zip`.
 . Décompressez le fichier « Indexed_Catalog_DB_Backup_catalogdb1_23_05_2023.zip » à l'aide de la commande suivante :
 +
 [source, cli]
@@ -156,7 +156,7 @@ unzip Indexed_Catalog_DB_Backup_catalogdb1_23_05_2023.zip -d catalogdb1
 [[set-up-the-storagegrid-environment-details]]
 === Configurer les détails de l'environnement StorageGRID
 
-Ajoutez les détails du système StorageGRID associé à vos systèmes ONTAP tels qu'ils ont été configurés lors de la configuration de l'agent de console d'origine à l'aide de l' https://docs.netapp.com/us-en/console-automation/index.html["API de la NetApp Console"^] .
+Ajoutez les détails du système StorageGRID associé à vos systèmes ONTAP, tels qu'ils ont été configurés dans la configuration d'origine de l'agent Console, en utilisant  https://docs.netapp.com/us-en/console-automation/index.html["API de la NetApp Console"^].
 
 Les informations suivantes s'appliquent aux installations en mode privé à partir de NetApp Console 3.9.xx.  Pour les versions plus anciennes, utilisez la procédure suivante : https://community.netapp.com/t5/Tech-ONTAP-Blogs/DarkSite-Cloud-Backup-MySQL-and-Indexed-Catalog-Backup-and-Restore/ba-p/440800["Sauvegarde Cloud DarkSite : sauvegarde et restauration de MySQL et du catalogue indexé"^] .
 
@@ -170,10 +170,10 @@ curl 'http://10.193.192.202/oauth/token' -X POST -H 'Accept: application/json' -
 > '
 ----
 +
-Alors que l’adresse IP, le nom d’utilisateur et les mots de passe sont des valeurs personnalisées, le nom du compte ne l’est pas. Le nom du compte est toujours « account-DARKSITE1 ». De plus, le nom d'utilisateur doit utiliser un nom au format e-mail.
+L'adresse IP, le nom d'utilisateur et le mot de passe sont des valeurs personnalisées, contrairement au nom du compte. Le nom du compte est toujours  `account-DARKSITE1`. De plus, le nom d'utilisateur doit utiliser un nom au format adresse électronique.
 
 +
-Cette API renverra une réponse comme celle-ci. Vous pouvez récupérer le jeton d’autorisation comme indiqué ci-dessous.
+Cette API renvoie une réponse similaire à celle-ci. Vous pouvez récupérer le jeton d'autorisation comme indiqué ci-dessous.
 
 +
 [source, text]
@@ -187,14 +187,14 @@ Cette API renverra une réponse comme celle-ci. Vous pouvez récupérer le jeton
 curl -X GET http://10.193.192.202/tenancy/external/resource?account=account-DARKSITE1 -H 'accept: application/json' -H 'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjJlMGFiZjRiIn0eyJzdWIiOiJvY2NtYXV0aHwxIiwiYXVkIjpbImh0dHBzOi8vYXBpLmNsb3VkLm5ldGFwcC5jb20iXSwiaHR0cDovL2Nsb3VkLm5ldGFwcC5jb20vZnVsbF9uYW1lIjoiYWRtaW4iLCJodHRwOi8vY2xvdWQubmV0YXBwLmNvbS9lbWFpbCI6ImFkbWluQG5ldGFwcC5jb20iLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIiwiaWF0IjoxNjcyNzIyNzEzLCJleHAiOjE2NzI3NDQzMTMsImlzcyI6Imh0dHA6Ly9vY2NtYXV0aDo4NDIwLyJ9X_cQF8xttD0-S7sU2uph2cdu_kN-fLWpdJJX98HODwPpVUitLcxV28_sQhuopjWobozPelNISf7KvMqcoXc5kLDyX-yE0fH9gr4XgkdswjWcNvw2rRkFzjHpWrETgfqAMkZcAukV4DHuxogHWh6-DggB1NgPZT8A_szHinud5W0HJ9c4AaT0zC-sp81GaqMahPf0KcFVyjbBL4krOewgKHGFo_7ma_4mF39B1LCj7Vc2XvUd0wCaJvDMjwp19-KbZqmmBX9vDnYp7SSxC1hHJRDStcFgJLdJHtowweNH2829KsjEGBTTcBdO8SvIDtctNH_GAxwSgMT3zUfwaOimPw'
 ----
 +
-Cette API renverra une réponse comme celle-ci. La valeur sous « resourceIdentifier » désigne l'_ID de l'environnement de travail_ et la valeur sous « agentId » désigne _x-agent-id_.
+Cette API renvoie une réponse similaire à la suivante. La valeur sous  `resourceIdentifier` désigne le _WorkingEnvironment ID_, et la valeur sous  `agentId` désigne _x-agent-id_.
 
 +
 [source, text]
 ----
 [{"resourceIdentifier":"OnPremWorkingEnvironment-pMtZND0M","resourceType":"ON_PREM","agentId":"vB_1xShPpBtUosjD7wfBlLIhqDgIPA0wclients","resourceClass":"ON_PREM","name":"CBSFAS8300-01-02","metadata":"{\"clusterUuid\": \"2cb6cb4b-dc07-11ec-9114-d039ea931e09\"}","workspaceIds":["workspace2wKYjTy9"],"agentIds":["vB_1xShPpBtUosjD7wfBlLIhqDgIPA0wclients"]}]
 ----
-. Mettez à jour la base de données NetApp Backup and Recovery avec les détails du système StorageGRID associé aux systèmes. Assurez-vous de saisir le nom de domaine complet du StorageGRID, ainsi que la clé d'accès et la clé de stockage comme indiqué ci-dessous :
+. Mettez à jour la base de données NetApp Backup and Recovery avec les informations du système StorageGRID associé aux systèmes. Assurez-vous de saisir le domaine complet de StorageGRID, ainsi que la clé d'accès et la clé de stockage, comme indiqué ci-dessous :
 +
 [source, shell]
 ----
@@ -211,13 +211,13 @@ curl -X POST 'http://10.193.192.202/account/account-DARKSITE1/providers/cloudman
 [[verify-netapp-backup-and-recovery-settings]]
 === Vérifier les paramètres de NetApp Backup and Recovery
 
-. Sélectionnez chaque système ONTAP et cliquez sur *Afficher les sauvegardes* à côté du service de sauvegarde et de récupération dans le panneau de droite.
+. Sélectionnez chaque système ONTAP et sélectionnez *Afficher les sauvegardes* à côté du service Backup and Recovery dans le panneau de droite.
 +
 Vous devriez voir toutes les sauvegardes créées pour vos volumes.
 
-. Depuis le tableau de bord de restauration, sous la section Rechercher et restaurer, cliquez sur *Paramètres d'indexation*.
+. Dans le tableau de bord de restauration, sous la section Recherche & Restauration, sélectionnez *Paramètres d'indexation*.
 +
-Assurez-vous que les systèmes sur lesquels le catalogage indexé était précédemment activé restent activés.
+Assurez-vous que les systèmes dont le catalogage indexé était activé précédemment restent activés.
 
 . À partir de la page Rechercher et restaurer, exécutez quelques recherches de catalogue pour confirmer que la restauration du catalogue indexé a été effectuée avec succès.
 

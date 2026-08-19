@@ -14,15 +14,15 @@ summary: Créez et gérez des groupes de protection pour les charges de travail 
 
 
 [role="lead"]
-Créez des groupes de protection pour gérer les opérations de sauvegarde d’un ensemble de ressources KVM.  Un groupe de protection est un regroupement logique de ressources telles que des machines virtuelles et des pools de stockage que vous souhaitez protéger ensemble.  Vous devez créer un groupe de protection pour sauvegarder les machines virtuelles KVM ou les pools de stockage.
+Créez et gérez des groupes de protection afin de pouvoir sauvegarder ensemble les machines virtuelles KVM et les pools de stockage associés.
 
-Vous pouvez effectuer les tâches suivantes liées aux groupes de protection :
+Vous pouvez effectuer les opérations suivantes avec les groupes de protection :
 
-* Créer un groupe de protection.
-* Afficher les détails de la protection.
+* Créer un groupe de protection
+* Afficher les détails de la protection
 * Sauvegardez un groupe de protection maintenant. Voirlink:br-use-kvm-backup.html["Sauvegardez les charges de travail KVM maintenant"] .
-* Modifier un groupe de protection.
-* Supprimer un groupe de protection.
+* Modifier un groupe de protection
+* Supprimer un groupe de protection
 
 
 
@@ -44,12 +44,12 @@ Regroupez les machines virtuelles et les pools de stockage que vous souhaitez pr
 . Sélectionnez un hôte pour afficher la liste des machines virtuelles disponibles sur cet hôte. Pour inclure les machines virtuelles de tous les hôtes détectés, sélectionnez *All* dans la liste des hôtes.
 . Sélectionnez les machines virtuelles individuelles que vous souhaitez inclure dans le groupe de protection, ou sélectionnez *All* pour inclure toutes les machines virtuelles dans la liste.
 +
-Les machines virtuelles que vous sélectionnez apparaissent dans la section *Machines virtuelles ajoutées*. Vous pouvez supprimer des machines virtuelles individuellement de la liste ou vider entièrement la liste. Vous pouvez ajouter des machines virtuelles de plusieurs hôtes KVM à la liste.
+Les machines virtuelles que vous sélectionnez apparaissent dans la zone *Machines virtuelles ajoutées*. Vous pouvez supprimer des machines virtuelles individuellement ou effacer la liste. Vous pouvez ajouter des machines virtuelles provenant de plusieurs hôtes KVM.
 
 . Sélectionnez *Suivant*.
 . Sélectionnez la politique de protection que vous souhaitez appliquer au groupe de protection, ou créez une nouvelle politique en sélectionnant *Create new policy*.
 +
-Pour plus d’informations sur la création d’une politique de sauvegarde, reportez-vous àlink:br-use-policies-create.html["Créer et gérer des politiques"] .
+Pour plus d'informations, voir link:br-use-policies-create.html["Créer et gérer des politiques"].
 
 . Sélectionnez *Suivant*.
 . Vérifiez la configuration.

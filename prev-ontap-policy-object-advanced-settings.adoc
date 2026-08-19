@@ -4,7 +4,7 @@ permalink: prev-ontap-policy-object-advanced-settings.html
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
 summary: Protégez vos charges de travail VMware avec NetApp Backup and Recovery. 
 ---
-= Gérez les options de sauvegarde vers le stockage objet dans NetApp Backup and Recovery
+= Gérez les paramètres avancés de sauvegarde vers objet dans NetApp Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Protégez vos charges de travail VMware avec NetApp Backup and Recovery
 
 
 [role="lead"]
-Vous pouvez modifier les paramètres de stockage de sauvegarde sur objet au niveau du cluster que vous définissez lors de l'activation de NetApp Backup and Recovery pour chaque système ONTAP à l'aide de la page Paramètres avancés. Vous pouvez également modifier certains paramètres appliqués comme paramètres de sauvegarde « par défaut ». Cela inclut la modification du taux de transfert des sauvegardes vers le stockage objet, l'exportation des instantanés historiques en tant que fichiers de sauvegarde et l'activation ou la désactivation des analyses de ransomware pour un système.
+Utilisez la page Paramètres avancés pour modifier les paramètres de sauvegarde vers le stockage objet au niveau du cluster pour chaque système ONTAP après avoir activé NetApp Backup and Recovery. Vous pouvez ajuster la bande passante, l’exportation des instantanés historiques, la suppression annuelle des instantanés et les paramètres d’analyse anti-ransomware.
 
 
 NOTE: Ces paramètres sont disponibles uniquement pour le stockage de sauvegarde sur objet.  Aucun de ces paramètres n’affecte vos paramètres de snapshot ou de réplication.
@@ -59,7 +59,7 @@ Lorsque vous activez NetApp Backup and Recovery pour un système, par défaut, O
 
 .Étapes
 . Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.
-. Depuis la page _Paramètres de sauvegarde_, cliquez sur image:icon-actions-horizontal.gif["Plus d'icônes"] pour le système, sélectionnez *Configurer les paramètres avancés > Paramètres système*.
+. Depuis la page _Paramètres de sauvegarde_, sélectionnez image:icon-actions-horizontal.gif["Plus d'icônes"] pour le système et choisissez *Configurer les paramètres avancés > Paramètres système*.
 . Dans la page Paramètres avancés, développez la section *Taux de transfert maximal*.
 . Choisissez une valeur comprise entre 1 et 1 000 Mbps comme débit de transfert maximal.
 . Sélectionnez le bouton radio *Limité* et entrez la bande passante maximale pouvant être utilisée, ou sélectionnez *Illimité* pour indiquer qu'il n'y a pas de limite.
@@ -79,7 +79,7 @@ Notez que cette option s'applique uniquement aux nouveaux fichiers de sauvegarde
 
 .Étapes
 . Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.
-. Depuis la page _Paramètres de sauvegarde_, cliquez sur image:icon-actions-horizontal.gif["Plus d'icônes"] pour le système, sélectionnez *Configurer les paramètres avancés > Paramètres système*.
+. Depuis la page _Paramètres de sauvegarde_, sélectionnez image:icon-actions-horizontal.gif["Plus d'icônes"] pour le système et choisissez *Configurer les paramètres avancés > Paramètres système*.
 . Dans la page Paramètres avancés, développez la section *Exporter les copies d'instantanés existantes*.
 . Indiquez si vous souhaitez exporter les instantanés existants.
 . Sélectionnez *Appliquer*.
@@ -94,7 +94,7 @@ Lorsque vous sélectionnez l'étiquette de sauvegarde « annuelle » pour une st
 
 .Étapes
 . Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.
-. Depuis la page _Paramètres de sauvegarde_, cliquez sur image:icon-actions-horizontal.gif["Plus d'icônes"] pour le système, sélectionnez *Configurer les paramètres avancés > Paramètres système*.
+. Depuis la page _Paramètres de sauvegarde_, sélectionnez image:icon-actions-horizontal.gif["Plus d'icônes"] pour le système et choisissez *Configurer les paramètres avancés > Paramètres système*.
 . Dans la page Paramètres avancés, développez la section *Suppression des instantanés annuels*.
 . Sélectionnez *Désactivé* pour conserver les instantanés annuels sur le système source.
 . Sélectionnez *Appliquer*.
@@ -105,11 +105,11 @@ Lorsque vous sélectionnez l'étiquette de sauvegarde « annuelle » pour une st
 [[enable-or-disable-ransomware-scans]]
 == Activer ou désactiver les analyses de ransomware
 
-Les analyses de protection contre les ransomwares sont activées par défaut. Le paramètre par défaut pour la fréquence d'analyse est de 7 jours. L'analyse s'effectue uniquement sur le dernier instantané.
+La protection contre les ransomwares est activée par défaut. Par défaut, les analyses sont effectuées tous les 7 jours. L'analyse porte uniquement sur le dernier instantané.
 
-Pour plus de détails sur les options Datalock et de protection contre les ransomwares, consultez link:prev-ontap-policy-object-options.html["Options de verrouillage des données et de protection contre les ransomwares"].
+Pour plus de détails sur DataLock et les options de protection contre les ransomwares, veuillez consulter link:prev-ontap-policy-object-options.html["Options de protection DataLock et Ransomware"].
 
-Vous pouvez modifier ce calendrier en jours ou en semaines ou le désactiver, ce qui permet de réduire les coûts.
+Vous pouvez modifier cette programmation pour un certain nombre de jours ou de semaines, ou la désactiver pour réaliser des économies.
 
 
 TIP: L'activation des analyses de ransomware entraînera des frais supplémentaires en fonction du fournisseur de cloud.
@@ -127,7 +127,7 @@ Vous pouvez activer ou désactiver les analyses de ransomware pour un cluster.
 
 .Étapes
 . Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.
-. Depuis la page _Paramètres de sauvegarde_, cliquez sur image:icon-actions-horizontal.gif["Plus d'icônes"] pour le système, sélectionnez *Configurer les paramètres avancés > Paramètres système*.
+. Depuis la page _Paramètres de sauvegarde_, sélectionnez image:icon-actions-horizontal.gif["Plus d'icônes"] pour le système et choisissez *Configurer les paramètres avancés > Paramètres système*.
 . Sur la page qui s'affiche, développez la section *Analyse des logiciels de ransomware*.
 . Activer ou désactiver *l'analyse Ransomware*.
 . Sélectionnez *Analyse de ransomware programmée*.
@@ -145,7 +145,7 @@ Vous pouvez activer ou désactiver les analyses de ransomware au niveau du fourn
 
 .Étapes
 . Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.
-. Depuis la page _Paramètres de sauvegarde_, cliquez sur image:icon-actions-horizontal.gif["Plus d'icônes"] pour le système et sélectionnez *Configurer les paramètres avancés > Paramètres du fournisseur*.
+. Depuis la page _Paramètres de sauvegarde_, sélectionnez image:icon-actions-horizontal.gif["Plus d'icônes"] pour le système et choisissez *Configurer les paramètres avancés > Paramètres du fournisseur*.
 . En haut de la page qui s'affiche, sélectionnez le compartiment dont vous souhaitez modifier les paramètres.
 . Développez la section *Analyse des logiciels de ransomware*.
 . Activer ou désactiver *l'analyse Ransomware*.

@@ -12,20 +12,20 @@ summary: 'Pour une sécurité renforcée, configurez l"accès pour des rôles sp
 
 
 [role="lead"]
-Pour renforcer la sécurité et contrôler l'accès aux ressources, configurez le contrôle d'accès basé sur les rôles pour NetApp Backup and Recovery. La NetApp Console prend en charge le contrôle d'accès basé sur les rôles (RBAC) pour certaines charges de travail de Backup and Recovery. Vous pouvez attribuer des rôles d'administrateur ou de lecteur spécifiques à ces charges de travail. Les autres charges de travail qui ne prennent pas encore en charge le contrôle d'accès basé sur les rôles restent accessibles à tous les utilisateurs disposant de rôles de Backup and Recovery jusqu'à ce que l'association au niveau du projet ou du parc soit prise en charge.
+Configurez le contrôle d'accès basé sur les rôles (RBAC) dans la NetApp Console pour contrôler qui peut accéder aux ressources NetApp Backup and Recovery. Vous pouvez attribuer des rôles d'administrateur ou de lecteur aux charges de travail qui prennent en charge le RBAC. Les charges de travail qui ne prennent pas encore en charge le RBAC restent accessibles à tous les utilisateurs disposant de rôles Backup and Recovery jusqu'à ce qu'une association au niveau du projet ou de la flotte soit disponible.
 
 
 NOTE: NetApp Console utilise des projets pour organiser les ressources dans des dossiers, tandis que le déploiement local de NetApp Console désigne les projets comme des flottes.
 
-Suivez ces étapes pour contrôler l'accès aux ressources de votre organisation. Apportez les modifications nécessaires dans la page *Administration > Identité et accès* du menu NetApp Console.
+Pour contrôler l'accès aux ressources de votre organisation, effectuez ces étapes dans la page *Administration > Identité et accès* de la NetApp Console.
 
 
-NOTE: Ces étapes supposent que vous disposez du rôle Organization Admin dans la Console.
+NOTE: Ces étapes supposent que vous disposez du rôle d'administrateur de l'organisation dans la NetApp Console.
 
 .Étapes
 . Créez la structure du projet d'identité et de contrôle d'accès.
 +
-En tant qu'administrateur de l'organisation, configurez le dossier Identity and access ainsi que la structure du projet où résideront les charges de travail.
+En tant qu'administrateur de l'organisation, configurez la structure des dossiers et des projets où résideront les charges de travail.
 
 . Attribuez des rôles aux utilisateurs.
 +
@@ -34,8 +34,8 @@ En tant qu'administrateur de l'organisation, configurez le dossier Identity and 
 Ajoutez des utilisateurs à chaque projet désigné pour les charges de travail et attribuez-leur le rôle approprié. Par exemple :
 
 +
-*** *Organization admin* et *Backup and Recovery super admin* : Un utilisateur disposant de ces rôles peut voir toutes les ressources de toutes les organisations, découvrir les workloads Backup and Recovery et les affecter à des projets (par exemple, US East ou US West).
-*** *Folder or project admin* et *Backup and Recovery super admin* : Un utilisateur disposant de ces rôles ne peut voir que les ressources du dossier ou du projet pour lequel il dispose des autorisations, mais peut découvrir les workloads NetApp Backup and Recovery et les affecter à ce projet.
+*** *Administrateur de l'organisation* et *Super administrateur de NetApp Backup and Recovery* : Un utilisateur disposant de ces rôles peut consulter toutes les ressources de l'ensemble des organisations, découvrir les charges de travail NetApp Backup and Recovery et les affecter à des projets (par exemple, US East ou US West).
+*** *Administrateur de dossier ou de projet* et *Super administrateur de NetApp Backup and Recovery* : Un utilisateur disposant de ces rôles peut uniquement consulter les ressources de son dossier ou projet attribué, mais peut découvrir les charges de travail NetApp Backup and Recovery et les attribuer à ce projet.
 
 
 .. Option alternative :
@@ -50,7 +50,7 @@ Les administrateurs de l'organisation, du dossier ou du projet découvrent les c
 
 . Ajouter des utilisateurs aux projets.
 +
-Les administrateurs d'organisation ou de dossier/projet ajoutent des utilisateurs de la NetApp Console aux projets contenant des workloads. Attribuez à ces utilisateurs le rôle de viewer de l'organisation et un rôle NetApp Backup and Recovery en fonction de leurs besoins d'accès. Les utilisateurs disposant du rôle NetApp Backup and Recovery approprié auront automatiquement accès aux nouveaux workloads de ces projets.
+Les administrateurs d'organisation, de dossier ou de projet ajoutent des utilisateurs de NetApp Console aux projets avec des charges de travail. Attribuez aux utilisateurs le rôle de lecteur de l'organisation et un rôle NetApp Backup and Recovery en fonction de leurs besoins d'accès. Les utilisateurs disposant du rôle NetApp Backup and Recovery approprié obtiennent automatiquement l'accès aux nouvelles charges de travail dans ces projets.
 
 
 

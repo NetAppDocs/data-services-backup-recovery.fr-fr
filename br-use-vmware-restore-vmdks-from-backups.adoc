@@ -14,7 +14,7 @@ summary: 'Vous pouvez restaurer des VMDK existants, ou des VMDK supprimés ou d�
 
 
 [role="lead"]
-Vous pouvez restaurer des disques virtuels existants (VMDK), ou des disques virtuels supprimés ou détachés, à partir d'une sauvegarde primaire ou secondaire de machines virtuelles traditionnelles. Cela vous permet de restaurer uniquement des données ou des applications spécifiques de la machine virtuelle, vous évitant ainsi de restaurer l'intégralité de la machine virtuelle et tous ses disques virtuels associés dans les cas où seules certaines données sont affectées. Une fois le disque virtuel restauré, il est rattaché à sa machine virtuelle d'origine et prêt à l'emploi.
+Restaurez les disques virtuels (VMDK) existants, supprimés ou détachés à partir de sauvegardes primaires ou secondaires de machines virtuelles traditionnelles. Cela vous permet de récupérer des données ou des applications spécifiques de la machine virtuelle sans restaurer l'intégralité de la machine virtuelle. Une fois le disque virtuel restauré, il est rattaché à sa machine virtuelle d'origine et prêt à l'emploi.
 
 Vous pouvez restaurer un ou plusieurs disques de machine virtuelle (VMDK) sur une VM sur le même datastore ou sur des datastores différents.
 
@@ -32,7 +32,7 @@ La machine virtuelle que vous souhaitez restaurer ne doit pas être dans un éta
 .À propos de cette tâche
 * Si le VMDK est supprimé ou détaché de la VM, l’opération de restauration attache le VMDK à la VM.
 * Une opération de restauration peut échouer si le niveau de stockage du FabricPool où se trouve la machine virtuelle n'est pas disponible.
-* Les opérations de connexion et de restauration connectent les VMDK à l'aide du contrôleur SCSi par défaut. Cependant, lorsque les VMDK attachés à une machine virtuelle avec un disque NVMe sont sauvegardés, les opérations d'attachement et de restauration utilisent le contrôleur NVMe s'il est disponible.
+* Les opérations d'attachement et de restauration connectent les VMDK à l'aide du contrôleur SCSI par défaut. Cependant, si vous sauvegardez des VMDK attachés à une VM dotée d'un disque NVMe, les opérations d'attachement et de restauration utilisent un contrôleur NVMe si un tel contrôleur est disponible.
 
 
 .Étapes

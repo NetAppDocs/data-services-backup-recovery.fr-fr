@@ -14,11 +14,11 @@ summary: NetApp Backup and Recovery est un service de données qui fournit une p
 
 
 [role="lead"]
-NetApp Backup and Recovery est un service de données qui fournit une protection des données efficace, sécurisée et rentable pour toutes vos charges de travail ONTAP , y compris les volumes, les bases de données, les machines virtuelles et les charges de travail Kubernetes.
+Utilisez cette présentation pour découvrir comment NetApp Backup and Recovery protège vos charges de travail ONTAP, quelles charges de travail et cibles de sauvegarde il prend en charge, et comment fonctionnent les licences et les coûts.
 
 Une charge de travail est un regroupement logique de ressources au sein d'un système, géré comme une unité unique à des fins de protection, de gouvernance, de détection et de restauration. Dans Backup and Recovery, une charge de travail est l'unité que vous protégez. Sa signification dépend de la source de données : pour Kubernetes, une charge de travail est une application ; pour les environnements de machines virtuelles, c'est une machine virtuelle ; et pour les environnements de bases de données, c'est une base de données.
 
-La prise en charge de la sauvegarde et de la restauration est déjà intégrée à tous les systèmes ONTAP, il n’est donc pas nécessaire d’ajouter du matériel ou des passerelles de média supplémentaires. Cela rend les opérations de sauvegarde simples et rentables. La NetApp Console simplifie la mise en œuvre de toute stratégie de sauvegarde, y compris l’ensemble des variantes de sauvegarde 3-2-1, sans avoir besoin de plusieurs gestionnaires de ressources ou de personnel spécialisé.
+La prise en charge de la sauvegarde et de la restauration est déjà intégrée à tous les systèmes ONTAP, il n’est donc pas nécessaire d’ajouter du matériel ou des passerelles de média supplémentaires. Cela rend les opérations de sauvegarde simples et rentables. NetApp Console simplifie la mise en œuvre de toute stratégie de sauvegarde, y compris l’ensemble des variantes de sauvegarde 3-2-1, sans avoir besoin de plusieurs gestionnaires de ressources ou de personnel spécialisé.
 
 
 
@@ -244,7 +244,7 @@ NOTE: Le stockage primaire vers le stockage d'objets est également pris en char
 Les copies de sauvegarde sont stockées dans un magasin d’objets que la NetApp Console crée dans votre compte cloud.  Il existe un magasin d'objets par cluster ou système, et la console nomme le magasin d'objets comme suit : `netapp-backup-clusteruuid` .  Assurez-vous de ne pas supprimer ce magasin d’objets.
 
 * Dans AWS, la NetApp Console permet https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html["Fonctionnalité d'accès public au bloc Amazon S3"^] sur le bucket S3.
-* Dans Azure, la NetApp Console utilise un groupe de ressources nouveau ou existant avec un compte de stockage pour le conteneur Blob. https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent["bloque l'accès public à vos données blob"] par défaut.
+* Dans Azure, NetApp Console utilise un groupe de ressources nouveau ou existant avec un compte de stockage pour le conteneur Blob. La Console https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent["bloque l'accès public à vos données blob"] par défaut.
 * Dans StorageGRID, la console utilise un compte de stockage existant pour le bucket de magasin d’objets.
 * Dans ONTAP S3, la console utilise un compte utilisateur existant pour le bucket S3.
 
@@ -260,8 +260,8 @@ Si vous disposez de plusieurs agents de console dans la même organisation de Ne
 
 
 
-[[terms-that-might-help-you-with-netapp-backup-and-recovery]]
-== Termes qui pourraient vous aider avec NetApp Backup and Recovery
+[[terms-for-netapp-backup-and-recovery]]
+== Conditions générales de NetApp Backup and Recovery
 
 Il pourrait être utile de comprendre certains termes liés à la protection.
 

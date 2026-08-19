@@ -14,12 +14,12 @@ summary: Créez et gérez des groupes de protection pour les charges de travail 
 
 
 [role="lead"]
-Créez des groupes de protection pour gérer les opérations de sauvegarde d’un ensemble de machines virtuelles.  Un groupe de protection est un regroupement logique de ressources telles que des machines virtuelles que vous souhaitez protéger ensemble.
+Créez des groupes de protection pour protéger ensemble les machines virtuelles Hyper-V associées et gérer leurs opérations de sauvegarde dans NetApp Backup and Recovery.
 
 Vous pouvez effectuer les tâches suivantes liées aux groupes de protection :
 
 * Créer un groupe de protection.
-* Afficher les détails de la protection.
+* Consultez les détails du groupe de protection.
 * Sauvegardez un groupe de protection maintenant. Voirlink:br-use-hyperv-backup.html["Sauvegardez les charges de travail Hyper-V maintenant"] .
 * Supprimer un groupe de protection.
 
@@ -29,21 +29,21 @@ Vous pouvez effectuer les tâches suivantes liées aux groupes de protection :
 [[create-a-protection-group]]
 == Créer un groupe de protection
 
-Regroupez les charges de travail que vous souhaitez protéger dans un groupe de protection. Créez un groupe de protection pour sauvegarder et restaurer les charges de travail ensemble.
+Regroupez les charges de travail que vous souhaitez protéger au sein d'un groupe de protection. Créez un groupe de protection pour sauvegarder et restaurer ces charges de travail ensemble.
 
 *Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 .Avant de commencer
-* Notez que pour les charges de travail Hyper-V, la durée de sauvegarde planifiée est interprétée selon le fuseau horaire de l'hôte de gestion. Reportez-vous à link:br-use-policies-hyper-v-create.html["Créez et gérez des stratégies de sauvegarde Hyper-V dans NetApp Backup and Recovery"] pour plus d'informations.
+* Notez que pour les charges de travail Hyper-V, la durée de sauvegarde planifiée est interprétée selon le fuseau horaire de l'hôte de gestion. Voir link:br-use-policies-hyper-v-create.html["Créez et gérez des stratégies de sauvegarde Hyper-V dans NetApp Backup and Recovery"] pour plus d'informations.
 
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
-. Sélectionnez une charge de travail pour afficher les détails de protection.
+. Sélectionnez une charge de travail pour afficher les détails de sa protection.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
-. Sélectionnez le menu *Groupes de protection*.
+. Sélectionnez l'onglet *Groupes de protection*.
 . Sélectionnez *Créer un groupe de protection*.
-. Donnez un nom au groupe de protection.
+. Saisissez un nom pour le groupe de protection.
 . Sélectionnez les machines virtuelles que vous souhaitez inclure dans le groupe de protection.
 . Sélectionnez *Suivant*.
 . Sélectionnez la *politique de sauvegarde* que vous souhaitez appliquer au groupe de protection.
@@ -81,7 +81,7 @@ L'assistant de modification du groupe de protection vous guide à travers les pa
 Les sauvegardes planifiées utilisent le fuseau horaire de l'hôte Hyper-V enregistré lors de la création de la planification du groupe de protection. Si vous modifiez le fuseau horaire de l'hôte, les groupes de protection existants continuent de fonctionner dans leur fuseau horaire d'origine (généralement UTC) jusqu'à ce que vous mettiez à jour leurs plannings.
 
 
-NOTE: Les planifications ne sont recréées que lorsque vous modifiez le nom du groupe de protection, ajoutez ou supprimez une machine virtuelle, changez la stratégie attribuée ou mettez à jour les scripts de pré/post-exécution. L'enregistrement sans modification ne met pas à jour les planifications. Cette mise à jour de planification est une action ponctuelle par groupe de protection et ne déclenche pas de sauvegarde immédiate.
+NOTE: Les planifications ne sont recréées que lorsque vous modifiez le nom du groupe de protection, ajoutez ou supprimez une machine virtuelle, changez la stratégie attribuée ou mettez à jour les scripts de pré/post-exécution. L'enregistrement sans modification ne met pas à jour les planifications. Cette mise à jour ponctuelle des planifications ne déclenche pas de sauvegarde immédiate.
 
 .Étapes
 . Actualisez l'hôte Hyper-V afin que son fuseau horaire actuel soit récupéré.
@@ -97,7 +97,7 @@ La suppression d’un groupe de protection le supprime ainsi que toutes les plan
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
-. Sélectionnez une charge de travail pour afficher les détails de protection.
+. Sélectionnez une charge de travail pour afficher les détails de sa protection.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
 . Sélectionnez l'onglet *Groupes de protection*.
 . Sélectionnez le groupe de protection que vous souhaitez supprimer.

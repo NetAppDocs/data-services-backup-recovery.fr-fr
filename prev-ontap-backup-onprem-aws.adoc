@@ -14,7 +14,7 @@ summary: Protégez vos charges de travail VMware avec NetApp Backup and Recovery
 
 
 [role="lead"]
-Effectuez quelques étapes dans NetApp Backup and Recovery pour commencer à sauvegarder les données de volume de vos systèmes ONTAP sur site vers un système de stockage secondaire et vers le stockage cloud Amazon S3.
+Dans NetApp Backup and Recovery, vous pouvez sauvegarder les données de volumes de vos systèmes ONTAP locaux vers un système de stockage secondaire et vers Amazon S3. Utilisez cette page pour préparer votre environnement et activer les sauvegardes.
 
 
 NOTE: Les « systèmes ONTAP sur site » incluent les systèmes FAS, AFF et ONTAP Select .
@@ -425,9 +425,9 @@ Vous pouvez également<<Afficher les commandes de l'API>> à l'étape de révisi
 === Démarrer l'assistant
 
 .Étapes
-. Accédez à l’assistant d’activation de sauvegarde et de récupération en utilisant l’une des méthodes suivantes :
+. Accédez à l'assistant d'activation de la sauvegarde et de la restauration en utilisant l'une des méthodes suivantes :
 +
-** Depuis la page *Systèmes* de la console, sélectionnez le système et sélectionnez *Activer > Volumes de sauvegarde* à côté de Sauvegarde et récupération dans le panneau de droite.
+** Dans la page *Systems* de la NetApp Console, sélectionnez le système et sélectionnez *Enable > Backup Volumes* à côté de Backup and Recovery dans le panneau de droite.
 +
 Si la destination Amazon S3 pour vos sauvegardes existe en tant que système sur la page *Systèmes* de la console, vous pouvez faire glisser le cluster ONTAP sur le stockage d'objets Amazon S3.
 
@@ -435,7 +435,7 @@ Si la destination Amazon S3 pour vos sauvegardes existe en tant que système sur
 
 
 +
-La page d'introduction de l'assistant affiche les options de protection, notamment les instantanés locaux, la réplication et les sauvegardes.  Si vous avez effectué la deuxième option de cette étape, la page Définir la stratégie de sauvegarde s’affiche avec un volume sélectionné.
+La page d'introduction de l'assistant présente les options de protection, notamment les instantanés locaux, la réplication et les sauvegardes. Si vous avez choisi la deuxième option à cette étape, la page « Définir la stratégie de sauvegarde » s'affiche avec un volume sélectionné.
 
 . Continuez avec les options suivantes :
 +
@@ -502,7 +502,7 @@ NOTE: Si les volumes que vous choisissez ont des stratégies de snapshot et de r
 
 . *Architecture* : Si vous avez choisi la réplication et la sauvegarde, choisissez l’un des flux d’informations suivants :
 +
-** *En cascade* : les informations circulent du stockage primaire vers le stockage secondaire vers le stockage d'objets et du stockage secondaire vers le stockage d'objets.
+** *En cascade* : les informations circulent du primaire au secondaire, puis du secondaire au stockage d'objets.
 ** *Fan out* : les informations circulent du primaire vers le secondaire _et_ du primaire vers le stockage d'objets.
 +
 Pour plus de détails sur ces architectures, reportez-vous àlink:prev-ontap-protect-journey.html["Planifiez votre voyage de protection"] .
@@ -519,7 +519,7 @@ TIP: Pour créer une politique personnalisée avant d'activer l'instantané, rep
 ** Entrez le nom de la politique.
 ** Sélectionnez jusqu'à cinq programmes, généralement de fréquences différentes.
 +
-*** Pour les règles de sauvegarde vers objet, configurez les paramètres Datalock et de protection contre les ransomwares. Pour plus d’informations sur Datalock et la protection contre les ransomwares, consultez link:prev-ontap-policy-object-options.html["Paramètres de la politique de sauvegarde sur objet"].
+*** Pour les règles de sauvegarde vers objet, configurez les paramètres DataLock et de protection contre les ransomwares. Pour plus d’informations sur DataLock et la protection contre les ransomwares, consultez link:prev-ontap-policy-object-options.html["Paramètres de la politique de sauvegarde sur objet"].
 
 
 ** Sélectionnez *Créer*.
@@ -613,9 +613,9 @@ Vous pouvez également surveiller l’état des tâches de sauvegarde et de rest
 [[show-the-api-commands]]
 === Afficher les commandes de l'API
 
-Vous souhaiterez peut-être afficher et éventuellement copier les commandes API utilisées dans l’assistant d’activation de la sauvegarde et de la récupération.  Vous souhaiterez peut-être faire cela pour automatiser l’activation de la sauvegarde dans les futurs systèmes.
+Vous pouvez afficher et, éventuellement, copier les commandes API utilisées dans l'assistant d'activation de NetApp Backup and Recovery. Vous pouvez faire cela pour automatiser l'activation de la sauvegarde dans les systèmes futurs.
 
 .Étapes
-. Dans l’assistant d’activation de la sauvegarde et de la récupération, sélectionnez *Afficher la demande d’API*.
+. Dans l'assistant Activer la sauvegarde et la restauration, sélectionnez *Afficher la requête API*.
 . Pour copier les commandes dans le presse-papiers, sélectionnez l'icône *Copier*.
 

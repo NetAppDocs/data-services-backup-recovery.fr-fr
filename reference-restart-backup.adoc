@@ -14,12 +14,12 @@ summary: Il peut y avoir des situations dans lesquelles vous devrez redémarrer 
 
 
 [role="lead"]
-Il peut y avoir des situations dans lesquelles vous devrez redémarrer NetApp Backup and Recovery.
+Vous pouvez redémarrer NetApp Backup and Recovery depuis l’hôte de l’agent Console lorsque vous devez rétablir le service ou appliquer une modification. Utilisez la commande correspondant à votre type de déploiement et à votre environnement d’exécution de conteneur.
 
 L'agent de console inclut la fonctionnalité de NetApp Backup and Recovery .
 
 .Étapes
-. Connectez-vous au système Linux sur lequel l’agent de console s’exécute.
+. Connectez-vous au système Linux sur lequel l'agent Console est en cours d'exécution.
 +
 [cols="25,50"]
 |===

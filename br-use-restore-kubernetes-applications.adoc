@@ -14,7 +14,7 @@ summary: NetApp Backup and Recovery vous permet de restaurer les applications qu
 
 
 [role="lead"]
-NetApp Backup and Recovery vous permet de restaurer les applications que vous avez protégées avec une politique de protection. Pour restaurer une application, celle-ci doit disposer d'au moins un point de restauration. Un point de restauration est constitué soit de l'instantané local, soit de la sauvegarde dans le magasin d'objets (ou des deux). Vous pouvez restaurer une application à partir de l'archive locale, secondaire ou du magasin d'objets.
+Restaurez les applications protégées par une stratégie de protection dans NetApp Backup and Recovery. Pour restaurer une application, vous avez besoin d’au moins un point de restauration, qui peut inclure un instantané local, une sauvegarde dans un objet store ou les deux. Vous pouvez restaurer à partir de la copie locale, secondaire ou de l’objet store.
 
 
 
@@ -57,7 +57,7 @@ La liste des points de restauration apparaît.
 
 . Sélectionnez le bouton *Restore* pour le point de restauration que vous souhaitez utiliser.
 +
-L'assistant de restauration des données démarre et la page des _Paramètres généraux_ s'affiche.
+L'assistant de restauration des données s'ouvre et la page _Paramètres généraux_ apparaît.
 
 . Choisissez l'emplacement source à partir duquel effectuer la restauration.
 . Choisissez le cluster de destination dans la liste *Cluster*.
@@ -89,7 +89,7 @@ Lors de la restauration d'une application basée sur une machine virtuelle, NetA
 --
 .Ressources d'application spécifiques basées sur l'espace de noms
 --
-.. Sélectionnez *Ressources sélectives* et choisissez si vous souhaitez filtrer les ressources que vous sélectionnez en fonction de règles ou en fonction de l'espace de noms.
+.. Sélectionnez *Ressources sélectives* et choisissez si vous souhaitez filtrer les ressources à l'aide de règles ou sélectionner les ressources manuellement.
 +
 [cols="1,1"]
 |===
@@ -152,7 +152,7 @@ La page des paramètres de destination s'affiche.
 
 . Développez la section *Paramètres de destination* et choisissez de restaurer soit vers la classe de stockage par défaut, une autre classe de stockage, ou, si vous restaurez vers un autre cluster, de mapper les classes de stockage au cluster de destination.
 . Si vous avez choisi de restaurer vers une classe de stockage différente, sélectionnez une classe de stockage de destination correspondant à chaque classe de stockage source.
-. Optionnellement, si vous restaurez une sauvegarde ou un instantané créé avec Trident Protect, consultez les détails du AppVault utilisé comme compartiment de stockage pour l'opération de restauration. S'il y a un changement dans votre environnement ou dans le statut du AppVault, sélectionnez *Sync App Vault* pour actualiser les détails.
+. Si vous restaurez une sauvegarde ou un instantané créé avec Trident Protect, vous pouvez consulter les détails du AppVault utilisé comme compartiment de stockage pour l'opération de restauration. Si votre environnement change ou si le statut de AppVault change, sélectionnez *Sync App Vault* pour actualiser les détails.
 +
 
 NOTE: Si vous devez créer un AppVault sur un cluster Kubernetes pour faciliter la restauration d'une sauvegarde ou d'un instantané créé à l'aide de Trident Protect, reportez-vous à  https://docs.netapp.com/us-en/trident/trident-protect/trident-protect-appvault-custom-resources.html["Utilisez les objets Trident Protect AppVault pour gérer les compartiments"].

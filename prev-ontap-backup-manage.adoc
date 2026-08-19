@@ -14,7 +14,7 @@ summary: Avec NetApp Backup and Recovery, gérez les sauvegardes de vos système
 
 
 [role="lead"]
-Avec NetApp Backup and Recovery, gérez les sauvegardes de vos systèmes Cloud Volumes ONTAP et ONTAP sur site en modifiant la planification de sauvegarde, en activant/désactivant les sauvegardes de volume, en suspendant les sauvegardes, en supprimant les sauvegardes, en forçant la suppression des sauvegardes, etc. Cela inclut tous les types de sauvegardes, y compris les instantanés, les volumes répliqués et les fichiers de sauvegarde stockés dans des objets. Vous pouvez également désinscrire NetApp Backup and Recovery.
+Utilisez NetApp Backup and Recovery pour gérer les sauvegardes de snapshots, la réplication et les sauvegardes sur stockage d’objets pour vos systèmes Cloud Volumes ONTAP et ONTAP sur site. Vous pouvez modifier les planifications, activer ou désactiver les sauvegardes de volumes, suspendre les sauvegardes, supprimer les sauvegardes et désenregistrer le service.
 
 
 CAUTION: Ne gérez pas et ne modifiez pas les fichiers de sauvegarde directement sur vos systèmes de stockage ou depuis l'environnement de votre fournisseur de cloud.  Cela peut corrompre les fichiers et entraîner une configuration non prise en charge.
@@ -36,7 +36,7 @@ Vous pouvez afficher une liste de tous les volumes en cours de sauvegarde dans l
 +
 Pour afficher des colonnes supplémentaires (agrégats, style de sécurité (Windows ou UNIX), politique de snapshot, politique de réplication et politique de sauvegarde), sélectionnez le signe plus.
 
-. Vérifiez l’état des options de protection dans la colonne « Protection existante ». Les 3 icônes représentent « Instantanés locaux », « Volumes répliqués » et « Sauvegardes dans le stockage d'objets ».
+. Vérifiez l'état des options de protection dans la colonne « Protection existante ». Les trois icônes correspondent aux « Instantanés locaux », aux « Volumes répliqués » et aux « Sauvegardes dans le stockage objet ».
 +
 Chaque icône s'illumine lorsque le type de sauvegarde correspondant est activé, et elle est grise lorsque le type de sauvegarde est inactif. Vous pouvez survoler chaque icône avec votre curseur pour afficher la politique de sauvegarde utilisée, ainsi que d'autres informations pertinentes pour chaque type de sauvegarde.
 
@@ -67,7 +67,7 @@ Vous pouvez modifier les politiques de sauvegarde attribuées à vos volumes exi
 . Dans le menu *Volumes*, repérez le volume dont vous souhaitez modifier les paramètres de stratégie, puis sélectionnez le menu Actions. image:icon-action.png["Icône Actions"] à la fin de la ligne, et sélectionnez *Modifier la stratégie de sauvegarde*.
 . Sur la page _Modifier la stratégie de sauvegarde_, apportez des modifications aux politiques de sauvegarde existantes pour les instantanés locaux, les volumes répliqués et les fichiers de sauvegarde, puis sélectionnez *Suivant*.
 +
-Si vous avez activé _Datalock and Ransomware protection_ pour les sauvegardes cloud dans la règle de sauvegarde initiale lors de l’activation de NetApp Backup and Recovery pour ce cluster, vous ne verrez que les autres règles qui ont été configurées avec DataLock. Et si vous n’avez pas activé _Datalock and Ransomware protection_ lors de l’activation de NetApp Backup and Recovery, vous ne verrez que les autres règles de sauvegarde cloud qui n’ont pas DataLock configuré.
+Si vous avez activé _DataLock and Ransomware protection_ pour les sauvegardes cloud dans la règle de sauvegarde initiale lors de l’activation de NetApp Backup and Recovery pour ce cluster, vous ne verrez que les autres règles qui ont été configurées avec DataLock. Et si vous n’avez pas activé _DataLock and Ransomware protection_ lors de l’activation de NetApp Backup and Recovery, vous ne verrez que les autres règles de sauvegarde cloud qui n’ont pas DataLock configuré.
 
 . Vérifiez les paramètres de sauvegarde de ce volume, puis sélectionnez *Activer la sauvegarde*.
 
@@ -91,7 +91,7 @@ Lorsque plus de cinq volumes sont activés pour la sauvegarde, NetApp Backup and
 .Étapes
 . À partir de l’onglet *Volumes*, filtrez par le système sur lequel résident les volumes.
 . Sélectionnez tous les volumes sur lesquels vous souhaitez gérer les paramètres de sauvegarde.
-. Selon le type d’action de sauvegarde que vous souhaitez configurer, cliquez sur le bouton dans le menu Actions en masse :
+. Selon le type d'action de sauvegarde que vous souhaitez configurer, sélectionnez le bouton dans le menu Actions groupées :
 +
 [cols="50,30"]
 |===
@@ -111,7 +111,7 @@ Lorsque plus de cinq volumes sont activés pour la sauvegarde, NetApp Backup and
 |===
 . Sur la page de sauvegarde qui apparaît, modifiez les politiques de sauvegarde existantes pour les instantanés locaux, les volumes répliqués ou les fichiers de sauvegarde, puis sélectionnez *Enregistrer*.
 +
-Si vous avez activé _Datalock and Ransomware protection_ pour les sauvegardes cloud dans la règle de sauvegarde initiale lors de l’activation de NetApp Backup and Recovery pour ce cluster, vous ne verrez que les autres règles qui ont été configurées avec DataLock. Et si vous n’avez pas activé _Datalock and Ransomware protection_ lors de l’activation de NetApp Backup and Recovery, vous ne verrez que les autres règles de sauvegarde cloud qui n’ont pas DataLock configuré.
+Si vous avez activé _DataLock and Ransomware protection_ pour les sauvegardes cloud dans la règle de sauvegarde initiale lors de l’activation de NetApp Backup and Recovery pour ce cluster, vous ne verrez que les autres règles qui ont été configurées avec DataLock. Et si vous n’avez pas activé _DataLock and Ransomware protection_ lors de l’activation de NetApp Backup and Recovery, vous ne verrez que les autres règles de sauvegarde cloud qui n’ont pas DataLock configuré.
 
 
 
@@ -126,7 +126,7 @@ Vous pouvez créer un instantané ad hoc ou une sauvegarde sur le stockage d'obj
 
 Le nom de la sauvegarde inclut l’horodatage afin que vous puissiez identifier votre sauvegarde à la demande parmi d’autres sauvegardes planifiées.
 
-Si vous avez activé _Datalock and Ransomware protection_ lors de l’activation de NetApp Backup and Recovery pour ce cluster, la sauvegarde à la demande sera également configurée avec DataLock, et la période de rétention sera de 30 jours. Les analyses de ransomware ne sont pas prises en charge pour les sauvegardes ad hoc. link:prev-ontap-policy-object-options.html["En savoir plus sur DataLock et la protection contre les ransomwares"^].
+Si vous avez activé _DataLock et la protection contre les ransomwares_ lors de l’activation de NetApp Backup and Recovery pour ce cluster, la sauvegarde à la demande sera également configurée avec DataLock, et la période de rétention sera de 30 jours. Les analyses de ransomware ne sont pas prises en charge pour les sauvegardes ad hoc. link:prev-ontap-policy-object-options.html["En savoir plus sur DataLock et la protection contre les ransomwares"^].
 
 Lorsque vous créez une sauvegarde ad hoc, un instantané est créé sur le volume source.  Étant donné que cet instantané ne fait pas partie d'une planification d'instantanés normale, il ne sera pas désactivé.  Vous souhaiterez peut-être supprimer manuellement cet instantané du volume source une fois la sauvegarde terminée.  Cela permettra de libérer les blocs liés à cet instantané.  Le nom de l'instantané commencera par `cbs-snapshot-adhoc-` . https://docs.netapp.com/us-en/ontap/san-admin/delete-all-existing-snapshot-copies-volume-task.html["Découvrez comment supprimer un instantané à l'aide de l'interface de ligne de commande ONTAP"^] .
 
@@ -161,7 +161,7 @@ Les détails du volume et la liste des instantanés sont affichés.
 
 NetApp Backup and Recovery analyse vos fichiers de sauvegarde pour rechercher des preuves d'une attaque de ransomware lorsqu'une sauvegarde vers un fichier objet est créée et lorsque les données d'un fichier de sauvegarde sont en cours de restauration.  Vous pouvez également exécuter une analyse à la demande à tout moment pour vérifier la facilité d'utilisation d'un fichier de sauvegarde spécifique dans le stockage d'objets.  Cela peut être utile si vous avez rencontré un problème de ransomware sur un volume particulier et que vous souhaitez vérifier que les sauvegardes de ce volume ne sont pas affectées.
 
-Cette fonctionnalité est disponible uniquement si la sauvegarde du volume a été créée à partir d'un système avec ONTAP 9.11.1 ou supérieur, et si vous avez activé _Datalock and Ransomware protection_ dans la règles de sauvegarde vers objet.
+Cette fonctionnalité est disponible uniquement si la sauvegarde du volume a été créée à partir d'un système doté d'ONTAP 9.11.1 ou supérieur, et si vous avez activé _DataLock et la protection contre les ransomwares_ dans la règle de sauvegarde vers objet.
 
 .Étapes
 . Dans l'onglet *Volumes*, sélectionnezimage:icon-actions-horizontal.gif["Icône Actions"] pour le volume source et sélectionnez *Afficher les détails du volume*.
@@ -169,7 +169,7 @@ Cette fonctionnalité est disponible uniquement si la sauvegarde du volume a ét
 Les détails du volume sont affichés.
 
 . Sélectionnez *Sauvegarde* pour voir la liste des fichiers de sauvegarde dans le stockage d’objets.
-. Sélectionnerimage:icon-actions-horizontal.gif["Icône Actions"] pour le fichier de sauvegarde du volume que vous souhaitez analyser pour détecter les ransomwares et cliquez sur *Rechercher les ransomwares*.
+. Sélectionnez image:icon-actions-horizontal.gif["Icône Actions"] pour le fichier de sauvegarde de volume que vous souhaitez analyser à la recherche de ransomware et sélectionnez *Analyser à la recherche de ransomware*.
 +
 La colonne de protection contre les ransomwares indique que l'analyse est en cours.
 
@@ -228,7 +228,7 @@ Vous pouvez modifier les attributs d’une politique de sauvegarde actuellement 
 
 [NOTE]
 ====
-* Si vous avez activé _Datalock and Ransomware protection_ dans la règle initiale lors de l’activation de NetApp Backup and Recovery pour ce cluster, toutes les règles que vous modifiez doivent être configurées avec le même paramètre DataLock (Governance ou Compliance). Et si vous n’avez pas activé _Datalock and Ransomware protection_ lors de l’activation de NetApp Backup and Recovery, vous ne pouvez pas activer DataLock maintenant.
+* Si vous avez activé _DataLock and Ransomware protection_ dans la règle initiale lors de l’activation de NetApp Backup and Recovery pour ce cluster, toutes les règles que vous modifiez doivent être configurées avec le même paramètre DataLock (Governance ou Compliance). Et si vous n’avez pas activé _DataLock and Ransomware protection_ lors de l’activation de NetApp Backup and Recovery, vous ne pouvez pas activer DataLock maintenant.
 * Lors de la création de sauvegardes sur AWS, si vous avez choisi _S3 Glacier_ ou _S3 Glacier Deep Archive_ dans votre première politique de sauvegarde lors de l'activation de NetApp Backup and Recovery, ce niveau sera le seul niveau d'archivage disponible lors de la modification des politiques de sauvegarde.  Et si vous n'avez sélectionné aucun niveau d'archivage dans votre première politique de sauvegarde, _S3 Glacier_ sera votre seule option d'archivage lors de la modification d'une politique.
 
 
@@ -260,7 +260,7 @@ Si vous souhaitez appliquer une nouvelle politique de sauvegarde à certains vol
 
 [NOTE]
 ====
-* Si vous avez activé _Datalock and Ransomware protection_ dans la règle initiale lors de l’activation de NetApp Backup and Recovery pour ce cluster, toutes les règles supplémentaires que vous créez doivent être configurées avec le même paramètre DataLock (Governance ou Compliance). Et si vous n’avez pas activé _Datalock and Ransomware protection_ lors de l’activation de NetApp Backup and Recovery, vous ne pouvez pas créer de nouvelles règles utilisant DataLock.
+* Si vous avez activé _DataLock and Ransomware protection_ dans la règle initiale lors de l’activation de NetApp Backup and Recovery pour ce cluster, toutes les règles supplémentaires que vous créez doivent être configurées avec le même paramètre DataLock (Governance ou Compliance). Et si vous n’avez pas activé _DataLock and Ransomware protection_ lors de l’activation de NetApp Backup and Recovery, vous ne pouvez pas créer de nouvelles règles utilisant DataLock.
 * Lors de la création de sauvegardes sur AWS, si vous avez choisi _S3 Glacier_ ou _S3 Glacier Deep Archive_ dans votre première stratégie de sauvegarde lors de l'activation de NetApp Backup and Recovery, ce niveau sera le seul niveau d'archivage disponible pour les futures stratégies de sauvegarde pour ce cluster.  Et si vous n'avez sélectionné aucun niveau d'archivage dans votre première politique de sauvegarde, alors _S3 Glacier_ sera votre seule option d'archivage pour les politiques futures.
 
 
@@ -326,7 +326,7 @@ La suppression de toutes les sauvegardes d’un volume désactive également les
 NOTE: Vous ne pouvez pas supprimer individuellement les fichiers de sauvegarde d'un volume une fois la relation de sauvegarde supprimée. Supprimez les fichiers de sauvegarde d'un volume avant de supprimer sa relation de sauvegarde.
 
 .Étapes
-. Dans le menu *Volumes*, cliquez sur image:icon-actions-horizontal.gif["Plus d'icônes"] le volume source et sélectionnez *Gérer les sauvegardes > Afficher la sauvegarde*.
+. Dans le menu *Volumes*, sélectionnez image:icon-actions-horizontal.gif["Plus d'icônes"] pour le volume source et sélectionnez *Gérer les sauvegardes > Afficher la sauvegarde*.
 +
 La liste de tous les fichiers de sauvegarde s'affiche.
 

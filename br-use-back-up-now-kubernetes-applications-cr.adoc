@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-use-back-up-now-kubernetes-applications-cr.html 
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery, snapcenter 
-summary: 'NetApp Backup and Recovery vous permet de sauvegarder manuellement des applications Kubernetes à l"aide de ressources personnalisées (CR).' 
+summary: 'Utilisez des ressources personnalisées (CR) pour créer des instantanés et des sauvegardes à la demande d"une application Kubernetes, établissant une base de référence ou protégeant vos modifications de données les plus récentes.' 
 ---
 = Sauvegardez dès maintenant des applications Kubernetes à l'aide de ressources personnalisées dans NetApp Backup and Recovery
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 'NetApp Backup and Recovery vous permet de sauvegarder manuellement des
 
 
 [role="lead"]
-NetApp Backup and Recovery vous permet de sauvegarder manuellement des applications Kubernetes à l'aide de ressources personnalisées (CR).
+Utilisez des ressources personnalisées (CR) pour créer des instantanés et des sauvegardes à la demande d'une application Kubernetes, établissant une base de référence ou protégeant vos modifications de données les plus récentes.
 
 
 
@@ -47,7 +47,7 @@ Pour créer un instantané de votre application Kubernetes et le stocker localem
 ** *metadata.name*: (_Obligatoire_) Le nom de cette ressource personnalisée; choisissez un nom unique et pertinent pour votre environnement.
 ** *spec.applicationRef* : Le nom Kubernetes de l'application à capturer.
 ** *spec.appVaultRef* : (_Obligatoire_) Le nom de l'AppVault où le contenu de l'instantané (métadonnées) doit être stocké.
-** *spec.reclaimPolicy* : (Optionnel) Définit ce qui arrive à l'AppArchive d’un instantané lorsque le CR de l’instantané est supprimé. Cela signifie que même lorsqu’il est défini sur `Retain`, l’instantané sera supprimé. Options valides :
+** *spec.reclaimPolicy* : (_Optionnel_) Définit ce qui arrive à l'AppArchive d'un instantané lorsque la ressource personnalisée Snapshot est supprimée. Même lorsque cette option est définie sur  `Retain`, la ressource personnalisée Snapshot elle-même est toujours supprimée ; seule l'AppArchive est conservée. Options valides :
 +
 *** `Retain` (défaut)
 *** `Delete`
@@ -228,5 +228,5 @@ Le tableau suivant décrit les annotations que vous pouvez utiliser lors de la c
 | protect.trident.netapp.io/volume-snapshots-created-timeout | chaîne | Durée maximale autorisée pour la création d'instantanés de volume. | "5m" 
 
 
-| protect.trident.netapp.io/pvc-bind-timeout-sec | chaîne | Temps maximal (en secondes) à attendre pour que les nouveaux PersistentVolumeClaims (PVCs) atteignent la  `Bound` phase avant que l'opération échoue. | "1200" (20 minutes) 
+| protect.trident.netapp.io/pvc-bind-timeout-sec | chaîne | Temps maximal (en secondes) à attendre pour que tout nouveau PersistentVolumeClaims (PVC) atteigne la  `Bound` phase avant que l’opération n’échoue. | "1200" (20 minutes) 
 |===

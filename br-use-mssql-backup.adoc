@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: br-use-mssql-backup.html 
-keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery 
-summary: Sauvegardez les données des applications Microsoft SQL Server à partir des systèmes ONTAP locaux vers Amazon Web Services, Microsoft Azure et StorageGRID pour garantir la protection de vos données. 
+keywords: backing up, back up, backup, cloud volumes ontap, aws, azure, storagegrid, back up volumes, cloud backup, on-premises ontap, onprem, applications, backup and recovery 
+summary: Sauvegardez les données des applications Microsoft SQL Server depuis les systèmes ONTAP locaux vers Amazon Web Services, Microsoft Azure et StorageGRID afin de garantir que vos données sont protégées. 
 ---
 = Sauvegardez les charges de travail Microsoft SQL Server avec NetApp Backup and Recovery
 :hardbreaks:
@@ -14,11 +14,11 @@ summary: Sauvegardez les données des applications Microsoft SQL Server à parti
 
 
 [role="lead"]
-Sauvegardez les données d’application Microsoft SQL Server à partir de systèmes ONTAP locaux vers Amazon Web Services, Microsoft Azure ou StorageGRID.  Le système crée automatiquement des sauvegardes et les stocke dans un magasin d'objets de votre compte cloud pour la protection des données.
+Sauvegardez les charges de travail Microsoft SQL Server des systèmes ONTAP locaux vers Amazon Web Services, Microsoft Azure ou StorageGRID.
 
-* Pour sauvegarder des charges de travail selon une planification, créez des stratégies qui gèrent les opérations de sauvegarde et de restauration. Voirlink:br-use-policies-create.html["Créer des politiques"] pour les instructions.
+* Créez des politiques pour planifier la sauvegarde des charges de travail et gérer les opérations de sauvegarde et de restauration. Consultez link:br-use-policies-create.html["Créer des politiques"] pour obtenir des instructions.
 * Configurez le répertoire de journaux pour les hôtes découverts avant de démarrer une sauvegarde.
-* Sauvegardez vos charges de travail maintenant (créez une sauvegarde à la demande maintenant).
+* Créez une sauvegarde à la demande pour sauvegarder immédiatement vos charges de travail.
 
 
 
@@ -28,7 +28,7 @@ Sauvegardez les données d’application Microsoft SQL Server à partir de syst�
 
 Avant de démarrer une sauvegarde, affichez l’état de protection de vos charges de travail.
 
-*Rôle requis dans la NetApp Console* : visionneuse de stockage, super administrateur de sauvegarde et de restauration, administrateur de sauvegarde et de restauration, administrateur de restauration, administrateur de clonage ou visionneuse de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. En savoir plus link:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
+*Rôle requis de la NetApp Console* : visionneur de stockage, super administrateur de sauvegarde et de restauration, administrateur de sauvegarde et de restauration, administrateur de restauration de sauvegarde et de restauration, administrateur de clonage de sauvegarde et de restauration ou visionneur de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. En savoir plus link:reference-roles.html["Rôles et privilèges de sauvegarde et de restauration"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
@@ -44,7 +44,7 @@ Avant de démarrer une sauvegarde, affichez l’état de protection de vos charg
 
 Définissez le chemin du journal d’activité pour les hôtes découverts afin de suivre l’état de l’opération avant de sauvegarder les charges de travail.
 
-*Rôle Console NetApp requis* : observateur de stockage, super administrateur de sauvegarde et de restauration, administrateur de sauvegarde et de restauration, ou administrateur de restauration de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^]
+*Rôle Console NetApp requis* : observateur de stockage, super administrateur de sauvegarde et de restauration, administrateur de sauvegarde et de restauration, ou administrateur de restauration de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. En savoir plus link:reference-roles.html["Rôles et privilèges de sauvegarde et de restauration"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
@@ -53,7 +53,7 @@ Définissez le chemin du journal d’activité pour les hôtes découverts afin 
 . Sélectionnez un hôte.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Configurer le répertoire des journaux*.
 . Saisissez le chemin de l'hôte ou parcourez une liste d'hôtes ou de nœuds pour trouver où vous souhaitez stocker le journal de l'hôte.
-. Sélectionnez ceux sur lesquels vous souhaitez stocker les journaux.
+. Sélectionnez les hôtes ou les nœuds sur lesquels vous souhaitez stocker les journaux.
 +
 
 NOTE: Les champs qui s'affichent diffèrent selon le modèle de déploiement sélectionné, par exemple, instance de cluster de basculement ou autonome.
@@ -68,7 +68,7 @@ NOTE: Les champs qui s'affichent diffèrent selon le modèle de déploiement sé
 
 Créez un groupe de protection pour gérer les opérations de sauvegarde et de restauration de plusieurs charges de travail.  Un groupe de protection est un regroupement logique de charges de travail.
 
-*Rôle Console NetApp requis* : visionneur de stockage, super administrateur de sauvegarde et de restauration, ou administrateur de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^]
+*Rôle Console NetApp requis* : visionneur de stockage, super administrateur de sauvegarde et de restauration, ou administrateur de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. En savoir plus link:reference-roles.html["Rôles et privilèges de sauvegarde et de restauration"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
@@ -81,7 +81,7 @@ Créez un groupe de protection pour gérer les opérations de sauvegarde et de r
 . Sélectionnez *Suivant*.
 . Sélectionnez la *politique de sauvegarde* que vous souhaitez appliquer au groupe de protection.
 +
-Si vous souhaitez créer une politique, sélectionnez *Créer une nouvelle politique* et suivez les instructions pour créer une politique.  Voirlink:br-use-policies-create.html["Créer des politiques"] pour plus d'informations.
+Si vous souhaitez créer une politique, sélectionnez *Créer une nouvelle politique* et suivez les instructions. Voir link:br-use-policies-create.html["Créer des politiques"] pour plus d'informations.
 
 . Sélectionnez *Suivant*.
 . Vérifiez la configuration.
@@ -95,16 +95,16 @@ Si vous souhaitez créer une politique, sélectionnez *Créer une nouvelle polit
 
 Exécutez une sauvegarde à la demande avant d’apporter des modifications à votre système pour garantir la protection de vos données.
 
-*Rôle Console NetApp requis* : visionneur de stockage, super administrateur de sauvegarde et de restauration, ou administrateur de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^]
+*Rôle Console NetApp requis* : visionneur de stockage, super administrateur de sauvegarde et de restauration, ou administrateur de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. En savoir plus link:reference-roles.html["Rôles et privilèges de sauvegarde et de restauration"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
 .Étapes
-. Dans le menu, sélectionnez *Inventaire*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez une charge de travail pour afficher les détails de protection.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
-. Sélectionnez l'onglet *Groupe de protection*, *Instances* ou *Bases de données*.
+. Sélectionnez l’onglet *Protection groups*, *Instances* ou *Databases*.
 . Sélectionnez l’instance ou la base de données que vous souhaitez sauvegarder.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Reculez maintenant*.
-. Sélectionnez la politique que vous souhaitez appliquer à la sauvegarde.
+. Sélectionnez la règle à appliquer à la sauvegarde.
 . Sélectionnez le niveau de planification.
 . Sélectionnez *Sauvegarder maintenant*.
 
@@ -116,13 +116,13 @@ Exécutez une sauvegarde à la demande avant d’apporter des modifications à v
 
 Suspendez la planification pour arrêter temporairement les sauvegardes pendant la maintenance ou le dépannage.
 
-*Rôle Console NetApp requis* : visionneur de stockage, super administrateur de sauvegarde et de restauration, ou administrateur de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^]
+*Rôle Console NetApp requis* : visionneur de stockage, super administrateur de sauvegarde et de restauration, ou administrateur de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. En savoir plus link:reference-roles.html["Rôles et privilèges de sauvegarde et de restauration"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez une charge de travail pour afficher les détails de protection.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
-. Sélectionnez l'onglet *Groupe de protection*, *Instances* ou *Bases de données*.
+. Sélectionnez l’onglet *Protection groups*, *Instances* ou *Databases*.
 . Sélectionnez le groupe de protection, l’instance ou la base de données que vous souhaitez suspendre.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Suspendre*.
 
@@ -134,7 +134,7 @@ Suspendez la planification pour arrêter temporairement les sauvegardes pendant 
 
 La suppression d’un groupe de protection le supprime ainsi que toutes les planifications de sauvegarde associées. Vous souhaiterez peut-être supprimer un groupe de protection s’il n’est plus nécessaire.
 
-*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération ou rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
+*Rôle Console NetApp requis* : visionneur de stockage, super administrateur de sauvegarde et de restauration, ou administrateur de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. En savoir plus link:reference-roles.html["Rôles et privilèges de sauvegarde et de restauration"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
@@ -151,13 +151,13 @@ La suppression d’un groupe de protection le supprime ainsi que toutes les plan
 
 Vous pouvez supprimer la protection d'une charge de travail si vous ne souhaitez plus la sauvegarder ou si vous souhaitez arrêter de la gérer dans NetApp Backup and Recovery.
 
-*Rôle de NetApp Console requis* Visualiseur de stockage, super administrateur de sauvegarde et de récupération ou rôle d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
+*Rôle Console NetApp requis* : visionneur de stockage, super administrateur de sauvegarde et de restauration, ou administrateur de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. En savoir plus link:reference-roles.html["Rôles et privilèges de sauvegarde et de restauration"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez une charge de travail pour afficher les détails de protection.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
-. Sélectionnez l'onglet *Groupe de protection*, *Instances* ou *Bases de données*.
+. Sélectionnez l’onglet *Protection groups*, *Instances* ou *Databases*.
 . Sélectionnez le groupe de protection, l’instance ou la base de données.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Supprimer la protection*.
 . Dans la boîte de dialogue Supprimer la protection, sélectionnez si vous souhaitez conserver les sauvegardes et les métadonnées ou les supprimer.

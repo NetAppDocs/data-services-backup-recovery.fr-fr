@@ -14,7 +14,7 @@ summary: 'Vous pouvez personnaliser les opérations de restauration CR à l"aide
 
 
 [role="lead"]
-Vous pouvez personnaliser les opérations de restauration à l'aide de paramètres avancés tels que les annotations, les paramètres de namespace et les options de stockage pour répondre à vos besoins spécifiques.
+Utilisez les annotations, les paramètres d'espace de noms et les options de stockage pour personnaliser les opérations de restauration Kubernetes pour votre environnement.
 
 
 
@@ -113,14 +113,14 @@ Le tableau suivant illustre l'état de l'espace de noms de destination après l'
 [[supported-fields]]
 == Champs pris en charge
 
-Cette section décrit les champs supplémentaires disponibles pour les opérations de restauration.
+Cette section décrit les champs supplémentaires pour les opérations de restauration.
 
 
 
 [[storage-class-mapping]]
 === Correspondance des classes de stockage
 
-L' `spec.storageClassMapping`attribut définit une correspondance entre une classe de stockage présente dans l'application source et une nouvelle classe de stockage sur le cluster cible. Vous pouvez l'utiliser lors de la migration d'applications entre des clusters avec des classes de stockage différentes ou lors du changement de système de stockage pour les opérations BackupRestore.
+L' `spec.storageClassMapping`attribut associe une classe de stockage dans l'application source à une nouvelle classe de stockage sur le cluster cible. Utilisez ce champ lors de la migration d'applications entre des clusters avec des classes de stockage différentes ou lors du changement de backend de stockage pour les opérations BackupRestore.
 
 *Exemple :*
 
@@ -137,18 +137,18 @@ storageClassMapping:
 [[supported-annotations]]
 == Annotations prises en charge
 
-Cette section répertorie les annotations prises en charge pour configurer différents comportements du système. Si une annotation n'est pas explicitement définie par l'utilisateur, le système utilisera la valeur par défaut.
+Cette section répertorie les annotations prises en charge pour configurer différents comportements du système. Si vous ne définissez pas explicitement d'annotation, le système utilise la valeur par défaut.
 
 [cols="1,1,3,1"]
 |===
 | Annotation | Type | Description | valeur par défaut 
 
 
-| protect.trident.netapp.io/data-mover-timeout-sec | chaîne | Le temps maximal (en secondes) autorisé pour que l'opération de déplacement de données soit bloquée. | "300" 
+| protect.trident.netapp.io/data-mover-timeout-sec | chaîne | Durée maximale, en secondes, pendant laquelle une opération de déplacement de données peut rester bloquée. | "300" 
 
 
 | protect.trident.netapp.io/kopia-content-cache-size-limit-mb | chaîne | La limite de taille maximale (en mégaoctets) pour le cache de contenu Kopia. | "1000" 
 
 
-| protect.trident.netapp.io/pvc-bind-timeout-sec | chaîne | Temps maximal (en secondes) d'attente pour que tout nouveau PersistentVolumeClaims (PVC) atteigne la phase  `Bound` avant que l'opération n'échoue. S'applique à tous les types de CR de restauration (BackupRestore, BackupInplaceRestore, SnapshotRestore, SnapshotInplaceRestore). Utilisez une valeur plus élevée si votre backend de stockage ou votre cluster nécessite souvent plus de temps. | "1200" (20 minutes) 
+| protect.trident.netapp.io/pvc-bind-timeout-sec | chaîne | Délai maximal (en secondes) d'attente pour que toute nouvelle PersistentVolumeClaims (PVC) atteigne la phase  `Bound` avant l'échec de l'opération. S'applique à tous les types de CR de restauration (BackupRestore, BackupInplaceRestore, SnapshotRestore, SnapshotInplaceRestore). Utilisez une valeur plus élevée si votre backend de stockage ou votre cluster nécessite souvent plus de temps. | "1200" (20 minutes) 
 |===

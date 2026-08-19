@@ -14,7 +14,7 @@ summary: 'Effectuez quelques étapes dans NetApp Backup and Recovery pour commen
 
 
 [role="lead"]
-Effectuez quelques étapes dans NetApp Backup and Recovery pour commencer à sauvegarder les données de volume de vos systèmes ONTAP principaux sur site vers un système de stockage secondaire et vers le stockage d'objets dans vos systèmes NetApp StorageGRID .
+Dans NetApp Backup and Recovery, vous pouvez sauvegarder les données de volume de vos systèmes ONTAP principaux sur site vers un système de stockage secondaire et vers le stockage objet StorageGRID. Utilisez cette page pour préparer votre environnement et activer les sauvegardes.
 
 
 NOTE: Les « systèmes ONTAP sur site » incluent les systèmes FAS, AFF et ONTAP Select .
@@ -40,7 +40,7 @@ Lorsque l'agent de console et le système ONTAP sur site sont installés dans un
 [[prepare-your-console-agent]]
 == Préparez votre agent de console
 
-L'agent Console est le logiciel principal pour les fonctionnalités de la console.  Un agent de console est requis pour sauvegarder et restaurer vos données ONTAP .
+L'agent de console est le logiciel principal pour la fonctionnalité de la NetApp Console .  Un agent de console est requis pour sauvegarder et restaurer vos données ONTAP .
 
 
 
@@ -73,7 +73,7 @@ Assurez-vous que le réseau sur lequel l’agent de console est installé permet
 
 * La fonctionnalité de NetApp Backup and Recovery est intégrée à l’agent de la console.  Lorsqu'il est installé en mode privé, vous devrez mettre à jour périodiquement le logiciel de l'agent de la console pour accéder aux nouvelles fonctionnalités.  Vérifiez lelink:whats-new.html["Nouveautés de NetApp Backup and Recovery"] pour voir les nouvelles fonctionnalités de chaque version de NetApp Backup and Recovery .  Lorsque vous souhaitez utiliser les nouvelles fonctionnalités, suivez les étapes pour https://docs.netapp.com/us-en/console-setup-admin/task-upgrade-connector.html["mettre à niveau le logiciel de l'agent de la console"^] .
 +
-La nouvelle version de NetApp Backup and Recovery , qui inclut la possibilité de planifier et de créer des instantanés et des volumes répliqués, en plus de créer des sauvegardes sur le stockage d'objets, nécessite que vous utilisiez la version 3.9.31 ou supérieure de l'agent Console. Il est donc recommandé d'obtenir cette dernière version pour gérer toutes vos sauvegardes.
+La nouvelle version de NetApp Backup and Recovery, qui permet de planifier et de créer des instantanés et des volumes répliqués, en plus de créer des sauvegardes sur le stockage objet, requiert que vous utilisiez la version 3.9.31 ou supérieure de l’agent Console. NetApp recommande d’utiliser cette dernière version pour gérer toutes vos sauvegardes.
 
 * Lorsque vous utilisez NetApp Backup and Recovery dans un environnement SaaS, les données de configuration de NetApp Backup and Recovery sont sauvegardées dans le cloud.  Lorsque vous utilisez NetApp Backup and Recovery sur un site sans accès Internet, les données de configuration de NetApp Backup and Recovery sont sauvegardées dans le bucket StorageGRID où vos sauvegardes sont stockées.
 
@@ -196,7 +196,7 @@ Si vous prévoyez de créer des volumes répliqués sur un système ONTAP second
 
 StorageGRID doit répondre aux exigences suivantes.  Voir le https://docs.netapp.com/us-en/storagegrid-117/["Documentation de StorageGRID"^] pour plus d'informations.
 
-Pour plus de détails sur les exigences de Datalock et de protection contre les ransomwares pour StorageGRID, veuillez vous référer à link:prev-ontap-policy-object-options.html["Options de politique de sauvegarde sur objet"].
+Pour plus de détails sur DataLock et les exigences de protection contre les ransomwares pour StorageGRID, veuillez consulter link:prev-ontap-policy-object-options.html["Options de politique de sauvegarde sur objet"].
 
 Versions de StorageGRID prises en charge:: StorageGRID 10.3 et versions ultérieures sont pris en charge.
 +
@@ -306,9 +306,9 @@ Vous pouvez également<<Afficher les commandes de l'API>> à l'étape de révisi
 === Démarrer l'assistant
 
 .Étapes
-. Accédez à l’assistant d’activation de sauvegarde et de récupération en utilisant l’une des méthodes suivantes :
+. Accédez à l'assistant d'activation de la sauvegarde et de la restauration en utilisant l'une des méthodes suivantes :
 +
-** Depuis la page *Systèmes* de la console, sélectionnez le système et sélectionnez *Activer > Volumes de sauvegarde* à côté de Sauvegarde et récupération dans le panneau de droite.
+** Dans la page *Systems* de la NetApp Console, sélectionnez le système et sélectionnez *Enable > Backup Volumes* à côté de Backup and Recovery dans le panneau de droite.
 +
 Si la destination de vos sauvegardes existe en tant que système sur la page *Systèmes* de la console, vous pouvez faire glisser le cluster ONTAP sur le stockage d'objets.
 
@@ -316,7 +316,7 @@ Si la destination de vos sauvegardes existe en tant que système sur la page *Sy
 
 
 +
-La page d'introduction de l'assistant affiche les options de protection, notamment les instantanés locaux, la réplication et les sauvegardes.  Si vous avez effectué la deuxième option de cette étape, la page Définir la stratégie de sauvegarde s’affiche avec un volume sélectionné.
+La page d'introduction de l'assistant présente les options de protection, notamment les instantanés locaux, la réplication et les sauvegardes. Si vous avez choisi la deuxième option à cette étape, la page « Définir la stratégie de sauvegarde » s'affiche avec un volume sélectionné.
 
 . Continuez avec les options suivantes :
 +
@@ -362,7 +362,7 @@ Si les volumes que vous choisissez ont déjà des stratégies de snapshot ou de 
 
 La définition de la stratégie de sauvegarde implique de définir les options suivantes :
 
-* Que vous souhaitiez une ou toutes les options de sauvegarde : instantanés locaux, réplication et sauvegarde sur stockage d'objets
+* Que vous souhaitiez une ou toutes les options de sauvegarde : snapshots locaux, réplication et sauvegarde sur stockage d'objets
 * Architecture
 * Politique d'instantané local
 * Cible et politique de réplication
@@ -446,9 +446,9 @@ Pour créer une politique, sélectionnez *Créer une nouvelle politique* et proc
 +
 *** Entrez le nom de la politique.
 *** Sélectionnez jusqu'à cinq programmes, généralement de fréquences différentes.
-*** Pour les règles de sauvegarde vers objet, configurez les paramètres Datalock et de protection contre les ransomwares. Pour plus d’informations sur Datalock et la protection contre les ransomwares, consultez link:prev-ontap-policy-object-options.html["Paramètres de la politique de sauvegarde sur objet"].
+*** Pour les règles de sauvegarde vers objet, configurez les paramètres DataLock et de protection contre les ransomwares. Pour plus d’informations sur DataLock et la protection contre les ransomwares, consultez link:prev-ontap-policy-object-options.html["Paramètres de la politique de sauvegarde sur objet"].
 +
-Si votre cluster utilise ONTAP 9.11.1 ou une version ultérieure, vous pouvez choisir de protéger vos sauvegardes contre la suppression et les attaques de ransomware en configurant _DataLock_ et _Ransomware protection_. _DataLock_ protège vos fichiers de sauvegarde contre toute modification ou suppression, et _ransomware protection_ analyse vos fichiers de sauvegarde pour rechercher des preuves d'une attaque de ransomware dans vos fichiers de sauvegarde.
+Si votre cluster utilise ONTAP 9.11.1 ou une version ultérieure, vous pouvez choisir de protéger vos sauvegardes contre la suppression et les attaques de ransomware en configurant _DataLock and Ransomware protection_. _DataLock_ protège vos fichiers de sauvegarde contre toute modification ou suppression, et _ransomware protection_ analyse vos fichiers de sauvegarde afin de détecter toute trace d’attaque de ransomware dans vos fichiers de sauvegarde.
 
 *** Sélectionnez *Créer*.
 
@@ -498,9 +498,9 @@ Vous pouvez également surveiller l’état des tâches de sauvegarde et de rest
 [[show-the-api-commands]]
 === Afficher les commandes de l'API
 
-Vous souhaiterez peut-être afficher et éventuellement copier les commandes API utilisées dans l’assistant d’activation de la sauvegarde et de la récupération.  Vous souhaiterez peut-être faire cela pour automatiser l’activation de la sauvegarde dans les futurs systèmes.
+Vous pouvez afficher et, éventuellement, copier les commandes API utilisées dans l'assistant d'activation de NetApp Backup and Recovery. Vous pouvez faire cela pour automatiser l'activation de la sauvegarde dans les systèmes futurs.
 
 .Étapes
-. Dans l’assistant d’activation de la sauvegarde et de la récupération, sélectionnez *Afficher la demande d’API*.
+. Dans l'assistant Activer la sauvegarde et la restauration, sélectionnez *Afficher la requête API*.
 . Pour copier les commandes dans le presse-papiers, sélectionnez l'icône *Copier*.
 

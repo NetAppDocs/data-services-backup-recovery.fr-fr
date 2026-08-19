@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-start-discover-oracle.html 
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, workloads, protect, Oracle 
-summary: NetApp Backup and Recovery doit d’abord découvrir les charges de travail afin que vous puissiez les protéger. 
+summary: 'NetApp Backup and Recovery doit d"abord découvrir les charges de travail avant de pouvoir les protéger.' 
 ---
 = Découvrez les charges de travail Oracle Database dans NetApp Backup and Recovery
 :hardbreaks:
@@ -14,9 +14,9 @@ summary: NetApp Backup and Recovery doit d’abord découvrir les charges de tra
 
 
 [role="lead"]
-La découverte des bases de données Oracle permet à NetApp Backup and Recovery de les protéger en créant et en restaurant des sauvegardes et des instantanés.
+Découvrez les charges de travail Oracle Database dans NetApp Backup and Recovery afin que vous puissiez les protéger avec des sauvegardes et des snapshots.
 
-*Rôle de console requis* Super administrateur de sauvegarde et de récupération.  En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
+*Rôle Console NetApp requis* Super administrateur de sauvegarde et de restauration. En savoir plus link:reference-roles.html["Rôles et privilèges de sauvegarde et de restauration"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
 
 
@@ -130,10 +130,10 @@ kubectl -n kube-system rollout restart deploy/rke2-coredns-rke2-coredns
 [[add-an-oracle-database-host-and-discover-resources]]
 == Ajoutez un hôte de base de données Oracle et découvrez des ressources
 
-Ajoutez les informations sur l’hôte Oracle et laissez NetApp Backup and Recovery découvrir les charges de travail. Dans chaque agent de console, sélectionnez les systèmes sur lesquels vous souhaitez découvrir les charges de travail.
+Ajoutez les informations de l’hôte de la base de données Oracle et laissez NetApp Backup and Recovery découvrir les charges de travail. Pour chaque agent Console, sélectionnez les systèmes à découvrir.
 
 .Étapes
-. Dans le menu de la NetApp Console , sélectionnez *Protection > Sauvegarde et récupération*.
+. Dans le menu NetApp Console, sélectionnez *Protection* > *Backup and Recovery*.
 . Sous *Charges de travail*, sélectionnez la vignette *Oracle*.
 . Sélectionnez *Découvrir les ressources*.
 . Sélectionnez *Oracle* pour le champ *Workload type*.
@@ -145,10 +145,10 @@ Ajoutez les informations sur l’hôte Oracle et laissez NetApp Backup and Recov
 .. Sélectionnez *Terminé*.
 
 
-. *Enregistrement de l'hôte* : Ajoutez un nouvel hôte Oracle Database. Dans le champ *Host FQDN or IP address*, saisissez le FQDN ou l'adresse IP de l'hôte ; pour les bases de données en cluster, vous pouvez saisir le FQDN ou l'adresse IP de n'importe quel nœud du cluster. Fournissez ensuite les informations d'identification, l'agent Console et le numéro de port.
+. *Enregistrement de l'hôte* : Ajoutez un nouvel hôte Oracle Database. Dans le champ *Nom de domaine complet (FQDN) ou adresse IP de l'hôte*, saisissez le FQDN ou l'adresse IP de l'hôte. Pour les bases de données en cluster, vous pouvez saisir le FQDN ou l'adresse IP de n'importe quel nœud du cluster. Fournissez ensuite les informations d'identification, l'agent Console et le numéro de port.
 . (Facultatif) Si vous choisissez des informations d'identification pour un utilisateur non root, procédez comme suit :
 +
-.. Pour savoir comment ajouter l'utilisateur non root que vous avez sélectionné au fichier sudoers sur l'hôte Oracle Database, sélectionnez *Configure sudoers*.
+.. Pour obtenir des instructions sur l'ajout de l'utilisateur non root sélectionné au fichier sudoers sur l'hôte de la base de données Oracle, sélectionnez *Configurer sudoers*.
 .. Suivez les instructions de la boîte de dialogue, activez la case à cocher une fois terminé, puis sélectionnez *Terminé*.
 
 
@@ -159,7 +159,7 @@ Ajoutez les informations sur l’hôte Oracle et laissez NetApp Backup and Recov
 +
 [NOTE]
 ====
-Backup and Recovery se connecte à chaque hôte via SSH pour installer automatiquement le plug-in. Activez l’option *Utiliser l’installation manuelle* lorsque l’une des conditions suivantes est remplie :
+NetApp Backup and Recovery se connecte à chaque hôte via SSH pour installer automatiquement le plug-in. Activez l’option *Utiliser l’installation manuelle* lorsque l’une des conditions suivantes est remplie :
 
 *** Un ou plusieurs hôtes n'exécutent pas le service SSH.
 *** Tout hôte possède déjà le NetApp plug-in (même si seuls certains membres du cluster le possèdent).
@@ -174,20 +174,20 @@ Backup and Recovery se connecte à chaque hôte via SSH pour installer automatiq
 . Sélectionnez *Découvrir*.
 +
 
-TIP: L'ajout de ressources peut prendre plusieurs minutes. Pour voir la progression, sélectionnez *Track progress* dans la boîte de dialogue d'état en bas de la page Inventaire ou sélectionnez *Monitoring* dans le menu de gauche.
+TIP: L'ajout de ressources peut prendre plusieurs minutes. Pour suivre la progression, sélectionnez *Suivre la progression* dans la boîte de dialogue d'état en bas de la page Inventaire ou sélectionnez *Surveillance* dans le menu de navigation de gauche.
 
 
 
 .Résultat
-La charge de travail Oracle Database est affichée dans la liste des charges de travail sur la page Inventory.
+La charge de travail Oracle Database apparaît dans la liste des charges de travail sur la page Inventaire.
 
 
 
 [[continue-to-the-netapp-backup-and-recovery-dashboard]]
 == Accéder au tableau de bord de NetApp Backup and Recovery
 
-. Dans le menu de la NetApp Console , sélectionnez *Protection* > *Sauvegarde et récupération*.
-. Sélectionnez une mosaïque de charge de travail (par exemple, Microsoft SQL Server).
+. Dans le menu NetApp Console, sélectionnez *Protection* > *Backup and Recovery*.
+. Sélectionnez une tuile de charge de travail (par exemple, Oracle Database).
 . Dans le menu Sauvegarde et récupération, sélectionnez *Tableau de bord*.
-. Examiner l’état de santé de la protection des données.  Le nombre de charges de travail à risque ou protégées augmente en fonction des charges de travail nouvellement découvertes, protégées et sauvegardées.
+. Évaluez l'état de la protection des données. Le nombre de charges de travail à risque ou protégées augmente en fonction des charges de travail nouvellement découvertes, protégées et sauvegardées.
 

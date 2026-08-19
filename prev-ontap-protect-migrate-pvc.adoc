@@ -4,7 +4,7 @@ permalink: prev-ontap-protect-migrate-pvc.html
 keywords: migrate, pvc, nfs, storage, performance, persistence 
 summary: Améliorez les performances de l’index du catalogue dans les environnements de déploiement local de la NetApp Console. 
 ---
-= Améliorez les performances de recherche et de restauration dans les déploiements locaux de NetApp Backup and Recovery
+= Migrez le stockage du catalogue Search and Restore vers ONTAP NFS
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Améliorez les performances de l’index du catalogue dans les environn
 
 
 [role="lead"]
-Migrez le stockage de l'index du catalogue depuis la classe de stockage par défaut du cluster vers un partage NFS basé sur ONTAP afin d'améliorer significativement les performances du catalogue pour le déploiement local de NetApp Console. Le catalogue d'index est utilisé pour la fonctionnalité de recherche et de restauration. Bien que le catalogue fonctionne avec le stockage par défaut, l'utilisation d'un partage NFS basé sur ONTAP apporte des gains de performances mesurables pour la fonctionnalité de recherche et de restauration.
+Pour améliorer les performances de recherche et de restauration dans un déploiement local de NetApp Console, migrez le stockage de l'index du catalogue de la classe de stockage par défaut du cluster vers un partage NFS reposant sur ONTAP. L'index du catalogue prend en charge la recherche et la restauration, et un partage NFS reposant sur ONTAP peut offrir des améliorations de performances mesurables.
 
 .Avant de commencer
 Assurez-vous d'avoir les éléments suivants avant de commencer :
@@ -52,7 +52,7 @@ kubectl get pods -n cbs | grep cloudmanager-cbs-catalog-worker- || echo "no work
 
 
 [discrete]
-===== Montez le volume ONTAP sur le déploiement local de NetApp Console et copiez-le depuis le pod
+===== Montez le volume ONTAP sur le déploiement local de NetApp Console et copiez les données depuis le pod
 
 . Montez l’exportation NFS ONTAP sur un point de montage local dans la VM créée lors du déploiement de l’OVA de déploiement local de la NetApp Console.
 . Copiez les données du pod coordinateur en cours d'exécution dans le point de montage ONTAP, sans répertoire intermédiaire. Le coordinateur doit toujours être en cours d'exécution.
@@ -118,7 +118,7 @@ kubectl delete pv "$PV"
 [discrete]
 ===== Créez les volumes persistants (PV) et les revendications de volume persistant (PVC) statiques ONTAP
 
-. Créez les objets yaml PV et PVC suivants :
+. Créez les objets YAML PV et PVC suivants :
 +
 **`pv.yaml`**
 
@@ -166,7 +166,7 @@ spec:
     matchLabels:
       volume: ontap-nfs-share # Forces binding to the specific PV above
 ----
-. Appliquez les objets YAML, en commençant par le PV, puis le PVC (le PV doit exister pour que le sélecteur d'étiquette du PVC puisse s'y lier). Vérifiez ensuite que la revendication PVC est liée.
+. Appliquez les objets YAML en commençant par le PV, puis le PVC (le PV doit exister pour que le sélecteur d'étiquette du PVC puisse s'y lier). Vérifiez ensuite que la revendication PVC est liée.
 +
 [source, shell]
 ----

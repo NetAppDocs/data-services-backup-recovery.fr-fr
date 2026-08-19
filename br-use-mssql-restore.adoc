@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: br-use-mssql-restore.html 
-keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, on-premises, applications, virtual machines, backup and recovery 
 summary: 'Restaurez les charges de travail de la base de données à partir d"un instantané, d"une sauvegarde de charge de travail répliquée sur un stockage secondaire ou de sauvegardes stockées dans un stockage objet.' 
 ---
 = Restaurez les charges de travail Microsoft SQL Server avec NetApp Backup and Recovery
@@ -14,34 +14,34 @@ summary: 'Restaurez les charges de travail de la base de données à partir d"un
 
 
 [role="lead"]
-Restaurez les charges de travail Microsoft SQL Server à l’aide de NetApp Backup and Recovery. Utilisez des instantanés, des sauvegardes répliquées sur un stockage secondaire ou des sauvegardes dans un stockage objet. Restaurez les charges de travail sur le système d’origine, un système différent avec le même compte cloud ou un système ONTAP sur site.
+Restaurez les charges de travail Microsoft SQL Server à partir d'instantanés, de sauvegardes répliquées sur un stockage secondaire ou de sauvegardes dans un stockage objet. Choisissez le système d'origine, un autre système ou un système ONTAP local comme destination.
 
-.Restaurer à partir de ces emplacements
-Vous pouvez restaurer des charges de travail à partir de différents emplacements de départ :
+.Sources de restauration
+Vous pouvez restaurer les charges de travail à partir des emplacements suivants :
 
-* Restaurer à partir d'un emplacement principal
-* Restaurer à partir d'une ressource répliquée
-* Restaurer à partir d'une sauvegarde de magasin d'objets
+* Lieu principal
+* Ressource répliquée
+* sauvegarde du stockage objet
 
 
-.Restaurer ces points
-Vous pouvez restaurer les données vers le dernier instantané ou vers ces points :
+.Points de restauration
+Vous pouvez restaurer les données des manières suivantes :
 
-* Restaurer à partir d'instantanés
-* Restaurez à un moment précis si vous connaissez le nom du fichier, l'emplacement et la dernière date valide
-* Restaurer la dernière sauvegarde
+* À partir d'un instantané
+* À un moment précis où vous connaissez le nom du fichier, son emplacement et la dernière date de validité
+* À la dernière sauvegarde
 
 
 .Considérations relatives à la restauration à partir du stockage d'objets
-Si vous sélectionnez un fichier de sauvegarde dans le stockage d'objets et que la protection contre les ransomwares est activée pour cette sauvegarde (si vous avez activé Datalock et la protection contre les ransomwares dans les règles de sauvegarde), vous êtes invité à effectuer une vérification d'intégrité supplémentaire sur le fichier de sauvegarde avant de restaurer les données. Nous vous recommandons d'effectuer cette analyse.
+Si vous sélectionnez un fichier de sauvegarde dans le stockage d'objets et que la protection contre les ransomwares est activée pour cette sauvegarde (si vous avez activé DataLock et la protection contre les ransomwares dans la règle de sauvegarde), vous êtes invité à effectuer une vérification d'intégrité supplémentaire sur le fichier de sauvegarde avant de restaurer les données. Nous vous recommandons d'effectuer cette analyse.
 
 
 TIP: Vous payez des frais supplémentaires à votre fournisseur de cloud pour accéder au fichier de sauvegarde.
 
 
 
-[[how-restoring-workloads-works]]
-== Comment fonctionne la restauration des charges de travail
+[[how-workload-restoration-works]]
+== Comment fonctionne la restauration de la charge de travail
 
 Lorsque vous restaurez des charges de travail, les événements suivants se produisent :
 
@@ -68,10 +68,10 @@ Restaurez les charges de travail à l’aide de l’une de ces méthodes :
 
 
 
-[[restore-workload-data-from-the-restore-option]]
-== Restaurer les données de charge de travail à partir de l'option Restaurer
+[[restore-workload-data-from-the-restore-page]]
+== Restaurez les données de charge de travail à partir de la page Restaurer
 
-Restaurez les charges de travail de la base de données à l’aide de l’option Restaurer.
+Utilisez la page Restaurer pour restaurer les charges de travail de la base de données.
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Restaurer*.
@@ -97,7 +97,7 @@ Une liste d’instantanés apparaît.
 . Sélectionnez l’instantané que vous souhaitez restaurer.
 . Sélectionnez *Suivant*.
 +
-Vous verrez ensuite les options de destination.
+Les options de destination s'affichent.
 
 . Dans la page Détails de la destination, saisissez les informations suivantes :
 +
@@ -106,15 +106,16 @@ Vous verrez ensuite les options de destination.
 +
 *** *Écraser la base de données avec le même nom lors de la restauration* : Lors de la restauration, le nom de la base de données d'origine est conservé.
 *** *Conserver les paramètres de réplication de la base de données SQL* : conserve les paramètres de réplication de la base de données SQL après l'opération de restauration.
-*** *Créer une sauvegarde du journal des transactions avant la restauration* : Crée une sauvegarde du journal des transactions avant l'opération de restauration.***  *Quitter la restauration si la sauvegarde du journal des transactions avant la restauration échoue* : arrête l'opération de restauration si la sauvegarde du journal des transactions échoue.
+*** *Créer une sauvegarde du journal des transactions avant la restauration* : Crée une sauvegarde du journal des transactions avant l'opération de restauration.
+*** *Quitter la restauration si la sauvegarde du journal des transactions avant la restauration échoue* : arrête l'opération de restauration si la sauvegarde du journal des transactions échoue.
 *** *Prescript* : saisissez le chemin complet d'un script qui doit être exécuté avant l'opération de restauration, tous les arguments utilisés par le script et le temps d'attente pour que le script se termine.
 
 
 ** *Options post-restauration*:
 +
-*** *Opérationnel*, mais indisponible pour restaurer des journaux de transactions supplémentaires.  Cela remet la base de données en ligne après l'application des sauvegardes du journal des transactions.
-*** *Non opérationnel*, mais disponible pour restaurer des journaux de transactions supplémentaires.  Maintient la base de données dans un état non opérationnel après l'opération de restauration lors de la restauration des sauvegardes du journal des transactions.  Cette option est utile pour restaurer des journaux de transactions supplémentaires.
-*** *Mode lecture seule* et disponible pour restaurer des journaux de transactions supplémentaires.  Restaure la base de données en mode lecture seule et applique les sauvegardes du journal des transactions.
+*** *Opérationnel* : Remet la base de données en ligne après l’application des sauvegardes du journal des transactions. Vous ne pouvez pas restaurer de journaux de transactions supplémentaires.
+*** *Non opérationnel* : Maintient la base de données indisponible afin que vous puissiez restaurer des journaux de transactions supplémentaires.
+*** *Mode lecture seule* : Restaure la base de données en mode lecture seule et vous permet de restaurer des journaux de transactions supplémentaires.
 *** *Postscript* : Saisissez le chemin complet d'un script qui doit être exécuté après l'opération de restauration et tous les arguments que le script prend.
 
 
@@ -134,7 +135,7 @@ NetApp Backup and Recovery utilise les journaux et les instantanés les plus ré
 . Sélectionnez *Suivant*.
 . Dans la page Restaurer à un moment précis, saisissez les informations suivantes :
 +
-** *Date et heure de restauration des données* : saisissez la date et l'heure exactes des données que vous souhaitez restaurer.  Cette date et cette heure proviennent de l'hôte de la base de données Microsoft SQL Server.
+** *Date et heure de restauration des données* : Saisissez la date et l’heure exactes des données que vous souhaitez restaurer. Cette date et cette heure proviennent de l’hôte de la base de données Microsoft SQL Server.
 
 
 . Sélectionnez *Rechercher*.
@@ -152,9 +153,9 @@ NetApp Backup and Recovery utilise les journaux et les instantanés les plus ré
 
 ** *Options post-restauration*:
 +
-*** *Opérationnel*, mais indisponible pour restaurer des journaux de transactions supplémentaires.  Cela remet la base de données en ligne après l'application des sauvegardes du journal des transactions.
-*** *Non opérationnel*, mais disponible pour restaurer des journaux de transactions supplémentaires.  Maintient la base de données dans un état non opérationnel après l'opération de restauration lors de la restauration des sauvegardes du journal des transactions.  Cette option est utile pour restaurer des journaux de transactions supplémentaires.
-*** *Mode lecture seule* et disponible pour restaurer des journaux de transactions supplémentaires.  Restaure la base de données en mode lecture seule et applique les sauvegardes du journal des transactions.
+*** *Opérationnel* : Remet la base de données en ligne après l’application des sauvegardes du journal des transactions. Vous ne pouvez pas restaurer de journaux de transactions supplémentaires.
+*** *Non opérationnel* : Maintient la base de données indisponible afin que vous puissiez restaurer des journaux de transactions supplémentaires.
+*** *Mode lecture seule* : Restaure la base de données en mode lecture seule et vous permet de restaurer des journaux de transactions supplémentaires.
 *** *Postscript* : Saisissez le chemin complet d'un script qui doit être exécuté après l'opération de restauration et tous les arguments que le script prend.
 
 
@@ -168,13 +169,13 @@ NetApp Backup and Recovery utilise les journaux et les instantanés les plus ré
 [[restore-to-the-latest-backup]]
 === Restaurer la dernière sauvegarde
 
-Cette option utilise les dernières sauvegardes complètes et journaux pour restaurer vos données au dernier état correct.  Le système analyse les journaux depuis le dernier instantané jusqu'à présent.  Le processus suit les modifications et les activités pour restaurer la version la plus récente et la plus précise de vos données.
+Cette option utilise les dernières sauvegardes complètes et les journaux pour restaurer les données à leur dernier bon état. NetApp Backup and Recovery analyse les journaux depuis le dernier instantané jusqu'à présent afin de restaurer la version la plus récente disponible des données.
 
 . En continuant à partir de la page Options de restauration, sélectionnez *Restaurer vers la dernière sauvegarde*.
 +
 NetApp Backup and Recovery vous montre les snapshots disponibles pour l'opération de restauration.
 
-. Dans la page Restaurer vers l’état le plus récent, sélectionnez l’emplacement de l’instantané du stockage local, secondaire ou d’objets.
+. Sur la page *Restaurer le dernier état*, sélectionnez un emplacement d’instantané : stockage local, stockage secondaire ou stockage objet.
 . Sélectionnez *Suivant*.
 . Dans la page Détails de la destination, saisissez les informations suivantes :
 +
@@ -190,9 +191,9 @@ NetApp Backup and Recovery vous montre les snapshots disponibles pour l'opérati
 
 ** *Options post-restauration*:
 +
-*** *Opérationnel*, mais indisponible pour restaurer des journaux de transactions supplémentaires.  Cela remet la base de données en ligne après l'application des sauvegardes du journal des transactions.
-*** *Non opérationnel*, mais disponible pour restaurer des journaux de transactions supplémentaires.  Maintient la base de données dans un état non opérationnel après l'opération de restauration lors de la restauration des sauvegardes du journal des transactions.  Cette option est utile pour restaurer des journaux de transactions supplémentaires.
-*** *Mode lecture seule* et disponible pour restaurer des journaux de transactions supplémentaires.  Restaure la base de données en mode lecture seule et applique les sauvegardes du journal des transactions.
+*** *Opérationnel* : Remet la base de données en ligne après l’application des sauvegardes du journal des transactions. Vous ne pouvez pas restaurer de journaux de transactions supplémentaires.
+*** *Non opérationnel* : Maintient la base de données indisponible afin que vous puissiez restaurer des journaux de transactions supplémentaires.
+*** *Mode lecture seule* : Restaure la base de données en mode lecture seule et vous permet de restaurer des journaux de transactions supplémentaires.
 *** *Postscript* : Saisissez le chemin complet d'un script qui doit être exécuté après l'opération de restauration et tous les arguments que le script prend.
 
 
@@ -203,10 +204,10 @@ NetApp Backup and Recovery vous montre les snapshots disponibles pour l'opérati
 
 
 
-[[restore-workload-data-from-the-inventory-option]]
-== Restaurer les données de charge de travail à partir de l'option Inventaire
+[[restore-workload-data-from-the-inventory-page]]
+== Restaurez les données de charge de travail à partir de la page Inventaire
 
-Restaurer les charges de travail de la base de données à partir de la page Inventaire.  En utilisant l’option Inventaire, vous pouvez restaurer uniquement les bases de données, pas les instances.
+Utilisez la page Inventaire pour restaurer les charges de travail de base de données. Vous pouvez restaurer les bases de données, mais pas les instances, à partir de cette page.
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
@@ -224,5 +225,5 @@ Les trois mêmes options s'affichent lorsque vous restaurez à partir de la page
 ** Restaurer la dernière sauvegarde
 
 
-. Continuez avec les mêmes étapes pour l'option de restauration à partir de la page Restaurer
+. Effectuez les étapes correspondant à l’option de restauration sélectionnée depuis la page Restauration.
 

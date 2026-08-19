@@ -14,11 +14,11 @@ summary: Protégez vos charges de travail VMware avec NetApp Backup and Recovery
 
 
 [role="lead"]
-Sauvegardez les machines virtuelles VMware et les banques de données des systèmes ONTAP locaux vers Amazon Web Services, Azure NetApp Files ou StorageGRID pour garantir la protection de vos données. Les sauvegardes sont automatiquement générées et stockées dans un magasin d’objets sur votre compte cloud public ou privé.
+Sauvegardez vos machines virtuelles VMware et vos datastores depuis des systèmes ONTAP locaux vers Amazon Web Services, Azure NetApp Files ou StorageGRID pour protéger vos données. Les sauvegardes sont générées automatiquement et stockées dans un magasin d’objets de votre compte cloud public ou privé.
 
 * Pour sauvegarder les charges de travail selon un calendrier, créez des politiques qui régissent les opérations de sauvegarde et de restauration. Voir link:br-use-policies-create.html["Créer des politiques de protection"] pour les instructions.
 * Créez des groupes de protection pour gérer les opérations de sauvegarde et de restauration d'un ensemble de ressources. Voir link:br-use-vmware-protection-groups.html["Créer et gérer des groupes de protection"] pour plus d'informations.
-* Sauvegardez vos charges de travail maintenant (créez une sauvegarde à la demande maintenant).
+* Sauvegardez vos charges de travail dès maintenant en créant une sauvegarde à la demande.
 
 
 
@@ -31,7 +31,7 @@ Créez immédiatement une sauvegarde à la demande.  Vous souhaiterez peut-être
 *Rôle requis de la NetApp Console* : visionneur de stockage, super administrateur de sauvegarde et de restauration, administrateur de sauvegarde et de restauration, administrateur de restauration de sauvegarde et de restauration, administrateur de clonage de sauvegarde et de restauration ou visionneur de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^]
 
 .Étapes
-. Dans le menu Sauvegarde et récupération, sélectionnez *Inventaire*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez la charge de travail VMware.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
 . Sélectionnez l’en-tête de menu *Groupes de protection*, *Banques de données*, *Machines virtuelles* ou *Étiquettes*.

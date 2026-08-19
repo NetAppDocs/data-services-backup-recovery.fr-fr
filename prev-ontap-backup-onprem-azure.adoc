@@ -14,7 +14,7 @@ summary: Protégez vos charges de travail VMware avec NetApp Backup and Recovery
 
 
 [role="lead"]
-Effectuez quelques étapes dans NetApp Backup and Recovery pour commencer à sauvegarder les données de volume de vos systèmes ONTAP locaux vers un système de stockage secondaire et vers le stockage Azure Blob.
+Dans NetApp Backup and Recovery, vous pouvez sauvegarder les données de volumes de vos systèmes ONTAP locaux vers un système de stockage secondaire et vers Azure Blob. Utilisez cette page pour préparer votre environnement et activer les sauvegardes.
 
 
 NOTE: Les « systèmes ONTAP sur site » incluent les systèmes FAS, AFF et ONTAP Select .
@@ -64,7 +64,7 @@ Sinon, vous devrez créer un agent de console dans l’un de ces emplacements po
 * https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-on-prem.html["Installer un agent Console dans vos locaux"^]
 * https://docs.netapp.com/us-en/console-setup-admin/task-install-restricted-mode.html["Installer un agent de console dans une région Azure Government"^]
 +
-NetApp Backup and Recovery est pris en charge dans les régions Azure Government lorsque l’agent de console est déployé dans le cloud, et non lorsqu’il est installé dans vos locaux.  De plus, vous devez déployer l’agent de console à partir de la Place de marché Azure.  Vous ne pouvez pas déployer l'agent de console dans une région gouvernementale à partir du site Web SaaS de la console.
+NetApp Backup and Recovery est pris en charge dans les régions Azure Government lorsque l'agent Console est déployé dans le cloud, et non lorsqu'il est installé sur vos locaux. De plus, vous devez déployer l'agent Console depuis Azure Marketplace. Vous ne pouvez pas déployer l'agent Console dans une région Government depuis le site web NetApp Console SaaS.
 
 
 
@@ -290,7 +290,7 @@ Si vous prévoyez de créer des volumes répliqués sur un système ONTAP second
 
 . Vous pouvez utiliser vos propres clés gérées de manière personnalisée pour le chiffrement des données dans l’assistant d’activation au lieu d’utiliser les clés de chiffrement par défaut gérées par Microsoft.  Dans ce cas, vous aurez besoin de l’abonnement Azure, du nom du coffre de clés et de la clé. https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["Apprenez à utiliser vos propres clés"^] .
 +
-Notez que la sauvegarde et la récupération prennent en charge les _stratégies d’accès Azure_ comme modèle d’autorisation.  Le modèle d’autorisation _Azure role-based access control_ (Azure RBAC) n’est actuellement pas pris en charge.
+Notez que NetApp Backup and Recovery prend en charge les stratégies d’accès Azure comme modèle d’autorisation. Le modèle d’autorisation _Azure role-based access control_ (Azure RBAC) n’est actuellement pas pris en charge.
 
 . Si vous souhaitez disposer d’une connexion plus sécurisée sur l’Internet public depuis votre centre de données local vers le réseau virtuel, il existe une option permettant de configurer un point de terminaison privé Azure dans l’assistant d’activation.  Dans ce cas, vous devrez connaître le VNet et le sous-réseau pour cette connexion. https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview["Consultez les détails sur l'utilisation d'un point de terminaison privé"^] .
 
@@ -326,9 +326,9 @@ Vous pouvez également<<Afficher les commandes de l'API>> à l'étape de révisi
 === Démarrer l'assistant
 
 .Étapes
-. Accédez à l’assistant d’activation de sauvegarde et de récupération en utilisant l’une des méthodes suivantes :
+. Accédez à l'assistant d'activation de la sauvegarde et de la restauration en utilisant l'une des méthodes suivantes :
 +
-** Depuis la page *Systèmes* de la console, sélectionnez le système et sélectionnez *Activer > Volumes de sauvegarde* à côté du service de sauvegarde et de récupération dans le panneau de droite.
+** Dans la page *Systems* de la NetApp Console, sélectionnez le système et sélectionnez *Enable > Backup Volumes* à côté du service NetApp Backup and Recovery dans le panneau de droite.
 +
 Si la destination Azure de vos sauvegardes existe sur la page *Systèmes* de la console, vous pouvez faire glisser le cluster ONTAP sur le stockage d’objets Azure Blob.
 
@@ -336,7 +336,7 @@ Si la destination Azure de vos sauvegardes existe sur la page *Systèmes* de la 
 
 
 +
-La page d'introduction de l'assistant affiche les options de protection, notamment les instantanés locaux, la réplication et les sauvegardes.  Si vous avez effectué la deuxième option de cette étape, la page Définir la stratégie de sauvegarde s’affiche avec un volume sélectionné.
+La page d'introduction de l'assistant présente les options de protection, notamment les instantanés locaux, la réplication et les sauvegardes. Si vous avez choisi la deuxième option à cette étape, la page « Définir la stratégie de sauvegarde » s'affiche avec un volume sélectionné.
 
 . Continuez avec les options suivantes :
 +
@@ -382,7 +382,7 @@ Notez que si les volumes que vous choisissez ont déjà des stratégies de snaps
 
 La définition de la stratégie de sauvegarde implique de définir les options suivantes :
 
-* Que vous souhaitiez une ou toutes les options de sauvegarde : instantanés locaux, réplication et sauvegarde sur stockage d'objets
+* Que vous souhaitiez une ou toutes les options de sauvegarde : snapshots locaux, réplication et sauvegarde sur stockage d'objets
 * Architecture
 * Politique d'instantané local
 * Cible et politique de réplication
@@ -493,7 +493,7 @@ Pour créer une politique, sélectionnez *Créer une nouvelle politique* et proc
 +
 *** Entrez le nom de la politique.
 *** Sélectionnez jusqu'à cinq programmes, généralement de fréquences différentes.
-*** Pour les règles de sauvegarde vers objet, configurez les paramètres Datalock et de protection contre les ransomwares. Pour plus d’informations sur Datalock et la protection contre les ransomwares, consultez link:prev-ontap-policy-object-options.html["Paramètres de la politique de sauvegarde sur objet"].
+*** Pour les règles de sauvegarde vers objet, configurez les paramètres DataLock et de protection contre les ransomwares. Pour plus d’informations sur DataLock et la protection contre les ransomwares, consultez link:prev-ontap-policy-object-options.html["Paramètres de la politique de sauvegarde sur objet"].
 *** Sélectionnez *Créer*.
 
 
@@ -530,9 +530,9 @@ Vous pouvez également surveiller l’état des tâches de sauvegarde et de rest
 [[show-the-api-commands]]
 === Afficher les commandes de l'API
 
-Vous souhaiterez peut-être afficher et éventuellement copier les commandes API utilisées dans l’assistant d’activation de la sauvegarde et de la récupération.  Vous souhaiterez peut-être faire cela pour automatiser l’activation de la sauvegarde dans les futurs systèmes.
+Vous pouvez afficher et, éventuellement, copier les commandes API utilisées dans l'assistant d'activation de NetApp Backup and Recovery. Vous pouvez faire cela pour automatiser l'activation de la sauvegarde dans les systèmes futurs.
 
 .Étapes
-. Dans l’assistant d’activation de la sauvegarde et de la récupération, sélectionnez *Afficher la demande d’API*.
+. Dans l'assistant Activer la sauvegarde et la restauration, sélectionnez *Afficher la requête API*.
 . Pour copier les commandes dans le presse-papiers, sélectionnez l'icône *Copier*.
 

@@ -34,7 +34,7 @@ NetApp Backup and Recovery étend désormais son support aux magasins d'objets t
 
 ==== Démarrer avec Wasabi
 
-Pour commencer à utiliser un stockage tiers comme magasin d’objets, vous devez activer un indicateur dans l’agent de la console.  Ensuite, vous pouvez saisir les détails de connexion de votre magasin d’objets tiers et l’intégrer dans vos flux de travail de sauvegarde et de récupération.
+Pour commencer à utiliser un stockage tiers comme magasin d’objets, vous devez activer un indicateur dans l’agent de la Console. Ensuite, vous pouvez saisir les détails de connexion de votre magasin d’objets tiers et l’intégrer à vos workflows NetApp Backup and Recovery.
 
 .Étapes
 . Connectez-vous en SSH à votre connecteur.

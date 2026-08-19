@@ -14,9 +14,9 @@ summary: 'Référence des actions de sauvegarde et de restauration prises en cha
 
 
 [role="lead"]
-La page d'audit de la NetApp Console enregistre les actions suivantes effectuées par les utilisateurs dans NetApp Backup and Recovery dans le cadre de sa fonction d'audit. Pour plus d'informations sur la consultation et le filtrage des événements d'audit, reportez-vous à  https://docs.netapp.com/us-en/console-setup-admin/task-monitor-cm-operations.html#audit-user-activity-from-the-audit-page["Audit de l'activité des utilisateurs depuis la page d'audit"^]la documentation de la Console.
+Utilisez cette référence pour voir quelles actions de sauvegarde et de restauration NetApp Backup and Recovery la NetApp Console enregistre sur la page d'audit. Pour plus de détails sur l'affichage et le filtrage des événements d'audit, consultez  https://docs.netapp.com/us-en/console-setup-admin/task-monitor-cm-operations.html#audit-user-activity-from-the-audit-page["Audit de l'activité des utilisateurs depuis la page d'audit"^] la documentation de la NetApp Console.
 
-Pour chaque action auditée, la Console enregistre le nom du service, l'agent, la ressource, l'utilisateur et l'état de l'action.
+Pour chaque action auditée, NetApp Console enregistre le nom du service, l’agent, la ressource, l’utilisateur et l’état de l’action.
 
 .Actions de sauvegarde et de restauration auditées
 * Restaurez le volume ou les fichiers à partir de la sauvegarde

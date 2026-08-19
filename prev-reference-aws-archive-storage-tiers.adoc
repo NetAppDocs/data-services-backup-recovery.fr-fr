@@ -14,14 +14,14 @@ summary: 'NetApp Backup and Recovery prend en charge deux classes de stockage d"
 
 
 [role="lead"]
-NetApp Backup and Recovery prend en charge deux classes de stockage d'archivage S3 et la plupart des régions.
+Utilisez ces informations pour choisir un niveau d'archivage AWS S3 pour les sauvegardes NetApp Backup and Recovery. Vous pouvez également consulter les coûts de restauration et les délais de récupération des sauvegardes archivées.
 
 
 
 [[supported-s3-archival-storage-classes-for-netapp-backup-and-recovery]]
 == Classes de stockage d'archivage S3 prises en charge pour NetApp Backup and Recovery
 
-Lorsque les fichiers de sauvegarde sont initialement créés, ils sont stockés dans le stockage S3 _Standard_.  Ce niveau est optimisé pour stocker des données rarement consultées, mais qui vous permet également d'y accéder immédiatement.  Après 30 jours, les sauvegardes passent à la classe de stockage S3 _Standard-Infrequent Access_ pour réduire les coûts.
+Lorsque les fichiers de sauvegarde sont initialement créés, ils sont stockés dans le stockage S3 _Standard_. Ce niveau est optimisé pour le stockage des données rarement consultées, tout en permettant un accès immédiat. Après 30 jours, les sauvegardes passent à la classe de stockage S3 _Standard-Infrequent Access_ afin de réduire les coûts.
 
 Si vos clusters sources exécutent ONTAP 9.10.1 ou une version ultérieure, vous pouvez choisir de hiérarchiser les sauvegardes vers le stockage _S3 Glacier_ ou _S3 Glacier Deep Archive_ après un certain nombre de jours (généralement plus de 30 jours) pour une optimisation supplémentaire des coûts.  Vous pouvez définir cette valeur sur « 0 » ou sur 1 à 999 jours.  Si vous le définissez sur « 0 » jours, vous ne pourrez pas le modifier ultérieurement sur 1 à 999 jours.
 

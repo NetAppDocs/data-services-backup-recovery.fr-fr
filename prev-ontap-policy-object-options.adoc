@@ -14,7 +14,7 @@ summary: Protégez vos charges de travail VMware avec NetApp Backup and Recovery
 
 
 [role="lead"]
-NetApp Backup and Recovery vous permet de créer des politiques de sauvegarde avec une variété de paramètres pour vos systèmes ONTAP et Cloud Volumes ONTAP sur site.
+Utilisez les règles de sauvegarde vers objet dans NetApp Backup and Recovery pour définir les calendriers, la rétention, DataLock, la protection contre les ransomwares et les paramètres d’archivage pour vos systèmes ONTAP sur site et Cloud Volumes ONTAP.
 
 
 NOTE: Ces paramètres de stratégie s'appliquent uniquement au stockage de sauvegarde sur objet.  Aucun de ces paramètres n’affecte vos stratégies de capture instantanée ou de réplication.
@@ -59,7 +59,7 @@ Les sauvegardes annuelles sont automatiquement supprimées du système source ap
 
 NetApp Backup and Recovery prend en charge la protection DataLock et Ransomware pour vos sauvegardes de volumes.  Ces fonctionnalités vous permettent de verrouiller vos fichiers de sauvegarde et de les analyser pour détecter d'éventuels ransomwares sur les fichiers de sauvegarde.  Il s’agit d’un paramètre facultatif que vous pouvez définir dans vos politiques de sauvegarde lorsque vous souhaitez une protection supplémentaire pour vos sauvegardes de volume pour un cluster.
 
-Ces deux fonctionnalités protègent vos fichiers de sauvegarde, vous assurant ainsi de toujours disposer d'un fichier de sauvegarde valide pour récupérer des données en cas de tentative d'attaque par ransomware sur vos sauvegardes. Elles sont également utiles pour répondre à certaines exigences réglementaires où les sauvegardes doivent être verrouillées et conservées pendant une certaine période. Lorsque l'option *Datalock and Ransomware protection* est activée, le compartiment cloud provisionné dans le cadre de l’activation de NetApp Backup and Recovery bénéficiera du verrouillage et du versionnage des objets.
+Ces deux fonctionnalités protègent vos fichiers de sauvegarde, vous assurant ainsi de toujours disposer d'un fichier de sauvegarde valide pour récupérer des données en cas de tentative d'attaque par ransomware sur vos sauvegardes. Elles sont également utiles pour répondre à certaines exigences réglementaires lorsque les sauvegardes doivent être verrouillées et conservées pendant une certaine période. Lorsque l'option *DataLock and Ransomware protection* est activée, le compartiment cloud provisionné dans le cadre de l'activation de NetApp Backup and Recovery bénéficiera du verrouillage et du versionnage des objets.
 
 Cette fonctionnalité ne fournit pas de protection pour vos volumes sources ; uniquement pour les sauvegardes de ces volumes sources.  Utilisez certains des https://docs.netapp.com/us-en/ontap/anti-ransomware/index.html["protections anti-ransomware fournies par ONTAP"^] pour protéger vos volumes sources.
 
@@ -125,7 +125,7 @@ Le paramètre de conservation DataLock remplace le paramètre de conservation de
 
 Vous pouvez activer la protection DataLock et Ransomware lorsque vous créez une politique.  Vous ne pouvez pas activer, modifier ou désactiver cette option une fois la politique créée.
 
-. Lors de la création d'une règle, développez la section *Datalock and Ransomware protection*.
+. Lorsque vous créez une règle, développez la section *DataLock et protection contre les ransomwares*.
 . Choisissez l’une des options suivantes :
 +
 ** *Aucune* : la protection DataLock et la protection contre les ransomwares sont désactivées.
@@ -181,7 +181,7 @@ Vous pouvez activer la protection DataLock et Ransomware sur les volumes ONTAP d
 | Cloud Volumes ONTAP dans Azure | Azure Blob 
 
 
-| Cloud Volumes ONTAP dans Google Cloud | Google Cloud 
+| Cloud Volumes ONTAP dans Google Cloud | Stockage Google Cloud 
 
 
 | Système ONTAP sur site | Amazon S3, Azure Blob, Google Cloud , NetApp StorageGRID 
@@ -334,7 +334,7 @@ De plus, vous pouvez obtenir des estimations du coût associé à DataLock en vi
 [[archival-storage-options]]
 == Options de stockage d'archives
 
-Lorsque vous utilisez le stockage cloud AWS, Azure ou Google, vous pouvez déplacer les anciens fichiers de sauvegarde vers une classe de stockage d'archivage ou un niveau d'accès moins coûteux après un certain nombre de jours.  Vous pouvez également choisir d'envoyer immédiatement vos fichiers de sauvegarde vers un stockage d'archives sans les écrire sur un stockage cloud standard.  Entrez simplement *0* comme « Archiver après jours » pour envoyer votre fichier de sauvegarde directement vers le stockage d'archivage.  Cela peut être particulièrement utile pour les utilisateurs qui ont rarement besoin d’accéder aux données des sauvegardes cloud ou pour les utilisateurs qui remplacent une solution de sauvegarde sur bande.
+Lorsque vous utilisez AWS, Azure ou Google Cloud Storage, vous pouvez déplacer les fichiers de sauvegarde les plus anciens vers une classe de stockage d’archivage ou un niveau d’accès moins coûteux après un certain nombre de jours. Vous pouvez également choisir d’envoyer vos fichiers de sauvegarde vers le stockage d’archivage immédiatement, sans qu’ils soient écrits sur le stockage cloud standard. Il vous suffit de saisir *0* comme valeur pour « Archive After Days » afin d’envoyer votre fichier de sauvegarde directement vers le stockage d’archivage. Cela peut être particulièrement utile pour les utilisateurs qui ont rarement besoin d’accéder aux données des sauvegardes cloud ou pour ceux qui remplacent une solution de sauvegarde sur bande.
 
 Les données des niveaux d'archivage ne sont pas immédiatement accessibles en cas de besoin et nécessiteront un coût de récupération plus élevé. Vous devrez donc prendre en compte la fréquence à laquelle vous devrez peut-être restaurer les données à partir de fichiers de sauvegarde avant de décider d'archiver vos fichiers de sauvegarde.
 

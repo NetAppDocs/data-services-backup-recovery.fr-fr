@@ -14,7 +14,7 @@ summary: 'NetApp Backup and Recovery vous permet de gérer les hooks d"exécutio
 
 
 [role="lead"]
-Un hook d’exécution est une action personnalisée qui s’exécute avec une opération de protection des données dans une application Kubernetes gérée.  Par exemple, créez des instantanés cohérents avec l'application en utilisant un hook d'exécution pour suspendre les transactions de base de données avant un instantané et les reprendre après.  Lorsque vous créez un modèle de hook d'exécution, spécifiez le type de hook, le script à exécuter et les filtres pour les conteneurs cibles.  Utilisez le modèle pour lier les hooks d’exécution à vos applications.
+Créez des modèles de hooks d'exécution pour exécuter des scripts personnalisés avant ou après les opérations de protection des applications Kubernetes gérées.
 
 [NOTE]
 ====
@@ -33,7 +33,7 @@ Administrateur d'organisation ou administrateur SnapCenter . link:reference-role
 [[types-of-execution-hooks]]
 == Types de hooks d'exécution
 
-NetApp Backup and Recovery prend en charge les types de hooks d'exécution suivants, en fonction du moment où ils peuvent être exécutés :
+NetApp Backup and Recovery prend en charge les types de hooks d'exécution suivants en fonction de leur moment d'exécution :
 
 * Pré-instantané
 * Post-instantané
@@ -47,21 +47,21 @@ NetApp Backup and Recovery prend en charge les types de hooks d'exécution suiva
 [[order-of-execution]]
 === Ordre d'exécution
 
-Lorsqu'une opération de protection des données est exécutée, les événements de hook d'exécution se produisent dans l'ordre suivant :
+Lorsqu'une opération de protection des données s'exécute, les événements du hook d'exécution se produisent dans l'ordre suivant :
 
 . Tous les hooks d’exécution de pré-opération personnalisés applicables sont exécutés sur les conteneurs appropriés. Vous pouvez créer plusieurs hooks de pré-opération personnalisés, mais leur ordre d'exécution n'est ni garanti ni configurable.
 . Des blocages du système de fichiers se produisent, le cas échéant.
 . L'opération de protection des données est effectuée.
 . Les systèmes de fichiers gelés sont dégelés, le cas échéant.
-. NetApp Backup and Recovery exécute tous les hooks d’exécution de pré-opération personnalisés applicables sur les conteneurs appropriés.  Vous pouvez créer plusieurs hooks post-opération personnalisés, mais leur ordre d'exécution n'est ni garanti ni configurable.
+. NetApp Backup and Recovery exécute tous les hooks personnalisés post-opération applicables sur les conteneurs appropriés. Vous pouvez créer plusieurs hooks personnalisés post-opération, mais leur ordre d'exécution n'est ni garanti ni configurable.
 
 
-Si vous créez plusieurs hooks du même type, leur ordre d'exécution n'est pas garanti.  Les crochets de différents types fonctionnent toujours dans l'ordre spécifié. Par exemple, voici l’ordre d’exécution d’une configuration qui possède tous les différents types de hooks :
+Si vous créez plusieurs hooks du même type, leur ordre d'exécution n'est pas garanti. Les hooks de types différents s'exécutent toujours dans l'ordre spécifié. Par exemple, les hooks s'exécutent dans cet ordre lorsqu'une configuration inclut tous les types de hooks pris en charge :
 
-. Hooks pré-instantanés exécutés
-. Hooks post-instantanés exécutés
-. Hooks de pré-sauvegarde exécutés
-. Hooks post-sauvegarde exécutés
+. Exécution des hooks de pré-snapshot
+. Exécution des hooks post-snapshot
+. Exécution des hooks de pré-sauvegarde
+. Exécution des hooks post-sauvegarde
 
 
 
@@ -75,25 +75,25 @@ NOTE: Si un hook d’exécution pré-snapshot ajoute, modifie ou supprime des re
 [[important-notes-about-custom-execution-hooks]]
 == Remarques importantes sur les hooks d'exécution personnalisés
 
-Tenez compte des éléments suivants lors de la planification des hooks d’exécution pour vos applications.
+Tenez compte des éléments suivants lors de la planification des hooks d'exécution pour vos applications.
 
 * Un hook d'exécution doit utiliser un script pour effectuer des actions.  De nombreux hooks d’exécution peuvent référencer le même script.
-* Les hooks d’exécution doivent être écrits au format de scripts shell exécutables.
+* Les hooks d'exécution doivent être des scripts shell exécutables.
 * La taille du script est limitée à 96 Ko.
 * Les paramètres de hook d'exécution et tous les critères de correspondance sont utilisés pour déterminer quels hooks sont applicables à une opération de snapshot, de sauvegarde ou de restauration.
 
 
 
-NOTE: Les hooks d’exécution peuvent réduire ou désactiver les fonctionnalités de l’application.  Faites fonctionner vos crochets personnalisés le plus rapidement possible. Si vous démarrez une opération de sauvegarde ou de snapshot avec des hooks d'exécution associés, mais que vous l'annulez ensuite, les hooks sont toujours autorisés à s'exécuter si l'opération de sauvegarde ou de snapshot a déjà commencé. Cela signifie que la logique utilisée dans un hook d’exécution post-sauvegarde ne peut pas supposer que la sauvegarde a été terminée.
+NOTE: Les hooks d'exécution peuvent réduire ou désactiver la fonctionnalité de l'application. Faites en sorte que vos hooks personnalisés s'exécutent le plus rapidement possible. Si vous annulez une opération de sauvegarde ou de snapshot qui a des hooks d'exécution associés, ces hooks s'exécutent quand même si l'opération a déjà commencé. La logique d'un hook d'exécution post-sauvegarde ne peut pas supposer que la sauvegarde est terminée.
 
 
 
 [[execution-hook-filters]]
 == Filtres de crochet d'exécution
 
-Lorsque vous ajoutez ou modifiez un hook d'exécution pour une application, vous pouvez ajouter des filtres au hook d'exécution pour gérer les conteneurs auxquels le hook correspondra.  Les filtres sont utiles pour les applications qui utilisent la même image de conteneur sur tous les conteneurs, mais peuvent utiliser chaque image à des fins différentes (comme Elasticsearch).  Les filtres vous permettent de créer des scénarios dans lesquels les hooks d'exécution s'exécutent sur certains conteneurs identiques, mais pas nécessairement sur tous.  Si vous créez plusieurs filtres pour un seul hook d'exécution, ils sont combinés avec un opérateur AND logique.  Vous pouvez avoir jusqu'à 10 filtres actifs par hook d'exécution.
+Lorsque vous ajoutez ou modifiez un hook d'exécution pour une application, vous pouvez ajouter des filtres au hook d'exécution afin de contrôler les conteneurs auxquels le hook correspond. Les filtres sont utiles pour les applications qui utilisent la même image de conteneur sur tous les conteneurs, mais peuvent utiliser chaque image à des fins différentes (comme Elasticsearch). Les filtres vous permettent de créer des scénarios où les hooks d'exécution s'exécutent sur certains, mais pas nécessairement sur tous les conteneurs identiques. Si vous créez plusieurs filtres pour un même hook d'exécution, ils sont combinés à l'aide de l'opérateur logique AND. Vous pouvez avoir jusqu'à 10 filtres actifs par hook d'exécution.
 
-Chaque filtre que vous ajoutez à un hook d’exécution utilise une expression régulière pour faire correspondre les conteneurs de votre cluster.  Lorsqu'un hook correspond à un conteneur, le hook exécutera son script associé sur ce conteneur.  Les expressions régulières pour les filtres utilisent la syntaxe d'expression régulière 2 (RE2), qui ne prend pas en charge la création d'un filtre excluant les conteneurs de la liste des correspondances.  Pour plus d'informations sur la syntaxe prise en charge par NetApp Backup and Recovery pour les expressions régulières dans les filtres de hook d'exécution, consultez https://github.com/google/re2/wiki/Syntax["Prise en charge de la syntaxe des expressions régulières 2 (RE2)"^] .
+Chaque filtre que vous ajoutez à un hook d'exécution utilise une expression régulière pour faire correspondre les conteneurs de votre cluster. Lorsqu'un hook correspond à un conteneur, il exécute son script associé sur ce conteneur. Les expressions régulières pour les filtres utilisent la syntaxe Regular Expression 2 (RE2), qui ne permet pas de créer un filtre excluant des conteneurs de la liste des correspondances. Pour obtenir des informations sur la syntaxe que NetApp Backup and Recovery prend en charge pour les expressions régulières dans les filtres des hooks d'exécution, consultez  https://github.com/google/re2/wiki/Syntax["Prise en charge de la syntaxe des expressions régulières 2 (RE2)"^].
 
 
 NOTE: Si vous ajoutez un filtre d'espace de noms à un hook d'exécution qui s'exécute après une opération de restauration ou de clonage et que la source et la destination de restauration ou de clonage se trouvent dans des espaces de noms différents, le filtre d'espace de noms est appliqué uniquement à l'espace de noms de destination.

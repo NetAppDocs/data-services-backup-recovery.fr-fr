@@ -14,13 +14,13 @@ summary: Créez et gérez des groupes de protection pour les charges de travail 
 
 
 [role="lead"]
-Créez des groupes de protection pour gérer les opérations de sauvegarde d’un ensemble de ressources de base de données Oracle.  Un groupe de protection est un regroupement logique de ressources telles que des bases de données que vous souhaitez protéger ensemble.  Vous devez créer un groupe de protection pour sauvegarder les bases de données Oracle.
+Créez des groupes de protection pour gérer les opérations de sauvegarde des ressources Oracle Database. Un groupe de protection est un regroupement logique de ressources, telles que des bases de données, que vous souhaitez protéger ensemble.
 
 Vous pouvez effectuer les tâches suivantes liées aux groupes de protection :
 
 * Créer un groupe de protection.
 * Afficher les détails de la protection.
-* Sauvegardez un groupe de protection maintenant. Voir link:br-use-kvm-backup.html["Sauvegardez dès maintenant les charges de travail Oracle Database"].
+* Sauvegardez un groupe de protection maintenant. Voir link:br-use-oracle-backup.html["Sauvegardez dès maintenant les charges de travail Oracle Database"].
 * Supprimer un groupe de protection.
 
 
@@ -29,7 +29,7 @@ Vous pouvez effectuer les tâches suivantes liées aux groupes de protection :
 [[create-a-protection-group]]
 == Créer un groupe de protection
 
-Regroupez les machines virtuelles et les pools de stockage que vous souhaitez protéger dans un groupe de protection.
+Regroupez les ressources de base de données Oracle que vous souhaitez protéger ensemble dans un groupe de protection.
 
 *Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
@@ -40,7 +40,7 @@ Regroupez les machines virtuelles et les pools de stockage que vous souhaitez pr
 . Sélectionnez l'onglet *Groupes de protection*.
 . Sélectionnez *Créer un groupe de protection*.
 . Donnez un nom au groupe de protection.
-. Sélectionnez les machines virtuelles ou les pools de stockage que vous souhaitez inclure dans le groupe de protection.
+. Sélectionnez les bases de données que vous souhaitez inclure dans le groupe de protection.
 . Sélectionnez *Suivant*.
 . Sélectionnez la *politique de sauvegarde* que vous souhaitez appliquer au groupe de protection.
 +

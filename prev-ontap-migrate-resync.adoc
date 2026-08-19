@@ -14,11 +14,9 @@ summary: La fonctionnalité SnapMirror to Cloud Resync de NetApp Backup and Reco
 
 
 [role="lead"]
-La fonctionnalité SnapMirror to Cloud Resync de NetApp Backup and Recovery rationalise la protection et la continuité des données lors des migrations de volumes dans les environnements NetApp . Lorsqu'un volume est migré à l'aide de SnapMirror Logical Replication (LRSE) d'un déploiement NetApp sur site à un autre, ou vers une solution basée sur le cloud telle que Cloud Volumes ONTAP, SnapMirror to Cloud Resync garantit que les sauvegardes cloud existantes restent intactes et opérationnelles.
+Utilisez SnapMirror to Cloud Resync dans NetApp Backup and Recovery pour conserver les sauvegardes cloud existantes disponibles après la migration d’un volume avec la réplication logique SnapMirror (LRSE). Cette fonctionnalité permet la poursuite des sauvegardes sans nouvelle ligne de base et est disponible à partir de ONTAP 9.16.1.
 
-Cette fonctionnalité élimine le besoin d'un processus de réétablissement de la configuration de référence et permet aux sauvegardes de se poursuivre après la migration. Cette fonctionnalité est utile dans les scénarios de migration de charge de travail, prenant en charge à la fois FlexVols et FlexGroups, et est disponible à partir de la version 9.16.1 ONTAP .
-
-La resynchronisation SnapMirror vers le cloud assure la continuité des sauvegardes entre les environnements, facilitant ainsi la gestion des données dans les configurations hybrides et multicloud.
+SnapMirror to Cloud Resync prend en charge les migrations FlexVol et FlexGroup et vous aide à maintenir la continuité des sauvegardes dans les environnements hybrides et multicloud.
 
 
 NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
@@ -46,7 +44,7 @@ Si vous effectuez une actualisation technique ou migrez des volumes d'un cluster
 
 Voici un exemple :
 
-Imaginez que vous disposez d’un volume sur site appelé Vol1a. Ce volume contient trois instantanés : S1, S2 et S3. Ces instantanés sont des points de restauration.  Le volume 1 est sauvegardé dans le cloud à l'aide de SnapMirror to Cloud (SM-C), mais seuls les volumes S1 et S2 sont stockés dans l'objet.
+Imaginez que vous disposez d’un volume local appelé Vol1a. Ce volume comporte trois snapshots : S1, S2 et S3. Ces snapshots sont des points de restauration. Vol1a est sauvegardé dans le cloud à l’aide de SnapMirror to Cloud (SM-C), mais seuls S1 et S2 se trouvent dans le stockage d’objets.
 
 Maintenant, vous souhaitez migrer Vol1 vers un autre cluster ONTAP .  Pour ce faire, vous créez une relation de réplication logique SnapMirror (LRSE) avec un nouveau volume cloud appelé Vol1b.  Cela transfère les trois instantanés (S1, S2 et S3) du Vol1a au Vol1b.
 
@@ -168,7 +166,7 @@ NOTE: L'UUID de l'instance de volume doit être utilisé, et non l'ID de volume.
 NetApp Backup and Recovery valide que chaque volume sélectionné pour la resynchronisation partage un instantané commun avec le stockage d'objets. Plus précisément, le dernier instantané stocké dans le stockage d'objets doit également exister dans l'instantané local du nouveau volume cloné. Cette vérification garantit que les volumes sont prêts pour l'opération SnapMirror to Cloud Resync.
 
 . Examinez les résultats de la validation, y compris les nouveaux noms de volumes sources et l’état de resynchronisation de chaque volume.
-. Vérifiez l'éligibilité des volumes. Le système vérifie si les volumes sont éligibles à la resynchronisation. Si un volume n'est pas éligible, cela signifie que les critères de snapshot commun n'ont pas été établis.
+. Vérifiez l'éligibilité des volumes. Le système vérifie si les volumes sont éligibles à la resynchronisation. Si un volume n'est pas éligible, cela signifie que les critères communs de création d'instantanés n'ont pas été respectés.
 +
 
 IMPORTANT: Pour garantir que les volumes restent éligibles pour l'opération de resynchronisation SnapMirror vers Cloud, prenez un instantané final de chaque volume avant de supprimer toute relation SnapMirror pendant la phase de pré-migration.  Cela préserve l’état le plus récent des données.

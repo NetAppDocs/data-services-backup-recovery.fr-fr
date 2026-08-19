@@ -14,13 +14,13 @@ summary: Vous pouvez utiliser la fonction Rechercher et restaurer pour récupér
 
 
 [role="lead"]
-Les sauvegardes de vos données de volume ONTAP sont stockées sous forme d'instantanés, sur des volumes répliqués ou dans un stockage objet.  Vous pouvez restaurer des données à partir de n'importe lequel de ces emplacements à un moment précis.  Avec NetApp Backup and Recovery, vous pouvez restaurer un volume entier, un dossier ou des fichiers individuels selon vos besoins.
+Utilisez NetApp Backup and Recovery pour restaurer les données de vos volumes ONTAP à partir d'instantanés, de volumes répliqués ou d'un stockage objet à un moment précis. Vous pouvez restaurer un volume entier, un dossier ou des fichiers individuels selon vos besoins.
 
 
 NOTE: Lorsque vous restaurez un volume activé SnapLock, le volume restauré conserve la protection SnapLock uniquement si le stockage de destination est compatible WORM. Si vous restaurez vers une destination non compatible WORM, le statut SnapLock est supprimé du volume restauré.
 
 * Vous pouvez restaurer un *volume* (en tant que nouveau volume) sur le système d'origine, sur un autre système utilisant le même compte cloud ou sur un système ONTAP sur site.
-* Vous pouvez restaurer un *dossier* à partir d'instantanés répliqués ou de stockage objet vers un volume du système d'origine, vers un volume d'un autre système utilisant le même compte cloud, ou vers un volume sur un système ONTAP local. La restauration de dossiers à partir d'instantanés locaux n'est pas prise en charge.
+* Vous pouvez restaurer un *dossier* à partir d'un volume répliqué ou d'une sauvegarde de stockage objet vers un volume du système d'origine, vers un volume d'un autre système utilisant le même compte cloud, ou vers un volume sur un système ONTAP local. La restauration de dossiers à partir d'instantanés locaux n'est pas prise en charge.
 * Vous pouvez restaurer des *fichiers* sur un volume du système d'origine, sur un volume d'un autre système utilisant le même compte cloud ou sur un volume d'un système ONTAP local.
 
 
@@ -53,10 +53,10 @@ Le tableau de bord de restauration propose deux manières différentes de restau
 
 
 
-[[comparing-browse-restore-and-search-restore]]
-== Comparaison de Parcourir et restaurer et de Rechercher et restaurer
+[[compare-browse-restore-and-search-restore]]
+== Comparer Parcourir et restaurer et Rechercher et restaurer
 
-En termes généraux, _Parcourir et restaurer_ est généralement préférable lorsque vous devez restaurer un volume, un dossier ou un fichier spécifique de la semaine ou du mois dernier - et que vous connaissez le nom et l'emplacement du fichier, ainsi que la date à laquelle il était en bon état pour la dernière fois.  _Rechercher et restaurer_ est généralement plus efficace lorsque vous devez restaurer un volume, un dossier ou un fichier, mais que vous ne vous souvenez pas du nom exact, du volume dans lequel il réside ou de la date à laquelle il était en bon état pour la dernière fois.
+De manière générale, _Parcourir et restaurer_ est généralement préférable lorsque vous devez restaurer un volume, un dossier ou un fichier spécifique datant de la semaine ou du mois précédent et que vous connaissez le nom et l’emplacement du fichier ainsi que la date à laquelle il était en bon état. _Rechercher et restaurer_ est généralement préférable lorsque vous devez restaurer un volume, un dossier ou un fichier, mais que vous ne vous souvenez pas du nom exact, du volume dans lequel il se trouve ou de la date à laquelle il était en bon état.
 
 Ce tableau fournit une comparaison des fonctionnalités des deux méthodes.
 
@@ -68,7 +68,7 @@ Ce tableau fournit une comparaison des fonctionnalités des deux méthodes.
 | Parcourez une structure de type dossier pour trouver le volume, le dossier ou le fichier dans un seul fichier de sauvegarde. | Recherchez un volume, un dossier ou un fichier dans *tous les fichiers de sauvegarde* par nom de volume partiel ou complet, nom de dossier/fichier partiel ou complet, plage de taille et filtres de recherche supplémentaires. 
 
 
-| Ne gère pas la récupération de fichier si le fichier a été supprimé ou renommé et que l'utilisateur ne connaît pas le nom du fichier d'origine | Gère les répertoires nouvellement créés/supprimés/renommés et les fichiers nouvellement créés/supprimés/renommés 
+| Ne permet pas la restauration de fichier si le fichier a été supprimé ou renommé et que vous ne connaissez pas le nom d'origine du fichier | Gère les répertoires et fichiers nouvellement créés, supprimés et renommés 
 
 
 | La restauration rapide est prise en charge. | La restauration rapide n'est pas prise en charge. 

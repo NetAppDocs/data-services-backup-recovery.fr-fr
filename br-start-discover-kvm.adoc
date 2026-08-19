@@ -14,7 +14,7 @@ summary: NetApp Backup and Recovery doit d’abord découvrir les charges de tra
 
 
 [role="lead"]
-NetApp Backup and Recovery doit détecter les hôtes KVM et les machines virtuelles avant de les protéger. Vos hôtes KVM et vos machines virtuelles doivent être gérés par une plateforme de gestion telle qu'Apache CloudStack avant de pouvoir être ajoutés à la sauvegarde et à la restauration.
+Découvrez les hôtes KVM et les machines virtuelles dans NetApp Backup and Recovery afin de les protéger à l'aide de politiques de protection. Votre environnement KVM doit être géré par une plateforme d'administration telle qu'Apache CloudStack avant la découverte.
 
 *Rôle de console requis* Super administrateur de sauvegarde et de récupération.  En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
@@ -26,10 +26,10 @@ NetApp Backup and Recovery doit détecter les hôtes KVM et les machines virtuel
 Ajoutez les informations relatives à la plateforme de gestion et à l'hôte KVM, et laissez NetApp Backup and Recovery découvrir les charges de travail.
 
 .Étapes
-. Dans le menu de la NetApp Console , sélectionnez *Protection > Sauvegarde et récupération*.
+. Dans le menu de la NetApp Console , sélectionnez *Protection* > *Sauvegarde et récupération*.
 . Sous *Charges de travail*, sélectionnez la vignette *KVM*.
 +
-Si vous vous connectez à Backup and Recovery pour la première fois et que vous avez un système dans la console mais aucune ressource découverte, la page _Bienvenue sur le nouveau NetApp Backup and Recovery_ apparaît avec une option pour *Découvrir les ressources*.
+Si c'est la première fois que vous vous connectez à NetApp Backup and Recovery et que vous avez déjà un système dans la Console mais aucune ressource découverte, la page « Bienvenue dans le nouveau NetApp Backup and Recovery » apparaît avec une option pour *Découvrir les ressources*.
 
 . Sélectionnez *Découvrir les ressources*.
 . Saisissez les informations suivantes :
@@ -39,7 +39,7 @@ Si vous vous connectez à Backup and Recovery pour la première fois et que vous
 +
 ... Saisissez les informations suivantes :
 +
-**** *Adresse IP ou nom de domaine complet de la plateforme de gestion* : Saisissez l’adresse IP ou le nom de domaine complet de la plateforme de gestion.
+**** *Adresse IP ou nom de domaine complet (FQDN) de la plateforme de gestion* : Saisissez l’adresse IP ou un nom de domaine complet (FQDN) de la plateforme de gestion.
 **** *Clé API* : Saisissez la clé API à utiliser pour authentifier les requêtes API.
 **** *Clé secrète* : Saisissez la clé secrète à utiliser pour authentifier les requêtes API.
 **** *Port* : Saisissez le port à utiliser pour la communication entre la sauvegarde et la restauration et la plateforme de gestion.
@@ -77,7 +77,7 @@ La charge de travail KVM s'affiche dans la liste des charges de travail sur la p
 
 .Étapes
 . Dans le menu de la NetApp Console , sélectionnez *Protection* > *Sauvegarde et récupération*.
-. Sélectionnez une mosaïque de charge de travail (par exemple, Microsoft SQL Server).
+. Sélectionnez la vignette de charge de travail KVM.
 . Dans le menu Sauvegarde et récupération, sélectionnez *Tableau de bord*.
 . Examiner l’état de santé de la protection des données.  Le nombre de charges de travail à risque ou protégées augmente en fonction des charges de travail nouvellement découvertes, protégées et sauvegardées.
 

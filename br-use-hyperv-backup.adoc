@@ -14,11 +14,11 @@ summary: Protégez vos charges de travail Hyper-V avec la sauvegarde et la récu
 
 
 [role="lead"]
-Sauvegardez les machines virtuelles Hyper-V des systèmes ONTAP locaux vers Amazon Web Services, Azure NetApp Files ou StorageGRID pour garantir la protection de vos données. Les sauvegardes sont automatiquement générées et stockées dans un magasin d’objets sur votre compte cloud public ou privé.
+Sauvegardez les machines virtuelles Hyper-V depuis les systèmes ONTAP locaux vers des cibles de stockage objet compatibles afin de protéger vos données. Les sauvegardes planifiées et à la demande sont stockées dans votre cloud ou votre stockage objet privé.
 
 * Pour sauvegarder des charges de travail selon une planification, créez des stratégies qui régissent les opérations de sauvegarde et de restauration.  Voirlink:br-use-policies-create.html["Créer des politiques"] pour les instructions.
 * Créez des groupes de protection pour gérer les opérations de sauvegarde et de restauration d'un ensemble de ressources. Voir link:br-use-hyperv-protection-groups.html["Créez et gérez des groupes de protection Hyper-V dans NetApp Backup and Recovery"] pour plus d'informations.
-* Sauvegardez vos charges de travail maintenant (créez une sauvegarde à la demande maintenant).
+* Sauvegardez vos charges de travail dès maintenant grâce à une sauvegarde à la demande.
 
 
 
@@ -26,15 +26,15 @@ Sauvegardez les machines virtuelles Hyper-V des systèmes ONTAP locaux vers Amaz
 [[back-up-workloads-now-with-an-on-demand-backup]]
 == Sauvegardez vos charges de travail maintenant avec une sauvegarde à la demande
 
-Utilisez la sauvegarde à la demande afin que vos données soient protégées avant d’effectuer des modifications sur le système.
+Utilisez une sauvegarde à la demande pour protéger vos données avant d'effectuer des modifications système.
 
 *Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
 
 .Étapes
-. Dans le menu, sélectionnez *Inventaire*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez une charge de travail pour afficher les détails de protection.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
-. Sélectionnez l'onglet *Groupes de protection*, *Magasins de données* ou *Machines virtuelles*.
+. Sélectionnez l’onglet *Groupes de protection*, *Banques de données* ou *Machines virtuelles*.
 . Sélectionnez le groupe de protection ou les machines virtuelles que vous souhaitez sauvegarder.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Reculez maintenant*.
 +

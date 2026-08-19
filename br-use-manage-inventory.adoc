@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: br-use-manage-inventory.html 
-keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery, snapcenter 
-summary: NetApp Backup and Recovery vous aide à gérer vos hôtes, bases de données et instances Microsoft SQL Server. 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, on-premises, applications, virtual machines, backup and recovery, snapcenter 
+summary: Gérez vos hôtes, instances et bases de données Microsoft SQL Server dans NetApp Backup and Recovery. 
 ---
 = Gérez l'inventaire Microsoft SQL Server avec NetApp Backup and Recovery
 :hardbreaks:
@@ -14,9 +14,9 @@ summary: NetApp Backup and Recovery vous aide à gérer vos hôtes, bases de don
 
 
 [role="lead"]
-NetApp Backup and Recovery vous aide à gérer vos hôtes, bases de données et instances Microsoft SQL Server.  Vous pouvez afficher, modifier ou supprimer les paramètres de protection de votre inventaire.
+Afficher et gérer les hôtes, les instances et les bases de données Microsoft SQL Server, et modifier ou supprimer leurs paramètres de protection.
 
-Vous pouvez accomplir les tâches suivantes liées à la gestion de votre inventaire :
+Vous pouvez effectuer les actions suivantes pour gérer votre inventaire :
 
 * Gérer les informations de l'hôte
 +
@@ -24,7 +24,7 @@ Vous pouvez accomplir les tâches suivantes liées à la gestion de votre invent
 ** Modifier ou supprimer des hôtes
 
 
-* Gérer les informations des instances
+* Gérer les informations de l'instance
 +
 ** Associer les informations d'identification à une ressource
 ** Sauvegardez maintenant en démarrant une sauvegarde à la demande
@@ -39,7 +39,7 @@ Vous pouvez accomplir les tâches suivantes liées à la gestion de votre invent
 ** Sauvegardez maintenant en démarrant une sauvegarde à la demande
 
 
-* Configurez le répertoire des journaux (depuis *Inventaire* > *Hôtes*). Si vous souhaitez sauvegarder les journaux de vos hôtes de base de données dans l'instantané, configurez d'abord les journaux dans NetApp Backup and Recovery. Pour plus de détails, reportez-vous àlink:br-start-setup.html["Configurer les paramètres de NetApp Backup and Recovery"] .
+* Configurez le répertoire des journaux depuis *Inventaire* > *Hôtes* avant de sauvegarder les journaux des hôtes de base de données dans des instantanés. Pour plus de détails, consultez link:br-start-setup.html["Configurer les paramètres de NetApp Backup and Recovery"].
 
 
 
@@ -47,11 +47,11 @@ Vous pouvez accomplir les tâches suivantes liées à la gestion de votre invent
 [[manage-host-information]]
 == Gérer les informations de l'hôte
 
-Vous pouvez gérer les informations de l'hôte pour garantir que les bons hôtes sont protégés.  Vous pouvez afficher, modifier et supprimer les informations de l'hôte.
+Gérez les informations des hôtes pour garantir que les bons hôtes sont protégés. Consultez, modifiez et supprimez les informations des hôtes selon vos besoins.
 
 *Rôle NetApp Console requis* : Storage viewer, Backup and Recovery super admin, Backup and Recovery backup admin, Backup and Recovery restore admin ou Backup and Recovery clone admin. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle Cloud Volumes ONTAP Admin est également requis. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^]
 
-* Configurer le répertoire des journaux.  Pour plus de détails, reportez-vous àlink:br-start-setup.html["Configurer les paramètres de NetApp Backup and Recovery"] .
+* Configurez le répertoire des journaux. Pour plus de détails, consultez link:br-start-setup.html["Configurer les paramètres de NetApp Backup and Recovery"].
 * Suspendre les horaires
 * Modifier un hôte
 * Supprimer un hôte
@@ -62,10 +62,10 @@ Vous pouvez gérer les informations de l'hôte pour garantir que les bons hôtes
 [[manage-hosts]]
 === Gérer les hôtes
 
-Vous pouvez gérer les hôtes découverts dans votre système.  Vous pouvez les gérer séparément ou en groupe.
+Vous pouvez gérer les hôtes détectés dans votre système, individuellement ou en groupe.
 
 
-TIP: Vous pouvez gérer les hôtes avec un statut « Non géré » dans la colonne Hôtes.  NetApp Backup and Recovery gère déjà les hôtes avec un statut « Géré ».
+TIP: Pour gérer un hôte, recherchez le statut « Non géré » dans la colonne Hôtes. NetApp Backup and Recovery gère déjà les hôtes dont le statut est « Géré ».
 
 Une fois que vous avez géré les hôtes dans NetApp Backup and Recovery, SnapCenter ne gère plus les ressources sur ces hôtes.
 
@@ -76,7 +76,7 @@ Une fois que vous avez géré les hôtes dans NetApp Backup and Recovery, SnapCe
 . Sélectionnez une charge de travail pour afficher les détails de protection.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
 . Sélectionnez l'onglet *Hôtes*.
-. Sélectionnez un ou plusieurs hôtes.  Si vous sélectionnez plusieurs hôtes, une option Actions groupées apparaît dans laquelle vous pouvez sélectionner *Gérer (jusqu'à 5 hôtes)*.
+. Sélectionnez un ou plusieurs hôtes. Si vous sélectionnez plusieurs hôtes, une option *Actions groupées* apparaît. Sélectionnez *Gérer (jusqu'à 5 hôtes)*.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Gérer*.
 . Examiner les dépendances de l’hôte :
 +
@@ -107,7 +107,7 @@ Suspendez les planifications pour arrêter les opérations de sauvegarde et de r
 [[edit-a-host]]
 === Modifier un hôte
 
-Vous pouvez modifier les informations du serveur vCenter, les informations d’identification d’enregistrement de l’hôte et les options de paramètres avancés.
+Vous pouvez modifier les informations du serveur vCenter, les identifiants d'enregistrement de l'hôte et les paramètres avancés.
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
@@ -133,15 +133,15 @@ Vous pouvez supprimer les informations de l'hôte pour arrêter les frais de ser
 
 
 
-[[manage-instances-information]]
-== Gérer les informations des instances
+[[manage-instance-information]]
+== Gérer les informations de l'instance
 
-Vous pouvez gérer les informations des instances pour attribuer les informations d'identification appropriées pour la protection des ressources et sauvegarder les ressources des manières suivantes :
+Gérez les informations de l'instance pour protéger les ressources, associer ou supprimer des informations d'identification, modifier les paramètres de protection et exécuter des sauvegardes :
 
 * Protéger les instances
 * Titres d'associé
 * Dissocier les informations d'identification
-* Protection contre les modifications
+* Modifier les paramètres de protection
 * Sauvegardez maintenant
 
 
@@ -152,7 +152,7 @@ Vous pouvez gérer les informations des instances pour attribuer les information
 [[protect-database-instances]]
 === Protéger les instances de base de données
 
-Vous pouvez attribuer une politique à une instance de base de données à l'aide de politiques qui régissent les planifications et la conservation de la protection des ressources.
+Attribuez une stratégie à une instance de base de données afin de gérer la planification et la conservation de la protection des ressources.
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
@@ -162,19 +162,19 @@ Vous pouvez attribuer une politique à une instance de base de données à l'aid
 . Sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Protéger*.
 . Sélectionnez une politique ou créez-en une nouvelle.
 +
-Pour plus de détails sur la création d'une politique, reportez-vous àlink:br-use-policies-create.html["Créer une politique"] .
+Pour plus de détails sur la création d'une politique, voir link:br-use-policies-create.html["Créer une politique"].
 
-. Fournissez des informations sur les scripts que vous souhaitez exécuter avant et après la sauvegarde.
+. Fournissez les scripts à exécuter avant et après la sauvegarde.
 +
-** *Pré-script* : saisissez le nom de fichier et l'emplacement de votre script pour l'exécuter automatiquement avant que l'action de protection ne soit déclenchée.  Cela est utile pour effectuer des tâches ou des configurations supplémentaires qui doivent être exécutées avant le flux de travail de protection.
-** *Post-script* : Saisissez le nom de fichier et l'emplacement de votre script pour l'exécuter automatiquement une fois l'action de protection terminée.  Cela est utile pour effectuer des tâches ou des configurations supplémentaires qui doivent être exécutées après le flux de travail de protection.
+** *Pré-script* : Indiquez le nom et l’emplacement du fichier de script à exécuter automatiquement avant le démarrage de l’action de protection. Utilisez cette option pour effectuer des tâches ou des configurations supplémentaires avant le workflow de protection.
+** *Post-scriptum* : Indiquez le nom et l’emplacement du fichier script à exécuter automatiquement une fois l’action de protection terminée. Utilisez-le pour effectuer des tâches ou des configurations supplémentaires après le workflow de protection.
 
 
-. Fournissez des informations sur la manière dont vous souhaitez que l'instantané soit vérifié :
+. Fournissez les informations de vérification pour l'instantané :
 +
-** Emplacement de stockage : sélectionnez l’emplacement où l’instantané de vérification sera stocké.
-** Ressource de vérification : sélectionnez si la ressource que vous souhaitez vérifier se trouve sur le snapshot local et sur le stockage secondaire ONTAP .
-** Calendrier de vérification : sélectionnez la fréquence horaire, quotidienne, hebdomadaire, mensuelle ou annuelle.
+** Emplacement de stockage : sélectionnez où stocker l’instantané de vérification.
+** Ressource de vérification : sélectionnez si vous souhaitez vérifier la ressource sur l’instantané local, sur le stockage secondaire ONTAP ou sur les deux.
+** Calendrier de vérification : Sélectionnez la fréquence : horaire, quotidienne, hebdomadaire, mensuelle ou annuelle.
 
 
 
@@ -184,7 +184,7 @@ Pour plus de détails sur la création d'une politique, reportez-vous àlink:br-
 [[associate-credentials-with-a-resource]]
 === Associer les informations d'identification à une ressource
 
-Vous pouvez associer des informations d’identification à une ressource afin que la protection puisse se produire.
+Vous pouvez associer des identifiants à une ressource afin que la protection puisse avoir lieu.
 
 Pour plus de détails, voirlink:br-start-configure.html["Configurer les paramètres de NetApp Backup and Recovery , y compris les informations d'identification"] .
 
@@ -211,7 +211,7 @@ Vous pouvez modifier la politique, créer une nouvelle politique, définir une p
 . Sélectionnez l'instance.
 . Sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Modifier la protection*.
 +
-Pour plus de détails sur la création d'une politique, reportez-vous àlink:br-use-policies-create.html["Créer une politique"] .
+Pour plus de détails sur la création d'une politique, voir link:br-use-policies-create.html["Créer une politique"].
 
 
 
@@ -230,7 +230,7 @@ Sauvegardez vos données maintenant pour les protéger immédiatement.
 . Sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Sauvegarder maintenant*.
 . Choisissez le type de sauvegarde et définissez la planification.
 +
-Pour plus de détails sur la création d'une sauvegarde ad hoc, reportez-vous àlink:br-use-mssql-backup.html["Créer une politique"] .
+Pour plus de détails sur la création d'une sauvegarde ad hoc, voir link:br-use-mssql-backup.html["Sauvegarder les charges de travail Microsoft SQL Server"].
 
 
 
@@ -264,7 +264,7 @@ Vous pouvez modifier la politique, créer une nouvelle politique, définir une p
 . Sélectionnez la base de données.
 . Sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Protéger*.
 +
-Pour plus de détails sur la création d'une politique, reportez-vous àlink:br-use-policies-create.html["Créer une politique"] .
+Pour plus de détails sur la création d'une politique, voir link:br-use-policies-create.html["Créer une politique"].
 
 
 
@@ -273,15 +273,18 @@ Pour plus de détails sur la création d'une politique, reportez-vous àlink:br-
 [[restore-databases]]
 === Restaurer les bases de données
 
-Restaurez une base de données pour protéger vos données.
+Restaurez une base de données lorsque vous avez besoin de récupérer des données.
 
 *Rôle Console NetApp requis* : Visionneuse de stockage, super administrateur de sauvegarde et de restauration, administrateur de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^]
 
+.Étapes
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
+. Sélectionnez la charge de travail que vous souhaitez afficher et sélectionnez *Afficher*.
 . Sélectionnez l'onglet *Bases de données*.
 . Sélectionnez la base de données.
 . Sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Restaurer*.
 +
-Pour plus d'informations sur la restauration des charges de travail, reportez-vous àlink:br-use-mssql-restore.html["Restaurer les charges de travail"] .
+Pour plus d'informations sur la restauration des charges de travail, consultez link:br-use-mssql-restore.html["Restaurer les charges de travail"].
 
 
 
@@ -301,7 +304,7 @@ Vous pouvez modifier la politique, créer une nouvelle politique, définir une p
 . Sélectionnez la base de données.
 . Sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Modifier la protection*.
 +
-Pour plus de détails sur la création d'une politique, reportez-vous àlink:br-use-policies-create.html["Créer une politique"] .
+Pour plus de détails sur la création d'une politique, voir link:br-use-policies-create.html["Créer une politique"].
 
 
 
