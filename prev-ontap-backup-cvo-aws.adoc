@@ -285,7 +285,7 @@ La page d'introduction de l'assistant présente les options de protection, notam
 [[select-the-volumes-that-you-want-to-back-up]]
 === Sélectionnez les volumes que vous souhaitez sauvegarder
 
-Choisissez les volumes que vous souhaitez protéger.  Un volume protégé est un volume qui possède un ou plusieurs des éléments suivants : politique de snapshot, politique de réplication, politique de sauvegarde vers objet.
+Choisissez les volumes que vous souhaitez protéger.  Un volume protégé est un volume qui possède un ou plusieurs des éléments suivants : politique de snapshot, politique de réplication, politique de sauvegarde vers un objet.
 
 Vous pouvez choisir de protéger les volumes FlexVol ou FlexGroup ; cependant, vous ne pouvez pas sélectionner une combinaison de ces volumes lors de l'activation de la sauvegarde pour un système.  Découvrez commentlink:prev-ontap-backup-manage.html["activer la sauvegarde pour des volumes supplémentaires dans le système"] (FlexVol ou FlexGroup) après avoir configuré la sauvegarde pour les volumes initiaux.
 
@@ -316,7 +316,7 @@ Si les volumes que vous choisissez ont déjà des stratégies de snapshot ou de 
 
 La définition de la stratégie de sauvegarde implique de définir les options suivantes :
 
-* Que vous souhaitiez une ou toutes les options de sauvegarde : instantanés locaux, réplication et sauvegarde sur stockage d'objets
+* Que vous souhaitiez une ou toutes les options de sauvegarde : snapshots locaux, réplication et sauvegarde sur stockage d'objets
 * Architecture
 * Politique d'instantané local
 * Cible et politique de réplication
@@ -432,7 +432,7 @@ C'est l'occasion de revoir vos sélections et de faire des ajustements, si néce
 
 .Étapes
 . Dans la page Révision, vérifiez vos sélections.
-. Cochez éventuellement la case pour *corriger automatiquement les étiquettes incorrectes sur les instantanés locaux, la réplication et la sauvegarde*. Cela crée des instantanés avec une étiquette qui correspond aux étiquettes des politiques d'instantané, de réplication et de sauvegarde.
+. Vous pouvez éventuellement cocher la case *Corriger automatiquement les étiquettes incorrectes sur l’instantané local, la réplication et la sauvegarde*. Cela crée des instantanés avec une étiquette correspondant aux étiquettes des règles d’instantané, de réplication et de sauvegarde.
 . Sélectionnez *Activer la sauvegarde*.
 
 

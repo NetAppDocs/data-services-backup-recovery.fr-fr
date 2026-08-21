@@ -58,7 +58,7 @@ Depuis la page Restaurer, vous pouvez restaurer une machine virtuelle même si v
 
 Restaurez les machines virtuelles KVM à l'aide du menu Restaurer. Vous pouvez rechercher des instantanés par nom ou à l'aide de filtres.
 
-*Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de restauration de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
+*Rôle requis de la console NetApp* Rôle de super administrateur de NetApp Backup and Recovery ou rôle d'administrateur de restauration de NetApp Backup and Recovery. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
 .Étapes
 . Dans le menu de la NetApp Console , sélectionnez *Protection > Sauvegarde et récupération*.

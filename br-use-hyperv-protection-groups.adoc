@@ -31,7 +31,7 @@ Vous pouvez effectuer les tâches suivantes liées aux groupes de protection :
 
 Regroupez les charges de travail que vous souhaitez protéger au sein d'un groupe de protection. Créez un groupe de protection pour sauvegarder et restaurer ces charges de travail ensemble.
 
-*Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
+*Rôle requis de la console NetApp* Rôle de super administrateur de NetApp Backup and Recovery ou rôle d'administrateur de sauvegarde et de récupération de NetApp Backup and Recovery. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^]
 
 .Avant de commencer
 * Notez que pour les charges de travail Hyper-V, la durée de sauvegarde planifiée est interprétée selon le fuseau horaire de l'hôte de gestion. Voir link:br-use-policies-hyper-v-create.html["Créez et gérez des stratégies de sauvegarde Hyper-V dans NetApp Backup and Recovery"] pour plus d'informations.

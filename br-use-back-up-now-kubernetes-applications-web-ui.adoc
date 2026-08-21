@@ -16,8 +16,9 @@ summary: 'Créez manuellement des sauvegardes à la demande d"applications Kuber
 [role="lead"]
 Utilisez l'interface web pour effectuer une sauvegarde à la demande d'une application Kubernetes.
 
-.Rôle de NetApp Console requis
-Administrateur d'organisation ou administrateur SnapCenter . link:reference-roles.html["En savoir plus sur les rôles d'accès à NetApp Backup and Recovery"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
+*Rôle de NetApp Console requis*
+
+Super administrateur NetApp Backup and Recovery ou administrateur de sauvegarde NetApp Backup and Recovery. link:reference-roles.html["En savoir plus sur les rôles d'accès à NetApp Backup and Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
 
 

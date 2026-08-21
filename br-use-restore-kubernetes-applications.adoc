@@ -23,7 +23,8 @@ Restaurez les applications protégées par une stratégie de protection dans Net
 
 Pour chaque application que vous protégez avec Backup and Recovery, vous pouvez consulter les ressources qui ont été sauvegardées pour un point de restauration spécifique.
 
-.Rôle de NetApp Console requis
+*Rôle de NetApp Console requis*
+
 Visionneuse de sauvegarde et de restauration. link:reference-roles.html["En savoir plus sur les rôles d'accès à NetApp Backup and Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
 .Étapes
@@ -46,7 +47,8 @@ Vous pouvez restaurer des applications basées sur un espace de noms ou sur une 
 .Avant de commencer
 Si vous restaurez une application qui a été sauvegardée à l'aide de Trident Protect, assurez-vous que Trident Protect est installé sur les clusters source et de destination.
 
-.Rôle de NetApp Console requis
+*Rôle de NetApp Console requis*
+
 Super administrateur de sauvegarde et de récupération ou administrateur de restauration de sauvegarde et de récupération. link:reference-roles.html["En savoir plus sur les rôles d'accès à NetApp Backup and Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
 .Étapes

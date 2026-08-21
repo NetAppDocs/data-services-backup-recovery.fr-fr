@@ -17,7 +17,7 @@ summary: Protégez vos charges de travail VMware avec NetApp Backup and Recovery
 Utilisez la page Paramètres avancés pour modifier les paramètres de sauvegarde vers le stockage objet au niveau du cluster pour chaque système ONTAP après avoir activé NetApp Backup and Recovery. Vous pouvez ajuster la bande passante, l’exportation des instantanés historiques, la suppression annuelle des instantanés et les paramètres d’analyse anti-ransomware.
 
 
-NOTE: Ces paramètres sont disponibles uniquement pour le stockage de sauvegarde sur objet.  Aucun de ces paramètres n’affecte vos paramètres de snapshot ou de réplication.
+NOTE: Ces paramètres concernent uniquement la sauvegarde sur stockage objet. Aucun de ces paramètres n'affecte vos paramètres de snapshot ou de réplication.
 
 
 NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .

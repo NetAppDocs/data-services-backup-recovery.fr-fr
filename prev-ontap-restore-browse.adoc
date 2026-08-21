@@ -153,7 +153,7 @@ Pour restaurer un volume, vous avez besoin du nom du système source, de la mach
 . Dans la section _Parcourir et restaurer_, sélectionnez *Restaurer le volume*.
 . Dans la page _Sélectionner la source_, accédez au fichier de sauvegarde du volume que vous souhaitez restaurer.  Sélectionnez le *système*, le *volume* et le fichier de *sauvegarde* contenant l'horodatage à partir duquel vous souhaitez effectuer la restauration.
 +
-La colonne *Emplacement* indique si le fichier de sauvegarde (instantané) est *Local* (un instantané sur le système source), *Secondaire* (un volume répliqué sur un système ONTAP secondaire) ou *Stockage d'objets* (un fichier de sauvegarde dans le stockage d'objets). Choisissez le fichier que vous souhaitez restaurer.
+La colonne *Emplacement* indique si le fichier de sauvegarde (instantané) est *Local* (un instantané sur le système source), *Secondaire* (un volume répliqué sur un système ONTAP secondaire) ou *Stockage objet* (un fichier de sauvegarde dans le stockage objet). Choisissez le fichier que vous souhaitez restaurer.
 
 . Sélectionnez *Suivant*.
 +

@@ -16,7 +16,7 @@ summary: NetApp Backup and Recovery doit détecter les machines virtuelles Hyper
 [role="lead"]
 Découvrez les machines virtuelles Hyper-V dans NetApp Backup and Recovery afin de pouvoir les protéger à l'aide de stratégies de protection.
 
-*Rôle de Console requis* Super administrateur NetApp Backup and Recovery. En savoir plus sur link:reference-roles.html["Rôles et privilèges de sauvegarde et de restauration"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
+*Rôle Console NetApp requis* Super administrateur de sauvegarde et de restauration. En savoir plus link:reference-roles.html["Rôles et privilèges de sauvegarde et de restauration"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
 
 

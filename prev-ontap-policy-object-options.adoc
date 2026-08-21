@@ -29,7 +29,7 @@ NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Reco
 
 NetApp Backup and Recovery vous permet de créer plusieurs politiques de sauvegarde avec des planifications uniques pour chaque système (cluster).  Vous pouvez attribuer différentes politiques de sauvegarde à des volumes ayant des objectifs de point de récupération (RPO) différents.
 
-Chaque politique de sauvegarde fournit une section pour _Étiquettes et rétention_ que vous pouvez appliquer à vos fichiers de sauvegarde.  Notez que la stratégie de snapshot appliquée au volume doit être l'une des stratégies reconnues par NetApp Backup and Recovery, sinon les fichiers de sauvegarde ne seront pas créés.
+Chaque règles de sauvegarde comporte une section « Étiquettes et conservation » que vous pouvez appliquer à vos fichiers de sauvegarde. Notez que la règle de snapshot appliquée au volume doit être l'une des règles reconnues par NetApp Backup and Recovery, sinon les fichiers de sauvegarde ne seront pas créés.
 
 Le planning comporte deux parties : l'étiquette et la valeur de rétention :
 

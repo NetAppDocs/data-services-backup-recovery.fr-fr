@@ -121,29 +121,37 @@ Les instantanés correspondants sont affichés.
 ====
 .Restaurer à l'emplacement d'origine
 --
+[NOTE]
+====
+Si vous restaurez des PDB ou des espaces de tables PDB à un point précis dans le temps ou à un SCN spécifique :
+
+* Sélectionnez une seule PDB. La restauration à un point précis dans le temps n'est pas compatible avec la restauration de plusieurs PDB.
+* La base de données PDB$SEED ne peut pas être sélectionnée pour la récupération à un point précis dans le temps.
+* La restauration du fichier de contrôle ne peut pas être combinée avec la récupération à un point précis dans le temps des PDB ou des espaces de tables.
+* Assurez-vous que la sauvegarde des données et les sauvegardes de journaux requises sont cataloguées.
+
+
+====
 . *Paramètres de destination*:
+. Sélectionnez ce que vous souhaitez restaurer :
 +
-** Choisissez de restaurer la base de données entière ou uniquement les espaces table de la base de données.
-** *Fichiers de contrôle* : Activez éventuellement cette option pour restaurer également les fichiers de contrôle de la base de données.
+** Sélectionnez *Tous les fichiers de données* pour restaurer l'intégralité de la base de données ou de la base de données conteneur (CDB).
+** Sélectionnez *Bases de données enfichables (PDB)* pour restaurer une ou plusieurs PDB à partir d'une CDB sans affecter les autres PDB du conteneur. Sélectionnez ensuite les PDB dans la liste.
+** Sélectionnez *Espaces de tables de base de données enfichable (PDB)* (affichés sous le nom *Espaces de tables* pour une base de données non-CDB) pour restaurer des espaces de tables PDB spécifiques. Ensuite, sélectionnez la PDB et les espaces de tables.
 
 
-. *Options de pré-restauration*:
+. Vous pouvez activer l'option *fichiers de contrôle* pour restaurer également les fichiers de contrôle de la base de données. Cette option n'est pas disponible pour la restauration à un point précis dans le temps ou la restauration SCN des PDB ou des espaces de tables PDB.
+. Vous pouvez, si vous le souhaitez, activer l’option *Modifier l’état de la base de données si nécessaire pour la restauration et la récupération* afin de permettre à NetApp Backup and Recovery de gérer l’état de la base de données en fonction du type de récupération.
+. Vous pouvez activer l'option *Forcer la restauration sur place* pour utiliser une méthode de restauration plus rapide pour les bases de données SAN/ASM, en ignorant la vérification de validation des fichiers externes. La base de données et le groupe de disques ASM sont restaurés au point de création de la sauvegarde.
+. Spécifiez l'emplacement des fichiers journaux d'archivage externes si vous restaurez des PDB ou des espaces de tables PDB à un point précis dans le temps ou à un SCN spécifique. Indiquez l'emplacement où RMAN crée l'instance auxiliaire pour effectuer la récupération. Saisissez un chemin de système de fichiers commençant par « / » ou un groupe de disques ASM commençant par « + ». Utilisez les boutons « plus » et « moins » situés à côté du champ de saisie de texte pour ajouter ou supprimer des emplacements.
+. Vous pouvez activer l’option *Ouvrir la base de données ou base de données conteneur en mode LECTURE-ÉCRITURE après la récupération* pour ouvrir les bases de données en mode LECTURE-ÉCRITURE après leur restauration. Cela remet les espaces de tables restaurés en ligne.
+. *Prescripts et postscripts* :
 +
-** Vous pouvez également activer cette option et saisir le chemin complet d’un script qui doit être exécuté avant l’opération de restauration ainsi que tous les arguments pris par le script.
-** Choisissez une durée d'exécution pour le script. Si le script ne parvient pas à s'exécuter dans ce délai, la restauration se poursuit malgré tout.
-
-
-. *Options post-restauration*:
-+
+** *Script préalable* : Vous pouvez activer cette option et saisir le chemin complet d’un script à exécuter avant l’opération de restauration, ainsi que les arguments que ce script accepte.
 ** *Postscript* : Activez éventuellement cette option et saisissez le chemin complet d'un script qui doit être exécuté après l'opération de restauration et tous les arguments que le script prend.
-** *Ouvrez la base de données ou la base de données conteneur en mode LECTURE-ÉCRITURE après la récupération* : Une fois l’opération de restauration terminée, Backup and Recovery active le mode LECTURE-ÉCRITURE pour la base de données.
 
 
-. Section *Notification* :
-+
-** *Activer les notifications par e-mail* : sélectionnez cette option pour recevoir des notifications par e-mail concernant l'opération de restauration et indiquez le type de notifications que vous souhaitez recevoir.
-
-
+. Choisissez une durée d'exécution pour le script. Si le script ne parvient pas à s'exécuter dans ce délai, la restauration se poursuivra malgré tout.
 . Sélectionnez *Restaurer*.
 
 

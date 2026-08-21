@@ -18,7 +18,7 @@ Surveillez les tâches de capture instantanée, de réplication, de sauvegarde e
 
 NetApp Backup and Recovery conserve les informations relatives aux tâches pendant 15 jours, puis les supprime et les retire du Job Monitor.
 
-*Rôle requis de la NetApp Console* : visionneur de stockage, super administrateur de sauvegarde et de restauration, administrateur de sauvegarde et de restauration, administrateur de restauration de sauvegarde et de restauration, administrateur de clonage de sauvegarde et de restauration ou visionneur de sauvegarde et de restauration. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. En savoir plus link:reference-roles.html["Rôles et privilèges de sauvegarde et de restauration"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
+*Rôle requis de la NetApp Console* : super administrateur Backup and Recovery, administrateur de sauvegarde Backup and Recovery, administrateur de restauration Backup and Recovery, administrateur de clonage Backup and Recovery ou rôle de visionneur Backup and Recovery. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. En savoir plus link:reference-roles.html["Rôles et privilèges de sauvegarde et de restauration"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
 
 

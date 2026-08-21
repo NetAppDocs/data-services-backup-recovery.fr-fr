@@ -266,7 +266,7 @@ Vous pouvez choisir de protéger les volumes FlexVol ou FlexGroup ; cependant, 
 
 ====
 .Étapes
-Notez que si les volumes que vous choisissez ont déjà des stratégies de snapshot ou de réplication appliquées, les stratégies que vous sélectionnez ultérieurement remplaceront ces stratégies existantes.
+Notez que si des règles de snapshot ou de réplication sont déjà appliquées aux volumes que vous choisissez, les règles que vous sélectionnerez ultérieurement écraseront ces règles existantes.
 
 . Dans la page Sélectionner les volumes, sélectionnez le ou les volumes que vous souhaitez protéger.
 +
@@ -312,7 +312,7 @@ Pour plus de détails sur ces architectures, reportez-vous àlink:prev-ontap-pro
 . *Instantané local* : choisissez une politique d'instantané existante ou créez-en une nouvelle.
 +
 
-TIP: Si vous souhaitez créer une politique personnalisée avant d'activer le Snapshot, vous pouvez utiliser System Manager ou l'interface de ligne de commande ONTAP. `snapmirror policy create` commande.  Se référer à .
+TIP: Si vous souhaitez créer une stratégie personnalisée avant d’activer l’instantané, vous pouvez utiliser System Manager ou la commande ONTAP CLI `snapmirror policy create`. Consultez.
 
 +
 
@@ -373,7 +373,7 @@ Pour créer une politique, sélectionnez *Créer une nouvelle politique* et proc
 *** Sélectionnez *Créer*.
 
 
-** *Exporter les instantanés existants vers le stockage objet en tant que fichiers de sauvegarde* : Si des instantanés locaux de volumes de ce système correspondent à l’étiquette de planification de sauvegarde que vous venez de sélectionner (par exemple, quotidienne, hebdomadaire, etc.), cette invite supplémentaire s’affiche. Cochez cette case pour que tous les instantanés historiques soient copiés vers le stockage d'objets en tant que fichiers de sauvegarde afin de garantir la protection la plus complète pour vos volumes.
+** *Exporter les snapshots existants vers le stockage objet en tant que fichiers de sauvegarde* : Si des snapshots locaux pour les volumes de ce système correspondent à l'étiquette de planification de sauvegarde que vous venez de sélectionner (par exemple, quotidienne, hebdomadaire, etc.), cette invite supplémentaire s'affiche. Cochez cette case pour que tous les snapshots historiques soient copiés vers le stockage objet en tant que fichiers de sauvegarde afin d'assurer la protection la plus complète de vos volumes.
 
 
 . Sélectionnez *Suivant*.
@@ -388,7 +388,7 @@ C'est l'occasion de revoir vos sélections et de faire des ajustements, si néce
 
 .Étapes
 . Dans la page Révision, vérifiez vos sélections.
-. Cochez éventuellement la case pour *Synchroniser automatiquement les étiquettes de politique de snapshot avec les étiquettes de politique de réplication et de sauvegarde*.  Cela crée des instantanés avec une étiquette qui correspond aux étiquettes des politiques de réplication et de sauvegarde.  Si les politiques ne correspondent pas, les sauvegardes ne seront pas créées.
+. Cochez éventuellement la case pour *synchroniser automatiquement les étiquettes de la stratégie d'instantané avec les étiquettes des stratégies de réplication et des règles de sauvegarde*. Cela crée des instantanés avec une étiquette correspondant à celles des stratégies de réplication et des règles de sauvegarde. Si les stratégies ne correspondent pas, les sauvegardes ne seront pas créées.
 . Sélectionnez *Activer la sauvegarde*.
 
 

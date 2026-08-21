@@ -25,8 +25,9 @@ NetApp Backup and Recovery gèle et dégèle les systèmes de fichiers pour des 
 
 
 ====
-.Rôle de NetApp Console requis
-Administrateur d'organisation ou administrateur SnapCenter . link:reference-roles.html["En savoir plus sur les rôles d'accès à NetApp Backup and Recovery"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
+*Rôle de NetApp Console requis*
+
+Super administrateur de Backup and Recovery, administrateur de sauvegarde Backup and Recovery ou administrateur de restauration Backup and Recovery. link:reference-roles.html["En savoir plus sur les rôles d'accès à NetApp Backup and Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
 
 

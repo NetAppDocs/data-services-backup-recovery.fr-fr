@@ -65,7 +65,7 @@ Pour une explication sur ces types de cryptage, reportez-vous àhttps://docs.net
 * Lors de la sauvegarde des volumes de protection des données (DP) :
 +
 ** Les relations avec les labels SnapMirror `app_consistent` et  `all_source_snapshot` ne seront pas sauvegardées dans le cloud.
-** Si vous créez des copies locales de Snapshots sur le volume de destination SnapMirror (quels que soient les libellés SnapMirror utilisés), ces Snapshots ne seront pas transférés vers le cloud en tant que sauvegardes. Vous devez créer une stratégie de Snapshot avec les libellés souhaités sur le volume DP source afin que NetApp Backup and Recovery puisse les sauvegarder.
+** Si vous créez des copies locales d'instantanés sur le volume de destination SnapMirror (quels que soient les libellés SnapMirror utilisés), ces instantanés ne seront pas transférés vers le cloud en tant que sauvegardes. Vous devez créer une règles de sauvegarde avec les libellés souhaités sur le volume DP source afin que NetApp Backup and Recovery puisse les sauvegarder.
 
 
 * Les sauvegardes de volume FlexGroup ne peuvent pas être déplacées vers un stockage d'archivage.
@@ -73,7 +73,7 @@ Pour une explication sur ces types de cryptage, reportez-vous àhttps://docs.net
 * La sauvegarde du volume SVM-DR est prise en charge avec les restrictions suivantes :
 +
 ** Les sauvegardes sont prises en charge uniquement à partir du serveur secondaire ONTAP .
-** La politique de snapshot appliquée au volume doit être l'une des politiques reconnues par NetApp Backup and Recovery, notamment quotidienne, hebdomadaire, mensuelle, etc. La politique par défaut « sm_created » (utilisée pour *Mettre en miroir tous les snapshots*) n'est pas reconnue et le volume DP ne sera pas affiché dans la liste des volumes pouvant être sauvegardés.
+** La stratégie de snapshot appliquée au volume doit être l'une des stratégies reconnues par NetApp Backup and Recovery, notamment quotidienne, hebdomadaire, mensuelle, etc. La stratégie par défaut « sm_created » (utilisée pour *Mirror All Snapshots*) n'est pas reconnue et le volume DP ne sera pas affiché dans la liste des volumes pouvant être sauvegardés.
 ** La sauvegarde et la restauration de volumes (SVM-DR) fonctionnent de manière totalement indépendante, que la sauvegarde provienne de la source ou de la destination. La seule restriction est que SVM-DR ne réplique pas la relation SnapMirror cloud. Dans le scénario de reprise après sinistre, lorsque la machine virtuelle de stockage est remise en ligne sur le site secondaire, vous devez mettre à jour manuellement la relation SnapMirror cloud.
 
 

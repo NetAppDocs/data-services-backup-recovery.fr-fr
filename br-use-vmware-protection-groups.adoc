@@ -51,7 +51,7 @@ L'appartenance aux tags est déterminée à partir de vCenter lors de la durée 
 
 Créez un groupe de protection pour organiser les ressources que vous souhaitez sauvegarder et restaurer ensemble.
 
-*Rôle de console requis* Rôle de super administrateur de sauvegarde et de récupération ou d'administrateur de sauvegarde de sauvegarde et de récupération. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
+*Rôle requis de la console NetApp* Rôle de super administrateur de NetApp Backup and Recovery ou rôle d'administrateur de sauvegarde et de récupération de NetApp Backup and Recovery. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^]
 
 .Avant de commencer
 * Assurez-vous que votre environnement utilise des versions prises en charge de VMware vSphere.

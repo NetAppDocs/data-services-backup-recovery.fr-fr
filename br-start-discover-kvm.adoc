@@ -16,7 +16,7 @@ summary: NetApp Backup and Recovery doit d’abord découvrir les charges de tra
 [role="lead"]
 Découvrez les hôtes KVM et les machines virtuelles dans NetApp Backup and Recovery afin de les protéger à l'aide de politiques de protection. Votre environnement KVM doit être géré par une plateforme d'administration telle qu'Apache CloudStack avant la découverte.
 
-*Rôle de console requis* Super administrateur de sauvegarde et de récupération.  En savoir plus surlink:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"] . https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^] .
+*Rôle requis dans la NetApp Console* Super administrateur de NetApp Backup and Recovery. En savoir plus sur link:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
 
 
