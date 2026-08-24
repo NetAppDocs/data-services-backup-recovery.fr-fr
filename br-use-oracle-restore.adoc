@@ -53,6 +53,19 @@ Selon vos besoins, restaurez une base de données Oracle à un point précis dan
 
 *Rôle requis de la console NetApp* Rôle de super administrateur de NetApp Backup and Recovery ou rôle d'administrateur de restauration de NetApp Backup and Recovery. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
+[NOTE]
+====
+Si vous restaurez des PDB ou des espaces de tables à un point précis dans le temps ou un SCN :
+
+* Sélectionnez une seule PDB. La restauration à un point précis dans le temps n'est pas compatible avec la restauration de plusieurs PDB.
+* `PDB$SEED` ne peut pas être sélectionné pour la restauration à un point précis dans le temps.
+* La restauration du fichier de contrôle ne peut pas être combinée avec la restauration à un point précis dans le temps des PDB ou des espaces de tables PDB.
+* Assurez-vous que la sauvegarde des données et les sauvegardes de journaux requises sont cataloguées.
+* Les  `SYSTEM`, `SYSAUX`, et  `UNDO` espaces de tables ne peuvent pas être sélectionnés.
+* Vérifiez que la sauvegarde des données et les sauvegardes de journaux requises sont cataloguées.
+
+
+====
 .Étapes
 . Dans le menu de la NetApp Console , sélectionnez *Protection > Sauvegarde et récupération*.
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Restaurer*.
@@ -72,8 +85,15 @@ Une liste d'instantanés correspondant à vos critères de recherche apparaît.
 .. Sélectionnez *Suivant*.
 .. Choisissez une date dans la liste déroulante et sélectionnez *Rechercher*.
 +
-Une liste des instantanés correspondants à la date spécifiée s'affiche.
+L'instantané le plus proche de la date et de l'heure spécifiées est affiché.
 
+.. Vous pouvez également sélectionner *Afficher les sauvegardes de journaux* pour consulter les sauvegardes de journaux associées.
++
+... Vérifiez que les sauvegardes des journaux sont montées.
+
+
+.. Si l'instantané est stocké à plusieurs emplacements, sélectionnez un emplacement source à utiliser et ajoutez ou vérifiez les détails de l'emplacement.
+.. Sélectionnez *Suivant*.
 
 
 --
@@ -83,8 +103,15 @@ Une liste des instantanés correspondants à la date spécifiée s'affiche.
 .. Sélectionnez *Suivant*.
 .. Saisissez le SCN à utiliser comme point de restauration et sélectionnez *Rechercher*.
 +
-Une liste des instantanés correspondants pour le SCN spécifié s'affiche.
+L'instantané le plus proche pour le SCN spécifié est affiché.
 
+.. Vous pouvez également sélectionner *Afficher les sauvegardes de journaux* pour consulter les sauvegardes de journaux associées.
++
+... Vérifiez que les sauvegardes des journaux sont montées.
+
+
+.. Si l'instantané est stocké à plusieurs emplacements, sélectionnez un emplacement source à utiliser et ajoutez ou vérifiez les détails de l'emplacement.
+.. Sélectionnez *Suivant*.
 
 
 --
@@ -93,66 +120,71 @@ Une liste des instantanés correspondants pour le SCN spécifié s'affiche.
 .. Sélectionnez *Restaurer vers la dernière sauvegarde*.
 .. Sélectionnez *Suivant*.
 +
-Les dernières sauvegardes complètes et journaux sont affichés.
+La dernière capture instantanée est affichée. L'opération de restauration récupère le dernier état fonctionnel à l'aide de toutes les sauvegardes de journaux disponibles.
 
+.. Vous pouvez également sélectionner *Afficher les sauvegardes de journaux* pour consulter les sauvegardes de journaux associées.
++
+... Vérifiez que les sauvegardes des journaux sont montées.
+
+
+.. Si l'instantané est stocké à plusieurs emplacements, sélectionnez un emplacement source à utiliser et ajoutez ou vérifiez les détails de l'emplacement.
+.. Sélectionnez *Suivant*.
 
 
 --
 .Restaurer à partir d'instantanés sans récupération
 --
 .. Sélectionnez *Restaurer à partir d'instantanés sans récupération*.
++
+Sélectionner cette option signifie que la base de données sera restaurée à partir d'instantanés, mais la restauration de la base de données est ignorée (les sauvegardes des journaux ne sont pas appliquées).
+
 .. Sélectionnez *Suivant*.
 +
-Les instantanés correspondants sont affichés.
+Les instantanés disponibles sont affichés.
 
+.. Sélectionnez un instantané dans la liste et sélectionnez *Suivant*.
+.. Si l'instantané est stocké à plusieurs emplacements, sélectionnez un emplacement source à utiliser et ajoutez ou vérifiez les détails de l'emplacement.
+.. Sélectionnez *Suivant*.
 
 
 --
 ====
-. Sélectionnez un emplacement source d’instantané.
-. Sélectionnez *Suivant* pour continuer.
 . Choisissez la destination et les paramètres de restauration :
-
-
-[discrete]
-===== Sélection de la destination
-
++
 [role="tabbed-block"]
 ====
 .Restaurer à l'emplacement d'origine
 --
-[NOTE]
-====
-Si vous restaurez des PDB ou des espaces de tables PDB à un point précis dans le temps ou à un SCN spécifique :
-
-* Sélectionnez une seule PDB. La restauration à un point précis dans le temps n'est pas compatible avec la restauration de plusieurs PDB.
-* La base de données PDB$SEED ne peut pas être sélectionnée pour la récupération à un point précis dans le temps.
-* La restauration du fichier de contrôle ne peut pas être combinée avec la récupération à un point précis dans le temps des PDB ou des espaces de tables.
-* Assurez-vous que la sauvegarde des données et les sauvegardes de journaux requises sont cataloguées.
-
-
-====
-. *Paramètres de destination*:
-. Sélectionnez ce que vous souhaitez restaurer :
+.. Dans la section *Paramètres de destination*, procédez comme suit :
 +
-** Sélectionnez *Tous les fichiers de données* pour restaurer l'intégralité de la base de données ou de la base de données conteneur (CDB).
-** Sélectionnez *Bases de données enfichables (PDB)* pour restaurer une ou plusieurs PDB à partir d'une CDB sans affecter les autres PDB du conteneur. Sélectionnez ensuite les PDB dans la liste.
-** Sélectionnez *Espaces de tables de base de données enfichable (PDB)* (affichés sous le nom *Espaces de tables* pour une base de données non-CDB) pour restaurer des espaces de tables PDB spécifiques. Ensuite, sélectionnez la PDB et les espaces de tables.
-
-
-. Vous pouvez activer l'option *fichiers de contrôle* pour restaurer également les fichiers de contrôle de la base de données. Cette option n'est pas disponible pour la restauration à un point précis dans le temps ou la restauration SCN des PDB ou des espaces de tables PDB.
-. Vous pouvez, si vous le souhaitez, activer l’option *Modifier l’état de la base de données si nécessaire pour la restauration et la récupération* afin de permettre à NetApp Backup and Recovery de gérer l’état de la base de données en fonction du type de récupération.
-. Vous pouvez activer l'option *Forcer la restauration sur place* pour utiliser une méthode de restauration plus rapide pour les bases de données SAN/ASM, en ignorant la vérification de validation des fichiers externes. La base de données et le groupe de disques ASM sont restaurés au point de création de la sauvegarde.
-. Spécifiez l'emplacement des fichiers journaux d'archivage externes si vous restaurez des PDB ou des espaces de tables PDB à un point précis dans le temps ou à un SCN spécifique. Indiquez l'emplacement où RMAN crée l'instance auxiliaire pour effectuer la récupération. Saisissez un chemin de système de fichiers commençant par « / » ou un groupe de disques ASM commençant par « + ». Utilisez les boutons « plus » et « moins » situés à côté du champ de saisie de texte pour ajouter ou supprimer des emplacements.
-. Vous pouvez activer l’option *Ouvrir la base de données ou base de données conteneur en mode LECTURE-ÉCRITURE après la récupération* pour ouvrir les bases de données en mode LECTURE-ÉCRITURE après leur restauration. Cela remet les espaces de tables restaurés en ligne.
-. *Prescripts et postscripts* :
+... Pour les bases de données RAC, sélectionnez le nœud RAC sur lequel exécuter la restauration. Cette option apparaît uniquement pour les bases de données RAC.
+... Sélectionnez ce que vous souhaitez restaurer :
 +
-** *Script préalable* : Vous pouvez activer cette option et saisir le chemin complet d’un script à exécuter avant l’opération de restauration, ainsi que les arguments que ce script accepte.
-** *Postscript* : Activez éventuellement cette option et saisissez le chemin complet d'un script qui doit être exécuté après l'opération de restauration et tous les arguments que le script prend.
+**** Sélectionnez *Tous les fichiers de données* pour restaurer l'intégralité de la base de données ou de la base de données conteneur (CDB).
+**** Sélectionnez *Bases de données enfichables (PDB)* pour restaurer une ou plusieurs PDB à partir d'une CDB sans affecter les autres PDB du conteneur. Sélectionnez ensuite les PDB dans la liste.
+**** Sélectionnez *Espaces de tables de base de données enfichable (PDB)* (affichés sous le nom *Espaces de tables* pour une base de données non-CDB) pour restaurer des espaces de tables PDB spécifiques. Ensuite, sélectionnez la PDB et les espaces de tables.
 
 
-. Choisissez une durée d'exécution pour le script. Si le script ne parvient pas à s'exécuter dans ce délai, la restauration se poursuivra malgré tout.
-. Sélectionnez *Restaurer*.
+... Vous pouvez activer l'option *Fichiers de contrôle* pour restaurer également les fichiers de contrôle de la base de données. Cette option ne peut pas être sélectionnée pour la restauration à un point précis dans le temps ou la restauration SCN des PDB ou des espaces de tables PDB.
+... Vous pouvez, si vous le souhaitez, activer l’option *Modifier l’état de la base de données si nécessaire pour la restauration et la récupération* afin de permettre à NetApp Backup and Recovery de gérer l’état de la base de données en fonction du type de récupération.
+... Vous pouvez activer l'option *Forcer la restauration sur place* pour effectuer une restauration sur place lorsque de nouveaux fichiers de données ont été ajoutés après la sauvegarde, ou lorsque des LUN ont été ajoutés, supprimés ou recréés dans un groupe de disques LVM. Cette option remplace la vérification des fichiers externes ; la restauration de la base de données se poursuit en utilisant l'option de restauration que vous avez sélectionnée.
+... Spécifiez les emplacements des fichiers journaux d'archivage externes dans le champ *Emplacements des fichiers journaux d'archivage externes* si vous restaurez des PDB ou des espaces de tables à un point précis dans le temps ou à un SCN, et que les journaux d'archivage ne se trouvent pas à l'emplacement configuré. Saisissez un chemin de système de fichiers qui commence par  `/` ou un groupe de disques ASM qui commence par  `+`. Utilisez les boutons « plus » et « moins » à côté du champ de saisie de texte pour ajouter ou supprimer des emplacements. Ce champ n'apparaît pas lorsque vous effectuez une restauration à partir de snapshots sans restauration.
+... Vous pouvez, si vous le souhaitez, activer l’option *Ouvrir la base de données ou la base de données conteneur en mode LECTURE-ÉCRITURE après la restauration de la base de données* et sélectionner une sous-option correspondant à l’étendue de la restauration (ces options n’apparaissent pas lors de la restauration à partir d’instantanés sans restauration de la base de données) :
++
+**** *Tous les fichiers de données* : Ouvrez la base de données ou la base de données conteneur en mode LECTURE-ÉCRITURE après la restauration de la base de données.
+**** *PDB ou espaces de tables PDB* : Ouvrez les bases de données enfichables en mode LECTURE-ÉCRITURE après la restauration de la base de données.
+**** *Espaces de tables non-CDB* : Mettez les espaces de tables en ligne après la restauration.
+
+
+
+
+.. Dans la section *Prescripts and postscripts*, procédez comme suit :
++
+... *Script préalable* : Vous pouvez activer cette option et saisir le chemin complet d’un script à exécuter avant l’opération de restauration, ainsi que les arguments que ce script accepte.
+... *Postscript* : Activez éventuellement cette option et saisissez le chemin complet d'un script qui doit être exécuté après l'opération de restauration et tous les arguments que le script prend.
+... Choisissez une durée d'exécution pour le script. Si le script ne parvient pas à s'exécuter dans ce délai, la restauration se poursuivra malgré tout.
+
+
 
 
 --
@@ -162,3 +194,5 @@ Non disponible pour les charges de travail Oracle Database dans cette version pr
 
 --
 ====
+. Sélectionnez *Restaurer*.
+
