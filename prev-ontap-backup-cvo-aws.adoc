@@ -34,6 +34,9 @@ image:diagram_cloud_backup_cvo_aws.png["Un diagramme montrant comment NetApp Bac
 
 Le point de terminaison de la passerelle VPC doit déjà exister dans votre VPC. https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-s3.html["En savoir plus sur les points de terminaison de passerelle"^] .
 
+
+NOTE: Si vous utilisez un point de terminaison VPC privé pour les transferts de données de sauvegarde ou de restauration, celui-ci prime sur toute connexion proxy configurée.
+
 Versions ONTAP prises en charge:: Minimum ONTAP 9.8 ; ONTAP 9.8P13 et versions ultérieures sont recommandés.
 Informations requises pour l'utilisation de clés gérées par le client pour le chiffrement des données:: Vous pouvez choisir vos propres clés gérées par le client pour le chiffrement des données dans l'assistant d'activation au lieu d'utiliser les clés de chiffrement Amazon S3 par défaut.  Dans ce cas, vous devrez déjà avoir configuré les clés de gestion du cryptage. https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-setting-up-kms.html["Découvrez comment utiliser vos propres clés"^] .
 

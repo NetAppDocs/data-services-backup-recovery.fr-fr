@@ -460,7 +460,7 @@ Assurez-vous que votre instance Hyper-V répond à des exigences spécifiques po
 
 |===
 .Configuration matérielle requise pour l'hôte Hyper-V
-* Les hôtes autonomes et en cluster FCI sont pris en charge
+* Les hôtes autonomes et les configurations de cluster de basculement sont pris en charge
 * 1 Go de RAM minimum pour le plug-in NetApp Hyper-V sur l'hôte Hyper-V
 * 5 Go minimum d'espace d'installation et de journal pour le plug-in sur l'hôte Hyper-V
 +

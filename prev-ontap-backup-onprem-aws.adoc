@@ -44,6 +44,9 @@ Le diagramme suivant montre la méthode de *connexion privée* et les connexions
 image:diagram_cloud_backup_onprem_aws_private.png["Un diagramme montrant comment NetApp Backup and Recovery communique via une connexion privée avec les volumes du cluster et le stockage AWS S3 où se trouvent les fichiers de sauvegarde."]
 
 
+NOTE: Si vous utilisez un point de terminaison VPC privé pour les transferts de données de sauvegarde ou de restauration, celui-ci prime sur toute connexion proxy configurée.
+
+
 
 [[prepare-your-console-agent]]
 == Préparez votre agent de console
