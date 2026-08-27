@@ -28,6 +28,9 @@ Lors de la phase de découverte, NetApp Backup and Recovery analyse les charges 
 Vous pouvez importer des banques de données et des machines virtuelles VMware NFS et VMFS à partir de leur SnapCenter Plug-in for VMware vSphere dans l'inventaire NetApp Backup and Recovery .
 
 
+NOTE: Après avoir ajouté un système de stockage à NetApp Console, patientez quelques minutes avant de découvrir les ressources. Découvrir les ressources immédiatement après avoir ajouté un système de stockage peut entraîner l'échec de la découverte.
+
+
 NOTE: Cette version de NetApp Backup and Recovery prend uniquement en charge VMware vCenter et ne détecte pas les vVols ou les machines virtuelles sur les vVols.
 
 Pendant le processus d’importation, NetApp Backup and Recovery effectue les tâches suivantes :

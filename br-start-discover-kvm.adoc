@@ -25,6 +25,9 @@ Découvrez les hôtes KVM et les machines virtuelles dans NetApp Backup and Reco
 
 Ajoutez les informations relatives à la plateforme de gestion et à l'hôte KVM, et laissez NetApp Backup and Recovery découvrir les charges de travail.
 
+
+NOTE: Après avoir ajouté un système de stockage à NetApp Console, patientez quelques minutes avant de découvrir les ressources. Découvrir les ressources immédiatement après avoir ajouté un système de stockage peut entraîner l'échec de la découverte.
+
 .Étapes
 . Dans le menu de la NetApp Console , sélectionnez *Protection* > *Sauvegarde et récupération*.
 . Sous *Charges de travail*, sélectionnez la vignette *KVM*.
