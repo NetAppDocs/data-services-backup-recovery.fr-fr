@@ -133,6 +133,45 @@ Vous pouvez supprimer les informations de l'hôte pour arrêter les frais de ser
 
 
 
+[[manage-availability-group-information]]
+== Gérer les informations du groupe de disponibilité
+
+Gérez les informations des groupes de disponibilité pour protéger les ressources, modifier les paramètres de protection et exécuter des sauvegardes :
+
+* Protéger les instances
+* Modifier les paramètres de protection
+* Sauvegardez maintenant
+
+
+*Rôle requis dans la NetApp Console* : rôle de super administrateur de NetApp Backup and Recovery ou rôle d’administrateur de sauvegarde de NetApp Backup and Recovery. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^]
+
+
+
+[[protect-availability-groups]]
+=== Protéger les groupes de disponibilité
+
+Attribuez une stratégie à un groupe de disponibilité pour régir la planification et la conservation de la protection des ressources.
+
+.Étapes
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
+. Sélectionnez la charge de travail que vous souhaitez afficher et sélectionnez *Afficher*.
+. Sélectionnez l'onglet *Groupes de disponibilité*.
+. Sélectionnez le groupe de disponibilité.
+. Sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Protéger*.
+. Sélectionnez une politique ou créez-en une nouvelle.
++
+Pour plus de détails sur la création d'une politique, voir link:br-use-policies-create.html["Créer une politique"].
+
+. Fournissez les scripts à exécuter avant et après la sauvegarde.
++
+** *Pré-script* : Indiquez le nom et l’emplacement du fichier de script à exécuter automatiquement avant le démarrage de l’action de protection. Utilisez cette option pour effectuer des tâches ou des configurations supplémentaires avant le workflow de protection.
+** *Post-scriptum* : Indiquez le nom et l’emplacement du fichier script à exécuter automatiquement une fois l’action de protection terminée. Utilisez-le pour effectuer des tâches ou des configurations supplémentaires après le workflow de protection.
+
+
+
+
+
+
 [[manage-instance-information]]
 == Gérer les informations de l'instance
 
@@ -265,6 +304,12 @@ Vous pouvez modifier la politique, créer une nouvelle politique, définir une p
 . Sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Protéger*.
 +
 Pour plus de détails sur la création d'une politique, voir link:br-use-policies-create.html["Créer une politique"].
+
+. Fournissez les scripts à exécuter avant et après la sauvegarde.
++
+** *Pré-script* : Indiquez le nom et l’emplacement du fichier de script à exécuter automatiquement avant le démarrage de l’action de protection. Utilisez cette option pour effectuer des tâches ou des configurations supplémentaires avant le workflow de protection.
+** *Post-scriptum* : Indiquez le nom et l’emplacement du fichier script à exécuter automatiquement une fois l’action de protection terminée. Utilisez-le pour effectuer des tâches ou des configurations supplémentaires après le workflow de protection.
+
 
 
 

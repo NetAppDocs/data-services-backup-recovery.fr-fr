@@ -101,7 +101,7 @@ Exécutez une sauvegarde à la demande avant d’apporter des modifications à v
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
 . Sélectionnez une charge de travail pour afficher les détails de protection.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Voir les détails*.
-. Sélectionnez l’onglet *Protection groups*, *Instances* ou *Databases*.
+. Sélectionnez l’onglet *Groupes de protection*, *Groupes de disponibilité*, *Instances* ou *Bases de données*.
 . Sélectionnez l’instance ou la base de données que vous souhaitez sauvegarder.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Reculez maintenant*.
 . Sélectionnez la règle à appliquer à la sauvegarde.
