@@ -81,9 +81,16 @@ Combien de temps faudra-t-il pour restaurer mes objets archivés dans Amazon S3 
 | *Archives S3 Glacier Deep* |  | 12 heures | 48 heures 
 |===
 * *Temps de restauration* : Le temps nécessaire pour restaurer les données à partir du fichier de sauvegarde dans le stockage standard.  Cette fois, ce n’est pas différent de l’opération de restauration typique directement à partir du stockage standard, lorsque vous n’utilisez pas de niveau d’archivage.
-
-
++
 Pour plus d'informations sur les options de récupération d'Amazon S3 Glacier et S3 Glacier Deep Archive, reportez-vous à https://aws.amazon.com/s3/faqs/#Amazon_S3_Glacier["la FAQ d'Amazon sur ces classes de stockage"^] .
+
+
 
 --
 
+
+[NOTE]
+====
+La restauration d'un volume ou d'un fichier à partir d'un stockage d'archive peut prendre plus de temps. La tâche reste *En cours* dans le Moniteur de tâches pendant que Backup and Recovery réessaie la restauration en fonction de la priorité sélectionnée. Surveillez la restauration dans le *Moniteur de tâches* ; elle se termine lorsque la tâche atteint un état final, tel que *Terminée* ou *Échec*, après toutes les tentatives de restauration. Ne lancez pas une autre restauration à moins que la tâche n'échoue finalement.
+
+====

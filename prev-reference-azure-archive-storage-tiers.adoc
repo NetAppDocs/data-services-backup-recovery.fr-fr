@@ -61,9 +61,16 @@ Combien de temps faudra-t-il pour restaurer mes données archivées dans Azure A
 
 
 * *Temps de restauration* : Le temps nécessaire pour restaurer les données à partir du fichier de sauvegarde dans le stockage Cool.  Cette fois, ce n'est pas différent de l'opération de restauration typique directement à partir du stockage Cool - lorsque vous n'utilisez pas de niveau d'archivage.
-
-
++
 Pour plus d'informations sur les options de récupération d'Azure Archive, reportez-vous à https://azure.microsoft.com/en-us/pricing/details/storage/blobs/#faq["cette FAQ Azure"^] .
+
+
 
 --
 
+
+[NOTE]
+====
+La restauration d'un volume ou d'un fichier à partir d'un stockage d'archive peut prendre plus de temps. La tâche reste *En cours* dans le Moniteur de tâches pendant que Backup and Recovery réessaie la restauration en fonction de la priorité sélectionnée. Surveillez la restauration dans le *Moniteur de tâches* ; elle se termine lorsque la tâche atteint un état final, tel que *Terminée* ou *Échec*, après toutes les tentatives de restauration. Ne lancez pas une autre restauration à moins que la tâche n'échoue finalement.
+
+====

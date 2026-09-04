@@ -46,3 +46,9 @@ Combien de temps faudra-t-il pour restaurer mes objets archivés dans Google Arc
 
 --
 
+
+[NOTE]
+====
+La restauration d'un volume ou d'un fichier à partir d'un stockage d'archive peut prendre plus de temps. La tâche reste *En cours* dans le Moniteur de tâches pendant que Backup and Recovery réessaie la restauration en fonction de la priorité sélectionnée. Surveillez la restauration dans le *Moniteur de tâches* ; elle se termine lorsque la tâche atteint un état final, tel que *Terminée* ou *Échec*, après toutes les tentatives de restauration. Ne lancez pas une autre restauration à moins que la tâche n'échoue finalement.
+
+====

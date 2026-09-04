@@ -5980,4 +5980,5 @@
   <block id="f4c9691991fd542b1f48cc8fcbdef656" category="list-text">Sélectionnez l'onglet *Groupes de disponibilité*.</block>
   <block id="65fa180bca046084f17003e06ddb0b9f" category="list-text">Sélectionnez le groupe de disponibilité.</block>
   <block id="129dd3dd8cd4324317ed888dd78c8d3e" category="list-text">Sélectionnez l’onglet *Groupes de protection*, *Groupes de disponibilité*, *Instances* ou *Bases de données*.</block>
+  <block id="6c2c266ca065311d4804d34cd534ac61" category="paragraph">La restauration d'un volume ou d'un fichier à partir d'un stockage d'archive peut prendre plus de temps. La tâche reste *En cours* dans le Moniteur de tâches pendant que Backup and Recovery réessaie la restauration en fonction de la priorité sélectionnée. Surveillez la restauration dans le *Moniteur de tâches* ; elle se termine lorsque la tâche atteint un état final, tel que *Terminée* ou *Échec*, après toutes les tentatives de restauration. Ne lancez pas une autre restauration à moins que la tâche n'échoue finalement.</block>
 </blocks>
