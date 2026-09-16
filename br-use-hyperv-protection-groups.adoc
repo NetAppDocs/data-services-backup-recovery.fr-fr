@@ -46,8 +46,17 @@ Regroupez les charges de travail que vous souhaitez protéger au sein d'un group
 . Saisissez un nom pour le groupe de protection.
 . Sélectionnez les machines virtuelles que vous souhaitez inclure dans le groupe de protection.
 . Sélectionnez *Suivant*.
-. Sélectionnez la *politique de sauvegarde* que vous souhaitez appliquer au groupe de protection.
+. Sélectionnez un comportement pour les disques étendus. Actuellement, l’option *Toujours inclure tous les disques étendus* est prise en charge.
++
+
+NOTE: Pour les configurations CIFS, NetApp Backup and Recovery protège automatiquement chaque disque associé à chaque machine virtuelle du groupe de protection. Cela inclut les fichiers répartis sur plusieurs volumes ONTAP ou systèmes de stockage ONTAP (disques étendus) et les fichiers limités à un seul emplacement (disques non étendus). Pour les configurations SAN, tous les disques non étendus seront inclus dans le groupe de protection.
+
 . Sélectionnez *Suivant*.
+. Sélectionnez la politique de protection que vous souhaitez appliquer au groupe de protection.
++
+Vous pouvez également sélectionner *Créer une nouvelle règle* pour créer une nouvelle règle de protection. Lorsque vous sélectionnez une règle, les détails de la règle s'affichent.
+
+. Une fois terminé, sélectionnez *Suivant*.
 . Vérifiez la configuration.
 . Sélectionnez *Créer* pour créer le groupe de protection.
 

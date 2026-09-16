@@ -35,6 +35,9 @@ Vous pouvez activer les fonctionnalités en préversion suivantes pour NetApp Ba
 
 
 | `"prioritize-restore": true` | Permet de sélectionner l’option « Prioriser la restauration par rapport à la file d’attente existante » lors du processus de restauration dans l’interface web de NetApp Backup and Recovery. Lorsque vous sélectionnez cette option lors du processus de restauration, les opérations de restauration sont prioritaires sur les autres tâches en attente et s’exécutent même lorsque la file d’attente est occupée. 
+
+
+| `"data-transfer-report": true` | Active le rapport quotidien de transfert des données de sauvegarde sous l'onglet Rapports dans NetApp Backup and Recovery for Volumes. Le rapport fournit des informations sur l'activité quotidienne de transfert des données de sauvegarde et de réplication dans votre environnement. 
 |===
 
 

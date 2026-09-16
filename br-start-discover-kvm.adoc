@@ -31,9 +31,6 @@ NOTE: Après avoir ajouté un système de stockage à NetApp Console, patientez 
 .Étapes
 . Dans le menu de la NetApp Console , sélectionnez *Protection* > *Sauvegarde et récupération*.
 . Sous *Charges de travail*, sélectionnez la vignette *KVM*.
-+
-Si c'est la première fois que vous vous connectez à NetApp Backup and Recovery et que vous avez déjà un système dans la Console mais aucune ressource découverte, la page « Bienvenue dans le nouveau NetApp Backup and Recovery » apparaît avec une option pour *Découvrir les ressources*.
-
 . Sélectionnez *Découvrir les ressources*.
 . Saisissez les informations suivantes :
 +
@@ -52,15 +49,26 @@ Si c'est la première fois que vous vous connectez à NetApp Backup and Recovery
 ... Une fois terminé, sélectionnez *Ajouter*.
 
 
-.. *Paramètres KVM* : Ajoutez un nouvel hôte KVM en saisissant les informations suivantes :
+.. *Paramètres KVM* : Procédez comme suit :
 +
-*** *Nom de domaine complet KVM ou adresse IP* : Saisissez le nom de domaine complet ou l’adresse IP de l’hôte.
-*** *Identifiants* : Veuillez saisir le nom d’utilisateur et le mot de passe de l’hôte KVM.
-*** *Agent de console* : Choisissez l’agent de console à utiliser pour la communication entre Backup and Recovery et l’hôte KVM.
-*** *Numéro de port* : Saisissez le port à utiliser pour la communication entre Backup and Recovery et l’hôte KVM.
-*** *Plateforme de gestion* : Si l’hôte KVM est géré et que vous avez ajouté la plateforme de gestion à Backup and Recovery, sélectionnez la plateforme de gestion dans la liste.
+... Si vous n'avez pas encore enregistré d'identifiants pour cet hôte KVM, sélectionnez *Ajouter des identifiants*.
++
+**** Sélectionnez l’agent de console à utiliser avec cet hôte.
+**** Saisissez un nom pour ces informations d’identification.
+**** Entrez le nom d'utilisateur et le mot de passe du compte.
+**** Sélectionnez *Terminé*.
 
 
+... Ajoutez un nouvel hôte KVM en saisissant les informations suivantes :
++
+**** *Nom de domaine complet KVM ou adresse IP* : Saisissez le nom de domaine complet ou l’adresse IP de l’hôte.
+**** *Agents* : Choisissez l’agent Console à utiliser pour la communication entre NetApp Backup and Recovery et l’hôte KVM.
+**** *Identifiants* : Sélectionnez un identifiant stocké pour l’hôte KVM.
+
+
+
+
+.. *Paramètres avancés* : Saisissez éventuellement un port pour communiquer avec l’hôte KVM et sélectionnez la plateforme de gestion de l’hôte dans la liste.
 
 
 . Sélectionnez *Découvrir*.

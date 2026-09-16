@@ -14,24 +14,24 @@ summary: Protégez vos charges de travail VMware avec NetApp Backup and Recovery
 
 
 [role="lead"]
-Avant de pouvoir protéger les banques de données VMware et les machines virtuelles exécutées sur les systèmes ONTAP, vous devez les découvrir dans NetApp Backup and Recovery. Si vous avez déjà installé le SnapCenter Plug-in for VMware vSphere, vous pouvez également importer ses données de sauvegarde et ses stratégies.
+Avant de pouvoir protéger les datastores VMware et les machines virtuelles exécutées sur des systèmes ONTAP, vous devez les découvrir dans NetApp Backup and Recovery. Vous pouvez également importer des données de sauvegarde et des stratégies depuis SnapCenter.
 
 *Rôle requis dans la NetApp Console* Super administrateur de NetApp Backup and Recovery. En savoir plus sur link:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
 
 
-[[discover-vmware-workloads-and-optionally-import-snapcenter-resources]]
-== Découvrez les charges de travail VMware et importez éventuellement des ressources SnapCenter
+[[discover-vmware-workloads-and-optionally-import-snapcenter-plug-in-resources]]
+== Découvrez les charges de travail VMware et, si vous le souhaitez, importez les ressources du plug-in SnapCenter
 
 Lors de la phase de découverte, NetApp Backup and Recovery analyse les charges de travail VMware au sein de votre organisation, évalue et importe les politiques de protection, les instantanés et les options de sauvegarde et de restauration existants.
 
-Vous pouvez importer des banques de données et des machines virtuelles VMware NFS et VMFS à partir de leur SnapCenter Plug-in for VMware vSphere dans l'inventaire NetApp Backup and Recovery .
+Si vous utilisez le plug-in SnapCenter pour VMware vSphere sur site, vous pouvez importer des banques de données VMware et des machines virtuelles de ressources dans NetApp Backup and Recovery.
 
 
 NOTE: Après avoir ajouté un système de stockage à NetApp Console, patientez quelques minutes avant de découvrir les ressources. Découvrir les ressources immédiatement après avoir ajouté un système de stockage peut entraîner l'échec de la découverte.
 
 
-NOTE: Cette version de NetApp Backup and Recovery prend uniquement en charge VMware vCenter et ne détecte pas les vVols ou les machines virtuelles sur les vVols.
+NOTE: NetApp Backup and Recovery prend en charge uniquement VMware vCenter et ne découvre pas les vVols ni les machines virtuelles sur vVols.
 
 Pendant le processus d’importation, NetApp Backup and Recovery effectue les tâches suivantes :
 
@@ -46,64 +46,68 @@ Pendant le processus d’importation, NetApp Backup and Recovery effectue les t�
 
 La découverte se déroule de la manière suivante :
 
-* Si vous disposez déjà du SnapCenter Plug-in for VMware vSphere, importez les ressources SnapCenter dans NetApp Backup and Recovery à l'aide de l'interface utilisateur de NetApp Backup and Recovery .
+* Si vous possédez déjà SnapCenter ou le SnapCenter Plug-in pour VMware vSphere, importez les ressources SnapCenter dans NetApp Backup and Recovery à l'aide de l'interface utilisateur NetApp Backup and Recovery.
 +
 
-NOTE: Si vous disposez déjà du plug-in SnapCenter , assurez-vous d'avoir rempli les conditions préalables avant d'importer depuis SnapCenter. Par exemple, vous devez d’abord créer des systèmes dans la NetApp Console pour tous les stockages de cluster SnapCenter sur site avant de procéder à l’importation depuis SnapCenter.  Voirlink:concept-start-prereq-snapcenter-import.html["Conditions préalables à l'importation de ressources depuis SnapCenter"] .
+NOTE: Si vous possédez déjà le SnapCenter Plug-in, assurez-vous d’avoir rempli les conditions préalables avant d’importer depuis SnapCenter. Par exemple, vous devez d’abord créer des systèmes dans NetApp Console pour tout le stockage de cluster SnapCenter sur site avant d’importer depuis SnapCenter. Voir link:concept-start-prereq-snapcenter-import.html["Conditions préalables à l'importation de ressources depuis SnapCenter"]. Pour importer des données directement depuis un hôte SnapCenter, reportez-vous à link:br-start-configure.html#import-and-manage-snapcenter-host-resources["Importer et gérer les ressources de l'hôte SnapCenter"].
 
 * Si vous ne disposez pas déjà du plug-in SnapCenter , vous pouvez toujours découvrir les charges de travail au sein de vos systèmes en ajoutant un vCenter manuellement et en effectuant la découverte.
 
 
 
 
-[[if-snapcenter-plug-in-is-not-already-installed-add-a-vcenter-and-discover-resources]]
-=== Si le plug-in SnapCenter n'est pas déjà installé, ajoutez un vCenter et découvrez les ressources
+[[if-not-using-the-snapcenter-plug-in-add-a-vcenter-and-discover-resources]]
+=== Si vous n'utilisez pas le plug-in SnapCenter, ajoutez un vCenter et découvrez les ressources
 
-Si vous n'avez pas encore installé le plug-in SnapCenter pour VMware, ajoutez les informations vCenter afin que NetApp Backup and Recovery puisse découvrir les charges de travail. Dans chaque agent de la Console, sélectionnez les systèmes sur lesquels vous souhaitez découvrir les charges de travail.
+Si vous n'avez pas le SnapCenter Plug-in for VMware installé, ajoutez les informations vCenter afin que NetApp Backup and Recovery puisse découvrir les charges de travail. Dans chaque agent Console, sélectionnez les systèmes où vous souhaitez découvrir les charges de travail.
 
 .Étapes
 . Dans la navigation de gauche de la NetApp Console , sélectionnez *Protection* > *Sauvegarde et récupération*.
-+
-Si vous vous connectez à Backup and Recovery pour la première fois et que vous avez un système dans la console mais aucune ressource découverte, la page _Bienvenue sur le nouveau NetApp Backup and Recovery_ apparaît avec une option pour *Découvrir les ressources*.
-
 . Sélectionnez *Découvrir les ressources*.
 . Saisissez les informations suivantes :
 +
 .. *Type de charge de travail* : sélectionnez *VMware*.
-.. *Paramètres vCenter* : Ajouter un nouveau vCenter. Pour ajouter un nouveau vCenter, saisissez le nom de domaine complet ou l’adresse IP du vCenter, le nom d’utilisateur, le mot de passe, le port et le protocole.
+.. *Paramètres vCenter* : Procédez comme suit :
++
+... Si vous n'avez pas encore enregistré d'identifiants pour ce vCenter serveur, sélectionnez *Ajouter des identifiants*.
++
+**** Sélectionnez l’agent de Console à utiliser avec ce vCenter.
+**** Saisissez un nom pour ces informations d’identification.
+**** Saisissez le domaine, le nom d'utilisateur et le mot de passe du compte.
+**** Sélectionnez *Terminé*.
+
+
+... Saisissez le FQDN ou l'adresse IP de vCenter, sélectionnez un agent Console et sélectionnez les identifiants à utiliser pour vous authentifier auprès de vCenter.
 +
 
 TIP: Si vous saisissez des informations vCenter, saisissez les informations relatives aux paramètres vCenter et à l’enregistrement de l’hôte.  Si vous avez ajouté ou saisi des informations sur vCenter ici, vous devez également ajouter des informations sur le plug-in dans les paramètres avancés.
 
-.. *Enregistrement de l'hôte* : Non requis pour VMware.
+
+
+.. *Paramètres avancés* : Vous pouvez, si vous le souhaitez, indiquer un port à utiliser pour la communication avec vCenter et activer l’utilisation de certificats auto-signés. L’utilisation de certificats auto-signés est déconseillée en environnement de production.
 
 
 . Sélectionnez *Découvrir*.
-+
-
-TIP: Ce processus peut prendre quelques minutes.
-
-. Continuer avec les paramètres avancés.
 
 
 
 
-[[if-snapcenter-plug-in-is-already-installed-import-snapcenter-plug-in-for-vmware-resources-into-netapp-backup-and-recovery]]
-=== Si le plug-in SnapCenter est déjà installé, importez les ressources SnapCenter Plug-in pour VMware dans NetApp Backup and Recovery
+[[import-snapcenter-plug-in-for-vmware-resources-into-netapp-backup-and-recovery]]
+=== Importez le plug-in SnapCenter pour les ressources VMware dans NetApp Backup and Recovery
 
-Si vous avez déjà installé le SnapCenter Plug-in for VMware, importez les ressources du SnapCenter Plug-in dans NetApp Backup and Recovery en suivant ces étapes. La Console découvre les hôtes ESXi, les datastores, les machines virtuelles et les planifications à partir du Plug-in, vous n’avez donc pas à recréer ces informations.
+Importez les ressources du NetApp SnapCenter Plug-in for VMware dans NetApp Backup and Recovery. Lors de l'importation, la Console découvre vos hôtes ESXi, banques de données, machines virtuelles et planifications, vous n'avez donc pas besoin de les recréer manuellement.
 
 Vous pouvez le faire des manières suivantes :
 
-* Lors de la découverte, sélectionnez une option pour importer des ressources à partir du plug-in SnapCenter .
+* Lors de la découverte, sélectionnez l’option pour importer les ressources à partir du SnapCenter Plug-in.
 * Après la découverte, à partir de la page Inventaire, sélectionnez une option pour importer les ressources du plug-in SnapCenter .
-* Après la découverte, dans le menu Paramètres, sélectionnez une option pour importer les ressources du plug-in SnapCenter . Pour plus de détails, voirlink:br-start-configure.html["Configurer la NetApp Backup and Recovery"] . Ceci n'est pas pris en charge pour VMware.
+* Après la découverte, dans le menu Paramètres, sélectionnez une option pour importer les ressources du plug-in SnapCenter. Pour plus de détails, consultez link:br-start-configure.html["Configurer la NetApp Backup and Recovery"].
 
 
 Il s’agit d’un processus en deux parties décrit dans cette section :
 
 . Importez les métadonnées vCenter depuis le plug-in SnapCenter . Les ressources vCenter importées ne sont pas encore gérées par NetApp Backup and Recovery.
-. Lancez la gestion des vCenters, des machines virtuelles et des banques de données sélectionnés dans NetApp Backup and Recovery.  Une fois la gestion lancée, NetApp Backup and Recovery étiquette le vCenter comme « Géré » sur la page Inventaire et est en mesure de sauvegarder et de récupérer les ressources que vous avez importées.  Une fois que vous avez lancé la gestion dans NetApp Backup and Recovery, vous ne gérez plus ces ressources dans SnapCenter Plug-in.
+. Lancez la gestion des vCenters, des machines virtuelles et des banques de données sélectionnés dans NetApp Backup and Recovery. Après avoir lancé la gestion, NetApp Backup and Recovery marque le vCenter comme « Géré » sur la page Inventaire et peut sauvegarder et restaurer les ressources que vous avez importées. Après avoir lancé la gestion dans NetApp Backup and Recovery, vous ne gérez plus ces ressources à l’aide du plug-in SnapCenter.
 
 
 
@@ -117,28 +121,35 @@ TIP: Une fois que vous avez importé les métadonnées vCenter à partir du plug
 
 .Étapes
 . Dans la navigation de gauche de la console, sélectionnez *Protection* > *Sauvegarde et récupération*.
-. Sélectionnez *Inventaire*.
-. À partir de la page des ressources de charge de travail NetApp Backup and Recovery Discover, sélectionnez *Importer depuis SnapCenter*.
-. Dans le champ Importer depuis, sélectionnez * SnapCenter Plug-in pour VMware*.
+. Sélectionnez *Paramètres*.
+. Sélectionnez *Importer depuis SnapCenter > Importer depuis SnapCenter*.
+. Dans le champ Importer depuis, sélectionnez *SnapCenter Plug-in for VMware (SCV)*.
+. Saisissez les SnapCenter Plug-in for VMware host credentials* :
++
+Si le SnapCenter Plug-in est déjà enregistré, vous pouvez mettre à jour les informations d'enregistrement existantes.
+
++
+** *Adresse IP* : Saisissez l’adresse IP du SnapCenter Plug-in for VMware vSphere.
+** *Numéro de port* : Saisissez le numéro de port pour le plug-in.
+** *Nom d'utilisateur* et *Mot de passe* : Saisissez le nom d'utilisateur et le mot de passe que vous avez créés lors du déploiement de l'OVA.
+** *Mot de passe SSH* : Saisissez le mot de passe SSH pour l’utilisateur root si SSH est activé.
+** *Agents* : Sélectionnez l’agent Console utilisé avec le Plug-in.
+
+
 . Saisissez les *informations d'identification VMware vCenter* :
 +
-.. *vCenter IP/nom d'hôte* : saisissez le nom de domaine complet ou l'adresse IP du vCenter que vous souhaitez importer dans NetApp Backup and Recovery.
-.. *Numéro de port vCenter* : saisissez le numéro de port du vCenter.
-.. *Nom d'utilisateur vCenter* et *Mot de passe* : saisissez le nom d'utilisateur et le mot de passe du vCenter.
-.. *Connecteur* : sélectionnez l’agent de console pour vCenter.
-
-
-. Saisissez les informations d'identification de l'hôte du plug-in SnapCenter * :
+** *Informations d'identification existantes* : si vous sélectionnez cette option, vous pouvez utiliser les informations d'identification existantes que vous avez déjà ajoutées.  Choisissez le nom des informations d'identification.
+** *Ajouter de nouveaux identifiants* : Si vous ne disposez pas déjà d’identifiants vCenter, vous pouvez en ajouter de nouveaux. Saisissez les informations suivantes :
 +
-.. *Informations d'identification existantes* : si vous sélectionnez cette option, vous pouvez utiliser les informations d'identification existantes que vous avez déjà ajoutées.  Choisissez le nom des informations d'identification.
-.. *Ajouter de nouvelles informations d'identification* : si vous ne disposez pas d'informations d'identification d'hôte SnapCenter Plug-in existantes, vous pouvez en ajouter de nouvelles. Saisissez le nom des informations d'identification, le mode d'authentification, le nom d'utilisateur et le mot de passe.
+*** *Nom des identifiants* : Saisissez le nom de ce nouvel ensemble d’identifiants.
+*** *vCenter IP/nom d'hôte* : saisissez le nom de domaine complet ou l'adresse IP du vCenter que vous souhaitez importer dans NetApp Backup and Recovery.
+*** *Nom d'utilisateur vCenter* et *Mot de passe* : saisissez le nom d'utilisateur et le mot de passe du vCenter.
+*** *Numéro de port vCenter* : saisissez le numéro de port du vCenter.
+
+
 
 
 . Sélectionnez *Importer* pour valider vos entrées et enregistrer le plug-in SnapCenter .
-+
-
-NOTE: Si le SnapCenter Plug-in est déjà enregistré, vous pouvez mettre à jour les informations d'enregistrement existantes.
-
 
 
 .Résultat
@@ -157,7 +168,7 @@ Après avoir choisi de gérer les ressources, NetApp Backup and Recovery importe
 . Sur la page Inventaire, sélectionnez le vCenter importé que vous souhaitez que NetApp Backup and Recovery gère.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Afficher les détails* pour afficher les détails de la charge de travail.
 . Depuis la page Inventaire > charge de travail, sélectionnez l'icône Actions image:../media/icon-action.png["Option Actions"] > *Gérer* pour ouvrir la page Gérer vCenter.
-. Cochez la case « Voulez-vous continuer la migration ? » et sélectionnez *Migrer*.
+. Cochez la case « Do you want to continue with the migration? » et sélectionnez *Manage*.
 
 
 .Résultat
@@ -165,7 +176,8 @@ La page Inventaire affiche les ressources vCenter nouvellement gérées.
 
 
 
-==== Accéder au tableau de bord de NetApp Backup and Recovery
+[[continue-to-the-netapp-backup-and-recovery-dashboard]]
+=== Accéder au tableau de bord de NetApp Backup and Recovery
 
 . Pour afficher le tableau de bord, sélectionnez *Tableau de bord* dans le menu Backup and Recovery.
 . Examiner l’état de santé de la protection des données.  Le nombre de charges de travail à risque ou protégées augmente en fonction des charges de travail nouvellement découvertes, protégées et sauvegardées.
