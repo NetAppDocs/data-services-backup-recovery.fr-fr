@@ -123,7 +123,7 @@ https://forms.cloud.microsoft/pages/responsepage.aspx?id=oBEJS5uSFUeUS8A3RRZbOmN
 
 Avant de pouvoir protéger les charges de travail dans NetApp Backup and Recovery, vous devez ajouter un système de stockage ONTAP à la NetApp Console.
 
-https://docs.netapp.com/us-en/console-local/task-discover-storage.html["Ajouter du stockage dans le déploiement local de la NetApp Console"^]
+https://docs.netapp.com/us-en/console-local/task-add-systems.html["Ajouter du stockage dans le déploiement local de la NetApp Console"^]
 
 
 
