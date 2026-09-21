@@ -1,0 +1,124 @@
+---
+sidebar: sidebar 
+permalink: br-use-restore-kubernetes-files-folders.html 
+keywords: backing up, restoring, back up, backup, file, folder, files and folders, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery 
+summary: 'NetApp Backup and Recovery vous permet de restaurer et de télécharger des fichiers et des dossiers qui ont été sauvegardés à partir d"une application basée sur une machine virtuelle.' 
+---
+= Restaurez ou téléchargez les fichiers et dossiers d'applications basées sur des machines virtuelles à l'aide de NetApp Backup and Recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Restaurez ou téléchargez les fichiers et dossiers sauvegardés depuis une application Kubernetes basée sur une machine virtuelle. Pour restaurer ou télécharger des fichiers et dossiers, vous devez disposer d'au moins un point de restauration, et la machine virtuelle doit posséder une partition avec un système de fichiers pris en charge. Vous pouvez actuellement restaurer et télécharger uniquement à partir de l'instantané local.
+
+Les systèmes d'exploitation invités et leurs versions pris en charge incluent :
+
+* *Windows* : Windows Server 2022, Windows 10, Windows 11
+* *Linux* : Ubuntu 22.04, Red Hat Enterprise Linux 9, Fedora 39, CentOS Stream 9, openSUSE Leap 15.6
+
+
+Les systèmes de fichiers pris en charge sont les suivants :
+
+* BTRFS
+* exFAT
+* ext4
+* NTFS
+* XFS
+
+
+*Rôle de NetApp Console requis*
+
+Super administrateur de sauvegarde et de récupération ou administrateur de restauration de sauvegarde et de récupération. link:reference-roles.html["En savoir plus sur les rôles d'accès à NetApp Backup and Recovery"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
+
+
+
+[[restore-vm-files-and-folders-from-a-vm-based-application]]
+== Restaurez les fichiers et dossiers d'une machine virtuelle à partir d'une application basée sur une machine virtuelle
+
+Restaurez les fichiers et dossiers basés sur une machine virtuelle à partir d'un point de restauration lorsque vous devez récupérer des fichiers ou dossiers spécifiques vers une application basée sur une machine virtuelle sans restaurer l'application entière. Les fichiers existants sont écrasés par défaut.
+
+.Avant de commencer
+Avant de restaurer des fichiers et des dossiers à partir d'une application basée sur une machine virtuelle, vérifiez que la machine virtuelle de destination répond aux exigences suivantes :
+
+* La machine virtuelle de destination est en cours d'exécution et possède une adresse IP.
+* L'utilisateur peut écrire dans la destination de restauration.
+* Le protocole SSH est activé et utilise l'authentification par mot de passe (la connexion par clé uniquement n'est pas prise en charge). Vérifiez que le service SSH est activé sur les hôtes de destination Linux et qu'un serveur OpenSSH est installé et activé sur les hôtes de destination Windows.
+
+
+.Étapes
+. Dans le menu NetApp Backup and Recovery, sélectionnez *Restaurer*.
+. Choisissez une application Kubernetes dans la liste, et sélectionnez *Afficher et restaurer* pour cette application.
++
+La liste des points de restauration apparaît.
+
+. Sélectionnez l'icône *Actions* image:icon-action.png["Icône Actions"] pour un point de restauration, puis ouvrez le menu *Restaurer les fichiers et dossiers*.
+. Sélectionnez l'emplacement source à partir duquel effectuer la restauration (seul l'instantané est pris en charge pour le moment).
+. Sélectionnez une machine virtuelle à partir du point de récupération pour parcourir ses fichiers et dossiers.
+. Sélectionnez *Suivant*.
++
+L'explorateur de fichiers s'affiche.
+
+. Parcourez la liste des fichiers et dossiers, puis sélectionnez les fichiers et dossiers à restaurer.
++
+Ouvrez une partition pour parcourir ses fichiers et dossiers. Lorsque vous sélectionnez un fichier ou un dossier à restaurer en activant sa case à cocher, il est ajouté à la liste « selected » à droite.
+
+. Une fois terminé, sélectionnez *Suivant*.
+. Sélectionnez le mode de transfert *Transfert vers VM*.
+. Choisissez les paramètres de destination :
++
+** *Restaurer la VM d'origine* : Activez cette option pour restaurer la machine virtuelle d'origine.
++
+*** *Restaurer au même chemin que dans la sauvegarde* : Activez cette option pour restaurer au même chemin que celui utilisé dans la sauvegarde.
+*** *Chemin alternatif* : Pour restaurer vers un autre chemin, activez cette option et saisissez le chemin préféré.
+
+
+** *Restaurer sur une autre VM* : activez cette option pour restaurer sur une autre machine virtuelle du cluster. Sélectionnez une VM dans la liste et saisissez un chemin de destination pour les fichiers ou dossiers restaurés.
+
+
+. Dans la section *Identifiants de la machine virtuelle invitée*, sélectionnez les identifiants de la machine virtuelle invitée.
++
+Si vous n'avez pas encore ajouté d'identifiant pour cette machine virtuelle invitée, sélectionnez *Ajouter identifiant* pour ajouter un nouvel identifiant pour la machine virtuelle invitée. Après avoir ajouté un identifiant de machine virtuelle invitée, le nouvel identifiant apparaît dans la liste des identifiants, et vous pouvez le sélectionner. Ces identifiants sont propres aux machines virtuelles invitées et peuvent être réutilisés par tout cluster utilisant le même agent Console.
+
+. Sélectionnez *Suivant*.
+. Vérifiez et confirmez les paramètres de restauration du fichier ou du dossier.
+. Sélectionnez *Restaurer*.
+
+
+
+
+[[download-kubernetes-vm-files-and-folders]]
+== Téléchargez les fichiers et dossiers de la machine virtuelle Kubernetes
+
+Téléchargez des fichiers et des dossiers à partir d'un point de restauration lorsque vous ne souhaitez pas les restaurer sur une application basée sur une machine virtuelle, mais plutôt les enregistrer sur votre ordinateur local. Les fichiers et dossiers téléchargés sont enregistrés sous la forme d'une seule archive .tar. Le téléchargement de fichiers et de dossiers ne nécessite pas d'identifiants pour une machine virtuelle invitée.
+
+.Étapes
+. Dans le menu NetApp Backup and Recovery, sélectionnez *Restaurer*.
+. Choisissez une application Kubernetes dans la liste, et sélectionnez *Afficher et restaurer* pour cette application.
++
+La liste des points de restauration apparaît.
+
+. Sélectionnez l'icône *Actions* image:icon-action.png["Icône Actions"] pour un point de restauration, puis ouvrez le menu *Restaurer les fichiers et dossiers*.
+. Sélectionnez l'emplacement source à partir duquel télécharger (seul l'instantané est pris en charge pour le moment).
+. Sélectionnez une machine virtuelle à partir du point de récupération pour parcourir ses fichiers et dossiers.
+. Sélectionnez *Suivant*.
++
+L'explorateur de fichiers s'affiche.
+
+. Parcourez la liste des fichiers et dossiers, puis sélectionnez les fichiers et dossiers à télécharger.
++
+Ouvrez une partition pour parcourir ses fichiers et dossiers. Lorsque vous sélectionnez un fichier ou un dossier à télécharger en activant sa case à cocher, il est ajouté à la liste « selected » à droite.
+
+. Une fois terminé, sélectionnez *Suivant*.
+. Sélectionnez le mode de transfert *Download file*.
+. Sélectionnez *Suivant*.
+. Vérifiez et confirmez les paramètres de téléchargement du fichier ou du dossier.
+. Sélectionnez *Restaurer*.
++
+Votre navigateur web gère le téléchargement ; enregistrez l’archive .tar sur votre ordinateur.
+
+

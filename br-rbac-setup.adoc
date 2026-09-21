@@ -36,6 +36,7 @@ Ajoutez des utilisateurs à chaque projet désigné pour les charges de travail 
 +
 *** *Administrateur de l'organisation* et *Super administrateur de NetApp Backup and Recovery* : Un utilisateur disposant de ces rôles peut consulter toutes les ressources de l'ensemble des organisations, découvrir les charges de travail NetApp Backup and Recovery et les affecter à des projets (par exemple, US East ou US West).
 *** *Administrateur de dossier ou de projet* et *Super administrateur de NetApp Backup and Recovery* : Un utilisateur disposant de ces rôles peut uniquement consulter les ressources de son dossier ou projet attribué, mais peut découvrir les charges de travail NetApp Backup and Recovery et les attribuer à ce projet.
+*** *Autres rôles de Backup and Recovery* : Attribuez aux utilisateurs les rôles spécifiques de Backup and Recovery dont ils ont besoin, tels que Backup and Recovery viewer ou Backup and Recovery clone admin. Ces rôles permettent aux utilisateurs d’effectuer des tâches quotidiennes telles que la consultation des ressources, la protection des workloads, le clonage et la restauration. Attribuez les rôles de Backup and Recovery séparément des rôles au niveau de la plateforme. Pour plus d’informations, consultez link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-backup-rec-roles.html["Rôles de NetApp Backup and Recovery dans la NetApp Console"^].
 
 
 .. Option alternative :
@@ -46,7 +47,7 @@ Au lieu d'accorder à un utilisateur un accès complet d'administrateur Backup a
 
 . Découvrez les charges de travail dans Backup and Recovery.
 +
-Les administrateurs de l'organisation, du dossier ou du projet découvrent les charges de travail disponibles et sélectionnent le projet approprié (par exemple, US East ou US West). Chaque charge de travail est automatiquement associée au projet sélectionné.
+Les administrateurs d'organisation, de dossier ou de projet découvrent les charges de travail disponibles et sélectionnent le projet approprié (par exemple, US East ou US West). Chaque charge de travail est automatiquement associée au projet sélectionné. Pour les clusters Kubernetes, vous pouvez éventuellement sélectionner un dossier ou un projet à associer au cluster lors de la découverte.
 
 . Ajouter des utilisateurs aux projets.
 +
@@ -59,6 +60,9 @@ Les administrateurs d'organisation, de dossier ou de projet ajoutent des utilisa
 [[related-information]]
 == Informations connexes
 
-* link:https://docs.netapp.com/us-en/console-setup-admin/concept-identity-and-access-management.html["Découvrez la gestion des identités et des accès de la NetApp Console"^].
-* link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-backup-rec-roles.html["Rôles de NetApp Backup and Recovery dans la NetApp Console"^].
+* link:https://docs.netapp.com/us-en/console-setup-admin/concept-identity-and-access-management.html["Découvrez la gestion des identités et des accès de la NetApp Console"^]
+* link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-backup-rec-roles.html["Rôles de NetApp Backup and Recovery dans la NetApp Console"^]
+* link:reference-roles.html["NetApp Backup and Recovery rôles et privilèges"]
+* link:br-start-discover-kubernetes.html["Découvrez les charges de travail Kubernetes"]
+* link:br-use-manage-kubernetes-access-control.html["Gérer l'accès aux ressources Kubernetes"]
 
