@@ -5921,7 +5921,6 @@
   <block id="6c2c266ca065311d4804d34cd534ac61" category="paragraph">La restauration d'un volume ou d'un fichier à partir d'un stockage d'archive peut prendre plus de temps. La tâche reste *En cours* dans le Moniteur de tâches pendant que Backup and Recovery réessaie la restauration en fonction de la priorité sélectionnée. Surveillez la restauration dans le *Moniteur de tâches* ; elle se termine lorsque la tâche atteint un état final, tel que *Terminée* ou *Échec*, après toutes les tentatives de restauration. Ne lancez pas une autre restauration à moins que la tâche n'échoue finalement.</block>
   <block id="534cf708a73e1e3ff80e4b70322d78d6" category="paragraph"><block ref="534cf708a73e1e3ff80e4b70322d78d6" category="inline-link-rx"></block></block>
   <block id="6c302dca9120d9212ecda9d1ad1f74c9" category="paragraph">Dans cette version, les charges de travail KVM, Hyper-V et VMware introduisent l'amélioration suivante :</block>
-  <block id="0898522d58ded515e98cbdbeae0b2894" category="paragraph">*Sélection d'identifiant lors de la découverte de l'hôte de machine virtuelle* : Lorsque vous enregistrez un hôte KVM, Hyper-V ou VMware, vous pouvez désormais utiliser les identifiants que vous avez déjà ajoutés à NetApp Backup and Recovery.</block>
   <block id="51b1f28526e9e7dfdb39548a8b5d4ac0" category="paragraph">Protection étendue des disques pour les machines virtuelles : pour les configurations CIFS, NetApp Backup and Recovery prend désormais en charge la protection de chaque disque attaché à chaque machine virtuelle d'un groupe de protection. Cela inclut les fichiers répartis sur plusieurs volumes ONTAP ou systèmes de stockage ONTAP (disques étendus) ainsi que les fichiers limités à un seul emplacement.</block>
   <block id="1e62d1b5255654e86ebb8b223345252a" category="section-title">Amélioration des charges de travail des volumes ONTAP</block>
   <block id="705eb27960b89edebb2b2269e939009b" category="paragraph">Dans cette version, les charges de travail ONTAP Volumes introduisent l'amélioration suivante en avant-première :</block>
@@ -6104,4 +6103,7 @@
   <block id="6cdd743b39af79062eb92fec70569354" category="section-title">13 février 2025</block>
   <block id="008c6d012aabba0e44e2b94f8259635c" category="section-title">22 novembre 2024</block>
   <block id="5fcc5d3ffc4bbbcf6d018ab4a9639205" category="section-title">27 septembre 2024</block>
+  <block id="1f5228fb8e4d751814a84ea17a1c4929" category="doc">Amélioration générale de la sauvegarde et de la restauration NetApp</block>
+  <block id="36d329847d8e5ae441cfdb0f4e5f6e2f" category="paragraph">*Sélection des informations d'identification lors de la découverte de l'hôte de machine virtuelle* : Lorsque vous découvrez un hôte KVM, Hyper-V ou VMware, vous pouvez désormais utiliser les informations d'identification que vous avez déjà ajoutées à Backup and Recovery.</block>
+  <block id="ffe23fba63447ec89bcdd7bc0c48257f" category="section-title">Amélioration des charges de travail Hyper-V</block>
 </blocks>

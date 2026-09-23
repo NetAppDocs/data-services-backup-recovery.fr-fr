@@ -1,20 +1,20 @@
-= Améliorations générales de NetApp Backup and Recovery
+= Amélioration générale de la sauvegarde et de la restauration NetApp
 :allow-uri-read: 
 
 
 
 
-[[general-netapp-backup-and-recovery-enhancements]]
-=== Améliorations générales de NetApp Backup and Recovery
+[[general-netapp-backup-and-recovery-enhancement]]
+=== Amélioration générale de la sauvegarde et de la restauration NetApp
 
 Dans cette version, les charges de travail KVM, Hyper-V et VMware introduisent l'amélioration suivante :
 
-*Sélection d'identifiant lors de la découverte de l'hôte de machine virtuelle* : Lorsque vous enregistrez un hôte KVM, Hyper-V ou VMware, vous pouvez désormais utiliser les identifiants que vous avez déjà ajoutés à NetApp Backup and Recovery.
+*Sélection des informations d'identification lors de la découverte de l'hôte de machine virtuelle* : Lorsque vous découvrez un hôte KVM, Hyper-V ou VMware, vous pouvez désormais utiliser les informations d'identification que vous avez déjà ajoutées à Backup and Recovery.
 
 
 
-[[hyper-v-workloads-enhancements]]
-=== Améliorations des charges de travail Hyper-V
+[[hyper-v-workloads-enhancement]]
+=== Amélioration des charges de travail Hyper-V
 
 Dans cette version, les charges de travail Hyper-V introduisent l'amélioration suivante :
 
