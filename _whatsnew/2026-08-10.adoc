@@ -43,7 +43,7 @@ Pour plus de détails sur la protection des charges de travail Kubernetes, repor
 
 Dans cette version, les charges de travail ONTAP Volumes introduisent les améliorations suivantes :
 
-* *Prioriser les tâches de restauration par rapport aux sauvegardes* : Vous pouvez désormais donner la priorité aux tâches de restauration par rapport aux tâches de sauvegarde lors de la restauration de machines virtuelles ou de fichiers.
+* *Prioriser les tâches de restauration par rapport aux sauvegardes* : Vous pouvez désormais donner la priorité aux tâches de restauration par rapport aux tâches de sauvegarde lors de la restauration de volumes, de fichiers ou de dossiers.
 * *Découvrez les systèmes et volumes ONTAP sans activer Backup and Recovery* : Vous pouvez désormais découvrir les systèmes et volumes sans activer Backup and Recovery.
 
 
