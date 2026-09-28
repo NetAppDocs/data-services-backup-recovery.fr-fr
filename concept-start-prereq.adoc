@@ -277,8 +277,9 @@ Vous avez besoin d’exigences spécifiques pour découvrir et protéger vos cha
 
 | Stockage connecté  a| 
 * ONTAP 9.13.1 ou version ultérieure (ONTAP 9.19.1 ou version ultérieure est requis pour prendre en charge plus de 6 compartiments par système sur différents fournisseurs de cloud ; jusqu’à 100 compartiments maximum)
-* Amazon FSx for NetApp ONTAP storage systems exécutant la version 9.13.1 ou ultérieure
 * ASA r2 SAN uniquement (ONTAP 9.17.1 ou version ultérieure requis)
+* Amazon FSx for NetApp ONTAP storage systems exécutant la version 9.13.1 ou ultérieure
+* Google Cloud NetApp Volumes (mode ONTAP et niveau de service Flex Unified)
 
 
 |===

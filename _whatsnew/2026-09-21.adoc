@@ -1,6 +1,17 @@
-= Améliorations des charges de travail Kubernetes
+= Amélioration des charges de travail des volumes ONTAP
 :allow-uri-read: 
 
+
+
+
+[[ontap-volumes-workloads-enhancement]]
+=== Amélioration des charges de travail des volumes ONTAP
+
+Dans cette version, les charges de travail ONTAP Volumes introduisent l'amélioration suivante en avant-première :
+
+*Prise en charge améliorée des sites distants* : NetApp Backup and Recovery pour les sites distants offre désormais les mêmes fonctionnalités de protection des données ONTAP Volumes que NetApp Backup and Recovery. Cette amélioration comprend des services de sauvegarde, de restauration et de gestion des tâches mis à jour, ainsi qu'une nouvelle base de données. Lors d'une mise à niveau, les données de la base de données existante sont conservées et migrées automatiquement. Après la mise à niveau, consultez les journaux d'audit pour vérifier que la migration s'est déroulée correctement. NetApp Backup and Recovery pour les sites distants prend uniquement en charge les charges de travail ONTAP Volumes.
+
+Pour plus de détails sur la protection des charges de travail ONTAP Volumes, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-protect-overview.html["Découvrez la protection des volumes ONTAP avec NetApp Backup and Recovery"].
 
 
 
@@ -10,7 +21,7 @@
 Cette version introduit les améliorations suivantes pour les charges de travail Kubernetes :
 
 * *Trident Protect 26.09* : Cette version inclut Trident Protect 26.09.
-* *Contrôle d'accès basé sur les rôles, granulaire au niveau du cluster et de l'espace de noms* : lors de la découverte d'un cluster Kubernetes, vous pouvez contrôler l'accès aux ressources en sélectionnant un projet ou un dossier à associer au nouveau cluster. Vous pouvez également enregistrer des espaces de noms spécifiques pour le contrôle d'accès. Cela permet un contrôle d'accès plus granulaire au niveau du cluster ou de l'espace de noms.
+* *Contrôle d'accès basé sur les rôles (RBAC) granulaire au niveau du cluster et de l'espace de noms* : lors de la découverte d'un cluster Kubernetes, vous pouvez contrôler l'accès aux ressources en sélectionnant un projet ou un dossier à associer au nouveau cluster. Vous pouvez également enregistrer des espaces de noms spécifiques pour le contrôle d'accès. Cela permet un contrôle d'accès plus granulaire au niveau du cluster ou de l'espace de noms.
 * *Restauration de fichiers et de dossiers* : Vous pouvez désormais restaurer ou télécharger des fichiers et des dossiers spécifiques à partir des sauvegardes d'applications basées sur des machines virtuelles Kubernetes.
 
 

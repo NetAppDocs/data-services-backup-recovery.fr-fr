@@ -18,10 +18,50 @@ Découvrez les nouvelles fonctionnalités, les améliorations et les correctifs 
 
 
 
+[[28-september-2026]]
+== 28 septembre 2026
+
+Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
+
+
+
+[[general-netapp-backup-and-recovery-enhancement]]
+=== Amélioration générale de la sauvegarde et de la restauration NetApp
+
+Dans cette version, les charges de travail KVM, Hyper-V et VMware introduisent l'amélioration suivante :
+
+*Prise en charge du contrôle d'accès basé sur les rôles (RBAC) de la Console* : les charges de travail Hyper-V, KVM et VMware prennent désormais en charge le framework NetApp Console pour le RBAC, vous permettant de gérer l'accès à des hôtes Hyper-V, KVM ou VMware individuels.
+
+https://docs.netapp.com/us-en/data-services-backup-recovery/br-rbac-setup.html["Apprenez-en davantage sur l’utilisation du contrôle d’accès basé sur les rôles (RBAC) dans NetApp Backup and Recovery"].
+
+
+
+[[vmware-workloads-enhancements]]
+=== Améliorations des charges de travail VMware
+
+Dans cette version, les charges de travail VMware introduisent l'amélioration suivante :
+
+*Prise en charge de Google Cloud NetApp Volumes Flex Unified* : NetApp Backup and Recovery for VMware workloads prend désormais en charge le niveau de service Flex Unified pour Google Cloud NetApp Volumes. Flex Unified est pris en charge uniquement en mode ONTAP.
+
+Pour plus de détails sur la protection des charges de travail VMware, consultez  https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-vmware-protect-overview.html["Protégez les charges de travail VMware avec NetApp Backup and Recovery"].
+
+
+
 [[21-september-2026]]
 == 21 septembre 2026
 
 Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
+
+
+
+[[ontap-volumes-workloads-enhancement]]
+=== Amélioration des charges de travail des volumes ONTAP
+
+Dans cette version, les charges de travail ONTAP Volumes introduisent l'amélioration suivante en avant-première :
+
+*Prise en charge améliorée des sites distants* : NetApp Backup and Recovery pour les sites distants offre désormais les mêmes fonctionnalités de protection des données ONTAP Volumes que NetApp Backup and Recovery. Cette amélioration comprend des services de sauvegarde, de restauration et de gestion des tâches mis à jour, ainsi qu'une nouvelle base de données. Lors d'une mise à niveau, les données de la base de données existante sont conservées et migrées automatiquement. Après la mise à niveau, consultez les journaux d'audit pour vérifier que la migration s'est déroulée correctement. NetApp Backup and Recovery pour les sites distants prend uniquement en charge les charges de travail ONTAP Volumes.
+
+Pour plus de détails sur la protection des charges de travail ONTAP Volumes, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-protect-overview.html["Découvrez la protection des volumes ONTAP avec NetApp Backup and Recovery"].
 
 
 
@@ -31,7 +71,7 @@ Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
 Cette version introduit les améliorations suivantes pour les charges de travail Kubernetes :
 
 * *Trident Protect 26.09* : Cette version inclut Trident Protect 26.09.
-* *Contrôle d'accès basé sur les rôles, granulaire au niveau du cluster et de l'espace de noms* : lors de la découverte d'un cluster Kubernetes, vous pouvez contrôler l'accès aux ressources en sélectionnant un projet ou un dossier à associer au nouveau cluster. Vous pouvez également enregistrer des espaces de noms spécifiques pour le contrôle d'accès. Cela permet un contrôle d'accès plus granulaire au niveau du cluster ou de l'espace de noms.
+* *Contrôle d'accès basé sur les rôles (RBAC) granulaire au niveau du cluster et de l'espace de noms* : lors de la découverte d'un cluster Kubernetes, vous pouvez contrôler l'accès aux ressources en sélectionnant un projet ou un dossier à associer au nouveau cluster. Vous pouvez également enregistrer des espaces de noms spécifiques pour le contrôle d'accès. Cela permet un contrôle d'accès plus granulaire au niveau du cluster ou de l'espace de noms.
 * *Restauration de fichiers et de dossiers* : Vous pouvez désormais restaurer ou télécharger des fichiers et des dossiers spécifiques à partir des sauvegardes d'applications basées sur des machines virtuelles Kubernetes.
 
 
