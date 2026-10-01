@@ -241,7 +241,7 @@ Le Centre de notifications affiche de nombreux événements de capture instantan
 
 NOTE: À partir d' ONTAP 9.13.0, toutes les alertes apparaissent pour Cloud Volumes ONTAP et les systèmes ONTAP sur site.  Pour les systèmes avec Cloud Volumes ONTAP 9.13.0 et ONTAP sur site, seule l'alerte relative à « Tâche de restauration terminée, mais avec des avertissements » s'affiche.
 
-Par défaut, les administrateurs de compte et d'organisation de la NetApp Console reçoivent des e-mails pour toutes les alertes « Critiques » et « Recommandation ». Par défaut, le système ne configure pas les autres utilisateurs et destinataires pour recevoir des e-mails de notification.  Configurez des alertes par e-mail pour tous les utilisateurs de la console de votre compte NetApp Cloud ou pour d'autres destinataires qui doivent être informés de l'activité de sauvegarde et de restauration.
+Par défaut, les administrateurs de l'organisation et du compte de NetApp Console reçoivent des notifications par e-mail pour toutes les alertes « Critical » et « Recommendation ». Les autres utilisateurs et destinataires ne reçoivent pas de notifications par e-mail, sauf si vous les configurez. Configurez des alertes par e-mail pour les utilisateurs de Console dans votre compte Cloud NetApp ou pour d'autres destinataires qui doivent surveiller l'activité de sauvegarde et de restauration.
 
 Pour recevoir les alertes par e-mail de NetApp Backup and Recovery , vous devez sélectionner les types de gravité de notification « Critique », « Avertissement » et « Erreur » dans la page des paramètres de notifications.
 
@@ -259,6 +259,59 @@ https://docs.netapp.com/us-en/console-local/task-alert-rules-manage.html["Config
 [[review-operation-activity-in-console-timeline]]
 == Examiner l'activité opérationnelle dans la chronologie de la console
 
-Vous pouvez consulter les détails des opérations de sauvegarde et de restauration pour une analyse plus approfondie dans la chronologie de la Console. La chronologie de la Console fournit des détails sur chaque événement, qu'il soit initié par l'utilisateur ou par le système, et affiche les actions initiées dans l'interface utilisateur ou via l'API.
+Utilisez la chronologie de la console pour analyser les opérations de sauvegarde et de restauration. Elle fournit des informations détaillées sur chaque événement, notamment s'il a été initié par un utilisateur ou par le système, et affiche les actions effectuées dans l'interface utilisateur ou via l'API.
 
 https://docs.netapp.com/us-en/console-setup-admin/task-monitor-cm-operations.html["Découvrez comment surveiller les opérations de la NetApp Console"^].
+
+
+
+[[cancel-an-ongoing-job]]
+== Annuler une tâche en cours
+
+Certaines charges de travail de sauvegarde et de restauration permettent d'annuler une tâche en cours si elle prend trop de temps à se terminer et qu'elle n'a pas échoué.
+
+
+NOTE: Pour annuler une tâche de restauration de volumes ONTAP, reportez-vous à <<Annuler une tâche de restauration de volumes ONTAP>>.
+
+.Étapes
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Surveillance*.
+. Vous pouvez également développer la section *Advanced Search & Filtering* et sélectionner des critères spécifiques pour affiner les résultats de votre recherche d’emploi.
+. Sélectionnez *Rechercher* pour afficher les tâches de restauration correspondantes.
+. Choisissez une tâche dans la liste, sélectionnez le menu Actions image:icon-action.png["Icône Actions"], puis sélectionnez l'action *Annuler* (le libellé de l'action varie selon le type de tâche).
+. Dans la boîte de dialogue de confirmation, confirmez l'annulation.
+
+
+
+
+[[cancel-an-ontap-volumes-restore-job]]
+== Annuler une tâche de restauration de volumes ONTAP
+
+Annulez une tâche de restauration de volumes ONTAP si elle prend trop de temps à se terminer et n’a pas échoué.
+
+Lorsque vous annulez une restauration de volume, l’intégralité de l’opération de restauration est annulée afin qu’aucune partie du volume ne soit restaurée.
+
+Lors de la restauration de fichiers et de dossiers, Backup and Recovery procède par lots de huit. Si vous annulez une restauration de fichiers et de dossiers pendant qu’un lot est en cours, celle-ci s’arrête avant le début du lot suivant. Les fichiers et dossiers déjà restaurés restent en place.
+
+.À propos de cette tâche
+Notez les types de tâches que vous pouvez et ne pouvez pas annuler :
+
+[cols="1,1"]
+|===
+| Vous pouvez annuler | Vous ne pouvez pas annuler 
+
+
+| Restaurations de volumes à partir d'un snapshot local ou dans le cloud (FlexVol® et FlexGroup) | Tâches de restauration en file d'attente 
+
+
+| Restauration de fichiers et de dossiers depuis le cloud | Restauration d'archives 
+
+
+| Restauration de fichiers et de dossiers à partir d'un snapshot local vers un autre volume | Restauration de fichiers et de dossiers à partir d'un snapshot local vers le même volume 
+|===
+.Étapes
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Surveillance*.
+. Vous pouvez également développer la section *Advanced Search & Filtering* et sélectionner des critères spécifiques pour affiner les résultats de votre recherche d’emploi.
+. Sélectionnez *Rechercher* pour afficher les tâches de restauration correspondantes.
+. Choisissez une tâche dans la liste, sélectionnez le menu Actions image:icon-action.png["Icône Actions"], puis sélectionnez l’action *Annuler la restauration*.
+. Dans la boîte de dialogue de confirmation, sélectionnez *Annuler la restauration*.
+

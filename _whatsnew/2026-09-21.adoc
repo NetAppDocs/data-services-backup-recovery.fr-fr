@@ -1,15 +1,19 @@
-= Amélioration des charges de travail des volumes ONTAP
+= Améliorations des charges de travail des volumes ONTAP
 :allow-uri-read: 
 
 
 
 
-[[ontap-volumes-workloads-enhancement]]
-=== Amélioration des charges de travail des volumes ONTAP
+[[ontap-volumes-workloads-enhancements]]
+=== Améliorations des charges de travail des volumes ONTAP
 
-Dans cette version, les charges de travail ONTAP Volumes introduisent l'amélioration suivante en avant-première :
+Dans cette version, les workloads ONTAP Volumes introduisent les améliorations en avant-première suivantes :
 
-*Prise en charge améliorée des sites distants* : NetApp Backup and Recovery pour les sites distants offre désormais les mêmes fonctionnalités de protection des données ONTAP Volumes que NetApp Backup and Recovery. Cette amélioration comprend des services de sauvegarde, de restauration et de gestion des tâches mis à jour, ainsi qu'une nouvelle base de données. Lors d'une mise à niveau, les données de la base de données existante sont conservées et migrées automatiquement. Après la mise à niveau, consultez les journaux d'audit pour vérifier que la migration s'est déroulée correctement. NetApp Backup and Recovery pour les sites distants prend uniquement en charge les charges de travail ONTAP Volumes.
+* *Prise en charge améliorée des sites distants* : NetApp Backup and Recovery pour les sites distants offre désormais les mêmes fonctionnalités de protection des données ONTAP Volumes que NetApp Backup and Recovery. Cette amélioration comprend des services de sauvegarde, de restauration et de gestion des tâches mis à jour, ainsi qu'une nouvelle base de données. Lors d'une mise à niveau, les données de la base de données existante sont conservées et migrées automatiquement. Après la mise à niveau, consultez les journaux d'audit pour vérifier que la migration s'est déroulée correctement. NetApp Backup and Recovery pour les sites distants prend uniquement en charge les charges de travail ONTAP Volumes.
+* *Annulation des tâches de restauration de volumes* : Vous pouvez désormais annuler les tâches de restauration de volumes ONTAP en cours depuis la page de surveillance des tâches, ce qui facilite la gestion des tâches longues ou lentes.
+* *Amélioration du rapport sur l’état d’indexation des volumes* : Le tableau de bord ONTAP Volumes rapporte désormais l’état d’indexation avec plus de précision en introduisant le statut  `Not Applicable` pour les volumes et les copies d’instantané qui ne sont pas éligibles à l’indexation. Le statut  `Not Indexed` est désormais réservé aux volumes en attente d’indexation, et les détails du volume affichent maintenant l’état d’indexation de chaque instantané avec une infobulle expliquant pourquoi un volume ou une copie d’instantané ne sera pas indexé.
+* *Prise en charge de NetApp AFX* : Vous pouvez désormais protéger les volumes hébergés sur des clusters NetApp AFX à 2 et 4 nœuds.
+
 
 Pour plus de détails sur la protection des charges de travail ONTAP Volumes, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-protect-overview.html["Découvrez la protection des volumes ONTAP avec NetApp Backup and Recovery"].
 
