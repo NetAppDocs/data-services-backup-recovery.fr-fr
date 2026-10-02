@@ -32,7 +32,7 @@ En option, vous pouvez également vous connecter à un système ONTAP secondaire
 
 image:diagram_cloud_backup_cvo_azure.png["Un diagramme montrant comment NetApp Backup and Recovery communique avec les volumes sur les systèmes sources et le stockage de destination où se trouvent les fichiers de sauvegarde."]
 
-Versions ONTAP prises en charge:: Minimum ONTAP 9.8 ; ONTAP 9.8P13 et versions ultérieures sont recommandés.
+Versions ONTAP prises en charge:: ONTAP 9.8 minimum ; ONTAP 9.8P13 et versions ultérieures sont recommandées. ONTAP 9.16.1 ou une version ultérieure est requis si vous utilisez l’authentification Microsoft Entra ID pour le stockage objet Azure.
 Régions Azure prises en charge:: NetApp Backup and Recovery est pris en charge dans toutes les régions Azure, y compris les régions Azure Government.
 +
 --
@@ -52,6 +52,24 @@ Pour les licences NetApp Backup and Recovery PAYGO, un abonnement via Azure Mark
 Pour les licences BYOL de NetApp Backup and Recovery , vous avez besoin du numéro de série de NetApp qui vous permet d'utiliser le service pendant la durée et la capacité de la licence. link:br-start-licensing.html["Apprenez à gérer vos licences BYOL"] .  Vous devez utiliser une licence BYOL lorsque l'agent de console et le système Cloud Volumes ONTAP sont déployés sur un site sombre (« mode privé »).
 
 Vous avez également besoin d'un abonnement Azure pour l'espace de stockage où vos sauvegardes seront situées.
+
+
+
+[[requirements-for-using-microsoft-entra-id-authentication-with-azure-object-stores]]
+[[anchor-entraid]]
+== Exigences relatives à l'utilisation de l'authentification Microsoft Entra ID avec les magasins d'objets Azure
+
+Vous pouvez activer l’authentification Microsoft Entra ID pour le stockage d’objets Azure lors de la création d’un compartiment de stockage d’objets Azure ou de la modification de la configuration d’un compartiment Azure existant si vous ne souhaitez pas utiliser la clé d’accès du compte de stockage pour l’authentification Azure. Cette option est prise en charge pour Cloud Volumes ONTAP sur les systèmes Azure exécutant ONTAP 9.16.1 ou une version ultérieure.
+
+
+NOTE: Vous pouvez utiliser différentes méthodes d'authentification pour différentes configurations de stockage d'objets au sein du même système Cloud Volumes ONTAP, mais une fois que vous avez configuré un stockage d'objets pour utiliser Microsoft Entra ID, vous ne pouvez plus revenir à l'utilisation de la clé du compte de stockage.
+
+* Vérifiez que l’indicateur de fonctionnalité « use-azure-msi-cvo » est activé sur le système Cloud Volumes ONTAP. Pour plus d’informations, consultez link:enable-preview-features.html["Activer les fonctionnalités de prévisualisation"].
+* Seule l’option de stratégie de sauvegarde « Bring Your Own Bucket » est prise en charge. Vérifiez que le compte de stockage Azure existe déjà et contient un conteneur portant le même nom que le compte.
+* Dans les paramètres IAM du compte de stockage Azure, vérifiez que le rôle  `Storage Blob Data Contributor` est attribué à la fois à l’Azure Agent et au système Cloud Volumes ONTAP. Si vous utilisez l’option de stratégie  `Object lock`, activez également le contrôle de version sur le compte de stockage et attribuez le rôle  `Storage Blob Data Owner` à la fois à l’Azure Agent et au système Cloud Volumes ONTAP.
+
+
+Si votre environnement répond à ces exigences, vous pouvez sélectionner  `Entra ID` comme type d’authentification dans tout nouveau compartiment de stockage d’objets Azure lorsque vous <<Définir la stratégie de sauvegarde,définir la stratégie de sauvegarde>>. Vous pouvez également link:prev-ontap-policy-object-advanced-settings.html#switch-an-azure-object-store-configuration-to-microsoft-entra-id-authentication["Passez à Entra ID pour un bucket Azure déjà configuré"] depuis la page *Paramètres de sauvegarde* des volumes ONTAP.
 
 
 
@@ -146,8 +164,8 @@ https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-azure.ht
 
 
 
-[[required-information-for-using-customer-managed-keys-for-data-encryption]]
-=== Informations requises pour l'utilisation de clés gérées par le client pour le chiffrement des données
+[[requirements-for-using-customer-managed-keys-for-data-encryption]]
+=== Exigences relatives à l'utilisation de clés gérées par le client pour le chiffrement des données
 
 Vous pouvez utiliser vos propres clés gérées par le client pour le chiffrement des données dans l’assistant d’activation au lieu d’utiliser les clés de chiffrement par défaut gérées par Microsoft.  Dans ce cas, vous aurez besoin de l’abonnement Azure, du nom du coffre de clés et de la clé. https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["Découvrez comment utiliser vos propres clés"^] .
 
@@ -321,7 +339,7 @@ NOTE: Si les volumes que vous choisissez ont des stratégies de snapshot et de r
 
 
 .Étapes
-. Dans la page Définir la stratégie de sauvegarde, choisissez une ou toutes les options suivantes.  Les trois sont sélectionnés par défaut :
+. Sur la page *Définir la stratégie de sauvegarde*, choisissez une seule ou toutes les options suivantes. Les trois sont sélectionnées par défaut :
 +
 ** * Instantanés locaux * : si vous effectuez une réplication ou une sauvegarde sur un stockage d'objets, des instantanés locaux doivent être créés.
 ** *Réplication* : crée des volumes répliqués sur un autre système de stockage ONTAP .
@@ -370,25 +388,26 @@ Pour créer une politique, sélectionnez *Créer une nouvelle politique* et proc
 
 
 
-. *Sauvegarder vers l'objet* : Si vous avez sélectionné *Sauvegarder*, définissez les options suivantes :
+. *Sauvegarde* : Définissez les options suivantes :
 +
+** *Paramètres de destination de sauvegarde*: Choisissez d’utiliser une destination de sauvegarde existante et sélectionnez-en une dans la liste, ou choisissez de configurer une nouvelle destination de sauvegarde.
 ** *Fournisseur* : sélectionnez *Microsoft Azure*.
-** *Paramètres du fournisseur* : saisissez les détails du fournisseur.
+** *Paramètres du fournisseur* : Saisissez les détails du fournisseur, tels que les options de création de compartiment et d’authentification :
 +
-Entrez la région où les sauvegardes seront stockées.  Il peut s'agir d'une région différente de celle dans laquelle réside le système Cloud Volumes ONTAP .
-
+*** *Créer un nouveau compartiment* : NetApp Backup and Recovery crée le compartiment dans l’environnement de votre fournisseur.
+*** *Apportez votre propre bucket* : Utilisez un bucket existant que vous avez déjà créé.
+*** *Méthode d’authentification* : Choisissez d’utiliser la clé d’accès du compte de stockage ou Microsoft Entra ID pour vous authentifier auprès d’Azure. Vous pouvez sélectionner *Entra ID* uniquement si votre environnement répond aux exigences de *Entra ID* <<anchor-entraid,exigences>>. Si vous sélectionnez *Storage account access key*, sélectionnez les éléments suivants :
 +
-Créez un nouveau compte de stockage ou sélectionnez-en un existant.
-
-+
-Saisissez l’abonnement Azure utilisé pour stocker les sauvegardes.  Il peut s'agir d'un abonnement différent de celui sur lequel réside le système Cloud Volumes ONTAP .
-
-+
-Créez votre propre groupe de ressources qui gère le conteneur Blob ou sélectionnez le type de groupe de ressources et le groupe.
-
+**** Sélectionnez l’abonnement Azure utilisé pour stocker les sauvegardes. Il peut s’agir d’un abonnement différent de celui dans lequel réside le système Cloud Volumes ONTAP.
+**** Sélectionnez la région où les sauvegardes seront stockées.  Il peut s'agir d'une région différente de celle dans laquelle réside le système Cloud Volumes ONTAP .
+**** Créez votre propre groupe de ressources qui gère le conteneur Blob ou sélectionnez le type de groupe de ressources et le groupe.
 +
 
 TIP: Si vous souhaitez protéger vos fichiers de sauvegarde contre toute modification ou suppression, assurez-vous que le compte de stockage a été créé avec le stockage immuable activé à l'aide d'une période de conservation de 30 jours.
+
+
+
+
 
 ** *Clé de chiffrement* : si vous avez créé un nouveau compte de stockage Azure, saisissez les informations de clé de chiffrement fournies par le fournisseur.  Choisissez si vous utiliserez les clés de chiffrement Azure par défaut ou si vous choisirez vos propres clés gérées par le client à partir de votre compte Azure pour gérer le chiffrement de vos données.
 +

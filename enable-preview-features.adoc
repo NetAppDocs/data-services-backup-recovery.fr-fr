@@ -38,6 +38,9 @@ Vous pouvez activer les fonctionnalités en préversion suivantes pour NetApp Ba
 
 
 | `"data-transfer-report": true` | Active le rapport quotidien de transfert des données de sauvegarde sous l'onglet Rapports dans NetApp Backup and Recovery for Volumes. Le rapport fournit des informations sur l'activité quotidienne de transfert des données de sauvegarde et de réplication dans votre environnement. 
+
+
+| `"use-azure-msi-cvo": true` | Permet d'utiliser l'authentification par identité managée Microsoft Entra ID pour le stockage d'objets Azure au lieu d'une clé d'accès au compte de stockage. Prise en charge pour Cloud Volumes ONTAP sur les systèmes Azure exécutant ONTAP 9.16.1 ou une version ultérieure. Pour plus d'informations, consultez link:prev-ontap-backup-cvo-azure.html["Sauvegardez Cloud Volumes ONTAP sur le stockage Blob Azure"]. 
 |===
 
 

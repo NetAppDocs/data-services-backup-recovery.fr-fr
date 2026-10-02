@@ -154,3 +154,22 @@ Vous pouvez activer ou désactiver les analyses de ransomware au niveau du fourn
 . Définissez la fréquence en jours ou en semaines à laquelle l'analyse doit être exécutée.
 . Sélectionnez *Appliquer*.
 
+
+
+
+[[switch-an-azure-object-store-configuration-to-microsoft-entra-id-authentication]]
+== Passer à l'authentification Microsoft Entra ID pour une configuration de stockage d'objets Azure
+
+Vous pouvez passer à l’authentification Microsoft Entra ID pour le stockage objet Azure lors de la modification d’une configuration de compartiment Azure existante si vous ne souhaitez pas utiliser la clé d’accès du compte de stockage pour l’authentification Azure. Cette option est prise en charge pour Cloud Volumes ONTAP dans les systèmes Azure exécutant ONTAP 9.16.1 ou une version ultérieure.
+
+.Avant de commencer
+Assurez-vous que votre environnement répond aux link:prev-ontap-backup-cvo-azure.html#anchor-entraid["exigences"^]exigences relatives à l’utilisation d’Entra ID.
+
+.Étapes
+. Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.
+. Depuis la page _Paramètres de sauvegarde_, sélectionnez image:icon-actions-horizontal.gif["Plus d'icônes"] pour le système et choisissez *Configurer les paramètres avancés > Paramètres du fournisseur*.
+. En haut de la page qui s'affiche, sélectionnez le compartiment dont vous souhaitez modifier les paramètres.
+. Développez la section *Méthode d'authentification*.
+. Sélectionnez *Entra ID (identité gérée)*.
+. Sélectionnez *Appliquer*.
+

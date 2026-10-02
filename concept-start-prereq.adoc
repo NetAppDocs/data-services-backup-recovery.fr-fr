@@ -155,14 +155,29 @@ Pour utiliser le stockage d'objets comme cibles de sauvegarde, vous avez besoin 
 [[requirements-for-protecting-ontap-volume-workloads]]
 == Exigences relatives à la protection des charges de travail de volume ONTAP
 
-Pour utiliser NetApp Backup and Recovery pour les charges de travail de volume ONTAP, vous devez respecter les prérequis suivants en matière de système hôte, d'espace et de dimensionnement.
+Pour utiliser NetApp Backup and Recovery pour les charges de travail de volume ONTAP, vous devez disposer des conditions préalables suivantes.
 
-* ONTAP 9.8 ou une version ultérieure est requise.
-* ONTAP 9.12.1 ou une version ultérieure est requise pour la protection des volumes FlexGroup. Consultez link:br-reference-limitations.html["Limitations connues avec NetApp Backup and Recovery pour les volumes ONTAP"] pour plus d'informations.
-* ONTAP 9.17.1 ou une version ultérieure est requise pour la sauvegarde ou la restauration sur un stockage d'objets compatible S3.
-* ONTAP 9.19.1 ou une version ultérieure est nécessaire pour prendre en charge plus de 6 compartiments par système sur différents fournisseurs de cloud (jusqu'à 100 compartiments maximum).
-* Une licence ONTAP One doit être activée sur l'instance ONTAP locale.
+[cols="2,1"]
+|===
+| Fonctionnalité | Version ONTAP requise 
 
+
+| Protéger les volumes ONTAP | 9.8 ou version ultérieure 
+
+
+| Protéger les volumes FlexGroup (voir link:br-reference-limitations.html["Limitations connues avec NetApp Backup and Recovery pour les volumes ONTAP"] pour plus d'informations) | 9.12.1 ou version ultérieure 
+
+
+| Utilisez l'authentification Microsoft Entra ID pour les compartiments Azure lors de la protection de Cloud Volumes ONTAP | 9.16.1 ou version ultérieure 
+
+
+| Sauvegardez ou restaurez sur un stockage d'objets compatible S3 | 9.17.1 ou version ultérieure 
+
+
+| Utilisez plus de 6 compartiments par système sur différents fournisseurs de cloud (jusqu'à 100 compartiments maximum) | 9.19.1 ou version ultérieure 
+|===
+
+NOTE: Une licence ONTAP One doit être activée sur l'instance ONTAP locale.
 
 Pour plus d'informations sur les fonctionnalités prises en charge, les types de volumes, les destinations de sauvegarde et de restauration, et plus encore, consultez link:prev-ontap-protect-overview.html["Protégez vos données de volume ONTAP"].
 
