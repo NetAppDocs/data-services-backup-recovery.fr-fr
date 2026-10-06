@@ -113,6 +113,10 @@ L'explorateur de fichiers s'affiche.
 +
 Ouvrez une partition pour parcourir ses fichiers et dossiers. Lorsque vous sélectionnez un fichier ou un dossier à télécharger en activant sa case à cocher, il est ajouté à la liste « selected » à droite.
 
++
+
+NOTE: La taille totale combinée des fichiers et dossiers sélectionnés ne peut pas dépasser 5 Mo.
+
 . Une fois terminé, sélectionnez *Suivant*.
 . Sélectionnez le mode de transfert *Download file*.
 . Sélectionnez *Suivant*.

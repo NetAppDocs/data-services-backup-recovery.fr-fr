@@ -64,6 +64,7 @@ Vous pouvez activer l’authentification Microsoft Entra ID pour le stockage d�
 
 NOTE: Vous pouvez utiliser différentes méthodes d'authentification pour différentes configurations de stockage d'objets au sein du même système Cloud Volumes ONTAP, mais une fois que vous avez configuré un stockage d'objets pour utiliser Microsoft Entra ID, vous ne pouvez plus revenir à l'utilisation de la clé du compte de stockage.
 
+* Le système Cloud Volumes ONTAP et l'agent Console doivent tous deux résider dans Azure.
 * Vérifiez que l’indicateur de fonctionnalité « use-azure-msi-cvo » est activé sur le système Cloud Volumes ONTAP. Pour plus d’informations, consultez link:enable-preview-features.html["Activer les fonctionnalités de prévisualisation"].
 * Seule l’option de stratégie de sauvegarde « Bring Your Own Bucket » est prise en charge. Vérifiez que le compte de stockage Azure existe déjà et contient un conteneur portant le même nom que le compte.
 * Dans les paramètres IAM du compte de stockage Azure, vérifiez que le rôle  `Storage Blob Data Contributor` est attribué à la fois à l’Azure Agent et au système Cloud Volumes ONTAP. Si vous utilisez l’option de stratégie  `Object lock`, activez également le contrôle de version sur le compte de stockage et attribuez le rôle  `Storage Blob Data Owner` à la fois à l’Azure Agent et au système Cloud Volumes ONTAP.

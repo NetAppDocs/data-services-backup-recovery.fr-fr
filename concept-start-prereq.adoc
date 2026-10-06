@@ -449,10 +449,10 @@ Assurez-vous que votre instance Hyper-V répond à des exigences spécifiques po
 | Microsoft Hyper-V | 2019, 2022 et 2025 editions 
 
 
-| ASP.NET Core Runtime | 8.0.24 Hosting Bundle (et tous les correctifs 8.0.x ultérieurs) 
+| ASP.NET Core Runtime | Pack d'hébergement 10.0.10 
 
 
-| PowerShell | 7.4.13 ou version ultérieure 
+| PowerShell | 7.6.4 ou version ultérieure 
 
 
 | Si des utilisateurs non administrateurs doivent protéger des machines virtuelles Hyper-V, assurez-vous que les utilisateurs disposent des autorisations suivantes  a| 

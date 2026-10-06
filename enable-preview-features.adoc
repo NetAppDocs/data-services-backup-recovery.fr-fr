@@ -40,14 +40,17 @@ Vous pouvez activer les fonctionnalités en préversion suivantes pour NetApp Ba
 | `"data-transfer-report": true` | Active le rapport quotidien de transfert des données de sauvegarde sous l'onglet Rapports dans NetApp Backup and Recovery for Volumes. Le rapport fournit des informations sur l'activité quotidienne de transfert des données de sauvegarde et de réplication dans votre environnement. 
 
 
-| `"use-azure-msi-cvo": true` | Permet d'utiliser l'authentification par identité managée Microsoft Entra ID pour le stockage d'objets Azure au lieu d'une clé d'accès au compte de stockage. Prise en charge pour Cloud Volumes ONTAP sur les systèmes Azure exécutant ONTAP 9.16.1 ou une version ultérieure. Pour plus d'informations, consultez link:prev-ontap-backup-cvo-azure.html["Sauvegardez Cloud Volumes ONTAP sur le stockage Blob Azure"]. 
+| `"use-azure-msi-cvo": true` | Permet d'utiliser l'authentification par identité managée Microsoft Entra ID pour le stockage d'objets Azure au lieu d'utiliser une clé d'accès au compte de stockage. Prise en charge pour Cloud Volumes ONTAP sur les systèmes Azure exécutant ONTAP 9.16.1 ou une version ultérieure (l'agent de la console doit également résider dans Azure). Pour plus d'informations, consultez link:prev-ontap-backup-cvo-azure.html#anchor-entraid["Exigences relatives à l'utilisation de l'authentification Microsoft Entra ID avec les magasins d'objets Azure"]. 
 |===
 
 
 [[enable-preview-features]]
 == Activer les fonctionnalités de prévisualisation
 
-Activez les options de prévisualisation pour utiliser des fonctionnalités qui ne sont pas encore généralement disponibles. Utilisez les fonctionnalités en prévisualisation avec précaution dans les environnements de production.
+Activez les indicateurs de fonctionnalités en avant-première pour utiliser une fonctionnalité qui n’est pas encore disponible de manière générale. Utilisez les fonctionnalités en avant-première avec précaution dans les environnements de production.
+
+
+NOTE: Ces exemples supposent que vous utilisez Docker ; si vous utilisez Podman, exécutez les commandes Podman équivalentes.
 
 .Étapes
 . Utilisez SSH pour vous connecter à l’agent de Console.
@@ -131,8 +134,11 @@ NOTE: Pour désactiver une fonctionnalité en préversion, suivez les mêmes ét
 Désactivez l'indexation pour des volumes spécifiques ou pour tous les volumes appartenant à une ou plusieurs machines virtuelles de stockage en utilisant les options suivantes :
 
 * `svms-not-to-index`: Liste séparée par des virgules des machines virtuelles de stockage dont les volumes ne doivent pas être indexés
-* `volumes-not-to-index`: Liste séparée par des virgules des volumes individuels qui ne doivent pas être indexés
+* `volumes-not-to-index`: Liste d’identifiants de volumes individuels, séparés par des virgules, qui ne doivent pas être indexés
 
+
+
+NOTE: Ces exemples supposent que vous utilisez Docker ; si vous utilisez Podman, exécutez les commandes Podman équivalentes.
 
 .Étapes
 . Utilisez SSH pour vous connecter à l’agent de Console.
@@ -176,14 +182,14 @@ Le point de montage diffère entre les déploiements cloud et privés. Cet exemp
 ----
 cd /var/lib/docker/volumes/service-manager-2_cloudmanager_cbs_volume/_data/cbs_catalog_config
 ----
-. Créez un fichier nommé `production-customer.json` et personnalisez les noms de la machine virtuelle de stockage et du volume pour qu'ils correspondent à votre environnement :
+. Créez un fichier nommé `production-customer.json` et personnalisez les noms des VM de stockage et les ID de volume en fonction de votre environnement :
 +
 [source, json]
 ----
 {
   "indexing": {
-    "svms-not-to-index": "storage_vm_1,storage_vm_2,storage_vm_3",
-    "volumes-not-to-index": "volume_1,volume_2,volume_3"
+    "svms-not-to-index": "storage_vm_name_1,storage_vm_name_2,storage_vm_name_3",
+    "volumes-not-to-index": "volume_ID_1,volume_ID_2,volume_ID_3"
   }
 }
 ----
