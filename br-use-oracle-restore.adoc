@@ -42,7 +42,24 @@ Lorsque vous restaurez des charges de travail Oracle Database, les opérations s
 * Lorsque vous restaurez une sauvegarde à partir du stockage d'objets, vous pouvez restaurer les données vers le stockage source ou vers un système ONTAP local et récupérer la base de données à partir de là.
 
 
-À partir de la page Restaurer (également appelée Rechercher et restaurer), vous pouvez restaurer une base de données, même si vous ne vous souvenez pas du nom exact, de l'emplacement où elle réside ou de la date à laquelle elle était en bon état pour la dernière fois.  Vous pouvez rechercher la base de données à l'aide de filtres.
+
+
+[[view-information-about-available-oracle-database-restore-points]]
+== Consultez les informations relatives aux points de restauration disponibles pour Oracle Database
+
+Consultez les points de restauration disponibles, y compris le numéro SCN et l’incarnation de la base de données associée.
+
+
+NOTE: Oracle Database crée une nouvelle incarnation de la base de données chaque fois que vous ouvrez une base de données avec l’option  `RESETLOGS`. NetApp Backup and Recovery répertorie les incarnations de base de données pertinentes lorsque vous consultez les points de restauration et lorsque vous effectuez une restauration vers un SCN spécifique.
+
+.Étapes
+. Dans le menu Sauvegarde et restauration, sélectionnez *Inventaire*.
+. Dans le menu NetApp Backup and Recovery , sélectionnez *Restaurer*.
+. Sélectionnez *View* pour la charge de travail de la base de données Oracle.
+. Sélectionnez l'onglet *Bases de données*.
+. Sélectionnez l’icône *Actions* image:icon-action.png["Icône Actions"] pour une base de données dont vous souhaitez consulter les points de restauration, puis sélectionnez *Afficher les détails de protection*.
+. Vérifiez les points de restauration disponibles ainsi que le numéro SCN et l’incarnation de la base de données associés à chacun d’eux.
+
 
 
 
@@ -60,9 +77,7 @@ Si vous restaurez des PDB ou des espaces de tables à un point précis dans le t
 * Sélectionnez une seule PDB. La restauration à un point précis dans le temps n'est pas compatible avec la restauration de plusieurs PDB.
 * `PDB$SEED` ne peut pas être sélectionné pour la restauration à un point précis dans le temps.
 * La restauration du fichier de contrôle ne peut pas être combinée avec la restauration à un point précis dans le temps des PDB ou des espaces de tables PDB.
-* Assurez-vous que la sauvegarde des données et les sauvegardes de journaux requises sont cataloguées.
 * Les  `SYSTEM`, `SYSAUX`, et  `UNDO` espaces de tables ne peuvent pas être sélectionnés.
-* Vérifiez que la sauvegarde des données et les sauvegardes de journaux requises sont cataloguées.
 
 
 ====
@@ -87,11 +102,6 @@ Une liste d'instantanés correspondant à vos critères de recherche apparaît.
 +
 L'instantané le plus proche de la date et de l'heure spécifiées est affiché.
 
-.. Vous pouvez également sélectionner *Afficher les sauvegardes de journaux* pour consulter les sauvegardes de journaux associées.
-+
-... Vérifiez que les sauvegardes des journaux sont montées.
-
-
 .. Si l'instantané est stocké à plusieurs emplacements, sélectionnez un emplacement source à utiliser et ajoutez ou vérifiez les détails de l'emplacement.
 .. Sélectionnez *Suivant*.
 
@@ -99,17 +109,14 @@ L'instantané le plus proche de la date et de l'heure spécifiées est affiché.
 --
 .Restaurer vers un numéro de modification système spécifique (SCN)
 --
+.. Vous pouvez également consulter <<Consultez les informations relatives aux points de restauration disponibles pour Oracle Database>> pour voir les SCN disponibles et les incarnations de base de données associées.
 .. Sélectionnez *Restaurer vers un numéro de modification système spécifique (SCN)*.
 .. Sélectionnez *Suivant*.
 .. Saisissez le SCN à utiliser comme point de restauration et sélectionnez *Rechercher*.
 +
-L'instantané le plus proche pour le SCN spécifié est affiché.
+L'instantané correspondant le plus proche du SCN spécifié est affiché. Si plusieurs incarnations de la base de données correspondent au SCN, toutes les incarnations correspondantes sont affichées.
 
-.. Vous pouvez également sélectionner *Afficher les sauvegardes de journaux* pour consulter les sauvegardes de journaux associées.
-+
-... Vérifiez que les sauvegardes des journaux sont montées.
-
-
+.. Si plusieurs incarnations de base de données correspondent à la recherche, sélectionnez l'instantané avec l'incarnation correcte.
 .. Si l'instantané est stocké à plusieurs emplacements, sélectionnez un emplacement source à utiliser et ajoutez ou vérifiez les détails de l'emplacement.
 .. Sélectionnez *Suivant*.
 
@@ -121,11 +128,6 @@ L'instantané le plus proche pour le SCN spécifié est affiché.
 .. Sélectionnez *Suivant*.
 +
 La dernière capture instantanée est affichée. L'opération de restauration récupère le dernier état fonctionnel à l'aide de toutes les sauvegardes de journaux disponibles.
-
-.. Vous pouvez également sélectionner *Afficher les sauvegardes de journaux* pour consulter les sauvegardes de journaux associées.
-+
-... Vérifiez que les sauvegardes des journaux sont montées.
-
 
 .. Si l'instantané est stocké à plusieurs emplacements, sélectionnez un emplacement source à utiliser et ajoutez ou vérifiez les détails de l'emplacement.
 .. Sélectionnez *Suivant*.
@@ -168,7 +170,7 @@ Les instantanés disponibles sont affichés.
 ... Vous pouvez activer l'option *Fichiers de contrôle* pour restaurer également les fichiers de contrôle de la base de données. Cette option ne peut pas être sélectionnée pour la restauration à un point précis dans le temps ou la restauration SCN des PDB ou des espaces de tables PDB.
 ... Vous pouvez, si vous le souhaitez, activer l’option *Modifier l’état de la base de données si nécessaire pour la restauration et la récupération* afin de permettre à NetApp Backup and Recovery de gérer l’état de la base de données en fonction du type de récupération.
 ... Vous pouvez activer l'option *Forcer la restauration sur place* pour effectuer une restauration sur place lorsque de nouveaux fichiers de données ont été ajoutés après la sauvegarde, ou lorsque des LUN ont été ajoutés, supprimés ou recréés dans un groupe de disques LVM. Cette option remplace la vérification des fichiers externes ; la restauration de la base de données se poursuit en utilisant l'option de restauration que vous avez sélectionnée.
-... Spécifiez les emplacements des fichiers journaux d'archivage externes dans le champ *Emplacements des fichiers journaux d'archivage externes* si vous restaurez des PDB ou des espaces de tables à un point précis dans le temps ou à un SCN, et que les journaux d'archivage ne se trouvent pas à l'emplacement configuré. Saisissez un chemin de système de fichiers qui commence par  `/` ou un groupe de disques ASM qui commence par  `+`. Utilisez les boutons « plus » et « moins » à côté du champ de saisie de texte pour ajouter ou supprimer des emplacements. Ce champ n'apparaît pas lorsque vous effectuez une restauration à partir de snapshots sans restauration.
+... Indiquez les emplacements des fichiers journaux d'archivage externes dans le champ *Specify external archive log files locations* si vous restaurez des PDB ou des espaces de table à un point spécifique dans le temps ou à un SCN spécifique, et que les journaux d'archivage ne se trouvent pas à l'emplacement configuré. Saisissez un chemin de système de fichiers commençant par  `/` ou un groupe de disques ASM commençant par  `+`. Utilisez les boutons « plus » et « moins » situés à côté du champ de saisie de texte pour ajouter ou supprimer des emplacements. Ce champ n'apparaît pas lorsque vous effectuez une restauration à partir de snapshots sans récupération.
 ... Vous pouvez, si vous le souhaitez, activer l’option *Ouvrir la base de données ou la base de données conteneur en mode LECTURE-ÉCRITURE après la restauration de la base de données* et sélectionner une sous-option correspondant à l’étendue de la restauration (ces options n’apparaissent pas lors de la restauration à partir d’instantanés sans restauration de la base de données) :
 +
 **** *Tous les fichiers de données* : Ouvrez la base de données ou la base de données conteneur en mode LECTURE-ÉCRITURE après la restauration de la base de données.

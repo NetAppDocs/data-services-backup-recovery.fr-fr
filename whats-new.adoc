@@ -18,6 +18,48 @@ Découvrez les nouvelles fonctionnalités, les améliorations et les correctifs 
 
 
 
+[[12-october-2026]]
+== 12 octobre 2026
+
+Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
+
+
+
+[[hyper-v-workloads-enhancements]]
+=== Améliorations des charges de travail Hyper-V
+
+Dans cette version, les charges de travail Hyper-V introduisent les améliorations suivantes :
+
+* *NetApp MetroCluster support*: NetApp Backup and Recovery vous permet désormais de protéger les VM Hyper-V mises en miroir par NetApp MetroCluster.
+* *Protection des disques étendus pour les VM SAN* : pour les configurations CIFS et SAN, vous pouvez désormais protéger chaque disque associé à chaque VM dans un groupe de protection. Cela inclut les fichiers répartis sur plusieurs volumes ONTAP ou systèmes de stockage ONTAP (disques étendus), ainsi que les fichiers limités à un seul emplacement.
+
+
+Pour plus de détails sur la protection des charges de travail Hyper-V, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-hyperv-protect-overview.html["Découvrez comment protéger les charges de travail Hyper-V avec NetApp Backup and Recovery"].
+
+
+
+[[oracle-database-workloads-enhancement]]
+=== Amélioration des charges de travail Oracle Database
+
+Cette version introduit l'amélioration suivante pour les charges de travail Oracle Database :
+
+*Gestion automatique des journaux d'archivage* : lors des opérations de restauration et de clonage de base de données, NetApp Backup and Recovery détecte et monte automatiquement les journaux d'archivage requis, puis les démonte une fois l'opération terminée. Les sources de journaux de stockage primaire, secondaire et objet sont prises en charge.
+
+Pour plus de détails sur la protection des charges de travail Oracle Database, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Découvrez comment protéger les charges de travail Oracle Database avec NetApp Backup and Recovery"].
+
+
+
+[[microsoft-sql-server-workloads-enhancement]]
+=== Amélioration des charges de travail Microsoft SQL Server
+
+Cette version introduit l'amélioration suivante pour les charges de travail Microsoft SQL Server:
+
+*Modification des licences* : les frais ne s’appliquent plus aux sauvegardes utilisant une architecture disque à disque ou disque à disque en mode fan-out. Les frais s’appliquent uniquement aux sauvegardes sur stockage objet, y compris celles utilisant une architecture 3-2-1 ou disque vers stockage objet.
+
+Pour plus d'informations sur la protection des charges de travail Microsoft SQL Server, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-mssql-protect-overview.html["Découvrez comment protéger les charges de travail Microsoft SQL Server avec NetApp Backup and Recovery"].
+
+
+
 [[28-september-2026]]
 == 28 septembre 2026
 

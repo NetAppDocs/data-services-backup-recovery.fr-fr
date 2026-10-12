@@ -49,7 +49,7 @@ Regroupez les charges de travail que vous souhaitez protéger au sein d'un group
 . Sélectionnez un comportement pour les disques étendus. Actuellement, l’option *Toujours inclure tous les disques étendus* est prise en charge.
 +
 
-NOTE: Pour les configurations CIFS, NetApp Backup and Recovery protège automatiquement chaque disque associé à chaque machine virtuelle du groupe de protection. Cela inclut les fichiers répartis sur plusieurs volumes ONTAP ou systèmes de stockage ONTAP (disques étendus) et les fichiers limités à un seul emplacement (disques non étendus). Pour les configurations SAN, tous les disques non étendus seront inclus dans le groupe de protection.
+NOTE: Pour les configurations CIFS et SAN, Backup and Recovery protège automatiquement chaque disque associé à chaque VM du groupe de protection. Cela inclut les fichiers répartis sur plusieurs volumes ONTAP ou systèmes de stockage ONTAP (disques étendus) et les fichiers limités à un seul emplacement (disques non étendus).
 
 . Sélectionnez *Suivant*.
 . Sélectionnez la politique de protection que vous souhaitez appliquer au groupe de protection.
