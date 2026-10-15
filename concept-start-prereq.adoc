@@ -263,6 +263,18 @@ NOTE: La protection des bases de données stockées sur des disques pass-through
 |===
 
 
+[[required-permissions-for-microsoft-sql-server-host-discovery]]
+=== Autorisations requises pour la découverte de l'hôte Microsoft SQL Server
+
+Lorsque vous découvrez un hôte SQL Server, NetApp Backup and Recovery installe le NetApp SnapCenter Plug-in for Microsoft SQL Server sur l’hôte. Vous pouvez également choisir d’installer manuellement le plug-in. Si vous choisissez l’installation automatique, les identifiants de l’hôte que vous fournissez lors de la découverte doivent disposer des appartenances et autorisations suivantes afin que Backup and Recovery puisse installer le plug-in :
+
+* Appartenance au rôle fixe au niveau du serveur de l’instance Microsoft SQL Server `sysadmin`
+* Appartenance au groupe local Administrator de Windows
+* Autorisation de se connecter à l'hôte
+
+
+
+
 [[requirements-for-protecting-vmware-workloads]]
 == Exigences pour la protection des charges de travail VMware
 
@@ -411,6 +423,33 @@ NOTE: ONTAP 9.19.1 ou une version ultérieure est nécessaire pour prendre en ch
 
 
 |===
+
+
+[[required-permissions-for-oracle-database-host-discovery]]
+=== Autorisations requises pour la découverte de l'hôte de la base de données Oracle
+
+Lorsque vous découvrez un hôte Oracle Database, NetApp Backup and Recovery installe le plug-in Oracle Database de NetApp sur l'hôte à l'aide de SSH basé sur mot de passe. Vous pouvez également choisir d'installer le plug-in manuellement. Vous avez besoin d'autorisations spécifiques pour l'installation du plug-in.
+
+
+
+==== Exigences si vous utilisez l’installation automatique des plug-ins
+
+Les identifiants de l’hôte que vous fournissez lors de la découverte doivent disposer des autorisations suivantes afin que Backup and Recovery puisse installer le plug-in Oracle Database NetApp :
+
+* Autorisations root ou accès sudo pour un utilisateur non root. Pour accorder l’accès sudo lors de la découverte de l’hôte, sélectionnez les identifiants non root dans la section *Host registration*, puis sélectionnez *Configure sudoers* et suivez les instructions. Cette étape n’est pas nécessaire pour les identifiants root.
+* Autorisation d'exécution pour la JVM Java.
+
+
+
+
+==== Exigences si vous installez le plug-in manuellement
+
+Si vous installez le plug-in manuellement, le compte utilisé pour l'installation doit disposer des autorisations suivantes :
+
+* Autorisations root ou capacité sudo pour un utilisateur non-root.
+* Autorisation d'exécution pour la JVM Java.
+
+
 
 
 [[requirements-for-protecting-kubernetes-applications]]

@@ -24,8 +24,6 @@ Consultez les limitations actuelles et les actions non prises en charge pour les
 Les actions suivantes ne sont pas prises en charge pour les charges de travail Hyper-V dans NetApp Backup and Recovery :
 
 * Dans la version préliminaire de Backup and Recovery pour le déploiement local de NetApp Console, les sauvegardes vers le stockage objet sont prises en charge uniquement pour les destinations ONTAP S3 et StorageGRID. L'archivage des sauvegardes n'est pas pris en charge dans cette version préliminaire.
-* La protection des machines virtuelles de génération 2 stockées sur un stockage SAN n'est pas prise en charge lors de l'utilisation de Microsoft Windows Server 2025.
 * Création de groupes de ressources à l'aide de machines virtuelles provenant de plusieurs hôtes Hyper-V
-* Utilisation de disques répartis sur plusieurs partages CIFS
 * Il est impossible de restaurer des machines virtuelles ou leurs données entre des systèmes équipés de processeurs de fournisseurs différents (Intel vers AMD ou inversement), quel que soit le paramètre « Compatibilité du processeur » dans Hyper-V. Ce paramètre ne prend en charge que la compatibilité entre différentes générations d'un même fournisseur (par exemple, Intel vers Intel ou AMD vers AMD).
 

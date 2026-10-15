@@ -372,10 +372,19 @@ Si vous vous connectez à Backup and Recovery pour la première fois et que vous
 
 TIP: Si vous saisissez des informations vCenter, veuillez renseigner à la fois les paramètres vCenter et l'enregistrement de l'hôte. Si vous avez ajouté ou saisi des informations vCenter ici, vous devez également ajouter les informations du plug-in dans les paramètres avancés.
 
-.. *Enregistrement de l'hôte* : sélectionnez *Ajouter des informations d'identification* et saisissez des informations sur les hôtes contenant les charges de travail que vous souhaitez découvrir.
+.. *Enregistrement de l'hôte* : Veuillez saisir les informations suivantes :
++
+*** L'adresse IP ou le nom de domaine complet (FQDN) de l'hôte
+*** L'agent de console que l'hôte utilise pour communiquer avec Backup and Recovery
+*** Les identifiants enregistrés pour l'hôte
++
+Si vous n'avez pas encore ajouté d'identifiants pour cet hôte à NetApp Backup and Recovery, sélectionnez *Ajouter des informations d'identification* et saisissez les informations d'identification de l'hôte.
+
 +
 
 TIP: Si vous ajoutez un serveur autonome et non un serveur vCenter, entrez uniquement les informations sur l'hôte.
+
+
 
 
 
@@ -391,13 +400,13 @@ TIP: Ce processus peut prendre quelques minutes.
 
 ==== Définissez les options des paramètres avancés lors de la découverte et installez le plug-in
 
-Grâce aux paramètres avancés, vous pouvez installer manuellement l'agent du plug-in sur tous les serveurs enregistrés. Cela vous permet d'importer toutes les charges de travail SnapCenter dans NetApp Backup and Recovery afin que vous puissiez gérer les sauvegardes et les restaurations à cet endroit. NetApp Backup and Recovery affiche les étapes nécessaires à l'installation du plug-in.
+Grâce aux paramètres avancés, vous pouvez installer manuellement le plug-in NetApp SnapCenter pour Microsoft SQL Server sur tous les serveurs en cours d’enregistrement. Cela vous permet d’importer toutes les charges de travail SnapCenter dans NetApp Backup and Recovery afin que vous puissiez y gérer les sauvegardes et les restaurations. NetApp Backup and Recovery affiche les étapes nécessaires à l’installation du plug-in.
 
 .Étapes
 . Depuis la page Discover resources, accédez aux Paramètres avancés en sélectionnant la flèche vers le bas à droite.
 . Dans la page Découvrir les ressources de charge de travail, saisissez les informations suivantes.
 +
-** *Saisir le numéro de port du plug-in* : Saisissez le numéro de port utilisé par le plug-in.
+** *Port du module complémentaire* : Saisissez le numéro de port utilisé par le module complémentaire.
 ** *Chemin d'installation* : Saisissez le chemin où le plug-in sera installé.
 
 
