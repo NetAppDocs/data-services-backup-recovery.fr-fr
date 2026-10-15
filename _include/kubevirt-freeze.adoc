@@ -32,7 +32,7 @@ kubectl set env deployment/trident-protect-controller-manager NEPTUNE_VM_FREEZE=
 ====
 Trident Protect 24.10 n'assure pas automatiquement un état cohérent pour les systèmes de fichiers KubeVirt des machines virtuelles lors des opérations de protection des données. Si vous souhaitez protéger les données de vos machines virtuelles KubeVirt avec Trident Protect 24.10, vous devez activer manuellement la fonctionnalité de gel/dégel pour les systèmes de fichiers avant l'opération de protection des données. Cela garantit que les systèmes de fichiers sont dans un état cohérent.
 
-Vous pouvez configurer Trident Protect 24.10 pour gérer le gel et le dégel du système de fichiers de la machine virtuelle lors des opérations de protection des données en link:https://docs.openshift.com/container-platform/4.16/virt/install/installing-virt.html["configuration de la virtualisation"^] puis en utilisant la commande suivante :
+Vous pouvez configurer Trident Protect 24.10 pour gérer le gel et le dégel du système de fichiers de la machine virtuelle lors des opérations de protection des données en link:https://docs.redhat.com/en/documentation/openshift_container_platform/4.16/html/virtualization/installing["configuration de la virtualisation"^] puis en utilisant la commande suivante :
 
 [source, shell]
 ----

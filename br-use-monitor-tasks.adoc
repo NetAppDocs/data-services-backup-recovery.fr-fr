@@ -60,7 +60,10 @@ Par défaut, la page Surveillance des tâches affiche les tâches de protection 
 . Pour trier les résultats différemment, sélectionnez chaque en-tête de colonne pour trier par statut, heure de début, nom de la ressource, etc.
 . Si vous recherchez des emplois spécifiques, sélectionnez la zone *Recherche avancée et filtrage* pour ouvrir le panneau de recherche.
 +
-Utilisez ce panneau pour effectuer une recherche en texte libre pour n'importe quelle ressource ; par exemple, « volume 1 » ou « application 3 ». Vous pouvez également filtrer la liste des tâches en fonction des éléments des menus déroulants.
+Utilisez ce panneau pour effectuer une recherche en texte libre pour n’importe quelle ressource ; par exemple, « volume 1 » ou « application 3 ». Vous pouvez également filtrer la liste des tâches à l’aide des éléments des menus déroulants. Vous pouvez également rechercher une période donnée.
+
++
+Lors de la recherche d'une période, sélectionnez *Plage personnalisée* pour choisir une date de début et une date de fin dans un calendrier.
 
 +
 La plupart des filtres sont explicites. Le filtre « Charge de travail » vous permet d'afficher les emplois dans les catégories suivantes :

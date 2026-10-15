@@ -78,12 +78,14 @@ https://docs.netapp.com/us-en/data-services-backup-recovery/br-rbac-setup.html["
 
 
 
-[[ontap-volumes-workloads-enhancement]]
-=== Amélioration des charges de travail des volumes ONTAP
+[[ontap-volumes-workloads-enhancements]]
+=== Améliorations des charges de travail des volumes ONTAP
 
-Dans cette version, les charges de travail ONTAP Volumes introduisent l'amélioration suivante en avant-première :
+Dans cette version, les workloads ONTAP Volumes introduisent les améliorations en avant-première suivantes :
 
-*Prise en charge de Azure Entra ID pour Cloud Volumes ONTAP* : vous pouvez désormais utiliser l'authentification Microsoft Entra ID pour les configurations de compartiments de stockage objet Azure si vous ne souhaitez pas utiliser la clé d'accès du compte de stockage pour l'authentification Azure. Cette option est prise en charge pour Cloud Volumes ONTAP sur les systèmes Azure exécutant ONTAP 9.16.1 ou version ultérieure.
+* *Prise en charge de Azure Entra ID pour Cloud Volumes ONTAP* : vous pouvez désormais utiliser l'authentification Microsoft Entra ID pour les configurations de compartiments de stockage objet Azure si vous ne souhaitez pas utiliser la clé d'accès du compte de stockage pour l'authentification Azure. Cette option est prise en charge pour Cloud Volumes ONTAP sur les systèmes Azure exécutant ONTAP 9.16.1 ou version ultérieure.
+* *Filtrage personnalisé par plage de dates dans Job Monitor* : Vous pouvez désormais rechercher des tâches des 90 derniers jours en sélectionnant une date de début et une date de fin personnalisées à partir d’un calendrier dans Job Monitor.
+
 
 Pour plus de détails sur la protection des charges de travail ONTAP Volumes, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-protect-overview.html["Découvrez la protection des volumes ONTAP avec NetApp Backup and Recovery"].
 
