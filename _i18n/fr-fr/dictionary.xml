@@ -4561,7 +4561,6 @@
   <block id="1ce75b5926383de539d27e838bd74b8a" category="paragraph">Reportez-vous à <block ref="04b01782baab49091268802b7f1423cb" category="inline-link-rx"></block> pour obtenir des détails sur les rôles et les autorisations nécessaires pour effectuer des opérations dans NetApp Backup and Recovery.</block>
   <block id="6bb058e639cecc8051a99e8892400bd8" category="section-title">Exigences relatives aux sauvegardes sur stockage objet</block>
   <block id="fc0cba16e06b834a59ea2732ce15d74a" category="section-title">Exigences relatives à la protection des charges de travail de volume ONTAP</block>
-  <block id="45b096193f4470968c1063df19d1c253" category="list-text">Une licence ONTAP One doit être activée sur l'instance ONTAP locale.</block>
   <block id="ddaa1c8bd07bda0816a8b44d87c10997" category="paragraph">Pour plus d'informations sur les fonctionnalités prises en charge, les types de volumes, les destinations de sauvegarde et de restauration, et plus encore, consultez <block ref="1d638e05920fe33426fac4dc6285a639" category="inline-link-macro-rx"></block>.</block>
   <block id="ba0f269b2bdb85161db3fe51338e6a7b" category="cell">Hôte de base de données</block>
   <block id="bff50f1947dbec1e11bc66d60ca0b1d9" category="cell">Stockage pris en charge</block>
@@ -6209,4 +6208,8 @@
   <block id="3e3321c0918c1d68c43253c427d52a85" category="section-title">Exigences si vous installez le plug-in manuellement</block>
   <block id="bd6c005addd81d8409ae4c84d588f53d" category="paragraph">Si vous installez le plug-in manuellement, le compte utilisé pour l'installation doit disposer des autorisations suivantes :</block>
   <block id="901e5d2cf1e185b371f3c54154d4da3c" category="list-text">Autorisations root ou capacité sudo pour un utilisateur non-root.</block>
+  <block id="061c095c759eb7e64dd46465f3c7a817" category="paragraph">Assurez-vous de disposer des éléments suivants avant de découvrir un système ONTAP dans Backup and Recovery :</block>
+  <block id="5df6bd1a45bdd2a4028f468e490de21e" category="list-text">Assurez-vous qu'une licence ONTAP One est activée sur l'instance ONTAP sur site.</block>
+  <block id="74fbbc0e09dfc08bd2ae9fa2fa257555" category="list-text">Assurez-vous que l'application AMQP est activée comme <block ref="dc647eb65e6711e155375218212b3964" prefix=" " category="inline-code"></block>méthode de connexion pour l'utilisateur ONTAP que vous utilisez pour découvrir des systèmes ONTAP. Cela permet aux tâches de sauvegarde planifiées d'apparaître dans Job Monitor. Consultez <block ref="08349f0e2e31cf6e59517a8789874b25" category="inline-link-rx"></block> pour obtenir des instructions sur la gestion des utilisateurs.</block>
+  <block id="2a6990e4544c8a19dcf0e20cd83f5c68" category="paragraph">Certaines fonctionnalités d'ONTAP nécessitent des versions spécifiques d'ONTAP :</block>
 </blocks>

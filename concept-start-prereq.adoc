@@ -157,6 +157,14 @@ Pour utiliser le stockage d'objets comme cibles de sauvegarde, vous avez besoin 
 
 Pour utiliser NetApp Backup and Recovery pour les charges de travail de volume ONTAP, vous devez disposer des conditions préalables suivantes.
 
+Assurez-vous de disposer des éléments suivants avant de découvrir un système ONTAP dans Backup and Recovery :
+
+* Assurez-vous qu'une licence ONTAP One est activée sur l'instance ONTAP sur site.
+* Assurez-vous que l'application AMQP est activée comme  `Password`méthode de connexion pour l'utilisateur ONTAP que vous utilisez pour découvrir des systèmes ONTAP. Cela permet aux tâches de sauvegarde planifiées d'apparaître dans Job Monitor. Consultez  https://docs.netapp.com/us-en/ontap/manage-users-groups-host-specific-task.html#manage-unix-users["Documentation ONTAP"^] pour obtenir des instructions sur la gestion des utilisateurs.
+
+
+Certaines fonctionnalités d'ONTAP nécessitent des versions spécifiques d'ONTAP :
+
 [cols="2,1"]
 |===
 | Fonctionnalité | Version ONTAP requise 
@@ -176,9 +184,6 @@ Pour utiliser NetApp Backup and Recovery pour les charges de travail de volume O
 
 | Utilisez plus de 6 compartiments par système sur différents fournisseurs de cloud (jusqu'à 100 compartiments maximum) | 9.19.1 ou version ultérieure 
 |===
-
-NOTE: Une licence ONTAP One doit être activée sur l'instance ONTAP locale.
-
 Pour plus d'informations sur les fonctionnalités prises en charge, les types de volumes, les destinations de sauvegarde et de restauration, et plus encore, consultez link:prev-ontap-protect-overview.html["Protégez vos données de volume ONTAP"].
 
 
