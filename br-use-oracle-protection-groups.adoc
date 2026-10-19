@@ -42,7 +42,7 @@ Regroupez les ressources de base de données Oracle que vous souhaitez protéger
 . Donnez un nom au groupe de protection.
 . Sélectionnez les bases de données que vous souhaitez inclure dans le groupe de protection.
 . Sélectionnez *Suivant*.
-. Sélectionnez la *politique de sauvegarde* que vous souhaitez appliquer au groupe de protection.
+. Sélectionnez les *règles de sauvegarde* que vous souhaitez appliquer au groupe de protection. Si vous incluez une base de données faisant partie d'une configuration Oracle Data Guard, choisissez les règles de sauvegarde avec l'option Data Guard activée.
 +
 Si vous souhaitez créer une politique, sélectionnez *Créer une nouvelle politique* et suivez les instructions pour créer une politique.  Voirlink:br-use-policies-create.html["Créer des politiques"] pour plus d'informations.
 

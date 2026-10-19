@@ -1,0 +1,14 @@
+= Amélioration des charges de travail Oracle Database
+:allow-uri-read: 
+
+
+
+
+[[oracle-database-workloads-enhancement]]
+=== Amélioration des charges de travail Oracle Database
+
+Cette version introduit l'amélioration suivante pour les charges de travail Oracle Database :
+
+*Prise en charge d'Oracle Data Guard* : NetApp Backup and Recovery prend désormais en charge l'utilisation de groupes de protection pour protéger les bases de données principales et de secours qui utilisent Oracle Data Guard pour une haute disponibilité.
+
+Pour plus de détails sur la protection des charges de travail Oracle Database, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Découvrez comment protéger les charges de travail Oracle Database avec NetApp Backup and Recovery"].

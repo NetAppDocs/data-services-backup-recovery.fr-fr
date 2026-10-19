@@ -437,22 +437,18 @@ Lorsque vous découvrez un hôte Oracle Database, NetApp Backup and Recovery ins
 
 
 
-==== Exigences si vous utilisez l’installation automatique des plug-ins
+==== Exigences pour l'installation du plug-in
 
 Les identifiants de l’hôte que vous fournissez lors de la découverte doivent disposer des autorisations suivantes afin que Backup and Recovery puisse installer le plug-in Oracle Database NetApp :
 
-* Autorisations root ou accès sudo pour un utilisateur non root. Pour accorder l’accès sudo lors de la découverte de l’hôte, sélectionnez les identifiants non root dans la section *Host registration*, puis sélectionnez *Configure sudoers* et suivez les instructions. Cette étape n’est pas nécessaire pour les identifiants root.
+* La possibilité de se connecter à l'hôte via SSH.
+* Autorisations root ou accès sudo pour un utilisateur non root.
++
+** Pour accorder l'accès sudo lors de la découverte de l'hôte, sélectionnez des identifiants non root dans la section *Enregistrement de l'hôte*, puis sélectionnez *Configurer les sudoers* et suivez les instructions. Les identifiants root ne nécessitent pas cette étape. Cette étape n'est pas requise pour une installation manuelle.
+
+
 * Autorisation d'exécution pour la JVM Java.
-
-
-
-
-==== Exigences si vous installez le plug-in manuellement
-
-Si vous installez le plug-in manuellement, le compte utilisé pour l'installation doit disposer des autorisations suivantes :
-
-* Autorisations root ou capacité sudo pour un utilisateur non-root.
-* Autorisation d'exécution pour la JVM Java.
+* `SYSDBA` Des privilèges sont requis pour l'utilisateur de la base de données Oracle.
 
 
 
