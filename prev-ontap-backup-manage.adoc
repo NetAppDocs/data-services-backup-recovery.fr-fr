@@ -295,7 +295,7 @@ CAUTION: Si vous prévoyez de supprimer un système ou un cluster contenant des 
 [[delete-all-backup-files-for-a-system]]
 === Supprimer tous les fichiers de sauvegarde d'un système
 
-La suppression de toutes les sauvegardes sur le stockage d’objets d’un système ne désactive pas les futures sauvegardes des volumes de ce système.  Si vous souhaitez arrêter de créer des sauvegardes de tous les volumes d'un système, vous pouvez désactiver les sauvegardes<<Désactiver NetApp Backup and Recovery pour un système,comme décrit ici>> .
+La suppression de toutes les sauvegardes sur le stockage objet pour un système ne désactive pas les futures sauvegardes des volumes de ce système. Si vous souhaitez arrêter la création de sauvegardes pour tous les volumes d'un système, vous pouvez suspendre les sauvegardes <<Suspendre toutes les sauvegardes pour un système,comme décrit ici>>.
 
 Notez que cette action n'affecte pas les instantanés ni les volumes répliqués ; ces types de fichiers de sauvegarde ne sont pas supprimés.
 
@@ -386,41 +386,47 @@ NOTE: Vous ne pouvez pas supprimer individuellement les fichiers de sauvegarde d
 
 
 
-[[deactivate-netapp-backup-and-recovery-for-a-system]]
-== Désactiver NetApp Backup and Recovery pour un système
+[[pause-all-backups-for-a-system]]
+== Suspendre toutes les sauvegardes pour un système
 
-La désactivation de NetApp Backup and Recovery pour un système suspend les sauvegardes et les restaurations de tous ses volumes sans supprimer les sauvegardes existantes. Cela vous permet de suspendre toute activité de sauvegarde et de restauration pendant une période déterminée sans désinscrire le service de sauvegarde de ce système.
+Mettez en pause toutes les sauvegardes d'un système pour suspendre l'activité de sauvegarde de tous les volumes du système sans supprimer les sauvegardes existantes. La mise en pause des sauvegardes ne désenregistre pas le service de sauvegarde de ce système.
 
 Notez que votre fournisseur de cloud continuera à vous facturer les coûts de stockage d'objets pour la capacité utilisée par vos sauvegardes, sauf si vous<<Supprimer les sauvegardes,supprimer les sauvegardes>> .
 
 .Étapes
 . Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.
-. Depuis la page _Paramètres de sauvegarde_, sélectionnezimage:icon-actions-horizontal.gif["Icône Actions"] pour le système sur lequel vous souhaitez désactiver les sauvegardes et sélectionnez *Désactiver la sauvegarde*.
-. Dans la boîte de dialogue de confirmation, sélectionnez *Désactiver*.
+. Depuis la page _Paramètres de sauvegarde_, sélectionnez image:icon-actions-horizontal.gif["Icône Actions"] pour le système pour lequel vous souhaitez suspendre les sauvegardes, puis sélectionnez *Interrompre toutes les sauvegardes*.
+. Dans la boîte de dialogue de confirmation, sélectionnez *Pause*.
 
-
-
-NOTE: Un bouton *Activer la sauvegarde* apparaît pour ce système lorsque la sauvegarde est désactivée.  Vous pouvez sélectionner ce bouton lorsque vous souhaitez réactiver la fonctionnalité de sauvegarde pour ce système.
 
 
 
 [[unregister-netapp-backup-and-recovery-for-a-system]]
 == Annuler l'enregistrement de NetApp Backup and Recovery pour un système
 
-Vous pouvez annuler l'enregistrement de NetApp Backup and Recovery pour un système si vous ne souhaitez plus utiliser la fonctionnalité de sauvegarde et que vous souhaitez cesser d'être facturé pour les sauvegardes dans ce système.  En général, cette fonctionnalité est utilisée lorsque vous prévoyez de supprimer un système et que vous souhaitez annuler le service de sauvegarde.
+La désinscription de NetApp Backup and Recovery pour un système interrompt les futures sauvegardes d'un système de stockage et le supprime de NetApp Backup and Recovery. Au cours de ce processus, vous pouvez choisir de conserver ou de supprimer les sauvegardes existantes.
 
-Vous pouvez également utiliser cette fonctionnalité si vous souhaitez modifier le magasin d’objets de destination dans lequel vos sauvegardes de cluster sont stockées.  Après avoir désenregistré NetApp Backup and Recovery pour le système, vous pouvez activer NetApp Backup and Recovery pour ce cluster à l'aide des informations du nouveau fournisseur de cloud.
+.À propos de cette tâche
+* Notez que votre fournisseur de cloud continuera à vous facturer les coûts de stockage d'objets pour la capacité utilisée par vos sauvegardes, sauf si vous<<Supprimer les sauvegardes,supprimer les sauvegardes>> .
+* Pour restaurer les sauvegardes existantes, reportez-vous à link:prev-ontap-restore-cli.html["Restaurez les données ONTAP à l'aide de la CLI ONTAP"^].
 
-Avant de pouvoir désinscrire NetApp Backup and Recovery, vous devez effectuer les étapes suivantes, dans cet ordre :
-
-* Désactiver NetApp Backup and Recovery pour le système
-* Supprimer toutes les sauvegardes de ce système
-
-
-L'option de désinscription n'est pas disponible tant que ces deux actions ne sont pas terminées.
 
 .Étapes
-. Dans l’onglet *Volumes*, sélectionnez *Paramètres de sauvegarde*.
-. Depuis la page _Paramètres de sauvegarde_, sélectionnezimage:icon-actions-horizontal.gif["Icône Actions"] pour le système sur lequel vous souhaitez désinscrire le service de sauvegarde et sélectionnez *Désinscrire*.
-. Dans la boîte de dialogue de confirmation, sélectionnez *Désinscrire*.
+. Accédez à *Protection > Backup and Recovery*.
+. Sélectionnez la tuile *Volumes*.
+. Sélectionnez *Paramètres de sauvegarde*.
+. Sur la page Paramètres de sauvegarde, sélectionnez image:icon-actions-horizontal.gif["Icône Actions"] pour le système et sélectionnez *Désenregistrer les sauvegardes*.
+. Sélectionnez l'une des options suivantes :
++
+** *Désactiver les sauvegardes* : interrompt les sauvegardes futures, supprime les relations de sauvegarde du magasin d'objets et conserve les sauvegardes existantes dans le stockage d'objets. Une fois le système désenregistré, vous ne pouvez restaurer ces sauvegardes qu'à l'aide de la CLI ONTAP.
+** *Désactiver et supprimer les sauvegardes* : arrête les futures sauvegardes, supprime les relations de sauvegarde du magasin d'objets et supprime les sauvegardes existantes. Si vous le souhaitez, sélectionnez *Ignorer les erreurs lors de la désactivation/suppression des sauvegardes* pour poursuivre l'opération en cas d'échec d'une étape.
 
+
+. Dans *Enter system name to confirm*, saisissez le nom du système.
+. Dans *Confirmer la sauvegarde du rapport de protection*, vérifiez que vous avez bien enregistré tous les rapports nécessaires.
+. Sélectionnez *Confirmer et désenregistrer*.
+. Surveillez l'opération dans le Job Monitor jusqu'à ce qu'elle soit terminée.
+
+
+
+NOTE: La désinscription du système ne modifie pas les volumes du système, la configuration des instantanés ni les relations de réplication dans ONTAP.

@@ -27,6 +27,9 @@ Super administrateur NetApp Backup and Recovery ou administrateur de sauvegarde 
 
 Pour protéger une application Kubernetes, commencez par la créer dans NetApp Backup and Recovery. Lorsque vous créez l'application, NetApp Backup and Recovery prend connaissance de l'application en cours d'exécution sur le cluster Kubernetes.
 
+
+NOTE: Si vos applications utilisent des volumes FlexVol partitionnés avec des Qtrees, la protection de l'application protège tous les Qtrees de tous les volumes FlexVol faisant partie de l'application.
+
 .Avant de commencer
 Avant de pouvoir ajouter et protéger une application Kubernetes, vous devezlink:br-start-discover.html["découvrir les charges de travail Kubernetes"] .
 
@@ -59,6 +62,7 @@ NOTE: Backup and Recovery ne stocke pas les paramètres ni les résultats de la 
 
 
 
+. Si vous le souhaitez, dans la zone *Groupes de volumes*, utilisez des sélecteurs d'étiquettes pour définir des groupes de volumes. Les ressources de chaque étiquette séparée par des virgules sont protégées en tant qu'ensemble cohérent en cas de panne.
 . Sauvegarde et restauration affiche une liste de ressources correspondant à vos critères de recherche.
 . Si la liste contient les ressources que vous souhaitez protéger, sélectionnez *Suivant*.
 . Dans la section *Stratégie*, vous pouvez choisir une stratégie de protection existante pour protéger l'application ou en créer une nouvelle. Si vous ne sélectionnez pas de stratégie, l'application est créée sans stratégie de protection. Vous pouvez link:br-use-policies-kubernetes-create.html#create-a-policy["ajouter une politique de protection"] ultérieurement.
@@ -89,6 +93,7 @@ NOTE: Si vous sélectionnez des machines virtuelles dans la liste, la définitio
 +
 Les machines virtuelles sélectionnées apparaissent dans la liste à droite.
 
+. Le cas échéant, dans la zone *Groupes de volumes*, activez l'option permettant de protéger ensemble les disques de la machine virtuelle sélectionnée en tant que groupe de volumes avec cohérence en cas de panne (un groupe de volumes par machine virtuelle).
 . Si la liste contient les machines virtuelles que vous souhaitez protéger, sélectionnez *Suivant*.
 . Dans la section *Stratégie*, vous pouvez choisir une stratégie de protection existante pour protéger l'application ou en créer une nouvelle. Si vous ne sélectionnez pas de stratégie, l'application est créée sans stratégie de protection. Vous pouvez link:br-use-policies-kubernetes-create.html#create-a-policy["ajouter une politique de protection"] ultérieurement.
 . Dans la zone *Préscripts et postscripts*, activez et configurez tous les hooks d'exécution de préscripts ou de postscripts que vous souhaitez exécuter avant ou après les opérations de sauvegarde.  Pour activer les prescripts ou les postscripts, vous devez déjà en avoir créé au moins unlink:br-use-manage-execution-hook-templates.html["modèle de crochet d'exécution"] .
@@ -157,6 +162,10 @@ spec:
       labelSelector:
         matchLabels:
           app: another-example-app
+  volumeGroups:
+    - labelSelector:
+        matchLabels:
+          volume-group: my-volume-group
   includedClusterScopedResources:
     - groupVersionKind:
         group: rbac.authorization.k8s.io

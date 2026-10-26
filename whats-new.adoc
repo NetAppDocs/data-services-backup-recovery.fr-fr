@@ -18,6 +18,55 @@ Découvrez les nouvelles fonctionnalités, les améliorations et les correctifs 
 
 
 
+[[26-october-2026]]
+== 26 octobre 2026
+
+Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
+
+
+
+[[kubernetes-workloads-enhancements]]
+=== Améliorations des charges de travail Kubernetes
+
+Dans cette version, NetApp Backup and Recovery introduit les améliorations suivantes pour les charges de travail Kubernetes :
+
+* *Trident Protect 26.10* : Cette version inclut Trident Protect 26.10.
+* *Prise en charge des pilotes ontap-nas-economy et ontap-san-economy* : Vous pouvez désormais protéger les revendications de volume persistant (PVC) provisionnées par le pilote NetApp Trident `ontap-nas-economy` (Qtrees) et par le pilote `ontap-san-economy` (LUN). Lorsque vous protégez des PVC à l’aide de pilotes economy, l’intégralité du FlexVol® ou du LUN sous-jacent est protégée. Vous pouvez restaurer des PVC individuels à partir de ces sauvegardes.
+* *Alertes prenant en charge Kubernetes* : la console NetApp envoie désormais des alertes Kubernetes une fois par application Kubernetes au lieu d'une fois par volume.
+* *Prise en charge des snapshots de groupes de volumes* : Vous pouvez désormais créer des groupes de volumes lors de la définition d’une application Kubernetes. Les groupes de volumes vous permettent de créer des snapshots de plusieurs volumes ensemble en tant qu’ensemble cohérent en cas de panne, garantissant la cohérence des données sur l’ensemble des volumes du groupe.
+* *Prise en charge du stockage d'objets compatible S3* : Vous pouvez désormais sauvegarder les ressources et les données de votre application Kubernetes sur un stockage d'objets compatible S3 en ajoutant les identifiants de la cible de sauvegarde et en configurant les politiques de protection.
+
+
+Pour plus de détails sur la protection des charges de travail Kubernetes, consultez  https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-kubernetes-protect-overview.html["Découvrez comment protéger les charges de travail Kubernetes avec NetApp Backup and Recovery"].
+
+
+
+[[ontap-volumes-workloads-enhancements]]
+=== Améliorations des charges de travail des volumes ONTAP
+
+Dans cette version, NetApp Backup and Recovery apporte les améliorations suivantes pour les charges de travail associées aux volumes ONTAP :
+
+* *Rapports de protection* : NetApp Backup and Recovery prend désormais en charge la création et le téléchargement de rapports détaillés pour les charges de travail associées aux volumes ONTAP.
+* *Choisissez de conserver ou non les sauvegardes lors de la désinscription d'un système ONTAP* : lorsque vous désinscrivez un système ONTAP de NetApp Backup and Recovery, vous pouvez désormais choisir de supprimer les données précédemment sauvegardées ou de les conserver à des fins de restauration. La documentation de NetApp Backup and Recovery contient désormais des instructions pour restaurer les données conservées après la désinscription du système.
+
+
+Pour plus de détails, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-backup-manage.html#unregister-netapp-backup-and-recovery-for-a-system["Annuler l’enregistrement de Backup and Recovery pour un système"^].
+
+Pour plus de détails sur la protection des charges de travail ONTAP Volumes, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-protect-overview.html["Découvrez la protection des volumes ONTAP avec NetApp Backup and Recovery"].
+
+
+
+[[oracle-database-workloads-enhancement]]
+=== Amélioration des charges de travail Oracle Database
+
+Dans cette version, dans cette version, NetApp Backup and Recovery introduit l'amélioration suivante pour les charges de travail de base de données Oracle :
+
+*Restauration vers un autre emplacement* : NetApp Backup and Recovery prend désormais en charge la restauration d'une base de données Oracle vers un autre emplacement (un hôte enregistré différent).
+
+Pour plus de détails sur la protection des charges de travail Oracle Database, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Découvrez comment protéger les charges de travail Oracle Database avec NetApp Backup and Recovery"].
+
+
+
 [[19-october-2026]]
 == 19 octobre 2026
 

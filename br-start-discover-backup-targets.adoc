@@ -21,7 +21,7 @@ Découvrez ou ajoutez manuellement des cibles de sauvegarde hors site telles que
 [[discover-a-backup-target]]
 == Découvrir une cible de sauvegarde
 
-Configurez vos cibles de sauvegarde (Amazon Web Services (AWS) S3, Microsoft Azure Blob Storage, Google Cloud Storage ou StorageGRID) avant d'utiliser NetApp Backup and Recovery.
+Configurez vos cibles de sauvegarde (Amazon Web Services (AWS) S3, ONTAP S3, stockage d'objets compatible S3, Microsoft Azure Blob Storage, Google Cloud Storage ou StorageGRID) avant d'utiliser NetApp Backup and Recovery.
 
 Vous pouvez découvrir ces cibles automatiquement ou les ajouter manuellement.
 
@@ -33,7 +33,7 @@ Vous devez découvrir au moins une charge de travail avant de pouvoir ajouter un
 .Étapes
 . Dans le menu NetApp Backup and Recovery, sélectionnez *Cibles de sauvegarde*.
 . Sélectionnez *Découvrir la cible de sauvegarde*.
-. Sélectionnez l'un des types de cibles de sauvegarde disponibles : *AWS*, *Azure*, *StorageGRID*, *ONTAP S3* ou *GCP*.
+. Sélectionnez l'un des types de cible de sauvegarde disponibles : *AWS*, *Azure*, *StorageGRID*, *ONTAP S3*, *compatible S3* ou *GCP*.
 . Sélectionnez *Suivant*.
 . (Pour les cibles de sauvegarde AWS et Azure uniquement) Dans la section *Choisir l'emplacement des identifiants*, choisissez l'emplacement où se trouvent les identifiants, puis choisissez comment les associer.
 . Sélectionnez *Suivant*.
@@ -72,9 +72,19 @@ Vous devez découvrir au moins une charge de travail avant de pouvoir ajouter un
 *** *Clé secrète* : Saisissez la clé secrète ONTAP S3.
 
 
+** Pour les appareils compatibles S3:
++
+*** *Nom de l'identifiant* : saisissez le nom de l'identifiant compatible S3.
+*** *FQDN du nœud de passerelle* : entrez un FQDN pour le nœud de passerelle compatible S3.
+*** *Port* : entrez le numéro de port pour le système compatible S3.
+*** *Clé d'accès* : Saisissez la clé d'accès compatible S3.
+*** *Clé secrète* : Saisissez la clé secrète compatible avec S3.
+
+
 ** Pour GCP :
 +
 *** *Nom de l'identifiant* : Saisissez le nom de l'identifiant Google Cloud.
+*** *Projet GCP* : Saisissez le nom de votre projet Google Cloud.
 *** *Clé d'accès* : Saisissez la clé d'accès Google Cloud.
 *** *Clé secrète* : Saisissez la clé secrète Google Cloud.
 
@@ -116,33 +126,35 @@ Ajoutez manuellement un compartiment à une cible de sauvegarde hors site au lie
 +
 *** *Abonnement* : Sélectionnez le nom de l’abonnement Azure.
 *** *Groupe de ressources* : sélectionnez le nom du groupe de ressources Azure.
-*** *Détails de l'instance*:
+*** *Détails de l'instance* : Ajoutez les informations suivantes :
 +
 **** *Nom du compte de stockage* : Saisissez le nom du compte de stockage Blob Azure.
 **** *Région Azure* : Saisissez la région Azure du compte de stockage.
-**** *Type de performances* : Sélectionnez le type de performances standard ou premium pour le compte de stockage Blob Azure, en indiquant le niveau de performances requis.
-**** *Chiffrement* : Sélectionnez le type de chiffrement pour le compte Azure Blob Storage. Les options sont soit des clés gérées par Microsoft, soit des clés gérées par le client. Si vous sélectionnez des clés gérées par le client, vous devez fournir le nom du coffre de clés et le nom de la clé.
+**** *Verrouillage d'objet* : sélectionnez cette option pour activer le verrouillage d'objet pour le compartiment. Le verrouillage d'objet empêche la suppression ou l'écrasement des objets pendant une période de rétention définie, offrant ainsi un niveau supplémentaire de protection des données. Vous ne pouvez l'activer que lors de la création d'un compartiment et vous ne pouvez plus le désactiver par la suite.
 
 
+*** *Chiffrement* : sélectionnez le type de chiffrement pour le compte Azure Blob Storage. Vous pouvez choisir des clés gérées par Microsoft ou des clés gérées par le client. Si vous sélectionnez des clés gérées par le client, vous devez fournir à la fois la clé de chiffrement et l'ID de chiffrement.
 
 
 ** Pour StorageGRID:
 +
-*** *Cible de sauvegarde* : Sélectionnez le nom de la cible de sauvegarde StorageGRID.
-*** *Nom du bucket* : saisissez le nom du bucket StorageGRID .
-*** *Région* : saisissez la région StorageGRID pour le bucket.
-*** *Activer le contrôle de version* : sélectionnez cette option pour activer le contrôle de version pour le bucket StorageGRID .  Le contrôle de version vous permet de conserver plusieurs versions d'objets dans le bucket, ce qui peut être utile à des fins de sauvegarde et de récupération.
-*** *Verrouillage d'objet* : sélectionnez cette option pour activer le verrouillage d'objet pour le bucket StorageGRID .  Le verrouillage des objets empêche la suppression ou l'écrasement des objets pendant une période de conservation spécifiée, offrant ainsi une couche supplémentaire de protection des données.  Vous ne pouvez activer cette option que lorsque vous créez un bucket et vous ne pouvez pas la désactiver ultérieurement.
-*** *Capacité* : saisissez la capacité du bucket StorageGRID .  Il s’agit de la quantité maximale de données pouvant être stockée dans le bucket.
+*** *Nom des identifiants* : sélectionnez les identifiants à utiliser pour vous authentifier auprès de la cible de sauvegarde de ce compartiment.
+*** *Nom du compartiment* : saisissez le nom du nouveau compartiment StorageGRID.
+*** *Verrouillage des objets* : Sélectionnez cette option pour activer le verrouillage des objets du compartiment. Le verrouillage des objets empêche leur suppression ou leur écrasement pendant une période de conservation spécifiée, offrant ainsi une couche supplémentaire de protection des données. Vous pouvez activer cette option uniquement lors de la création d'un compartiment et vous ne pourrez pas la désactiver ultérieurement.
 
 
 ** Pour ONTAP S3 :
 +
-*** *Cible de sauvegarde* : Sélectionnez le nom de la cible de sauvegarde ONTAP S3.
+*** *Nom des identifiants* : sélectionnez les identifiants à utiliser pour vous authentifier auprès de la cible de sauvegarde de ce compartiment.
 *** *Nom du compartiment* : Saisissez le nom du compartiment ONTAP S3.
-*** *Capacité* : saisissez la capacité du bucket ONTAP S3.  Il s’agit de la quantité maximale de données pouvant être stockée dans le bucket.
-*** *Activer le contrôle de version* : sélectionnez cette option pour activer le contrôle de version pour le bucket ONTAP S3.  Le contrôle de version vous permet de conserver plusieurs versions d'objets dans le bucket, ce qui peut être utile à des fins de sauvegarde et de récupération.
-*** *Verrouillage d'objet* : sélectionnez cette option pour activer le verrouillage d'objet pour le compartiment ONTAP S3.  Le verrouillage des objets empêche la suppression ou l'écrasement des objets pendant une période de conservation spécifiée, offrant ainsi une couche supplémentaire de protection des données.  Vous ne pouvez activer cette option que lorsque vous créez un bucket et vous ne pouvez pas la désactiver ultérieurement.
+*** *Verrouillage des objets* : Sélectionnez cette option pour activer le verrouillage des objets du compartiment. Le verrouillage des objets empêche leur suppression ou leur écrasement pendant une période de conservation spécifiée, offrant ainsi une couche supplémentaire de protection des données. Vous pouvez activer cette option uniquement lors de la création d'un compartiment et vous ne pourrez pas la désactiver ultérieurement.
+
+
+** Pour les appareils compatibles S3:
++
+*** *Nom des identifiants* : sélectionnez les identifiants à utiliser pour vous authentifier auprès de la cible de sauvegarde de ce compartiment.
+*** *Nom du compartiment*: Saisissez le nom du nouveau compartiment compatible S3.
+*** *Verrouillage des objets* : Sélectionnez cette option pour activer le verrouillage des objets du compartiment. Le verrouillage des objets empêche leur suppression ou leur écrasement pendant une période de conservation spécifiée, offrant ainsi une couche supplémentaire de protection des données. Vous pouvez activer cette option uniquement lors de la création d'un compartiment et vous ne pourrez pas la désactiver ultérieurement.
 
 
 ** Pour GCP :
@@ -150,7 +162,6 @@ Ajoutez manuellement un compartiment à une cible de sauvegarde hors site au lie
 *** *Nom du bucket* : Saisissez le nom du bucket Google Cloud.
 *** *Projet GCP* : Sélectionnez le nom du projet Google Cloud.
 *** *Région du bucket* : Sélectionnez une région pour le bucket Google Cloud.
-*** *Verrouillage des objets* : Sélectionnez cette option pour activer les périodes de rétention des objets dans ce bucket. Pendant qu'une période de rétention est en vigueur, les objets ne peuvent pas être modifiés ou supprimés et sont immuables jusqu'à l'expiration de la période. Si vous activez cette option pour un bucket, elle ne peut pas être désactivée.
 
 
 

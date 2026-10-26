@@ -14,9 +14,6 @@ summary: 'Dans NetApp Backup and Recovery, créez vos propres stratégies qui r�
 [role="lead"]
 Utilisez NetApp Backup and Recovery pour créer des règles de sauvegarde de base de données Oracle qui contrôlent la fréquence, la planification et la conservation des sauvegardes.
 
-
-NOTE: Certaines de ces options et sections de configuration ne sont pas disponibles pour toutes les charges de travail.
-
 Si vous importez des ressources depuis SnapCenter, vous risquez de rencontrer des différences entre les stratégies utilisées dans SnapCenter et celles utilisées dans NetApp Backup and Recovery.  Voirlink:reference-policy-differences-snapcenter.html["Différences de politique entre SnapCenter et NetApp Backup and Recovery"] .
 
 Vous pouvez atteindre les objectifs suivants liés aux politiques :
