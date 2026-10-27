@@ -118,7 +118,7 @@ Il existe deux types de coûts associés à l'utilisation de la fonctionnalité 
 * Frais de service
 
 
-La création d'instantanés ou de volumes répliqués est gratuite, hormis l'espace disque nécessaire à leur stockage.
+Pour tous les workloads, la création de snapshots locaux et la réplication vers le stockage secondaire ONTAP sont gratuites, à l’exception de l’espace disque nécessaire au stockage des snapshots et des données répliquées. Seule la protection vers le stockage objet est facturée.
 
 *Frais de ressources*
 
@@ -141,11 +141,7 @@ Des frais de ressources sont payés au fournisseur de cloud pour la capacité de
 
 *Frais de service*
 
-Pour les charges de travail de volume ONTAP , vous n'êtes facturé que pour les volumes protégés sur le stockage objet. Les frais sont basés sur la capacité logique utilisée des volumes ONTAP source avant application des gains d'efficacité, également appelée téraoctets frontaux (FETB).
-
-Pour les charges de travail Kubernetes, vous êtes facturé en fonction de la taille combinée de tous les volumes persistants.
-
-Pour toutes les autres charges de travail, la facturation porte sur les ressources protégées sur au moins une cible de stockage secondaire ou objet. Les frais sont calculés en fonction de la taille logique de la charge de travail source. Pour les bases de données, cela correspond à la taille de la base de données ; pour les machines virtuelles, à la taille de la machine virtuelle.
+Pour tous les workloads, vous êtes facturé uniquement pour les ressources protégées vers le stockage objet. La facturation est basée sur la capacité logique utilisée du workload source avant l’application des optimisations (appelée Front-End Terabytes (FETB) pour les workloads ONTAP Volumes). Pour les bases de données, cela correspond à la taille de la base de données ; pour les VM, à la taille de la VM. Pour les workloads Kubernetes, la facturation est basée sur la taille combinée des volumes persistants de ces applications.
 
 Il existe trois façons de payer pour la sauvegarde et la restauration :
 
@@ -161,12 +157,12 @@ Il existe trois façons de payer pour la sauvegarde et la restauration :
 
 NetApp Backup and Recovery propose un essai gratuit, vous permettant de l'utiliser sans clé de licence pendant une durée limitée.
 
-Une licence de sauvegarde est uniquement requise pour les opérations de sauvegarde et de restauration impliquant le stockage d'objets.  La création d'instantanés et de volumes répliqués ne nécessite pas de licence.
+Pour tous les workloads, une licence de sauvegarde est requise uniquement pour les opérations de sauvegarde et de restauration impliquant le stockage objet. La création d'instantanés locaux et la réplication vers le stockage secondaire ONTAP ne nécessitent pas de licence.
 
 Vous pouvez choisir parmi trois options de licence :
 
 * *Apportez votre propre licence (BYOL)* : Achetez une licence à durée déterminée (1, 2 ou 3 ans) et à capacité déterminée (par incréments de 1 Tio) auprès de NetApp.  Saisissez le numéro de série fourni dans la NetApp Console pour activer le produit.  La licence couvre tous les systèmes sources de votre organisation.  Le renouvellement est requis lorsque la durée ou la limite de capacité est atteinte.
-* *Paiement à l'utilisation (PAYGO)* : Abonnez-vous via la place de marché de votre fournisseur de cloud et payez par GiB de données sauvegardées, facturé mensuellement.  Aucun paiement initial n'est requis.  Un essai gratuit de 30 jours est disponible lors de votre première inscription. Pour plus d'informations, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-start-licensing.html#use-a-netapp-backup-and-recovery-paygo-subscription["utiliser un abonnement NetApp Backup and Recovery PAYGO"] .
+* *Pay As You Go (PAYGO)* : abonnez-vous via la marketplace de votre fournisseur de cloud et payez par GiB de données sauvegardées, facturées à l'heure. Aucun paiement initial n'est requis. Un essai gratuit de 30 jours est disponible lors de votre première inscription. Pour plus d'informations, reportez-vous à  https://docs.netapp.com/us-en/data-services-backup-recovery/br-start-licensing.html#use-a-netapp-backup-and-recovery-paygo-subscription["utiliser un abonnement NetApp Backup and Recovery PAYGO"].
 * *Contrat annuel* : Disponible via les places de marché AWS et Azure pour 1, 2 ou 3 ans.  Deux contrats annuels sont disponibles :
 +
 ** *Sauvegarde dans le cloud* : Sauvegarde les données Cloud Volumes ONTAP et les données ONTAP sur site.
