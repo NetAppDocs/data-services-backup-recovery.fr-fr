@@ -25,9 +25,10 @@ Vous pouvez restaurer des bases de données à partir de différents emplacement
 
 
 .Restaurer ces points
-Vous pouvez restaurer les données à l'emplacement d'origine ; la restauration vers un autre emplacement n'est pas disponible dans cette version d'aperçu privée.
+Vous pouvez restaurer une base de données à son emplacement d'origine ou la restaurer en tant que nouvelle base de données sur un hôte enregistré différent (emplacement alternatif).
 
 * Restaurer à l'emplacement d'origine
+* Restaurer vers un autre emplacement (un autre hôte enregistré)
 
 
 
@@ -39,6 +40,7 @@ Lorsque vous restaurez des charges de travail Oracle Database, les opérations s
 
 * Lorsque vous restaurez une base de données à partir d'un snapshot local, NetApp Backup and Recovery crée une _nouvelle_ ressource à l'aide des données de la sauvegarde.
 * Lorsque vous effectuez une restauration à partir d’un stockage répliqué, vous pouvez le restaurer à l’emplacement d’origine.
+* Lors d'une restauration vers un autre emplacement, NetApp Backup and Recovery restaure la sauvegarde sélectionnée de la base de données source en tant que nouvelle base de données sur un autre hôte enregistré. Vous spécifiez l'hôte cible et un nom pour la nouvelle base de données. Si vous ne fournissez pas de fichier de spécification de restauration, Backup and Recovery calcule automatiquement l'emplacement des fichiers de données, des fichiers de contrôle et des fichiers journaux de reprise sur l'hôte cible.
 * Lorsque vous restaurez une sauvegarde à partir du stockage d'objets, vous pouvez restaurer les données vers le stockage source ou vers un système ONTAP local et récupérer la base de données à partir de là.
 
 
@@ -69,6 +71,25 @@ NOTE: Oracle Database crée une nouvelle incarnation de la base de données chaq
 Selon vos besoins, restaurez une base de données Oracle à un point précis dans le temps, à un numéro de modification système (SCN) spécifique ou à son dernier état fonctionnel. Vous pouvez également restaurer la base de données à partir d'instantanés et ignorer le processus de récupération automatique, par exemple si vous souhaitez effectuer la récupération manuellement. Vous pouvez rechercher la base de données par son nom ou à l'aide de filtres spécifiques.
 
 *Rôle requis de la console NetApp* Rôle de super administrateur de NetApp Backup and Recovery ou rôle d'administrateur de restauration de NetApp Backup and Recovery. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
+
+[[alternate-location-support]]
+.Avant de commencer
+Lorsque vous effectuez une restauration vers un autre emplacement, tenez compte des scénarios de restauration pris en charge et non pris en charge suivants :
+
+*Scénarios de restauration vers un emplacement alternatif pris en charge*
+
+* Restauration d’une base de données Oracle unique complète vers un hôte cible unique
+* Restauration à un point précis dans le temps, à un SCN spécifique ou à la dernière sauvegarde
+* Utilisation de répertoires de journaux d'archivage externes lorsque les journaux d'archivage requis pour le point de récupération sélectionné ne sont pas inclus dans la sauvegarde
+
+
+*Scénarios de restauration d'emplacement alternatif non pris en charge*
+
+* Restauration des tablespaces uniquement, y compris la restauration des tablespaces au sein d'une PDB
+* Restauration de PDB uniquement vers une autre base de données conteneur (CDB)
+* Restaurer à partir du stockage secondaire
+* Restaurer à partir du stockage d'objets
+
 
 [NOTE]
 ====
@@ -169,8 +190,8 @@ Les instantanés disponibles sont affichés.
 
 ... Vous pouvez activer l'option *Fichiers de contrôle* pour restaurer également les fichiers de contrôle de la base de données. Cette option ne peut pas être sélectionnée pour la restauration à un point précis dans le temps ou la restauration SCN des PDB ou des espaces de tables PDB.
 ... Vous pouvez, si vous le souhaitez, activer l’option *Modifier l’état de la base de données si nécessaire pour la restauration et la récupération* afin de permettre à NetApp Backup and Recovery de gérer l’état de la base de données en fonction du type de récupération.
-... Vous pouvez activer l'option *Forcer la restauration sur place* pour effectuer une restauration sur place lorsque de nouveaux fichiers de données ont été ajoutés après la sauvegarde, ou lorsque des LUN ont été ajoutés, supprimés ou recréés dans un groupe de disques LVM. Cette option remplace la vérification des fichiers externes ; la restauration de la base de données se poursuit en utilisant l'option de restauration que vous avez sélectionnée.
-... Indiquez les emplacements des fichiers journaux d'archivage externes dans le champ *Specify external archive log files locations* si vous restaurez des PDB ou des espaces de table à un point spécifique dans le temps ou à un SCN spécifique, et que les journaux d'archivage ne se trouvent pas à l'emplacement configuré. Saisissez un chemin de système de fichiers commençant par  `/` ou un groupe de disques ASM commençant par  `+`. Utilisez les boutons « plus » et « moins » situés à côté du champ de saisie de texte pour ajouter ou supprimer des emplacements. Ce champ n'apparaît pas lorsque vous effectuez une restauration à partir de snapshots sans récupération.
+... Vous pouvez éventuellement activer l'option *Forcer la restauration sur place* pour effectuer une restauration sur place lorsque de nouveaux fichiers de données ont été ajoutés après la sauvegarde, ou lorsque des LUN ont été ajoutés, supprimés ou recréés dans un groupe de disques LVM. Cette option remplace la vérification des fichiers externes ; la restauration de la base de données se poursuit à l'aide de l'option de restauration que vous avez sélectionnée.
+... Spécifiez les emplacements des fichiers journaux d’archivage externes dans le champ *Specify external archive log files locations* si vous restaurez une base de données à un point spécifique dans le temps ou à un SCN spécifique, et que les journaux d’archivage ne se trouvent pas à l’emplacement configuré. Saisissez un chemin de système de fichiers commençant par `/` ou un groupe de disques ASM commençant par `+`. Utilisez les boutons « plus » et « moins » situés à côté du champ de saisie de texte pour ajouter ou supprimer des emplacements. Ce champ n’apparaît pas lorsque vous restaurez à partir de snapshots sans récupération.
 ... Vous pouvez, si vous le souhaitez, activer l’option *Ouvrir la base de données ou la base de données conteneur en mode LECTURE-ÉCRITURE après la restauration de la base de données* et sélectionner une sous-option correspondant à l’étendue de la restauration (ces options n’apparaissent pas lors de la restauration à partir d’instantanés sans restauration de la base de données) :
 +
 **** *Tous les fichiers de données* : Ouvrez la base de données ou la base de données conteneur en mode LECTURE-ÉCRITURE après la restauration de la base de données.
@@ -192,9 +213,27 @@ Les instantanés disponibles sont affichés.
 --
 .Restaurer vers un autre emplacement
 --
-Non disponible pour les charges de travail Oracle Database dans cette version préliminaire.
+Restaurez une base de données en tant que nouvelle base de données sur un autre hôte enregistré. Consultez les informations <<alternate-location-support,scénarios pris en charge et non pris en charge>> avant de commencer.
+
+.. Dans la section *Paramètres de destination*, saisissez les informations suivantes :
++
+... *Hôte cible* : Sélectionnez l’hôte enregistré sur lequel vous souhaitez créer la nouvelle base de données.
+... *Base de données cible* : saisissez un nom pour la base de données cible. Par défaut, le nom commence par le nom de la base de données source, et vous pouvez le modifier.
+... *Personnaliser les paramètres de la base de données cible* : Activez cette option pour charger un fichier de spécification de restauration personnalisé afin de personnaliser les paramètres de la base de données cible.
+... *Fichier de spécification de restauration* : si vous avez activé l’option *Personnaliser les paramètres de la base de données cible*, fournissez un fichier de spécification de restauration pour contrôler l’emplacement des fichiers restaurés sur l’hôte cible. Vous pouvez télécharger un fichier de spécification de restauration par défaut et le personnaliser pour modifier les détails de la base de données cible, tels que l’authentification et l’emplacement des journaux.
++
+Si vous ne fournissez pas de fichier de spécification de restauration, Backup and Recovery calcule automatiquement l'emplacement des fichiers de données, des fichiers de contrôle et des fichiers de journalisation redo.
+
+... Spécifiez les emplacements des fichiers journaux d’archivage externes dans le champ *Specify external archive log files locations* si vous restaurez une base de données à un point spécifique dans le temps ou à un SCN spécifique, et que les journaux d’archivage ne se trouvent pas à l’emplacement configuré. Saisissez un chemin de système de fichiers commençant par `/` ou un groupe de disques ASM commençant par `+`. Utilisez les boutons « plus » et « moins » situés à côté du champ de saisie de texte pour ajouter ou supprimer des emplacements. Ce champ n’apparaît pas lorsque vous restaurez à partir de snapshots sans récupération.
+... Vous pouvez, si vous le souhaitez, activer l’option *Ouvrir la base de données ou la base de données conteneur en mode LECTURE-ÉCRITURE après la restauration de la base de données* et sélectionner une sous-option correspondant à l’étendue de la restauration (ces options n’apparaissent pas lors de la restauration à partir d’instantanés sans restauration de la base de données) :
+
+
+
 
 --
 ====
 . Sélectionnez *Restaurer*.
++
+Une fois l'opération de restauration terminée, consultez la page *Inventaire* pour vérifier que la nouvelle base de données y figure. Si la base de données n'est pas répertoriée, actualisez l'hôte cible.
+
 

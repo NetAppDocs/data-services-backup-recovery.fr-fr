@@ -406,6 +406,9 @@ Notez que votre fournisseur de cloud continuera à vous facturer les coûts de s
 
 La désinscription de NetApp Backup and Recovery pour un système interrompt les futures sauvegardes d'un système de stockage et le supprime de NetApp Backup and Recovery. Au cours de ce processus, vous pouvez choisir de conserver ou de supprimer les sauvegardes existantes.
 
+
+IMPORTANT: Avant de désenregistrer un système, téléchargez un rapport complet intitulé « Protection overview ». Le rapport répertorie vos sauvegardes existantes et leurs UUID. Si vous conservez les sauvegardes, vous aurez besoin de ces UUID pour les restaurer.
+
 .À propos de cette tâche
 * Notez que votre fournisseur de cloud continuera à vous facturer les coûts de stockage d'objets pour la capacité utilisée par vos sauvegardes, sauf si vous<<Supprimer les sauvegardes,supprimer les sauvegardes>> .
 * Pour restaurer les sauvegardes existantes, reportez-vous à link:prev-ontap-restore-cli.html["Restaurez les données ONTAP à l'aide de la CLI ONTAP"^].

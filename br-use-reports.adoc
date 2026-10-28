@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: br-use-reports.html 
-keywords: backing up, back up, backup, backup on-prem ontap, policy, policies, backup policies, cloud backup, aws, aws s3, azure, google cloud 
-summary: 'Dans NetApp Backup and Recovery, créez des rapports pour afficher l"état de vos sauvegardes, y compris le nombre de sauvegardes, le nombre de sauvegardes réussies et le nombre de sauvegardes ayant échoué.  Vous pouvez également afficher les détails de chaque sauvegarde, y compris le type de sauvegarde, le système de stockage utilisé pour la sauvegarde et l"heure de la sauvegarde.' 
+keywords: reports, protection report, protection overview, usage and charges, status summary, audit report, kubernetes overview, schedule report, download report, delete report, backup status, workloads 
+summary: 'Dans NetApp Backup and Recovery, créez des rapports pour votre workload afin d"examiner l"état de la protection, l"état des tâches, l"utilisation et les détails d"audit.' 
 ---
-= Créez des rapports de protection Microsoft SQL Server dans NetApp Backup and Recovery
+= Créez et gérez des rapports dans NetApp Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -12,29 +12,137 @@ summary: 'Dans NetApp Backup and Recovery, créez des rapports pour afficher l"�
 
 
 [role="lead"]
-Créez des rapports pour les charges de travail Microsoft SQL Server dans NetApp Backup and Recovery afin d’examiner l’état et les détails des sauvegardes, notamment le nombre de sauvegardes réussies et échouées, les types de sauvegarde, les systèmes de stockage et les horodatages.
+Créez des rapports dans NetApp Backup and Recovery pour confirmer que vos workloads sont protégés et identifier les sauvegardes nécessitant une intervention. Les rapports indiquent le nombre de sauvegardes réussies et échouées, les types de sauvegarde, les systèmes de stockage, l'état du cluster et les horodatages. Exécutez un rapport une fois ou selon une planification, puis consultez, téléchargez ou supprimez les rapports générés.
+
+*Rôle NetApp Console requis* Backup and Recovery super admin, Backup and Recovery backup admin, Backup and Recovery restore admin ou Backup and Recovery clone admin. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle Cloud Volumes ONTAP Admin est également requis. En savoir plus sur link:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
 
 
-[[create-a-protection-report]]
-== Créer un rapport de protection
+[[report-types-you-can-create]]
+== Types de rapports que vous pouvez créer
 
-*Rôle requis dans la NetApp Console* : super administrateur Backup and Recovery, administrateur de sauvegarde Backup and Recovery, administrateur de restauration Backup and Recovery, administrateur de clonage Backup and Recovery. Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. En savoir plus link:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
+Choisissez le type de rapport qui répond à votre question, par exemple pour savoir si les workloads sont protégés, ce qui vous est facturé ou quelles tâches ont échoué.
+
+[cols="1,3"]
+|===
+| Type de rapport | Description 
+
+
+| Aperçu de la protection | Un aperçu complet de votre état de protection, y compris l’inventaire et les récapitulatifs de restauration. 
+
+
+| Utilisation et frais | Détails d'utilisation et de facturation pour chaque workload ou ressource. 
+
+
+| Résumé de l'état | L'état de toutes les tâches planifiées et à la demande, avec des détails pour chaque tâche. 
+
+
+| Rapport d'audit | Un historique de toutes les actions et événements effectués dans le système. 
+
+
+| Aperçu de Kubernetes | État de la protection et de la sauvegarde de vos clusters, applications et espaces de noms Kubernetes. 
+|===
+
+
+[[create-a-report]]
+== Créer un rapport
+
+Créez un rapport pour consulter l'état de protection de votre compte, d'agents spécifiques, d'hôtes spécifiques ou de workloads spécifiques. Vous pouvez générer ce rapport une seule fois ou selon une planification récurrente.
+
+.Étapes
+. Dans le menu NetApp Backup and Recovery, sélectionnez *Rapports*, puis *Accéder aux nouveaux rapports* si la page *Rapports de protection* apparaît.
+. Sélectionnez *Ajouter un rapport*.
+. Dans *Sélectionnez le type de rapport*, choisissez un type de rapport et sélectionnez *Continuer*.
+. Dans *Nom du rapport*, saisissez un nom unique pour le rapport.
++
+Le nom doit comporter entre 3 et 100 caractères, ne peut inclure que des lettres, des chiffres, des espaces, des traits de soulignement (_) et des traits d'union (-), et doit commencer par une lettre.
+
+. Sous *Portée*, sélectionnez le niveau auquel le rapport collecte les données :
++
+** *Par compte* : incluez tout ce qui se trouve dans le compte. Aucune autre information n’est requise.
+** *Par agent* : dans *Agent*, sélectionnez un ou plusieurs Console agents. Le rapport inclut uniquement les ressources gérées par les agents sélectionnés.
+** *Par hôte* : Dans *Sélectionner un hôte*, choisissez un ou plusieurs hôtes et sélectionnez *Accepter*. Utilisez cette option pour les workloads exécutés sur des hôtes, tels que Microsoft SQL Server et Oracle Database.
+** *Par workload* : dans *Workloads*, choisissez un ou plusieurs types de workload.
++
+
+NOTE: La liste *Par workload* n’inclut pas ONTAP Volumes. Pour créer un rapport pour ONTAP Volumes, utilisez le périmètre *Par compte* ou *Par agent*.
+
+
+
+. Sous *Fréquence*, choisissez la fréquence d'exécution du rapport :
++
+** *Une seule fois* : Exécutez le rapport une seule fois. Il s’agit du comportement par défaut.
+** *Planification* : exécutez le rapport de manière régulière. Dans *Exécuter toutes les*, choisissez une fréquence. Les rapports planifiés apparaissent dans l’onglet *Rapports planifiés*.
+
+
+. Sous *Options de livraison du rapport*, activez éventuellement *Envoyer les résultats du rapport par e-mail lors de son exécution*.
++
+Cette option est désactivée par défaut. Par défaut, les rapports sont envoyés à tous les utilisateurs de l'organisation. Pour envoyer des rapports à des destinataires spécifiques, configurez les notifications par e-mail sur la page *Paramètres*, sous *Notifications*. Pour plus d'informations sur la configuration des notifications par e-mail, consultez link:br-start-configure.html["Configurer les paramètres"].
+
+. Sous *Rétention*, dans *Durée de conservation*, choisissez la durée de conservation du rapport avant sa suppression. La valeur par défaut est de 30 jours.
+. Sélectionnez *Ajouter*.
++
+Le rapport apparaît en haut de la liste *Rapports générés*. Une fois le rapport prêt, un message de réussite s'affiche et vous pouvez le télécharger ou le supprimer.
+
+
+
+La liste *Rapports générés* affiche le nom, le type, la plage, l'heure de génération et l'utilisateur de chaque rapport. La colonne *Étendue* résume ce que couvre le rapport, par exemple « 1 compte » ou « 1 agent ». Sélectionnez *Afficher* dans la colonne *Étendue* pour ouvrir le rapport. La plage affiche N/A pour les rapports ponctuels.
+
+
+
+[[download-a-report-as-json-pdf-excel-or-csv]]
+== Télécharger un rapport au format JSON, PDF, Excel ou CSV
+
+Téléchargez un rapport généré pour le consulter hors ligne ou le partager avec d'autres personnes qui n'ont pas accès à la NetApp Console.
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery, sélectionnez *Rapports*.
-. Sélectionnez *Créer un rapport*.
-. Saisissez les détails de la portée du rapport :
+. Dans l'onglet *Rapports générés*, recherchez le rapport que vous souhaitez télécharger.
+. Dans la ligne du rapport, sélectionnez *Télécharger*, puis choisissez un format :
 +
-** *Nom du rapport* : saisissez un nom unique pour le rapport.
-** *Type de rapport* : Choisissez si vous souhaitez un rapport par compte ou par charge de travail (Microsoft SQL Server).
-** *Sélectionner l'hôte* : si vous avez sélectionné par charge de travail, sélectionnez l'hôte pour lequel vous souhaitez générer le rapport.
-** *Sélectionner le contenu* : Choisissez si vous souhaitez que le rapport inclue un résumé de toutes les sauvegardes ou les détails de chaque sauvegarde.  (Si vous avez choisi « Par compte »)
-
-
-. Saisissez la période concernée : choisissez si vous souhaitez que le rapport inclue les données du dernier jour, des 7 derniers jours, des 30 derniers jours, du dernier trimestre ou de la dernière année.
-. Saisissez les informations de livraison du rapport : si vous souhaitez que le rapport soit envoyé par e-mail, sélectionnez *Envoyer le rapport par e-mail*. Saisissez l’adresse e-mail à laquelle vous souhaitez que le rapport soit envoyé.
+** *Télécharger le JSON*
+** *Télécharger le PDF*
+** *Télécharger Excel*
+** *Télécharger le fichier CSV*
 +
-Configurez les notifications par e-mail sur la page Paramètres. Pour plus d'informations sur la configuration des notifications par e-mail, consultez link:br-start-configure.html["Configurer les paramètres"].
+Vous pouvez également utiliser le menu *Télécharger* sur la page du rapport.
 
++
+La préparation des rapports volumineux peut prendre plus de temps.
+
+
+
+
+
+
+
+[[view-report-details]]
+== Afficher les détails du rapport
+
+Consultez les détails d'un rapport généré dans NetApp Backup and Recovery, notamment un résumé, le nombre d'éléments d'inventaire et les tableaux de détails.
+
+.Étapes
+. Dans le menu NetApp Backup and Recovery, sélectionnez *Rapports*.
+. Dans l'onglet *Rapports générés*, sélectionnez le nom du rapport que vous souhaitez consulter.
+. Développez *Inventaire* pour afficher le nombre de systèmes, de SVM, de volumes, d'hôtes, d'instances et de buckets.
+. Faites défiler vers le bas pour consulter les tableaux du rapport. Les tableaux affichés dépendent du type de rapport.
+. (Facultatif) Pour choisir les colonnes affichées dans un tableau, sélectionnez l'icône de colonne à l'extrémité droite de la ligne d'en-tête du tableau, sélectionnez ou désélectionnez les colonnes, puis sélectionnez *Appliquer*.
++
+La colonne *Nom de la ressource* reste toujours affichée. Sélectionnez *Restaurer les valeurs par défaut* pour revenir aux colonnes par défaut.
+
+. Pour revenir à la liste des rapports, sélectionnez *Rapports* en haut de la page.
+
+
+
+
+[[delete-a-report]]
+== Supprimer un rapport
+
+Supprimez un rapport généré pour le retirer de la liste *Rapports générés*. Les rapports sont également supprimés automatiquement à l'expiration de leur période de conservation.
+
+.Étapes
+. Dans le menu NetApp Backup and Recovery, sélectionnez *Rapports*.
+. Dans l'onglet *Rapports générés*, recherchez le rapport que vous souhaitez supprimer.
+. Dans la ligne du rapport, sélectionnez l'icône de suppression.
+. Confirmez l'action en sélectionnant *Supprimer*.
 
