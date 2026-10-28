@@ -25,6 +25,7 @@ Nous passerons en revue les options suivantes :
 * Quelle architecture de sauvegarde utiliserez-vous : une sauvegarde en cascade ou en éventail de vos volumes ?
 * Allez-vous utiliser les politiques de sauvegarde par défaut ou devez-vous créer des politiques personnalisées ?
 * Voulez-vous que le service crée les buckets cloud pour vous ou souhaitez-vous créer vos conteneurs de stockage d'objets avant de commencer ?
+* Certains de vos volumes se trouvent-ils sur des agrégats FabricPool, et comment leurs règles de hiérarchisation pourraient-elles affecter vos sauvegardes
 * Quel mode de déploiement de l'agent de console utilisez-vous (mode standard, restreint ou privé) ?
 
 
@@ -229,6 +230,25 @@ Si vous prévoyez de déplacer des fichiers de sauvegarde plus anciens vers un s
 ** Pour Azure, vous devez créer la classe de stockage avec prise en charge de l’immuabilité au niveau de la version.
 
 
+
+
+
+
+[[are-any-of-your-volumes-on-fabricpool-aggregates]]
+== Certains de vos volumes se trouvent-ils sur des agrégats FabricPool ?
+
+Il y a certaines choses que vous devez savoir lorsque le volume que vous sauvegardez réside sur un agrégat FabricPool et qu'il dispose d'une politique de hiérarchisation attribuée autre que `none` :
+
+* La première sauvegarde d'un volume à plusieurs niveaux FabricPool nécessite la lecture de toutes les données locales et à plusieurs niveaux (à partir du magasin d'objets).  Une opération de sauvegarde ne « réchauffe » pas les données froides hiérarchisées dans le stockage d’objets.
++
+Cette opération pourrait entraîner une augmentation ponctuelle du coût de lecture des données auprès de votre fournisseur de cloud.
+
++
+** Les sauvegardes ultérieures sont incrémentielles et n’ont pas cet effet.
+** Si la stratégie de hiérarchisation est attribuée au volume lors de sa création initiale, ce problème ne se produira pas.
+
+
+* Tenez compte de l'impact des sauvegardes avant d'appliquer la  `all`stratégie de hiérarchisation aux volumes. Comme les données sont hiérarchisées immédiatement, NetApp Backup and Recovery lit les données depuis le niveau cloud plutôt que depuis le niveau local. Comme les opérations de sauvegarde simultanées partagent la liaison réseau vers le stockage d'objets cloud, une dégradation des performances peut se produire si les ressources réseau deviennent saturées. Dans ce cas, vous pouvez configurer de manière proactive plusieurs interfaces réseau (LIF) afin de réduire ce type de saturation du réseau.
 
 
 

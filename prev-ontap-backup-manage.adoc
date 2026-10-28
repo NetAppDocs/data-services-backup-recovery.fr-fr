@@ -412,6 +412,7 @@ IMPORTANT: Avant de désenregistrer un système, téléchargez un rapport comple
 .À propos de cette tâche
 * Notez que votre fournisseur de cloud continuera à vous facturer les coûts de stockage d'objets pour la capacité utilisée par vos sauvegardes, sauf si vous<<Supprimer les sauvegardes,supprimer les sauvegardes>> .
 * Pour restaurer les sauvegardes existantes, reportez-vous à link:prev-ontap-restore-cli.html["Restaurez les données ONTAP à l'aide de la CLI ONTAP"^].
+* Vous ne pouvez pas modifier le magasin d’objets de destination d’un système après avoir activé les sauvegardes. Pour utiliser un autre magasin d’objets, annulez l’enregistrement de NetApp Backup and Recovery pour le système, puis activez-le de nouveau en utilisant les informations du nouveau fournisseur de cloud.
 
 
 .Étapes

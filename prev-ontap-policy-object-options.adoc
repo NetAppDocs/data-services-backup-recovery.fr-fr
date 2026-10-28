@@ -31,6 +31,9 @@ NetApp Backup and Recovery vous permet de créer plusieurs politiques de sauvega
 
 Chaque règles de sauvegarde comporte une section « Étiquettes et conservation » que vous pouvez appliquer à vos fichiers de sauvegarde. Notez que la règle de snapshot appliquée au volume doit être l'une des règles reconnues par NetApp Backup and Recovery, sinon les fichiers de sauvegarde ne seront pas créés.
 
+
+NOTE: La stratégie de snapshot appliquée au volume doit comporter l’une des étiquettes que vous utilisez dans votre stratégie de réplication et votre stratégie de sauvegarde sur objet. Si aucune étiquette correspondante n’est trouvée, aucun fichier de sauvegarde ne sera créé. Par exemple, si vous souhaitez créer des volumes répliqués et des fichiers de sauvegarde « weekly », vous devez utiliser une stratégie de snapshot qui crée des snapshots « weekly ».
+
 Le planning comporte deux parties : l'étiquette et la valeur de rétention :
 
 * L'*étiquette* définit la fréquence à laquelle un fichier de sauvegarde est créé (ou mis à jour) à partir du volume.  Vous pouvez choisir parmi les types d’étiquettes suivants :
@@ -51,6 +54,9 @@ Par exemple, supposons que vous créiez une politique de sauvegarde qui crée 7 
 
 
 Les sauvegardes annuelles sont automatiquement supprimées du système source après avoir été transférées vers le stockage d'objets.  Ce comportement par défaut peut être modifié dans la page Paramètres avancés du système.
+
+
+TIP: La durée de conservation des sauvegardes des volumes de protection des données (DP) est la même que celle définie dans la relation source SnapMirror. Vous pouvez la modifier à l’aide de l’API.
 
 
 
@@ -150,6 +156,8 @@ Les analyses se produisent dans ces situations :
 * Les analyses de ransomware peuvent être lancées lorsque la sauvegarde est sélectionnée pour le processus de restauration.
 * Les analyses peuvent être effectuées à la demande à tout moment.
 
+
+Les analyses planifiées des ransomwares sont activées par défaut et s'exécutent tous les 7 jours uniquement sur le dernier snapshot. Vous pouvez modifier la fréquence des analyses ou désactiver les analyses planifiées dans la page Paramètres avancés.
 
 *Comment fonctionne le processus de récupération ?*
 

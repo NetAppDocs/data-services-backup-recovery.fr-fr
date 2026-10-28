@@ -30,9 +30,9 @@ Utilisez NetApp Backup and Recovery pour atteindre les objectifs suivants :
 * * Charges de travail de volume ONTAP * :
 +
 ** Créez des instantanés locaux, répliquez-les vers un stockage secondaire et sauvegardez les volumes ONTAP à partir des systèmes ONTAP locaux ou Cloud Volumes ONTAP vers le stockage d'objets dans votre compte cloud public ou privé.
+** Rechercher et restaurer des fichiers et des dossiers.
 ** Créez des sauvegardes incrémentielles permanentes au niveau des blocs qui sont stockées sur un autre cluster ONTAP et dans un stockage d'objets dans le cloud.
-** Utilisez NetApp Backup and Recovery avec SnapCenter.
-** Se référer àlink:prev-ontap-protect-overview.html["Protéger les volumes ONTAP"] .
+** Consultez link:prev-ontap-protect-overview.html["Protéger les charges de travail des volumes ONTAP"].
 
 
 * *Charges de travail Microsoft SQL Server*:
@@ -85,7 +85,6 @@ Utilisez NetApp Backup and Recovery pour atteindre les objectifs suivants :
 ** Gérez et protégez vos applications et ressources Kubernetes en un seul endroit.
 ** Utilisez des politiques de protection pour structurer vos sauvegardes incrémentielles.
 ** Restaurez les applications et les ressources sur les mêmes clusters et espaces de noms ou sur des clusters et espaces de noms différents.
-** Utilisez NetApp Backup and Recovery sans SnapCenter.
 ** Se référer àlink:br-use-kubernetes-protect-overview.html["Protégez les charges de travail Kubernetes"] .
 
 
@@ -128,15 +127,8 @@ Des frais de ressources sont payés au fournisseur de cloud pour la capacité de
 +
 Étant donné que NetApp Backup and Recovery préserve l'efficacité du stockage du volume source, vous payez au fournisseur de cloud les coûts de stockage d'objets pour les données _après_ l'efficacité ONTAP (pour la plus petite quantité de données après l'application de la déduplication et de la compression).
 
-* Pour restaurer des données à l'aide de la recherche et de la restauration, certaines ressources sont provisionnées par votre fournisseur de cloud et un coût par Tio est associé à la quantité de données analysées par vos demandes de recherche.  (Ces ressources ne sont pas nécessaires pour parcourir et restaurer.)
-+
-** Dans AWS, https://aws.amazon.com/athena/faqs/["Amazone Athéna"^] et https://aws.amazon.com/glue/faqs/["Colle AWS"^] les ressources sont déployées dans un nouveau bucket S3.
-** Dans Azure, un https://azure.microsoft.com/en-us/services/synapse-analytics/?&ef_id=EAIaIQobChMI46_bxcWZ-QIVjtiGCh2CfwCsEAAYASAAEgKwjvD_BwE:G:s&OCID=AIDcmm5edswduu_SEM_EAIaIQobChMI46_bxcWZ-QIVjtiGCh2CfwCsEAAYASAAEgKwjvD_BwE:G:s&gclid=EAIaIQobChMI46_bxcWZ-QIVjtiGCh2CfwCsEAAYASAAEgKwjvD_BwE["Espace de travail Azure Synapse"^] et https://azure.microsoft.com/en-us/services/storage/data-lake-storage/?&ef_id=EAIaIQobChMIuYz0qsaZ-QIVUDizAB1EmACvEAAYASAAEgJH5fD_BwE:G:s&OCID=AIDcmm5edswduu_SEM_EAIaIQobChMIuYz0qsaZ-QIVUDizAB1EmACvEAAYASAAEgJH5fD_BwE:G:s&gclid=EAIaIQobChMIuYz0qsaZ-QIVUDizAB1EmACvEAAYASAAEgJH5fD_BwE["Stockage Azure Data Lake"^] sont provisionnés dans votre compte de stockage pour stocker et analyser vos données.
-** Dans Google Cloud, un nouveau bucket est déployé, et les  https://cloud.google.com/bigquery["Services Google Cloud BigQuery"^] sont provisionnées au niveau du compte/projet.
-
-
 * Si vous prévoyez de restaurer des données de volume à partir d'un fichier de sauvegarde qui a été déplacé vers un stockage d'objets d'archivage, des frais de récupération par Gio et des frais par demande supplémentaires sont facturés par le fournisseur de cloud.
-* Si vous prévoyez d'analyser un fichier de sauvegarde à la recherche de ransomware lors du processus de restauration des données du volume (si vous avez activé Datalock et la protection Ransomware pour vos sauvegardes cloud), alors vous devrez également payer des frais de sortie supplémentaires auprès de votre fournisseur de cloud.
+* Si vous prévoyez d’analyser un fichier de sauvegarde à la recherche de ransomware lors du processus de restauration des données de volume (si vous avez activé DataLock et la protection contre les ransomwares pour vos sauvegardes cloud), vous devrez également payer des frais supplémentaires à votre fournisseur de cloud.
 
 
 *Frais de service*
@@ -162,8 +154,8 @@ Pour tous les workloads, une licence de sauvegarde est requise uniquement pour l
 Vous pouvez choisir parmi trois options de licence :
 
 * *Apportez votre propre licence (BYOL)* : Achetez une licence à durée déterminée (1, 2 ou 3 ans) et à capacité déterminée (par incréments de 1 Tio) auprès de NetApp.  Saisissez le numéro de série fourni dans la NetApp Console pour activer le produit.  La licence couvre tous les systèmes sources de votre organisation.  Le renouvellement est requis lorsque la durée ou la limite de capacité est atteinte.
-* *Pay As You Go (PAYGO)* : abonnez-vous via la marketplace de votre fournisseur de cloud et payez par GiB de données sauvegardées, facturées à l'heure. Aucun paiement initial n'est requis. Un essai gratuit de 30 jours est disponible lors de votre première inscription. Pour plus d'informations, reportez-vous à  https://docs.netapp.com/us-en/data-services-backup-recovery/br-start-licensing.html#use-a-netapp-backup-and-recovery-paygo-subscription["utiliser un abonnement NetApp Backup and Recovery PAYGO"].
-* *Contrat annuel* : Disponible via les places de marché AWS et Azure pour 1, 2 ou 3 ans.  Deux contrats annuels sont disponibles :
+* *Pay As You Go (PAYGO)* : Abonnez-vous via la plateforme de votre fournisseur de cloud et payez par Gio de données sauvegardées, avec une facturation mensuelle. Aucun paiement initial n'est requis. Un essai gratuit de 30 jours est disponible lors de votre première inscription. Pour plus d'informations, reportez-vous à  https://docs.netapp.com/us-en/data-services-backup-recovery/br-start-licensing.html#use-a-netapp-backup-and-recovery-paygo-subscription["utiliser un abonnement NetApp Backup and Recovery PAYGO"].
+* *Contrat à durée déterminée* : disponible sur les places de marché AWS et Azure pour des abonnements de 6 mois ou d’un an. Deux contrats annuels sont proposés :
 +
 ** *Sauvegarde dans le cloud* : Sauvegarde les données Cloud Volumes ONTAP et les données ONTAP sur site.
 ** *CVO Professional* : Regroupe Cloud Volumes ONTAP et NetApp Backup and Recovery, avec des sauvegardes illimitées pour les volumes Cloud Volumes ONTAP (la capacité de sauvegarde n’est pas décomptée de la licence).
@@ -241,9 +233,13 @@ Les copies de sauvegarde sont stockées dans un magasin d’objets que la NetApp
 
 * Dans AWS, la NetApp Console permet https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html["Fonctionnalité d'accès public au bloc Amazon S3"^] sur le bucket S3.
 * Dans Azure, NetApp Console utilise un groupe de ressources nouveau ou existant avec un compte de stockage pour le conteneur Blob. La Console https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent["bloque l'accès public à vos données blob"] par défaut.
-* Dans StorageGRID, la console utilise un compte de stockage existant pour le bucket de magasin d’objets.
+* Dans Google Cloud, la Console utilise un projet nouveau ou existant avec un compte de stockage pour le bucket Google Cloud storage.
+* Dans StorageGRID, la console utilise un compte locataire existant pour le compartiment S3.
 * Dans ONTAP S3, la console utilise un compte utilisateur existant pour le bucket S3.
 
+
+
+CAUTION: Si vous gérez ou modifiez directement les fichiers de sauvegarde cloud depuis l’environnement de votre fournisseur de cloud, vous risquez de corrompre ces fichiers et de provoquer une configuration non prise en charge.
 
 
 

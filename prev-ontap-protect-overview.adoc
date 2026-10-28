@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: prev-ontap-protect-overview.html 
-keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
-summary: Protégez vos charges de travail VMware avec NetApp Backup and Recovery. 
+keywords: ontap volumes, protect volumes, back up volumes, restore volumes, snapshots, replication, backup to object storage, 3-2-1, FlexVol, FlexGroup, SnapLock, DataLock, ransomware protection, NetApp Backup and Recovery 
+summary: Utilisez NetApp Backup and Recovery pour protéger les volumes ONTAP à l’aide d’instantanés, de volumes répliqués et de sauvegardes dans le stockage objet, et pour restaurer des volumes, des dossiers ou des fichiers à partir de n’importe quelle copie. 
 ---
-= Découvrez la protection des volumes ONTAP avec NetApp Backup and Recovery
+= Protégez les charges de travail des volumes ONTAP avec NetApp Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -16,211 +16,86 @@ summary: Protégez vos charges de travail VMware avec NetApp Backup and Recovery
 [role="lead"]
 Utilisez NetApp Backup and Recovery pour protéger et restaurer les données de votre volume ONTAP et pour archiver les sauvegardes à long terme. Vous pouvez mettre en œuvre une stratégie 3-2-1 avec trois copies de vos données sources sur deux systèmes de stockage différents et une copie dans le cloud.
 
+Une fois la protection activée pour un système, Backup and Recovery crée des copies incrémentales permanentes au niveau bloc de vos volumes. Outre votre volume source, vous disposez de :
 
-NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
-
-Après activation, NetApp Backup and Recovery crée des sauvegardes incrémentales permanentes au niveau bloc, stockées sur un autre cluster ONTAP et dans un stockage objet dans le cloud. Outre votre volume source, vous disposerez de :
-
-* Instantané du volume sur le système source
-* Volume répliqué sur un autre système de stockage
-* Sauvegarde du volume dans le stockage d'objets
+* Un instantané du volume sur le système source
+* Un volume répliqué sur un système de stockage ONTAP différent
+* Une sauvegarde du volume dans le stockage objet
 
 
 image:diagram-321-overview-unified.png["Un diagramme montrant comment les fichiers de sauvegarde existent sur le système source sous forme d'instantanés, sous forme de volumes répliqués sur le système de stockage secondaire et sous forme de fichiers de sauvegarde dans le stockage objet."]
 
-NetApp Backup and Recovery utilise la technologie de réplication des données SnapMirror de NetApp pour maintenir vos sauvegardes synchronisées en créant des snapshots et en les transférant vers les emplacements de sauvegarde.
-
-Les avantages de l’approche 3-2-1 incluent :
+L'approche 3-2-1 offre les avantages suivants :
 
 * Plusieurs copies de données protègent contre les menaces de cybersécurité internes et externes.
 * L’utilisation de différents types de supports vous aide à récupérer si l’un d’eux tombe en panne.
 * Vous pouvez restaurer rapidement à partir de la copie sur site et utiliser les copies hors site si la copie sur site est compromise.
 
 
-Si nécessaire, vous pouvez restaurer un _volume_ entier, un _dossier_ ou un ou plusieurs _fichiers_, à partir de n'importe quelle copie de sauvegarde vers le même système ou vers un système différent.
+Lorsque cela est nécessaire, vous pouvez restaurer un _volume_ entier, un _dossier_ ou un ou plusieurs _fichiers_ à partir de n'importe laquelle des copies, vers le même système ou un système différent.
+
+
+
+[[how-protection-for-ontap-volumes-works]]
+== Fonctionnement de la protection des volumes ONTAP
+
+Lorsque vous activez Backup and Recovery pour un système Cloud Volumes ONTAP ou ONTAP sur site, le service effectue un transfert de base complet des données de votre volume. Ensuite, tous les transferts sont incrémentiels : seuls les blocs modifiés et les nouveaux blocs sont transférés, ce qui réduit au minimum le trafic réseau.
+
+Backup and Recovery utilise la technologie ONTAP SnapMirror pour maintenir vos copies synchronisées. Il crée des instantanés sur le volume source et les transfère vers les emplacements de réplication et de sauvegarde. La sauvegarde vers le stockage objet repose sur https://docs.netapp.com/us-en/ontap/concepts/snapmirror-cloud-backups-object-store-concept.html["Technologie NetApp SnapMirror Cloud"^].
+
+image:diagram-backup-recovery-general.png["Un diagramme montrant comment NetApp Backup and Recovery communique avec les volumes sur les systèmes sources, le système de stockage secondaire et le stockage d'objets de destination où se trouvent les volumes répliqués et les fichiers de sauvegarde."]
+
+Ce schéma montre des volumes répliqués vers un système Cloud Volumes ONTAP, mais vous pouvez également répliquer des volumes vers un système ONTAP sur site.
+
+Chaque type de copie se trouve à un emplacement différent :
+
+* Les _instantanés_ résident sur le volume source du système source.
+* _Les volumes répliqués_ résident sur le système de stockage secondaire, qui peut être un système Cloud Volumes ONTAP ou un système ONTAP sur site.
+* _Les copies de sauvegarde_ résident dans un espace de stockage d'objets, dans votre compte cloud ou sur votre site. La Console crée un espace de stockage d'objets pour chaque cluster. Consultez link:concept-backup-to-cloud.html#where-backups-reside-in-object-store-locations["Où résident les sauvegardes dans les emplacements de stockage d'objets"] pour plus d'informations sur la manière dont la Console crée et nomme l'espace de stockage d'objets.
+
+
+
+CAUTION: Ne gérez ni ne modifiez directement les fichiers de sauvegarde à partir de vos systèmes de stockage ou de l'environnement de votre fournisseur de cloud. Cela pourrait corrompre les fichiers et entraîner une configuration non prise en charge.
+
+Pour planifier les copies et l’architecture à utiliser, reportez-vous à link:prev-ontap-protect-journey.html["Planifier la protection du volume ONTAP"].
 
 
 
 [[features]]
 == Caractéristiques
 
-*Fonctionnalités de réplication :*
+*Réplication*
 
 * Répliquez les données entre les systèmes de stockage ONTAP pour prendre en charge la sauvegarde et la reprise après sinistre.
-* Assurez la fiabilité de votre environnement DR avec une haute disponibilité.
-* Configurez le chiffrement natif en transit d'ONTAP en utilisant une clé pré-partagée (PSK) entre les deux systèmes.
-* Les données copiées sont immuables jusqu'à ce que vous les rendiez accessibles en écriture et prêtes à être utilisées.
-* La réplication est auto-réparatrice en cas d’échec de transfert.
-* Comparée à  https://docs.netapp.com/us-en/data-services-replication/index.html["NetApp Replication"^], la réplication dans NetApp Backup and Recovery inclut les fonctionnalités suivantes :
-+
-** Répliquez plusieurs volumes FlexVol à la fois sur un système secondaire.
-** Restaurez un volume répliqué sur le système source ou sur un autre système à l'aide de l'interface utilisateur.
+* Répliquez plusieurs volumes FlexVol à la fois sur un système secondaire.
+* Utilisez le chiffrement ONTAP natif en transit avec une clé pré-partagée (PSK) entre les deux systèmes.
+* Comptez sur une réplication auto-réparatrice en cas d'échec de transfert.
+* Restaurez un volume répliqué sur le système source ou sur un autre système.
 
 
+Pour les fonctionnalités de  https://docs.netapp.com/us-en/data-services-replication/index.html["NetApp Replication"^] qui ne sont pas disponibles lors de la réplication avec Backup and Recovery, reportez-vous à link:br-reference-limitations.html#replication-limitations-for-ontap-volumes["Limitations de réplication pour les volumes ONTAP"].
 
+*Sauvegarde sur stockage d'objets*
 
-Voirlink:br-reference-limitations.html["Limitations de réplication pour les volumes ONTAP"] pour obtenir la liste des fonctionnalités de réplication qui ne sont pas disponibles avec les volumes NetApp Backup and Recovery for ONTAP .
+* Sauvegardez des copies indépendantes de vos volumes sur un stockage objet à faible coût, depuis des systèmes sur site ou dans le cloud vers un cloud public ou privé.
+* Appliquez une seule règle de sauvegarde à tous les volumes d'un cluster, attribuez différentes règles aux volumes ayant des objectifs de point de récupération uniques, ou créez une règle qui s'applique à tous les futurs volumes du cluster. Reportez-vous à link:prev-ontap-policy-manage.html["Gérer les politiques des volumes ONTAP"].
+* Protégez vos sauvegardes contre la suppression et les ransomwares grâce à DataLock et à des analyses anti-ransomware. Consultez link:prev-ontap-policy-object-options.html#datalock-and-ransomware-protection-options["Options de protection DataLock et Ransomware"].
+* Stockez les sauvegardes les plus anciennes dans un espace de stockage d'archivage pour réduire les coûts. Consultez link:prev-ontap-policy-object-options.html#archival-storage-options["Options de stockage d'archives"].
+* Supprimez la relation de sauvegarde afin de pouvoir mettre hors service les volumes sources tout en conservant leurs sauvegardes.
+* Conservez jusqu'à 4 000 copies de sauvegarde d'un seul volume.
+* Sécurisez les données de sauvegarde grâce au chiffrement AES-256 bits au repos et aux connexions HTTPS TLS 1.2 en transit, ou utilisez vos propres clés gérées par le client au lieu des clés par défaut du fournisseur de cloud.
 
-*Fonctionnalités de sauvegarde sur objet :*
 
-* Sauvegardez des copies indépendantes de vos volumes de données sur un stockage d'objets à faible coût.
-* Appliquez une politique de sauvegarde unique à tous les volumes d’un cluster ou attribuez différentes politiques de sauvegarde aux volumes ayant des objectifs de point de récupération uniques.
-* Créez une politique de sauvegarde à appliquer à tous les futurs volumes créés dans le cluster.
-* Créez des fichiers de sauvegarde immuables afin qu'ils soient verrouillés et protégés pendant la période de conservation.
-* Analysez les fichiers de sauvegarde pour détecter d'éventuelles attaques de ransomware et supprimez ou remplacez automatiquement les sauvegardes infectées.
-* Classez les fichiers de sauvegarde plus anciens dans un stockage d'archives pour réduire les coûts.
-* Supprimez la relation de sauvegarde afin de pouvoir archiver les volumes sources inutiles tout en conservant les sauvegardes de volume.
-* Sauvegardez d'un cloud à l'autre et des systèmes sur site vers un cloud public ou privé.
-* Les données de sauvegarde sont sécurisées avec un cryptage AES-256 bits au repos et des connexions TLS 1.2 HTTPS en vol.
-* Utilisez vos propres clés gérées par le client pour le chiffrement des données au lieu d'utiliser les clés de chiffrement par défaut de votre fournisseur de cloud.
-* Prise en charge jusqu'à 4 000 sauvegardes d'un seul volume.
+*Restaurer*
 
+* Restaurez des données à un point précis dans le temps à partir d'instantanés locaux, de volumes répliqués ou de sauvegardes dans le stockage objet.
+* Restaurer un volume, un dossier ou des fichiers individuels vers le système source ou vers un autre système, y compris un système qui utilise un abonnement ou un compte différent, ou qui se trouve dans une autre région.
+* Effectuez une _restauration rapide_ d'un volume depuis un stockage objet vers un système Cloud Volumes ONTAP ou sur site lorsque vous devez fournir un accès au volume dès que possible, par exemple dans une situation de reprise après sinistre.
+* Restaurez les données au niveau des blocs directement à l’emplacement que vous spécifiez, en préservant les ACL d’origine.
+* Parcourez ou effectuez une recherche dans les catalogues de fichiers pour sélectionner les dossiers et fichiers individuels à restaurer.
 
-*Restaurer les fonctionnalités :*
 
-* Restaurez des données à partir d'un point précis dans le temps à partir d'instantanés locaux, de volumes répliqués ou de volumes sauvegardés dans un stockage objet.
-* Restaurer un volume, un dossier ou des fichiers individuels, sur le système source ou sur un autre système.
-* Restaurer les données sur un système utilisant un abonnement/compte différent ou situé dans une région différente.
-* Effectuez une _restauration rapide_ d'un volume depuis un stockage cloud vers un système Cloud Volumes ONTAP ou vers un système sur site ; parfait pour les situations de reprise après sinistre où vous devez fournir l'accès à un volume dès que possible.
-* Restaurez les données au niveau du bloc, en plaçant les données directement à l'emplacement que vous spécifiez, tout en préservant les ACL d'origine.
-* Parcourez et recherchez des catalogues de fichiers pour une sélection facile de dossiers et de fichiers individuels pour la restauration d'un seul fichier.
-
-
-
-
-[[supported-systems-for-backup-and-restore-operations]]
-== Systèmes pris en charge pour les opérations de sauvegarde et de restauration
-
-NetApp Backup and Recovery prend en charge les systèmes ONTAP et les fournisseurs de cloud public et privé.
-
-
-
-[[supported-regions]]
-=== Régions prises en charge
-
-NetApp Backup and Recovery est pris en charge avec Cloud Volumes ONTAP dans de nombreuses régions Amazon Web Services, Microsoft Azure et Google Cloud.
-
-https://bluexp.netapp.com/cloud-volumes-global-regions["En savoir plus en utilisant la carte des régions mondiales"^]
-
-
-
-[[supported-backup-destinations]]
-=== Destinations de sauvegarde prises en charge
-
-NetApp Backup and Recovery vous permet de sauvegarder des volumes ONTAP à partir des systèmes sources suivants vers les systèmes secondaires et le stockage d'objets suivants, chez des fournisseurs de cloud public et privé. Les snapshots résident sur le système source.
-
-
-NOTE: Wasabi est actuellement le seul fournisseur de stockage objet compatible S3 qualifié. Les autres fournisseurs compatibles S3 n'ont pas été validés.
-
-[cols="33,33,33"]
-|===
-| Système source | Système secondaire (réplication) | Magasin d'objets de destination (sauvegarde) 
-
-
-| Cloud Volumes ONTAP dans AWS  a| 
-* Cloud Volumes ONTAP dans AWS
-* Système ONTAP sur site
-
-| Amazon S3 
-
-
-| Cloud Volumes ONTAP dans Azure  a| 
-* Cloud Volumes ONTAP dans Azure
-* Système ONTAP sur site
-
-| Azure Blob 
-
-
-| Cloud Volumes ONTAP dans Google  a| 
-* Cloud Volumes ONTAP dans Google
-* Système ONTAP sur site
-
-| Stockage Google Cloud 
-
-
-| Système ONTAP sur site  a| 
-* Cloud Volumes ONTAP
-* Système ONTAP sur site
-
- a| 
-* Amazon S3
-* Stockage compatible S3
-* Azure Blob
-* Stockage Google Cloud
-* StorageGRID
-* ONTAP S3
-
-
-|===
-
-
-[[supported-restore-destinations]]
-=== Destinations de restauration prises en charge
-
-Vous pouvez restaurer les données ONTAP à partir d'un fichier de sauvegarde résidant dans un système secondaire (un volume répliqué) ou dans un stockage d'objets (un fichier de sauvegarde) sur les systèmes suivants. Les instantanés résident sur le système source et ne peuvent être restaurés que sur ce même système.
-
-
-NOTE: Wasabi est actuellement le seul fournisseur de stockage objet compatible S3 qualifié. Les autres fournisseurs compatibles S3 n'ont pas été validés.
-
-[cols="33,33,33"]
-|===
-2+| Emplacement du fichier de sauvegarde | Système de destination 
-
-
-| *Magasin d'objets (sauvegarde)* | *Système secondaire (réplication)* |  
-
-
-| Amazon S3  a| 
-* Cloud Volumes ONTAP dans AWS
-* Système ONTAP sur site
-
- a| 
-* Cloud Volumes ONTAP dans AWS
-* Système ONTAP sur site
-
-
-
-
-| Azure Blob  a| 
-* Cloud Volumes ONTAP dans Azure
-* Système ONTAP sur site
-
- a| 
-* Cloud Volumes ONTAP dans Azure
-* Système ONTAP sur site
-
-
-
-
-| Stockage Google Cloud  a| 
-* Cloud Volumes ONTAP dans Google
-* Système ONTAP sur site
-
- a| 
-* Cloud Volumes ONTAP dans Google
-* Système ONTAP sur site
-
-
-
-
-| StorageGRID  a| 
-* Système ONTAP sur site
-* Cloud Volumes ONTAP
-
-| Système ONTAP sur site 
-
-
-| ONTAP S3  a| 
-* Système ONTAP sur site
-* Cloud Volumes ONTAP
-
-| Système ONTAP sur site 
-
-
-| Stockage d'objets compatible S3 | Système ONTAP sur site | Système ONTAP sur site 
-|===
-
-NOTE: Les références à « on-premises ONTAP system » incluent les systèmes FAS, AFF et ONTAP Select.
+Consultez link:prev-ontap-restore.html["Restaurer les charges de travail des volumes ONTAP"] pour connaître les options de restauration.
 
 
 
@@ -239,226 +114,25 @@ NetApp Backup and Recovery prend en charge les types de volumes suivants :
 
 NOTE: NetApp Backup and Recovery ne prend pas en charge les sauvegardes des volumes FlexCache .
 
-Voir les sections surlink:br-reference-limitations.html["Limitations de sauvegarde et de restauration pour les volumes ONTAP"] pour des exigences et des limitations supplémentaires.
+Pour connaître les systèmes sources, les systèmes secondaires, les destinations de stockage d’objets, les destinations de restauration et les régions prises en charge par Backup and Recovery, veuillez consulter link:br-start-sources-destinations.html["Destinations de sauvegarde et de restauration prises en charge dans NetApp Backup and Recovery"]. Pour connaître les exigences et restrictions supplémentaires, veuillez consulter link:br-reference-limitations.html["Limitations connues avec NetApp Backup and Recovery pour les volumes ONTAP"].
 
 
 
-[[cost]]
-== Coût
+[[cost-and-licensing]]
+== Coût et licence
 
-Il existe deux types de coûts associés à l’utilisation de NetApp Backup and Recovery avec les systèmes ONTAP : les frais de ressources et les frais de service.  Ces deux frais concernent la partie sauvegarde sur objet du service.
+La création de snapshots ou de volumes répliqués est gratuite, hormis l'espace disque utilisé. Les frais de ressources de votre fournisseur de cloud et les frais de service de NetApp s'appliquent uniquement à la sauvegarde sur stockage objet.
 
-La création d'instantanés ou de volumes répliqués est gratuite, hormis l'espace disque nécessaire à leur stockage.
+Pour plus de détails sur les coûts et les options de licence, veuillez vous référer à link:concept-backup-to-cloud.html#cost["En savoir plus sur NetApp Backup and Recovery"] et link:br-start-licensing.html["Configurer la licence"].
 
-*Frais de ressources*
 
-Des frais de ressources sont payés au fournisseur de cloud pour la capacité de stockage d'objets et pour l'écriture et la lecture de fichiers de sauvegarde dans le cloud.
 
-* Pour la sauvegarde sur un stockage d'objets, vous payez votre fournisseur de cloud pour les coûts de stockage d'objets.
-+
-Étant donné que NetApp Backup and Recovery préserve l'efficacité du stockage du volume source, vous payez au fournisseur de cloud les coûts de stockage d'objets pour les données _après_ l'efficacité ONTAP (pour la plus petite quantité de données après l'application de la déduplication et de la compression).
+[[where-to-go-next]]
+== Où aller ensuite
 
-* Pour restaurer des données à l'aide de la recherche et de la restauration, certaines ressources sont provisionnées par votre fournisseur de cloud et un coût par Tio est associé à la quantité de données analysées par vos demandes de recherche.  (Ces ressources ne sont pas nécessaires pour parcourir et restaurer.)
-+
-** Dans AWS, https://aws.amazon.com/athena/faqs/["Amazone Athéna"^] et https://aws.amazon.com/glue/faqs/["Colle AWS"^] les ressources sont déployées dans un nouveau bucket S3.
-** Dans Azure, un https://azure.microsoft.com/en-us/services/synapse-analytics/?&ef_id=EAIaIQobChMI46_bxcWZ-QIVjtiGCh2CfwCsEAAYASAAEgKwjvD_BwE:G:s&OCID=AIDcmm5edswduu_SEM_EAIaIQobChMI46_bxcWZ-QIVjtiGCh2CfwCsEAAYASAAEgKwjvD_BwE:G:s&gclid=EAIaIQobChMI46_bxcWZ-QIVjtiGCh2CfwCsEAAYASAAEgKwjvD_BwE["Espace de travail Azure Synapse"^] et https://azure.microsoft.com/en-us/services/storage/data-lake-storage/?&ef_id=EAIaIQobChMIuYz0qsaZ-QIVUDizAB1EmACvEAAYASAAEgJH5fD_BwE:G:s&OCID=AIDcmm5edswduu_SEM_EAIaIQobChMIuYz0qsaZ-QIVUDizAB1EmACvEAAYASAAEgJH5fD_BwE:G:s&gclid=EAIaIQobChMIuYz0qsaZ-QIVUDizAB1EmACvEAAYASAAEgJH5fD_BwE["Stockage Azure Data Lake"^] sont provisionnés dans votre compte de stockage pour stocker et analyser vos données.
-** Dans Google, un nouveau bucket est déployé et le https://cloud.google.com/bigquery["Services Google Cloud BigQuery"^] sont provisionnés au niveau du compte/projet.
-
-
-* Si vous prévoyez de restaurer des données de volume à partir d'un fichier de sauvegarde qui a été déplacé vers un stockage d'objets d'archivage, des frais de récupération par Gio et des frais par demande supplémentaires sont facturés par le fournisseur de cloud.
-* Si vous prévoyez d'analyser un fichier de sauvegarde à la recherche de ransomware lors du processus de restauration des données du volume (si vous avez activé DataLock et la protection contre les ransomwares pour vos sauvegardes cloud), alors vous devrez également payer des frais de sortie supplémentaires à votre fournisseur de cloud.
-
-
-*Frais de service*
-
-Les frais de service sont payés à NetApp et couvrent à la fois le coût de _création_ de sauvegardes sur le stockage d'objets et de _restauration_ de volumes ou de fichiers à partir de ces sauvegardes.  Vous payez uniquement pour les données que vous protégez dans le stockage d'objets, calculées par la capacité logique source utilisée (avant l'efficacité ONTAP ) des volumes ONTAP qui sont sauvegardés dans le stockage d'objets.  Cette capacité est également connue sous le nom de téraoctets frontaux (FETB).
-
-Il existe trois façons de payer le service de sauvegarde.  La première option est de vous abonner auprès de votre fournisseur cloud, ce qui vous permet de payer par mois.  La deuxième option est d’obtenir un contrat annuel.  La troisième option consiste à acheter des licences directement auprès de NetApp.
-
-
-
-[[licensing]]
-== Licences
-
-NetApp Backup and Recovery est disponible avec les modèles de consommation suivants :
-
-* *BYOL* : une licence achetée auprès de NetApp qui peut être utilisée avec n’importe quel fournisseur de cloud.
-* *PAYGO* : Un abonnement horaire sur la place de marché de votre fournisseur cloud.
-* *Annuel* : Un contrat annuel de la place de marché de votre fournisseur de cloud.
-
-
-Une licence de sauvegarde est requise uniquement pour la sauvegarde et la restauration à partir du stockage d'objets. La création d'instantanés et de volumes répliqués ne nécessite pas de licence.
-
-
-
-[[bring-your-own-license]]
-=== Apportez votre propre permis
-
-BYOL est basé sur la durée (1, 2 ou 3 ans) _et_ sur la capacité par incréments de 1 Tio.  Vous payez NetApp pour utiliser le service pendant une période donnée, par exemple 1 an, et pour une capacité maximale, par exemple 10 Tio.
-
-Vous recevrez un numéro de série que vous saisirez dans la NetApp Console pour activer le service.  Lorsque l'une ou l'autre des limites est atteinte, vous devrez renouveler la licence.  La licence Backup BYOL s'applique à tous les systèmes sources associés à votre organisation ou compte NetApp Console .
-
-link:br-start-licensing.html["Apprenez à gérer vos licences BYOL"].
-
-
-
-[[pay-as-you-go-subscription]]
-=== Abonnement à la carte
-
-NetApp Backup and Recovery propose des licences basées sur la consommation dans un modèle de paiement à l'utilisation.  Après avoir souscrit un abonnement via la place de marché de votre fournisseur cloud, vous payez par Gio pour les données sauvegardées — il n'y a pas de paiement initial.  Vous êtes facturé par votre fournisseur cloud via votre facture mensuelle.
-
-link:br-start-licensing.html["Découvrez comment configurer un abonnement à la carte"].
-
-Notez qu'un essai gratuit de 30 jours est disponible lorsque vous souscrivez initialement à un abonnement PAYGO.
-
-
-
-[[annual-contract]]
-=== Contrat annuel
-
-Lorsque vous utilisez AWS, deux contrats annuels sont disponibles pour des durées de 1, 2 ou 3 ans :
-
-* Un plan « Cloud Backup » qui vous permet de sauvegarder les données Cloud Volumes ONTAP et les données ONTAP sur site.
-* Un plan « CVO Professional » qui vous permet de regrouper Cloud Volumes ONTAP et NetApp Backup and Recovery.  Cela inclut des sauvegardes illimitées pour les Cloud Volumes ONTAP facturés sur cette licence (la capacité de sauvegarde n'est pas comptabilisée dans la licence).
-
-
-Lorsque vous utilisez Azure, deux contrats annuels sont disponibles pour des durées de 1, 2 ou 3 ans :
-
-* Un plan « Cloud Backup » qui vous permet de sauvegarder les données Cloud Volumes ONTAP et les données ONTAP sur site.
-* Un plan « CVO Professional » qui vous permet de regrouper Cloud Volumes ONTAP et NetApp Backup and Recovery.  Cela inclut des sauvegardes illimitées pour les Cloud Volumes ONTAP facturés sur cette licence (la capacité de sauvegarde n'est pas comptabilisée dans la licence).
-
-
-Lorsque vous utilisez GCP, vous pouvez demander une offre privée auprès de NetApp, puis sélectionner le plan lorsque vous vous abonnez à partir de Google Cloud Marketplace lors de l'activation de NetApp Backup and Recovery .
-
-link:br-start-licensing.html["Apprenez à mettre en place des contrats annuels"].
-
-
-
-[[how-netapp-backup-and-recovery-works]]
-== Comment fonctionne la NetApp Backup and Recovery
-
-Lorsque vous activez NetApp Backup and Recovery sur un système Cloud Volumes ONTAP ou ONTAP sur site, le service effectue une sauvegarde complète de vos données.  Après la sauvegarde initiale, toutes les sauvegardes supplémentaires sont incrémentielles, ce qui signifie que seuls les blocs modifiés et les nouveaux blocs sont sauvegardés.  Cela permet de maintenir le trafic réseau à un minimum.  La sauvegarde sur le stockage d'objets est construite sur la base de https://docs.netapp.com/us-en/ontap/concepts/snapmirror-cloud-backups-object-store-concept.html["Technologie NetApp SnapMirror Cloud"^] .
-
-
-CAUTION: Toute action effectuée directement depuis l'environnement de votre fournisseur de cloud pour gérer ou modifier les fichiers de sauvegarde cloud peut corrompre les fichiers et entraîner une configuration non prise en charge.
-
-L'image suivante montre la relation entre chaque composant :
-
-image:diagram-backup-recovery-general.png["Un diagramme montrant comment NetApp Backup and Recovery communique avec les volumes sur les systèmes sources, le système de stockage secondaire et le stockage d'objets de destination où se trouvent les volumes répliqués et les fichiers de sauvegarde."]
-
-Ce diagramme montre les volumes en cours de réplication sur un système Cloud Volumes ONTAP , mais les volumes peuvent également être répliqués sur un système ONTAP sur site.
-
-
-
-[[where-backups-reside]]
-=== Où résident les sauvegardes
-
-Les sauvegardes résident à différents emplacements en fonction du type de sauvegarde :
-
-* Les _instantanés_ résident sur le volume source du système source.
-* Les _volumes répliqués_ résident sur le système de stockage secondaire : un système Cloud Volumes ONTAP ou ONTAP sur site.
-* Les _copies de sauvegarde_ sont stockées dans un magasin d’objets que la console crée dans votre compte cloud.  Il existe un magasin d'objets par cluster/système, et la console nomme le magasin d'objets comme suit : « netapp-backup-clusteruuid ».  Assurez-vous de ne pas supprimer ce magasin d’objets.
-+
-** Dans AWS, la console permet https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html["Fonctionnalité d'accès public au bloc Amazon S3"^] sur le compartiment S3.
-** Dans Azure, la console utilise un groupe de ressources nouveau ou existant avec un compte de stockage pour le conteneur Blob. La console https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent["bloque l'accès public à vos données blob"] par défaut.
-** Dans GCP, la console utilise un projet nouveau ou existant avec un compte de stockage pour le bucket Google Cloud Storage.
-** Dans StorageGRID, la console utilise un compte locataire existant pour le compartiment S3.
-** Dans ONTAP S3, la console utilise un compte utilisateur existant pour le bucket S3.
-
-
-
-
-Si vous souhaitez modifier le magasin d'objets de destination d'un cluster à l'avenir, vous devrezlink:prev-ontap-backup-manage.html["désinscrire NetApp Backup and Recovery pour le système"] , puis activez NetApp Backup and Recovery à l’aide des informations du nouveau fournisseur de cloud.
-
-
-
-[[customizable-backup-schedule-and-retention-settings]]
-=== Planification de sauvegarde et paramètres de conservation personnalisables
-
-Lorsque vous activez NetApp Backup and Recovery pour un système, tous les volumes que vous sélectionnez initialement sont sauvegardés à l'aide des stratégies que vous sélectionnez. Vous pouvez sélectionner des politiques distinctes pour les instantanés, les volumes répliqués et les fichiers de sauvegarde. Si vous souhaitez attribuer différentes stratégies de sauvegarde à certains volumes ayant des objectifs de point de récupération (RPO) différents, vous pouvez créer des stratégies supplémentaires pour ce cluster et attribuer ces stratégies aux autres volumes une fois NetApp Backup and Recovery activé.
-
-Vous pouvez choisir une combinaison de sauvegardes horaires, quotidiennes, hebdomadaires, mensuelles et annuelles de tous les volumes.  Pour la sauvegarde d'un objet, vous pouvez également sélectionner l'une des politiques définies par le système qui fournissent des sauvegardes et une conservation pendant 3 mois, 1 an et 7 ans.  Les stratégies de protection de sauvegarde que vous avez créées sur le cluster à l’aide ONTAP System Manager ou de l’interface de ligne de commande ONTAP apparaîtront également sous forme de sélections.  Cela inclut les politiques créées à l’aide d’étiquettes SnapMirror personnalisées.
-
-
-NOTE: La stratégie de snapshot appliquée au volume doit comporter l'une des étiquettes que vous utilisez dans votre stratégie de réplication et votre stratégie de sauvegarde sur objet. Si aucune étiquette correspondante n'est trouvée, aucun fichier de sauvegarde ne sera créé. Par exemple, si vous souhaitez créer des volumes répliqués et des fichiers de sauvegarde « weekly », vous devez utiliser une stratégie de snapshot qui crée des snapshots « weekly ».
-
-Une fois que vous atteignez le nombre maximal de sauvegardes pour une catégorie ou un intervalle, les sauvegardes les plus anciennes sont supprimées afin que vous disposiez toujours des sauvegardes les plus récentes (et ainsi les sauvegardes obsolètes ne continuent pas à occuper de l'espace).
-
-
-TIP: La période de conservation des sauvegardes des volumes de protection des données est la même que celle définie dans la relation source SnapMirror .  Vous pouvez modifier cela si vous le souhaitez en utilisant l'API.
-
-
-
-[[backup-file-protection-settings]]
-=== Paramètres de protection des fichiers de sauvegarde
-
-Si votre cluster utilise ONTAP 9.11.1 ou une version ultérieure, vous pouvez protéger vos sauvegardes dans le stockage objet contre la suppression et les attaques par rançongiciel. Chaque règle de sauvegarde comprend une section pour _DataLock and Ransomware protection_ qui peut être appliquée à vos fichiers de sauvegarde pendant une période spécifique : la _période de rétention_.
-
-* _DataLock_ protège vos fichiers de sauvegarde contre toute modification ou suppression.
-* _La protection contre les ransomwares_ analyse vos fichiers de sauvegarde pour rechercher des preuves d'une attaque de ransomware lorsqu'un fichier de sauvegarde est créé et lorsque les données d'un fichier de sauvegarde sont en cours de restauration.
-
-
-Les analyses de protection contre les ransomwares planifiées sont activées par défaut. Le paramètre par défaut pour la fréquence d'analyse est de 7 jours. L'analyse s'effectue uniquement sur le dernier instantané. Les analyses programmées peuvent être désactivées pour réduire vos coûts. Vous pouvez activer ou désactiver les analyses planifiées de logiciels de ransomware sur le dernier instantané en utilisant l'option de la page Paramètres avancés. Si vous l'activez, les analyses sont effectuées chaque semaine par défaut. Vous pouvez modifier ce calendrier en jours ou en semaines ou le désactiver, ce qui permet de réduire les coûts.
-
-La période de conservation des sauvegardes est la même que la période de conservation de la planification des sauvegardes, plus une mémoire tampon maximale de 31 jours.  Par exemple, des sauvegardes hebdomadaires avec 5 copies conservées verrouillent chaque fichier de sauvegarde pendant 5 semaines.  Les sauvegardes _mensuelles_ avec _6_ copies conservées verrouillent chaque fichier de sauvegarde pendant 6 mois.
-
-La prise en charge est actuellement disponible lorsque votre destination de sauvegarde est Amazon S3, Azure Blob ou StorageGRID. D'autres destinations de fournisseur de stockage seront ajoutées dans les prochaines versions.
-
-Pour plus de détails, reportez-vous à ces informations :
-
-* link:prev-ontap-policy-object-options.html["Comment fonctionnent DataLock et la protection contre les ransomwares"].
-* link:prev-ontap-policy-object-advanced-settings.html["Comment mettre à jour les options de protection contre les ransomwares dans la page Paramètres avancés"].
-
-
-
-TIP: DataLock ne peut pas être activé si vous hiérarchisez les sauvegardes vers un stockage d'archivage.
-
-
-
-[[archival-storage-for-older-backup-files]]
-=== Stockage d'archives pour les fichiers de sauvegarde plus anciens
-
-Lorsque vous utilisez certains stockages cloud, vous pouvez déplacer des fichiers de sauvegarde plus anciens vers une classe de stockage/un niveau d'accès moins coûteux après un certain nombre de jours.  Vous pouvez également choisir d'envoyer immédiatement vos fichiers de sauvegarde vers un stockage d'archives sans les écrire sur un stockage cloud standard.  Notez que le stockage d'archives ne peut pas être utilisé si vous avez activé DataLock.
-
-* Dans AWS, les sauvegardes démarrent dans la classe de stockage _Standard_ et passent à la classe de stockage _Standard-Infrequent Access_ après 30 jours.
-+
-Si votre cluster utilise ONTAP 9.10.1 ou une version ultérieure, vous pouvez choisir de hiérarchiser les sauvegardes plus anciennes vers le stockage _S3 Glacier_ ou _S3 Glacier Deep Archive_ dans l'interface utilisateur NetApp Backup and Recovery après un certain nombre de jours pour une optimisation supplémentaire des coûts. link:prev-reference-aws-archive-storage-tiers.html["En savoir plus sur le stockage d'archives AWS"] .
-
-
-
-* Dans Azure, les sauvegardes sont associées au niveau d’accès _Cool_.
-+
-Si votre cluster utilise ONTAP 9.10.1 ou une version ultérieure, vous pouvez choisir de hiérarchiser les sauvegardes plus anciennes vers le stockage _Azure Archive_ dans l'interface utilisateur NetApp Backup and Recovery après un certain nombre de jours pour une optimisation supplémentaire des coûts. link:prev-reference-azure-archive-storage-tiers.html["En savoir plus sur le stockage d'archives Azure"] .
-
-
-
-* Dans GCP, les sauvegardes sont associées à la classe de stockage _Standard_.
-+
-Si votre cluster utilise ONTAP 9.12.1 ou une version ultérieure, vous pouvez choisir de hiérarchiser les sauvegardes plus anciennes vers le stockage _Archive_ dans l'interface utilisateur NetApp Backup and Recovery après un certain nombre de jours pour une optimisation supplémentaire des coûts. link:prev-reference-gcp-archive-storage-tiers.html["En savoir plus sur le stockage d'archives Google"] .
-
-* Dans StorageGRID, les sauvegardes sont associées à la classe de stockage _Standard_.
-+
-Si votre cluster local utilise ONTAP 9.12.1 ou une version ultérieure, et que votre système StorageGRID utilise la version 11.4 ou une version ultérieure, vous pouvez archiver les fichiers de sauvegarde plus anciens vers un stockage d’archivage cloud public après un certain nombre de jours. La prise en charge actuelle concerne les niveaux de stockage AWS S3 Glacier/S3 Glacier Deep Archive ou Azure Archive. link:prev-ontap-backup-onprem-storagegrid.html["En savoir plus sur l'archivage des fichiers de sauvegarde depuis StorageGRID"].
-
-
-
-Voir link:prev-ontap-policy-object-options.html["Comment fonctionne l'archivage des anciens fichiers de sauvegarde"].
-
-
-
-[[fabricpool-tiering-policy-considerations]]
-== Considérations relatives à la politique de hiérarchisation de FabricPool
-
-Il y a certaines choses que vous devez savoir lorsque le volume que vous sauvegardez réside sur un agrégat FabricPool et qu'il dispose d'une politique de hiérarchisation attribuée autre que `none` :
-
-* La première sauvegarde d'un volume à plusieurs niveaux FabricPool nécessite la lecture de toutes les données locales et à plusieurs niveaux (à partir du magasin d'objets).  Une opération de sauvegarde ne « réchauffe » pas les données froides hiérarchisées dans le stockage d’objets.
-+
-Cette opération pourrait entraîner une augmentation ponctuelle du coût de lecture des données auprès de votre fournisseur de cloud.
-
-+
-** Les sauvegardes ultérieures sont incrémentielles et n’ont pas cet effet.
-** Si la politique de hiérarchisation est attribuée au volume lors de sa création initiale, vous ne verrez pas ce problème.
-
-
-* Tenez compte de l’impact des sauvegardes avant d’attribuer la `all` politique de hiérarchisation des volumes.  Étant donné que les données sont hiérarchisées immédiatement, NetApp Backup and Recovery lira les données à partir du niveau cloud plutôt qu'à partir du niveau local.  Étant donné que les opérations de sauvegarde simultanées partagent la liaison réseau avec le magasin d’objets cloud, une dégradation des performances peut se produire si les ressources réseau sont saturées.  Dans ce cas, vous souhaiterez peut-être configurer de manière proactive plusieurs interfaces réseau (LIF) pour réduire ce type de saturation du réseau.
+* link:prev-ontap-protect-journey.html["Planifier la protection du volume ONTAP"]
+* link:br-start-enable.html["Activez NetApp Backup and Recovery pour les volumes ONTAP"]
+* link:prev-ontap-policy-manage.html["Gérer les politiques des volumes ONTAP"]
+* link:prev-ontap-backup-manage.html["Gérez les sauvegardes de vos systèmes ONTAP"]
+* link:prev-ontap-restore.html["Restaurer les charges de travail des volumes ONTAP"]
 

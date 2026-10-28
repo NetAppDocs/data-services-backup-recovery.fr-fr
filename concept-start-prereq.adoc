@@ -184,7 +184,7 @@ Certaines fonctionnalités d'ONTAP nécessitent des versions spécifiques d'ONTA
 
 | Utilisez plus de 6 compartiments par système sur différents fournisseurs de cloud (jusqu'à 100 compartiments maximum) | 9.19.1 ou version ultérieure 
 |===
-Pour plus d'informations sur les fonctionnalités prises en charge, les types de volumes, les destinations de sauvegarde et de restauration, et plus encore, consultez link:prev-ontap-protect-overview.html["Protégez vos données de volume ONTAP"].
+Pour plus d'informations sur les fonctionnalités prises en charge, les types de volumes, les destinations de sauvegarde et de restauration, et plus encore, consultez link:prev-ontap-protect-overview.html["Protégez les charges de travail des volumes ONTAP avec NetApp Backup and Recovery"].
 
 
 
