@@ -293,6 +293,9 @@ TIP: L'ajout de ressources peut prendre plusieurs minutes. Pour suivre la progre
 L'hôte de la base de données Oracle apparaît dans la liste des charges de travail sur la page Inventory.
 
 
+NOTE: Si vos bases de données sont configurées avec Oracle Data Guard, ajoutez l'hôte principal et l'hôte de secours en tant qu'hôtes distincts.
+
+
 
 [[view-oracle-database-inventory]]
 == Consulter l'inventaire de la base de données Oracle
@@ -304,12 +307,18 @@ Consultez les détails relatifs aux ressources de base de données Oracle que vo
 . Sous *Charges de travail*, sélectionnez la vignette *Oracle*.
 . Pour afficher les hôtes Oracle Database détectés, sélectionnez l’onglet *Hosts*.
 +
-Vous pouvez utiliser cette vue pour consulter des détails tels que le nom de l'hôte, le nombre de bases de données hébergées par chaque hôte, le modèle de déploiement (par exemple, cluster, Oracle Data Guard ou autonome) et d'autres informations.
+Vous pouvez utiliser cette vue pour consulter des détails tels que le nom de chaque hôte, le nombre de bases de données hébergées par chaque hôte, le modèle de déploiement (par exemple, cluster, Data Guard ou autonome) et d'autres informations.
 
 . Pour afficher les groupes de protection créés pour protéger les ressources Oracle Database, sélectionnez l'onglet *Groupes de protection*.
 . Pour afficher les bases de données hébergées par chaque hôte Oracle Database, sélectionnez l'onglet *Databases*.
 +
 Cette vue affiche des informations détaillées, notamment si chaque base de données est une instance unique ou fait partie d'un cluster ou d'une configuration à haute disponibilité.
+
++
+Les bases de données Oracle Data Guard sont étiquetées *Data Guard Primary* ou *Data Guard Standby*. Les bases de données de secours sont masquées par défaut. Pour les afficher, sélectionnez *Data Guard Standby* dans le filtre *Type*. Le nom de chaque base de données Oracle Data Guard apparaît sous la forme du SID Oracle suivi du nom de la base de données entre crochets, par exemple `ORCLSTBY (ORCL)`.
+
++
+Après un basculement planifié ou un basculement, sélectionnez l’onglet *Hôtes*, puis sélectionnez *Actualiser* pour les hôtes concernés afin de mettre à jour les rôles affichés.
 
 
 

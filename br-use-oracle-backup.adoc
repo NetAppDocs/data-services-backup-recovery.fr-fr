@@ -71,3 +71,6 @@ Créez une sauvegarde à la demande avant d'apporter des modifications au systè
 . Sélectionnez le niveau de planification.
 . Sélectionnez *Sauvegarder*.
 
+
+
+NOTE: Pour les bases de données Oracle Data Guard, NetApp Backup and Recovery vérifie le rôle actuel de chaque base de données au démarrage d'une sauvegarde et suit les *Data Guard settings* dans la stratégie. Après un switchover ou un failover, la sauvegarde suivante utilise les nouveaux rôles.

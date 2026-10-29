@@ -21,4 +21,6 @@ Les actions suivantes ne sont pas prises en charge pour les charges de travail O
 * Après avoir effectué une récupération incomplète en restaurant une base de données à un point précis dans le temps ou à un SCN spécifique, si vous devez ultérieurement restaurer à un point antérieur à cette récupération, vous devez également sélectionner *fichiers de contrôle* dans les paramètres de destination de restauration. Sans la restauration du fichier de contrôle, la base de données ne peut pas être restaurée à un point antérieur à la précédente récupération incomplète.
 * Dans la version préliminaire de Backup and Recovery pour le déploiement local de NetApp Console, les sauvegardes vers le stockage objet sont prises en charge uniquement pour les destinations ONTAP S3 et StorageGRID. L'archivage des sauvegardes n'est pas pris en charge dans cette version préliminaire.
 * Sauvegardes hors ligne
+* La restauration d'une base de données en veille dans une configuration Oracle Data Guard vers son emplacement d'origine n'est actuellement pas prise en charge. Veuillez la restaurer vers un autre emplacement.
+* Les configurations Oracle Data Guard utilisant RAC et les configurations Oracle Active Data Guard ne sont pas prises en charge.
 

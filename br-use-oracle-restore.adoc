@@ -102,6 +102,17 @@ Si vous restaurez des PDB ou des espaces de tables à un point précis dans le t
 
 
 ====
+*Remarques importantes concernant la restauration des bases de données Oracle Data Guard*
+
+* Avant de procéder à la restauration, assurez-vous que le rôle de la base de données est à jour. Si un switchover ou un failover s'est produit, sélectionnez d'abord l'onglet *Hosts*, puis *Refresh* pour l'hôte. Les options de restauration disponibles dépendent du rôle actuel de la base de données.
+* Si la base de données est actuellement une base de données de secours, vous ne pouvez pas la restaurer à son emplacement d'origine, quel que soit le rôle qu'elle avait lors de la sauvegarde. Restaurez-la vers un autre emplacement.
+* Si la base de données est actuellement de secours, vous ne pouvez pas restaurer un instantané qui existe uniquement sur un stockage secondaire ou dans le stockage objet.
+* Vous pouvez restaurer à son emplacement d'origine une sauvegarde effectuée lorsque la base de données était en mode de secours, après qu'elle est devenue la base de données principale.
+
+
+
+CAUTION: La restauration d'une base de données principale ne modifie pas la base de données de secours. Lorsque vous ouvrez la base de données principale avec `RESETLOGS` après une restauration à un point dans le temps ou une restauration SCN, cela démarre une nouvelle incarnation de la base de données. Si la base de données de secours a déjà appliqué le redo au-delà de ce point, l'application du redo sur la base de données de secours s'arrête avec une erreur et la base de données de secours reste dans son état antérieur. Pour rétablir la protection, rétablissez la base de données de secours après la restauration à l'aide des outils Oracle.
+
 .Étapes
 . Dans le menu de la NetApp Console , sélectionnez *Protection > Sauvegarde et récupération*.
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Restaurer*.

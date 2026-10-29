@@ -41,8 +41,11 @@ Regroupez les ressources de base de données Oracle que vous souhaitez protéger
 . Sélectionnez *Créer un groupe de protection*.
 . Donnez un nom au groupe de protection.
 . Sélectionnez les bases de données que vous souhaitez inclure dans le groupe de protection.
++
+Les bases de données de secours ne sont pas affichées par défaut. Pour les afficher, sélectionnez *Show Data Guard standby databases*. Si vous sélectionnez une base de données faisant partie d'une configuration Oracle Data Guard, NetApp Backup and Recovery ajoute également l'autre base de données de la même configuration. Cela se produit uniquement si cette base de données est détectée, peut être protégée et n'appartient pas à un autre groupe de protection.
+
 . Sélectionnez *Suivant*.
-. Sélectionnez les *règles de sauvegarde* que vous souhaitez appliquer au groupe de protection. Si vous incluez une base de données faisant partie d'une configuration Oracle Data Guard, choisissez les règles de sauvegarde avec l'option Data Guard activée.
+. Sélectionnez la *stratégie de sauvegarde* à appliquer au groupe de protection. Si le groupe inclut des bases de données Oracle Data Guard, utilisez les *paramètres Data Guard* de la stratégie pour choisir les bases de données à sauvegarder. Voir link:br-use-policies-oracle-create.html["Créer et gérer les stratégies de sauvegarde de la base de données Oracle"].
 +
 Si vous souhaitez créer une politique, sélectionnez *Créer une nouvelle politique* et suivez les instructions pour créer une politique.  Voirlink:br-use-policies-create.html["Créer des politiques"] pour plus d'informations.
 
@@ -50,6 +53,9 @@ Si vous souhaitez créer une politique, sélectionnez *Créer une nouvelle polit
 . Vérifiez la configuration.
 . Sélectionnez *Créer* pour créer le groupe de protection.
 
+
+
+NOTE: Si vous ajoutez l'hôte de secours après avoir créé le groupe de protection, modifiez le groupe de protection et enregistrez-le. NetApp Backup and Recovery ajoute automatiquement l'hôte de secours. Depuis l'hôte de secours, ajoutez uniquement les bases de données de secours au groupe. Une autre base de données de cet hôte qui nécessite un type de sauvegarde différent entraîne l'échec de la sauvegarde pour cet hôte.
 
 
 
