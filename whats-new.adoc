@@ -92,6 +92,17 @@ Cette version de NetApp Backup and Recovery inclut les mises à jour suivantes.
 
 
 
+[[general-netapp-backup-and-recovery-enhancement]]
+=== Amélioration générale de la sauvegarde et de la restauration NetApp
+
+Dans cette version, NetApp Backup and Recovery introduit l’amélioration de licence suivante pour toutes les charges de travail :
+
+*Modification des licences* : les frais ne s’appliquent plus aux sauvegardes utilisant une architecture disque à disque ou disque à disque en mode fan-out. Les frais s’appliquent uniquement aux sauvegardes sur stockage objet, y compris celles utilisant une architecture 3-2-1 ou disque vers stockage objet.
+
+Pour plus de détails sur les licences, reportez-vous à https://docs.netapp.com/us-en/data-services-backup-recovery/br-start-licensing.html["Configurer les licences pour NetApp Backup and Recovery"].
+
+
+
 [[hyper-v-workloads-enhancements]]
 === Améliorations des charges de travail Hyper-V
 
@@ -113,17 +124,6 @@ Cette version introduit l'amélioration suivante pour les charges de travail Ora
 *Gestion automatique des journaux d'archivage* : lors des opérations de restauration et de clonage de base de données, NetApp Backup and Recovery détecte et monte automatiquement les journaux d'archivage requis, puis les démonte une fois l'opération terminée. Les sources de journaux de stockage primaire, secondaire et objet sont prises en charge.
 
 Pour plus de détails sur la protection des charges de travail Oracle Database, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-oracle-protect-overview.html["Découvrez comment protéger les charges de travail Oracle Database avec NetApp Backup and Recovery"].
-
-
-
-[[microsoft-sql-server-workloads-enhancement]]
-=== Amélioration des charges de travail Microsoft SQL Server
-
-Cette version introduit l'amélioration suivante pour les charges de travail Microsoft SQL Server:
-
-*Modification des licences* : les frais ne s’appliquent plus aux sauvegardes utilisant une architecture disque à disque ou disque à disque en mode fan-out. Les frais s’appliquent uniquement aux sauvegardes sur stockage objet, y compris celles utilisant une architecture 3-2-1 ou disque vers stockage objet.
-
-Pour plus d'informations sur la protection des charges de travail Microsoft SQL Server, consultez https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-mssql-protect-overview.html["Découvrez comment protéger les charges de travail Microsoft SQL Server avec NetApp Backup and Recovery"].
 
 
 
