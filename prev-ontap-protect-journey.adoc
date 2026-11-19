@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: prev-ontap-protect-journey.html 
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
-summary: Protégez vos charges de travail VMware avec NetApp Backup and Recovery. 
+summary: 'Planifiez la protection des volumes ONTAP avec NetApp Backup and Recovery en choisissant les fonctionnalités de protection, l"architecture de sauvegarde, les règles de sauvegarde, le stockage objet et le mode de déploiement de l"agent Console.' 
 ---
 = Planifiez la protection des volumes ONTAP dans NetApp Backup and Recovery
 :hardbreaks:
@@ -14,14 +14,14 @@ summary: Protégez vos charges de travail VMware avec NetApp Backup and Recovery
 
 
 [role="lead"]
-Utilisez cette page pour planifier comment vous allez protéger vos volumes ONTAP avec NetApp Backup and Recovery. Examinez les méthodes de protection, les architectures, les règles de sauvegarde, les choix de stockage d’objets et les modes de déploiement de l’agent NetApp Console avant d’activer la sauvegarde et la restauration.
+Planifiez comment protéger vos volumes ONTAP avec NetApp Backup and Recovery. Avant d’activer la sauvegarde et la restauration, examinez les méthodes de protection, les architectures, les règles de sauvegarde, les choix de stockage objet et les modes de déploiement de l’agent Console.
 
 
 NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
 
-Nous passerons en revue les options suivantes :
+Répondez à ces questions pour planifier votre protection:
 
-* Quelles fonctionnalités de protection utiliserez-vous : instantanés, volumes répliqués et/ou sauvegarde dans le cloud ?
+* Quelles fonctionnalités de protection utiliserez-vous : instantanés, volumes répliqués ou sauvegarde dans le cloud
 * Quelle architecture de sauvegarde utiliserez-vous : une sauvegarde en cascade ou en éventail de vos volumes ?
 * Allez-vous utiliser les politiques de sauvegarde par défaut ou devez-vous créer des politiques personnalisées ?
 * Voulez-vous que le service crée les buckets cloud pour vous ou souhaitez-vous créer vos conteneurs de stockage d'objets avant de commencer ?
@@ -34,7 +34,7 @@ Nous passerons en revue les options suivantes :
 [[which-protection-features-will-you-use]]
 == Quelles fonctionnalités de protection utiliserez-vous
 
-Avant de sélectionner les fonctionnalités que vous utiliserez, voici une brève explication de chaque fonctionnalité et du type de protection qu'elle offre.
+Avant de sélectionner les fonctionnalités à utiliser, examinez ce que fait chaque fonctionnalité et le type de protection qu'elle offre.
 
 [cols="20,70"]
 |===
@@ -53,9 +53,9 @@ Les instantanés sont à la base de toutes les méthodes de sauvegarde et sont i
 
 image:diagram-321-overview.png["Un diagramme montrant comment les fichiers de sauvegarde existent sur le système source sous forme d'instantanés, sous forme de volumes répliqués sur le système de stockage secondaire et sous forme de fichiers de sauvegarde dans le stockage objet."]
 
-Vous pouvez choisir de créer à la fois des volumes répliqués sur un autre système de stockage ONTAP et des fichiers de sauvegarde dans le cloud.  Ou vous pouvez choisir simplement de créer des volumes répliqués ou des fichiers de sauvegarde : c'est votre choix.
+Vous pouvez créer des volumes répliqués sur un autre système de stockage ONTAP, sauvegarder des fichiers dans le cloud, ou les deux.
 
-Pour résumer, voici les flux de protection valides que vous pouvez créer pour les volumes de votre système ONTAP :
+Voici les flux de protection valides que vous pouvez créer pour les volumes de votre système ONTAP :
 
 * Volume source -> Instantané -> Volume répliqué -> Fichier de sauvegarde
 * Volume source -> Instantané -> Fichier de sauvegarde
@@ -67,9 +67,9 @@ NOTE: La création initiale d'un volume répliqué ou d'un fichier de sauvegarde
 
 *Comparaison des différentes méthodes de sauvegarde*
 
-Le tableau suivant présente une comparaison généralisée des trois méthodes de sauvegarde.  Bien que l'espace de stockage d'objets soit généralement moins cher que votre stockage sur disque local, si vous pensez que vous devrez restaurer fréquemment des données à partir du cloud, les frais de sortie des fournisseurs de cloud peuvent réduire une partie de vos économies.  Vous devrez identifier la fréquence à laquelle vous devez restaurer les données à partir des fichiers de sauvegarde dans le cloud.
+Ce tableau compare les trois méthodes de sauvegarde. Le stockage objet est généralement moins cher que le stockage sur disque sur site. Cependant, si vous restaurez fréquemment des données depuis le cloud, les frais de sortie facturés par les fournisseurs de cloud peuvent réduire vos économies. Déterminez la fréquence à laquelle vous devez restaurer des données à partir des fichiers de sauvegarde dans le cloud.
 
-En plus de ces critères, le stockage cloud offre des options de sécurité supplémentaires si vous utilisez la fonctionnalité *DataLock and Ransomware protection*, ainsi que des économies supplémentaires lorsque vous sélectionnez des classes de stockage d’archivage pour les fichiers de sauvegarde plus anciens. link:prev-ontap-policy-object-options.html["En savoir plus sur la protection DataLock et Ransomware et les paramètres de stockage d'archives"].
+En plus de ces critères, le stockage cloud offre des options de sécurité supplémentaires si vous utilisez la fonctionnalité *DataLock et de protection contre les ransomwares*, ainsi que des économies supplémentaires lorsque vous choisissez des classes de stockage d’archivage pour les fichiers de sauvegarde plus anciens. link:prev-ontap-policy-object-options.html["En savoir plus sur la protection DataLock et Ransomware et les paramètres de stockage d'archives"].
 
 [cols="18,18,22,18,22"]
 |===
@@ -101,14 +101,14 @@ image:diagram-321-cascade-detailed.png["Un schéma illustrant comment un instant
 
 *Comparaison des différents choix d'architecture*
 
-Ce tableau fournit une comparaison des architectures en éventail et en cascade.
+Ce tableau compare les architectures en éventail et en cascade.
 
 [cols="50,50"]
 |===
 | Fan-out | Cascade 
 
 
-| Faible impact sur les performances du système source car il envoie des instantanés à 2 systèmes distincts | L'impact sur les performances du système de stockage source est moindre car l'instantané n'est envoyé qu'une seule fois. 
+| Faible impact sur les performances du système source car il envoie des instantanés à deux systèmes distincts | L'impact sur les performances du système de stockage source est moindre car l'instantané n'est envoyé qu'une seule fois. 
 
 
 | Plus facile à configurer car toutes les politiques, la mise en réseau et les configurations ONTAP sont effectuées sur le système source | Nécessite également que certaines configurations réseau et ONTAP soient effectuées à partir du système secondaire. 
@@ -120,9 +120,9 @@ Ce tableau fournit une comparaison des architectures en éventail et en cascade.
 
 Vous pouvez utiliser les règles de sauvegarde par défaut fournies par NetApp pour créer vos sauvegardes, ou vous pouvez créer des règles personnalisées. Lorsque vous utilisez l’assistant d’activation pour activer le service NetApp Backup and Recovery pour vos volumes, vous pouvez sélectionner parmi les règles de sauvegarde par défaut et toutes les autres règles déjà existantes dans le système (Cloud Volumes ONTAP ou système ONTAP sur site). Si vous souhaitez utiliser une règle de sauvegarde différente de celles déjà existantes, vous pouvez la créer avant de commencer ou pendant l’utilisation de l’assistant d’activation.
 
-* La politique de capture d'instantanés par défaut crée des instantanés horaires, quotidiens et hebdomadaires, en conservant 6 instantanés horaires, 2 quotidiens et 2 hebdomadaires.
-* La politique de réplication par défaut réplique les instantanés quotidiens et hebdomadaires, en conservant 7 instantanés quotidiens et 52 instantanés hebdomadaires.
-* La politique de sauvegarde par défaut réplique les instantanés quotidiens et hebdomadaires, en conservant 7 instantanés quotidiens et 52 instantanés hebdomadaires.
+* La règle Snapshot par défaut crée des copies Snapshot horaires, quotidiennes et hebdomadaires, en conservant six copies horaires, deux copies quotidiennes et deux copies hebdomadaires.
+* La politique de réplication par défaut réplique les instantanés quotidiens et hebdomadaires, en conservant sept instantanés quotidiens et 52 instantanés hebdomadaires.
+* La règle de sauvegarde par défaut réplique les instantanés quotidiens et hebdomadaires, en conservant sept instantanés quotidiens et 52 instantanés hebdomadaires.
 
 
 Si vous créez des stratégies personnalisées pour la réplication ou la sauvegarde, les étiquettes de stratégie (par exemple, « quotidienne » ou « hebdomadaire ») doivent correspondre aux étiquettes qui existent dans vos stratégies de snapshot, sinon les volumes répliqués et les fichiers de sauvegarde ne seront pas créés.
@@ -137,7 +137,7 @@ En plus d'utiliser NetApp Backup and Recovery pour créer des stratégies person
 
 *Remarque :* lorsque vous utilisez le Gestionnaire système, sélectionnez *Asynchrone* comme type de politique pour les politiques de réplication, et sélectionnez *Asynchrone* et *Sauvegarder dans le cloud* pour les politiques de sauvegarde vers les objets.
 
-Voici quelques exemples de commandes CLI ONTAP qui pourraient être utiles si vous créez des politiques personnalisées.  Notez que vous devez utiliser le vserver _admin_ (VM de stockage) comme `<vserver_name>` dans ces commandes.
+Ces exemples de commandes ONTAP CLI peuvent vous aider à créer des stratégies personnalisées. Vous devez utiliser le serveur virtuel _admin_ (machine virtuelle de stockage) comme  `<vserver_name>` dans ces commandes.
 
 [cols="30,70"]
 |===
@@ -189,7 +189,7 @@ Ces différences sont présentées dans le tableau.
 
 | *Cascade* | Primaire | Secondaire | Secondaire 
 |===
-Ainsi, si vous prévoyez de créer des règles personnalisées lorsque vous utilisez l’architecture en cascade, vous devrez créer les règles de réplication et de sauvegarde sur objet sur le système secondaire où les volumes répliqués seront créés. Si vous prévoyez de créer des règles personnalisées lorsque vous utilisez l’architecture en éventail, vous devrez créer les règles de réplication sur le système secondaire où les volumes répliqués seront créés et les règles de sauvegarde sur objet sur le système principal.
+Si vous créez des stratégies personnalisées pour l'architecture en cascade, créez les stratégies de réplication et de sauvegarde vers objet sur le système secondaire où sont créés les volumes répliqués. Si vous utilisez l'architecture en éventail, créez les stratégies de réplication sur le système secondaire où sont créés les volumes répliqués et les stratégies de sauvegarde vers objet sur le système principal.
 
 Si vous utilisez les politiques par défaut qui existent sur tous les systèmes ONTAP , alors vous êtes prêt.
 

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-limitations.html 
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Microsoft SQL Server database, SAP HANA database 
-summary: NetApp Backup and Recovery doit d’abord découvrir les données pour que vous puissiez utiliser le service.  Lors de la découverte, NetApp Backup and Recovery analyse tous les volumes et fichiers des systèmes de votre organisation. 
+summary: Consultez les limitations connues de NetApp Backup and Recovery pour les workloads SQL Server. 
 ---
 = Limitations connues avec NetApp Backup and Recovery pour les charges de travail SQL Server
 :hardbreaks:
@@ -53,7 +53,7 @@ Le nom du cluster Windows ne peut pas contenir de caractère de soulignement (_)
 [[snapcenter-migration-issues]]
 == Problèmes de migration de SnapCenter
 
-La migration des ressources de SnapCenter vers NetApp Backup and Recovery présente les limitations suivantes.
+Des limitations s'appliquent lorsque vous migrez des ressources de SnapCenter vers NetApp Backup and Recovery.
 
 Pour plus de détails sur la façon dont les politiques SnapCenter migrent vers les politiques de NetApp Backup and Recovery , consultezlink:reference-policy-differences-snapcenter.html["Stratégies dans SnapCenter comparées à celles de NetApp Backup and Recovery"] .
 

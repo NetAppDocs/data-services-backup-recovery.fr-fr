@@ -55,7 +55,7 @@ Supprimez une application dont vous n'avez plus besoin. NetApp Backup and Recove
 . Activez l'option *Supprimer les instantanés et les sauvegardes* pour supprimer tous les instantanés et toutes les sauvegardes de l'application.
 +
 
-CAUTION: Vous ne pourrez plus restaurer l'application à l'aide de ces instantanés et sauvegardes.
+CAUTION: Vous ne pouvez plus restaurer l'application à partir de ces instantanés et sauvegardes.
 
 . Confirmez l'action et sélectionnez *Supprimer*.
 

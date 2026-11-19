@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: concept-start-prereq-snapcenter-import.html 
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, backup and recovery, snapcenter, import, migration, migrate 
-summary: Commencez à utiliser NetApp Backup and Recovery en vérifiant l’état de préparation de votre environnement opérationnel, de l’agent de console et du compte de console.  Pour utiliser NetApp Backup and Recovery, vous aurez besoin de ces prérequis. 
+summary: 'Préparez-vous à importer les ressources Microsoft SQL Server de SnapCenter dans NetApp Backup and Recovery en ajoutant des systèmes, en vérifiant les exigences de l"hôte et en désactivant les restrictions à distance UAC.' 
 ---
 = Prérequis d'importation de SnapCenter pour NetApp Backup and Recovery
 :hardbreaks:
@@ -14,14 +14,14 @@ summary: Commencez à utiliser NetApp Backup and Recovery en vérifiant l’éta
 
 
 [role="lead"]
-Avant d’importer des ressources du SnapCenter Plug-in pour Microsoft SQL Server dans NetApp Backup and Recovery, assurez-vous que votre environnement répond à ces exigences supplémentaires.
+Préparez-vous à importer les ressources du SnapCenter Plug-in for Microsoft SQL Server dans NetApp Backup and Recovery en ajoutant vos systèmes à la Console, en confirmant les exigences de l’hôte et en désactivant les restrictions à distance du Contrôle de compte d’utilisateur.
 
 
 
 [[create-systems-in-netapp-console-first]]
 == Créez d'abord des systèmes dans la NetApp Console
 
-Si vous souhaitez importer des ressources depuis SnapCenter, vous devez d'abord ajouter tout le stockage de cluster SnapCenter local à la page *Systèmes* de la console avant de procéder à l'importation depuis SnapCenter.  Cela garantit que les ressources de l’hôte peuvent être découvertes et importées correctement.
+Avant d'importer des ressources depuis SnapCenter, ajoutez tout le stockage de cluster SnapCenter sur site à la page *Systems* de la Console afin que la Console puisse découvrir et importer correctement les ressources hôtes.
 
 
 
@@ -132,7 +132,7 @@ CAUTION: L’exécution de commandes PowerShell avec des privilèges élevés pe
 .. Faites un clic droit sur cette option et sélectionnez *Exécuter en tant qu'administrateur*.
 
 
-. Assurez-vous que PowerShell est installé sur votre système.  Après l'installation, il devrait apparaître dans le menu *Démarrer*.
+. Vérifiez que PowerShell est bien installé sur votre système. Après l'installation, il devrait apparaître dans le menu *Démarrer*.
 +
 
 TIP: PowerShell est inclus par défaut dans Windows 7 et les versions ultérieures.

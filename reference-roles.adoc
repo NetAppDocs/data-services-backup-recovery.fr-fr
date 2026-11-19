@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: reference-roles.html 
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery, roles, permissions, access control, role-based access control, rbac, IAM, identity, access, management 
-summary: 'NetApp Backup and Recovery utilise des rôles IAM pour gérer l"accès de chaque utilisateur à des fonctionnalités et actions spécifiques.' 
+summary: Identifiez les rôles IAM qui contrôlent les fonctionnalités et les actions de NetApp Backup and Recovery auxquelles chaque utilisateur peut accéder. 
 ---
 = NetApp Backup and Recovery rôles IAM
 :hardbreaks:

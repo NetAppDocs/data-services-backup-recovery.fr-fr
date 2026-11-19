@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: reference-backup-cbs-db-in-dark-site.html 
 keywords: backup database, recover database, dark site, private mode, restore database, backup and recovery, Console agent 
-summary: 'En mode privé (sans accès Internet), NetApp Backup and Recovery stocke ses données de configuration dans le même compartiment StorageGRID ou ONTAP S3 que celui utilisé pour vos sauvegardes. En cas de défaillance du système hôte de l’agent Console, vous pouvez déployer un nouvel agent Console et restaurer ces données.' 
+summary: Déployez un nouvel agent Console et restaurez les données de configuration de NetApp Backup and Recovery à partir d’un compartiment StorageGRID ou ONTAP S3 après une défaillance d’un agent Console en mode privé. 
 ---
 = Restaurer les données de configuration de NetApp Backup and Recovery sur un site sombre
 :hardbreaks:
@@ -16,7 +16,7 @@ summary: 'En mode privé (sans accès Internet), NetApp Backup and Recovery stoc
 [role="lead"]
 En mode privé (sans accès Internet), NetApp Backup and Recovery stocke ses données de configuration dans le même compartiment StorageGRID ou ONTAP S3 utilisé pour vos sauvegardes. En cas de défaillance du système hôte de l’agent Console, vous pouvez déployer un nouvel agent Console et restaurer ces données.
 
-Vous pouvez également suivre ces étapes pour remplacer l’agent de la Console et restaurer les données de configuration qui y étaient stockées lors de l’utilisation de la sauvegarde et de la restauration en mode standard sur site, lorsqu’aucun compte cloud n’est impliqué (par exemple, lors de l’utilisation de NetApp StorageGRID comme destination de sauvegarde).
+Vous pouvez également suivre ces étapes pour remplacer le Console agent et restaurer les données de configuration qui y sont stockées lorsque vous utilisez Backup and Recovery en _mode standard_ sur site sans aucun compte cloud impliqué (par exemple, lorsque vous utilisez NetApp StorageGRID comme destination de sauvegarde).
 
 
 NOTE: Cette procédure s'applique uniquement aux données de volume ONTAP .
@@ -26,7 +26,7 @@ Lorsque vous utilisez NetApp Backup and Recovery dans un environnement SaaS avec
 Il existe deux types de données sauvegardées :
 
 * Base de données de NetApp Backup and Recovery : contient une liste de tous les volumes, fichiers de sauvegarde, politiques de sauvegarde et informations de configuration.
-* Fichiers de catalogue indexés - contiennent des index détaillés utilisés pour la fonctionnalité de recherche et de restauration qui rendent vos recherches très rapides et efficaces lorsque vous recherchez des données de volume que vous souhaitez restaurer.
+* Fichiers de catalogue indexés - contiennent des index détaillés que la fonctionnalité Search & Restore utilise pour trouver rapidement les données du volume que vous souhaitez restaurer.
 
 
 Ces données sont sauvegardées une fois par jour à minuit et un maximum de 7 copies de chaque fichier sont conservées. Si l'agent de console gère plusieurs systèmes ONTAP sur site, les fichiers de NetApp Backup and Recovery sont stockés dans le compartiment du système qui a été activé en premier.
@@ -46,12 +46,12 @@ Vous devrez effectuer les tâches suivantes pour remettre votre système NetApp 
 * Installer un nouvel agent de console
 * Restaurer la base de données de NetApp Backup and Recovery
 * Restaurer les fichiers du catalogue indexé
-* Redécouvrez tous vos systèmes ONTAP et StorageGRID sur site sur l'interface utilisateur de la NetApp Console
+* Redécouvrez tous vos systèmes ONTAP et systèmes StorageGRID sur site dans NetApp Console UI
 
 
 Après avoir vérifié que votre système fonctionne, créez de nouveaux fichiers de sauvegarde.
 
-.Ce dont vous aurez besoin
+.Avant de commencer
 Vous devrez accéder aux sauvegardes de base de données et d'index les plus récentes à partir du compartiment StorageGRID ou ONTAP S3 où vos fichiers de sauvegarde sont stockés :
 
 * Fichier de base de données MySQL de NetApp Backup and Recovery
@@ -124,7 +124,7 @@ mysql -u root -p cloud_backup
 mysql> show tables;
 mysql> select * from volume;
 ----
-. Vérifiez que les volumes affichés correspondent bien à ceux de votre environnement d'origine.
+. Vérifiez que les volumes affichés correspondent bien à ceux qui existaient dans votre environnement d'origine.
 
 
 

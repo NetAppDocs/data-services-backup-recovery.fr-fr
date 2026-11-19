@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: prev-ontap-migrate-resync.html 
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database, migrate volumes, SnapMirror to Cloud Resync, ONTAP, NetApp, NetApp ONTAP, NetApp Cloud Volumes ONTAP, FlexVols, FlexGroups 
-summary: La fonctionnalité SnapMirror to Cloud Resync de NetApp Backup and Recovery rationalise la protection et la continuité des données lors des migrations de volumes dans les environnements NetApp . 
+summary: Utilisez SnapMirror vers Cloud Resync pour conserver les sauvegardes cloud disponibles après la migration de volumes ONTAP, sans nouvelle ligne de base, dans NetApp Backup and Recovery. 
 ---
 = Migrer des volumes à l'aide de SnapMirror vers Cloud Resync dans NetApp Backup and Recovery
 :hardbreaks:
@@ -16,7 +16,7 @@ summary: La fonctionnalité SnapMirror to Cloud Resync de NetApp Backup and Reco
 [role="lead"]
 Utilisez SnapMirror to Cloud Resync dans NetApp Backup and Recovery pour conserver les sauvegardes cloud existantes disponibles après la migration d’un volume avec la réplication logique SnapMirror (LRSE). Cette fonctionnalité permet la poursuite des sauvegardes sans nouvelle ligne de base et est disponible à partir de ONTAP 9.16.1.
 
-SnapMirror to Cloud Resync prend en charge les migrations FlexVol et FlexGroup et vous aide à maintenir la continuité des sauvegardes dans les environnements hybrides et multicloud.
+SnapMirror vers Cloud Resync prend en charge les migrations FlexVol et FlexGroup et vous aide à maintenir la continuité des sauvegardes dans les environnements hybrides et multicloud.
 
 
 NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
@@ -46,7 +46,7 @@ Voici un exemple :
 
 Imaginez que vous disposez d’un volume local appelé Vol1a. Ce volume comporte trois snapshots : S1, S2 et S3. Ces snapshots sont des points de restauration. Vol1a est sauvegardé dans le cloud à l’aide de SnapMirror to Cloud (SM-C), mais seuls S1 et S2 se trouvent dans le stockage d’objets.
 
-Maintenant, vous souhaitez migrer Vol1 vers un autre cluster ONTAP .  Pour ce faire, vous créez une relation de réplication logique SnapMirror (LRSE) avec un nouveau volume cloud appelé Vol1b.  Cela transfère les trois instantanés (S1, S2 et S3) du Vol1a au Vol1b.
+Vous souhaitez maintenant migrer Vol1a vers un autre cluster ONTAP. Pour ce faire, vous créez une relation de réplication logique (LRSE) SnapMirror vers un nouveau volume cloud appelé Vol1b. Cela transfère les trois snapshots — S1, S2 et S3 — de Vol1a vers Vol1b.
 
 Une fois la migration terminée, vous disposez de la configuration suivante :
 
@@ -123,7 +123,7 @@ NOTE: N’utilisez pas de stratégie SnapMirror de type « Vault » pour clone
 . Ajoutez le nouveau cluster ONTAP en tant que système dans la page *Systèmes* de la console.
 +
 
-NOTE: L'UUID de l'instance de volume doit être utilisé, et non l'ID de volume. L'UUID de l'instance de volume est un identifiant unique qui reste cohérent d'une migration à l'autre, tandis que l'ID de volume peut changer après la migration.
+NOTE: Il convient d'utiliser l'UUID de l'instance de volume, et non l'ID du volume. L'UUID de l'instance de volume est un identifiant unique qui reste constant d'une migration à l'autre, contrairement à l'ID du volume qui peut changer après une migration.
 
 
 
@@ -135,7 +135,7 @@ NOTE: L'UUID de l'instance de volume doit être utilisé, et non l'ID de volume.
 Après la migration, une équipe NetApp Tech Refresh effectue une opération SnapMirror vers Cloud Resync pour reprendre les sauvegardes cloud à partir des volumes nouvellement migrés.
 
 . Ajoutez le nouveau cluster ONTAP en tant que système dans la page *Systèmes* de la console.
-. Consultez la page Volumes de NetApp Backup and Recovery pour vous assurer que les détails de l’ancien système source sont disponibles.
+. Consultez la page Volumes de NetApp Backup and Recovery pour confirmer que les détails de l’ancien système source sont disponibles.
 . Sur la page Volumes de NetApp Backup and Recovery , sélectionnez *Paramètres de sauvegarde*.
 +
 ** Dans la page Paramètres de sauvegarde, sélectionnez *Afficher tout*.
@@ -158,7 +158,7 @@ Après la migration, une équipe NetApp Tech Refresh effectue une opération Sna
 . Sélectionnez *Télécharger* sous *Télécharger les détails du mappage de volume* pour télécharger la feuille CSV complétée dans l'interface utilisateur de NetApp Backup and Recovery .
 +
 
-NOTE: L'UUID de l'instance de volume doit être utilisé, et non l'ID de volume. L'UUID de l'instance de volume est un identifiant unique qui reste cohérent d'une migration à l'autre, tandis que l'ID de volume peut changer après la migration.
+NOTE: Il convient d'utiliser l'UUID de l'instance de volume, et non l'ID du volume. L'UUID de l'instance de volume est un identifiant unique qui reste constant d'une migration à l'autre, contrairement à l'ID du volume qui peut changer après une migration.
 
 . Saisissez les informations de configuration du fournisseur et du réseau requises pour l'opération de resynchronisation.
 . Sélectionnez *Soumettre* pour démarrer le processus de validation.

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: prev-ontap-restore-search.html 
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
-summary: Vous pouvez utiliser la fonction Rechercher et restaurer pour récupérer des volumes, des dossiers ou des fichiers à partir de fichiers de sauvegarde ONTAP. 
+summary: Recherchez et restaurez des volumes, des dossiers ou des fichiers à partir des sauvegardes ONTAP dans NetApp Backup and Recovery lorsque vous ne connaissez pas le nom exact du système, du volume ou du fichier. 
 ---
 = Restaurez les données ONTAP à l'aide de la fonction Rechercher et restaurer dans NetApp Backup and Recovery
 :hardbreaks:
@@ -46,7 +46,7 @@ link:prev-reference-aws-archive-storage-tiers.html["En savoir plus sur la restau
 
 
 ====
-Avant de commencer, vous devriez avoir une idée du nom ou de l'emplacement du volume ou du fichier que vous souhaitez restaurer.
+Avant de commencer, assurez-vous de connaître au moins une partie du nom ou de l’emplacement du volume ou du fichier que vous souhaitez restaurer.
 
 
 
@@ -88,7 +88,7 @@ Pour la recherche et la restauration, l'agent de console peut être installé au
 * Pour ONTAP S3, l'agent de Console peut être déployé sur site (avec ou sans accès Internet) ou dans un environnement de fournisseur de cloud
 
 
-Notez que les références aux « systèmes ONTAP sur site » incluent les systèmes FAS, AFF et ONTAP Select.
+Les références aux « systèmes ONTAP sur site » incluent les systèmes FAS, AFF et ONTAP Select.
 
 
 
@@ -120,7 +120,7 @@ Voici les exigences relatives à la recherche et à la restauration lors de l'ut
 +
 ** Des autorisations spécifiques Amazon Athena, AWS Glue et AWS S3 doivent être ajoutées au rôle d’utilisateur qui fournit des autorisations à la console. link:prev-ontap-backup-onprem-aws.html["Assurez-vous que toutes les autorisations sont correctement configurées"] .
 +
-Notez que si vous utilisiez déjà NetApp Backup and Recovery avec un agent de console que vous avez configuré dans le passé, vous devrez désormais ajouter les autorisations Athena et Glue au rôle d'utilisateur de la console.  Ils sont nécessaires pour la recherche et la restauration.
+Si vous utilisiez déjà NetApp Backup and Recovery avec un agent Console que vous avez configuré par le passé, vous devez maintenant ajouter les autorisations Athena et Glue au rôle utilisateur Console. Elles sont nécessaires pour Search & Restore.
 
 
 
@@ -129,7 +129,7 @@ Notez que si vous utilisiez déjà NetApp Backup and Recovery avec un agent de c
 ** Vous devez enregistrer le fournisseur de ressources Azure Synapse Analytics (nommé « Microsoft.Synapse ») auprès de votre abonnement. https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider["Découvrez comment enregistrer ce fournisseur de ressources pour votre abonnement"^]. Vous devez être le *propriétaire* ou le *contributeur* de l’abonnement pour enregistrer le fournisseur de ressources.
 ** Des autorisations spécifiques au compte Azure Synapse Workspace et Data Lake Storage doivent être ajoutées au rôle d’utilisateur qui fournit des autorisations à la console. link:prev-ontap-backup-onprem-azure.html["Assurez-vous que toutes les autorisations sont correctement configurées"] .
 +
-Notez que si vous utilisiez déjà NetApp Backup and Recovery avec un agent de console que vous avez configuré dans le passé, vous devrez désormais ajouter les autorisations du compte Azure Synapse Workspace et Data Lake Storage au rôle d’utilisateur de la console.  Ils sont nécessaires pour la recherche et la restauration.
+Si vous utilisiez déjà NetApp Backup and Recovery avec un agent Console que vous aviez configuré par le passé, vous devez maintenant ajouter au rôle d’utilisateur Console les autorisations Azure Synapse Workspace et Data Lake Storage Account. Elles sont requises pour Search & Restore.
 
 ** L'agent de console doit être configuré *sans* serveur proxy pour la communication HTTP vers Internet.  Si vous avez configuré un serveur proxy HTTP pour votre agent de console, vous ne pouvez pas utiliser la fonctionnalité de recherche et de restauration.
 
@@ -282,7 +282,7 @@ Après avoir<<enable-the-indexed-catalog-for-each-system,Activation de l'indexat
 . Recherchez la ressource contenant les données que vous souhaitez restaurer et sélectionnez *Afficher toutes les sauvegardes* pour afficher tous les fichiers de sauvegarde contenant le volume, le dossier ou le fichier correspondant.
 . Localisez le fichier de sauvegarde que vous souhaitez utiliser pour restaurer les données et sélectionnez *Restaurer*.
 +
-Notez que les résultats identifient les instantanés de volumes locaux et les volumes répliqués distants contenant le fichier dans votre recherche. Vous pouvez choisir de restaurer à partir du fichier de sauvegarde cloud, de l'instantané ou du volume répliqué.
+Les résultats identifient les instantanés de volumes locaux et les volumes répliqués distants contenant le fichier recherché. Vous pouvez choisir de restaurer à partir du fichier de sauvegarde cloud, de l’instantané ou du volume répliqué.
 
 . Sélectionnez l'emplacement de destination où vous souhaitez que le volume, le dossier ou les fichiers soient restaurés et sélectionnez *Restaurer*.
 +

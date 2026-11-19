@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-start-discover-backup-targets.html 
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Microsoft SQL Server database, 
-summary: 'Suivez quelques étapes pour découvrir les cibles de sauvegarde hors site dans NetApp Backup and Recovery.  Ces cibles peuvent inclure Amazon Web Services (AWS) S3, Microsoft Azure Blob Storage, Google Cloud Storage et StorageGRID.' 
+summary: 'Découvrez les cibles de sauvegarde hors site, ajoutez des compartiments et modifiez les informations d"identification dans NetApp Backup and Recovery.' 
 ---
 = Découvrez les cibles de sauvegarde hors site dans NetApp Backup and Recovery
 :hardbreaks:
@@ -108,7 +108,7 @@ Ajoutez manuellement un compartiment à une cible de sauvegarde hors site au lie
 +
 ** Pour AWS :
 +
-*** *Nom du bucket* : saisissez le nom du bucket S3. Le préfixe « netapp-backup » est un préfixe obligatoire et est automatiquement ajouté au nom que vous fournissez.
+*** *Nom du compartiment* : Saisissez le nom du compartiment S3. Le préfixe obligatoire « netapp-backup » est automatiquement ajouté au nom que vous indiquez.
 *** *Compte AWS* : saisissez le nom du compte AWS.
 *** *Région du bucket* : saisissez la région AWS du bucket.
 *** *Activer le verrouillage d'objet S3* : sélectionnez cette option pour activer le verrouillage d'objet S3 pour le bucket.  S3 Object Lock empêche la suppression ou l'écrasement des objets pendant une période de conservation spécifiée, offrant ainsi une couche supplémentaire de protection des données.  Vous ne pouvez activer cette option que lorsque vous créez un bucket et vous ne pouvez pas la désactiver ultérieurement.

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-use-vmware-restore-vmdks-from-backups.html 
 keywords:  
-summary: 'Vous pouvez restaurer des VMDK existants, ou des VMDK supprimés ou détachés, à partir d"une sauvegarde principale ou secondaire de machines virtuelles traditionnelles ou de machines virtuelles vVol.' 
+summary: Restaurez les VMDK existants, supprimés ou détachés à partir de sauvegardes principales ou secondaires de machines virtuelles traditionnelles ou de machines virtuelles vVol. 
 ---
 = Restaurez les disques virtuels VMware à partir de sauvegardes dans NetApp Backup and Recovery
 :hardbreaks:
@@ -50,7 +50,7 @@ Une liste des instantanés (points de restauration) créés sur cette machine vi
 +
 Pour chaque instantané, les icônes illuminées dans la colonne *Emplacement* indiquent les emplacements de stockage où l'instantané est disponible (stockage principal, secondaire ou objet).
 
-. Activez l'option correspondant à la capture d'écran que vous souhaitez restaurer.
+. Sélectionnez le bouton radio de l’instantané que vous souhaitez restaurer.
 . Sélectionnez *Suivant*.
 +
 Les options de localisation de l'instantané apparaissent.

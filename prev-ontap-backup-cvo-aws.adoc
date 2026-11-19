@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: prev-ontap-backup-cvo-aws.html 
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
-summary: Protégez vos charges de travail VMware avec NetApp Backup and Recovery. 
+summary: Sauvegardez les données Cloud Volumes ONTAP vers Amazon S3 en vérifiant les exigences, en préparant l’agent Console et en activant les sauvegardes dans NetApp Backup and Recovery. 
 ---
 = Sauvegardez Cloud Volumes ONTAP sur Amazon S3 avec NetApp Backup and Recovery
 :hardbreaks:
@@ -24,11 +24,11 @@ NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Reco
 [[verify-support-for-your-configuration]]
 == Vérifiez la prise en charge de votre configuration
 
-Lisez les exigences suivantes pour vous assurer que vous disposez d’une configuration prise en charge avant de commencer à sauvegarder des volumes sur S3.
+Vérifiez que vous répondez aux exigences d'une configuration prise en charge avant de commencer la sauvegarde des volumes sur S3.
 
 L'image suivante montre chaque composant et les connexions que vous devez préparer entre eux.
 
-En option, vous pouvez également vous connecter à un système ONTAP secondaire pour les volumes répliqués à l'aide de la connexion publique ou privée.
+Vous pouvez également vous connecter à un système ONTAP secondaire pour les volumes répliqués via une connexion publique ou privée.
 
 image:diagram_cloud_backup_cvo_aws.png["Un diagramme montrant comment NetApp Backup and Recovery communique avec les volumes sur les systèmes sources et le stockage de destination où se trouvent les fichiers de sauvegarde."]
 
@@ -38,7 +38,7 @@ Le point de terminaison de la passerelle VPC doit déjà exister dans votre VPC.
 NOTE: Si vous utilisez un point de terminaison VPC privé pour les transferts de données de sauvegarde ou de restauration, celui-ci prime sur toute connexion proxy configurée.
 
 Versions ONTAP prises en charge:: Minimum ONTAP 9.8 ; ONTAP 9.8P13 et versions ultérieures sont recommandés.
-Informations requises pour l'utilisation de clés gérées par le client pour le chiffrement des données:: Vous pouvez choisir vos propres clés gérées par le client pour le chiffrement des données dans l'assistant d'activation au lieu d'utiliser les clés de chiffrement Amazon S3 par défaut.  Dans ce cas, vous devrez déjà avoir configuré les clés de gestion du cryptage. https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-setting-up-kms.html["Découvrez comment utiliser vos propres clés"^] .
+Informations requises pour l'utilisation de clés gérées par le client pour le chiffrement des données:: Vous pouvez choisir vos propres clés gérées par le client pour le chiffrement des données dans l'assistant d'activation au lieu d'utiliser les clés de chiffrement Amazon S3 par défaut. Dans ce cas, vous devez avoir déjà configuré vos clés gérées par le client https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-setting-up-kms.html["Découvrez comment utiliser vos propres clés"^].
 
 
 
@@ -50,7 +50,7 @@ Pour les licences NetApp Backup and Recovery PAYGO, un abonnement Console est di
 
 Pour un contrat annuel qui vous permet de sauvegarder à la fois les données Cloud Volumes ONTAP et les données ONTAP sur site, vous devez vous abonner à partir du https://aws.amazon.com/marketplace/pp/prodview-q7dg6zwszplri["Page AWS Marketplace"^] et puis https://docs.netapp.com/us-en/console-setup-admin/task-adding-aws-accounts.html["associer l'abonnement à vos informations d'identification AWS"^] .
 
-Pour un contrat annuel qui vous permet de regrouper Cloud Volumes ONTAP et NetApp Backup and Recovery, vous devez configurer le contrat annuel lorsque vous créez un système Cloud Volumes ONTAP .  Cette option ne vous permet pas de sauvegarder les données sur site.
+Pour bénéficier d’un contrat annuel qui vous permet de regrouper Cloud Volumes ONTAP et NetApp Backup and Recovery, vous devez configurer le contrat annuel lorsque vous créez un système Cloud Volumes ONTAP. Cette option ne vous permet pas de sauvegarder des données sur site.
 
 Pour les licences BYOL de NetApp Backup and Recovery , vous avez besoin du numéro de série de NetApp qui vous permet d'utiliser le service pendant la durée et la capacité de la licence. link:br-start-licensing.html["Apprenez à gérer vos licences BYOL"] .  Vous devez utiliser une licence BYOL lorsque l'agent de console et le système Cloud Volumes ONTAP sont déployés sur un site sombre.
 
@@ -192,7 +192,7 @@ Si vous prévoyez de créer des volumes répliqués sur un système ONTAP second
 * Si le cluster est sur site, vous devez disposer d’une connexion entre votre réseau d’entreprise et votre réseau virtuel chez le fournisseur de cloud. Il s’agit généralement d’une connexion VPN.
 * Les clusters ONTAP doivent répondre à des exigences supplémentaires en matière de sous-réseau, de port, de pare-feu et de cluster.
 +
-Étant donné que vous pouvez répliquer vers Cloud Volumes ONTAP ou vers des systèmes locaux, examinez les exigences de peering pour les systèmes ONTAP locaux. https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html["Consultez les conditions préalables pour le peering de cluster dans la documentation ONTAP"^] .
+Étant donné que vous pouvez répliquer vers Cloud Volumes ONTAP ou des systèmes sur site, examinez les exigences de peering pour les systèmes ONTAP sur site https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html["Consultez les conditions préalables pour le peering de cluster dans la documentation ONTAP"^].
 
 
 

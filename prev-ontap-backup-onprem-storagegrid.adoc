@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: prev-ontap-backup-onprem-storagegrid.html 
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
-summary: 'Effectuez quelques étapes dans NetApp Backup and Recovery pour commencer à sauvegarder les données de volume de vos systèmes ONTAP principaux sur site vers un système de stockage secondaire et vers le stockage d"objets dans vos systèmes NetApp StorageGRID .' 
+summary: Sauvegardez les données de volume depuis des systèmes ONTAP sur site vers un système de stockage secondaire et le stockage objet StorageGRID en préparant votre environnement et en activant les sauvegardes. 
 ---
 = Sauvegardez les données ONTAP sur site sur StorageGRID avec NetApp Backup and Recovery
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 'Effectuez quelques étapes dans NetApp Backup and Recovery pour commen
 
 
 [role="lead"]
-Dans NetApp Backup and Recovery, vous pouvez sauvegarder les données de volume de vos systèmes ONTAP principaux sur site vers un système de stockage secondaire et vers le stockage objet StorageGRID. Utilisez cette page pour préparer votre environnement et activer les sauvegardes.
+Utilisez NetApp Backup and Recovery pour sauvegarder les données de volume de vos systèmes ONTAP principaux sur site vers un système de stockage secondaire et vers le stockage objet StorageGRID. Préparez votre environnement, puis activez les sauvegardes pour protéger vos volumes.
 
 
 NOTE: Les « systèmes ONTAP sur site » incluent les systèmes FAS, AFF et ONTAP Select .
@@ -151,12 +151,12 @@ Les exigences de mise en réseau du cluster ONTAP suivantes sont nécessaires :
 
 * Le cluster ONTAP initie une connexion HTTPS via un port spécifié par l'utilisateur depuis le LIF intercluster vers le nœud de passerelle StorageGRID pour les opérations de sauvegarde et de restauration.  Le port est configurable lors de la configuration de la sauvegarde.
 +
-ONTAP lit et écrit des données vers et depuis le stockage d'objets.  Le stockage d'objets ne s'initialise jamais, il répond simplement.
+ONTAP lit et écrit des données depuis et vers le stockage objet. Le stockage objet n'initie jamais de connexion. Il se contente de répondre.
 
 * ONTAP nécessite une connexion entrante de l'agent de console au LIF de gestion du cluster.  L'agent de la console doit résider dans vos locaux.
 * Un LIF intercluster est requis sur chaque nœud ONTAP qui héberge les volumes que vous souhaitez sauvegarder.  Le LIF doit être associé à l'_IPspace_ ONTAP doit utiliser pour se connecter au stockage d'objets. https://docs.netapp.com/us-en/ontap/networking/standard_properties_of_ipspaces.html["En savoir plus sur IPspaces"^] .
 +
-Lorsque vous configurez NetApp Backup and Recovery, vous êtes invité à indiquer l'espace IP à utiliser.  Vous devez choisir l’espace IP auquel chaque LIF est associé.  Il peut s'agir de l'espace IP « par défaut » ou d'un espace IP personnalisé que vous avez créé.
+Lorsque vous configurez NetApp Backup and Recovery, vous êtes invité à sélectionner l'espace IP à utiliser. Choisissez l'espace IP auquel chaque LIF est associée. Il peut s'agir de l'espace IP « Default » ou d'un espace IP personnalisé que vous avez créé.
 
 * Les LIF intercluster des nœuds peuvent accéder au magasin d'objets (non requis lorsque l'agent de console est installé sur un site « sombre »).
 * Les serveurs DNS ont été configurés pour la machine virtuelle de stockage où se trouvent les volumes.  Découvrez comment https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html["configurer les services DNS pour le SVM"^] .
@@ -178,7 +178,7 @@ Si vous prévoyez de créer des volumes répliqués sur un système ONTAP second
 * Si le cluster est sur site, vous devez disposer d’une connexion entre votre réseau d’entreprise et votre réseau virtuel chez le fournisseur de cloud. Il s’agit généralement d’une connexion VPN.
 * Les clusters ONTAP doivent répondre à des exigences supplémentaires en matière de sous-réseau, de port, de pare-feu et de cluster.
 +
-Étant donné que vous pouvez répliquer vers Cloud Volumes ONTAP ou vers des systèmes locaux, examinez les exigences de peering pour les systèmes ONTAP locaux. https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html["Consultez les conditions préalables pour le peering de cluster dans la documentation ONTAP"^] .
+Étant donné que vous pouvez répliquer vers Cloud Volumes ONTAP ou des systèmes sur site, examinez les exigences de peering pour les systèmes ONTAP sur site https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html["Consultez les conditions préalables pour le peering de cluster dans la documentation ONTAP"^].
 
 
 
@@ -235,7 +235,7 @@ Versionnage d'objet:: Vous ne devez pas activer manuellement le contrôle de ver
 [[prepare-to-archive-older-backup-files-to-public-cloud-storage]]
 === Préparez-vous à archiver les anciens fichiers de sauvegarde sur un stockage cloud public
 
-La hiérarchisation des fichiers de sauvegarde plus anciens vers un stockage d'archives permet d'économiser de l'argent en utilisant une classe de stockage moins coûteuse pour les sauvegardes dont vous n'avez peut-être pas besoin.  StorageGRID est une solution sur site (cloud privé) qui ne fournit pas de stockage d'archives, mais vous pouvez déplacer des fichiers de sauvegarde plus anciens vers un stockage d'archives dans le cloud public.  Lorsqu'elles sont utilisées de cette manière, les données hiérarchisées vers le stockage cloud ou restaurées à partir du stockage cloud transitent entre StorageGRID et le stockage cloud - la console n'est pas impliquée dans ce transfert de données.
+Le transfert des anciens fichiers de sauvegarde vers un stockage d'archivage permet de réaliser des économies en utilisant une classe de stockage moins coûteuse pour les sauvegardes dont vous pourriez ne pas avoir besoin. StorageGRID est une solution sur site (cloud privé) qui ne propose pas de stockage d'archivage, mais vous pouvez déplacer les anciens fichiers de sauvegarde vers un stockage d'archivage dans le cloud public. Avec cette configuration, les données que vous hiérarchisez vers le stockage cloud, ou que vous restaurez à partir du stockage cloud, transitent entre StorageGRID et le stockage cloud. La Console n'intervient pas dans ce transfert de données.
 
 La prise en charge actuelle vous permet d'archiver les sauvegardes sur le stockage AWS _S3 Glacier_/_S3 Glacier Deep Archive_ ou _Azure Archive_.
 

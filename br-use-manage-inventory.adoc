@@ -16,7 +16,7 @@ summary: Gérez vos hôtes, instances et bases de données Microsoft SQL Server 
 [role="lead"]
 Afficher et gérer les hôtes, les instances et les bases de données Microsoft SQL Server, et modifier ou supprimer leurs paramètres de protection.
 
-Vous pouvez effectuer les actions suivantes pour gérer votre inventaire :
+Gérez votre inventaire grâce à ces actions :
 
 * Gérer les informations de l'hôte
 +
@@ -278,7 +278,7 @@ Pour plus de détails sur la création d'une sauvegarde ad hoc, voir link:br-use
 [[manage-database-information]]
 == Gérer les informations de la base de données
 
-Vous pouvez gérer les informations de la base de données des manières suivantes :
+Gérez les informations de la base de données à l'aide de ces actions :
 
 * Protéger les bases de données
 * Restaurer les bases de données

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-limitations-kvm.html 
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, KVM, SAP HANA database, virtual machine, vm 
-summary: Cette version de NetApp Backup and Recovery présente les limitations connues suivantes. 
+summary: Consultez les actions non prises en charge, les configurations non prises en charge et les notes de dépannage pour les workloads KVM dans NetApp Backup and Recovery. 
 ---
 = Limitations connues de NetApp Backup and Recovery pour les charges de travail KVM
 :hardbreaks:

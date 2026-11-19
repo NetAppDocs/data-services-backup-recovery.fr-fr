@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: prev-reference-gcp-archive-storage-tiers.html 
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
-summary: 'NetApp Backup and Recovery prend en charge une classe de stockage d"archivage Google et la plupart des régions.' 
+summary: 'Examinez le niveau d"archivage de Google Cloud Storage pris en charge par NetApp Backup and Recovery, et comprenez les coûts de restauration ainsi que les délais de récupération des sauvegardes archivées.' 
 ---
 = Niveaux de stockage d'archives Google pris en charge avec NetApp Backup and Recovery
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 'NetApp Backup and Recovery prend en charge une classe de stockage d"ar
 
 
 [role="lead"]
-Utilisez ces informations pour comprendre le niveau d'archivage de Google Cloud Storage que NetApp Backup and Recovery prend en charge. Vous pouvez également consulter les coûts de restauration et les délais de récupération des sauvegardes archivées.
+NetApp Backup and Recovery prend en charge le niveau Archive de Google Cloud Storage pour les sauvegardes plus anciennes. Découvrez les coûts et les délais de restauration pour les sauvegardes de ce niveau.
 
 
 
@@ -23,9 +23,9 @@ Utilisez ces informations pour comprendre le niveau d'archivage de Google Cloud 
 
 Lors de leur création, les fichiers de sauvegarde sont initialement stockés dans un stockage _Standard_. Ce niveau est optimisé pour le stockage de données rarement consultées, tout en permettant un accès immédiat.
 
-Si votre cluster local utilise ONTAP 9.12.1 ou une version ultérieure, vous pouvez choisir de transférer les anciennes sauvegardes vers le stockage _Archive_ dans l’interface utilisateur NetApp Backup and Recovery après un certain nombre de jours (généralement plus de 30 jours) afin d’optimiser davantage les coûts. Les données dans ce niveau entraîneront un coût de récupération plus élevé, il est donc important de prendre en compte la fréquence à laquelle vous pourriez avoir besoin de restaurer des données à partir de ces fichiers de sauvegarde archivés. Consultez la section de cette page concernant la restauration des données à partir du stockage d’archivage.
+Si votre cluster sur site utilise ONTAP 9.12.1 ou une version ultérieure, vous pouvez hiérarchiser les sauvegardes plus anciennes vers le stockage _Archive_ dans l’interface utilisateur de NetApp Backup and Recovery après un certain nombre de jours (généralement plus de 30 jours) afin d’optimiser davantage les coûts. Les données de ce niveau ont un coût de récupération plus élevé ; tenez donc compte de la fréquence à laquelle vous pourriez avoir besoin de restaurer des données à partir de ces fichiers de sauvegarde archivés. Consultez la section de cette page sur la restauration des données à partir du stockage d’archivage.
 
-Notez que lorsque vous configurez NetApp Backup and Recovery avec ce type de règle de cycle de vie, vous ne devez configurer aucune règle de cycle de vie lors de la configuration du bucket dans votre compte Google.
+Lorsque vous configurez NetApp Backup and Recovery avec ce type de règle de cycle de vie, ne configurez aucune règle de cycle de vie lors de la configuration du compartiment dans votre compte Google.
 
 https://cloud.google.com/storage/docs/storage-classes["En savoir plus sur les classes de stockage Google"^].
 
@@ -34,14 +34,14 @@ https://cloud.google.com/storage/docs/storage-classes["En savoir plus sur les cl
 [[restore-data-from-archival-storage]]
 == Restaurer les données à partir du stockage d'archives
 
-Bien que le stockage d'anciens fichiers de sauvegarde dans le stockage d'archives soit beaucoup moins coûteux que le stockage standard, l'accès aux données d'un fichier de sauvegarde dans le stockage d'archives pour les opérations de restauration prendra un peu plus de temps et coûtera plus cher.
+Stocker d'anciens fichiers de sauvegarde dans le stockage Archive coûte beaucoup moins cher que dans le stockage Standard. Cependant, la restauration des données à partir d'un fichier de sauvegarde dans le stockage Archive prend légèrement plus de temps et coûte plus cher.
 
 Combien coûte la restauration des données de Google Archive ?:: Pour connaître les tarifs détaillés de Google Cloud Storage par région, visitez le https://cloud.google.com/storage/pricing["Page de tarification de Google Cloud Storage"^] .
-Combien de temps faudra-t-il pour restaurer mes objets archivés dans Google Archive ?:: Le temps de restauration total est composé de deux parties :
+Combien de temps faudra-t-il pour restaurer mes objets archivés dans Google Archive ?:: Le temps total de restauration comporte deux parties :
 +
 --
 * *Temps de récupération* : Le temps nécessaire pour récupérer le fichier de sauvegarde de l'archive et le placer dans le stockage standard.  C'est ce qu'on appelle parfois le temps de « réhydratation ».  Contrairement aux solutions de stockage « les plus froides » fournies par d’autres fournisseurs de cloud, vos données sont accessibles en quelques millisecondes.
-* *Temps de restauration* : Le temps nécessaire pour restaurer les données à partir du fichier de sauvegarde dans le stockage standard.  Cette fois, ce n’est pas différent de l’opération de restauration typique directement à partir du stockage standard, lorsque vous n’utilisez pas de niveau d’archivage.
+* *Durée de restauration* : temps nécessaire pour restaurer les données à partir du fichier de sauvegarde stocké sur le stockage Standard. Ce temps est identique à celui d'une restauration classique effectuée directement depuis le stockage Standard sans niveau d'archivage.
 
 
 --

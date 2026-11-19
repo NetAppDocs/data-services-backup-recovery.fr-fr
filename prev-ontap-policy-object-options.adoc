@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: prev-ontap-policy-object-options.html 
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
-summary: Protégez vos charges de travail VMware avec NetApp Backup and Recovery. 
+summary: 'Configurez les options de règles de sauvegarde vers un objet dans NetApp Backup and Recovery, notamment les planifications, la rétention, DataLock, la protection contre les ransomwares et le stockage d"archives.' 
 ---
 = Options de stratégie de sauvegarde sur objet dans NetApp Backup and Recovery
 :hardbreaks:
@@ -29,12 +29,12 @@ NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Reco
 
 NetApp Backup and Recovery vous permet de créer plusieurs politiques de sauvegarde avec des planifications uniques pour chaque système (cluster).  Vous pouvez attribuer différentes politiques de sauvegarde à des volumes ayant des objectifs de point de récupération (RPO) différents.
 
-Chaque règles de sauvegarde comporte une section « Étiquettes et conservation » que vous pouvez appliquer à vos fichiers de sauvegarde. Notez que la règle de snapshot appliquée au volume doit être l'une des règles reconnues par NetApp Backup and Recovery, sinon les fichiers de sauvegarde ne seront pas créés.
+Chaque règle de sauvegarde comporte une section « Labels & Retention » que vous pouvez appliquer à vos fichiers de sauvegarde. La stratégie de snapshot appliquée au volume doit être l’une des stratégies reconnues par NetApp Backup and Recovery. Dans le cas contraire, le service ne crée pas de fichiers de sauvegarde.
 
 
 NOTE: La stratégie de snapshot appliquée au volume doit comporter l’une des étiquettes que vous utilisez dans votre stratégie de réplication et votre stratégie de sauvegarde sur objet. Si aucune étiquette correspondante n’est trouvée, aucun fichier de sauvegarde ne sera créé. Par exemple, si vous souhaitez créer des volumes répliqués et des fichiers de sauvegarde « weekly », vous devez utiliser une stratégie de snapshot qui crée des snapshots « weekly ».
 
-Le planning comporte deux parties : l'étiquette et la valeur de rétention :
+La planification comporte deux parties : l’étiquette et la valeur de conservation :
 
 * L'*étiquette* définit la fréquence à laquelle un fichier de sauvegarde est créé (ou mis à jour) à partir du volume.  Vous pouvez choisir parmi les types d’étiquettes suivants :
 +
@@ -43,17 +43,17 @@ Le planning comporte deux parties : l'étiquette et la valeur de rétention :
 ** Si vous avez créé des stratégies de protection de sauvegarde personnalisées sur le cluster à l’aide ONTAP System Manager ou de l’interface de ligne de commande ONTAP , vous pouvez sélectionner l’une de ces stratégies.
 
 
-* La valeur *rétention* définit le nombre de fichiers de sauvegarde conservés pour chaque étiquette (période).  Une fois que le nombre maximal de sauvegardes a été atteint dans une catégorie ou un intervalle, les sauvegardes les plus anciennes sont supprimées afin que vous disposiez toujours des sauvegardes les plus récentes.  Cela vous permet également d'économiser des coûts de stockage, car les sauvegardes obsolètes ne continuent pas à occuper de l'espace dans le cloud.
+* La valeur de *rétention* définit le nombre de fichiers de sauvegarde conservés pour chaque étiquette (période). Une fois le nombre maximal de sauvegardes atteint pour une catégorie ou un intervalle donné, les sauvegardes les plus anciennes sont supprimées afin de toujours disposer des sauvegardes les plus récentes. Cela permet également de réduire les coûts de stockage, car les sauvegardes obsolètes n'occupent plus d'espace dans le cloud.
 
 
-Par exemple, supposons que vous créiez une politique de sauvegarde qui crée 7 sauvegardes *hebdomadaires* et 12 sauvegardes *mensuelles* :
+Par exemple, si vous créez une règle de sauvegarde qui génère 7 sauvegardes *hebdomadaires* et 12 sauvegardes *mensuelles* :
 
 * chaque semaine et chaque mois, un fichier de sauvegarde est créé pour le volume
 * à la 8e semaine, la première sauvegarde hebdomadaire est supprimée et la nouvelle sauvegarde hebdomadaire de la 8e semaine est ajoutée (en conservant un maximum de 7 sauvegardes hebdomadaires)
 * au 13e mois, la première sauvegarde mensuelle est supprimée et la nouvelle sauvegarde mensuelle du 13e mois est ajoutée (en conservant un maximum de 12 sauvegardes mensuelles)
 
 
-Les sauvegardes annuelles sont automatiquement supprimées du système source après avoir été transférées vers le stockage d'objets.  Ce comportement par défaut peut être modifié dans la page Paramètres avancés du système.
+Les sauvegardes annuelles sont automatiquement supprimées du système source après leur transfert vers le stockage objet. Vous pouvez modifier ce comportement par défaut dans la page Paramètres avancés du système.
 
 
 TIP: La durée de conservation des sauvegardes des volumes de protection des données (DP) est la même que celle définie dans la relation source SnapMirror. Vous pouvez la modifier à l’aide de l’API.
@@ -72,7 +72,7 @@ Cette fonctionnalité ne fournit pas de protection pour vos volumes sources ; u
 [CAUTION]
 ====
 * Si vous prévoyez d’utiliser la protection DataLock et Ransomware, vous pouvez l’activer lors de la création de votre première politique de sauvegarde et de l’activation de NetApp Backup and Recovery pour ce cluster.  Vous pouvez ultérieurement activer ou désactiver l’analyse des ransomwares à l’aide des paramètres avancés de NetApp Backup and Recovery .
-* Lorsque la console analyse un fichier de sauvegarde à la recherche de ransomware lors de la restauration des données du volume, vous encourez des frais de sortie supplémentaires auprès de votre fournisseur de cloud pour accéder au contenu du fichier de sauvegarde.
+* Lorsque la Console analyse un fichier de sauvegarde à la recherche d’un ransomware lors d’une restauration des données du volume, vous engagez des coûts de sortie supplémentaires auprès de votre fournisseur de cloud pour accéder au contenu du fichier de sauvegarde.
 
 
 ====
@@ -83,11 +83,11 @@ Cette fonctionnalité ne fournit pas de protection pour vos volumes sources ; u
 
 Grâce à cette fonctionnalité, vous pouvez verrouiller les instantanés cloud répliqués via SnapMirror sur le cloud et également activer la fonctionnalité permettant de détecter une attaque de ransomware et de récupérer une copie cohérente de l'instantané sur le stockage d'objets. Cette fonctionnalité est prise en charge sur AWS, Azure, Google Cloud Platform et StorageGRID.
 
-DataLock protège vos fichiers de sauvegarde contre toute modification ou suppression pendant une certaine période de temps - également appelée _stockage immuable_.  Cette fonctionnalité utilise la technologie du fournisseur de stockage d'objets pour le « verrouillage d'objets ».
+DataLock protège vos fichiers de sauvegarde contre toute modification ou suppression pendant une période déterminée, également appelée _stockage immuable_. Cette fonctionnalité utilise la technologie de « verrouillage d’objet » du fournisseur de stockage objet.
 
 Les fournisseurs de cloud utilisent une date de conservation jusqu'à (RUD), qui est calculée en fonction de la période de conservation des instantanés.  La période de conservation des instantanés est calculée en fonction de l'étiquette et du nombre de conservations définis dans la politique de sauvegarde.
 
-La période minimale de conservation des instantanés est de 30 jours.  Voyons quelques exemples de la façon dont cela fonctionne :
+La durée minimale de conservation des instantanés est de 30 jours. Par exemple :
 
 * Si vous choisissez l'étiquette *Quotidien* avec un nombre de rétention de 20, la période de rétention des instantanés est de 20 jours, la valeur par défaut étant le minimum de 30 jours.
 * Si vous choisissez l'étiquette *Hebdomadaire* avec un nombre de rétention de 4, la période de rétention des instantanés est de 28 jours, la valeur par défaut étant le minimum de 30 jours.
@@ -102,11 +102,11 @@ La période minimale de conservation des instantanés est de 30 jours.  Voyons q
 
 La date de conservation jusqu'à (RUD) est déterminée en fonction de la période de conservation des instantanés.  La date de conservation jusqu'à est calculée en additionnant la période de conservation des instantanés et une mémoire tampon.
 
-* Le tampon correspond au tampon pour le temps de transfert (3 jours) + le tampon pour l'optimisation des coûts (28 jours), ce qui donne un total de 31 jours.
+* Le tampon correspond au tampon pour le temps de transfert (3 jours) plus le tampon pour l’optimisation des coûts (28 jours), soit un total de 31 jours.
 * La date de conservation minimale est de 30 jours + 31 jours de tampon = 61 jours.
 
 
-Voici quelques exemples :
+Exemples :
 
 * Si vous créez une planification de sauvegarde mensuelle avec 12 rétentions, vos sauvegardes sont verrouillées pendant 12 mois (plus 31 jours) avant d'être supprimées (remplacées par le fichier de sauvegarde suivant).
 * Si vous créez une politique de sauvegarde qui crée 30 sauvegardes quotidiennes, 7 sauvegardes hebdomadaires et 12 sauvegardes mensuelles, il existe trois périodes de conservation verrouillées :
@@ -116,13 +116,13 @@ Voici quelques exemples :
 ** Les sauvegardes « 12 mensuelles » sont conservées pendant 12 mois (plus 31 jours).
 
 
-* Si vous créez une planification de sauvegarde horaire avec 24 rétentions, vous pourriez penser que les sauvegardes sont verrouillées pendant 24 heures.  Cependant, comme cela est inférieur au minimum de 30 jours, chaque sauvegarde sera verrouillée et conservée pendant 61 jours (30 jours plus 31 jours de mémoire tampon).
+* Si vous créez une planification de sauvegarde horaire avec 24 rétentions, vous pourriez penser que les sauvegardes sont verrouillées pendant 24 heures. Cependant, comme cette durée est inférieure au minimum de 30 jours, chaque sauvegarde sera verrouillée et conservée pendant 61 jours (30 jours plus une marge de sécurité de 31 jours).
 
 
 
 CAUTION: Les anciennes sauvegardes sont supprimées après l’expiration de la période de conservation de DataLock, et non après la période de conservation de la politique de sauvegarde.
 
-Le paramètre de conservation DataLock remplace le paramètre de conservation de la politique de votre politique de sauvegarde.  Cela pourrait affecter vos coûts de stockage, car vos fichiers de sauvegarde seront enregistrés dans le magasin d'objets pendant une période plus longue.
+Le paramètre de rétention DataLock remplace le paramètre de rétention de vos règles de sauvegarde. Cela peut affecter vos coûts de stockage, car vos fichiers de sauvegarde sont conservés plus longtemps dans le stockage objet.
 
 
 
@@ -148,7 +148,7 @@ Se référer àlink:prev-ontap-policy-object-advanced-settings.html["Comment met
 [[what-is-ransomware-protection]]
 === Qu'est-ce que la protection contre les ransomwares
 
-La protection contre les ransomwares analyse vos fichiers de sauvegarde pour rechercher des preuves d'une attaque de ransomware. La détection des attaques de ransomware est effectuée à l’aide d’une comparaison de somme de contrôle. Si un ransomware potentiel est identifié dans un nouveau fichier de sauvegarde par rapport au fichier de sauvegarde précédent, ce nouveau fichier de sauvegarde est remplacé par le fichier de sauvegarde le plus récent qui ne présente aucun signe d'attaque de ransomware. (Le fichier identifié comme ayant subi une attaque de ransomware est supprimé 1 jour après avoir été remplacé.)
+La protection contre les ransomwares analyse vos fichiers de sauvegarde afin de détecter toute trace d'attaque par ransomware. La protection contre les ransomwares détecte les attaques en comparant les sommes de contrôle. Si un ransomware potentiel est identifié dans un nouveau fichier de sauvegarde par rapport au fichier de sauvegarde précédent, ce nouveau fichier de sauvegarde est remplacé par le fichier de sauvegarde le plus récent ne présentant aucun signe d'attaque par ransomware. (Le fichier identifié comme ayant subi une attaque par ransomware est supprimé 1 jour après son remplacement.)
 
 Les analyses se produisent dans ces situations :
 
@@ -163,7 +163,7 @@ Les analyses planifiées des ransomwares sont activées par défaut et s'exécut
 
 Lorsqu'une attaque de ransomware est détectée, le service utilise l'API REST Integrity Checker de l'agent Active Data Console pour démarrer le processus de récupération.  La version la plus ancienne des objets de données est la source de vérité et est transformée en version actuelle dans le cadre du processus de récupération.
 
-Voyons comment cela fonctionne :
+La récupération fonctionne comme suit :
 
 * En cas d'attaque de ransomware, le service tente d'écraser ou de supprimer l'objet dans le bucket.
 * Étant donné que le stockage cloud est compatible avec le contrôle de version, il crée automatiquement une nouvelle version de l'objet de sauvegarde.  Si un objet est supprimé avec le contrôle de version activé, il est marqué comme supprimé mais peut toujours être récupéré.  Si un objet est écrasé, les versions précédentes sont stockées et marquées.
@@ -342,9 +342,9 @@ De plus, vous pouvez obtenir des estimations du coût associé à DataLock en vi
 [[archival-storage-options]]
 == Options de stockage d'archives
 
-Lorsque vous utilisez AWS, Azure ou Google Cloud Storage, vous pouvez déplacer les fichiers de sauvegarde les plus anciens vers une classe de stockage d’archivage ou un niveau d’accès moins coûteux après un certain nombre de jours. Vous pouvez également choisir d’envoyer vos fichiers de sauvegarde vers le stockage d’archivage immédiatement, sans qu’ils soient écrits sur le stockage cloud standard. Il vous suffit de saisir *0* comme valeur pour « Archive After Days » afin d’envoyer votre fichier de sauvegarde directement vers le stockage d’archivage. Cela peut être particulièrement utile pour les utilisateurs qui ont rarement besoin d’accéder aux données des sauvegardes cloud ou pour ceux qui remplacent une solution de sauvegarde sur bande.
+Lorsque vous utilisez AWS, Azure ou Google Cloud Storage, vous pouvez déplacer les fichiers de sauvegarde les plus anciens vers une classe de stockage d’archivage ou un niveau d’accès moins coûteux après un certain nombre de jours. Vous pouvez également choisir d’envoyer immédiatement vos fichiers de sauvegarde vers un stockage d’archivage sans les écrire dans le stockage cloud standard. Saisissez *0* comme « Archive After Days » pour envoyer votre fichier de sauvegarde directement vers un stockage d’archivage. Cela peut être particulièrement utile pour les utilisateurs qui ont rarement besoin d’accéder aux données des sauvegardes cloud ou pour ceux qui remplacent une solution de sauvegarde sur bande.
 
-Les données des niveaux d'archivage ne sont pas immédiatement accessibles en cas de besoin et nécessiteront un coût de récupération plus élevé. Vous devrez donc prendre en compte la fréquence à laquelle vous devrez peut-être restaurer les données à partir de fichiers de sauvegarde avant de décider d'archiver vos fichiers de sauvegarde.
+Les données des niveaux d'archivage ne sont pas immédiatement accessibles en cas de besoin, et leur récupération engendre des coûts plus élevés. Vous devez donc réfléchir à la fréquence à laquelle vous pourriez avoir besoin de restaurer des données à partir de fichiers de sauvegarde avant de décider d'archiver vos fichiers de sauvegarde.
 
 [NOTE]
 ====
@@ -376,11 +376,11 @@ Si votre cluster utilise ONTAP 9.10.1 ou une version ultérieure, vous pouvez hi
 
 * Dans GCP, les sauvegardes sont associées à la classe de stockage _Standard_.
 +
-Si votre cluster sur site utilise ONTAP 9.12.1 ou une version ultérieure, vous pouvez choisir de hiérarchiser les sauvegardes plus anciennes vers le stockage _Archive_ dans l'interface utilisateur NetApp Backup and Recovery après un certain nombre de jours pour une optimisation supplémentaire des coûts. link:prev-reference-gcp-archive-storage-tiers.html["En savoir plus sur le stockage d'archives Google"] .
+Si votre cluster sur site utilise ONTAP 9.12.1 ou une version ultérieure, vous pouvez choisir de déplacer les sauvegardes plus anciennes vers un stockage _Archive_ dans l’interface utilisateur de NetApp Backup and Recovery après un certain nombre de jours pour une optimisation supplémentaire des coûts. link:prev-reference-gcp-archive-storage-tiers.html["En savoir plus sur le stockage d'archives Google"].
 
 * Dans StorageGRID, les sauvegardes sont associées à la classe de stockage _Standard_.
 +
-Si votre cluster sur site utilise ONTAP 9.12.1 ou une version ultérieure et que votre système StorageGRID utilise 11.4 ou une version ultérieure, vous pouvez archiver les anciens fichiers de sauvegarde dans un stockage d'archivage cloud public.
+Si votre cluster sur site utilise ONTAP 9.12.1 ou une version supérieure, et que votre système StorageGRID utilise la version 11.4 ou une version supérieure, vous pouvez archiver les anciens fichiers de sauvegarde dans un stockage d’archivage cloud public.
 
 +
 ** Pour AWS, vous pouvez hiérarchiser les sauvegardes vers le stockage AWS _S3 Glacier_ ou _S3 Glacier Deep Archive_. link:prev-reference-aws-archive-storage-tiers.html["En savoir plus sur le stockage d'archives AWS"^].

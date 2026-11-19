@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: prev-ontap-restore-browse.html 
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
-summary: 'Avec NetApp Backup and Recovery, restaurez les données ONTAP à l"aide de Browse and Restore.' 
+summary: 'Restaurez les volumes, dossiers et fichiers ONTAP à partir d"instantanés, de volumes répliqués ou de sauvegardes de stockage objet à l"aide de Browse and Restore dans NetApp Backup and Recovery.' 
 ---
 = Restaurez les données ONTAP à l'aide de l'option Parcourir et restaurer dans NetApp Backup and Recovery
 :hardbreaks:
@@ -121,7 +121,7 @@ Pour la navigation et la restauration, l'agent de console peut être installé a
 * Pour ONTAP S3, l'agent de Console peut être déployé sur site (avec ou sans accès Internet) ou dans un environnement de fournisseur de cloud
 
 
-Notez que les références aux « systèmes ONTAP sur site » incluent les systèmes FAS, AFF et ONTAP Select.
+Les références aux « systèmes ONTAP sur site » incluent les systèmes FAS, AFF et ONTAP Select.
 
 
 NOTE: Si la version ONTAP de votre système est inférieure à 9.13.1, vous ne pouvez pas restaurer de dossiers ou de fichiers si le fichier de sauvegarde a été configuré avec DataLock & Ransomware.  Dans ce cas, vous pouvez restaurer l'intégralité du volume à partir du fichier de sauvegarde, puis accéder aux fichiers dont vous avez besoin.
@@ -157,7 +157,7 @@ La colonne *Emplacement* indique si le fichier de sauvegarde (instantané) est *
 
 . Sélectionnez *Suivant*.
 +
-Notez que si vous sélectionnez un fichier de sauvegarde dans le stockage objet et que la protection contre les ransomwares est activée pour cette sauvegarde (si vous avez activé DataLock et la protection contre les ransomwares dans la règle de sauvegarde), il vous sera demandé d'effectuer une analyse supplémentaire des ransomwares sur le fichier de sauvegarde avant de restaurer les données. Nous vous recommandons d'analyser le fichier de sauvegarde à la recherche de ransomwares. (Vous encourrez des frais de sortie supplémentaires facturés par votre fournisseur de cloud pour accéder au contenu du fichier de sauvegarde.)
+Si vous sélectionnez un fichier de sauvegarde dans le stockage objet et que la protection contre les ransomwares est activée pour cette sauvegarde (si vous avez activé DataLock et la protection contre les ransomwares dans les règles de sauvegarde), vous êtes invité à effectuer une analyse supplémentaire à la recherche de ransomwares sur le fichier de sauvegarde avant de restaurer les données. Nous vous recommandons d’analyser le fichier de sauvegarde à la recherche de ransomwares. (L’accès au contenu du fichier de sauvegarde entraînera des frais de sortie supplémentaires facturés par votre fournisseur de cloud.)
 
 . Dans la page _Sélectionner la destination_, sélectionnez le *système* sur lequel vous souhaitez restaurer le volume.
 . Lors de la restauration d'un fichier de sauvegarde à partir du stockage d'objets, si vous sélectionnez un système ONTAP local et que vous n'avez pas déjà configuré la connexion du cluster au stockage d'objets, vous êtes invité à fournir des informations supplémentaires :
@@ -195,7 +195,7 @@ Vous retournez au tableau de bord de restauration afin de pouvoir consulter la p
 .Résultat
 NetApp Backup and Recovery crée un nouveau volume basé sur la sauvegarde que vous avez sélectionnée.
 
-Notez que la restauration d’un volume à partir d’un fichier de sauvegarde résidant dans un stockage d’archives peut prendre plusieurs minutes ou heures selon le niveau d’archivage et la priorité de restauration.  Vous pouvez sélectionner l'onglet *Surveillance des tâches* pour voir la progression de la restauration.
+La restauration d'un volume à partir d'un fichier de sauvegarde stocké dans le stockage d'archivage peut prendre plusieurs minutes ou plusieurs heures selon le niveau d'archivage et la priorité de restauration. Vous pouvez sélectionner l'onglet *Job Monitoring* pour voir la progression de la restauration.
 
 
 

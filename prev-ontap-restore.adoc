@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: prev-ontap-restore.html 
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
-summary: Vous pouvez utiliser la fonction Rechercher et restaurer pour récupérer des volumes, des dossiers ou des fichiers à partir de fichiers de sauvegarde ONTAP. 
+summary: 'Comparez Parcourir et restaurer avec Rechercher et restaurer, et choisissez comment restaurer des volumes, dossiers ou fichiers ONTAP à partir d"instantanés, de volumes répliqués ou de fichiers de sauvegarde.' 
 ---
 = Options de restauration des données ONTAP dans NetApp Backup and Recovery
 :hardbreaks:
@@ -26,7 +26,7 @@ NOTE: Lorsque vous restaurez un volume activé SnapLock, le volume restauré con
 
 Vous avez besoin d'une licence NetApp Backup and Recovery valide pour restaurer des données sur un système de production.
 
-Pour résumer, voici les flux valides que vous pouvez utiliser pour restaurer des données de volume sur un système ONTAP :
+Ces flux sont valides pour restaurer des données de volume sur un système ONTAP :
 
 * Fichier de sauvegarde -> volume restauré
 * Volume répliqué -> volume restauré
@@ -58,7 +58,7 @@ Le tableau de bord de restauration propose deux manières différentes de restau
 
 De manière générale, _Parcourir et restaurer_ est généralement préférable lorsque vous devez restaurer un volume, un dossier ou un fichier spécifique datant de la semaine ou du mois précédent et que vous connaissez le nom et l’emplacement du fichier ainsi que la date à laquelle il était en bon état. _Rechercher et restaurer_ est généralement préférable lorsque vous devez restaurer un volume, un dossier ou un fichier, mais que vous ne vous souvenez pas du nom exact, du volume dans lequel il se trouve ou de la date à laquelle il était en bon état.
 
-Ce tableau fournit une comparaison des fonctionnalités des deux méthodes.
+Le tableau compare les caractéristiques des deux méthodes.
 
 [cols="50,50"]
 |===
@@ -73,7 +73,7 @@ Ce tableau fournit une comparaison des fonctionnalités des deux méthodes.
 
 | La restauration rapide est prise en charge. | La restauration rapide n'est pas prise en charge. 
 |===
-Ce tableau fournit une liste d’opérations de restauration valides en fonction de l’emplacement où résident vos fichiers de sauvegarde.
+Le tableau répertorie les opérations de restauration valides pour chaque emplacement où se trouvent vos fichiers de sauvegarde.
 
 [cols="14h,14,14,14,14,14,14"]
 |===
@@ -91,7 +91,7 @@ Ce tableau fournit une liste d’opérations de restauration valides en fonction
 
 | Fichier de sauvegarde | Oui | Oui | Oui | Oui | Oui | Oui 
 |===
-Avant d'utiliser l'une ou l'autre méthode de restauration, configurez votre environnement pour qu'il réponde aux exigences en ressources.  Consultez les sections suivantes pour plus de détails.
+Avant d'utiliser l'une ou l'autre méthode de restauration, configurez votre environnement afin qu'il réponde aux exigences en ressources.
 
 Consultez les exigences et les étapes de restauration pour le type d’opération de restauration que vous souhaitez utiliser :
 

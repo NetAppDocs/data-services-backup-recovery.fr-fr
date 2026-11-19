@@ -126,8 +126,8 @@ Les options de destination s'affichent.
 
 
 
-[[restore-to-specific-point-in-time]]
-=== Restaurer à un moment précis
+[[restore-to-a-specific-point-in-time]]
+=== Restaurer à un moment précis dans le temps
 
 NetApp Backup and Recovery utilise les journaux et les instantanés les plus récents pour créer une restauration ponctuelle de vos données.
 

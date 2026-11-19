@@ -16,7 +16,7 @@ summary: 'Clonez les données d"une application Microsoft SQL Server à des fins
 [role="lead"]
 Créez, actualisez, divisez et supprimez des clones de Microsoft SQL Server à des fins de développement, de test ou de protection.
 
-Choisissez entre les types de clones suivants :
+Choisissez l'un de ces types de clones:
 
 * * Instantané instantané et clone * : vous pouvez créer un clone de vos charges de travail Microsoft SQL Server à partir d'un instantané instantané, qui est une copie ponctuelle des données sources créées à partir d'une sauvegarde. Le clone est stocké dans un magasin d’objets dans votre compte cloud public ou privé. Vous pouvez utiliser le clone pour restaurer vos charges de travail en cas de perte ou de corruption de données.
 * *Cloner à partir d'un snapshot existant* : vous pouvez choisir un snapshot existant dans une liste de snapshots disponibles pour la charge de travail.  Cette option est utile si vous souhaitez créer un clone à partir d’un moment précis.  Cloner vers un stockage principal ou secondaire.
@@ -83,7 +83,7 @@ Vous pouvez également sélectionner *Suffixe* dans la liste déroulante du nom 
 . Complétez la section *Options avancées*.
 . Si vous choisissez *Instant snapshot and clone*, complétez les options suivantes :
 +
-** *Planification et expiration de l'actualisation du clone* : Saisissez la date à laquelle commencer l'actualisation du clone. La planification de l'actualisation définit le moment où l'actualisation du clone commence.
+** *Planification et expiration de l'actualisation du clone* : saisissez la date de début de l'actualisation du clone. La planification de l'actualisation définit le moment où l'actualisation du clone commence.
 +
 *** *Supprimer le clone si la planification expire* : Sélectionnez cette option pour supprimer le clone lorsque la planification expire.
 *** *Actualiser le clone toutes les* : Sélectionnez la fréquence d’actualisation. Vous pouvez choisir d’actualiser le clone toutes les heures, tous les jours, toutes les semaines, tous les mois ou tous les trimestres. Cette option permet de synchroniser le clone avec la charge de travail source.
@@ -114,7 +114,7 @@ Vous avez la possibilité de modifier le nom de la base de données, d'utiliser 
 . Complétez la section *Paramètres avancés* :
 +
 ** *Étendue de la récupération* : choisissez de récupérer toutes les sauvegardes de journaux ou les sauvegardes de journaux jusqu'à un moment précis.  Cette option est utile si vous souhaitez récupérer le clone à un moment précis.
-** *Planification et expiration de l'actualisation du clone* : Saisissez la date à laquelle commencer l'actualisation du clone. La planification de l'actualisation définit le moment où l'actualisation du clone commence.
+** *Planification et expiration de l'actualisation du clone* : saisissez la date de début de l'actualisation du clone. La planification de l'actualisation définit le moment où l'actualisation du clone commence.
 +
 *** *Supprimer le clone si la planification expire* : Sélectionnez cette option pour supprimer le clone lorsque la planification expire.
 *** *Actualiser le clone toutes les* : Sélectionnez la fréquence d’actualisation. Vous pouvez choisir d’actualiser le clone toutes les heures, tous les jours, toutes les semaines, tous les mois ou tous les trimestres. Cette option permet de synchroniser le clone avec la charge de travail source.

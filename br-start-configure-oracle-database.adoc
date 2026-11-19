@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-start-configure-oracle-database.html 
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, workloads, protect, Oracle, configure 
-summary: Configurez votre base de données Oracle dans NetApp Backup and Recovery. 
+summary: 'Configurez les paramètres d"une base de données Oracle autonome ou en cluster dans NetApp Backup and Recovery.' 
 ---
 = Configurer une base de données Oracle dans NetApp Backup and Recovery
 :hardbreaks:

@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: br-start-setup.html 
 keywords: backup, back up, restore, recovery, aws, azure 
-summary: 'Préparez un emplacement hors site, tel que StorageGRID, AWS ou Azure, et configurez les autorisations requises pour qu"il puisse servir de destination de sauvegarde.' 
+summary: Configurez les destinations de sauvegarde et les autorisations S3 pour NetApp Backup and Recovery. 
 ---
-= Configurer les destinations de sauvegarde
+= Configurez les destinations de sauvegarde pour NetApp Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -50,7 +50,7 @@ Procédez comme suit pour préparer AWS comme destination de sauvegarde :
 
 
 
-Après avoir configuré les options dans la destination de sauvegarde elle-même, vous la configurerez ensuite comme destination de sauvegarde dans NetApp Backup and Recovery. Pour plus d'informations sur la configuration de la destination de sauvegarde dans NetApp Backup and Recovery, consultez link:br-start-discover-backup-targets.html["Découvrir les cibles de sauvegarde"].
+Après avoir configuré la destination de sauvegarde elle-même, ajoutez-la comme destination de sauvegarde dans NetApp Backup and Recovery. Pour plus de détails sur la configuration de la destination de sauvegarde dans NetApp Backup and Recovery, consultez link:br-start-discover-backup-targets.html["Découvrir les cibles de sauvegarde"].
 
 
 
@@ -64,12 +64,12 @@ Vous devrez configurer deux ensembles d’autorisations AWS S3 :
 
 
 .Étapes
-. Assurez-vous que l’agent de la console dispose des autorisations requises.  Pour plus de détails, voir https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-aws.html["Autorisations de stratégie de la NetApp Console"] .
+. Vérifiez que le Console agent dispose des autorisations requises. Pour plus de détails, consultez https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-aws.html["Autorisations de stratégie de la NetApp Console"].
 +
 
 NOTE: Lors de la création de sauvegardes dans les régions AWS Chine, vous devez modifier le nom de ressource AWS « arn » sous toutes les sections _Resource_ dans les politiques IAM de « aws » à « aws-cn » ; par exemple `arn:aws-cn:s3:::netapp-backup-*` .
 
-. Lorsque vous activez le service, l’assistant de sauvegarde vous invite à saisir une clé d’accès et une clé secrète.  Ces informations d’identification sont transmises au cluster ONTAP afin ONTAP puisse sauvegarder et restaurer les données dans le bucket S3.  Pour cela, vous devrez créer un utilisateur IAM avec les autorisations suivantes.
+. Lorsque vous activez le service, l'assistant de sauvegarde vous invite à saisir une clé d'accès et une clé secrète. Ces informations d'identification sont transmises au cluster ONTAP afin qu'ONTAP puisse sauvegarder et restaurer les données dans le compartiment S3. Pour cela, vous devrez créer un utilisateur IAM disposant des autorisations suivantes.
 +
 Voir le https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html["Documentation AWS : Création d'un rôle pour déléguer des autorisations à un utilisateur IAM"^].
 

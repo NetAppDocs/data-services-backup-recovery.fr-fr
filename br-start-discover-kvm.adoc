@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-start-discover-kvm.html 
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, KVM, workloads, protect 
-summary: NetApp Backup and Recovery doit d’abord découvrir les charges de travail afin que vous puissiez les protéger. 
+summary: 'Ajoutez une plateforme de gestion et un hôte KVM pour découvrir les workloads KVM dans NetApp Backup and Recovery, puis consultez l"état de la protection sur le tableau de bord.' 
 ---
 = Découvrez les charges de travail KVM dans NetApp Backup and Recovery
 :hardbreaks:
@@ -90,5 +90,5 @@ La charge de travail KVM s'affiche dans la liste des charges de travail sur la p
 . Dans le menu de la NetApp Console , sélectionnez *Protection* > *Sauvegarde et récupération*.
 . Sélectionnez la vignette de charge de travail KVM.
 . Dans le menu Sauvegarde et récupération, sélectionnez *Tableau de bord*.
-. Examiner l’état de santé de la protection des données.  Le nombre de charges de travail à risque ou protégées augmente en fonction des charges de travail nouvellement découvertes, protégées et sauvegardées.
+. Évaluez l'état de la protection des données. Le nombre de charges de travail à risque ou protégées augmente en fonction des charges de travail nouvellement découvertes, protégées et sauvegardées.
 

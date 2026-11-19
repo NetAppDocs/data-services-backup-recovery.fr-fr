@@ -43,7 +43,7 @@ Activez le service de sauvegarde et de restauration dans la NetApp Console.
 Activez le service de sauvegarde et de restauration dans le déploiement local de la NetApp Console.
 
 .Avant de commencer
-Assurez-vous d'avoir obtenu une licence pour NetApp Backup and Recovery. Voir  https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-data-services-licenses.html#obtain-a-license-file["Obtenir une licence"^] pour plus d'informations.
+Confirmez que vous disposez d'une licence pour NetApp Backup and Recovery. Consultez https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-data-services-licenses.html#obtain-a-license-file["Obtenir une licence"^] pour plus d'informations.
 
 .Étapes
 . Dans le menu NetApp Console, sélectionnez *Stockage* > *Flottes*.

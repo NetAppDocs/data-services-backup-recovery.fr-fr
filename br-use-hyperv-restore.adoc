@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-use-hyperv-restore.html 
 keywords: restore, vm, virtual machine, snapshots, object storage, cloud storage, backing up, back up, backup, Amazon Web services, AWS, NetApp Backup and Recovery 
-summary: Protégez vos charges de travail Hyper-V avec NetApp Backup and Recovery. 
+summary: 'Restaurez les workloads Hyper-V à partir d"instantanés locaux, d"un stockage secondaire ou d"un stockage objet vers leur emplacement d"origine ou un autre emplacement à l"aide de NetApp Backup and Recovery.' 
 ---
 = Restaurer les charges de travail Hyper-V avec NetApp Backup and Recovery
 :hardbreaks:
@@ -32,7 +32,7 @@ Vous pouvez restaurer les données vers ces destinations :
 
 
 .Considérations relatives à la restauration à partir du stockage d'objets
-Si vous sélectionnez un fichier de sauvegarde dans le stockage d'objets et que la protection contre les ransomwares est active pour cette sauvegarde parce que vous avez activé DataLock et la protection contre les ransomwares dans la règle de sauvegarde, vous êtes invité à effectuer une vérification d'intégrité supplémentaire avant de restaurer les données. Nous vous recommandons d'effectuer cette analyse.
+Si vous avez activé DataLock et la protection contre les ransomwares dans les règles de sauvegarde, la protection contre les ransomwares est active pour la sauvegarde. Lorsque vous sélectionnez ce fichier de sauvegarde dans le stockage d'objets, un message vous invite à effectuer une vérification d'intégrité supplémentaire avant de restaurer les données. Nous vous recommandons d'effectuer cette analyse.
 
 
 TIP: Des frais de sortie supplémentaires seront facturés par votre fournisseur de cloud pour accéder au contenu du fichier de sauvegarde.
@@ -42,7 +42,7 @@ TIP: Des frais de sortie supplémentaires seront facturés par votre fournisseur
 [[how-restoring-workloads-works]]
 == Comment fonctionne la restauration des charges de travail
 
-Lors de la restauration d'une charge de travail, les événements suivants se produisent :
+Lorsque vous restaurez un workload :
 
 * Lorsque vous restaurez une charge de travail à partir d'un fichier de sauvegarde local, NetApp Backup and Recovery crée une _nouvelle_ ressource à l'aide des données de la sauvegarde.
 * Lorsque vous effectuez une restauration à partir d’une charge de travail répliquée, vous pouvez restaurer la charge de travail sur le système d’origine ou sur un système ONTAP local.
@@ -64,7 +64,7 @@ Restaurez les charges de travail Hyper-V à l'aide du menu Restaurer. Vous pouve
 . Dans la liste déroulante à droite du champ de recherche de nom, sélectionnez *Hyper-V*.
 . Saisissez le nom de la ressource que vous souhaitez restaurer, ou filtrez par nom de machine virtuelle, hôte de machine virtuelle ou pool de stockage où se trouve la ressource.
 +
-Une liste d'instantanés correspondant à vos critères de recherche apparaît.
+Une liste de snapshots correspondant à vos critères de recherche s'affiche.
 
 . Sélectionnez le bouton *Restaurer* pour l’instantané que vous souhaitez restaurer.
 +
@@ -84,7 +84,7 @@ Une liste de points de restauration possibles apparaît.
 .Restaurer à l'emplacement d'origine
 --
 .. Sélectionnez le volet *Emplacement d'origine*. Lorsque vous restaurez vers l'emplacement d'origine, vous pouvez consulter les paramètres de destination en développant la section *Paramètres de destination*, mais vous ne pouvez pas les modifier.
-.. Dans la section *Options post-restauration*, considérez l'option suivante :
+.. Dans la section *Options post-restauration*, tenez compte de cette option:
 +
 *** *Démarrer la machine virtuelle* : Activez cette option pour démarrer la nouvelle machine virtuelle après sa restauration.
 
@@ -95,7 +95,7 @@ Une liste de points de restauration possibles apparaît.
 .Restaurer vers un autre emplacement
 --
 .. Sélectionnez le volet *Emplacement alternatif*.
-.. Dans la section *Paramètres de destination*, saisissez les informations suivantes :
+.. Dans la section *Paramètres de destination*, saisissez les informations suivantes :
 +
 *** *Nom de domaine complet ou adresse IP Hyper-V* : Saisissez le nom de domaine complet ou l’adresse IP de l’hôte Hyper-V de destination.
 *** *Réseau* : Sélectionnez le réseau de destination sur lequel vous souhaitez restaurer l’instantané.
@@ -108,12 +108,12 @@ Une liste de points de restauration possibles apparaît.
 *** *Modifier l'emplacement de stockage par défaut* : activez cette option pour restaurer une sauvegarde d'objets vers un autre emplacement si l'emplacement de stockage source est inaccessible ou saturé. Choisissez un autre cluster, une autre machine virtuelle de stockage ou un autre agrégat à utiliser.
 
 
-.. Dans la section *Options de pré-restauration*, prenez en compte les options suivantes :
+.. Dans la section *Options de pré-restauration*, tenez compte des options suivantes:
 +
 *** *Restauration rapide* : Activez cette option pour rendre la machine virtuelle restaurée immédiatement disponible. Seuls les fichiers nécessaires au fonctionnement de la machine virtuelle sont restaurés à partir du stockage d'objets, et non la totalité du volume.
 
 
-.. Dans la section *Options post-restauration*, prenez en compte les options suivantes :
+.. Dans la section *Options post-restauration*, envisagez les options suivantes :
 +
 *** *Démarrer la machine virtuelle* : Activez cette option pour démarrer la nouvelle machine virtuelle après sa restauration.
 

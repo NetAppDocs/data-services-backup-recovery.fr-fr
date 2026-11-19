@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: prev-ontap-backup-cvo-gcp.html 
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
-summary: Protégez vos charges de travail VMware avec NetApp Backup and Recovery. 
+summary: Sauvegardez les volumes Cloud Volumes ONTAP dans Google Cloud Storage avec NetApp Backup and Recovery, y compris la préparation de l’agent Console, des autorisations et des clés de chiffrement. 
 ---
-= Sauvegardez Cloud Volumes ONTAP sur Google Cloud Storage avec NetApp Backup and Recovery
+= Sauvegardez Cloud Volumes ONTAP sur Google Cloud avec NetApp Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -24,7 +24,7 @@ NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Reco
 [[verify-support-for-your-configuration]]
 == Vérifiez la prise en charge de votre configuration
 
-Lisez les exigences suivantes pour vous assurer que vous disposez d'une configuration prise en charge avant de commencer à sauvegarder des volumes sur Google Cloud Storage.
+Vérifiez que vous disposez d'une configuration prise en charge avant de commencer à sauvegarder des volumes dans Google Cloud Storage.
 
 L'image suivante montre chaque composant et les connexions que vous devez préparer entre eux.
 
@@ -34,7 +34,7 @@ image:diagram_cloud_backup_cvo_google.png["Un diagramme montrant comment NetApp 
 
 Versions ONTAP prises en charge:: Minimum ONTAP 9.8 ; ONTAP 9.8P13 et versions ultérieures sont recommandés.
 Régions GCP prises en charge:: NetApp Backup and Recovery est pris en charge dans toutes les régions GCP.
-Compte de service GCP:: Vous devez disposer d’un compte de service dans votre projet Google Cloud doté du rôle personnalisé. https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-creating-gcp-service-account.html["Apprenez à créer un compte de service"^] .
+Compte de service GCP:: Vous avez besoin d'un compte de service dans votre projet Google Cloud qui possède le rôle personnalisé https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-creating-gcp-service-account.html["Apprenez à créer un compte de service"^].
 
 
 
@@ -146,7 +146,7 @@ Si vous prévoyez de créer des volumes répliqués sur un système ONTAP second
 * Si le cluster est sur site, vous devez disposer d’une connexion entre votre réseau d’entreprise et votre réseau virtuel chez le fournisseur de cloud. Il s’agit généralement d’une connexion VPN.
 * Les clusters ONTAP doivent répondre à des exigences supplémentaires en matière de sous-réseau, de port, de pare-feu et de cluster.
 +
-Étant donné que vous pouvez répliquer vers Cloud Volumes ONTAP ou vers des systèmes locaux, examinez les exigences de peering pour les systèmes ONTAP locaux. https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html["Consultez les conditions préalables pour le peering de cluster dans la documentation ONTAP"^] .
+Étant donné que vous pouvez répliquer vers Cloud Volumes ONTAP ou des systèmes sur site, examinez les exigences de peering pour les systèmes ONTAP sur site https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html["Consultez les conditions préalables pour le peering de cluster dans la documentation ONTAP"^].
 
 
 
@@ -305,7 +305,7 @@ cloudkms.keyRings.setIamPolicy
 
 * Les clés HSM (protégées par le matériel) et les clés générées par logiciel sont prises en charge.
 * Les clés Cloud KMS nouvellement créées ou importées sont prises en charge.
-* Seules les clés régionales sont prises en charge, les clés globales ne sont pas prises en charge.
+* Seules les clés régionales sont prises en charge. Les clés globales ne sont pas prises en charge.
 * Actuellement, seul l'objectif « Cryptage/décryptage symétrique » est pris en charge.
 * L'agent de service associé au compte de stockage se voit attribuer le rôle IAM « CryptoKey Encrypter/Decrypter (roles/cloudkms.cryptoKeyEncrypterDecrypter) » par NetApp Backup and Recovery.
 
@@ -369,7 +369,7 @@ Vous pouvez choisir de protéger les volumes FlexVol ou FlexGroup ; cependant, 
 
 ====
 .Étapes
-Notez que si des règles de snapshot ou de réplication sont déjà appliquées aux volumes que vous choisissez, les règles que vous sélectionnerez ultérieurement écraseront ces règles existantes.
+Si des stratégies de snapshot ou de réplication sont déjà appliquées aux volumes que vous choisissez, les stratégies que vous sélectionnerez ultérieurement remplaceront ces stratégies existantes.
 
 . Dans la page Sélectionner les volumes, sélectionnez le ou les volumes que vous souhaitez protéger.
 +

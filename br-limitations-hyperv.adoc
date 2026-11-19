@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-limitations-hyperv.html 
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Hyper-V, SAP HANA database, virtual machine, vm 
-summary: 'Veuillez prendre connaissance de ces limitations de NetApp Backup and Recovery avant d"utiliser Backup and Recovery dans votre environnement.' 
+summary: Consultez les limitations et les actions non prises en charge pour les workloads Hyper-V avant d’utiliser NetApp Backup and Recovery pour protéger les machines virtuelles. 
 ---
 = Limitations connues de NetApp Backup and Recovery pour les charges de travail Hyper-V
 :hardbreaks:
@@ -21,10 +21,10 @@ Consultez les limitations actuelles et les actions non prises en charge pour les
 [[unsupported-actions]]
 == Actions non prises en charge
 
-Les actions suivantes ne sont pas prises en charge pour les charges de travail Hyper-V dans NetApp Backup and Recovery :
+NetApp Backup and Recovery ne prend pas en charge ces actions pour les workloads Hyper-V :
 
 * Dans la version préliminaire de Backup and Recovery pour le déploiement local de NetApp Console, les sauvegardes vers le stockage objet sont prises en charge uniquement pour les destinations ONTAP S3 et StorageGRID. L'archivage des sauvegardes n'est pas pris en charge dans cette version préliminaire.
 * NetApp Backup and Recovery ne prend actuellement pas en charge la protection des LUN Hyper-V hébergées sur des volumes FlexGroup.
 * Vous ne pouvez pas créer de groupes de ressources avec des machines virtuelles provenant de plusieurs hôtes Hyper-V.
-* Il est impossible de restaurer des machines virtuelles ou leurs données entre des systèmes équipés de processeurs de fournisseurs différents (Intel vers AMD ou inversement), quel que soit le paramètre « Compatibilité du processeur » dans Hyper-V. Ce paramètre ne prend en charge que la compatibilité entre différentes générations d'un même fournisseur (par exemple, Intel vers Intel ou AMD vers AMD).
+* Il est impossible de restaurer des machines virtuelles ou leurs données entre des systèmes équipés de processeurs de fournisseurs différents (Intel vers AMD ou inversement), quel que soit le paramètre "Processor compatibility" dans Hyper-V. Ce paramètre ne prend en charge que la compatibilité entre différentes générations d'un même fournisseur (par exemple, Intel vers Intel ou AMD vers AMD).
 

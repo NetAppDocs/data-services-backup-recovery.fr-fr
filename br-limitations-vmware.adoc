@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-limitations-vmware.html 
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, vmware, vcenter 
-summary: 'Veuillez prendre connaissance de ces limitations de NetApp Backup and Recovery avant d"utiliser Backup and Recovery dans votre environnement.' 
+summary: Avant de protéger des machines virtuelles, veuillez consulter les limitations connues des workloads VMware dans NetApp Backup and Recovery. 
 ---
 = Limitations connues des charges de travail VMware dans NetApp Backup and Recovery
 :hardbreaks:

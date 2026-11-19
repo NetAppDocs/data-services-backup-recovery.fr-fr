@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: prev-ontap-backup-manage.html 
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
-summary: Avec NetApp Backup and Recovery, gérez les sauvegardes de vos systèmes Cloud Volumes ONTAP et ONTAP sur site en modifiant la planification de sauvegarde, en activant les sauvegardes de volume, en suspendant les sauvegardes, en supprimant les sauvegardes, etc.  Vous pouvez également désinscrire NetApp Backup and Recovery. 
+summary: Gérez les sauvegardes pour Cloud Volumes ONTAP et les systèmes ONTAP sur site en modifiant les planifications, en suspendant ou en supprimant les sauvegardes, en exécutant des analyses de ransomware et en désenregistrant le service. 
 ---
 = Gérez les sauvegardes de vos systèmes ONTAP avec NetApp Backup and Recovery
 :hardbreaks:
@@ -17,7 +17,7 @@ summary: Avec NetApp Backup and Recovery, gérez les sauvegardes de vos système
 Utilisez NetApp Backup and Recovery pour gérer les sauvegardes de snapshots, la réplication et les sauvegardes sur stockage d’objets pour vos systèmes Cloud Volumes ONTAP et ONTAP sur site. Vous pouvez modifier les planifications, activer ou désactiver les sauvegardes de volumes, suspendre les sauvegardes, supprimer les sauvegardes et désenregistrer le service.
 
 
-CAUTION: Ne gérez pas et ne modifiez pas les fichiers de sauvegarde directement sur vos systèmes de stockage ou depuis l'environnement de votre fournisseur de cloud.  Cela peut corrompre les fichiers et entraîner une configuration non prise en charge.
+CAUTION: Ne gérez ni ne modifiez directement les fichiers de sauvegarde sur vos systèmes de stockage ou depuis l'environnement de votre fournisseur de cloud. Cela pourrait corrompre les fichiers et entraîner une configuration non prise en charge.
 
 
 NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Recovery , reportez-vous àlink:br-start-switch-ui.html["Basculer vers différentes charges de travail de NetApp Backup and Recovery"] .
@@ -83,7 +83,7 @@ Lorsque vous travaillez avec plusieurs volumes, tous les volumes doivent avoir c
 
 * même système
 * même style (volume FlexVol ou FlexGroup )
-* même type (volume en lecture-écriture ou de protection des données)
+* même type (volume de lecture/écriture ou de protection des données)
 
 
 Lorsque plus de cinq volumes sont activés pour la sauvegarde, NetApp Backup and Recovery n'initialise que cinq volumes à la fois. Une fois ces étapes terminées, le processus se poursuit par groupes de 5 jusqu'à ce que tous les volumes soient initialisés.
@@ -128,7 +128,7 @@ Le nom de la sauvegarde inclut l’horodatage afin que vous puissiez identifier 
 
 Si vous avez activé _DataLock et la protection contre les ransomwares_ lors de l’activation de NetApp Backup and Recovery pour ce cluster, la sauvegarde à la demande sera également configurée avec DataLock, et la période de rétention sera de 30 jours. Les analyses de ransomware ne sont pas prises en charge pour les sauvegardes ad hoc. link:prev-ontap-policy-object-options.html["En savoir plus sur DataLock et la protection contre les ransomwares"^].
 
-Lors de la création d'une sauvegarde ad hoc, un instantané est créé sur le volume source. Cet instantané n'étant pas inclus dans une planification d'instantanés régulière, il ne sera pas supprimé. Vous pouvez supprimer manuellement cet instantané du volume source une fois la sauvegarde terminée. Cela permettra de libérer les blocs associés à cet instantané. Le nom de l'instantané commencera par `cbs-snapshot-adhoc-`. https://docs.netapp.com/us-en/ontap/san-admin/delete-all-existing-snapshot-copies-volume-task.html["Découvrez comment supprimer un instantané à l'aide de l'interface de ligne de commande ONTAP."^].
+Lors de la création d'une sauvegarde ad hoc, un instantané est créé sur le volume source. Cet instantané n'étant pas inclus dans une planification normale des instantanés, il ne sera pas supprimé automatiquement. Vous pouvez supprimer manuellement cet instantané du volume source une fois la sauvegarde terminée. Cela permettra de libérer les blocs associés à cet instantané. Le nom de l'instantané commencera par `cbs-snapshot-adhoc-`. https://docs.netapp.com/us-en/ontap/san-admin/delete-all-existing-snapshot-copies-volume-task.html["Découvrez comment supprimer un instantané à l'aide de l'interface de ligne de commande ONTAP."^].
 
 
 NOTE: La sauvegarde de volume à la demande n'est pas prise en charge sur les volumes de protection des données.
@@ -203,7 +203,7 @@ Le tableau suivant décrit les actions disponibles :
 | Suspendre la réplication | Interrompez le transfert incrémentiel des instantanés pour mettre à jour le volume de destination. Vous pouvez reprendre plus tard si vous souhaitez redémarrer les mises à jour incrémentielles. 
 
 
-| Interrompre la réplication | Rompt la relation entre les volumes source et de destination et active le volume de destination pour l'accès aux données - le rend en lecture-écriture.  Cette option est généralement utilisée lorsque le volume source ne peut pas fournir de données en raison d'événements tels qu'une corruption de données, une suppression accidentelle ou un état hors ligne.https://docs.netapp.com/us-en/ontap-sm-classic/volume-disaster-recovery/index.html["Découvrez comment configurer un volume de destination pour l'accès aux données et réactiver un volume source dans la documentation ONTAP"^] 
+| Interrompre la réplication | Rompt la relation entre les volumes source et de destination et active le volume de destination pour l'accès aux données, en le faisant passer en lecture/écriture. Cette option est généralement utilisée lorsque le volume source ne peut pas servir les données en raison d'événements tels que la corruption des données, une suppression accidentelle ou un état hors ligne. https://docs.netapp.com/us-en/ontap-sm-classic/volume-disaster-recovery/index.html["Découvrez comment configurer un volume de destination pour l'accès aux données et réactiver un volume source dans la documentation ONTAP"^] 
 
 
 | Abandonner la réplication | Désactive les sauvegardes de ce volume sur le système de destination et désactive également la possibilité de restaurer un volume.  Les sauvegardes existantes ne seront pas supprimées.  Cela ne supprime pas la relation de protection des données entre les volumes source et de destination. 
@@ -212,7 +212,7 @@ Le tableau suivant décrit les actions disponibles :
 | Resynchronisation inversée | Inverse les rôles des volumes source et de destination. Le contenu du volume source d'origine est écrasé par le contenu du volume de destination. Cela est utile lorsque vous souhaitez réactiver un volume source qui est devenu hors ligne. Toutes les données écrites sur le volume source d’origine entre la dernière réplication de données et le moment où le volume source a été désactivé ne sont pas conservées. 
 
 
-| Supprimer la relation | Supprime la relation de protection des données entre les volumes source et de destination, ce qui signifie que la réplication des données ne se produit plus entre les volumes. Cette action n'active pas le volume de destination pour l'accès aux données, ce qui signifie qu'il n'est pas accessible en lecture-écriture.  Cette action supprime également la relation d'homologue de cluster et la relation d'homologue de machine virtuelle de stockage (SVM), s'il n'existe aucune autre relation de protection des données entre les systèmes. 
+| Supprimer la relation | Supprime la relation de protection des données entre les volumes source et de destination, ce qui signifie que la réplication des données n'a plus lieu entre les volumes. Cette action n'active pas le volume de destination pour l'accès aux données, c'est-à-dire qu'elle ne le rend pas accessible en lecture/écriture. Cette action supprime également la relation entre clusters et la relation d'homologue de la machine virtuelle de stockage (SVM), s'il n'existe aucune autre relation de protection des données entre les systèmes. 
 |===
 
 

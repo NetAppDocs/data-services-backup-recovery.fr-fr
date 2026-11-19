@@ -18,7 +18,7 @@ NOTE: Les modèles que vous créez ici ne sont utilisables que lors de la protec
 . Développez la section *Modèle de hook d'exécution*.
 . Sélectionnez *Créer un modèle de hook d'exécution*.
 . Entrez un nom pour le hook d’exécution.
-. Vous pouvez également choisir un type de hook. Par exemple, un hook post-restauration est exécuté une fois l'opération de restauration terminée.
+. Vous pouvez également choisir un type de hook. Par exemple, un hook post-restauration s'exécute une fois l'opération de restauration terminée.
 . Dans la zone de texte *Script*, saisissez le script shell exécutable que vous souhaitez exécuter dans le cadre du modèle de hook d'exécution.  Vous pouvez également sélectionner *Télécharger le script* pour télécharger un fichier de script à la place.
 . Sélectionnez *Créer*.
 +

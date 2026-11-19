@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-use-manage-kubernetes-clusters.html 
 keywords: discover, backup and recovery, snapcenter, kubernetes, k8s, clusters, applications, inventory 
-summary: NetApp Backup and Recovery vous permet de découvrir et de gérer vos clusters Kubernetes afin de protéger les ressources hébergées par les clusters. 
+summary: Découvrez et gérez les clusters Kubernetes, modifiez les détails du cluster, mettez à niveau Trident Protect et reconnectez ou migrez les clusters pour protéger les ressources hébergées. 
 ---
 = Gérez les clusters Kubernetes dans NetApp Backup and Recovery
 :hardbreaks:
@@ -24,7 +24,7 @@ NOTE: Pour découvrir les clusters Kubernetes, reportez-vous àlink:br-start-dis
 [[edit-kubernetes-cluster-information]]
 == Modifier les informations du cluster Kubernetes
 
-Vous pouvez modifier un cluster si vous devez changer son nom.
+Modifiez un cluster pour changer son nom.
 
 *Rôle de NetApp Console requis*
 
@@ -83,7 +83,7 @@ Super administrateur de sauvegarde et de restauration. link:reference-roles.html
 [[reconnect-a-kubernetes-cluster-to-a-console-agent]]
 == Reconnecter un cluster Kubernetes à un agent Console
 
-Si l'adresse IP de votre agent Console change (par exemple, après un redémarrage), votre cluster Kubernetes perd sa connexion à l'agent et vous devez vous reconnecter.
+Si l’adresse IP de votre agent Console change (par exemple, après un redémarrage), votre cluster Kubernetes perd sa connexion à l’agent et vous devez vous reconnecter.
 
 *Rôle de NetApp Console requis*
 
@@ -119,7 +119,7 @@ Super administrateur de sauvegarde et de restauration. link:reference-roles.html
 . Dans NetApp Backup and Recovery, sélectionnez *Inventaire* > *Clusters*.
 . Sélectionnez un cluster Kubernetes déconnecté, puis sélectionnez l’icône Action image:../media/icon-action.png["Option Actions"] > *Modifier le cluster* > *Gérer l’agent*.
 . Dans la liste, sélectionnez un nouvel agent Console.
-. Vérifiez les informations de l'agent pour vous assurer que le nouvel agent Console peut accéder aux systèmes, aux cibles de sauvegarde et aux cibles secondaires utilisées par les applications protégées sur ce cluster.
+. Vérifiez les informations de l’agent pour confirmer que le nouvel agent Console peut accéder aux systèmes, aux cibles de sauvegarde et aux cibles secondaires utilisées par les applications protégées sur ce cluster.
 . Copiez les instructions de ligne de commande pour chaque section et exécutez les commandes sur le cluster.
 +
 Cette opération recrée les secrets Kubernetes, redirige Trident Protect vers le nouvel agent Console et recharge les paramètres. Une fois les commandes exécutées, le cluster utilise le nouvel agent Console.

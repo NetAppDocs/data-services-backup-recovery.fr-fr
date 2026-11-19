@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-use-oracle-clone.html 
 keywords: clone, clone application data, Amazon Web Services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database, protection group 
-summary: Clonez vos charges de travail de base de données Oracle avec NetApp Backup and Recovery. 
+summary: Créez, planifiez, divisez et supprimez des clones de workloads de base de données Oracle avec NetApp Backup and Recovery. 
 ---
 = Clonez les charges de travail de base de données Oracle avec NetApp Backup and Recovery
 :hardbreaks:

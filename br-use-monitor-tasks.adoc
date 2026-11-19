@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-use-monitor-tasks.html 
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery, jobs 
-summary: Avec NetApp Backup and Recovery, surveillez les snapshots locaux, les réplications et les tâches de sauvegarde que vous démarrez. 
+summary: 'Surveillez les tâches de capture instantanée, de réplication, de sauvegarde et de restauration, consultez les alertes dans le Centre de notifications, examinez l"activité dans Console Timeline et annulez les tâches en cours.' 
 ---
 = Surveiller les tâches dans NetApp Backup and Recovery
 :hardbreaks:
@@ -271,7 +271,7 @@ https://docs.netapp.com/us-en/console-setup-admin/task-monitor-cm-operations.htm
 [[cancel-an-ongoing-job]]
 == Annuler une tâche en cours
 
-Certaines charges de travail de sauvegarde et de restauration permettent d'annuler une tâche en cours si elle prend trop de temps à se terminer et qu'elle n'a pas échoué.
+Certains workloads Backup and Recovery permettent d'annuler une tâche en cours si elle prend trop de temps à se terminer et qu'elle n'a pas échoué.
 
 
 NOTE: Pour annuler une tâche de restauration de volumes ONTAP, reportez-vous à <<Annuler une tâche de restauration de volumes ONTAP>>.
@@ -289,7 +289,7 @@ NOTE: Pour annuler une tâche de restauration de volumes ONTAP, reportez-vous à
 [[cancel-an-ontap-volumes-restore-job]]
 == Annuler une tâche de restauration de volumes ONTAP
 
-Annulez une tâche de restauration de volumes ONTAP si elle prend trop de temps à se terminer et n’a pas échoué.
+Annulez une tâche de restauration de volumes ONTAP si elle prend trop de temps à se terminer et qu'elle n'a pas échoué.
 
 Lorsque vous annulez une restauration de volume, l’intégralité de l’opération de restauration est annulée afin qu’aucune partie du volume ne soit restaurée.
 

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: reference-policy-differences-snapcenter.html 
 keywords: backup policy, backup policies, snapcenter, migration 
-summary: Il existe certaines différences entre les stratégies utilisées dans NetApp Backup and Recovery et celles utilisées dans SnapCenter. 
+summary: Comparez les niveaux de planification, la conservation et les étiquettes des règles de sauvegarde de SnapCenter et de NetApp Backup and Recovery pour comprendre comment les ressources et les règles importées changent. 
 ---
 = Différences de politique entre SnapCenter et NetApp Backup and Recovery
 :hardbreaks:
@@ -12,7 +12,7 @@ summary: Il existe certaines différences entre les stratégies utilisées dans 
 
 
 [role="lead"]
-Utilisez ce document de référence pour comprendre les différences de règles entre SnapCenter et NetApp Backup and Recovery qui peuvent affecter les ressources et les règles importées.
+SnapCenter et NetApp Backup and Recovery gèrent différemment les calendriers des règles, la conservation et les étiquettes, ce qui peut affecter les ressources et les règles importées.
 
 
 
@@ -69,9 +69,9 @@ NetApp Backup and Recovery ajuste les calendriers SnapCenter comme suit :
 
 Les politiques horaires SnapCenter avec des intervalles répétitifs supérieurs à une heure sont converties en politique quotidienne dans NetApp Backup and Recovery.
 
-Toute politique horaire avec des intervalles répétitifs qui ne sont pas un facteur de 24 (par exemple 5, 7, etc.) ignorera certains instantanés dans une journée.
+Toute politique horaire avec un intervalle de répétition qui n'est pas un facteur de 24, par exemple 5 ou 7, ignore certains snapshots sur une journée.
 
-*Exemple* : Si vous avez une politique SnapCenter horaire avec un intervalle de répétition toutes les 5 heures à partir de 1 h du matin, NetApp Backup and Recovery (après la migration) configurera la planification sur une base quotidienne avec des intervalles de 5 heures à 1 h, 6 h, 11 h, 16 h et 21 h. Certaines heures seront ignorées : après 21 h, cela devrait être 2 h du matin pour répéter toutes les 5 heures, mais ce sera toujours à 1 h du matin.
+*Exemple* : Si vous avez une règle horaire SnapCenter avec un intervalle de répétition toutes les 5 heures à partir de 1h00 du matin, NetApp Backup and Recovery (après migration) définira la planification sur une fréquence quotidienne avec des intervalles de 5 heures à 1h00, 6h00, 11h00, 16h00 et 21h00. Certaines heures sont ignorées. Après 21h00, le snapshot suivant devrait avoir lieu à 2h00 du matin pour se répéter toutes les 5 heures, mais il a toujours lieu à 1h00.
 
 
 

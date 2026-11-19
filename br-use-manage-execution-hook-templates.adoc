@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-use-manage-execution-hook-templates.html 
 keywords: hooks, execution hooks, exec hooks, hook, execution, script, postscript, prescript, post, pre, run, backup, snapshot, freeze 
-summary: 'NetApp Backup and Recovery vous permet de gérer les hooks d"exécution pour agir avant ou après les opérations de protection des applications.' 
+summary: Gérez les hooks d’exécution pour exécuter des scripts personnalisés avant ou après les opérations de protection sur les applications Kubernetes dans NetApp Backup and Recovery. 
 ---
 = Gérez les modèles de hooks d'exécution Kubernetes dans NetApp Backup and Recovery
 :hardbreaks:
@@ -92,7 +92,7 @@ NOTE: Les hooks d'exécution peuvent réduire ou désactiver la fonctionnalité 
 [[execution-hook-filters]]
 == Filtres de crochet d'exécution
 
-Lorsque vous ajoutez ou modifiez un hook d'exécution pour une application, vous pouvez ajouter des filtres au hook d'exécution afin de contrôler les conteneurs auxquels le hook correspond. Les filtres sont utiles pour les applications qui utilisent la même image de conteneur sur tous les conteneurs, mais peuvent utiliser chaque image à des fins différentes (comme Elasticsearch). Les filtres vous permettent de créer des scénarios où les hooks d'exécution s'exécutent sur certains, mais pas nécessairement sur tous les conteneurs identiques. Si vous créez plusieurs filtres pour un même hook d'exécution, ils sont combinés à l'aide de l'opérateur logique AND. Vous pouvez avoir jusqu'à 10 filtres actifs par hook d'exécution.
+Lorsque vous ajoutez ou modifiez un hook d'exécution pour une application, vous pouvez ajouter des filtres au hook d'exécution pour contrôler les conteneurs auxquels le hook correspond. Les filtres sont utiles pour les applications qui utilisent la même image de conteneur sur tous les conteneurs, mais peuvent utiliser chaque image à des fins différentes (comme Elasticsearch). Les filtres permettent aux hooks d'exécution de s'exécuter sur certains conteneurs identiques, mais pas sur tous. Si vous créez plusieurs filtres pour un seul hook d'exécution, ils sont combinés avec un opérateur logique ET. Vous pouvez avoir jusqu'à 10 filtres actifs par hook d'exécution.
 
 Chaque filtre que vous ajoutez à un hook d'exécution utilise une expression régulière pour faire correspondre les conteneurs de votre cluster. Lorsqu'un hook correspond à un conteneur, il exécute son script associé sur ce conteneur. Les expressions régulières pour les filtres utilisent la syntaxe Regular Expression 2 (RE2), qui ne permet pas de créer un filtre excluant des conteneurs de la liste des correspondances. Pour obtenir des informations sur la syntaxe que NetApp Backup and Recovery prend en charge pour les expressions régulières dans les filtres des hooks d'exécution, consultez  https://github.com/google/re2/wiki/Syntax["Prise en charge de la syntaxe des expressions régulières 2 (RE2)"^].
 
@@ -125,7 +125,7 @@ NOTE: Les modèles que vous créez ici ne sont utilisables que lors de la protec
 . Développez la section *Modèle de hook d'exécution*.
 . Sélectionnez *Créer un modèle de hook d'exécution*.
 . Entrez un nom pour le hook d’exécution.
-. Vous pouvez également choisir un type de hook. Par exemple, un hook post-restauration est exécuté une fois l'opération de restauration terminée.
+. Vous pouvez également choisir un type de hook. Par exemple, un hook post-restauration s'exécute une fois l'opération de restauration terminée.
 . Dans la zone de texte *Script*, saisissez le script shell exécutable que vous souhaitez exécuter dans le cadre du modèle de hook d'exécution.  Vous pouvez également sélectionner *Télécharger le script* pour télécharger un fichier de script à la place.
 . Sélectionnez *Créer*.
 +

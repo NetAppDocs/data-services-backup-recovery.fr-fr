@@ -18,7 +18,7 @@ Sauvegardez les bases de données Microsoft SQL Server à partir de systèmes ON
 
 NetApp Backup and Recovery utilise NetApp SnapMirror pour synchroniser les sauvegardes en créant des instantanés et en les transférant vers les emplacements de sauvegarde.
 
-Utilisez les workflows suivants pour protéger vos données :
+Utilisez ces flux de travail pour protéger vos données :
 
 * link:concept-start-prereq-snapcenter-import.html["Configurer des éléments supplémentaires en cas d'importation depuis SnapCenter"]
 * link:br-start-discover.html["Découvrez les charges de travail Microsoft SQL Server et importez éventuellement des ressources SnapCenter"]

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: prev-ontap-protect-migrate-pvc.html 
 keywords: migrate, pvc, nfs, storage, performance, persistence 
-summary: Améliorez les performances de l’index du catalogue dans les environnements de déploiement local de la NetApp Console. 
+summary: Migrez le stockage de l’index du catalogue de recherche et de restauration vers ONTAP NFS afin d’améliorer les performances dans les environnements de déploiement locaux de NetApp Console. 
 ---
 = Migrez le stockage du catalogue Search and Restore vers ONTAP NFS
 :hardbreaks:
@@ -58,7 +58,7 @@ kubectl get pods -n cbs | grep cloudmanager-cbs-catalog-worker- || echo "no work
 . Copiez les données du pod coordinateur en cours d'exécution dans le point de montage ONTAP, sans répertoire intermédiaire. Le coordinateur doit toujours être en cours d'exécution.
 +
 
-NOTE: Copiez le contenu à la racine du volume, pas dans un sous-répertoire. Le volume ONTAP est le nouveau `/opt/netapp/cbs/catalog/shared` répertoire. Les données doivent se trouver à la racine du volume afin que l’application les trouve aux mêmes chemins (par exemple, /opt/netapp/cbs/catalog/shared/cbs/<DATASET_NAME>...). Le format de la commande tar dans les commandes suivantes diffuse le contenu du répertoire (y compris les fichiers cachés) vers la racine du point de montage, évitant ainsi un dossier imbriqué `shared`.
+NOTE: Copiez le contenu à la racine du volume, et non dans un sous-répertoire. Le volume ONTAP est le nouveau `/opt/netapp/cbs/catalog/shared` répertoire. Les données doivent se trouver à la racine du volume afin que l’application les trouve aux mêmes chemins (par exemple, /opt/netapp/cbs/catalog/shared/cbs/<DATASET_NAME>/...). Le format de la commande tar dans les commandes suivantes transfère le contenu du répertoire (y compris les fichiers cachés) vers la racine du montage, évitant ainsi un dossier `shared` imbriqué.
 
 . Montez l’export NFS ONTAP sur un point de montage local dans le déploiement local de NetApp Console. Utilisez le même serveur et le même chemin que ceux que vous utiliserez ultérieurement dans pv.yaml :
 +
@@ -166,7 +166,7 @@ spec:
     matchLabels:
       volume: ontap-nfs-share # Forces binding to the specific PV above
 ----
-. Appliquez les objets YAML en commençant par le PV, puis le PVC (le PV doit exister pour que le sélecteur d'étiquette du PVC puisse s'y lier). Vérifiez ensuite que la revendication PVC est liée.
+. Appliquez d'abord le PV, puis le PVC (le PV doit exister pour que le sélecteur d'étiquettes du PVC puisse s'y lier). Vérifiez ensuite que la demande PVC est bien liée.
 +
 [source, shell]
 ----

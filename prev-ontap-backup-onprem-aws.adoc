@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: prev-ontap-backup-onprem-aws.html 
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
-summary: Protégez vos charges de travail VMware avec NetApp Backup and Recovery. 
+summary: 'Sauvegardez les données de volume des systèmes ONTAP sur site vers Amazon S3 avec NetApp Backup and Recovery, y compris la préparation de l"environnement et l"activation de la sauvegarde.' 
 ---
 = Sauvegardez les données ONTAP sur site sur Amazon S3 avec NetApp Backup and Recovery
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: Protégez vos charges de travail VMware avec NetApp Backup and Recovery
 
 
 [role="lead"]
-Dans NetApp Backup and Recovery, vous pouvez sauvegarder les données de volumes de vos systèmes ONTAP locaux vers un système de stockage secondaire et vers Amazon S3. Utilisez cette page pour préparer votre environnement et activer les sauvegardes.
+Sauvegardez les données de volume de vos systèmes ONTAP sur site vers un système de stockage secondaire et vers Amazon S3 avec NetApp Backup and Recovery. Préparez votre environnement, puis activez les sauvegardes.
 
 
 NOTE: Les « systèmes ONTAP sur site » incluent les systèmes FAS, AFF et ONTAP Select .
@@ -58,7 +58,7 @@ L'agent de console est le logiciel principal pour la fonctionnalité de la NetAp
 [[create-or-switch-console-agents]]
 === Créer ou changer d'agents de console
 
-Si vous disposez déjà d'un agent de console déployé dans votre AWS VPC ou sur vos locaux, vous êtes prêt.
+Si vous disposez déjà d’un agent Console déployé dans votre VPC AWS ou sur site, vous pouvez continuer.
 
 Sinon, vous devrez créer un agent de console dans l’un de ces emplacements pour sauvegarder les données ONTAP sur le stockage AWS S3.  Vous ne pouvez pas utiliser un agent de console déployé chez un autre fournisseur de cloud.
 
@@ -76,9 +76,9 @@ NetApp Backup and Recovery est pris en charge dans les régions GovCloud lorsque
 [[prepare-console-agent-networking-requirements]]
 === Préparer les exigences réseau de l'agent de console
 
-Assurez-vous que les exigences réseau suivantes sont respectées :
+Veuillez vérifier que les exigences réseau suivantes sont respectées :
 
-* Assurez-vous que le réseau sur lequel l’agent de console est installé permet les connexions suivantes :
+* Vérifiez que le réseau sur lequel le Console agent est installé autorise les connexions suivantes :
 +
 ** Une connexion HTTPS sur le port 443 vers NetApp Backup and Recovery et vers votre stockage d'objets S3(https://docs.netapp.com/us-en/console-setup-admin/task-set-up-networking-aws.html#endpoints-contacted-for-day-to-day-operations["voir la liste des points de terminaison"^] )
 ** Une connexion HTTPS via le port 443 vers votre LIF de gestion de cluster ONTAP
@@ -184,8 +184,8 @@ Tous les LIF interclusters au sein de l'espace IP doivent avoir accès au magasi
 
 * Les serveurs DNS doivent avoir été configurés pour la machine virtuelle de stockage où se trouvent les volumes.  Découvrez comment https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html["configurer les services DNS pour le SVM"^] .
 * Mettez à jour les règles de pare-feu, si nécessaire, pour autoriser les connexions NetApp Backup and Recovery d' ONTAP au stockage d'objets via le port 443 et le trafic de résolution de noms de la machine virtuelle de stockage vers le serveur DNS via le port 53 (TCP/UDP).
-* Si vous utilisez un point de terminaison d'interface VPC privé dans AWS pour la connexion S3, pour que HTTPS/443 soit utilisé, vous devrez charger le certificat de point de terminaison S3 dans le cluster ONTAP . <<Configurez votre système pour une connexion privée à l'aide d'une interface de point de terminaison VPC>>.
-* Assurez-vous que votre cluster ONTAP dispose des autorisations nécessaires pour accéder au compartiment S3.
+* Si vous utilisez un point de terminaison d'interface VPC privé dans AWS pour la connexion S3, pour utiliser HTTPS/443, chargez le certificat du point de terminaison S3 dans le cluster ONTAP. <<Configurez votre système pour une connexion privée à l'aide d'une interface de point de terminaison VPC>>.
+* Vérifiez que votre cluster ONTAP dispose des autorisations nécessaires pour accéder au compartiment S3.
 
 
 
@@ -202,7 +202,7 @@ Si vous prévoyez de créer des volumes répliqués sur un système ONTAP second
 * Si le cluster est sur site, vous devez disposer d’une connexion entre votre réseau d’entreprise et votre réseau virtuel chez le fournisseur de cloud. Il s’agit généralement d’une connexion VPN.
 * Les clusters ONTAP doivent répondre à des exigences supplémentaires en matière de sous-réseau, de port, de pare-feu et de cluster.
 +
-Étant donné que vous pouvez répliquer vers Cloud Volumes ONTAP ou vers des systèmes locaux, examinez les exigences de peering pour les systèmes ONTAP locaux. https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html["Consultez les conditions préalables pour le peering de cluster dans la documentation ONTAP"^] .
+Étant donné que vous pouvez répliquer vers Cloud Volumes ONTAP ou des systèmes sur site, examinez les exigences de peering pour les systèmes ONTAP sur site https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html["Consultez les conditions préalables pour le peering de cluster dans la documentation ONTAP"^].
 
 
 
@@ -238,7 +238,7 @@ Vous devrez configurer deux ensembles d’autorisations :
 
 
 .Étapes
-. Assurez-vous que l’agent de la console dispose des autorisations requises.  Pour plus de détails, voir https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-aws.html["Autorisations de stratégie de la NetApp Console"^] .
+. Vérifiez que l’agent Console dispose des autorisations requises. Pour plus de détails, consultez https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-aws.html["Autorisations de stratégie de la NetApp Console"^].
 +
 
 NOTE: Lors de la création de sauvegardes dans les régions AWS Chine, vous devez modifier le nom de ressource AWS « arn » sous toutes les sections _Resource_ dans les politiques IAM de « aws » à « aws-cn » ; par exemple `arn:aws-cn:s3:::netapp-backup-*` .
@@ -349,7 +349,7 @@ Si vous créez vos propres buckets, vous devez utiliser un nom de bucket « neta
 [[set-up-customer-managed-aws-keys-for-data-encryption]]
 === Configurer des clés AWS gérées par le client pour le chiffrement des données
 
-Si vous souhaitez utiliser les clés de chiffrement Amazon S3 par défaut pour chiffrer les données transmises entre votre cluster sur site et le compartiment S3, vous êtes prêt car l'installation par défaut utilise ce type de chiffrement.
+Si vous souhaitez utiliser les clés de chiffrement Amazon S3 par défaut pour chiffrer les données transmises entre votre cluster sur site et le compartiment S3, alors tout est prêt, car l'installation par défaut utilise ce type de chiffrement.
 
 Si, au lieu de cela, vous souhaitez utiliser vos propres clés gérées par le client pour le chiffrement des données plutôt que d'utiliser les clés par défaut, vous devrez alors avoir les clés gérées par le chiffrement déjà configurées avant de démarrer l'assistant de NetApp Backup and Recovery .
 
@@ -365,13 +365,13 @@ Consultez  https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/
 
 Si vous souhaitez utiliser une connexion Internet publique standard, toutes les autorisations sont définies par l'agent de la console et vous n'avez rien d'autre à faire.
 
-Si vous souhaitez disposer d'une connexion Internet plus sécurisée entre votre centre de données sur site et le VPC, vous pouvez sélectionner une connexion AWS PrivateLink dans l'assistant d'activation de sauvegarde.  Cela est nécessaire si vous prévoyez d'utiliser un VPN ou AWS Direct Connect pour connecter votre système sur site via une interface de point de terminaison VPC qui utilise une adresse IP privée.
+Pour une connexion plus sécurisée via Internet entre votre centre de données local et le VPC, vous pouvez sélectionner une connexion AWS PrivateLink dans l'assistant d'activation de Backup. Cette option est nécessaire si vous prévoyez d'utiliser un VPN ou AWS Direct Connect pour connecter votre système local via une interface de terminal VPC utilisant une adresse IP privée.
 
 .Étapes
 . Créez une configuration de point de terminaison d’interface à l’aide de la console Amazon VPC ou de la ligne de commande. https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html["Consultez les détails sur l'utilisation d'AWS PrivateLink pour Amazon S3"^] .
 . Modifiez la configuration du groupe de sécurité associé à l’agent de console.  Vous devez modifier la politique en « Personnalisé » (à partir de « Accès complet ») et vous devez<<Configurer les autorisations S3,ajouter les autorisations S3 à partir de la politique de sauvegarde>> comme indiqué précédemment.
 +
-Si vous utilisez le port 80 (HTTP) pour communiquer avec le point de terminaison privé, vous êtes prêt.  Vous pouvez désormais activer NetApp Backup and Recovery sur le cluster.
+Si vous utilisez le port 80 (HTTP) pour communiquer avec le point de terminaison privé, vous n'avez rien d'autre à faire. Vous pouvez maintenant activer NetApp Backup and Recovery sur le cluster.
 
 +
 Si vous utilisez le port 443 (HTTPS) pour la communication avec le point de terminaison privé, vous devez copier le certificat du point de terminaison VPC S3 et l'ajouter à votre cluster ONTAP , comme indiqué dans les 4 étapes suivantes.
@@ -442,7 +442,7 @@ La page d'introduction de l'assistant présente les options de protection, notam
 
 . Continuez avec les options suivantes :
 +
-** Si vous disposez déjà d’un agent de console, vous êtes prêt.  Sélectionnez simplement *Suivant*.
+** Si vous disposez déjà d'un agent Console, continuez. Sélectionnez *Suivant*.
 ** Si vous ne disposez pas encore d’un agent de console, l’option *Ajouter un agent de console* apparaît.  Se référer à<<Préparez votre agent de console>> .
 
 
@@ -594,7 +594,7 @@ Pour créer une politique, sélectionnez *Créer une nouvelle politique* et proc
 [[review-your-selections]]
 === Revoyez vos sélections
 
-C'est l'occasion de revoir vos sélections et de faire des ajustements, si nécessaire.
+Vérifiez vos sélections et apportez les modifications nécessaires.
 
 .Étapes
 . Dans la page Révision, vérifiez vos sélections.

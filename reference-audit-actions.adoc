@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: reference-audit-actions.html 
 keywords: audit, audit actions, NetApp Console, Backup and Recovery, audit log 
-summary: 'Référence des actions de sauvegarde et de restauration prises en charge par l"audit de la NetApp Console.' 
+summary: 'Consultez les actions de NetApp Backup and Recovery que NetApp Console enregistre à des fins d"audit, notamment les restaurations, les sauvegardes, la réplication, Cyber Vault et la gestion des identifiants.' 
 ---
 = Actions de sauvegarde et de restauration NetApp auditées
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 'Référence des actions de sauvegarde et de restauration prises en cha
 
 
 [role="lead"]
-Utilisez cette référence pour voir quelles actions de sauvegarde et de restauration NetApp Backup and Recovery la NetApp Console enregistre sur la page d'audit. Pour plus de détails sur l'affichage et le filtrage des événements d'audit, consultez  https://docs.netapp.com/us-en/console-setup-admin/task-monitor-cm-operations.html#audit-user-activity-from-the-audit-page["Audit de l'activité des utilisateurs depuis la page d'audit"^] la documentation de la NetApp Console.
+Consultez la page d’audit pour voir quelles actions de NetApp Backup and Recovery NetApp Console enregistre. Pour plus de détails sur l’affichage et le filtrage des événements d’audit, consultez https://docs.netapp.com/us-en/console-setup-admin/task-monitor-cm-operations.html#audit-user-activity-from-the-audit-page["Audit de l'activité des utilisateurs depuis la page d'audit"^] dans la documentation de NetApp Console.
 
 Pour chaque action auditée, NetApp Console enregistre le nom du service, l’agent, la ressource, l’utilisateur et l’état de l’action.
 

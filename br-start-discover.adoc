@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-start-discover.html 
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
-summary: NetApp Backup and Recovery doit d’abord découvrir les charges de travail pour que vous puissiez utiliser le service. 
+summary: 'Découvrez les workloads Microsoft SQL Server dans NetApp Backup and Recovery, et importez éventuellement des ressources, des hôtes, des informations d"identification et des planifications SnapCenter.' 
 ---
 = Découvrez les charges de travail Microsoft SQL Server dans NetApp Backup and Recovery
 :hardbreaks:
@@ -35,7 +35,7 @@ IMPORTANT: Avant d'apporter des modifications, vérifiez à la fois la configura
 
 
 .Étapes
-. Vérifiez la configuration CoreDNS existante pour vous assurer que vous ne remplacez pas une modification existante :
+. Vérifiez la configuration CoreDNS existante pour confirmer que vous ne remplacez pas une modification existante :
 +
 [source, shell]
 ----
@@ -250,9 +250,9 @@ La découverte se déroule de la manière suivante :
 * Si vous disposez déjà de SnapCenter, importez les ressources SnapCenter dans NetApp Backup and Recovery à l'aide de l'interface utilisateur de NetApp Backup and Recovery .
 +
 
-NOTE: Si vous disposez déjà de SnapCenter, vérifiez d'abord que vous avez rempli les conditions préalables avant d'importer depuis SnapCenter. Par exemple, vous devez ajouter les systèmes de stockage de cluster SnapCenter sur site à la NetApp Console avant d'importer depuis SnapCenter. Voir link:concept-start-prereq-snapcenter-import.html["Conditions préalables à l'importation de ressources depuis SnapCenter"].
+NOTE: Si vous disposez déjà de SnapCenter, vérifiez que vous avez rempli les conditions préalables avant d’importer depuis SnapCenter. Par exemple, ajoutez les systèmes de stockage en cluster sur site de SnapCenter à NetApp Console avant d’importer depuis SnapCenter. Voir link:concept-start-prereq-snapcenter-import.html["Conditions préalables à l'importation de ressources depuis SnapCenter"].
 
-* Si vous n'avez pas déjà SnapCenter, vous pouvez toujours découvrir des charges de travail en ajoutant un vCenter manuellement et effectuer une découverte.
+* Si vous n'avez pas encore SnapCenter, vous pouvez toujours découvrir des workloads en ajoutant manuellement un vCenter et en effectuant une découverte.
 
 
 
@@ -327,7 +327,7 @@ Après avoir importé les ressources SnapCenter, gérez les ressources hôtes da
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Afficher les détails* pour afficher les détails de la charge de travail.
 . Depuis la page Inventaire > Charge de travail, sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Gérer* pour afficher la page Gérer l'hôte.
 . Sélectionnez *Gérer*.
-. Dans la page Gérer l’hôte, choisissez d’utiliser un vCenter existant ou d’ajouter un nouveau vCenter.
+. Sur la page Gérer l'hôte, sélectionnez un vCenter existant ou ajoutez un nouveau vCenter.
 . Sélectionnez *Gérer*.
 +
 La page Inventaire affiche les ressources SnapCenter nouvellement gérées.

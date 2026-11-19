@@ -159,7 +159,7 @@ NOTE: Wasabi est actuellement le seul fournisseur de stockage objet compatible S
 
 | Stockage objet compatible S3 (volumes ONTAP uniquement) | Système ONTAP sur site | Système ONTAP sur site 
 |===
-Gardez à l'esprit les considérations suivantes relatives à la restauration :
+Ces restrictions s'appliquent aux restaurations :
 
 * Les restaurations à partir de Cloud Volumes ONTAP (réplication) ne peuvent être effectuées que vers Cloud Volumes ONTAP. Cependant, Cloud Volumes ONTAP dans AWS prend également en charge la restauration vers Amazon FSx for NetApp ONTAP.
 * Les restaurations à partir d’ONTAP sur site (réplication) ne peuvent être effectuées que vers ONTAP sur site.

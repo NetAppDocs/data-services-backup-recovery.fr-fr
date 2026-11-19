@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-use-vmware-restore.html 
 keywords: restore, vmware, vm, virtual machine, snapshots, object storage, cloud storage, backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
-summary: Protégez vos charges de travail VMware avec NetApp Backup and Recovery. 
+summary: 'Restaurez les machines virtuelles VMware à partir de snapshots locaux, de sauvegardes sur stockage secondaire ou sur stockage objet vers leur emplacement d"origine ou un autre emplacement.' 
 ---
 = Restaurer les charges de travail VMware avec NetApp Backup and Recovery
 :hardbreaks:
@@ -27,7 +27,7 @@ Vous pouvez restaurer des charges de travail à partir de différents emplacemen
 .Restaurer ces points
 Vous pouvez restaurer les données à ces points :
 
-* *Restauration à l'emplacement d'origine* : La machine virtuelle est restaurée à son emplacement d'origine, sur le même déploiement vCenter, le même hôte ESXi et la même banque de données. La machine virtuelle et toutes ses données ont été écrasées.
+* *Restaurer à l’emplacement d’origine* : la restauration renvoie la machine virtuelle vers le même déploiement vCenter, le même hôte ESXi et le même datastore, et écrase la machine virtuelle ainsi que toutes ses données.
 * *Restaurer vers un autre emplacement* : Vous pouvez choisir un autre vCenter, hôte ESXi ou datastore comme cible de restauration pour la VM. Ceci est utile pour gérer différentes copies d'une même machine virtuelle situées à différents endroits et dans différents états.
 
 
@@ -42,7 +42,7 @@ TIP: Vous devrez peut-être payer des frais supplémentaires à votre fournisseu
 [[how-vmware-workload-restore-works]]
 == Comment fonctionne la restauration des charges de travail VMware
 
-Lorsque vous restaurez des charges de travail, les événements suivants se produisent :
+Le comportement de restauration dépend de la source de restauration :
 
 * Lorsque vous restaurez une charge de travail à partir d'un instantané local ou d'une sauvegarde distante, NetApp Backup and Recovery écrase la machine virtuelle d'origine si vous effectuez la restauration à l'emplacement d'origine, et crée une _nouvelle_ ressource si vous effectuez la restauration à un emplacement alternatif.
 * Lorsque vous restaurez une charge de travail répliquée, vous pouvez la restaurer sur le système ONTAP local d'origine ou sur un autre système ONTAP local.
@@ -76,7 +76,7 @@ Une liste des instantanés (points de restauration) créés sur cette machine vi
 +
 Pour chaque instantané, les icônes illuminées dans la colonne *Emplacement* indiquent les emplacements de stockage où l'instantané est disponible (stockage principal, secondaire ou objet).
 
-. Activez l'option correspondant à la capture d'écran que vous souhaitez restaurer.
+. Sélectionnez le bouton radio de l’instantané que vous souhaitez restaurer.
 . Sélectionnez *Suivant*.
 +
 Les options de localisation de l'instantané apparaissent.

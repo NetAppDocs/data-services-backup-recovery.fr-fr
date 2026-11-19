@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: br-use-back-up-now-kubernetes-applications-cr.html 
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery, snapcenter 
-summary: 'Utilisez des ressources personnalisées (CR) pour créer des instantanés et des sauvegardes à la demande d"une application Kubernetes, établissant une base de référence ou protégeant vos modifications de données les plus récentes.' 
+summary: 'Créez des instantanés à la demande, des sauvegardes de stockage d"objets et des sauvegardes de type fanout 3-2-1 d"une application Kubernetes à l"aide de ressources personnalisées et consultez les annotations de sauvegarde prises en charge.' 
 ---
-= Sauvegardez dès maintenant des applications Kubernetes à l'aide de ressources personnalisées dans NetApp Backup and Recovery
+= Sauvegardez les applications Kubernetes avec des ressources personnalisées dans NetApp Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -27,7 +27,7 @@ Créez manuellement une sauvegarde d'une application Kubernetes pour établir un
 NOTE: Les ressources à portée de cluster sont incluses dans une sauvegarde, un instantané ou un clone si elles sont explicitement référencées dans la définition de l'application ou si elles ont des références à l'un des espaces de noms de l'application.
 
 .Avant de commencer
-Assurez-vous que la durée de validité du jeton de session AWS est suffisante pour toute opération de sauvegarde s3 de longue durée. Si le jeton expire pendant l'opération de sauvegarde, l'opération peut échouer.
+Vérifiez que la durée de validité du jeton de session AWS est suffisante pour les opérations de sauvegarde S3 de longue durée. Si le jeton expire pendant l'opération de sauvegarde, celle-ci risque d'échouer.
 
 * Consultez la  https://docs.aws.amazon.com/STS/latest/APIReference/API_GetSessionToken.html["Documentation de l'API AWS"^] pour plus d'informations sur la vérification de l'expiration du jeton de session actuel.
 * Consultez la  https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html["Documentation AWS IAM"^] pour plus d'informations sur les identifiants relatifs aux ressources AWS.
@@ -209,14 +209,14 @@ kubectl apply -f 3-2-1-fanout-backup-cr.yaml
 [[supported-backup-annotations]]
 == Annotations de sauvegarde prises en charge
 
-Le tableau suivant décrit les annotations que vous pouvez utiliser lors de la création d'un CR de sauvegarde.
+Vous pouvez utiliser ces annotations lorsque vous créez un backup CR.
 
 [cols="2,1,3,1"]
 |===
 | Annotation | Type | Description | valeur par défaut 
 
 
-| protect.trident.netapp.io/full-backup | chaîne | Indique si une sauvegarde doit être non incrémentielle. Définissez sur  `true` pour créer une sauvegarde non incrémentielle. Il est bonne pratique d'effectuer périodiquement une sauvegarde complète, puis des sauvegardes incrémentielles entre les sauvegardes complètes afin de minimiser le risque associé aux restaurations. | "false" 
+| protect.trident.netapp.io/full-backup | chaîne | Indique si une sauvegarde doit être non incrémentielle. Définissez cette option sur `true`« true » pour créer une sauvegarde non incrémentielle. Comme bonne pratique, effectuez une sauvegarde complète périodiquement et des sauvegardes incrémentielles entre les sauvegardes complètes afin de minimiser le risque associé aux restaurations. | "false" 
 
 
 | protect.trident.netapp.io/snapshot-completion-timeout | chaîne | Le temps maximal autorisé pour que l'opération globale de capture d'instantané soit terminée. | "60m" 

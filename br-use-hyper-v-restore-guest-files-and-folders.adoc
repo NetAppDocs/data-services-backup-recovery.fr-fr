@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-use-hyper-v-restore-guest-files-and-folders.html 
 keywords: restore, guest, files, folders, files and folders, Windows, VM, virtual machine, browse, mount, virtual disk, session, snapshot, backup 
-summary: 'Vous pouvez restaurer un ou plusieurs fichiers ou dossiers à partir d"un instantané de machine virtuelle Hyper-V vers une machine virtuelle invitée Windows.' 
+summary: 'Restaurez les fichiers et dossiers d"un instantané de machine virtuelle Hyper-V vers la machine virtuelle invitée Windows d"origine en montant un disque virtuel à partir de l"instantané.' 
 ---
 = Restaurez les fichiers et dossiers invités Hyper-V avec NetApp Backup and Recovery
 :hardbreaks:
@@ -31,7 +31,7 @@ Lorsque vous ouvrez une session de restauration de fichiers et de dossiers en mo
 
 Les performances de restauration dépendent à la fois de la taille et du nombre de fichiers ou de dossiers à restaurer. À taille de données égale, la restauration d'un grand nombre de petits fichiers prend généralement plus de temps que la restauration d'un petit nombre de fichiers volumineux.
 
-Veuillez noter les points suivants lors de la restauration de fichiers et de dossiers :
+Gardez ces points à l'esprit lors de la restauration de fichiers et de dossiers :
 
 [NOTE]
 ====
@@ -92,7 +92,7 @@ Les fichiers et dossiers que vous avez sélectionnés pour la restauration sont 
 +
 S'il existe déjà des fichiers portant le même nom, vous pouvez choisir de les écraser ou de les ignorer.
 
-. Dans la section *Options post-restauration*, vous pouvez, si vous le souhaitez, déconnecter la session invitée une fois la restauration terminée en activant le paramètre *Déconnecter la session invitée après la restauration terminée*. Cela détache le disque virtuel et démonte la banque de données. Cela signifie que vous devrez reconnecter la session invitée avant d’effectuer toute opération supplémentaire de restauration de fichiers ou de dossiers.
+. Dans la section *Options post-restauration*, vous pouvez, si vous le souhaitez, déconnecter la session invitée une fois la restauration terminée en activant le paramètre *Déconnecter la session invitée une fois la restauration terminée*. Cette action détache le disque virtuel et démonte le datastore. Vous devez ensuite reconnecter la session invitée avant d’effectuer toute autre opération de restauration de fichiers et de dossiers.
 . Sélectionnez *Restaurer*.
 +
 Vous pouvez consulter la progression de la restauration sur la page de suivi des tâches.

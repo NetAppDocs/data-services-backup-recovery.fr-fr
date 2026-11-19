@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-use-kubernetes-advanced-restore-settings.html 
 keywords: cr, custom resource, restore, data, backup, advanced, settings 
-summary: 'Vous pouvez personnaliser les opérations de restauration CR à l"aide d"annotations, de paramètres d"espace de noms et d"options de stockage.' 
+summary: 'Personnalisez les opérations de restauration des CR Kubernetes à l"aide d"annotations, de paramètres de namespace et d"options de stockage.' 
 ---
 = Paramètres de restauration avancés pour Kubernetes dans NetApp Backup and Recovery
 :hardbreaks:
@@ -41,7 +41,7 @@ helm upgrade trident-protect -n trident-protect netapp-trident-protect/trident-p
   --reuse-values
 ----
 
-NOTE: Lors d'une restauration ou d'un basculement, les annotations et étiquettes d'espace de noms spécifiées dans  `restoreSkipNamespaceAnnotations` et  `restoreSkipNamespaceLabels` sont exclues de l'opération de restauration ou de basculement. Assurez-vous que ces paramètres sont configurés lors de l'installation initiale de Helm. Pour en savoir plus, consultez  https://docs.netapp.com/us-en/trident/trident-protect/trident-protect-customize-installation.html#configure-additional-trident-protect-helm-chart-settings["Configurer des paramètres supplémentaires du chart Helm Trident Protect"].
+NOTE: Lors d'une restauration ou d'un basculement, toutes les annotations et étiquettes de namespace spécifiées dans  `restoreSkipNamespaceAnnotations` et  `restoreSkipNamespaceLabels` sont exclues de l'opération de restauration ou de basculement. Configurez ces paramètres lors de l'installation initiale de Helm. Pour en savoir plus, reportez-vous à  https://docs.netapp.com/us-en/trident/trident-protect/trident-protect-customize-installation.html#configure-additional-trident-protect-helm-chart-settings["Configurer des paramètres supplémentaires du chart Helm Trident Protect"].
 
 Si vous avez utilisé Helm avec le  `--create-namespace` paramètre pour installer l’application source, Trident Protect copie l’étiquette name dans l’espace de noms de destination. Si la valeur de l’étiquette correspond au nom de l’espace de noms source, elle est remplacée par celui de l’espace de noms de destination ; sinon, elle est conservée.
 
@@ -88,7 +88,7 @@ Le tableau suivant illustre l'état des espaces de noms source et de destination
 
 ==== Après l'opération de restauration
 
-Le tableau suivant illustre l'état de l'espace de noms de destination après l'opération de restauration ou de basculement. Certaines clés ont été ajoutées, d'autres ont été écrasées, et l' `name`étiquette a été mise à jour pour correspondre à l'espace de noms de destination :
+Le tableau suivant illustre l'état du namespace de destination de l'exemple après l'opération de restauration ou de basculement. L'opération a ajouté certaines clés, en a écrasé d'autres et a mis à jour l' `name`étiquette pour qu'elle corresponde au namespace de destination :
 
 [cols="1,2a,2a"]
 |===
@@ -113,7 +113,7 @@ Le tableau suivant illustre l'état de l'espace de noms de destination après l'
 [[supported-fields]]
 == Champs pris en charge
 
-Cette section décrit les champs supplémentaires pour les opérations de restauration.
+Les opérations de restauration prennent en charge ces champs supplémentaires.
 
 
 
@@ -137,7 +137,7 @@ storageClassMapping:
 [[supported-annotations]]
 == Annotations prises en charge
 
-Cette section répertorie les annotations prises en charge pour configurer différents comportements du système. Si vous ne définissez pas explicitement d'annotation, le système utilise la valeur par défaut.
+Utilisez ces annotations pour configurer le comportement du système. Si vous ne spécifiez aucune annotation, le système utilise la valeur par défaut.
 
 [cols="1,1,3,1"]
 |===

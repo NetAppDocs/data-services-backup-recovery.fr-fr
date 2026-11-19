@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-use-policies-hyper-v-create.html 
 keywords: backing up, back up, backup, backup on-premises ontap, policy, policies, backup policies, cloud backup, aws, aws s3, azure, google cloud 
-summary: 'Dans NetApp Backup and Recovery, créez vos propres stratégies qui régissent la fréquence de sauvegarde, l"heure à laquelle la sauvegarde est effectuée et le nombre de fichiers de sauvegarde conservés.' 
+summary: Créez des stratégies de sauvegarde Hyper-V dans NetApp Backup and Recovery qui contrôlent la fréquence, la planification et la conservation des sauvegardes, et modifiez ou supprimez des stratégies. 
 ---
 = Créez et gérez des stratégies de sauvegarde Hyper-V dans NetApp Backup and Recovery
 :hardbreaks:
@@ -16,7 +16,7 @@ Utilisez NetApp Backup and Recovery pour créer des règles de sauvegarde Hyper-
 
 Si vous importez des ressources depuis SnapCenter, vous risquez de rencontrer des différences entre les stratégies utilisées dans SnapCenter et celles utilisées dans NetApp Backup and Recovery.  Voirlink:reference-policy-differences-snapcenter.html["Différences de politique entre SnapCenter et NetApp Backup and Recovery"] .
 
-Vous pouvez atteindre les objectifs suivants liés aux politiques :
+Vous pouvez effectuer les tâches de stratégie suivantes :
 
 * Créer une politique de snapshot local
 * Créer une politique de réplication vers le stockage secondaire
@@ -62,7 +62,7 @@ Vous pouvez créer des stratégies qui régissent vos snapshots locaux, vos rép
 Si vous protégez des données stockées sur un cluster Cloud Volumes ONTAP, le rôle d’administrateur Cloud Volumes ONTAP est également requis. En savoir plus link:reference-roles.html["Rôles et privilèges de sauvegarde et de récupération"]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^].
 
 .Avant de commencer
-Si vous prévoyez de répliquer vers un stockage secondaire et que vous souhaitez utiliser le verrouillage des snapshots sur des snapshots locaux ou sur un stockage secondaire ONTAP distant, vous devez d'abord initialiser l'horloge de conformité ONTAP au niveau du cluster.  Il s’agit d’une exigence pour activer le verrouillage des instantanés dans la politique.
+Si vous prévoyez de répliquer vers un stockage secondaire et souhaitez utiliser le verrouillage des instantanés sur des instantanés locaux ou sur un stockage secondaire ONTAP distant, vous devez d'abord initialiser l'horloge de conformité ONTAP au niveau du cluster. Ceci est une exigence pour activer le verrouillage des instantanés dans la règle.
 
 Pour obtenir des instructions sur la façon de procéder, reportez-vous à https://docs.netapp.com/us-en/ontap/snaplock/initialize-complianceclock-task.html["Initialiser l'horloge de conformité dans ONTAP"^] .
 

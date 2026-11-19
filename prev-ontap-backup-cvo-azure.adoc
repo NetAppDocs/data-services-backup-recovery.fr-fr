@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: prev-ontap-backup-cvo-azure.html 
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
-summary: Protégez vos charges de travail VMware avec NetApp Backup and Recovery. 
+summary: Sauvegardez les volumes Cloud Volumes ONTAP dans le stockage Azure Blob avec NetApp Backup and Recovery, vérifiez les exigences, activez le service et activez les sauvegardes sur les volumes. 
 ---
-= Sauvegardez Cloud Volumes ONTAP sur le stockage Blob Azure avec NetApp Backup and Recovery
+= Sauvegardez Cloud Volumes ONTAP vers Azure Blob Storage avec NetApp Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -24,9 +24,9 @@ NOTE: Pour basculer vers et depuis les charges de travail NetApp Backup and Reco
 [[verify-support-for-your-configuration]]
 == Vérifiez la prise en charge de votre configuration
 
-Lisez les exigences suivantes pour vous assurer que vous disposez d’une configuration prise en charge avant de commencer à sauvegarder des volumes sur le stockage Blob Azure.
+Assurez-vous de disposer d'une configuration prise en charge avant de commencer la sauvegarde des volumes sur Azure Blob Storage.
 
-L'image suivante montre chaque composant et les connexions que vous devez préparer entre eux.
+L'image montre chaque composant et les connexions que vous devez réaliser entre eux.
 
 En option, vous pouvez également vous connecter à un système ONTAP secondaire pour les volumes répliqués à l'aide de la connexion publique ou privée.
 
@@ -168,7 +168,7 @@ https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-azure.ht
 [[requirements-for-using-customer-managed-keys-for-data-encryption]]
 === Exigences relatives à l'utilisation de clés gérées par le client pour le chiffrement des données
 
-Vous pouvez utiliser vos propres clés gérées par le client pour le chiffrement des données dans l’assistant d’activation au lieu d’utiliser les clés de chiffrement par défaut gérées par Microsoft.  Dans ce cas, vous aurez besoin de l’abonnement Azure, du nom du coffre de clés et de la clé. https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["Découvrez comment utiliser vos propres clés"^] .
+Vous pouvez utiliser vos propres clés gérées par le client pour le chiffrement des données dans l'assistant d'activation au lieu d'utiliser les clés de chiffrement par défaut gérées par Microsoft. Dans ce cas, vous avez besoin de l'Azure Subscription, du nom du Key Vault et du Key. https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["Découvrez comment utiliser vos propres clés"^].
 
 NetApp Backup and Recovery prend en charge les _stratégies d'accès Azure_, le modèle d'autorisation _contrôle d'accès basé sur les rôles Azure_ (Azure RBAC) et le _modèle de sécurité matérielle géré_ (HSM) (reportez-vous à https://learn.microsoft.com/en-us/azure/key-vault/managed-hsm/overview["Qu’est-ce qu’Azure Key Vault Managed HSM ?"] ).
 
@@ -195,7 +195,7 @@ Si vous prévoyez de créer des volumes répliqués sur un système ONTAP second
 * Si le cluster est sur site, vous devez disposer d’une connexion entre votre réseau d’entreprise et votre réseau virtuel chez le fournisseur de cloud. Il s’agit généralement d’une connexion VPN.
 * Les clusters ONTAP doivent répondre à des exigences supplémentaires en matière de sous-réseau, de port, de pare-feu et de cluster.
 +
-Étant donné que vous pouvez répliquer vers Cloud Volumes ONTAP ou vers des systèmes locaux, examinez les exigences de peering pour les systèmes ONTAP locaux. https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html["Consultez les conditions préalables pour le peering de cluster dans la documentation ONTAP"^] .
+Étant donné que vous pouvez répliquer vers Cloud Volumes ONTAP ou des systèmes sur site, examinez les exigences de peering pour les systèmes ONTAP sur site https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html["Consultez les conditions préalables pour le peering de cluster dans la documentation ONTAP"^].
 
 
 
@@ -404,7 +404,7 @@ Pour créer une politique, sélectionnez *Créer une nouvelle politique* et proc
 **** Créez votre propre groupe de ressources qui gère le conteneur Blob ou sélectionnez le type de groupe de ressources et le groupe.
 +
 
-TIP: Si vous souhaitez protéger vos fichiers de sauvegarde contre toute modification ou suppression, assurez-vous que le compte de stockage a été créé avec le stockage immuable activé à l'aide d'une période de conservation de 30 jours.
+TIP: Si vous souhaitez protéger vos fichiers de sauvegarde contre toute modification ou suppression, assurez-vous que le compte de stockage a été créé avec le stockage immuable activé et une période de conservation de 30 jours.
 
 
 
@@ -453,7 +453,7 @@ Pour créer une politique, sélectionnez *Créer une nouvelle politique* et proc
 [[review-your-selections]]
 === Revoyez vos sélections
 
-C'est l'occasion de revoir vos sélections et de faire des ajustements, si nécessaire.
+Vérifiez vos sélections et apportez des modifications si nécessaire.
 
 .Étapes
 . Dans la page Révision, vérifiez vos sélections.
@@ -479,7 +479,7 @@ Vous pouvez également surveiller l’état des tâches de sauvegarde et de rest
 [[show-the-api-commands]]
 === Afficher les commandes de l'API
 
-Vous pouvez afficher et, éventuellement, copier les commandes API utilisées dans l'assistant d'activation de NetApp Backup and Recovery. Vous pouvez faire cela pour automatiser l'activation de la sauvegarde dans les systèmes futurs.
+Afficher et, éventuellement, copier les commandes API utilisées dans l’assistant Activate Backup and Recovery afin d’automatiser l’activation des sauvegardes dans les systèmes futurs.
 
 .Étapes
 . Dans l'assistant Activer la sauvegarde et la restauration, sélectionnez *Afficher la requête API*.

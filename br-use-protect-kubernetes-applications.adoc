@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-use-protect-kubernetes-applications.html 
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery, snapcenter 
-summary: NetApp Backup and Recovery vous permet de gérer les informations de votre hôte de charge de travail, les informations de votre base de données et les informations de vos instances.  Vous pouvez afficher, modifier et supprimer les paramètres de protection de votre inventaire. 
+summary: 'Ajoutez des applications Kubernetes basées sur le namespace ou sur des machines virtuelles à NetApp Backup and Recovery pour la protection à l"aide de l"interface utilisateur Web ou de fichiers de ressources personnalisés.' 
 ---
 = Ajoutez et protégez les applications Kubernetes dans NetApp Backup and Recovery
 :hardbreaks:
@@ -39,7 +39,7 @@ Avant de pouvoir ajouter et protéger une application Kubernetes, vous devezlink
 --
 .Étapes
 . Dans NetApp Backup and Recovery, sélectionnez *Inventaire*.
-. En haut à droite de la page, assurez-vous que *Kubernetes* est sélectionné dans la liste des charges de travail.
+. En haut à droite de la page, vérifiez que *Kubernetes* est sélectionné dans la liste des workloads.
 . Sélectionnez *Afficher* pour la ligne de charge de travail afin de voir les ressources Kubernetes.
 . Sélectionnez l'onglet *Applications*.
 . Sélectionnez *Créer une application*.
@@ -78,7 +78,7 @@ L'application est créée et apparaît dans la liste des applications de l'ongle
 --
 .Étapes
 . Dans NetApp Backup and Recovery, sélectionnez *Inventaire*.
-. En haut à droite de la page, assurez-vous que *Kubernetes* est sélectionné dans la liste des charges de travail.
+. En haut à droite de la page, vérifiez que *Kubernetes* est sélectionné dans la liste des workloads.
 . Sélectionnez *Afficher* pour la ligne de charge de travail afin de voir les ressources Kubernetes.
 . Sélectionnez l'onglet *Applications*.
 . Sélectionnez *Créer une application*.

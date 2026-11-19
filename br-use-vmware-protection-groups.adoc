@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-use-vmware-protection-groups.html 
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, vmware, vm, virtual machines, workloads, volumes, snapshots 
-summary: Créez et gérez des groupes de protection pour les charges de travail VMware dans NetApp Backup and Recovery. 
+summary: Créez et gérez des groupes de protection pour les workloads VMware, y compris des groupes basés sur des balises, afin de sauvegarder et de restaurer ensemble les machines virtuelles et les datastores dans NetApp Backup and Recovery. 
 ---
 = Gérez les groupes de protection VMware dans NetApp Backup and Recovery
 :hardbreaks:
@@ -54,8 +54,8 @@ Créez un groupe de protection pour organiser les ressources que vous souhaitez 
 *Rôle requis de la console NetApp* Rôle de super administrateur de NetApp Backup and Recovery ou rôle d'administrateur de sauvegarde et de récupération de NetApp Backup and Recovery. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["En savoir plus sur les rôles d'accès à la NetApp Console pour tous les services"^]
 
 .Avant de commencer
-* Assurez-vous que votre environnement utilise des versions prises en charge de VMware vSphere.
-* Lors de la création d'un groupe de protection basé sur des balises, assurez-vous que les machines virtuelles et les banques de données que vous souhaitez protéger sont déjà associées à une ou plusieurs vSphere balises dans vCenter.
+* Vérifiez que votre environnement utilise des versions prises en charge de VMware vSphere.
+* Lors de la création d'un groupe de protection basé sur des balises, vérifiez que les machines virtuelles et les datastores que vous souhaitez protéger sont déjà associés à une ou plusieurs balises vSphere dans vCenter.
 * Pour les charges de travail VMware, la durée de sauvegarde planifiée utilise le fuseau horaire de l’hôte de gestion. Consultez link:br-use-policies-vmware-create.html["Créez et gérez des stratégies de sauvegarde VMware dans NetApp Backup and Recovery"] pour plus d’informations.
 
 
@@ -77,9 +77,9 @@ Vous pouvez filtrer les ressources disponibles dans la liste en sélectionnant u
 . Une fois terminé, sélectionnez *Suivant*.
 . Choisissez comment le groupe de protection gère les machines virtuelles dont les disques virtuels s'étendent sur plusieurs banques de données :
 +
-** *Toujours exclure tous les datastores chevauchants* : Le groupe de protection inclura uniquement les datastores qui lui sont ajoutés directement, ainsi que le datastore principal de toutes les machines virtuelles ajoutées directement au groupe de protection.
-** *Toujours inclure tous les datastores couverts* : Le groupe de protection inclura tous les datastores couverts par les machines virtuelles incluses.
-** *Sélectionnez manuellement les datastores étendus à inclure* : Si vous sélectionnez cette option, vous devez sélectionner manuellement les datastores étendus à inclure dans le groupe de protection à partir de la liste qui s’affiche. Cette sélection est statique ; vous devez mettre à jour la liste des datastores étendus chaque fois que de nouvelles machines virtuelles sont ajoutées au groupe.
+** *Toujours exclure tous les datastores étendus* : le groupe de protection inclut uniquement les datastores qui y sont ajoutés directement, ainsi que le datastore principal de toutes les machines virtuelles ajoutées directement au groupe de protection.
+** *Toujours inclure tous les datastores couverts* : le groupe de protection inclut tous les datastores couverts par les VM incluses.
+** *Sélection manuelle des datastores étendus à inclure* : Si vous sélectionnez cette option, choisissez manuellement, dans la liste qui s’affiche, les datastores étendus à inclure dans le groupe de protection. Cette sélection est statique ; vous devez donc mettre à jour la liste des datastores étendus chaque fois que de nouvelles machines virtuelles sont ajoutées au groupe.
 
 
 . Sélectionnez *Suivant*.
@@ -117,7 +117,7 @@ L'état de protection passe à « En maintenance » lorsque vous suspendez un gr
 
 La reprise d’un groupe de protection suspendu redémarre les sauvegardes planifiées pour le groupe de protection.
 
-L'état de protection passe de « En maintenance » lorsque vous suspendez un groupe de protection à « Protégé » lorsque vous le reprenez. Vous pouvez reprendre le programme de sauvegarde à tout moment.
+L'état de la protection passe de « En maintenance » à « Protégé » lorsque vous reprenez un groupe de protection. Vous pouvez reprendre la planification des sauvegardes à tout moment.
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Inventaire*.
@@ -160,7 +160,7 @@ L'assistant de modification du groupe de protection vous guide à travers les pa
 Les sauvegardes planifiées utilisent le fuseau horaire du serveur vCenter qui est enregistré lors de la création de la planification du groupe de protection. Si vous modifiez le fuseau horaire du serveur vCenter, les groupes de protection existants continueront de fonctionner dans leur fuseau horaire d'origine (généralement UTC) jusqu'à ce que vous mettiez à jour leurs planifications.
 
 
-NOTE: Les planifications ne sont recréées que lorsque vous modifiez le nom du groupe de protection, ajoutez ou supprimez une machine virtuelle, changez la stratégie attribuée ou mettez à jour les scripts de pré/post-exécution. L'enregistrement sans modification ne met pas à jour les planifications. Cette mise à jour de planification est une action ponctuelle par groupe de protection et ne déclenche pas de sauvegarde immédiate.
+NOTE: Les planifications sont recréées uniquement lorsque vous modifiez le nom du groupe de protection, ajoutez ou supprimez une machine virtuelle, changez la stratégie attribuée ou mettez à jour les scripts de pré/post-exécution. L'enregistrement sans modification ne met pas à jour les planifications. Cette mise à jour de la planification est une action ponctuelle par groupe de protection et ne déclenche pas de sauvegarde immédiate.
 
 .Étapes
 . Actualisez le serveur vCenter afin que son fuseau horaire actuel soit récupéré.

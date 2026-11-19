@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-use-vmware-restore-guest-files-and-folders-from-vmdks.html 
 keywords: restore, guest, files, folders, files and folders, guest VM, windows, linux, VMDK, attach 
-summary: 'Vous pouvez restaurer un ou plusieurs fichiers ou dossiers d"un VMDK vers une machine virtuelle invitée.' 
+summary: 'Restaurez un ou plusieurs fichiers ou dossiers d"un VMDK vers la VM d"origine ou une autre VM avec NetApp Backup and Recovery.' 
 ---
 = Restaurez les fichiers et dossiers invités VMware dans NetApp Backup and Recovery
 :hardbreaks:

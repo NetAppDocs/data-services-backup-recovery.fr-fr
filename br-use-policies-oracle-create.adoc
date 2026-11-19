@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-use-policies-oracle-create.html 
 keywords: backing up, back up, backup, backup on-premises ontap, policy, policies, backup policies, cloud backup, aws, aws s3, azure, google cloud 
-summary: 'Dans NetApp Backup and Recovery, créez vos propres stratégies qui régissent la fréquence de sauvegarde, l"heure à laquelle la sauvegarde est effectuée et le nombre de fichiers de sauvegarde conservés.' 
+summary: Créez des stratégies de sauvegarde de base de données Oracle dans NetApp Backup and Recovery qui contrôlent la fréquence, la planification et la conservation des sauvegardes. 
 ---
 = Créez et gérez les stratégies de sauvegarde de la base de données Oracle dans NetApp Backup and Recovery
 :hardbreaks:
@@ -129,7 +129,7 @@ NOTE: Les champs qui s'affichent diffèrent selon le fournisseur et l'architectu
 ** *Copies de conservation* : saisissez le nombre d'instantanés à conserver.
 ** *Exécuter à* : choisissez la planification de transfert ONTAP pour sauvegarder les données sur le stockage d’objets.
 ** * Hiérarchisez vos sauvegardes du magasin d'objets au stockage d'archivage* : si vous choisissez de hiérarchiser les sauvegardes vers le stockage d'archivage (par exemple, AWS Glacier), sélectionnez l'option de hiérarchisation et le nombre de jours d'archivage.
-** *Activer l'analyse d'intégrité* : Sélectionnez si vous souhaitez activer les analyses d'intégrité (verrouillage des instantanés) sur le stockage d'objets. Cela garantit que les sauvegardes sont valides et restaurables. La fréquence des analyses d'intégrité est définie à sept jours par défaut. Pour protéger vos sauvegardes contre toute modification ou suppression, sélectionnez l'option *Analyse d'intégrité*. L'analyse est effectuée uniquement sur le dernier instantané. Vous pouvez activer ou désactiver les analyses d'intégrité sur le dernier instantané.
+** *Activer l'analyse d'intégrité* : choisissez si vous souhaitez activer les analyses d'intégrité (verrouillage des snapshots) sur le stockage objet. Cela confirme que les sauvegardes sont valides et peuvent être restaurées. Par défaut, la fréquence des analyses d'intégrité est de sept jours. Pour protéger vos sauvegardes contre toute modification ou suppression, sélectionnez l'option *Analyse d'intégrité*. L'analyse s'effectue uniquement sur le dernier snapshot. Vous pouvez activer ou désactiver les analyses d'intégrité sur le dernier snapshot.
 
 
 . Vous pouvez également configurer les paramètres avancés dans la stratégie.
@@ -147,7 +147,7 @@ Si vous n’activez pas *Data Guard settings*, la base de données principale et
 
 
 
-** *Vérification des sauvegardes* : Sélectionnez si vous souhaitez activer la vérification des sauvegardes et si vous la souhaitez immédiatement ou ultérieurement. Cette fonctionnalité garantit que les sauvegardes sont valides et peuvent être restaurées avec succès. Nous vous recommandons d’activer cette option pour garantir l’intégrité de vos sauvegardes. Par défaut, la vérification des sauvegardes s’effectue à partir du stockage secondaire si le stockage secondaire est configuré. Si le stockage secondaire n’est pas configuré, la vérification des sauvegardes s’effectue à partir du stockage principal.
+** *Vérification des sauvegardes* : choisissez si vous voulez activer la vérification des sauvegardes et si vous la voulez immédiate ou ultérieure. Cette fonctionnalité confirme que les sauvegardes sont valides et peuvent être restaurées avec succès. Nous vous recommandons d’activer cette option pour garantir l’intégrité de vos sauvegardes. Par défaut, la vérification des sauvegardes s’exécute à partir du stockage secondaire si le stockage secondaire est configuré. Si le stockage secondaire n’est pas configuré, la vérification des sauvegardes s’exécute à partir du stockage principal.
 +
 De plus, configurez les options suivantes :
 

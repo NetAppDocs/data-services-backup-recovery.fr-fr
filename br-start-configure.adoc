@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-start-configure.html 
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
-summary: Suivez quelques étapes pour configurer NetApp Backup and Recovery. 
+summary: 'Ajoutez les informations d"identification de l"hôte, gérez les paramètres VMware vCenter, importez les ressources SnapCenter, ajoutez une plateforme de gestion KVM et créez des modèles dans NetApp Backup and Recovery.' 
 ---
 = Configurer les paramètres de NetApp Backup and Recovery
 :hardbreaks:
@@ -55,7 +55,7 @@ Vous devez configurer les types d’informations d’identification suivants :
 ** *Mode d'authentification* : Sélectionnez *Windows*, *Microsoft SQL*, *Oracle Database* ou *Linux*.
 +
 
-TIP: Pour les charges de travail Microsoft SQL Server, vous devez saisir les informations d'identification pour Windows et Microsoft SQL Server, ce qui nécessite deux ensembles d'informations d'identification.
+TIP: Pour les workloads Microsoft SQL Server, vous devez saisir deux ensembles d'informations d'identification : un pour Windows et un pour Microsoft SQL Server.
 
 +
 [role="tabbed-block"]
@@ -182,7 +182,7 @@ Il s’agit d’un processus en deux parties :
 Cette première étape importe les ressources de l’hôte depuis SnapCenter et affiche ces ressources dans la page Inventaire de NetApp Backup and Recovery .  À ce stade, les ressources ne sont pas encore gérées par NetApp Backup and Recovery.
 
 
-TIP: Une fois les ressources de l'hôte SnapCenter importées, NetApp Backup and Recovery ne prend pas en charge la gestion de la protection.  Pour ce faire, vous devez choisir explicitement de gérer ces ressources dans NetApp Backup and Recovery.
+TIP: Après avoir importé les ressources hôtes SnapCenter, NetApp Backup and Recovery ne prend pas en charge la gestion de la protection. Pour transférer la gestion, sélectionnez explicitement ces ressources à gérer dans NetApp Backup and Recovery.
 
 .Étapes
 . Dans le menu NetApp Backup and Recovery , sélectionnez *Paramètres*.
@@ -217,10 +217,10 @@ La page Inventaire affiche les ressources SnapCenter importées.
 [[manage-snapcenter-host-resources]]
 === Gérer les ressources de l'hôte SnapCenter
 
-Après avoir importé les ressources SnapCenter , gérez ces ressources hôtes dans NetApp Backup and Recovery.  Une fois que vous avez choisi de gérer ces ressources importées, NetApp Backup and Recovery peut sauvegarder et récupérer les ressources que vous importez depuis SnapCenter.  Vous n’avez plus besoin de gérer ces ressources dans SnapCenter Server.
+Après avoir importé les ressources SnapCenter, gérez ces ressources hôtes dans NetApp Backup and Recovery. Une fois que vous gérez les ressources importées, NetApp Backup and Recovery peut les sauvegarder et les restaurer. Vous n'avez plus besoin de gérer ces ressources dans SnapCenter Server.
 
 .Étapes
-. Après avoir importé les ressources SnapCenter , sur la page Inventaire qui s'affiche, sélectionnez les ressources SnapCenter que vous avez importées et que vous souhaitez que NetApp Backup and Recovery gère désormais.
+. Après avoir importé les ressources SnapCenter, sur la page Inventaire, sélectionnez les ressources SnapCenter importées que vous souhaitez voir gérées par NetApp Backup and Recovery.
 . Sélectionnez l'icône Actionsimage:../media/icon-action.png["Option Actions"] > *Gérer* pour gérer les ressources.
 . Sélectionnez *Gérer dans la NetApp Console*.
 +
@@ -307,7 +307,7 @@ NOTE: Les modèles que vous créez ici ne sont utilisables que lors de la protec
 . Développez la section *Modèle de hook d'exécution*.
 . Sélectionnez *Créer un modèle de hook d'exécution*.
 . Entrez un nom pour le hook d’exécution.
-. Vous pouvez également choisir un type de hook. Par exemple, un hook post-restauration est exécuté une fois l'opération de restauration terminée.
+. Vous pouvez également choisir un type de hook. Par exemple, un hook post-restauration s'exécute une fois l'opération de restauration terminée.
 . Dans la zone de texte *Script*, saisissez le script shell exécutable que vous souhaitez exécuter dans le cadre du modèle de hook d'exécution.  Vous pouvez également sélectionner *Télécharger le script* pour télécharger un fichier de script à la place.
 . Sélectionnez *Créer*.
 +

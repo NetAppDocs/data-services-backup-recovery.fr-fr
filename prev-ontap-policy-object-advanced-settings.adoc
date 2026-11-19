@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: prev-ontap-policy-object-advanced-settings.html 
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
-summary: Protégez vos charges de travail VMware avec NetApp Backup and Recovery. 
+summary: Modifiez les paramètres de sauvegarde vers l’objet au niveau du cluster dans NetApp Backup and Recovery, notamment la bande passante, l’exportation des instantanés historiques, la suppression annuelle des instantanés et les analyses contre les ransomwares. 
 ---
 = Gérez les paramètres avancés de sauvegarde vers objet dans NetApp Backup and Recovery
 :hardbreaks:
@@ -131,8 +131,8 @@ Vous pouvez activer ou désactiver les analyses de ransomware pour un cluster.
 . Sur la page qui s'affiche, développez la section *Analyse des logiciels de ransomware*.
 . Activer ou désactiver *l'analyse Ransomware*.
 . Sélectionnez *Analyse de ransomware programmée*.
-. Vous pouvez également modifier l'analyse par défaut hebdomadaire en jours ou en semaines.
-. Définissez la fréquence en jours ou en semaines à laquelle l'analyse doit être exécutée.
+. Vous pouvez également modifier l’analyse hebdomadaire par défaut pour la définir en jours ou en semaines.
+. Définissez la fréquence d'exécution de l'analyse, en jours ou en semaines.
 . Sélectionnez *Appliquer*.
 
 
@@ -150,8 +150,8 @@ Vous pouvez activer ou désactiver les analyses de ransomware au niveau du fourn
 . Développez la section *Analyse des logiciels de ransomware*.
 . Activer ou désactiver *l'analyse Ransomware*.
 . Sélectionnez *Analyse de ransomware programmée*.
-. Vous pouvez également modifier l'analyse par défaut hebdomadaire en jours ou en semaines.
-. Définissez la fréquence en jours ou en semaines à laquelle l'analyse doit être exécutée.
+. Vous pouvez également modifier l’analyse hebdomadaire par défaut pour la définir en jours ou en semaines.
+. Définissez la fréquence d'exécution de l'analyse, en jours ou en semaines.
 . Sélectionnez *Appliquer*.
 
 
