@@ -4,7 +4,7 @@ permalink: prev-ontap-backup-onprem-azure.html
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
 summary: Préparez votre environnement et activez les sauvegardes des volumes ONTAP sur site vers Azure Blob Storage avec NetApp Backup and Recovery. 
 ---
-= Sauvegardez les données ONTAP sur site dans Azure Blob Storage avec NetApp Backup and Recovery
+= Sauvegardez les données ONTAP sur site dans Azure Blob avec NetApp Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -59,6 +59,8 @@ Si vous disposez déjà d’un agent de console déployé sur votre réseau virt
 
 Sinon, vous devrez créer un agent de console dans l’un de ces emplacements pour sauvegarder les données ONTAP sur le stockage Azure Blob.  Vous ne pouvez pas utiliser un agent de console déployé chez un autre fournisseur de cloud.
 
+Pour sauvegarder vers le stockage Azure Blob dans Azure China (21Vianet), vous devez déployer le Console agent dans une région Azure China en mode standard. Un Console agent que vous avez installé sur site, dans une région Azure commerciale ou dans Azure Government ne peut pas sauvegarder vers Azure China.
+
 * https://docs.netapp.com/us-en/console-setup-admin/concept-connectors.html["En savoir plus sur les agents de console"^]
 * https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-azure.html["Installer un agent de console dans Azure"^]
 * https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-on-prem.html["Installer un agent Console dans vos locaux"^]
@@ -78,7 +80,7 @@ Assurez-vous que l’agent de console dispose des connexions réseau requises.
 .Étapes
 . Assurez-vous que le réseau sur lequel l’agent de console est installé permet les connexions suivantes :
 +
-** Une connexion HTTPS via le port 443 vers NetApp Backup and Recovery et vers votre stockage d'objets Blob(https://docs.netapp.com/us-en/console-setup-admin/task-set-up-networking-azure.html#endpoints-contacted-for-day-to-day-operations["voir la liste des points de terminaison"^] )
+** Une connexion HTTPS sur le port 443 vers NetApp Backup and Recovery et vers votre stockage d’objets Blob (https://docs.netapp.com/us-en/console-setup-admin/task-set-up-networking-azure.html#endpoints-contacted-for-day-to-day-operations["voir la liste des points de terminaison"^]). Pour Azure China, l’agent Console doit également pouvoir accéder à `*.chinacloudapi.cn`, y compris `login.chinacloudapi.cn` et `management.chinacloudapi.cn`.
 ** Une connexion HTTPS via le port 443 vers votre LIF de gestion de cluster ONTAP
 ** Pour que NetApp Backup and Recovery Search & Restore fonctionne, le port 1433 doit être ouvert pour la communication entre l'agent Console et les services Azure Synapse SQL.
 ** Des règles de groupe de sécurité entrantes supplémentaires sont requises pour les déploiements Azure et Azure Government.  Voir https://docs.netapp.com/us-en/console-setup-admin/reference-ports-azure.html["Règles pour l'agent de console dans Azure"^] pour plus de détails.
@@ -182,7 +184,9 @@ Vous devrez vérifier les exigences de licence pour Azure et la console :
 
 *Régions prises en charge*
 
-Vous pouvez créer des sauvegardes à partir de systèmes locaux vers Azure Blob dans toutes les régions, y compris les régions Azure Government.  Vous spécifiez la région où les sauvegardes seront stockées lors de la configuration du service.
+Vous pouvez créer des sauvegardes de systèmes sur site vers Azure Blob dans toutes les régions commerciales Azure et les régions Azure Government. Vous spécifiez la région où les sauvegardes seront stockées lors de la configuration du service.
+
+Vous pouvez également créer des sauvegardes sur Azure Blob dans les régions Azure China (21Vianet) (China East, China East 2, China East 3, China North, China North 2 et China North 3) lorsque le Console agent est déployé dans une région Azure China. Le Console agent utilise automatiquement les points de terminaison Azure China en fonction de sa région, et le compte de stockage de sauvegarde est créé dans la région du Console agent.
 
 
 
@@ -243,9 +247,9 @@ Vous devez configurer les exigences suivantes sur le système qui se connecte au
 
 Les exigences de mise en réseau du cluster ONTAP suivantes sont nécessaires :
 
-* Le cluster ONTAP initie une connexion HTTPS via le port 443 du LIF intercluster au stockage Azure Blob pour les opérations de sauvegarde et de restauration.
+* Le cluster ONTAP établit une connexion HTTPS sur le port 443 depuis l’interface LIF intercluster vers le stockage Blob Azure pour les opérations de sauvegarde et de restauration. Pour Azure China, l’interface LIF intercluster doit disposer d’un accès sortant sur le port 443 vers `<storage_account>.blob.core.chinacloudapi.cn`. Si l’interface LIF ne dispose d’aucun chemin sortant, les sauvegardes échouent lors de la vérification du stockage objet avec une erreur de délai d’attente de connexion.
 +
-ONTAP lit et écrit des données vers et depuis le stockage d'objets.  Le stockage d'objets ne s'initialise jamais, il répond simplement.
+ONTAP lit et écrit des données depuis et vers le stockage objet. Le stockage objet n'initie jamais de connexions. Il se contente de répondre.
 
 * ONTAP nécessite une connexion entrante de l'agent de console au LIF de gestion du cluster.  L’agent de console peut résider dans un réseau virtuel Azure.
 * Un LIF intercluster est requis sur chaque nœud ONTAP qui héberge les volumes que vous souhaitez sauvegarder.  Le LIF doit être associé à l'_IPspace_ ONTAP doit utiliser pour se connecter au stockage d'objets. https://docs.netapp.com/us-en/ontap/networking/standard_properties_of_ipspaces.html["En savoir plus sur IPspaces"^] .
@@ -508,7 +512,7 @@ Pour créer une politique, sélectionnez *Créer une nouvelle politique* et proc
 [[review-your-selections]]
 === Revoyez vos sélections
 
-C'est l'occasion de revoir vos sélections et de faire des ajustements, si nécessaire.
+Vérifiez vos sélections et apportez des modifications si nécessaire.
 
 .Étapes
 . Dans la page Révision, vérifiez vos sélections.

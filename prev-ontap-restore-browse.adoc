@@ -151,9 +151,9 @@ Pour restaurer un volume, vous avez besoin du nom du système source, de la mach
 . Dans le menu de la console, sélectionnez *Protection > Sauvegarde et récupération*.
 . Sélectionnez l'onglet *Restaurer* pour afficher le tableau de bord de restauration.
 . Dans la section _Parcourir et restaurer_, sélectionnez *Restaurer le volume*.
-. Dans la page _Sélectionner la source_, accédez au fichier de sauvegarde du volume que vous souhaitez restaurer.  Sélectionnez le *système*, le *volume* et le fichier de *sauvegarde* contenant l'horodatage à partir duquel vous souhaitez effectuer la restauration.
+. Sur la page _Sélectionner la source_, accédez au fichier de sauvegarde du volume que vous souhaitez restaurer. Sélectionnez le *système*, le *volume* et l'*instantané* portant l'horodatage de date/heure à partir duquel vous souhaitez restaurer. Lorsque vous effectuez une sélection, vous êtes automatiquement redirigé vers la sous-étape suivante de l'assistant.
 +
-La colonne *Emplacement* indique si le fichier de sauvegarde (instantané) est *Local* (un instantané sur le système source), *Secondaire* (un volume répliqué sur un système ONTAP secondaire) ou *Stockage objet* (un fichier de sauvegarde dans le stockage objet). Choisissez le fichier que vous souhaitez restaurer.
+La colonne *Emplacement* indique si l'instantané est *Local* (un instantané sur le système source), *Secondaire* (un volume répliqué sur un système ONTAP secondaire) ou *Stockage objet* (un fichier de sauvegarde dans le stockage objet). Choisissez le fichier que vous souhaitez restaurer.
 
 . Sélectionnez *Suivant*.
 +
@@ -241,8 +241,8 @@ image:diagram_browse_restore_file.png["Un diagramme qui montre le flux pour effe
 . Dans le menu de la console, sélectionnez *Protection > Sauvegarde et récupération*.
 . Sélectionnez l'onglet *Restaurer* pour afficher le tableau de bord de restauration.
 . Dans la section _Parcourir et restaurer_, sélectionnez *Restaurer les fichiers ou le dossier*.
-. Dans la page _Sélectionner la source_, accédez au fichier de sauvegarde du volume qui contient le dossier ou les fichiers que vous souhaitez restaurer.  Sélectionnez le *système*, le *volume* et la *sauvegarde* contenant la date et l'heure à partir desquelles vous souhaitez restaurer les fichiers.
-. Sélectionnez *Suivant* et la liste des dossiers et fichiers de la sauvegarde du volume s'affiche.
+. Sur la page _Sélectionner la source_, accédez au fichier de sauvegarde du volume contenant le dossier ou les fichiers que vous souhaitez restaurer. Sélectionnez le *système*, le *volume* et le *snapshot* portant l’horodatage de date/heure à partir duquel vous souhaitez restaurer des fichiers. Lorsque vous effectuez une sélection, vous êtes automatiquement redirigé vers la sous-étape suivante de l’assistant.
+. Après avoir sélectionné un instantané, sélectionnez *Suivant* pour afficher la liste des dossiers et fichiers de la sauvegarde du volume.
 +
 Si vous restaurez des dossiers ou des fichiers à partir d'un fichier de sauvegarde qui réside dans un niveau de stockage d'archivage, vous pouvez sélectionner la priorité de restauration.
 

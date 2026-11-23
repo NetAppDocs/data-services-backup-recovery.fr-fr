@@ -465,6 +465,10 @@ NOTE: ONTAP 9.19.1 ou une version ultérieure est nécessaire pour prendre en ch
 NOTE: NetApp recommande fortement d'attribuer une adresse IP statique à l'agent Console que vous utilisez pour les charges de travail Kubernetes afin d'éviter les problèmes en cas de changement d'adresse IP de l'agent.
 
 * Un système ONTAP principal (les systèmes ASA r2 ne sont pas pris en charge)
++
+** Amazon FSx for NetApp ONTAP est pris en charge comme stockage principal ou secondaire avec l'architecture de sauvegarde disque à disque. Le cluster Kubernetes doit être un cluster autogéré exécuté sur AWS.
+
+
 * NetApp Trident 25.06 à 26.06
 * NetApp Trident Protect 26.08 ou version ultérieure (installé sur le cluster Kubernetes lors de la découverte)
 * Un cluster Kubernetes - Les distributions et versions Kubernetes prises en charge incluent celles prises en charge par https://docs.netapp.com/us-en/trident/trident-protect/trident-protect-requirements.html["Trident Protect"].

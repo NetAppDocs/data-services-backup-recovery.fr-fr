@@ -4,7 +4,7 @@ permalink: prev-ontap-backup-cvo-azure.html
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, NetApp Backup and Recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
 summary: Sauvegardez les volumes Cloud Volumes ONTAP dans le stockage Azure Blob avec NetApp Backup and Recovery, vérifiez les exigences, activez le service et activez les sauvegardes sur les volumes. 
 ---
-= Sauvegardez Cloud Volumes ONTAP vers Azure Blob Storage avec NetApp Backup and Recovery
+= Sauvegardez Cloud Volumes ONTAP sur Azure Blob avec NetApp Backup and Recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -32,10 +32,12 @@ En option, vous pouvez également vous connecter à un système ONTAP secondaire
 
 image:diagram_cloud_backup_cvo_azure.png["Un diagramme montrant comment NetApp Backup and Recovery communique avec les volumes sur les systèmes sources et le stockage de destination où se trouvent les fichiers de sauvegarde."]
 
-Versions ONTAP prises en charge:: ONTAP 9.8 minimum ; ONTAP 9.8P13 et versions ultérieures sont recommandées. ONTAP 9.16.1 ou une version ultérieure est requis si vous utilisez l’authentification Microsoft Entra ID pour le stockage objet Azure.
-Régions Azure prises en charge:: NetApp Backup and Recovery est pris en charge dans toutes les régions Azure, y compris les régions Azure Government.
+Versions ONTAP prises en charge:: Minimum ONTAP 9.8 ; ONTAP 9.8P13 et les versions ultérieures sont recommandées. ONTAP 9.16.1 ou une version ultérieure est requis si vous utilisez l’authentification Microsoft Entra ID pour le stockage d’objets Azure.
+Régions Azure prises en charge:: NetApp Backup and Recovery est pris en charge dans toutes les régions commerciales Azure et les régions Azure Government.
 +
 --
+NetApp Backup and Recovery est également pris en charge dans les régions Azure China (21Vianet) lorsque le Console agent est déployé dans une région Azure China (China East, China East 2, China East 3, China North, China North 2 ou China North 3). Le Console agent utilise automatiquement les points de terminaison de gestion, de connexion et de stockage Blob d’Azure China en fonction de sa région. Un Console agent dans un autre cloud Azure ne peut pas sauvegarder vers Azure China. Pour plus d’informations sur les exigences du Console agent dans Azure China, consultez <<Préparez votre agent de console>>.
+
 Par défaut, NetApp Backup and Recovery provisionne le conteneur Blob avec une redondance locale (LRS) pour l'optimisation des coûts.  Vous pouvez modifier ce paramètre sur Redondance de zone (ZRS) après l'activation de NetApp Backup and Recovery si vous souhaitez vous assurer que vos données sont répliquées entre différentes zones.  Consultez les instructions de Microsoft pour https://learn.microsoft.com/en-us/azure/storage/common/redundancy-migration?tabs=portal["modifier la façon dont votre compte de stockage est répliqué"^] .
 
 --
@@ -78,6 +80,8 @@ Si votre environnement répond à ces exigences, vous pouvez sélectionner  `Ent
 == Préparez votre agent de console
 
 L'agent de console peut être installé dans une région Azure avec un accès Internet complet ou limité (mode « standard » ou « restreint »). https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html["Consultez les modes de déploiement de la NetApp Console pour plus de détails."^] .
+
+Pour sauvegarder vers Azure China, déployez le Console agent dans une région Azure China en mode standard (le mode restreint n'est pas pris en charge). Autorisez le trafic HTTPS sortant (port 443) du Console agent vers `*.chinacloudapi.cn`, y compris `login.chinacloudapi.cn` et `management.chinacloudapi.cn`, en plus des autres points de terminaison requis par le Console agent.
 
 * https://docs.netapp.com/us-en/console-setup-admin/concept-connectors.html["En savoir plus sur les agents de console"^]
 * https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-azure.html["Déployer un agent de console dans Azure en mode standard (accès Internet complet)"^]
@@ -278,7 +282,7 @@ Vous pouvez également<<Afficher les commandes de l'API>> à l'étape de révisi
 +
 Si la destination Azure de vos sauvegardes existe en tant que système sur la page *Systèmes*, vous pouvez faire glisser le cluster ONTAP sur le stockage d’objets Azure Blob.
 
-** Sélectionnez *Volumes* dans la barre de sauvegarde et de récupération.  Dans l'onglet Volumes, sélectionnez les *Actions*image:icon-action.png["Icône Actions"] icône et sélectionnez *Activer la sauvegarde* pour un seul volume (qui n'a pas déjà la réplication ou la sauvegarde vers le stockage d'objets activée).
+** Dans la barre Backup and Recovery, sélectionnez *Volumes*. Dans l’onglet *Volumes*, sélectionnez l’icône *Actions* image:icon-action.png["Icône Actions"] puis *Activate Backup* pour un seul volume (pour lequel la réplication ou la sauvegarde vers le stockage objet n’est pas déjà activée).
 
 
 +
@@ -314,7 +318,7 @@ Si les volumes que vous choisissez ont déjà des stratégies de snapshot ou de 
 . Dans la page Sélectionner les volumes, sélectionnez le ou les volumes que vous souhaitez protéger.
 +
 ** Vous pouvez également filtrer les lignes pour afficher uniquement les volumes avec certains types de volumes, styles et plus encore pour faciliter la sélection.
-** Après avoir sélectionné le premier volume, vous pouvez sélectionner tous les volumes FlexVol .  (Les volumes FlexGroup ne peuvent être sélectionnés qu'un par un.)  Pour sauvegarder tous les volumes FlexVol existants, cochez d’abord un volume, puis cochez la case dans la ligne de titre.
+** Après avoir sélectionné le premier volume, vous pouvez sélectionner tous les volumes FlexVol. (FlexGroup ne peut être sélectionné qu’un volume à la fois.) Pour sauvegarder tous les volumes FlexVol existants, cochez d’abord un volume, puis cochez la case dans la ligne de titre.
 ** Pour sauvegarder des volumes individuels, cochez la case correspondant à chaque volume.
 
 
@@ -342,7 +346,7 @@ NOTE: Si les volumes que vous choisissez ont des stratégies de snapshot et de r
 .Étapes
 . Sur la page *Définir la stratégie de sauvegarde*, choisissez une seule ou toutes les options suivantes. Les trois sont sélectionnées par défaut :
 +
-** * Instantanés locaux * : si vous effectuez une réplication ou une sauvegarde sur un stockage d'objets, des instantanés locaux doivent être créés.
+** *Instantanés locaux* : Si vous effectuez une réplication ou une sauvegarde sur un stockage d’objets, des instantanés locaux doivent être créés.
 ** *Réplication* : crée des volumes répliqués sur un autre système de stockage ONTAP .
 ** *Sauvegarde* : sauvegarde les volumes sur le stockage d’objets.
 
@@ -410,7 +414,7 @@ TIP: Si vous souhaitez protéger vos fichiers de sauvegarde contre toute modific
 
 
 
-** *Clé de chiffrement* : si vous avez créé un nouveau compte de stockage Azure, saisissez les informations de clé de chiffrement fournies par le fournisseur.  Choisissez si vous utiliserez les clés de chiffrement Azure par défaut ou si vous choisirez vos propres clés gérées par le client à partir de votre compte Azure pour gérer le chiffrement de vos données.
+** *Clé de chiffrement* : Si vous avez créé un nouveau compte de stockage Azure, saisissez les informations de clé de chiffrement fournies par le fournisseur. Choisissez si vous utiliserez les clés de chiffrement Azure par défaut ou vos propres clés gérées par le client depuis votre compte Azure pour gérer le chiffrement de vos données.
 +
 Si vous choisissez d'utiliser vos propres clés gérées par le client, saisissez le coffre-fort de clés et les informations sur la clé. https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["Apprenez à utiliser vos propres clés"^] .
 
@@ -457,7 +461,7 @@ Vérifiez vos sélections et apportez des modifications si nécessaire.
 
 .Étapes
 . Dans la page Révision, vérifiez vos sélections.
-. Cochez éventuellement la case pour *synchroniser automatiquement les étiquettes de la stratégie d'instantané avec les étiquettes des stratégies de réplication et de sauvegarde*. Cela crée des instantanés dont l'étiquette correspond à celles des stratégies de réplication et de sauvegarde.
+. Vous pouvez cocher la case *Synchroniser automatiquement les étiquettes de la stratégie d’instantanés avec les étiquettes des règles de réplication et de sauvegarde*. Cela crée des instantanés avec une étiquette correspondant à celles des règles de réplication et de sauvegarde.
 . Sélectionnez *Activer la sauvegarde*.
 
 

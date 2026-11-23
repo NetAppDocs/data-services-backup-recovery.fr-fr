@@ -50,6 +50,7 @@ NOTE: Wasabi est actuellement le seul fournisseur de stockage objet compatible S
 | Cloud Volumes ONTAP dans AWS  a| 
 * Cloud Volumes ONTAP dans AWS
 * Système ONTAP sur site
+* Amazon FSx for NetApp ONTAP (charges de travail Kubernetes uniquement)
 
 | Amazon S3 
 
@@ -86,7 +87,11 @@ NOTE: Wasabi est actuellement le seul fournisseur de stockage objet compatible S
 | Google Cloud NetApp Volumes Flex (charges de travail Oracle Database et VMware uniquement) | Google Cloud NetApp Volumes Flex | Stockage Google Cloud 
 
 
-| Amazon FSx for NetApp ONTAP (charges de travail Microsoft SQL Server, Oracle Database et VMware uniquement) | Cloud Volumes ONTAP dans AWS | Amazon S3 (uniquement depuis Cloud Volumes ONTAP) 
+| Amazon FSx for NetApp ONTAP (charges de travail Microsoft SQL Server, Oracle Database, VMware et Kubernetes uniquement)  a| 
+* Cloud Volumes ONTAP dans AWS
+* Amazon FSx for NetApp ONTAP dans la même région AWS ou dans une autre région AWS (charges de travail Kubernetes uniquement)
+
+| Amazon S3 (uniquement depuis Cloud Volumes ONTAP; non disponible pour les charges de travail Kubernetes) 
 |===
 
 NOTE: Les références à « on-premises ONTAP system » incluent les systèmes FAS, AFF et ONTAP Select.
